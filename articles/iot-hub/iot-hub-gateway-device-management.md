@@ -44,7 +44,7 @@
 
 Это сценарий активируют общедоступная предварительная версия [управления устройствами в IoT Azure][lnk-device-management] и бета-версия [пакета SDK для шлюза IoT Azure]. Шлюз обрабатывает каждый поток данных следующим образом.
 
--   **Данные телеметрии**: пакет SDK для шлюза можно использовать для создания конвейера, который понимает, фильтрует и отправляет данные телеметрии в облако. Пакет SDK для шлюза предоставляет код, реализующий компоненты этого конвейера от имени разработчика. Дополнительные сведения об архитектуре пакета SDK см. в учебнике [IoT Gateway SDK - Get Started][lnk-gateway-get-started] \(Пакет SDK для шлюза IoT: приступая к работе).
+-   **Данные телеметрии**: пакет SDK для шлюза можно использовать для создания конвейера, который понимает, фильтрует и отправляет данные телеметрии в облако. Пакет SDK для шлюза предоставляет код, реализующий компоненты этого конвейера от имени разработчика. Дополнительные сведения об архитектуре пакета SDK см. в учебнике [IoT Gateway SDK - Get Started][lnk-gateway-get-started] (Пакет SDK для шлюза IoT: приступая к работе).
 
 -   **Управление устройствами**: функция управления устройствами Azure предоставляет клиент LWM2M, выполняемый на устройстве, а также облачный интерфейс для передачи команд управления на устройство.
     
@@ -58,10 +58,17 @@
 
 Информацию об использовании пакета SDK для шлюза см. в следующих учебниках:
 
-- [IoT Gateway SDK - Get started using Linux][lnk-gateway-get-started] \(Пакет SDK для шлюза IoT: приступая к работе с Linux)
-- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated] \(Пакет SDK для шлюза IoT: отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux)
+- [IoT Gateway SDK - Get started using Linux][lnk-gateway-get-started] (Пакет SDK для шлюза IoT: приступая к работе с Linux)
+- [IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux][lnk-gateway-simulated] (Пакет SDK для шлюза IoT: отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux)
 
-Дополнительные сведения об управлении устройствами с помощью центра IoT см. в статье [Overview of Azure IoT Hub device management][lnk-device-management] (Общие сведения об управлении устройствами с помощью центра IoT Azure).
+Дополнительные сведения об управлении устройствами с помощью центра IoT см. в статье [Знакомство с клиентской библиотекой управления устройствами для центра Azure IoT.][lnk-library-c].
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Разработка решения][lnk-design]
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 <!-- Images and links -->
 [1]: media/iot-hub-gateway-device-management/overview.png
@@ -75,4 +82,15 @@
 [lnk-gateway-simulated]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
+[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
+[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

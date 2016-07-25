@@ -66,7 +66,7 @@
 
 Чтобы запустить пример, необходимо выполнить `jobClient_scheduleJob.js`. При этом на всех виртуальных устройствах запускается процесс обновления встроенного ПО. Чтобы запустить пример, выполните следующие действия.
 
-1.  В корневой папке, куда был клонирован репозиторий **azure-iot-sdks**, перейдите к папке **azure-iot-sdks/node/service/samples**.  
+1.  В корневой папке, куда был клонирован репозиторий **azure-iot-sdks**, перейдите к папке **azure-iot-sdks/node/service/samples**.
 
 2.  Откройте файл **jobClient\_scheduleJob.js** и замените заполнитель строкой подключения центра IoT.
 
@@ -106,11 +106,16 @@ jobClient.scheduleFirmwareUpdate(jobId, deviceIds, packageURI, timeoutInMinutes,
 
 Дополнительные сведения о возможностях управления устройствами центра IoT Azure можно просмотреть в руководствах:
 
-- клиентская библиотека управления устройствами центра IoT Azure содержит полноценный пример кода с использованием [устройства Intel Edison][lnk-edison].
+- [Включение управляемых устройств за шлюзом IoT][lnk-dm-gateway]
+- [Знакомство с клиентской библиотекой управления устройствами для центра Azure IoT][lnk-library-c]
+- Клиентская библиотека управления устройствами центра IoT Azure содержит полноценный пример кода с использованием [устройства Intel Edison][lnk-edison]
 
-- [How to use the device twin (Использование "двойника" устройства)][lnk-twin-tutorial]
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-- [How to find device twins using queries (Поиск "двойников" устройств с использованием запросов)][lnk-tutorial-queries]
+- [Разработка решения][lnk-design]
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 <!-- Images and links -->
 
@@ -127,4 +132,12 @@ jobClient.scheduleFirmwareUpdate(jobId, deviceIds, packageURI, timeoutInMinutes,
 [lnk-github-firmware]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/c/iotdm_client/samples/iotdm_simple_sample/iotdm_simple_sample.c
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 
-<!---HONumber=AcomDC_0622_2016-->
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

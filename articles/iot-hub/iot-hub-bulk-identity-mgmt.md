@@ -332,10 +332,26 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 ## Дальнейшие действия
 
-В этой статье вы узнали, как выполнять массовые операции с реестром удостоверений устройств в центре IoT. Дальнейшее описание функций и сценариев центра IoT см. в следующих статьях:
+В этой статье вы узнали, как выполнять массовые операции с реестром удостоверений устройств в центре IoT. Дополнительные сведения об управлении центром IoT в Azure см. по следующим ссылкам:
 
-- [Создание центра IoT программным образом](iot-hub-rm-template.md)
-- [Метрики использования центра IoT](iot-hub-metrics.md)
-- [Мониторинг операций центра IoT](iot-hub-operations-monitoring.md)
+- [Показатели использования][lnk-metrics]
+- [Мониторинг операций][lnk-monitor]
+- [Настройка и управление доступом к центру IoT][lnk-itpro]
 
-<!---HONumber=AcomDC_0504_2016-->
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Разработка решения][lnk-design]
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

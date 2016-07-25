@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Управление базой данных SQL Azure с помощью PowerShell" 
-	description="Управление ресурсами Базы данных SQL с PowerShell" 
+	description="Управление базой данных SQL Azure с помощью PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/07/2016" 
 	ms.author="sstein"/>
 
 # Управление базой данных SQL Azure с помощью PowerShell
@@ -53,7 +53,7 @@
 
 Чтобы создать правило брандмауэра для доступа к серверу, воспользуйтесь командой [New-AzureRMSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx). Выполните следующую команду, заменив начальный и конечный IP-адреса значениями для своего клиента.
 
-Если ваш сервер должен предоставлять доступ к другим службам Azure, добавьте параметр **-AllowAllAzureIPs**, который добавит специальное правило брандмауэра и предоставит всему трафику Azure доступ к серверу.
+Если ваш сервер должен предоставлять доступ к другим службам Azure, примените параметр **-AllowAllAzureIPs**. Он добавит специальное правило брандмауэра и предоставит всему трафику Azure доступ к серверу.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
@@ -83,18 +83,18 @@
 
 Сервер также можно удалить командой [Remove-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx). В следующем примере удаляется сервер с именем server12.
 
+
+>[AZURE.NOTE]  Так как операция удаления является асинхронной и может занимать некоторое время, ее следует завершить до выполнения любых дополнительных операций, связанных с сервером, который полностью удаляется (например, создания сервера с тем же именем).
+
+
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
 
 
-Если в будущем вы планируете снова создавать такие же или аналогичные SQL-ресурсы Azure, можно выполнить одно из двух действий:
-
-- сохранить блок командлетов как файл скрипта PowerShell (*.ps1);
-- сохранить его как Runbook службы автоматизации Azure в разделе "Служба автоматизации" на классическом портале Azure. 
 
 ## Дальнейшие действия
 
-Объедините и автоматизируйте команды. Например, замените все содержимое внутри кавычек, включая символы < and >, соответствующими значениями для создания сервера, правила брандмауэра и базы данных:
+Объедините и автоматизируйте команды. Например, замените все содержимое внутри кавычек, включая символы < и > соответствующими значениями для создания сервера, правила брандмауэра и базы данных:
 
 
     New-AzureRmResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -106,4 +106,4 @@
 
 - [Командлеты Базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

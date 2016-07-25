@@ -177,18 +177,11 @@
 
 ## Дальнейшие действия
 
-В этом учебнике вы научились отправлять и получать сообщения с облака на устройство. Изучение функций и сценариев центра IoT можно продолжить с помощью следующих учебников:
+В этом учебнике вы научились отправлять и получать сообщения с облака на устройство.
 
-- [Обработка сообщений, отправляемых с устройств в облако] — описывается, как надежно обрабатывать данные телеметрии и интерактивные сообщения, поступающие от устройств.
-- [Передача файлов с устройств] — описывается модель использования сообщений, отправляемых из облака на устройства, для упрощения передачи файлов с устройств.
+Примеры комплексных решений, в которых используется центр IoT, см. в [документации по Azure IoT Suite].
 
-Дополнительная информация о центре IoT приведена в следующих статьях:
-
-* [Обзор центра IoT]
-* [Руководство разработчика по центру IoT]
-* [Руководство по центру IoT]
-* [Поддерживаемые платформы устройств и языки]
-* [Центр разработчика IoT Azure]
+Дополнительные сведения о разработке решений с помощью центра IoT см. в [руководстве разработчика по центру IoT].
 
 
 <!-- Images -->
@@ -199,17 +192,17 @@
 [Приступая к работе с центром Azure IoT с использованием Java]: iot-hub-java-java-getstarted.md
 [Приступая к работе с центром IoT]: iot-hub-java-java-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Обработка сообщений, отправляемых с устройств в облако]: iot-hub-csharp-csharp-process-d2c.md
-[Передача файлов с устройств]: iot-hub-csharp-csharp-file-upload.md
-[Обзор центра IoT]: iot-hub-what-is-iot-hub.md
-[Руководство по центру IoT]: iot-hub-guidance.md
-[Руководство разработчика по центру IoT]: iot-hub-devguide.md
-[Поддерживаемые платформы устройств и языки]: iot-hub-supported-devices.md
-[Центр разработчика IoT Azure]: http://www.azure.com/develop/iot
+[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
+[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
+[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
+[IoT Hub Guidance]: iot-hub-guidance.md
+[руководстве разработчика по центру IoT]: iot-hub-devguide.md
+[Supported device platforms and languages]: iot-hub-supported-devices.md
 [центре разработчика для Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [Обработка временного сбоя]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [портале Azure]: https://portal.azure.com
+[документации по Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

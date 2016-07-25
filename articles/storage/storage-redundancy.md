@@ -98,7 +98,8 @@
 | Юг Соединенного Королевства 2 | Север Соединенного Королевства |
 | Центральная Германия | Северо-восточная Германия |
 | Северо-восточная Германия | Центральная Германия |
-
+| Западный регион США 2 | Западно-центральная часть США |
+| Западно-центральная часть США | Западный регион США 2 |
 
 Самые последние сведения о регионах, поддерживаемых Azure, см. в разделе [Регионы Azure](https://azure.microsoft.com/regions/).
  
@@ -116,4 +117,4 @@
 - [Варианты избыточности и геоизбыточное хранилище с доступом для чтения службы хранилища Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [Документ SOSP — служба хранилища Azure: высокодоступная облачная служба хранилища со строгой согласованностью](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

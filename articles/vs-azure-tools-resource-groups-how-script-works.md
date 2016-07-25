@@ -3,8 +3,8 @@
 	description="Описание механизма работы сценария PowerShell в проектах развертывания группы ресурсов Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="" />
 
  <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="05/08/2016"
-	ms.author="tarcher" />
+	ms.author="tomfitz" />
 
 # Обзор сценария развертывания проекта группы ресурсов Azure
 
@@ -73,7 +73,7 @@
 
 1.	Преобразуйте все переменные с относительными путями в абсолютные пути. Например, измените путь `..\Tools\AzCopy.exe` на `C:\YourFolder\Tools\AzCopy.exe`. Кроме того, инициализируйте переменные *ArtifactsLocationName* и *ArtifactsLocationSasTokenName*, установив значение Null. В качестве параметров для шаблона можно использовать *ArtifactsLocation* и *SaSToken*. Если после прочтения в файле параметров для них заданы значения Null, сценарий создает значения для них.
 
-    Инструменты Azure используют значения параметров *\_artifactsLocation* и *\_artifactsLocationSasToken* в шаблоне, чтобы управлять артефактами. Если сценарий PowerShell находит параметры с такими именами, но значения параметров не указаны, он отправляет артефакты и возвращает соответствующие значения для этих параметров. Затем он передает их в командлет через `@OptionsParameters`.
+    Инструменты Azure Tools используют значения параметров *\_artifactsLocation* и *\_artifactsLocationSasToken* в шаблоне, чтобы управлять артефактами. Если сценарий PowerShell находит параметры с такими именами, но значения параметров не указаны, он отправляет артефакты и возвращает соответствующие значения для этих параметров. Затем он передает их в командлет через `@OptionsParameters`.
 
 	|Переменная|Описание|
     |---|---|
@@ -94,7 +94,7 @@
     $OptionalParameters.Add($ArtifactsLocationSasTokenName, $null)
     ```
 
-1.	Этот раздел проверяет наличие в файле <app name>.parameters.json (файла параметров) родительского узла с именем **parameters** (в блоке `else`). В противном случае родительский узел отсутствует. Допускается любой формат.
+1.	Этот раздел проверяет наличие в файле <имя\_приложения>.parameters.json (который называется файлом параметров) родительского узла с именем **parameters** (в блоке `else`). В противном случае родительский узел отсутствует. Допускается любой формат.
     
 	```
     if ($JsonParameters -eq $null) {
@@ -105,7 +105,7 @@
         }
     ```
 
-1.	Выполните итерацию через набор параметров JSON. Если в качестве значения параметра назначено *\_artifactsLocation* или *\_artifactsLocationSasToken*, присвойте переменной *$OptionalParameters* это значение. Это помешает сценарию случайно перезаписать какие-либо значения параметров, указанные вами.
+1.	Выполните итерацию через набор параметров JSON. Если в качестве значения параметра задано *\_artifactsLocation* или *\_artifactsLocationSasToken*, то присвойте переменной *$OptionalParameters* это значение. Это помешает сценарию случайно перезаписать какие-либо значения параметров, указанные вами.
 
     ```
     $JsonParameters | Get-Member -Type NoteProperty | ForEach-Object {
@@ -264,4 +264,4 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 [4]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy5c.png
 [5]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy6c.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -73,7 +73,7 @@
 
 ### .NET
 
-Следующая функция использует одно из указанных названий обработчиков мультимедиа и возвращает объект обработчика мультимедиа.
+Следующая функция принимает одно из указанных названий обработчиков мультимедиа и возвращает объект обработчика мультимедиа.
 
     static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -144,4 +144,4 @@
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

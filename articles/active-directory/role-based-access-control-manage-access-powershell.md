@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/12/2016"
+	ms.date="07/12/2016"
 	ms.author="kgremban"/>
 
 # Управление доступом на основе ролей с помощью Azure PowerShell
@@ -24,7 +24,7 @@
 - [ИНТЕРФЕЙС REST API](role-based-access-control-manage-access-rest.md)
 
 
-Функция управления доступом на основе ролей \(RBAC\) на портале Azure и в API управления ресурсами Azure позволяет управлять доступом к подписке с высокой точностью. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
+Функция управления доступом на основе ролей (RBAC) на портале Azure и в API управления ресурсами Azure позволяет управлять доступом к подписке с высокой точностью. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
 Чтобы использовать PowerShell для управления RBAC, вам понадобится:
 
@@ -74,7 +74,7 @@
 
 ## Предоставление доступа
 ### Поиск идентификаторов объектов
-Чтобы назначить роль, необходимо определить объект \(пользователя, группу или приложение\) и область.
+Чтобы назначить роль, необходимо определить объект (пользователя, группу или приложение) и область.
 
 Если вам неизвестен идентификатор подписки, его можно найти в колонке **Подписки** на портале Azure. Или узнайте на сайте MSDN, как запросить его с помощью [Get-AzureSubscription](https://msdn.microsoft.com/library/dn495302.aspx).
 
@@ -152,6 +152,6 @@
 ![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## См. также
-- [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+- [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

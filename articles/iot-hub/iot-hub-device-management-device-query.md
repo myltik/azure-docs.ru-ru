@@ -207,8 +207,16 @@ var foundDevices = await registryManager.QueryDevicesAsync(new[] { "bacon" }, 10
 
 Дополнительные сведения о возможностях управления устройствами центра IoT Azure можно просмотреть в руководствах:
 
-- [How to use the device twin (Использование "двойника" устройства)][lnk-twin-tutorial]
-- [How to use device jobs to update device firmware (Использование заданий устройства для обновления встроенного ПО устройства)][lnk-jobs-tutorial]
+- [How to use device jobs to update device firmware (Использование заданий устройства для обновления встроенного ПО устройства)][lnk-tutorial-jobs]
+- [Включение управляемых устройств за шлюзом IoT][lnk-dm-gateway]
+- [Знакомство с клиентской библиотекой управления устройствами для центра Azure IoT][lnk-library-c]
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Разработка решения][lnk-design]
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 
 
@@ -221,4 +229,13 @@ var foundDevices = await registryManager.QueryDevicesAsync(new[] { "bacon" }, 10
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
 [lnk-query-expression-guide]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/node/service/devdoc/query_expression_requirements.md
 
-<!---HONumber=AcomDC_0622_2016-->
+[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

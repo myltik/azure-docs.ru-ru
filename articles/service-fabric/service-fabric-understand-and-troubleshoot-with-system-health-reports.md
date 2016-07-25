@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Устранение неполадок с помощью отчетов о работоспособности системы
@@ -471,14 +471,73 @@ HealthEvents          :
 - **SourceId**: System.Replicator.
 - **Свойство**: **PrimaryReplicationQueueStatus** или **SecondaryReplicationQueueStatus**, в зависимости от роли реплики.
 
+### Медленные операции именования
+
+**System.NamingService** сообщает о состоянии работоспособности первичной реплики, когда операция именования длится больше допустимого. Примеры операций именования — [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) или [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx). Дополнительные методы можно найти в статьях, посвященных FabricClient, например в статье о [методах управления службами](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) или [методах управления свойствами](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
+
+> [AZURE.NOTE] Служба именования присваивает имена служб определенному расположению в кластере, позволяя пользователям управлять именами и свойствами. Это секционированная материализованная служба Service Fabric. Одна секция представляет владельца центра (AO) и содержит метаданные о всех именах и службах System Fabric. Имена Service Fabric сопоставляются с разными секциями, называемыми секциями владельца имени (NO). Таким образом, служба является расширяемой. Узнайте больше о [службе именования](service-fabric-architecture.md).
+
+Когда операция именования длится дольше, чем ожидалось, для нее задается состояние Warning в *первичной реплике секции службы именования, выполняющей операцию*. Если операция завершается успешно, это состояние удаляется. Если операция завершается с ошибкой, отчет о работоспособности будет содержать сведения об ошибке.
+
+- **SourceId**: System.NamingService.
+- **Property**: начинается с префикса **Duration\_** и определяет медленную операцию и имя экземпляра Service Fabric, к которому применяется операция. Например, если создание службы с именем fabric:/MyApp/MyService занимает слишком много времени, то имя свойства — Duration\_AOCreateService.fabric:/MyApp/MyService. Владелец центра указывает на роль секции именования для этого имени и операции.
+- **Дальнейшие действия**: проверьте, почему происходит сбой операции именования. Каждая операция может завершаться сбоем по различным причинам. Например, операция удаления службы может "зависнуть" на узле, так как узел приложения постоянно аварийно завершается на узле из-за ошибки пользователя в коде службы.
+
+Ниже показана операция создания службы. Длительность операции превышает заданное время. Владелец центра выполняет повторную попытку и отправляет работу к владельцу именования. Владелец именования завершает последнюю операцию с истечением времени ожидания. В этом случае одна и та же реплика является первичной для ролей владельца центра и владельца именования.
+
+```powershell
+PartitionId           : 00000000-0000-0000-0000-000000001000
+ReplicaId             : 131064359253133577
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.NamingService', Property='Duration_AOCreateService.fabric:/MyApp/MyService', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 131064359308715535
+                        SentAt                : 4/29/2016 8:38:50 PM
+                        ReceivedAt            : 4/29/2016 8:39:08 PM
+                        TTL                   : Infinite
+                        Description           : Replica has been created.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Error->Ok = 4/29/2016 8:39:08 PM, LastWarning = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.NamingService
+                        Property              : Duration_AOCreateService.fabric:/MyApp/MyService
+                        HealthState           : Warning
+                        SequenceNumber        : 131064359526778775
+                        SentAt                : 4/29/2016 8:39:12 PM
+                        ReceivedAt            : 4/29/2016 8:39:38 PM
+                        TTL                   : 00:05:00
+                        Description           : The AOCreateService started at 2016-04-29 20:39:08.677 is taking longer than 30.000.
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
+                        
+                        SourceId              : System.NamingService
+                        Property              : Duration_NOCreateService.fabric:/MyApp/MyService
+                        HealthState           : Warning
+                        SequenceNumber        : 131064360657607311
+                        SentAt                : 4/29/2016 8:41:05 PM
+                        ReceivedAt            : 4/29/2016 8:41:08 PM
+                        TTL                   : 00:00:15
+                        Description           : The NOCreateService started at 2016-04-29 20:39:08.689 completed with FABRIC_E_TIMEOUT in more than 30.000.
+                        RemoveWhenExpired     : True
+                        IsExpired             : False
+                        Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
+``` 
+
 ## Системные отчеты о работоспособности DeployedApplication
-**System.Hosting** — это центр развернутых сущностей.
+**System.Hosting** — это центр развернутых сущностей.
 
 ### Активация
 Система System.Hosting сообщает об отсутствии проблем, если приложение успешно активировано на узле. В противном случае отображается сообщение об ошибке.
 
 - **SourceId**: System.Hosting.
-- **Свойство**: Activation, включающее версию выпуска.
+- **Property**: Activation, включающее версию выпуска.
 - **Дальнейшие действия**: если в приложении есть проблемы с работоспособностью, выясните причину ошибки при активации.
 
 Ниже приведен пример успешной активации.
@@ -512,24 +571,24 @@ HealthEvents                       :
 **System.Hosting** сообщает об ошибке, если скачивание пакета приложения завершается сбоем.
 
 - **SourceId**: System.Hosting.
-- **Свойство**: **Download:*версия\_развертывания***.
+- **Property**: **Download:*версия\_развертывания***.
 - **Дальнейшие действия**: выясните причину ошибки при скачивании на узле.
 
 ## Системные отчеты о работоспособности DeployedServicePackage
-**System.Hosting** — это центр развернутых сущностей.
+**System.Hosting** — это центр развернутых сущностей.
 
 ### Активация пакета службы
 Система System.Hosting сообщает об отсутствии проблем, если пакет службы на узле успешно активирован. В противном случае отображается сообщение об ошибке.
 
 - **SourceId**: System.Hosting.
-- **Свойство**: Activation.
+- **Property**: Activation.
 - **Дальнейшие действия**: выясните причину ошибки при активации.
 
 ### Активация пакета кода
 **System.Hosting** сообщает об отсутствии проблем, если каждый пакет кода успешно активирован. Если активация завершилась ошибкой, выводится заданное предупреждение. Если не удалось активировать **CodePackage** или если этот элемент завершил работу с ошибкой и превышением значения настроенного параметра **CodePackageHealthErrorThreshold**, система выдает сообщение об ошибке. Если пакет службы включает несколько пакетов кода, для каждого из них создается отчет об активации.
 
 - **SourceId**: System.Hosting.
-- **Свойство**: использует префикс **CodePackageActivation** и содержит имя пакета кода и точку входа вида **CodePackageActivation:*имя\_пакета\_кода*:*SetupEntryPoint/EntryPoint*** (например, **CodePackageActivation:Code:SetupEntryPoint**).
+- **Property**: использует префикс **CodePackageActivation** и содержит имя пакета кода и точку входа вида **CodePackageActivation:*имя\_пакета\_кода*:*SetupEntryPoint/EntryPoint*** (например, **CodePackageActivation:Code:SetupEntryPoint**).
 
 ### Регистрация типа службы
 **System.Hosting** сообщает об отсутствии проблем, если тип службы успешно зарегистрирован. Система выдает сообщение об ошибке, если регистрация не выполнена вовремя (настраивается с помощью параметра **ServiceTypeRegistrationTimeout**). Если тип службы не регистрируется на узле из-за закрытия среды выполнения, система Hosting выдает предупреждение.
@@ -589,21 +648,23 @@ HealthEvents          :
 **System.Hosting** сообщает об ошибке при скачивании пакета службы.
 
 - **SourceId**: System.Hosting.
-- **Свойство**: **Download:*версия\_развертывания***.
+- **Property**: **Download:*версия\_развертывания***.
 - **Дальнейшие действия**: выясните причину ошибки при скачивании на узле.
 
 ### Проверка обновления
 **System.Hosting** сообщает об ошибке проверки во время обновления или об ошибке обновления на узле.
 
 - **SourceId**: System.Hosting.
-- **Свойство**: использует префикс **FabricUpgradeValidation** и содержит версию обновления.
-- **Описание**: сведения о возникшей ошибке.
+- **Property**: использует префикс **FabricUpgradeValidation** и содержит версию обновления.
+- **Description**: сведения о возникшей ошибке.
 
 ## Дальнейшие действия
 [Просмотр отчетов о работоспособности Service Fabric](service-fabric-view-entities-aggregated-health.md)
+
+[Проверка работоспособности службы и оповещение о проблемах](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Мониторинг и диагностика состояния служб в локальной среде разработки](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с e-Builder
@@ -37,7 +37,7 @@
 
 ###Чтобы включить интеграцию приложений для e-Builder, выполните следующие действия.
 
-1.  На портале управления Azure в левой области навигации нажмите **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-e-builder-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На портале Azure AD на странице интеграции с приложением **e-Builder** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На странице интеграции с приложением **e-Builder** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-e-builder-tutorial/IC777381.png "Настройка единого входа")
 
@@ -98,7 +98,7 @@
 
 ###Чтобы назначить пользователей e-Builder, выполните следующие действия.
 
-1.  На портале Azure AD создайте тестовую учетную запись.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
 2.  На странице интеграции с приложением **e-Builder** нажмите кнопку **Назначить пользователей**.
 
@@ -110,4 +110,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Как работает управление паролями Azure AD| Microsoft Azure" 
-	description="Узнайте о различных компонентах управления паролями Azure AD, с помощью которых пользователи могут регистрировать личные данные, а также сбрасывать и изменять свои пароли, а администраторы — настраивать и включать управление паролями локальной службы Active Directory и просматривать отчеты о действиях пользователей." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Как работает управление паролями Azure AD| Microsoft Azure"
+	description="Узнайте о различных компонентах управления паролями Azure AD, с помощью которых пользователи могут регистрировать личные данные, а также сбрасывать и изменять свои пароли, а администраторы — настраивать и включать управление паролями локальной службы Active Directory и просматривать отчеты о действиях пользователей."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Как работает управление паролями
+
+> [AZURE.IMPORTANT] **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
+
 Управление паролями в Azure Active Directory подразумевает использование нескольких логических компонентов, которые описаны в этой статье. Дополнительные сведения о каждом компоненте можно получить по ссылкам ниже.
 
 - [**Портал настройки управления паролями**](#password-management-configuration-portal). На [портале управления Azure](https://manage.windowsazure.com) на вкладке настроек каталога администраторы могут контролировать разные аспекты управления паролями в своих клиентах.
@@ -102,7 +105,7 @@
 ## Ссылки на документацию по сбросу паролей
 Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-* [**Сброс собственного пароля**](active-directory-passwords-update-your-own-password.md) — узнайте, как сбросить или изменить свой пароль пользователя системы.
+* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
 * [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
 * [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
 * [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
@@ -121,4 +124,4 @@
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0713_2016-->

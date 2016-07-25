@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="06/27/2016"
+ms.date="07/12/2016"
 ms.author="eugenesh" />
 
 # Индексирование документов в хранилище BLOB-объектов Azure с помощью службы поиска Azure
@@ -62,7 +62,7 @@ ms.author="eugenesh" />
   		"name" : "my-target-index",
   		"fields": [
     		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-    		{ "name": "content", "type": "Edm.String", "searchable": true }
+    		{ "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
   		]
 	}
 
@@ -294,4 +294,4 @@ AzureSearch\_SkipContent | True | Указывает, что индексато�
 
 Если вам нужна какая-либо функция или у вас есть идеи, которые можно было бы реализовать, сообщите об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

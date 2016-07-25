@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обзор учетных записей интеграции и пакета интеграции Enterprise | Служба приложений Microsoft Azure" 
+	pageTitle="Обзор учетных записей интеграции и пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Узнайте все об учетных записях интеграции, пакете интеграции Enterprise и приложениях логики." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Обзор учетных записей интеграции
@@ -68,9 +68,9 @@
 5. Подтвердите свой выбор.
 
 ## Дальнейшие действия
-- [Узнайте больше о соглашениях](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.")
+- [Узнайте больше о соглашениях](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.").
 
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -40,9 +40,9 @@
 
 ## Требования к репликации транзакций
 
-Транзакционная репликация — это технология, встроенная и интегрированная с SQL Server, начиная с версии SQL Server 6.5. Это надежная и проверенная технология, известная большинству администраторов баз данных. В [предварительной версии SQL Server 2016](http://www.microsoft.com/server-cloud/products/sql-server-2016/) теперь можно настроить Базу данных SQL Azure в виде [подписчика транзакционной репликации](https://msdn.microsoft.com/library/mt589530.aspx) на ваши локальные публикации. Процесс настройки из среды Management Studio точно такой же, как и процесс настройки подписчика транзакционной репликации на локальном сервере. Такой сценарий поддерживается, если в качестве издателя и распространителя используются как минимум следующие версии SQL Server:
+Транзакционная репликация — это технология, встроенная и интегрированная с SQL Server, начиная с версии SQL Server 6.5. Это надежная и проверенная технология, известная большинству администраторов баз данных. В [SQL Server 2016](https://www.microsoft.com/ru-RU/cloud-platform/sql-server) теперь можно настроить базу данных SQL Azure в виде [подписчика транзакционной репликации](https://msdn.microsoft.com/library/mt589530.aspx) для ваших локальных публикаций. Процесс настройки из среды Management Studio точно такой же, как и процесс настройки подписчика транзакционной репликации на локальном сервере. Такой сценарий поддерживается, если в качестве издателя и распространителя используются как минимум следующие версии SQL Server:
 
- - SQL Server 2016 CTP3 (предварительная версия) и выше 
+ - SQL Server 2016 и выше
  - SQL Server 2014 с пакетом обновления 1 (SP1) и накопительным пакетом обновления 3 (CU3) и выше
  - SQL Server 2014 RTM с накопительным пакетом обновления 10 (CU10) и выше
  - SQL Server 2012 с пакетом обновления 2 (SP2) и накопительным пакетом обновления 8 (CU8) и выше
@@ -56,7 +56,7 @@
 
 - [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [SQL Server 2016 (предварительная версия)](http://www.microsoft.com/server-cloud/products/sql-server-2016/)
+- [SQL Server 2016](https://www.microsoft.com/ru-RU/cloud-platform/sql-server)
 
 ## Дополнительные ресурсы
 
@@ -65,4 +65,4 @@
 - [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

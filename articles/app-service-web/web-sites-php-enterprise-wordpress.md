@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Сайт WordPress корпоративного класса в службе приложений Azure"
+	pageTitle="Сайт WordPress корпоративного класса в службе приложений Azure | Microsoft Azure"
 	description="Информация о размещении сайта WordPress корпоративного класса в службе приложений Azure"
 	services="app-service\web"
 	documentationCenter=""
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="sunbuild"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="01/26/2016"
-	ms.author="robmcm"/>
+	ms.date="07/06/2016"
+	ms.author="sumuth"/>
 
-#Сайт WordPress корпоративного класса в службе приложений Azure
+# Сайт WordPress корпоративного класса в службе приложений Azure
 
 Служба приложений Azure предоставляет масштабируемую, безопасную и простую в использовании среду для критически важных, крупномасштабных сайтов [WordPress][wordpress]. Корпорация Майкрософт сама запускает сайты корпоративного класса, такие как блоги [Office][officeblog] и [Bing][bingblog]. В этом документе показано, как можно использовать веб-приложения службы приложений Azure для установки и обслуживания корпоративного облачного сайта WordPress, который может принимать большое количество посетителей.
 
@@ -32,7 +32,7 @@
 
 	> [AZURE.NOTE] Рекомендуется всегда выполнять запуск на последней версии PHP, чтобы гарантированно получить все исправления безопасности.
 
-###Базовое развертывание
+### Базовое развертывание
 
 Используя просто базовые требования, можно создать основное решение в регионе Azure.
 
@@ -41,7 +41,7 @@
 Хотя это позволит вам развернуть приложение, создав несколько экземпляров веб-приложений сайта, все сведения размещается в центрах обработки данных в определенном географическом регионе. При использовании сайта у посетителей из других регионов может быть увеличен отклик, а при сбое центров обработки данных в этом регионе также произойдет сбой приложения.
 
 
-###Развертывание в нескольких регионах
+### Развертывание в нескольких регионах
 
 С помощью [диспетчера трафика][trafficmanager] Azure можно масштабировать сайт WordPress в нескольких географических регионах, указав только один URL-адрес для посетителей. Все посетители заходят на сайт через диспетчер трафика, а затем перенаправляются в регион в зависимости от конфигурации балансировки нагрузки.
 
@@ -51,7 +51,7 @@
 
 Репликацию и маршрутизацию на несколько баз данных MySQL можно выполнить с помощью [маршрутизатора высокой доступности CDBR][cleardbscale] ClearDB (показан слева) или [MySQL Cluster CGE][cge].
 
-###Развертывание с хранилищем мультимедиа и кэшированием в нескольких регионах
+### Развертывание с хранилищем мультимедиа и кэшированием в нескольких регионах
 
 Если сайт принимает отправки или размещает файлы мультимедиа, используйте хранилище больших двоичных объектов Azure. Если необходимо кэширование, рассмотрите [Кэш Redis][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) или другое предложение кэша в [Магазине Azure](https://azure.microsoft.com/gallery/store/).
 
@@ -59,9 +59,9 @@
 
 Хранилище больших двоичных объектов географически распределено по регионам по умолчанию, поэтому вам не нужно беспокоиться о репликации файлов на всех сайтах. Можно также включить Azure [Content Distribution Network (CDN)][cdn] для хранилища больших двоичных объектов, которое распределяет файлы на конечные узлы, находящиеся ближе к посетителям.
 
-###Планирование
+### Планирование
 
-####Дополнительные требования
+#### Дополнительные требования
 
 Для этого... | Используйте это...
 ------------------------|-----------
@@ -73,14 +73,14 @@
 **Мониторинг и устранение неполадок** | [Включение ведения журнала диагностики для веб-приложений в службе приложений Azure][log] и [Мониторинг веб-приложений в службе приложений Azure][monitor]
 **Развертывание сайта** | [Развертывание веб-приложения в службе приложений Azure][deploy]
 
-####Доступность и аварийное восстановление
+#### Доступность и аварийное восстановление
 
 Для этого... | Используйте это...
 ------------------------|-----------
 **Сайты балансировки нагрузки** или **геораспределенные сайты** | [Маршрутизация трафика с помощью диспетчера трафика Azure][trafficmanager]
 **Резервное копирование и восстановление** | [Резервное копирование веб-приложения в службе приложений Azure][backup] и [Восстановление веб-приложения в службе приложений Azure][restore]
 
-####Производительность
+#### Производительность
 
 Производительность в облаке достигается в основном через кэширование и развертывание, однако, память, пропускная способность и другие атрибуты размещения веб-приложений также следует учитывать.
 
@@ -90,7 +90,7 @@
 **Ресурсы кэша** | [Кэш Redis][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) или другое предложение кэширования в [Магазине Azure](/gallery/store/)
 **Масштабирование приложения** | [Масштабирование веб-приложения в службе приложений Azure][websitescale] и [Маршрутизация высокой доступности ClearDB][cleardbscale]. Если вы решите разместить собственную установку MySQL и управлять ей, следует рассмотреть [MySQL Cluster CGE][cge]
 
-####Миграция
+#### Миграция
 
 Существует два метода миграции существующего сайта WordPress в веб-службу Azure.
 
@@ -120,7 +120,7 @@
 
 Воспользуйтесь одним из следующих разделов для миграции сайта.
 
-####Метод экспорта и импорта
+#### Метод экспорта и импорта
 
 1. Используйте [экспорт WordPress][export], чтобы экспортировать существующий сайт.
 
@@ -145,7 +145,7 @@
 **Темы** | Выберите **Внешний вид** -> **Тема** и обновите тему сайта, если необходимо
 **Меню** | Если тема поддерживает меню, в ссылки на домашнюю страницу может быть все еще встроен старый подкаталог. Перейдите в меню **Оформление** -> **Меню** и обновите их.
 
-####Метод резервного копирования и восстановления
+#### Метод резервного копирования и восстановления
 
 1. Сделайте резервную копию существующего сайта WordPress, используя сведения в разделе [Резервные копии WordPress][wordpressbackup].
 
@@ -177,18 +177,18 @@
 
 5. После развертывания сайта WordPress вы сможете получить доступ к новому сайту (св виде веб-приложения службы приложений), используя URL-адрес *.azurewebsite.net сайта.
 
-###Настройка сайта
+### Настройка сайта
 
 После создания или миграции сайта WordPress используйте следующие сведения, чтобы повысить производительность или включить дополнительные функции.
 
 Для этого... | Используйте это...
 ------------- | -----------
 **Установка режима плана службы приложений, размера и включение масштабирования** | [Масштабирование веб-приложения в службе приложений Azure][websitescale]
-**Включение постоянных подключений к базе данных** <p>По умолчанию WordPress не использует постоянные подключения к базе данных, что может привести к регулированию подключения к базе данных через несколько подключений.</p> | <ol><li><p>Измените файл <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Найдите следующую строку.</p><code>$this->dbh = mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags );</code></li><li><p>Замените предыдущую строку следующей.</p><code>$this->dbh = mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); <br/>if ( false !== $error\_reporting ) { /br/>&nbsp;&nbsp;error\_reporting( $error\_reporting ); <br/>} </code></li><li><p>Найдите следующую строку.</p><code>$this->dbh = @mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags ); </code></li><li><p>Замените указанную выше строку следующей.</p><code>$this->dbh = @mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); </code></li><li><p>Сохраните файл <strong>wp-includes/wp-db.php</strong> и заново разверните сайт.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>Эти изменения могут быть перезаписаны при обновлении WordPress.</p><p>В WordPress по умолчанию включены автоматические обновления, которые можно отключить, отредактировав файл <strong>wp-config.php</strong> и добавив <code>define ( 'WP\_AUTO\_UPDATE\_CORE', false );</code></p><p>Другой способ настройки обновлений — использовать веб-задание, которое будет отслеживать файл <strong>wp-db.php</strong> и выполнять указанные выше изменения при каждом его обновлении. Дополнительную информацию см. в статье <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">Общая информация о веб-заданиях</a>.</p></div>
-**Повышение производительности** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Отключение ARR-файла cookie</a>. Это может повысить производительность при запуске WordPress на нескольких экземплярах веб-приложений</p></li><li><p>Включение кэширования. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Кэш Redis</a> (предварительная версия) может использоваться в сочетании с <a href="https://wordpress.org/plugins/redis-object-cache/">подключаемым модулем кэширования объектов Redis для WordPress</a>. Или можно воспользоваться другими предложениями для кэширования из <a href="/gallery/store/">Магазина Azure</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Ускорение работы WordPress с помощью Wincache.</a> Wincache по умолчанию включен для веб-приложений</p></li><li><p><a href="../web-sites-scale/">Масштабирование веб-приложения в службе приложений Azure</a>, а также <a href="http://www.cleardb.com/developers/cdbr/introduction">Маршрутизация высокой доступности ClearDB</a> или <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></p></li></ul>
-**Использование больших двоичных объектов для хранения данных** | <ol><li><p><a href="../storage-create-storage-account/">Создайте учетную запись хранения Azure</a></p></li><li><p>Узнайте о том, как <a href="../cdn-how-to-use/">использовать сеть Content Distribution Network (CDN)</a> для географического распределения данных, хранящихся в больших двоичных объектах.</p></li><li><p>Установите и настройте <a href="https://wordpress.org/plugins/windows-azure-storage/">подключаемый модуль службы хранилища Azure для WordPress</a>.</p><p>Дополнительную информацию об установке и настройке подключаемого модуля см. в <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">руководстве пользователя</a>.</p> </li></ol>
-**Включение электронной почты** | <ol><li><p><a href="/gallery/store/sendgrid/sendgrid-azure/">Включите SendGrid с помощью Магазина Azure</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">Установите подключаемый модуль SendGrid для WordPress</a></p></li></ol>
-**Настройка личного доменного имени** | [Настройка личного доменного имени в службе приложений Azure][customdomain]
+**Включение постоянных подключений к базе данных** <p>По умолчанию WordPress не использует постоянные подключения к базе данных, что может привести к регулированию подключения к базе данных через несколько подключений.</p> | <ol><li><p>Измените файл <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Найдите следующую строку.</p><code>$this->dbh = mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags );</code></li><li><p>Замените предыдущую строку следующей.</p><code>$this->dbh = mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); <br/>if ( false !== $error\_reporting ) { /br/>&nbsp;&nbsp;error\_reporting( $error\_reporting ); <br/>} </code></li><li><p>Найдите следующую строку.</p><code>$this->dbh = @mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags ); </code></li><li><p>Замените указанную выше строку следующей.</p><code>$this->dbh = @mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); </code></li><li><p>Сохраните файл <strong>wp-includes/wp-db.php</strong> и заново разверните сайт.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>Эти изменения могут быть перезаписаны при обновлении WordPress.</p><p>В WordPress по умолчанию включены автоматические обновления, которые можно отключить, отредактировав файл <strong>wp-config.php</strong> и добавив <code>define ( 'WP\_AUTO\_UPDATE\_CORE', false );</code></p><p>Другой способ настройки обновлений — использовать веб-задание, которое будет отслеживать файл <strong>wp-db.php</strong> и выполнять указанные выше изменения при каждом его обновлении. Дополнительную информацию см. в статье [Общая информация о веб-заданиях](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx).</p></div>
+**Повышение производительности** | <ul><li><p>[Отключите ARR-файлы cookie](http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx). Это может повысить производительность при запуске WordPress на нескольких экземплярах веб-приложений.</p></li><li><p>Включите кэширование. [Кэш Redis](http://msdn.microsoft.com/library/azure/dn690470.aspx) может использоваться в сочетании с [подключаемым модулем кэширования объектов Redis для WordPress](https://wordpress.org/plugins/redis-object-cache/). Или можно воспользоваться другими предложениями для кэширования из [магазина Azure.](/gallery/store/)</p></li><li><p>[Ускорьте работу WordPress с помощью Wincache.](http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/) Wincache по умолчанию включен для веб-приложений.</p></li><li><p>[Масштабируйте веб-приложение в службе приложений Azure](../app-service-web/web-sites-scale.md), а также используйте [маршрутизацию с высоким уровнем доступности ClearDB](http://www.cleardb.com/developers/cdbr/introduction) или [MySQL Cluster CGE.](http://www.mysql.com/products/cluster/)</p></li></ul>
+**Использование больших двоичных объектов для хранения данных** | <ol><li><p>[Создайте учетную запись хранения Azure.](../storage/storage-create-storage-account.md)</p></li><li><p>Узнайте о том, как [использовать сеть CDN][cdn] для геораспределения данных, хранящихся в больших двоичных объектах.</p></li><li><p>Установите и настройте [подключаемый модуль службы хранилища Azure для WordPress](https://wordpress.org/plugins/windows-azure-storage/).</p><p>Дополнительную информацию об установке и настройке подключаемого модуля см. в [руководстве пользователя](http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx).</p> </li></ol>
+**Включение электронной почты** | <ol><li><p>[Включите SendGrid с помощью магазина Azure.](/gallery/store/sendgrid/sendgrid-azure/)</p></li><li><p>[Установите подключаемый модуль SendGrid для WordPress.](http://wordpress.org/plugins/sendgrid-email-delivery-simplified/)</p></li></ol>
+**Настройка пользовательского имени домена** | [Настройка личного доменного имени в службе приложений Azure][customdomain]
 **Включение HTTPS для личного доменного имени** | [Включение протокола HTTPS для веб-приложения в службе приложений Azure][httpscustomdomain]
 **Распределение нагрузки или географическое распределение сайта** | [Маршрутизация трафика с помощью диспетчера трафика Azure][trafficmanager]. Если вы используете личный домен, см. информацию об использовании диспетчера трафика с личными доменными именами в статье [Настройка личного доменного имени для службы приложений Azure][customdomain]
 **Включение автоматически создаваемых резервных копий** | [Резервное копирование веб-приложений в службе приложений Azure][backup]
@@ -235,7 +235,9 @@
 >[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Изменения
-* Руководство по переходу от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+
+<!-- URL List -->
 
 [performance-diagram]: ./media/web-sites-php-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-php-enterprise-wordpress/basic-diagram.png
@@ -260,8 +262,8 @@
 [monitor]: web-sites-monitor.md
 [log]: web-sites-enable-diagnostic-log.md
 [httpscustomdomain]: web-sites-configure-ssl-certificate.md
-[mysqlwindows]: ../virtual-machines-windows-classic-mysql-2008r2.md
-[mysqllinux]: ../virtual-machines-linux-classic-mysql-on-opensuse.md
+[mysqlwindows]: ../virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md
+[mysqllinux]: ../virtual-machines/virtual-machines-linux-classic-mysql-on-opensuse.md
 [cge]: http://www.mysql.com/products/cluster/
 [websitepricing]: /pricing/details/app-service/
 [export]: http://en.support.wordpress.com/export/
@@ -276,10 +278,9 @@
 [workbench]: http://www.mysql.com/products/workbench/
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
-[posh]: ../install-configure-powershell.md
+[posh]: ../powershell-install-configure.md
 [Azure CLI]: ../xplat-cli-install.md
 [storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
-[cdn]: ../cdn-how-to-use.md
- 
+[cdn]: ../cdn/cdn-overview.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

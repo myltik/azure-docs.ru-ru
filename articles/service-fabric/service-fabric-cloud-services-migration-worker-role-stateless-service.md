@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
  
 # Руководство по преобразованию рабочих ролей и веб-ролей в службы без отслеживания состояния Service Fabric
@@ -38,7 +38,7 @@
 
 Как и рабочая роль, веб-роль тоже является рабочей нагрузкой без отслеживания состояния. Поэтому и ее можно сопоставить со службой без отслеживания состояния Service Fabric. В отличие от веб-ролей, платформа Service Fabric не поддерживает IIS. Чтобы перенести веб-приложение из веб-роли в службу без отслеживания состояния, сначала следует переместить автономно размещаемую веб-платформу, которая не зависит от IIS или System.Web (например, ASP.NET Core 1).
 
-**Приложение ** | **Поддерживается** | **Путь переноса**
+**Приложения** | **Поддерживаются** | **Путь перехода**
 --- | --- | ---
 Веб-формы ASP.NET | Нет | Преобразование в ASP.NET Core 1 MVC
 ASP.NET MVC 3 | С переносом | Обновление до ASP.NET Core 1
@@ -108,13 +108,13 @@ namespace Stateless1
 
 ```
 
-И роль, и служба имеют основной компонент переопределения Run, с которого и начинается обработка. Службы Service Fabric объединяют `Run`, `Start` и `Stop` в одну точку входа, `RunAsync`. Ваша служба должна начать работу после начала работы `RunAsync`. Она должна завершить работу, когда маркер CancellationToken метода `RunAsync` получает оповещение.
+И роль, и служба имеют основной компонент переопределения Run, с которого и начинается обработка. Службы Service Fabric объединяют `Run`, `Start` и `Stop` в одну точку входа `RunAsync`. Ваша служба должна начать работу после запуска `RunAsync`. Она должна завершить работу, когда маркер CancellationToken метода `RunAsync` получает оповещение.
 
 Существует несколько ключевых различий между жизненным циклом и временем существования рабочих ролей и служб Service Fabric.
 
- - **Жизненный цикл:** главное отличие заключается в том, что рабочая роль — это виртуальная машина, поэтому ее жизненный цикл привязан к виртуальной машине (например, в нем учитываются события запуска и остановки виртуальной машины). Жизненный цикл службы Service Fabric отделен от жизненного цикла виртуальной машины и поэтому не включает в себя события запуска и остановки (основной) виртуальной машины.
+ - **Жизненный цикл:** главное отличие заключается в том, что рабочая роль — это виртуальная машина, поэтому ее жизненный цикл привязан к виртуальной машине (например, в нем учитываются события запуска и остановки виртуальной машины). Жизненный цикл службы Service Fabric отделен от жизненного цикла виртуальной машины и поэтому не включает в себя события запуска и остановки (основной) виртуальной машины.
 
- - **Время существования**: если метод `Run` завершает работу, выполняется повторный запуск экземпляра рабочей роли. Тем не менее метод `RunAsync` в службе Service Fabric может продолжать работать столько, сколько нужно, и экземпляр службы выключаться не будет.
+ - **Время существования**: если метод `Run` завершает работу, выполняется повторный запуск экземпляра рабочей роли. Тем не менее метод `RunAsync` в службе Service Fabric может выполняться столько, сколько нужно, и экземпляр службы выключаться не будет.
 
 Службам, которые прослушивают запросы клиента, платформа Service Fabric дает возможность использовать пользовательскую точку входа настройки связи. И RunAsync, и точка входа связи являются пользовательскими компонентами переопределения в службах Service Fabric. Ваша служба может, например, только прослушивать запросы клиента, или только выполнять цикл обработки, или делать и то и другое вместе. Именно поэтому при завершении работы метода RunAsync не требуется перезапуск службы, потому что он может продолжить прослушивать запросы клиента.
 
@@ -160,7 +160,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 ```C#
 
-ConfigurationPackage configPackage = this.ServiceInitializationParameters.CodePackageActivationContext.GetConfigurationPackageObject("Config");
+ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
 // Access Settings.xml
 KeyedCollection<string, ConfigurationProperty> parameters = configPackage.Settings.Sections["MyConfigSection"].Parameters;
@@ -204,7 +204,7 @@ foreach (var settingChange in settingChanges)
  
 ```C#
 
-this.ServiceInitializationParameters.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
+this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
 
 private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(object sender, PackageModifiedEventArgs<ConfigurationPackage> e)
@@ -271,10 +271,10 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 
  - [Начало работы со службами Reliable Services в Service Fabric](./service-fabric-reliable-services-quick-start.md)
 
- - [Conceptual guide to the differences between Cloud Services and Service Fabric](./service-fabric-cloud-services-migration-differences.md) (Руководство: концептуальные различия между облачными службами и платформой Service Fabric)
+ - [Conceptual guide to the differences between Cloud Services and Service Fabric (Руководство: концептуальные различия между облачными службами и платформой Service Fabric)](./service-fabric-cloud-services-migration-differences.md)
  
 <!--Image references-->
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

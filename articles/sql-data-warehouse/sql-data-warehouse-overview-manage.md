@@ -42,7 +42,7 @@
 Начало работы с порталом Azure описывается в статье [Создание хранилища данных SQL][].
 
 ### SQL Server Data Tools в Visual Studio
-Средства [SQL Server Data Tools][] \(SSDT) в Visual Studio предлагают возможности подключения, управления и разработки для баз данных. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), предлагаем обратить внимание на SSDT в составе Visual Studio.
+Средства [SQL Server Data Tools][] (SSDT) в Visual Studio предлагают возможности подключения, управления и разработки для баз данных. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), предлагаем обратить внимание на SSDT в составе Visual Studio.
 
 Средства SSDT содержат обозреватель объектов сервера SQL, который позволяет визуализировать, подключать и выполнять скрипты для баз данных хранилища данных SQL. Чтобы быстро подключиться к хранилищу данных SQL, нажмите кнопку **Открыть в Visual Studio** в командной строке во время просмотра сведений базы данных на классическом портале Azure.
 
@@ -102,7 +102,7 @@
 [connection]: sql-data-warehouse-develop-connections.md
 [Подключение к хранилищу данных SQL Azure с помощью Visual Studio]: sql-data-warehouse-get-started-connect.md
 [Подключение и выполнение запросов с помощью sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
-[обзоре разработки]: sql-data-warehouse-overview-development.md
+[обзоре разработки]: sql-data-warehouse-overview-develop.md
 [Мониторинг рабочей нагрузки с помощью динамических административных представлений]: sql-data-warehouse-manage-monitor.md
 [Приостановка работы вычислительных ресурсов]: sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Restore an Azure SQL Data Warehouse (Overview)]: sql-data-warehouse-restore-database-overview.md
@@ -118,4 +118,4 @@
 <!--Other web references-->
 [Портал Azure]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

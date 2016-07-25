@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -60,7 +60,7 @@
 
 **Чтобы добавить Weekdone из коллекции, выполните указанные ниже действия.**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
 	![Active Directory][1]
 
@@ -281,4 +281,4 @@
 [204]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

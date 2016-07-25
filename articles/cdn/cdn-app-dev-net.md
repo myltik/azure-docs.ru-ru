@@ -291,7 +291,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 ## Удаление профилей CDN и конечных точек
 
-Последние методы, которые мы добавим, удаляют нашу конечную точку и профиль.
+Последние методы удаляют конечную точку и профиль.
 
 ```
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
@@ -337,4 +337,4 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 Чтобы найти дополнительную документацию по библиотеке управления Azure CDN для .NET, воспользуйтесь [справкой на сайте MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

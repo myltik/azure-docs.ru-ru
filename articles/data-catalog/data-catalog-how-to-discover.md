@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 # Обнаружение источников данных
@@ -62,4 +62,4 @@
 ## См. также
 - Пошаговые инструкции по обнаружению источников данных см. в руководстве [Начало работы с каталогом данных Azure](data-catalog-get-started.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0713_2016-->

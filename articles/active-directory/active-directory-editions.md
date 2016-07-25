@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="07/08/2016"
 	ms.author="markvi"/>
 
 # Выпуски Azure Active Directory
@@ -480,6 +480,9 @@ Azure Active Directory — это служба, которая предоста
 - управление привилегированными пользователями;
 - [интеграция приложений по управлению персоналом.](active-directory-saas-workday-inbound-tutorial.md)
 - [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
+- [Аутентификация в iOS на основе сертификата](active-directory-certificate-based-authentication-ios.md)
+- [Аутентификация в Android на основе сертификата](active-directory-certificate-based-authentication-android.md)
+ 
 
 
 
@@ -491,8 +494,7 @@ Azure Active Directory — это служба, которая предоста
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 - [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
 
-
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

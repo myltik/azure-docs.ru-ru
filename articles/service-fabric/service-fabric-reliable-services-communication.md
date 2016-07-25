@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Использование API связи служб Reliable Services
@@ -69,7 +69,7 @@ class MyStatefulService : StatefulService
 
 Для службы без отслеживания состояния переопределение возвращает коллекцию объектов ServiceInstanceListener. Объект ServiceInstanceListener может создавать интерфейс ICommunicationListener и присваивать ему имя. Для служб с отслеживанием состояния переопределение возвращает коллекцию объектов ServiceReplicaListener. Здесь есть небольшое отличие от служб без отслеживания состояния, так как ServiceReplicaListener может открывать интерфейс ICommunicationListener для вторичных реплик. Это позволяет не только использовать несколько прослушивателей связи в одной службе, но также указывать, какие прослушиватели принимают запросы для вторичных реплик, а какие — прослушивают только первичные реплики.
 
-Например, у вас есть прослушиватель ServiceRemotingListener, который принимает вызовы RPC только для первичных реплик, и настраиваемый прослушиватель, который принимает запросы на чтение для вторичных реплик:
+Например, у вас есть прослушиватель ServiceRemotingListener, который принимает вызовы RPC только для первичных реплик, и настраиваемый прослушиватель, который принимает запросы на чтение для вторичных реплик по протоколу HTTP:
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -77,8 +77,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     return new[]
     {
         new ServiceReplicaListener(context =>
-            new MyCustomListener(context),
-            "customReadonlyEndpoint",
+            new MyCustomHttpListener(context),
+            "HTTPReadonlyEndpoint",
             true),
 
         new ServiceReplicaListener(context =>
@@ -88,6 +88,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     };
 }
 ```
+
+> [AZURE.NOTE] При создании нескольких прослушивателей для службы каждому прослушивателю **необходимо** присвоить уникальное имя.
 
 Наконец, вы можете описать конечные точки, которые требуются для службы, в [манифесте служб](service-fabric-application-model.md) в разделе конечных точек.
 
@@ -137,18 +139,18 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
 Платформа Service Fabric предоставляет API-интерфейсы, которые позволяют клиентам и другим службам в дальнейшем запрашивать этот адрес по имени службы. Это важно, так как у службы нестатический адрес. Перемещение служб в кластере осуществляется для балансировки ресурсов и обеспечения их доступности. Это механизм, позволяющий клиентам распознавать адрес прослушивания для службы.
 
-> [AZURE.NOTE] Полное пошаговое руководство по созданию `ICommunicationListener` см. в статье [Начало работы со службами веб-API Microsoft Azure Service Fabric с саморазмещением OWIN](service-fabric-reliable-services-communication-webapi.md).
+> [AZURE.NOTE] Полное пошаговое руководство по созданию `ICommunicationListener` см. в статье [Приступая к работе со службами веб-API Service Fabric с саморазмещением OWIN](service-fabric-reliable-services-communication-webapi.md).
 
 ## Взаимодействие со службой
 API-интерфейс служб Reliable Services предоставляет следующие библиотеки для написания клиентов, взаимодействующих со службами.
 
 ### Разрешение конечной точки службы
-Первый шаг взаимодействия со службой — разрешение адреса конечной точки раздела или экземпляра службы, с которой вы хотите связаться. Служебный класс `ServicePartitionResolver` — это базовый примитивный тип, который помогает клиенту определить конечную точку во время выполнения. При использовании Service Fabric процесс определения конечной точки службы называется *разрешением конечной точки службы*.
+Первый шаг взаимодействия со службой — разрешение адреса конечной точки раздела или экземпляра службы, с которой вы хотите связаться. Служебный класс `ServicePartitionResolver` — это базовый примитивный тип, который помогает клиентам определить конечную точку во время выполнения. При использовании Service Fabric процесс определения конечной точки службы называется *разрешением конечной точки службы*.
 
-Для подключения к службам в кластере можно создать `ServicePartitionResolver` без параметров:
+Для подключения к службам в кластере можно создать `ServicePartitionResolver`, используя параметры по умолчанию. Это рекомендуется для большинства сценариев:
 
 ```csharp
-ServicePartitionResolver resolver = new  ServicePartitionResolver();
+ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 ```
 
 Для подключения к службам в другом кластере `ServicePartitionResolver` можно создать с набором конечных точек шлюза кластера. Обратите внимание, что конечные точки шлюза — это просто другие конечные точки для подключения к тому же кластеру. Например:
@@ -157,13 +159,13 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver();
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
 ```
 
-`ServicePartitionResolver` можно передать функцию, чтобы создать `FabricClient` для внутреннего использования.
+Кроме того, `ServicePartitionResolver` можно передать функцию, чтобы создать `FabricClient` для внутреннего использования:
  
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
 ```
 
-`FabricClient` — это объект, который используется для взаимодействия с кластером Service Fabric в рамках различных операций управления в кластере. Это полезно, когда требуется больший контроль над тем, как `ServicePartitionClient` взаимодействует с кластером. `FabricClient` выполняет внутреннее кэширование и обычно требует много ресурсов для создания, поэтому важно повторно использовать как можно больше экземпляров `FabricClient`.
+`FabricClient` — это объект, который используется для взаимодействия с кластером Service Fabric в рамках различных операций управления в кластере. Это полезно, когда требуется больший контроль над тем, как `ServicePartitionResolver` взаимодействует с кластером. `FabricClient` выполняет внутреннее кэширование и обычно требует много ресурсов для создания, поэтому важно повторно использовать как можно больше экземпляров `FabricClient`.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -172,7 +174,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMy
 Метод resolve затем используется для получения адреса службы или раздела секционированных служб.
 
 ```csharp
-ServicePartitionResolver resolver = new ServicePartitionResolver();
+ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 
 ResolvedServicePartition partition =
     await resolver.ResolveAsync(new Uri("fabric:/MyApp/MyService"), new ServicePartitionKey(), cancellationToken);
@@ -226,12 +228,12 @@ public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCom
 
 Наконец, обработчик исключений определяет, какое действие следует предпринять при возникновении исключения. Исключения классифицируются как **повторяемые** и **неповторяемые**.
 
- - **Неповторяемые** исключения просто возвращаются вызывающему объекту. 
+ - **Неповторяемые** исключения просто возвращаются вызывающему объекту.
  - **Повторяемые** исключения далее классифицируются как **временные** и **невременные**.
-  - **Временные** исключения могут быть повторены без повторного разрешения адреса конечной точки службы. К ним относятся временные проблемы с сетью или сообщения об ошибках службы, отличные от тех, которые указывают, что адрес конечной точки службы не существует. 
-  - **Невременные** исключения требуют повторного разрешения адреса конечной точки службы. К ним относятся исключения, указывающие, что не удалось подключиться к конечной точке службы, потому что служба была перемещена на другой узел. 
+  - **Временные** исключения могут быть повторены без повторного разрешения адреса конечной точки службы. К ним относятся временные проблемы с сетью или сообщения об ошибках службы, отличные от тех, которые указывают, что адрес конечной точки службы не существует.
+  - **Невременные** исключения требуют повторного разрешения адреса конечной точки службы. К ним относятся исключения, указывающие, что не удалось подключиться к конечной точке службы, потому что служба была перемещена на другой узел.
 
-`TryHandleException` принимает решение о данном исключении. Если **неизвестно**, какое решение следует принять об исключении, возвращается значение **false**. Если решение **известно**, результат задается соответствующим образом, и возвращается значение **true**.
+`TryHandleException` принимает решение о данном исключении. Если **неизвестно**, какое решение следует принять об исключении, возвращается значение **false**. Если решение **известно**, результат задается соответствующим образом и возвращается значение **true**.
  
 ```csharp
 class MyExceptionHandler : IExceptionHandler
@@ -274,7 +276,7 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(async (client) 
 ```
 
 ## Дальнейшие действия
- - Пример HTTP-связи между службами см. в [примере проекта на GitHUb](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
+ - Пример HTTP-связи между службами см. в [примере проекта на сайте GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/WordCount).
 
  - [Удаленное взаимодействие службы с Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 
@@ -282,4 +284,4 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(async (client) 
 
  - [Коммуникационный стек WCF для надежных служб](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

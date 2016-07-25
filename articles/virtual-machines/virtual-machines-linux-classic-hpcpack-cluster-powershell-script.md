@@ -1,6 +1,6 @@
 <properties
    pageTitle="Сценарий PowerShell для развертывания кластера пакета HPC на основе Linux | Microsoft Azure"
-   description="Развертывание кластера пакета HPC на основе Linux в службах инфраструктуры Azure с помощью сценария PowerShell."
+   description="Из этой статьи вы узнаете, как с помощью сценария PowerShell развернуть кластер пакета HPC в Linux на виртуальной машине Azure."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="dlepow"
@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="big-compute"
-   ms.date="04/05/2016"
+   ms.date="07/07/2016"
    ms.author="danlep"/>
 
 # Создание кластера высокопроизводительных вычислительных систем (HPC) Linux с помощью сценария развертывания пакета HPC в IaaS
 
-Выполните сценарий PowerShell развертывания пакета HPC в IaaS на клиентском компьютере, чтобы развернуть полный кластер HPC для рабочих нагрузок Linux в службах инфраструктуры Azure (IaaS). Если вы хотите развернуть кластер пакета HPC в Azure для рабочих нагрузок Windows, см. раздел о [создании кластера HPC Windows с помощью сценария развертывания пакета HPC в IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md).
+Выполните сценарий PowerShell для развертывания пакета HPC в IaaS, чтобы развернуть полный кластер HPC для рабочих нагрузок Linux на виртуальных машинах Azure. Кластер состоит из присоединенного к Active Directory головного узла под управлением Windows Server и пакета Microsoft HPC, а также вычислительных узлов под управлением одного из дистрибутивов Linux с поддержкой пакета HPC. Если вы хотите развернуть кластер пакета HPC в Azure для рабочих нагрузок Windows, см. раздел о [создании кластера HPC Windows с помощью сценария развертывания пакета HPC в IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). Вы также можете использовать шаблон диспетчера ресурсов Azure для развертывания HPC-кластера. Например, см. статью [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/) (Создание кластера пакета HPC с вычислительными узлами Linux).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
-## Примеры файлов конфигурации
+## Пример файла конфигурации
 
-### Пример 1
+Следующий файл конфигурации создает новый контроллер домена и доменный лес, а также развертывает кластер пакета HPC с одним головным узлом с локальными базами данных и десятью вычислительными узлами под управлением Linux. Все облачные службы создаются сразу в расположении East Asia (Восточная Азия). Вычислительные узлы под управлением Linux создаются в двух облачных службах и двух учетных записях хранения (от _MyLnxCN-0001_ до _MyLnxCN-0005_ в _MyLnxCNService01_ и _mylnxstorage01_ и от _MyLnxCN-0006_ до _MyLnxCN-0010_ в _MyLnxCNService02_ и _mylnxstorage02_). Вычислительные узлы создаются из образа OpenLogic CentOS версии 7.0 для Linux.
 
-Следующий файл конфигурации создает новый доменный лес и развертывает кластера пакета HPC с одним головным узлом с локальными базами данных и 20 вычислительными узлами под управлением Linux. Все облачные службы создаются сразу в расположении East Asia (Восточная Азия). Вычислительные узлы под управлением Linux создаются в четырех облачных службах и четырех учетных записях хранения (от _MyLnxCN-0001_ до _MyLnxCN-0005_ в _MyLnxCNService01_ и _mylnxstorage01_, от _MyLnxCN-0006_ до _MyLnxCN-0010_ в _MyLnxCNService02_ и _mylnxstorage02_, от _MyLnxCN-0011_ до _MyLnxCN-0015_ в _MyLnxCNService03_ и _mylnxstorage03_, а также от _MyLnxCN-0016_ до _MyLnxCN-0020_ в _MyLnxCNService04_ и _mylnxstorage04_). Вычислительные узлы создаются из образа OpenLogic CentOS версии 7.0 для Linux.
+Подставьте свои значения: имя вашей подписки и имена учетной записи и служб.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -65,12 +65,8 @@
     <MaxNodeCountPerService>5</MaxNodeCountPerService>
     <StorageAccountNamePattern>mylnxstorage%01%</StorageAccountNamePattern>
     <VMSize>Medium</VMSize>
-    <NodeCount>20</NodeCount>
+    <NodeCount>10</NodeCount>
     <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20150325 </ImageName>
-    <SSHKeyPairForRoot>
-      <PfxFile>d:\mytestcert1.pfx</PfxFile>
-      <Password>MyPsw!!2</Password>
-    </SSHKeyPairForRoot>
   </LinuxComputeNodes>
 </IaaSClusterConfig>
 ```
@@ -78,14 +74,16 @@
 
 * **Ошибка «Виртуальная сеть не существует»**. Когда вы запускаете скрипт развертывания пакета HPC по модели IaaS для одновременного развертывания нескольких кластеров в Azure в рамках одной подписки, для одного или нескольких развертываний может возникать ошибка «Виртуальная сеть *VNet\_Name* не существует». В случае возникновения этой ошибки повторно выполните скрипт для развертывания, завершившегося сбоем.
 
-* **Проблема с доступом к Интернету из виртуальной сети Azure**. Если вы создаете кластер пакета HPC с новым контроллером домена с помощью сценария развертывания или делаете виртуальную машину контроллером домена вручную, могут возникать проблемы при подключении виртуальных машин в виртуальной сети Azure к Интернету. Проблема может возникать, когда DNS-сервер пересылки настраивается на контроллере домена автоматически и не выполняет разрешение адресов должным образом.
+* **Проблема с доступом к Интернету из виртуальной сети Azure**. Если вы создаете кластер пакета HPC с новым контроллером домена с помощью сценария развертывания или назначаете виртуальную машину контроллером домена вручную, могут возникать проблемы при подключении виртуальных машин в виртуальной сети Azure к Интернету. Проблема может возникать, когда DNS-сервер пересылки настраивается на контроллере домена автоматически и не выполняет разрешение адресов должным образом.
 
     Чтобы решить эту проблему, войдите на контроллер домена и удалите настройки сервера пересылки или задайте допустимый DNS-сервер пересылки. Для этого в диспетчере серверов щелкните **Сервис** > **DNS**, чтобы открыть диспетчер DNS, а затем дважды щелкните **Серверы пересылки**.
     
 ## Дальнейшие действия
 
-* Учебники, в которых рассматривается сценарий для создания кластера и запуска рабочей нагрузки HPC в Linux, см. в статье [Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md) или [Запуск OpenFOAM с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md).
+* Сведения о поддерживаемых дистрибутивах Linux, перемещении данных и отправке заданий в кластер пакета HPC с помощью вычислительных узлов под управлением Linux см. в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+* Чтобы научиться использовать сценарий для создания кластера и запуска рабочей нагрузки HPC в Linux, см. следующие руководства:
+    * [Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
+    * [Выполнение заданий OpenFoam в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
+    * [Выполнение заданий STAR-CCM+ в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](virtual-machines-linux-classic-hpcpack-cluster-starccm.md)
 
-* Вы также можете использовать шаблон диспетчера ресурсов Azure для развертывания HPC-кластера. Например, см. раздел [Создание кластера пакета HPC с вычислительными узлами Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

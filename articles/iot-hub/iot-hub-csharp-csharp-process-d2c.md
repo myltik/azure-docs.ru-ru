@@ -20,7 +20,7 @@
 
 ## Введение
 
-Центр IoT Azure — полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств IoT и серверной частью приложения. В других учебниках ([Приступая к работе с центром IoT] и [Отправка сообщений с облака на устройства в центре IoT]) описаны базовые функции центра IoT по отправке сообщений с устройства в облако и с облака на устройство.
+Центр IoT Azure — полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств IoT и серверной частью приложения. В других руководствах ([Приступая к работе с центром IoT] и [Отправка сообщений с облака на устройства в центре IoT][lnk-c2d]) описаны базовые функции центра IoT по отправке сообщений между устройством и облаком.
 
 Этот учебник основан на коде, показанном в учебнике [Приступая к работе с центром IoT]. В нем демонстрируется два масштабируемых шаблона, которые можно использовать для обработки сообщений, отправляемых с устройства в облако:
 
@@ -108,14 +108,14 @@
 
 Чтобы предотвратить повторную отправку сообщений до или после дедупликации, код синхронизирует механизм контрольных точек **EventProcessorHost** с периодом дедупликации очереди служебной шины. Это достигается путем хотя бы однократной принудительной установки контрольной точки при каждом окончании периода дедупликации (в этом руководстве этот период составляет один час).
 
-> [AZURE.NOTE] В данном руководстве для обработки всех интерактивных сообщений, полученных из центра IoT, используется одна секционированная очередь служебной шины. Дополнительные сведения об использовании очередей служебной шины в соответствии с требованиями к масштабируемости решения см. в [документации по служебной шине].
+> [AZURE.NOTE] В данном руководстве для обработки всех интерактивных сообщений, полученных из центра IoT, используется одна секционированная очередь служебной шины. Дополнительные сведения об использовании очередей служебной шины в соответствии с требованиями к масштабируемости решения см. в [документации по служебной шине Azure].
 
 ### Подготовка учетной записи хранения Azure и очереди служебной шины
 Чтобы использовать класс [EventProcessorHost], вам понадобится учетная запись службы хранилища Azure, в которую **EventProcessorHost** будет записывать сведения о контрольных точках. Можно использовать существующую учетную запись хранения или создать новую, следуя инструкциям в статье [Об учетных записях хранения Azure]. Запишите строку подключения учетной записи хранения.
 
 > [AZURE.NOTE] Копируя и вставляя строку подключения к учетной записи хранения, будьте внимательны, чтобы не к имени не добавились пробелы.
 
-Требуется также реализовать надежную обработку интерактивных сообщений в очереди служебной шины. Можно программно создать очередь с периодом дедупликации в один час, как описано в статье об [использовании очереди служебной шины][Service Bus queue]. Кроме того, можно воспользоваться [классическим порталом Azure], где нужно сделать следующее:
+Требуется также реализовать надежную обработку интерактивных сообщений в очереди служебной шины. Можно программно создать очередь с периодом дедупликации в один час, как описано в статье об [использовании очереди служебной шины][Service Bus queue]. Кроме того, можно воспользоваться [классическим порталом Azure][lnk-classic-portal], где нужно сделать следующее:
 
 1. В левом нижнем углу нажмите кнопку **Создать**. Затем последовательно выберите **Службы приложений** > ** Служебная шина** > **Очередь** > **Настраиваемое создание**. Введите имя **d2ctutorial**, выберите регион, а затем выберите имеющееся пространство имен или создайте новое. На следующей странице установите флажок **Включить обнаружение дубликатов** и для параметра **Временное окно журнала обнаружения повторений** установите значение в один час. Чтобы сохранить конфигурацию очереди, щелкните значок галочки в правом нижнем углу.
 
@@ -396,24 +396,15 @@
 
 В этом руководстве мы рассмотрели надежную обработку сообщений точек данных и интерактивных сообщений, отправляемых с устройства в облако, с помощью класса [EventProcessorHost].
 
-Продолжением этого материала является статья [Учебник: как передать файлы из устройств в облако с помощью центра IoT]. В ней используется аналогичная логика обработки сообщений. В нем также описывается шаблон, использующий сообщения, отправляемые с облака на устройство, для упрощения отправки файлов с устройств.
+В [руководстве по отправке сообщений из облака на устройства с помощью центра IoT и .Net][lnk-c2d] описано, как отправлять сообщения на устройства из серверной части.
 
-Дополнительная информация о центре IoT приведена в следующих статьях:
+Примеры комплексных решений, в которых используется центр IoT, см. в [документации по Azure IoT Suite][lnk-suite].
 
-* [Обзор центра IoT]
-* [Руководство разработчика по центру IoT]
-* [Руководство по центру IoT]
-* [Поддерживаемые платформы устройств и языки][Supported devices]
-* [Центр разработчика IoT Azure]
+Дополнительные сведения о разработке решений с помощью центра IoT см. в [руководстве разработчика по центру IoT].
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
 [10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
-[12]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp3.png
-
-[20]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage1.png
-[21]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage2.png
-[22]: ./media/iot-hub-csharp-csharp-process-d2c/create-storage3.png
 
 [30]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue2.png
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue3.png
@@ -426,24 +417,16 @@
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
 [очередь служебной шины Azure]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-
-
 
 [руководстве разработчика по центру Azure IoT — в разделе "Отправка сообщений с устройства в облако"]: iot-hub-devguide.md#d2c
 
 [службе хранилища Azure]: https://azure.microsoft.com/documentation/services/storage/
+[документации по служебной шине Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 [служебной шине Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 
-[Отправка сообщений с облака на устройства в центре IoT]: iot-hub-csharp-csharp-c2d.md
-[Учебник: как передать файлы из устройств в облако с помощью центра IoT]: iot-hub-csharp-csharp-file-upload.md
-[Обзор центра IoT]: iot-hub-what-is-iot-hub.md
-[Руководство по центру IoT]: iot-hub-guidance.md
-[Руководство разработчика по центру IoT]: iot-hub-devguide.md
+[руководстве разработчика по центру IoT]: iot-hub-devguide.md
 [Приступая к работе с центром IoT]: iot-hub-csharp-csharp-getstarted.md
 [началу работы с центром IoT]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: iot-hub-tested-configurations.md
-[Центр разработчика IoT Azure]: https://azure.microsoft.com/develop/iot
 [Центре разработчиков для Azure IoT]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
 [lnk-stream-analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
@@ -452,18 +435,17 @@
 
 <!-- Links -->
 [Об учетных записях хранения Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
-[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Приступая к работе с концентраторами событий]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
 [Целевые показатели масштабируемости и производительности службы хранилища Azure]: ../storage/storage-scalability-targets.md
 [Azure Block Blobs]: https://msdn.microsoft.com/library/azure/ee691964.aspx
 [концентраторами событий]: ../event-hubs/event-hubs-overview.md
-[Scaled out event processing]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [руководстве по программированию концентраторов событий]: ../event-hubs/event-hubs-programming-guide.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Portal]: https://manage.windowsazure.com/
 [Многоуровневое приложение .NET, использующее очереди служебной шины Azure]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-[документации по служебной шине]: https://azure.microsoft.com/documentation/services/service-bus/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-classic-portal]: https://manage.windowsazure.com
+[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+
+<!---HONumber=AcomDC_0713_2016-->

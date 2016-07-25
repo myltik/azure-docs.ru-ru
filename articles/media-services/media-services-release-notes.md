@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="07/12/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [Известные проблемы](#issues)
 - [Журнал версий интерфейса API REST](#rest_version_history)
+- [Выпуск: июль 2016 г.](#july_changes16)
 - [Выпуск: апрель 2016 г.](#apr_changes16)
 - [Выпуск: февраль 2016 г.](#feb_changes16)
 - [Выпуск: январь 2016 г.](#jan_changes_16)
@@ -48,7 +49,7 @@
 - [Выпуск: июль 2014 г.](#july_changes_14)
 - [Выпуск: май 2014 г.](#may_changes_14)
 - [Выпуск: апрель 2014 г.](#april_changes_14)
-- [Выпуски: январь/февраль 2014 г.](#jan_feb_changes_14)
+- [Выпуски: январь-февраль 2014 г.](#jan_feb_changes_14)
 - [Выпуск: декабрь 2013 г.](#december_changes_13)
 - [Выпуск: ноябрь 2013 г.](#november_changes_13)
 - [Выпуск: август 2013 г.](#august_changes_13)
@@ -68,8 +69,8 @@
 При кодировании ресурс-контейнера с именем файла, содержащим escape-последовательности символов (например, %20), появляется ошибка "MediaProcessor: файл не найден".|Имена файлов, которые будут добавляться в актив и затем кодироваться, должны содержать только буквы, цифры и пробелы. Эта проблема будет исправлена в следующем обновлении.
 Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, приводит к сбою.|Службы мультимедиа создают URL-адреса SAS на основе версии [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx). Если вы хотите использовать пакет SDK хранилища Azure для создания списка BLOB-объектов в контейнере BLOB-объектов, используйте метод [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx), входящий в пакет SDK хранилища Azure версии 2.x. Метод ListBlobs, входящий в состав пакета SDK хранилища Azure версии 3.x, будет вызывать сбой.
 Механизм регулирования служб мультимедиа ограничивает использование ресурсов для приложений, создающих избыточный запрос к службе. Службой может быть возвращен код состояния HTTP "Service Unavailable (503)".|Дополнительную информацию см. в описании кода состояния HTTP 503 в разделе [Коды ошибок служб мультимедиа Azure](http://msdn.microsoft.com/library/azure/dn168949.aspx).
-При запросе сущностей существует ограничение в 1000 сущностей, возвращаемых за один раз, так как в открытой версии 2 REST количество результатов запросов ограничено 1000. | Вам нужно нажать **Пропустить** и **Принять** (.NET) и **В начало** (REST), как описано [в этом примере .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) и [в этом примере REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-
+При запросе сущностей существует ограничение в 1000 сущностей, возвращаемых за один раз, так как в открытой версии 2 REST количество результатов запросов ограничено 1000. | Щелкните **Пропустить** и **Принять** (.NET) или **В начало** (REST), как описано [в этом примере .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) и [в этом примере REST API](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
+Изменения в версии манифеста Smooth Streaming|Дополнительную информацию см. в [этом разделе](media-services-deliver-content-overview.md#known-issues).
 
 ### <a id="dotnet_issues"></a>Проблемы с пакетом SDK служб мультимедиа для .NET
 
@@ -81,7 +82,25 @@
 
 Информацию о журнале версий интерфейса API REST служб мультимедиа см. в [Справочнике по API-интерфейсу REST для служб мультимедиа Azure].
 
-##<a id="apr_changes16"></a> Выпуск: апрель 2016 г.
+##<a id="july_changes16"></a>Выпуск: июль 2016 г.
+
+###Обновления файла манифеста (ISM-файла), созданного задачами кодирования
+
+Когда вы отправляете задачу кодирования в Media Encoder Standard или кодировщик мультимедиа Azure, задача кодирования создает [файл манифеста потоковой передачи](media-services-deliver-content-overview.md) (ISM-файл) в ресурсе-контейнере выходных данных. В последнем выпуске службы обновлен синтаксис этого файла манифеста потоковой передачи.
+
+>[AZURE.NOTE]Синтаксис файла манифеста потоковой передачи (ISM-файл) зарезервирован для внутреннего использования и может измениться в будущих выпусках. Не изменяйте содержимое этого файла.
+
+###Новый файл клиентского манифеста (ISMC-файл) создается в ресурсе-контейнере выходных данных, когда задача кодирования выводит один или несколько MP4-файлов
+
+Начиная с последней версии службы, после завершения задачи кодирования, которая создает один или несколько MP4-файлов, ресурс-контейнер выходных данных также будет содержать файл клиентского манифеста потоковой передачи (ISMC-файл). ISMC-файл помогает повысить производительность динамической потоковой передачи.
+
+>[AZURE.NOTE]Синтаксис файла клиентского манифеста (ISMC-файла) зарезервирован для внутреннего использования и может измениться в будущих выпусках. Не изменяйте содержимое этого файла.
+
+Дополнительную информацию см. в [этом блоге](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
+
+Информацию об известных проблемах см. в [этом разделе](media-services-deliver-content-overview.md#known-issues).
+
+##<a id="apr_changes16"></a>Выпуск: апрель 2016 г.
 
 ### Аналитика мультимедиа Azure
 
@@ -89,9 +108,9 @@
 
 ### Apple FairPlay (предварительная версия)
 
-Службы мультимедиа Azure теперь позволяют применять динамическое шифрование содержимого HTTP Live Streaming (HLS) с помощью Apple FairPlay. Службу доставки лицензий для служб мультимедиа можно также использовать для доставки клиентам лицензий FairPlay. Более подробные сведения см. в статье [Использование служб мультимедиа Azure для потоковой передачи содержимого HLS, защищенного с помощью Apple FairPlay](media-services-protect-hls-with-fairplay.md).
+Службы мультимедиа Azure теперь позволяют применять динамическое шифрование содержимого HTTP Live Streaming (HLS) с помощью Apple FairPlay. Службу доставки лицензий для служб мультимедиа можно также использовать для доставки клиентам лицензий FairPlay. Подробные сведения см. в статье [Использование служб мультимедиа Azure для потоковой передачи содержимого HLS, защищенного с помощью Apple FairPlay](media-services-protect-hls-with-fairplay.md).
   
-##<a id="feb_changes16"></a> Выпуск: февраль 2016 г.
+##<a id="feb_changes16"></a>Выпуск: февраль 2016 г.
 
 Последняя версия пакета SDK служб мультимедиа Azure для .NET (3.5.3) содержит исправление ошибки, связанной с Widevine. Устраненная проблема: AssetDeliveryPolicy не удавалось повторно использовать для нескольких ресурсов-контейнеров, зашифрованных с помощью Widevine. В рамках этого исправления в пакет SDK добавлено следующее свойство: **WidevineBaseLicenseAcquisitionUrl**.
 	
@@ -102,7 +121,7 @@
 	    
 	};
 
-##<a id="jan_changes_16"></a> Выпуск: январь 2016 г.
+##<a id="jan_changes_16"></a>Выпуск: январь 2016 г.
 
 Зарезервированные единицы кодирования переименованы во избежание путаницы с именами кодировщика.
 
@@ -206,29 +225,29 @@
 
 ##<a id="april_changes_15"></a>Выпуск: апрель 2015 г.
 
-        ###General Media Services Updates
+ ###Общие обновления служб мультимедиа
 
-        - [Announcing Azure Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
-        - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-live-streaming-with-onprem-encoders.md#channel_input)
-        - Azure Media Indexer updates
-        - Support for Spanish Language
-        - New configuration xml format
+- [Выход мультимедиапроигрывателя Azure](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
+- Начиная с интерфейса REST 2.10 служб мультимедиа, каналы, которые настроены для приема протокола RTMP, создаются с первичными и вторичными URL-адресами приема. Дополнительные сведения см. в разделе [Конфигурации приема канала](media-services-live-streaming-with-onprem-encoders.md#channel_input)
+- Обновления индексатора мультимедийных данных Azure
+- Поддержка испанского языка
+- Формат xml новой конфигурации
 
-        For more information see [this blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
-        ###Media Services .NET SDK Updates
+Дополнительную информацию см. в [этом блоге](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+###Обновления пакета SDK служб мультимедиа для .NET
 
-        Azure Media Services .NET SDK is now version 3.2.0.0.
+Пакет SDK служб мультимедиа Azure для .NET обновлен до версии 3.2.0.0.
 
-        The following are some of the customer facing updates:
+Ниже приведены некоторые обновления для клиентов.
 
-        - **Breaking change**: Changed **TokenRestrictionTemplate.Issuer** and **TokenRestrictionTemplate.Audience** to be of a string type.
-        - Updates related to creating custom retry policies.
-        - Bug fixes related to uploading/downloading files.
-        - The **MediaServicesCredentials** class now accepts primary and secondary access control endpoint to authenticate against.
+- **Критическое изменение**: **TokenRestrictionTemplate.Issuer** и **TokenRestrictionTemplate.Audience** изменено на тип строки.
+- Обновления, связанные с созданием пользовательских политик повторов.
+- Исправления ошибок, относящиеся к передаче или загрузке файлов.
+- Класс **MediaServicesCredentials** теперь принимает первичные и дополнительные конечные точки службы контроля доступа для проверки подлинности.
 
 
 
-        ##<a id="march_changes_15"></a>March 2015 Release
+##<a id="march_changes_15"></a>Выпуск: март 2015 г.
 
 ### Общие обновления служб мультимедиа
 
@@ -331,7 +350,7 @@ API REST служб мультимедиа обновлены до версии 
 * Создать URL-адрес SAS для загрузки (или постепенного воспроизведения) файла .mp4. Дополнительную информацию о создании локатора SAS см. в разделе [Доставка контента].
 
 
-### <a id="sept_14_GA_changes"></a>Новые функции и сценарии, включенные в состав общедоступного выпуска
+### <a id="sept_14_GA_changes"></a>Новые функции и сценарии, включенные в общедоступный выпуск
 
 * **Indexer Media Processor**. Дополнительную информацию см. в разделе [Индексация файлов мультимедиа с помощью Azure Media Indexer].
 
@@ -350,7 +369,7 @@ API REST служб мультимедиа обновлены до версии 
 
 	Дополнительную информацию см. в описании свойства **CustomHostNames** в разделе [Конечная точка потоковой передачи].
 
-### <a id="sept_14_preview_changes"></a>Новые функции и сценарии, включенные в состав общедоступного предварительного выпуска
+### <a id="sept_14_preview_changes"></a>Новые функции и сценарии, включенные в общедоступный предварительный выпуск
 
 * Предварительный просмотр потоковой передачи в реальном времени. Дополнительную информацию см. в разделе [Работа с потоковой передачей в реальном времени в службах мультимедиа Azure].
 
@@ -416,7 +435,7 @@ API REST служб мультимедиа обновлены до версии 
 * Исправлена ошибка, связанная с перекодированием файлов MP4, в которых аудиопоток имеет кодировку MPEG-1 Audio Layer 3 (так называемый MP3).
 
 
-##<a id="jan_feb_changes_14"></a>Выпуски: январь/февраль 2014 г.
+##<a id="jan_feb_changes_14"></a>Выпуски: январь-февраль 2014 г.
 
 ### <a name="jan_fab_14_donnet_changes"></a>Пакет SDK служб мультимедиа Azure для .NET 3.0.0.1, 3.0.0.2 и 3.0.0.3
 
@@ -631,7 +650,7 @@ API REST служб мультимедиа обновлены до версии 
 
 <!-- Images. -->
 
-<!-- URLs. -->
+<!--- URLs. --->
 [форуме MSDN по службам мультимедиа Azure]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Справочнике по API-интерфейсу REST для служб мультимедиа Azure]: http://msdn.microsoft.com/library/azure/hh973617.aspx
 [Сведения о ценах — службы мультимедиа]: http://azure.microsoft.com/pricing/details/media-services/
@@ -668,4 +687,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

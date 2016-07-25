@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/29/2016"
-	ms.author="mohisri"/>
+	ms.author="rachelap"/>
 
 # Изменения в приложениях API службы приложений
 
@@ -122,4 +122,4 @@
 - [Форум MSDN](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureAPIApps)
 - [Переполнение стека](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

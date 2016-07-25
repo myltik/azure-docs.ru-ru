@@ -28,22 +28,7 @@ ms.author="adegeo"/>
 
 ## Определение переменных среды до запуска роли
 
-Переменные среды для всей роли можно определить, добавив элемент [Runtime] в определение роли в файле определения службы.
-
-```xml
-<ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-    <WebRole name="WebRole1">
-        ...
-        <Runtime>
-            <Environment>
-                <Variable name="MyEnvironmentVariable" value="MyVariableValue" />
-            </Environment>
-        </Runtime>
-    </WebRole>
-</ServiceDefinition>
-```
-
-Если требуется определить переменные среды для конкретной задачи, не используемые совместно другими задачами, можно использовать элемент [Environment] внутри элемента [Task].
+Если требуется определить переменные среды для конкретной задачи, можно использовать элемент [Environment] внутри элемента [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -391,7 +376,6 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
     REM   Exit normally.
     EXIT /B 0
 
-
 ## Рекомендации по задачам
 Ниже приведены некоторые рекомендации, которые необходимо выполнять при настройке задачи для рабочей роли или веб-роли.
 
@@ -503,4 +487,4 @@ Startup2.cmd:
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

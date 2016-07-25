@@ -34,7 +34,7 @@
 
 ### Рекомендации по виртуальным машинам
 
-- Рекомендуются серии GS и DS, если отсутствует специализированная рабочая нагрузка, например высокопроизводительные вычисления. Дополнительную информацию см. в статье [Размеры виртуальных машин][virtual-machine-sizes]. При перемещении существующей рабочей нагрузки в Azure выберите начальный размер виртуальной машины, который больше всего соответствует вашим локальным серверам. Затем измерьте производительность фактической рабочей нагрузки с точки зрения потребляемых ресурсов ЦП, памяти и операций ввода-вывода, после чего измените размер, если это необходимо. Кроме того, если требуется использовать несколько сетевых карт, то учтите ограничения на количество сетевых карт для каждого размера.  
+- Рекомендуются серии GS и DS, если отсутствует специализированная рабочая нагрузка, например высокопроизводительные вычисления. Дополнительную информацию см. в статье [Размеры виртуальных машин][virtual-machine-sizes]. При перемещении существующей рабочей нагрузки в Azure выберите начальный размер виртуальной машины, который больше всего соответствует вашим локальным серверам. Затем измерьте производительность фактической рабочей нагрузки с точки зрения потребляемых ресурсов ЦП, памяти и операций ввода-вывода, после чего измените размер, если это необходимо. Кроме того, если требуется использовать несколько сетевых карт, то учтите ограничения на количество сетевых карт для каждого размера.
 
 - При подготовке виртуальной машины и других ресурсов необходимо указать расположение. Как правило, необходимо выбрать расположение как можно ближе к внутренним пользователям или клиентам. Однако не для всех расположений доступны все размеры виртуальной машины. Дополнительные сведения см. в разделе [Службы по региону][services-by-region]. Чтобы получить список размеров виртуальной машины, доступных в заданном расположении, выполните следующую команду в интерфейсе командной строки Azure (Azure CLI).
 
@@ -46,7 +46,7 @@
 
 ### Рекомендации по дискам и хранилищам
 
-- Для наилучшей производительности дисковых операций ввода-вывода мы рекомендуем [хранилище класса Premium][premium-storage], в котором для хранения данных используются твердотельные накопители (SSD). Цена зависит от размера подготовленного диска. Скорость выполнения операций ввода-вывода и пропускная способность (т. е. скорость передачи данных) также зависят от размера диска. Поэтому во время подготовки диска следует учитывать все эти факторы. 
+- Для наилучшей производительности дисковых операций ввода-вывода мы рекомендуем [хранилище класса Premium][premium-storage], в котором для хранения данных используются твердотельные накопители (SSD). Цена зависит от размера подготовленного диска. Скорость выполнения операций ввода-вывода и пропускная способность (т. е. скорость передачи данных) также зависят от размера диска. Поэтому во время подготовки диска следует учитывать все эти факторы.
 
 - Добавьте один или несколько дисков данных. При создании виртуальный машины жесткий диск не форматируется. Чтобы отформатировать диск, войдите в систему виртуальной машины.
 
@@ -70,7 +70,7 @@
 
 ## Вопросы масштабируемости
 
-- Размер виртуальной машины можно [увеличивать и уменьшать][vm-resize]. 
+- Размер виртуальной машины можно [увеличивать и уменьшать][vm-resize].
 
 - Для горизонтального развертывания поместите две или больше виртуальных машин в группу доступности, регулируемую балансировщиком нагрузки. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] (Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
 
@@ -114,7 +114,7 @@
 
 ## Вопросы безопасности
 
-- Благодаря [центру безопасности Azure][security-center] можно получить полное представление о состоянии безопасности ваших ресурсов Azure. Центр безопасности отслеживает потенциальные проблемы безопасности (например, в отношении обновлений системы и защиты от вредоносных программ), а также обеспечивает полное представление о состоянии системы безопасности развертывания. 
+- Благодаря [центру безопасности Azure][security-center] можно получить полное представление о состоянии безопасности ваших ресурсов Azure. Центр безопасности отслеживает потенциальные проблемы безопасности (например, в отношении обновлений системы и защиты от вредоносных программ), а также обеспечивает полное представление о состоянии системы безопасности развертывания.
 
     - Центр безопасности настраивается на уровне подписки Azure. Включите сбор данных безопасности, как описано в разделе [Использование Центра безопасности].
     - После включения сбора данных Центр безопасности автоматически проверяет все виртуальные машины, созданные для этой подписки.
@@ -123,7 +123,7 @@
 
 - **Защита от вредоносных программ**. Если эта функция включена, то Центр безопасности проверяет, установлена ли антивредоносное ПО. Центр обеспечения безопасности также позволяет установить антивредоносное ПО с помощью портала Azure.
 
-- Используйте [управление доступом на основе ролей][rbac] (RBAC) для управления доступом к разворачиваемым ресурсам Azure. RBAC позволяет назначить роли авторизации участникам команды DevOps. Например, роль "Читатель" позволяет просматривать ресурсы Azure, но не позволяет создавать и удалять их или управлять ими. Некоторые роли относятся к определенным типам ресурсов Azure. Например, роль "Участник виртуальных машин" позволяет перезапустить виртуальную машину или отменить ее выделение, сбросить пароль администратора, создать новую виртуальную машину и так далее. К другим [встроенным ролям RBAC][rbac-roles], которые могут быть полезными в этой эталонной архитектуре, относятся [Пользователь лаборатории для разработки и тестирования][rbac-devtest] и [Участник сети][rbac-network]. Пользователю можно назначить несколько ролей. Можно также создать пользовательские роли, чтобы более детально настроить разрешения.
+- Используйте [управление доступом на основе ролей][rbac] (RBAC) для управления доступом к разворачиваемым ресурсам Azure. RBAC позволяет назначить роли авторизации участникам команды DevOps. Например, роль "Читатель" позволяет просматривать ресурсы Azure, но не позволяет создавать и удалять их или управлять ими. Некоторые роли относятся к определенным типам ресурсов Azure. Например, роль "Участник виртуальных машин" позволяет перезапустить виртуальную машину или отменить ее выделение, сбросить пароль администратора, создать новую виртуальную машину и т. д. К другим [встроенным ролям RBAC][rbac-roles], которые могут быть полезными в этой эталонной архитектуре, относятся [Пользователь лаборатории для разработки и тестирования][rbac-devtest] и [Участник сети][rbac-network]. Пользователю можно назначить несколько ролей. Можно также создать пользовательские роли, чтобы более детально настроить разрешения.
 
     > [AZURE.NOTE] RBAC не ограничивает действия, которые может выполнять пользователь, вошедший в виртуальную машину. Эти разрешения определяются типом учетной записи в гостевой ОС.
 
@@ -260,19 +260,19 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
 <!-- links -->
 
 [arm-templates]: ../articles/virtual-machines/virtual-machines-windows-cli-deploy-templates.md
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/ru-RU/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/ru-RU/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
-[group-policy]: https://technet.microsoft.com/library/dn595129.aspx
-[log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
+[group-policy]: https://technet.microsoft.com/ru-RU/library/dn595129.aspx
+[log-collector]: https://azure.microsoft.com/ru-RU/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
@@ -284,21 +284,21 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/ru-RU/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/ru-RU/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/ru-RU/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
-[security-center]: https://azure.microsoft.com/services/security-center/
+[security-center]: https://azure.microsoft.com/ru-RU/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/ru-RU/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Использование Центра безопасности]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/ru-RU/support/legal/sla/virtual-machines/v1_0/
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->
