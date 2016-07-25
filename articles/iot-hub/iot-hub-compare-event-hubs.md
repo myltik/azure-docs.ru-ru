@@ -38,10 +38,14 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения о центре IoT в Azure см. по следующим ссылкам:
+Дополнительные сведения о планировании развертывания центра IoT см. в статье [Масштабирование центра IoT][lnk-scaling].
 
-- [Начало работы с центром IoT (руководство)][lnk-get-started]
-- [Что такое центр IoT в Azure?][]
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 [концентраторами событий Azure]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [раздел "Безопасность" руководства для разработчиков центра IoT]: iot-hub-devguide.md#security
@@ -49,8 +53,12 @@
 [Event Hub publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
 [квотам служебной шины Azure]: ../service-bus/service-bus-quotas.md
 [Azure IoT Hub SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Что такое центр IoT в Azure?]: iot-hub-what-is-iot-hub.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 
-<!---HONumber=AcomDC_0615_2016-->
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

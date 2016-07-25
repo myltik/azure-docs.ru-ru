@@ -55,15 +55,15 @@
     - *Отправка сообщений из облака на устройство и получение уведомлений о доставке*. Эти конечные точки позволяют серверной части приложения отправлять надежные сообщения из облака в устройство и получать уведомления о доставке или истечении срока действия. Дополнительные сведения см. в разделе [Отправка сообщений из облака на устройство](#c2d).
     - *Получение уведомлений о файлах*. Эта конечная точка обмена сообщениями позволяет получать уведомления при успешной отправке файла устройствами.
 
-В статье [Пакеты SDK для центра IoT][lnk-apis-sdks] описываются способы получения доступа к этим конечным точкам.
+В статье [Пакеты SDK для центра IoT][lnk-sdks] описываются способы получения доступа к этим конечным точкам.
 
 Наконец, следует отметить, что все конечные точки центра IoT используют протокол [TLS][lnk-tls]. Кроме того, конечные точки не предоставляются по незашифрованным или незащищенным каналам.
 
 ### Чтение из конечных точек, совместимых с концентраторами событий <a id="eventhubcompatible"></a>
 
-При использовании [пакета SDK служебной шины Azure для .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) или [концентраторов событий и узла обработчика событий][] можно использовать любые строки подключения к центру IoT с нужными разрешениями, а затем использовать **messages/events** в качестве имени концентратора событий.
+При использовании [пакета SDK служебной шины Azure для .NET][lnk-servicebus-sdk] или [концентраторов событий и узла обработчика событий][lnk-eventprocessorhost] можно использовать любые строки подключения к центру IoT с нужными разрешениями, а затем использовать **messages/events** в качестве имени концентратора событий.
 
-При использовании пакетов SDK (или интеграции продуктов), которые не поддерживают центр IoT, следует получить конечную точку, совместимую с концентраторами событий, и имя концентратора событий в разделе параметров центра IoT на [портале Azure][]\:
+При использовании пакетов SDK (или интеграции продуктов), которые не поддерживают центр IoT, следует получить конечную точку, совместимую с концентраторами событий, и имя концентратора событий в разделе параметров центра IoT на [портале Azure][lnk-management-portal]\:
 
 1. В колонке центра IoT последовательно щелкните **Параметры** и **Обмен сообщениями**.
 2. В разделе **Device-to-cloud settings** (Параметры отправки сообщений с устройства в облако) отобразятся следующие значения: **Event Hub-compatible endpoint** (Конечная точка, совместимая с концентраторами событий), **Event Hub-compatible name** (Имя, совместимое с концентраторами событий) и **Разделы**.
@@ -92,7 +92,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 На высоком уровне реестр удостоверений устройств является коллекцией с поддержкой REST, состоящей из ресурсов удостоверений устройств. Следующие разделы содержат подробные сведения о свойствах ресурсов удостоверений устройств, а также об операциях, которые реестр позволяет выполнять с удостоверениями.
 
-> [AZURE.NOTE] Дополнительные сведения о протоколе HTTP и пакетах SDK, которые можно использовать для взаимодействия с реестром удостоверений устройств, см. в статье [Пакеты SDK для центра IoT][lnk-apis-sdks].
+> [AZURE.NOTE] Дополнительные сведения о протоколе HTTP и пакетах SDK, которые можно использовать для взаимодействия с реестром удостоверений устройств, см. в статье [Пакеты SDK для центра IoT][lnk-sdks].
 
 ### Свойства удостоверений устройств <a id="deviceproperties"></a>
 
@@ -227,7 +227,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 Пароль (создание SAS с помощью обозревателя устройств): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
-> [AZURE.NOTE] [Пакеты SDK центра IoT Azure][lnk-apis-sdks] автоматически создают маркеры при подключении к службе. В некоторых случаях пакеты SDK поддерживают не все протоколы или не все методы проверки подлинности.
+> [AZURE.NOTE] [Пакеты SDK центра IoT Azure][lnk-sdks] автоматически создают маркеры при подключении к службе. В некоторых случаях пакеты SDK поддерживают не все протоколы или не все методы проверки подлинности.
 
 #### Специальные рекомендации для SASL PLAIN
 
@@ -262,7 +262,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 * Набор *свойств приложения*. Это словарь свойств строки, которые приложение может задать и использовать без необходимости десериализации текста сообщения. Центр IoT никогда не изменяет эти свойства.
 * Непрозрачная двоичная основная часть.
 
-Дополнительные сведения о разных способах кодировки сообщений в разных протоколах см. в статье [Пакеты SDK для центра IoT][lnk-apis-sdks].
+Дополнительные сведения о разных способах кодировки сообщений в разных протоколах см. в статье [Пакеты SDK для центра IoT][lnk-sdks].
 
 Это набор системных свойств в сообщениях центра IoT.
 
@@ -327,7 +327,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 Обратите внимание: это не означает, что центр IoT может заменить концентраторы событий во всех сценариях. Например, иногда при вычислениях для обработки событий может понадобиться перераспределить события на основе другого свойства или поля, чтобы проанализировать потоки данных. В этом сценарии с помощью концентратора событий можно отделить друг от друга два раздела конвейера обработки потока. Дополнительные сведения см. в разделе *Разделы* статьи [Общие сведения о концентраторах событий Azure][lnk-eventhub-partitions].
 
-Сведения об использовании обмена сообщениями с устройства в облако см. в статье [Интерфейсы API и пакеты SDK центра IoT][lnk-apis-sdks].
+Сведения об использовании обмена сообщениями с устройства в облако см. в статье [Интерфейсы API и пакеты SDK центра IoT][lnk-sdks].
 
 > [AZURE.NOTE] При использовании протокола HTTP для отправки сообщений с устройства в облако имена и значения свойств могут содержать только буквенно-цифровые символы ASCII и символы ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
@@ -397,7 +397,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 Состояние сообщения может изменяться с **Enqueued** (Поставлено в очередь) на **Невидимо** и наоборот столько раз, сколько указано в свойстве **Максимальное число доставок** центра IoT. После выполнения такого количества изменений центр IoT устанавливает для сообщения состояние **Deadlettered** (Не доставлено). Таким же образом центр IoT устанавливает для сообщения состояние **Deadlettered** (Не доставлено) после истечения срока действия сообщения (см. раздел [Срок действия сообщения (срок жизни)](#ttl)).
 
-Руководство по сообщениям, отправляемым из облака на устройство, см. в статье. [Отправка сообщений из облака на устройство с помощью центра IoT Azure][lnk-getstarted-c2d-tutorial]. Справочную информацию о том, как разные API-интерфейсы и пакеты SDK предоставляют функцию отправки сообщений из облака на устройство, см. в статье [Интерфейсы API и пакеты SDK центра IoT][lnk-apis-sdks].
+Руководство по сообщениям, отправляемым из облака на устройство, см. в статье. [Отправка сообщений из облака на устройство с помощью центра IoT Azure][lnk-getstarted-c2d-tutorial]. Справочную информацию о том, как разные API-интерфейсы и пакеты SDK предоставляют функцию отправки сообщений из облака на устройство, см. в статье [Интерфейсы API и пакеты SDK центра IoT][lnk-sdks].
 
 > [AZURE.NOTE] Обычно, если потеря сообщения, отправляемого с облака в устройство, никак не влияет на логику приложения, эти сообщения завершаются. Например, когда содержимое сообщения успешно сохранено в локальном хранилище, или когда операция успешно выполнена. Сообщение может также содержать временные сведения, потеря которых не влияет на функциональность приложения. Иногда при работе с долгосрочной задачей сообщение, отправляемое с облака в устройство, можно завершить после того, как описание задачи сохранится в локальном хранилище. После этого на различных этапах выполнения задачи в серверную часть приложения отправляется одно или несколько уведомлений.
 
@@ -471,7 +471,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 | feedback.ttlAsIso8601 | Хранение отзывов, направленных службе. | Интервал ISO\_8601 — до 2 устройств (минимум 1 минута). Значение по умолчанию — 1 час. |
 | feedback.maxDeliveryCount | Лимит доставок для очереди отзывов. | От 1 до 100. Значение по умолчанию — 100. |
 
-Дополнительные сведения см. в статье [Управление центрами IoT через портал Azure][lnk-manage].
+Дополнительные сведения см. в статье [Управление центрами IoT через портал Azure][lnk-portal].
 
 ### Отправка файлов <a id="fileupload"></a>
 
@@ -483,7 +483,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 Чтобы использовать функции отправки файлов, сначала необходимо связать учетную запись хранения Azure с центром IoT. Это можно сделать на [портале Azure][lnk-management-portal] или программно (с помощью [API-интерфейсов поставщика ресурсов в центре IoT Azure][lnk-resource-provider-apis]). После привязки учетной записи хранения к центру IoT служба возвращает код URI SAS на устройство, получив от него запрос на отправку файла.
 
-> [AZURE.NOTE] [Пакеты SDK центра IoT Azure][lnk-apis-sdks] автоматически управляют получением кода URI SAS, отправкой файла и уведомлением центра IoT о завершении отправки.
+> [AZURE.NOTE] [Пакеты SDK центра IoT Azure][lnk-sdks] автоматически управляют получением кода URI SAS, отправкой файла и уведомлением центра IoT о завершении отправки.
 
 #### Инициализация отправки файла
 
@@ -532,7 +532,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 | **fileNotifications.lockDuration** | Длительность блокировки для очереди уведомлений об отправке файлов. | 5–300 секунд (минимум 5 секунд). Значение по умолчанию — 60 секунд. |
 | **fileNotifications.maxDeliveryCount** | Максимальное количество доставок для очереди уведомлений об отправке файлов. | От 1 до 100. Значение по умолчанию — 100. |
 
-Дополнительные сведения см. в статье [Управление центрами IoT через портал Azure][lnk-manage].
+Дополнительные сведения см. в статье [Управление центрами IoT через портал Azure][lnk-portal].
 
 ## Квоты и регулирование <a id="throttling"></a>
 
@@ -571,21 +571,26 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 Вы ознакомились с общими сведениями о разработке, касающимися центра IoT. См. также:
 
-- [Приступая к работе с центром IoT (руководство)][lnk-get-started]
-- [Платформы ОС и совместимость оборудования][lnk-compatibility]
-- [Центр разработчика IoT Azure][lnk-iotdev]
-- [Разработка решения][lnk-guidance]
+- [Tutorial: How to upload files from devices to the cloud with IoT Hub][lnk-file upload] (Руководство. Как отправлять файлы с устройств в облако с помощью центра IoT)
+- [Создание центра IoT программным образом][lnk-create-hub]
+- [Знакомство с пакетом SDK для устройств Azure IoT для C][lnk-c-sdk]
+- [Пакеты SDK для центра IoT][lnk-sdks]
 
-[концентраторов событий и узла обработчика событий]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-[портале Azure]: https://portal.azure.com
+- [Разработка решения][lnk-design]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
+
+
+
+[lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
 [img-endpoints]: ./media/iot-hub-devguide/endpoints.png
 [img-lifecycle]: ./media/iot-hub-devguide/lifecycle.png
 [img-eventhubcompatible]: ./media/iot-hub-devguide/eventhubcompatible.png
 
-[lnk-compatibility]: iot-hub-tested-configurations.md
-[lnk-apis-sdks]: iot-hub-sdks-summary.md
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 
@@ -597,8 +602,6 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 [lnk-guidance-heartbeat]: iot-hub-guidance.md#heartbeat
 
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-[lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-guidance]: iot-hub-guidance.md
 [lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 
 [lnk-amqp]: https://www.amqp.org/
@@ -607,7 +610,6 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 [lnk-arm]: ../resource-group-overview.md
 [lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
-[lnk-createuse-sas]: ../storage-dotnet-shared-access-signature-part-2/
 [lnk-event-hubs-publisher-policy]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
@@ -617,11 +619,20 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
-[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
-[lnk-manage]: iot-hub-manage-through-portal.md
 [lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
+[lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

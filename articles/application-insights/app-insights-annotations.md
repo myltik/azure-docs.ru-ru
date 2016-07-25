@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="06/28/2016"
     ms.author="awills"/>
 
 # Заметки к выпуску в Application Insights
@@ -40,7 +40,7 @@
 
 
 1. Выполните вход на [портал Microsoft Azure](https://portal.azure.com) и откройте ресурс Application Insights, который используется для мониторинга вашего приложения. (Или [создайте новый](app-insights-overview.md), если вы этого еще не сделали.)
-2. Откройте **Параметры**, **Доступ к API** и скопируйте **идентификатор Application Insights**.
+2. Откройте **Доступ к API** и скопируйте **идентификатор Application Insights**.
 
     ![На сайте portal.azure.com откройте ресурс Application Insights и выберите "Параметры". Откройте "Доступ к API". Скопируйте идентификатор приложения.](./media/app-insights-annotations/20.png)
 
@@ -73,7 +73,7 @@
 
 Вы можете создать аннотации из любого процесса на свой выбор (без использования Visual Studio Team System).
 
-Получите [сценарий Powershell из GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+Получите [сценарий PowerShell из GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
 
 Используйте его следующим образом.
 
@@ -96,4 +96,4 @@
 
 ![Щелкните любой маркер заметки о выпуске.](./media/app-insights-annotations/60.png)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

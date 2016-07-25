@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
 # Учебник. Интеграция Azure Active Directory с Tableau Server
 
-Цель этого учебника — показать, как интегрировать Tableau Server с Azure Active Directory \(Azure AD\).
+Цель этого учебника — показать, как интегрировать Tableau Server с Azure Active Directory (Azure AD).
 
 Интеграция Tableau Server с Azure AD дает приведенные далее преимущества:
 
 - С помощью Azure AD вы можете контролировать доступ к Tableau Server.
-- Вы можете включить автоматический вход пользователей в Tableau Server \(единый вход\) с применением учетной записи Azure AD.
-- Вы можете управлять учетными записями централизованно — через портал Azure Active Directory
+- Вы можете включить автоматический вход пользователей в Tableau Server (единый вход) с применением учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
@@ -60,7 +60,7 @@
 
 **Чтобы добавить Tableau Server из коллекции, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
  
 	![Active Directory][1]
 
@@ -130,7 +130,7 @@
 
     c. В списке **Значение атрибута** выберите **user.displayname**.
 
-    г\) Нажмите **Завершено**.
+    г) Нажмите **Завершено**.
 	
 
 
@@ -189,9 +189,9 @@
 
 	b. Установите флажок **Использовать SAML для единого входа**.
 
-	c. Найдите файл метаданных федерации, скачанный с портала управления Azure, а затем отправьте его в **файл метаданных поставщика удостоверений SAML**.
+	c. Найдите файл метаданных федерации, скачанный с классического портала Azure, а затем передайте его в **файл метаданных поставщика удостоверений SAML**.
 
-	г\) URL-адрес возврата Tableau Server — URL-адрес для доступа пользователей Tableau Server, например http://tableau_server. Использовать http://localhost не рекомендуется. URL-адреса с конечной косой чертой \(например http://tableau_server/\) не поддерживаются. Скопируйте **URL-адрес возврата Tableau Server** и вставьте его в текстовое поле **URL-адрес входа** Azure AD, как показано в шаге 3.
+	г) URL-адрес возврата Tableau Server — URL-адрес для доступа пользователей Tableau Server, например http://tableau_server. Использовать http://localhost не рекомендуется. URL-адреса с конечной косой чертой (например http://tableau_server/) не поддерживаются. Скопируйте **URL-адрес возврата Tableau Server** и вставьте его в текстовое поле **URL-адрес входа** Azure AD, как показано в шаге 3.
 
 	д. Идентификатор сущности SAML — идентификатор сущности однозначно определяет установку Tableau Server для поставщика удостоверений. Если нужно, здесь можно еще раз ввести URL-адрес Tableau Server, но это необязательно должен быть URL-адрес Tableau Server. Скопируйте **идентификатор сущности SAML** и вставьте его в текстовое поле **ИДЕНТИФИКАТОР** Azure AD, как показано в шаге 3.
 
@@ -199,7 +199,7 @@
 
 	ж. Нажмите кнопку **ОК** на странице конфигурации Tableau Server.
 
-	> [AZURE.NOTE] Более подробные сведения о настройке SAML в Tableau Server см. в статье [Настройка SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+	> [AZURE.NOTE] Более подробные сведения о настройке SAML в Tableau Server см. в статье [Настройка SAML](http://onlinehelp.tableau.com/current/server/ru-RU/config_saml.htm).
 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
 
@@ -254,7 +254,7 @@
 
     c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
 
-    г\) В списке **Роль** выберите **Пользователь**.
+    г) В списке **Роль** выберите **Пользователь**.
 
     д. Нажмите кнопку **Далее**.
 
@@ -341,4 +341,4 @@
 [204]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tableauserver-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

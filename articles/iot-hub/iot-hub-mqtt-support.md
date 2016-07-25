@@ -43,7 +43,7 @@
 
 Если устройство не может использовать клиентские пакеты SDK, оно может подключаться к общедоступным конечным точкам устройства по протоколу MQTT. В пакете **CONNECT** устройство должно использовать следующие значения.
 
-- В поле **Идентификатор клиента** укажите **идентификатор устройства**. 
+- В поле **Идентификатор клиента** укажите **идентификатор устройства**.
 - В поле **Имя пользователя** укажите `{iothubhostname}/{device_id}`, где {iothubhostname} — это полная запись CName центра IoT.
 
     Например, если имя центра IoT — **contoso.azure-devices.net** и имя устройства — **MyDevice01**, то полное поле **Имя пользователя** должно содержать `contoso.azure-devices.net/MyDevice01`.
@@ -85,13 +85,24 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 Дополнительные сведения о поддержке MQTT пакетами SDK для устройств IoT см. в подразделе [Примечания о поддержке протокола MQTT][lnk-mqtt-devguide] руководства для разработчиков для центра Azure IoT.
 
-Дополнительные сведения об использовании пакетов SDK для клиентов устройств для взаимодействия с центром IoT см. в разделе [Приступая к работе с центром Azure IoT с использованием .NET][lnk-iot-get-stated].
-
 Дополнительные сведения о протоколе MQTT см. в [документации по MQTT][lnk-mqtt-docs].
+
+Дополнительные сведения о планировании развертывания центра IoT см. в следующих руководствах:
+
+- [Поддерживаемые устройства][lnk-devices]
+- [Поддержка дополнительных протоколов для центра IoT][lnk-protocols]
+- [Сравнение центра IoT и концентраторов событий][lnk-compare]
+- [Масштабирование центра IoT][lnk-scaling]
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [lnk-mqtt-org]: http://mqtt.org/
-[lnk-iot-get-stated]: iot-hub-csharp-csharp-getstarted.md
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
@@ -101,4 +112,13 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 [lnk-sas-tokens]: iot-hub-sas-tokens.md#using-sas-tokens-as-a-device
 [lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

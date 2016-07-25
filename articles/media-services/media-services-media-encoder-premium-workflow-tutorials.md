@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="07/11/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #Руководства по расширенному рабочему процессу кодировщика мультимедиа
@@ -974,7 +974,7 @@
 
 [Форматы и кодеки рабочего процесса Premium Media Encoder](media-services-premium-workflow-encoder-formats.md)
 
-[Примеры файлов рабочего процесса](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
+[Примеры файлов рабочего процесса](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Средство Explorer для служб мультимедиа Azure](http://aka.ms/amse)
 
@@ -986,4 +986,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

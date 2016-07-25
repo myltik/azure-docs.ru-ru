@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2016"
+	ms.date="07/12/2016"
 	ms.author="tomfitz"/>
 
 # Совместное использование состояния в шаблонах диспетчера ресурсов Azure
@@ -426,4 +426,4 @@ enableJumpbox | Строка из ограниченного списка (enabl
 - Дополнительную информацию о разделах в шаблоне см. в статье, посвященной [созданию шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 - Список функций, которые можно использовать в шаблоне, см. в статье, описывающей [функции шаблонов Azure Resource Manager](resource-group-template-functions.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

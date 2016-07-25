@@ -280,4 +280,20 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 В этой статье подробно описывается работа библиотеки **IoTHubClient**, содержащейся в **пакете SDK для устройств Azure IoT для C**. Эти сведения позволят вам хорошо изучить возможности библиотеки **IoTHubClient**. В [следующей статье](iot-hub-device-sdk-c-serializer.md) мы подробно расскажем о библиотеке **serializer**.
 
-<!---HONumber=AcomDC_0629_2016-->
+Дополнительные сведения о разработке для центра IoT см. в статье [Пакеты SDK для центра IoT][lnk-sdks].
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Разработка решения][lnk-design]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
+
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

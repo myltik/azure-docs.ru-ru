@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Настройка группы доступности для классических виртуальных машин | Microsoft Azure"
-	description="Настройка группы доступности для новой или существующей виртуальной машины в классической модели развертывания с помощью портала Azure и Azure PowerShell."
+	pageTitle="Группы доступности для классических виртуальных машин Windows | Microsoft Azure"
+	description="Настройка групп доступности для новой или существующей виртуальной машины Windows в классической модели развертывания с помощью портала Azure и Azure PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,13 +14,17 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="07/12/2016"
 	ms.author="cynthn"/>
 
-# Как настроить группу доступности для виртуальных машин в классической модели развертывания
+# Как настроить группу доступности для виртуальных машин Windows в классической модели развертывания
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Группы доступности можно также настраивать в развертываниях диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. [Группы доступности](virtual-machines-windows-create-availability-set.md) можно также настраивать в развертываниях Resource Manager.
 
 [AZURE.INCLUDE [virtual-machines-common-classic-configure-availability](../../includes/virtual-machines-common-classic-configure-availability.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+## Дальнейшие действия
+
+Дополнительные ресурсы, посвященные классическим развертываниям, см. в статье [Технические статьи по виртуальным машинам Windows в классической модели развертывания](virtual-machines-windows-index.md).
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/02/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Метаданные приложений API службы приложений для обнаружения API и создания кода 
 
@@ -60,4 +60,4 @@ URL-адрес определения API для приложения API мож
 
 Если вы используете управление API Azure с приложениями API, вы можете использовать метаданные Swagger для импорта API в управление API. Дополнительные сведения см. в статье [Как импортировать определение API с операциями в Azure API Management](../api-management/api-management-howto-import-api.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

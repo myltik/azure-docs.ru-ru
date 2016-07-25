@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="06/21/2016"
+  ms.date="07/06/2016"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -21,7 +21,6 @@
 ## В центре внимания сообщества
 
 Пора показать ваш проект миру! Расскажите нам о проекте, в котором используете DocumentDB, и мы поможем вам поделиться своими находками со всем миром. Чтобы отправить проект, напишите нам по адресу [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
-
 
 ### documentdb-lumenize
 
@@ -31,7 +30,6 @@
 
 Ознакомьтесь с проектом на сайтах [Github](https://github.com/lmaccherone/documentdb-lumenize) и [npm](https://www.npmjs.com/package/lumenize).
 
-
 ### DocumentDB Studio
 
 *Минг Лю (Ming Liu)*
@@ -39,7 +37,6 @@
 Средство просмотра и управления клиентами для службы Microsoft Azure DocumentDB.
 
 Ознакомьтесь с проектом на сайте [Github](https://github.com/mingaliu/DocumentDBStudio).
-
 
 ### DoQmentDB
 
@@ -49,7 +46,6 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 
 Ознакомьтесь с проектом на сайтах [Github](https://github.com/a8m/doqmentdb) и [npm](https://www.npmjs.com/package/doqmentdb).
 
-
 ### REST API Swagger для DocumentDB
 
 *Автор: Ховард Эдидин (Howard Edidin)*
@@ -57,7 +53,6 @@ DoQmentDB — это клиент на базе обещания Node.js, соз
 Файл REST API Swagger для DocumentDB, который можно легко развернуть в качестве приложения API.
 
 Ознакомьтесь с проектом на сайте [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/DocumentDBRestApi).
-
 
 ### fluent-plugin-documentdb
 
@@ -75,47 +70,47 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 **Записи участников сообщества:**
 
-* [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) (Создание социальных сетей с помощью DocumentDB). *Матиас Куарантаас (Matias Quarantaas)*
+- [**Going Social with DocumentDB**](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/03/15/going-social-with-documentdb/) (Создание социальных сетей с помощью DocumentDB). *Матиас Куарантаас (Matias Quarantaas)*
 
-* [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) (UWP, службы приложений Azure и DocumentDB: приложение для обмена фотографиями). *Эрик Лэнгленд (Eric Langland)*
+- [**UWP, Azure App Services, and DocumentDB Soup: A photo-sharing app**](https://blogs.windows.com/buildingapps/2016/03/17/uwp-azure-app-services-and-documentdb-soup-a-photo-sharing-app/) (UWP, службы приложений Azure и DocumentDB: приложение для обмена фотографиями). *Эрик Лэнгленд (Eric Langland)*
 
-* [**Уведомления о новых или измененных ресурсах DocumentDB с использованием приложений логики**](documentdb-change-notification.md). *Ховард Эдидин (Howard Edidin)*
+- [**Уведомления о новых или измененных ресурсах DocumentDB с использованием приложений логики**](documentdb-change-notification.md). *Ховард Эдидин (Howard Edidin)*
 
-* [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) (Сбор журналов в Azure DocumentDB с помощью подключаемого модуля fluent-plugin-documentdb). *Йоичи Кавасаки (Yoichi Kawasaki)*
+- [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) (Сбор журналов в Azure DocumentDB с помощью подключаемого модуля fluent-plugin-documentdb). *Йоичи Кавасаки (Yoichi Kawasaki)*
 
-* [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) (Новый взгляд на DocumentDB часть 1 и 2. Теория). *Питер Маннехалт (Peter Mannerhult)*
+- [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) (Новый взгляд на DocumentDB часть 1 и 2. Теория). *Питер Маннехалт (Peter Mannerhult)*
 
-* [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) (Преимущества и недостатки Azure DocumentDB). *Джордж Сааде (George Saadeh)*
+- [**What to love and hate about Azure’s DocumentDB**](http://blog.falafel.com/4-what-to-love-and-hate-about-azures-documentdb/) (Преимущества и недостатки Azure DocumentDB). *Джордж Сааде (George Saadeh)*
 
-* [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) (Написание сценариев на стороне сервера в Azure DocumentDB). *Роберт Шелдон (Robert Sheldon)*
+- [**Azure DocumentDB Server-Side Scripting**](https://www.simple-talk.com/cloud/cloud-data/azure-documentdb-server-side-scripting/) (Написание сценариев на стороне сервера в Azure DocumentDB). *Роберт Шелдон (Robert Sheldon)*
 
-* [**DocumentDB в качестве приемника данных для Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) — *Ян Хентшель (Jan Hentschel)*
+- [**DocumentDB в качестве приемника данных для Azure Stream Analytics**](http://janatdevelopment.com/2015/12/11/documentdb-as-a-data-sink-for-azure-stream-analytics/?utm_source=twitterfeed&utm_medium=twitter) — *Ян Хентшель (Jan Hentschel)*
 
-* [**Azure DocumentDB в рабочей среде!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) — *Александр Уолш (Alexandre Walsh) и Марк-Оливье Дюваль (Marc-Olivier Duval)*
+- [**Azure DocumentDB в рабочей среде!**](http://blog.nexapp.ca/2015/11/30/azure-documentdb-in-production/) — *Александр Уолш (Alexandre Walsh) и Марк-Оливье Дюваль (Marc-Olivier Duval)*
 
-* [**Индексаторы поиска Azure. Запросы DocumentDB (испанский)**](http://www.ealsur.com.ar/wp/index.php/2015/11/19/azure-search-indexers-documentdb-queries/) — *Матиас Куаранта (Matthias Quaranta)*
+- [**Индексаторы поиска Azure. Запросы DocumentDB (испанский)**](http://www.ealsur.com.ar/wp/index.php/2015/11/19/azure-search-indexers-documentdb-queries/) — *Матиас Куаранта (Matthias Quaranta)*
 
-* [**Azure DocumentDB のSQLクエリ基礎**](http://beachside.hatenablog.com/entry/2015/12/06/000045) — *Ацуши Йокогама (Atsushi Yokohama)*
+- [**Основы SQL-запросов Azure DocumentDB**](http://beachside.hatenablog.com/entry/2015/12/06/000045) (на японском языке) — *Ацуши Йокогама (Atsushi Yokohama)*
 
-* [**Точки данных — Aurelia встречает DocumentDB: брачный контракт**](https://msdn.microsoft.com/magazine/mt620011.aspx) — *Джули Лерман (Julie Lerman)*
+- [**Точки данных — Aurelia встречает DocumentDB: брачный контракт**](https://msdn.microsoft.com/magazine/mt620011.aspx) — *Джули Лерман (Julie Lerman)*
 
-* [**Инфраструктура как код и непрерывное развертывание Node.js + решение Azure DocumentDB**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) — *Тиаго Альмедиа (Thiago Almedia)*
+- [**Инфраструктура как код и непрерывное развертывание Node.js + решение Azure DocumentDB**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) — *Тиаго Альмедиа (Thiago Almedia)*
 
-* [**Преимущества DocumentDB для некоторых проектов**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) — *Сэмюэл Урезин (Samuel Uresin)*
+- [**Преимущества DocumentDB для некоторых проектов**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) — *Сэмюэл Урезин (Samuel Uresin)*
 
-* [**Azure DocumentDB の開発ことはじめ. Клиент クラスの開発（1/2）**](http://beachside.hatenablog.com/entry/2015/10/01/202734) — *Ацуши Иокогама (Atsushi Yokohama)*
+- [**Перспективы разработки для Azure DocumentDB — разработка клиентского класса (1 из 2)**](http://beachside.hatenablog.com/entry/2015/10/01/202734) (на японском языке) — *Ацуши Йокогама (Atsushi Yokohama)*
 
-* [**Azure DocumentDB を使うときに知っておきたいいくつかのこと**](http://beachside.hatenablog.com/entry/2015/10/01/202734) — *Ацуши Иокогама (Atsushi Yokohama)*
+- [**Что нужно знать при использовании Azure DocumentDB**](http://beachside.hatenablog.com/entry/2015/10/01/202734) (на японском языке) — *Ацуши Йокогама (Atsushi Yokohama)*
 
-* [**Обработка ошибок RequestRateTooLarge в Azure DocumentDB и тестирование производительности**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) — *Азим Уддин (Azim Uddin)*
+- [**Обработка ошибок RequestRateTooLarge в Azure DocumentDB и тестирование производительности**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) — *Азим Уддин (Azim Uddin)*
 
-* [**Точки данных. Обзор Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) — *Джули Лерман*
+- [**Точки данных. Обзор Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) — *Джули Лерман*
 
-* [**Использование DocumentDB с F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) — *Джейми Диксон (Jamie Dixon)*.
+- [**Использование DocumentDB с F#**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) — *Джейми Диксон (Jamie Dixon)*.
 
-* [**Анализ журналов приложений с помощью DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) (на английском языке), *Винсен-Филипп Лозон (Vincent-Philippe Lauzon)*
+- [**Анализ журналов приложений с помощью DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) (на английском языке), *Винсен-Филипп Лозон (Vincent-Philippe Lauzon)*
 
-* [**Azure DocumentDB. Восстановление из резервной копии на конкретный момент времени**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) — *Хуан Карлос Санчез (Juan Carlos Sanchez)*
+- [**Azure DocumentDB. Восстановление из резервной копии на конкретный момент времени**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) — *Хуан Карлос Санчез (Juan Carlos Sanchez)*
 
 *У вас есть запись в блоге, пример кода или интересный материал, которым вы хотите поделиться? [Сообщите нам об этом](mailto:askdocdb@microsoft.com)!*
 
@@ -125,7 +120,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 | Название мероприятия | Докладчик | Расположение | Дата | Хэш-тег |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Integration and IoT](http://www.btug.be/events) (Интеграция и IoT) | Элдерт Грутенбур (Eldert Grootenboer) | Контих, Бельгия | 30 июня 2016 г. | Недоступно |
+| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Эндрю Лю (Andrew Liu) и Тара Джана (Tara Jana) | Атланта, штат Джорджия, США | 26–30 сентября 2016 г. | [#MSIgnite](https://twitter.com/MS_Ignite) |
 
 
 *Вы являетесь докладчиком или организуете мероприятие? [Мы можем помочь!](mailto:askdocdb@microsoft.com) Узнайте как.*
@@ -134,7 +129,10 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 | Название мероприятия | Докладчик | Расположение | Дата | Записи |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ---------------------- | --------- |
-| [Do Logic Apps support error handling?](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/?event_date=2016-06-20) (Поддерживают ли приложения логики обработку ошибок?) | Ховард С. Эдидин (Howard S. Edidin) | Веб-трансляция | 20 июня 2016 г. | Недоступно |
+| [DevTeach](http://devteach.com/) | Кен Ченерелли (Ken Cenerelli) | Монреаль, Канада | 4–8 июля 2016 г. | [NoSQL, No Problem, Using Azure DocumentDB](http://www.slideshare.net/KenCenerelli) (NoSQL без проблем: использование Azure DocumentDB) |
+| [Integration and IoT (Интеграция и IoT)](http://www.btug.be/events) | Элдерт Грутенбур (Eldert Grootenboer) | Контих, Бельгия | 30 июня 2016 г. | Недоступно |
+| [MongoDB World 2016](https://www.mongodb.com/world16) | Кирилл Гаврилюк | Нью-Йорк, штат Нью-Йорк, США | 28–29 июня 2016 г. | Недоступно |
+| [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) | Ховард С. Эдидин (Howard S. Edidin) | Веб-трансляция | 20 июня 2016 г. | [Do Logic Apps support error handling? (Поддерживают ли приложения логики обработку ошибок?)](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) |
 | [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Эндрю Лю (Andrew Liu) | Лондон, Великобритания | 12 мая 2016 г. | Недоступно
 |[Meetup: ONETUG - Orlando .NET User Group](http://www.meetup.com/ONETUG/events/230797164/)| Сантош Хари (Santosh Hari)| Орландо, штат Флорида (США)| 12 мая 2016 г.| Недоступно 
 | [SQLBits XV](https://sqlbits.com/) | Эндрю Лю (Andrew Liu), Аравинд Рамачандран (Aravind Ramachandran) | Ливерпуль, Великобритания | 4–7 мая 2016 г. | Недоступно| [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Леонард Лоубел (Leonard Lobel) | Нью-Йорк, штат Нью-Йорк | 21 апреля 2016 г. | Недоступно |
@@ -169,7 +167,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Алан Митчелл | Лондон, Великобритания | 19 мая 2015 г. | Недоступно |
 | [DevIntersection](https://devintersection.com/) | Эндрю Лю (Andrew Liu) | Скоттсдейл, штат Аризона | 18–21 мая 2015 г. | Недоступно |
 | [Meetup: Seattle Web App Developers Group](http://www.meetup.com/Seattle-Web-App-Developers-Group/events/220591071/) | Эндрю Лю (Andrew Liu) | Сиэтл, Вайоминг | 14 мая 2015 г. | Недоступно |
-| [Ignite](http://ignite.microsoft.com/) | Эндрю Хо (Andrew Hoh), Джон Макинтайр (John Macintyre) | Чикаго, Иллинойс | 4–8 мая 2015 г. | [Видео SELECT Latest FROM DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/) (ВЫБОР последнего из DocumentDB) [Видео DocumentDB and Azure HDInsight: Better Together](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) (DocumentDB и Azure HDInsight: эффективный альянс) |
+| [Ignite](http://ignite.microsoft.com/) | Эндрю Хо (Andrew Hoh), Джон Макинтайр (John Macintyre) | Чикаго, Иллинойс | 4–8 мая 2015 г. | [SELECT Latest FROM DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/) (Последнее из DocumentDB) (видео) [DocumentDB and Azure HDInsight: Better Together](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) (DocumentDB и Azure HDInsight: эффективный альянс) (видео) |
 | [Build 2015](http://www.buildwindows.com/) | Райан Кроукур (Ryan Crawcour) | Сан-Франциско, Калифорния | 29 апреля – 1 мая 2015 г. | [Покоряйте новые горизонты со службой NoSQL Azure: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Глобальный учебный курс по Azure 2015 — Испания](http://azurebootcamp.es/) | Луис Руис Павон (Luis Ruiz Pavon), Роберто Гонсалес (Roberto Gonzalez) | Мадрид, Испания | 25 апреля 2015 г. | [#DEAN DocumentDB + Express + AngularJS + NodeJS в Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Azure Usergroup Denmark](http://www.meetup.com/Azure-Usergroup-Denmark/events/221026670/) | Кристиан Холм Диджет (Christian Holm Diget) | Копенгаген, Дания | 16 апреля, 2015 г. | Недоступно |
@@ -256,8 +254,8 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 ## Мастера DocumentDB
 
 Мастера DocumentDB — это специалисты, продемонстрировавшие исключительную готовность помогать другим эффективно использовать Azure DocumentDB. Они делятся своей увлеченностью, знаниями и опытом с широкой общественностью и командой DocumentDB.
-      
-                                                                                                                                                                                                                                                                                                           Wizard | Picture 
+
+Мастер | Фотография 
  --- | --- 
  [Алан Митчелл](https://twitter.com/allansqlis) | [![Алан Митчелл](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) 
  [Джен Стиррап](https://twitter.com/jenstirrup) | [![Джен Стиррап](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup)            
@@ -268,4 +266,4 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

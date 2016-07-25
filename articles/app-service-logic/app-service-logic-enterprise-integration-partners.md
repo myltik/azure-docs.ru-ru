@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Сведения о партнерах и пакете интеграции Enterprise | Служба приложений Microsoft Azure" 
+	pageTitle="Сведения о партнерах и пакете интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Сведения о партнерах и пакете интеграции Enterprise
@@ -53,14 +53,12 @@
 3. Внесите необходимые изменения в элементе **Update Partner** (Обновление партнера).
 4. Внеся все необходимые изменения, щелкните ссылку **Сохранить**, чтобы сохранить их. Чтобы отменить изменения, щелкните ссылку **Отмена**. ![](./media/app-service-logic-enterprise-integration-partners/edit-1.png)
 
-
 ## Как удалить партнер
 1. Выберите элемент **Партнеры**.
 2. В открывшейся колонке "Партнеры" выберите партнер, который вы хотите удалить.
 3. Щелкните ссылку **Удалить**. ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)
 
-
 ## Дальнейшие действия
-- [Узнайте больше о соглашениях](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.")
+- [Узнайте больше о соглашениях](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.").
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

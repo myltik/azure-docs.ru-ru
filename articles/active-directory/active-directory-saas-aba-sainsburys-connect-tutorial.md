@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с ABa Sainsburys Connect
@@ -37,7 +37,7 @@
 
 ###Чтобы включить интеграцию приложений для Aba Sainsburys Connect, выполните следующие действия.
 
-1.  На портале управления Azure в левой области навигации нажмите **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC700993.png "Active Directory")
 
@@ -68,7 +68,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции с приложением **Aba Sainsburys Connect** портала Azure AD нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На странице интеграции с приложением **Aba Sainsburys Connect** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807726.png "Настройка единого входа")
 
@@ -80,7 +80,7 @@
 
     ![Настройка параметров приложения](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807728.png "Настройка параметров приложения")
 
-    1.  В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Aba Sainsburys Connect (например, **https://myaba.co.uk/client-access/sainsburys/saml.php*)).
+    1.  В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Aba Sainsburys Connect (например, *https://myaba.co.uk/client-access/sainsburys/saml.php*).
     2.  Нажмите кнопку **Далее**.
 
 4.  На странице **Настройка единого входа в Aba Sainsburys Connect** нажмите кнопку **Загрузить метаданные** для скачивания метаданных, а затем сохраните файл данных на свой компьютер.
@@ -89,16 +89,16 @@
 
 5.  Отправьте загруженный файл метаданных в службу поддержки Aba Sainsburys Connect.
 
-    >[AZURE.NOTE]Служба поддержки Aba Sainsburys Connect произведет настройку SSO. Как только единый вход для вашей подписки будет включен, вы получите уведомление.
+    >[AZURE.NOTE] Служба поддержки Aba Sainsburys Connect произведет настройку SSO. Как только единый вход для вашей подписки будет включен, вы получите уведомление.
 
-6.  На портале Azure AD выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807730.png "Настройка единого входа")
 ##Настройка подготовки учетных записей пользователей
 
 Чтобы пользователи Azure AD могли выполнять вход в Aba Sainsburys Connect, они должны быть подготовлены для Aba Sainsburys Connect. В случае Aba Sainsburys Connect учетные записи пользователей должны создаваться службой поддержки Aba Sainsburys Connect.
 
->[AZURE.NOTE]Вы можете использовать любые другие средства создания учетных записей пользователя Aba Sainsburys Connect или API, предоставляемые Aba Sainsburys Connect для подготовки учетных записей пользователей Azure Active Directory.
+>[AZURE.NOTE] Вы можете использовать любые другие средства создания учетных записей пользователя Aba Sainsburys Connect или API, предоставляемые Aba Sainsburys Connect для подготовки учетных записей пользователей Azure Active Directory.
 
 ##Назначение пользователей
 
@@ -106,9 +106,9 @@
 
 ###Чтобы назначить пользователей Aba Sainsburys Connect, выполните следующие действия.
 
-1.  На портале Azure AD создайте тестовую учетную запись.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  На странице интеграции приложения **Aba Sainsburys Connect** нажмите кнопку **Назначить пользователей**.
+2.  На странице интеграции с приложением **Aba Sainsburys Connect** нажмите кнопку **Назначить пользователей**.
 
     ![Назначить пользователей](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807731.png "Назначить пользователей")
 
@@ -118,4 +118,4 @@
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

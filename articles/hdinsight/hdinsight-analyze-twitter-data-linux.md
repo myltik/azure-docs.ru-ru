@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 # Анализ данных Twitter с помощью Hive в HDInsight
 
 В данном документе рассказывается, как получать твиты с использованием API потоковой передачи Twitter, а затем использовать Apache Hive в кластере HDInsight под управлением Linux для обработки данных в формате JSON. Результатом будет список пользователей Twitter, отправивших большинство твитов, которые содержат определенное слово.
 
-> [AZURE.NOTE] Хотя отдельные части этого документа можно использовать для кластеров HDInsight под управлением Windows (например, Python и Hive), многие действия относятся к кластерам HDInsight под управлением Linux. Описание действий для кластеров на основе Windows см. в статье [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data.md).
+> [AZURE.NOTE] Хотя отдельные части этого документа можно использовать для кластеров HDInsight под управлением Windows (например, Python), многие действия относятся к кластерам HDInsight под управлением Linux. Описание действий для кластеров на основе Windows см. в статье [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data.md).
 
 ###Предварительные требования
 
@@ -99,7 +99,7 @@ Twitter позволяет получать [данные для каждого 
 
 		nano gettweets.py
 
-5. Добавьте в файл __gettweets.py__ следующее содержимое. Вместо заполнителей __consumer/\_secret__, __consumer/\_key__, __access/\_token__ и __access/\_token/\_secret__ введите данные из своего приложения Twitter.
+5. Добавьте в файл __gettweets.py__ следующее содержимое. Вместо заполнителей __consumer/_secret__, __consumer/_key_\_, __access/_token__ и __access/_token/_secret__ введите данные из своего приложения Twitter.
 
         #!/usr/bin/python
 
@@ -160,6 +160,8 @@ Twitter позволяет получать [данные для каждого 
 		python gettweets.py
 
 	Должен появиться индикатор выполнения, который дойдет до 100 % по мере скачивания и сохранения твитов в файл.
+
+    > [AZURE.NOTE] Если индикатор хода выполнения перемещается очень долго, следует изменить фильтр, чтобы отслеживать популярные темы. При наличии множества доступных твитов по отфильтровываемой теме вы сможете быстро получить 10 000 необходимых записей.
 
 ###Передача данных
 
@@ -288,11 +290,11 @@ Twitter позволяет получать [данные для каждого 
 
 4. Выполните приведенную ниже команду, чтобы запустить код HiveQL в файле:
 
-		hive -i twitter.hql		
+		beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql		
 		
-	Она загрузит оболочку Hive, запустит код HiveQL из файла __twitter.hql__, а затем вернет командную строку `hive >`.
+	Она загрузит оболочку Hive, запустит код HiveQL из файла __twitter.hql__, а затем вернет командную строку `jdbc:hive2//localhost:10001/>`.
 	
-5. В командной строке `hive >` выполните следующий код, чтобы убедиться, что вы можете выбрать данные из таблицы __tweets__, созданной HiveQL из файла __twitter.hql__:
+5. В командной строке Beeline выполните следующий код, чтобы убедиться, что вы можете выбрать данные из таблицы __tweets__, созданной HiveQL из файла __twitter.hql__:
 		
 		SELECT name, screen_name, count(1) as cc
 			FROM tweets
@@ -317,4 +319,4 @@ Twitter позволяет получать [данные для каждого 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

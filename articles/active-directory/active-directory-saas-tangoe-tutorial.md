@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/11/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
 # Учебник. Интеграция Azure Active Directory с Tangoe Command Premium Mobile
 
-В этом учебнике описано, как интегрировать Tangoe Command Premium Mobile с Azure Active Directory \(Azure AD\).
+В этом учебнике описано, как интегрировать Tangoe Command Premium Mobile с Azure Active Directory (Azure AD).
 
 Интеграция Tangoe Command Premium Mobile с Azure AD дает приведенные далее преимущества:
 
 - С помощью Azure AD вы можете контролировать доступ к Tangoe Command Premium Mobile.
-- Вы можете включить автоматический вход пользователей в Tangoe Command Premium Mobile \(единый вход\) с использованием учетной записи Azure AD.
+- Вы можете включить автоматический вход пользователей в Tangoe Command Premium Mobile (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
 Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
@@ -60,7 +60,7 @@
 
 **Чтобы добавить Tangoe Command Premium Mobile из коллекции, выполните следующие действия.**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
 	![Active Directory][1]
 
@@ -126,7 +126,7 @@
 	![Настройка единого входа](./media/active-directory-saas-tangoe-tutorial/tutorial_tangoe_04.png)
 
 
-    а. В текстовое поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Tangoe Command Premium Mobile, по следующей схеме: **"https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=\<поставщик клиента\>&Target=\<URL-адрес целевой страницы\>"**.
+    а. В текстовое поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Tangoe Command Premium Mobile, по следующей схеме: **"https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<поставщик клиента>&Target=<URL-адрес целевой страницы>"**.
 
 	b. В текстовое поле **URL-адрес ответа** введите URL по следующей схеме: **"https://sso.tangoe.com/sp/ACS.saml2"**.
 
@@ -207,7 +207,7 @@
 
     c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
 
-    г\) В списке **Роль** выберите **Пользователь**.
+    г) В списке **Роль** выберите **Пользователь**.
 
     д. Нажмите кнопку **Далее**.
 
@@ -293,4 +293,4 @@
 [204]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-tangoe-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0713_2016-->

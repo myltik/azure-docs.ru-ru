@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/21/2015"
+	ms.date="07/12/2016"
 	ms.author="genli"/>
 
 # Как проверить метод оплаты и платить за подписку Azure
 
 >[AZURE.NOTE] Если после отправки данных кредитной карты произошла ошибка, см. статью [Я не могу воспользоваться своей кредитной картой при регистрации в Azure](billing-credit-card-fails-during-azure-sign-up.md).
+
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
 ## Проверка текущего метода оплаты
 1. Выполните вход в [Центр учетных записей Azure](https://account.windowsazure.com/Subscriptions) в качестве администратора учетной записи.
@@ -42,4 +44,4 @@
 
 Если вы оплачиваете услугу по выставляемым счетам, отправьте платеж в местоположение, указанное внизу счета. Чтобы получить дополнительную поддержку, обратитесь в [Службу поддержки Майкрософт](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

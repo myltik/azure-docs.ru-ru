@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/05/2016"
+   ms.date="07/07/2016"
    ms.author="seanmck"/>
 
 # Визуализация кластера с помощью обозревателя Service Fabric
@@ -99,9 +99,9 @@ http://&lt;your-cluster-endpoint&gt;:19080/Explorer
 
 ### Безопасное подключение к кластеру
 
-Вы можете управлять доступом к кластеру Service Fabric, запрашивая у клиентов сертификат для подключения к нему.
+Вы можете управлять клиентским доступом к кластеру Service Fabric с помощью [сертификатов](service-fabric-cluster-security.md) или [Azure Active Directory (AAD)](service-fabric-cluster-security-client-auth-with-aad.md).
 
-При попытке подключиться к обозревателю Service Fabric в защищенном кластере браузер попросит вас представить сертификат для получения доступа.
+При попытке подключиться к Service Fabric Explorer в защищенном кластере вам нужно будет либо представить сертификат клиента, либо войти с помощью AAD. Вариант предоставления доступа будет зависеть от типа защиты, настроенной для конечных точек управления кластера.
 
 ## Дальнейшие действия
 
@@ -116,4 +116,4 @@ http://&lt;your-cluster-endpoint&gt;:19080/Explorer
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

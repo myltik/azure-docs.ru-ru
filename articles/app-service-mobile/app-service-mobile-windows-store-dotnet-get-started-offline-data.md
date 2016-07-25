@@ -41,7 +41,7 @@
 
 Автономные функции мобильных приложений Azure позволяют взаимодействовать с локальной базой данных в случае автономной работы. Для использования этих функций в приложении необходимо инициализировать [SyncContext][synccontext] в локальном хранилище. Затем необходимо сослаться на таблицу с помощью интерфейса [IMobileServiceSyncTable][IMobileServiceSyncTable]. SQLite используется как локальное хранилище на устройстве.
 
-1. Установите [среду выполнения SQLite для универсальной платформы Windows для универсальных приложений](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+1. Установите [среду выполнения SQLite для универсальной платформы Windows](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 
 2. В Visual Studio откройте диспетчер пакетов NuGet для проекта приложения UWP, выполненного в учебнике [Создание приложения Windows], а затем найдите и установите пакет NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore**.
 
@@ -212,4 +212,4 @@
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: приложения с поддержкой автономного режима в мобильных службах Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

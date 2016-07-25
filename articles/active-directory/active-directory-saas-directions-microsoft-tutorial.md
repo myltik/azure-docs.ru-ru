@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с Directions on Microsoft
@@ -21,7 +21,7 @@
 -   Действующая подписка на Azure
 -   Подписка Directions on Microsoft
 
-Если у вас еще нет федеративной подписки Directions on Microsoft, направьте запрос по адресу *service@DirectionsOnMicrosoft.com*”.
+Если у вас еще нет федеративной подписки Directions on Microsoft, направьте запрос по адресу *service@DirectionsOnMicrosoft.com*.
 
 После изучения этого учебника пользователи Azure Active Directory, которые были назначены в Directions on Microsoft, смогут выполнять единый вход в приложение с помощью соответствующей функции.
 
@@ -39,7 +39,7 @@
 
 ###Чтобы включить интеграцию приложений для Directions on Microsoft, выполните следующие действия.
 
-1.  На портале управления Azure в левой области навигации нажмите **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-directions-microsoft-tutorial/IC700993.png "Active Directory")
 
@@ -70,7 +70,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции с приложением **Directions on Microsoft** портала Azure AD нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На странице интеграции с приложением **Directions on Microsoft** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
     ![Доступ с единым входом](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "Доступ с единым входом")
 
@@ -78,7 +78,7 @@
 
     ![Единый вход Microsoft Azure AD](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.png "Единый вход Microsoft Azure AD")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле «URL-адрес входа в Directions on Microsoft» введите ****https://www.directionsonmicrosoft.com/user/login** и нажмите кнопку **Далее**.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле "URL-адрес для входа" введите **https://www.directionsonmicrosoft.com/user/login** и нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Настройка URL-адреса приложения")
 
@@ -86,11 +86,11 @@
 
     ![Настройка единого входа](./media/active-directory-saas-directions-microsoft-tutorial/IC786882.png "Настройка единого входа")
 
-5.  Отправьте файл метаданных службе поддержки Directions on Microsoft (**service@DirectionsOnMicrosoft.com*). Чтобы позволить службе поддержки Directions on Microsoft найти ваше членство федеративного веб-сайта, включите в сообщение электронной почты сведения о своей организации.
+5.  Отправьте файл метаданных службе поддержки Directions on Microsoft (*service@DirectionsOnMicrosoft.com*). Чтобы позволить службе поддержки Directions on Microsoft найти ваше членство федеративного веб-сайта, включите в сообщение электронной почты сведения о своей организации.
 
-    >[AZURE.NOTE]Единый вход Directions on Microsoft должна включить служба поддержки Directions on Microsoft. Вы получите уведомление, когда такой единый вход будет включен.
+    >[AZURE.NOTE] Единый вход Directions on Microsoft должна включить служба поддержки Directions on Microsoft. Вы получите уведомление, когда такой единый вход будет включен.
 
-6.  На портале Azure AD выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-directions-microsoft-tutorial/IC786883.png "Настройка единого входа")
 ##Настройка подготовки учетных записей пользователей
@@ -102,7 +102,7 @@
 
 ###Чтобы назначить пользователей Directions on Microsoft, выполните следующие действия.
 
-1.  На портале Azure AD создайте тестовую учетную запись.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
 2.  На странице интеграции с приложением **Directions on Microsoft** нажмите кнопку **Назначить пользователей**.
 
@@ -112,4 +112,4 @@
 
     ![Да](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Да")
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->
