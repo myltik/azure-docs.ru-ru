@@ -42,7 +42,7 @@ ms.author="larryfr"/>
 | Ambari | 443 | HTTPS | Веб-интерфейс Ambari. См. статью [Управление кластерами HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md). |
 | Ambari | 443 | HTTPS | REST API Ambari. См. статью [Управление кластерами HDInsight с помощью REST API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). |
 | WebHCat | 443 | HTTPS | REST API HCatalog. См. статьи [Выполнение заданий Hive с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-Pig-curl.md), [Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-Pig-curl.md) и [Выполнение заданий MapReduce с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-mapreduce-curl.md). |
-| HiveServer2 | 443 | ODBC | Подключение к Hive с помощью ODBC. См. статью [Connect Excel to HDInsight with the Microsoft ODBC driver](hdinsight-connect-excel-hive-odbc-driver) (Подключение Excel к HDInsight с помощью драйвера Microsoft ODBC). |
+| HiveServer2 | 443 | ODBC | Подключение к Hive с помощью ODBC. См. статью [Подключение Excel к Hadoop с помощью драйвера Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 | 443 | JDBC | Подключение к Hive с помощью JDBC. См. статью [Подключение к Hive в Azure HDInsight с помощью драйвера Hive JDBC](hdinsight-connect-hive-jdbc-driver.md). |
 
 Приведенные ниже сведения доступны для определенных типов кластеров.
@@ -133,4 +133,4 @@ ms.author="larryfr"/>
 | Региональный сервер | Все рабочие узлы | 16020 | &nbsp; | &nbsp; |
 | &nbsp; | &nbsp; | 2181 | &nbsp; | Порт, используемый клиентами для подключения к ZooKeeper |
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

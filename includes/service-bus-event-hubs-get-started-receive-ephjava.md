@@ -28,6 +28,11 @@ EventProcessorHost — это класс Java, который упрощает �
 	<artifactId>azure-eventhubs</artifactId>
 	<version>0.7.2</version>
 </dependency>
+<dependency>
+	<groupId>com.microsoft.azure</groupId>
+	<artifactId>azure-eventhubs-eph</artifactId>
+	<version>0.7.2</version>
+</dependency>
 ```
  
 Для различных типов сред сборки можно явно получить последние выпущенные JAR-файлы из [центрального репозитория Maven][Maven Package] или из [точки распространения выпусков на GitHub](https://github.com/Azure/azure-event-hubs/releases).
@@ -193,4 +198,4 @@ EventProcessorHost — это класс Java, который упрощает �
 [11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

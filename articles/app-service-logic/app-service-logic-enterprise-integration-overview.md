@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обзор интеграции Enterprise | Служба приложений Microsoft Azure" 
+	pageTitle="Обзор интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Используйте функции интеграции Enterprise, чтобы реализовать сценарии бизнес-процессов и интеграции с помощью приложений логики." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Обзор пакета интеграции Enterprise
@@ -35,7 +35,7 @@
 ## Как приступить к работе с интеграцией Enterprise?
 Создавать приложения "бизнес-бизнес" и управлять ими с помощью пакета интеграции Enterprise можно в конструкторе приложений логики на **портале Azure**.
 
-Ниже описаны действия, которые необходимо выполнить перед созданием приложения на портале Azure. ![](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
+Ниже описаны действия, которые необходимо выполнить перед созданием приложения на портале Azure. ![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
 ## Каковы наиболее распространенные сценарии применения?
 
@@ -44,23 +44,21 @@
 - EDI — электронный обмен данными;
 - EAI — интеграция приложений.
 
-## Сколько это стоит?
-Сведения о ценах и список составляющих каждого уровня служб см. в разделе [цен на службу приложений Azure](https://azure.microsoft.com/pricing/details/app-service/).
-
 ## Вот что необходимо для немедленного начала работы
 - Подписка Azure с учетной записью интеграции.
 - Visual Studio 2015 для создания карт и схем.
-- [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas).
+- [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0.](https://aka.ms/vsmapsandschemas)
 
 ## См. также:
-- [Схемы](./app-service-logic-enterprise-integration-schemas.md "Узнайте о схемах интеграции Enterprise.")
-- [Карты](./app-service-logic-enterprise-integration-maps.md "Узнайте о картах интеграции Enterprise.")
-- [Сертификаты](./app-service-logic-enterprise-integration-certificates.md "Узнайте о сертификатах интеграции Enterprise.")
-- [Партнеры](./app-service-logic-enterprise-integration-partners.md "Узнайте о партнерах интеграции Enterprise.")
 - [Соглашения](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.")
-- [Учетные записи интеграции](./app-service-logic-enterprise-integration-accounts.md "Узнайте об учетных записях интеграции.")
 - [Сценарии "бизнес-бизнес"](./app-service-logic-enterprise-integration-b2b.md "Узнайте, как создавать приложения логики с возможностями "бизнес-бизнес".")
-- [Проверка сообщений XML](./app-service-logic-enterprise-integration-xml.md "Узнайте, как проверять сообщения XML с помощью приложений логики.")
+- [Сертификаты](./app-service-logic-enterprise-integration-certificates.md "Узнайте о сертификатах интеграции Enterprise.")
 - [Кодирование и декодирование неструктурированных файлов](./app-service-logic-enterprise-integration-flatfile.md "Узнайте, как для кодировать и декодировать содержимое неструктурированных файлов.")
+- [Учетные записи интеграции](./app-service-logic-enterprise-integration-accounts.md "Узнайте об учетных записях интеграции.")
+- [Карты](./app-service-logic-enterprise-integration-maps.md "Узнайте о картах интеграции Enterprise.")
+- [Партнеры](./app-service-logic-enterprise-integration-partners.md "Узнайте о партнерах интеграции Enterprise.")
+- [Схемы](./app-service-logic-enterprise-integration-schemas.md "Узнайте о схемах интеграции Enterprise.")
+- [Проверка сообщений XML](./app-service-logic-enterprise-integration-xml.md "Узнайте, как проверять сообщения XML с помощью приложений логики.")
+- [Преобразование XML-файла](./app-service-logic-enterprise-integration-transform.md "Узнайте о картах интеграции Enterprise.")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

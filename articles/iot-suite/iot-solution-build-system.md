@@ -4,7 +4,7 @@
 	services=""
     documentationCenter=".net"
     suite=""
-	authors="alancameronwills"
+	authors="harikmenon"
 	manager="douge"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
-	ms.author="awills"/>
+	ms.author="harikm"/>
 
 
 # Создание и развертывание решения MyDriving в вашей среде
@@ -462,4 +462,4 @@ Application Insights будет отправлять оповещения по �
 
 Рекомендуется ознакомиться со [справочным руководством по MyDriving](http://aka.ms/mydrivingdocs), в котором содержится подробное описание архитектуры системы и ее компонентов.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -3,7 +3,7 @@
    description="Устранение неполадок в предварительной версии Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/25/2016"
-   ms.author="derrickv"/>
+   ms.date="06/29/2016"
+   ms.author="owend"/>
 
 # Устранение неполадок в предварительной версии Microsoft Power BI Embedded
 В этой статье содержатся сведения об устранении неполадок **Power BI Embedded**.
@@ -40,4 +40,4 @@
 - [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)
 - [Что такое Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

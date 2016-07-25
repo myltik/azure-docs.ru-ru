@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/18/2016"
+	ms.date="07/12/2016"
 	ms.author="gauravbh;tomfitz"/>
 
 # Применение политик для управления ресурсами и контроля доступа
@@ -155,7 +155,7 @@
 
 - "deny" — создание события в журнале аудита и сбой запроса.
 - "audit" — создание события в журнале аудита и выполнение запроса.
-- "append" — добавление определенного набора полей в запрос. 
+- "append" — добавление определенного набора полей в запрос.
 
 Для типа **append** необходимо предоставить сведения, как показано ниже.
 
@@ -468,4 +468,4 @@
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

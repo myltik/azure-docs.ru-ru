@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/25/2016"
+   ms.date="07/07/2016"
    ms.author="bruceper" />
 
 # Руководство разработчика хранилища ключей Azure
@@ -64,9 +64,9 @@
 
 Для работы с хранилищем ключей доступны следующие пакеты SDK:
 
-|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[![.NET](./media/key-vault-developers-guide/msft.netlogo_purple.png)](https://msdn.microsoft.com/library/mt430941.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[Документация к пакету SDK для .NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Документация к пакету SDK для Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[Документация к пакету SDK для .NET](https://msdn.microsoft.com/library/mt430941.aspx)|[Документация к пакету SDK для Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
 |[Пакет SDK для .NET](https://azure.microsoft.com/documentation/api/)|[Пакет SDK для Node.js](https://www.npmjs.com/package/azure-keyvault)|
 
 
@@ -84,14 +84,15 @@
 - [Использование хранилища ключей для расширенного управления ключами с помощью SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) —Соединитель SQL Server для хранилища ключей Azure позволяет SQL Server и SQL в виртуальных машинах использовать службу хранилища ключей Azure в качестве поставщика расширенного управления ключами (EKM) для защиты ключей шифрования для связи приложений, а также предоставляет прозрачное шифрование данных, шифрование резервной копии и шифрование на уровне столбцов.
 - [Развертывание сертификатов на виртуальных машинах из хранилища ключей](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/): облачное приложение, которое выполняется на виртуальной машине в Azure, требует сертификата. Как получить этот сертификат для виртуальной машины?
 - [Интеграция хранилища ключей с шифрованием дисков Azure для виртуальных машин IaaS под управлением Windows или Linux](../azure-security-disk-encryption.md): это решение шифрования дисков интегрировано с хранилищем ключей Azure, то есть позволяет управлять ключами и секретами дискового шифрования через подписку хранилища ключей. Шифрование выполняется для всех данных на дисках виртуальных машин в хранилище Azure.
+- [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Как настроить в хранилище ключей полную смену ключей и аудит): руководство по смене ключей и аудиту журналов с помощью хранилища ключей Azure.
 
-Руководство по интеграции и использованию хранилищ ключей в Azure см. в статье [Примеры шаблонов ARM для хранилища ключей от Райана Джонса](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
+Руководство по интеграции и использованию хранилищ ключей в Azure см. в [этом разделе с примерами шаблонов ARM для хранилища ключей](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 
 ## Интеграция с хранилищем ключей
 
 Этот цикл статей посвящен другим сценариям и службам, которые позволяют выполнить интеграцию с хранилищем ключей.
 
-- [Дисковое шифрование](../azure-security-disk-encryption.md) Azure использует стандартные для отрасли функции ([BitLocker](https://technet.microsoft.com/library/cc732774.aspx) в Windows и [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) в Linux), которые обеспечивают шифрование томов для системных дисков и дисков данных. Это решение интегрировано с хранилищем ключей Azure. Решение позволяет управлять ключами и секретами дискового шифрования через подписку хранилища ключей. Шифрование выполняется для всех данных на дисках виртуальных машин в хранилище Azure.
+- [Шифрование дисков Azure](../azure-security-disk-encryption.md) использует стандартные для отрасли функции ([BitLocker](https://technet.microsoft.com/library/cc732774.aspx) в Windows и [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) в Linux), которые обеспечивают шифрование томов для системных дисков и дисков данных. Это решение интегрировано с хранилищем ключей Azure. Решение позволяет управлять ключами и секретами дискового шифрования через подписку хранилища ключей. Шифрование выполняется для всех данных на дисках виртуальных машин в хранилище Azure.
 
 
 ## Поддержка библиотек
@@ -104,4 +105,4 @@
 - [Блог хранилища ключей](http://aka.ms/kvblog)
 - [Форум хранилища ключей](http://aka.ms/kvforum)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -94,10 +94,20 @@ IoT решения хранят такие данные об отдельных 
 
 ## Дальнейшие действия
 
-Дополнительные сведения о центре IoT в Azure см. по следующим ссылкам:
+Дополнительные сведения о планировании развертывания центра IoT см. в следующих руководствах:
 
-- [Начало работы с центром IoT (руководство)][lnk-get-started]
-- [Что такое центр IoT в Azure?][lnk-what-is-hub]
+- [Поддержка MQTT в центре IoT][lnk-mqtt]
+- [Поддерживаемые устройства][lnk-devices]
+- [Поддержка дополнительных протоколов для центра IoT][lnk-protocols]
+- [Сравнение центра IoT и концентраторов событий][lnk-compare]
+- [Масштабирование центра IoT][lnk-scaling]
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal-manage]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
@@ -121,4 +131,14 @@ IoT решения хранят такие данные об отдельных 
 [квоты и ограничения центра IoT]: iot-hub-devguide.md#throttling
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!---HONumber=AcomDC_0504_2016-->
+[lnk-mqtt]: iot-hub-mqtt-support.md
+[lnk-devices]: iot-hub-tested-configurations.md
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal-manage]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

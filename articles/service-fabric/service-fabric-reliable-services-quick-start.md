@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # Начало работы со службами Reliable Services в Service Fabric
@@ -24,7 +24,7 @@
 
 Сейчас в облачных приложениях обычно используются службы без отслеживания состояния. Термин "без отслеживания состояния" означает, что сама служба не содержит данные, которым требуется надежное хранение или обеспечение высокого уровня доступности. Когда экземпляр службы без отслеживания состояния завершает работу, все данные о его внутреннем состоянии будут утрачены. Чтобы обеспечить высокую доступность и надежность в службах этого типа, состояния должны сохраняться во внешнее хранилище, например в таблицы Azure или базу данных SQL.
 
-Запустите Visual Studio 2015 RC от имени администратора и создайте новый проект приложения Service Fabric с именем *HelloWorld*:
+Запустите Visual Studio 2015 от имени администратора и создайте проект приложения Service Fabric с именем *HelloWorld*:
 
 ![Создание нового приложения Service Fabric с помощью диалогового окна "Создание проекта"](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
@@ -70,7 +70,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic 
+    // TODO: Replace the following sample code with your own logic
     //       or remove this RunAsync override if it's not needed in your service.
 
     long iterations = 0;
@@ -113,7 +113,7 @@ Service Fabric представляет новый вид службы с отс
 
 ![Создание службы с отслеживанием состояния в Service Fabric с помощью диалогового окна "Создание проекта"](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-Теперь в вашем приложении должно быть две службы: служба *HelloWorldStateless* без отслеживания состояния и служба *HelloWorldStateful* с отслеживанием состояния.
+Теперь в вашем приложении должно быть две службы: служба *HelloWorldStateless* без отслеживания состояния и служба *HelloWorldStateful*с отслеживанием состояния.
 
 Служба с отслеживанием состояния имеет такие же точки входа, как и служба без отслеживания состояния. Основное различие заключается в доступности *поставщика состояний*, который надежно хранит состояние. Платформа Service Fabric поставляется с реализацией поставщика состояний [Надежные коллекции Reliable Collections](service-fabric-reliable-services-reliable-collections.md), которая позволяет создавать реплицированные структуры данных с помощью диспетчера надежных состояний. Служба Reliable Service с отслеживанием состояния использует этот поставщик состояний по умолчанию.
 
@@ -122,7 +122,7 @@ Service Fabric представляет новый вид службы с отс
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
-    // TODO: Replace the following sample code with your own logic 
+    // TODO: Replace the following sample code with your own logic
     //       or remove this RunAsync override if it's not needed in your service.
 
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
@@ -140,7 +140,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
             await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
 
-            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are
             // discarded, and nothing is saved to the secondary replicas.
             await tx.CommitAsync();
         }
@@ -159,11 +159,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-*IReliableDictionary* — это реализация словаря, которая позволяет надежно хранить состояние службы. В Service Fabric с помощью Reliable Collections можно хранить данные непосредственно в службе без использования внешнего постоянного хранилища. Надежные коллекции Reliable Collections делают данные высокодоступными. Service Fabric выполняет эту задачу путем автоматического создания нескольких *реплик* службы и управления ими. Кроме того, платформа предоставляет API-интерфейс, который упрощает управление этими репликами и переходы между их состояниями.
+[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) — это реализация словаря, которая позволяет надежно хранить состояние службы. В Service Fabric с помощью Reliable Collections можно хранить данные непосредственно в службе без использования внешнего постоянного хранилища. Надежные коллекции Reliable Collections делают данные высокодоступными. Service Fabric выполняет эту задачу, автоматически создавая несколько *реплик* службы и управляя ими. Кроме того, платформа предоставляет API-интерфейс, который упрощает управление этими репликами и переходы между их состояниями.
 
 В Reliable Collections можно хранить любые типы объектов .NET, включая пользовательские типы. Необходимо только учитывать следующее.
 
- - Service Fabric делает состояние высокодоступным, *реплицируя* его между узлами и сохраняя на локальном диске, а Reliable Collections сохраняют ваши данные на локальном диске каждой реплики. Это означает, что все объекты, хранящиеся в Reliable Collections, должны поддерживать *сериализацию*. По умолчанию в Reliable Collections для сериализации используется [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx). Поэтому при использовании сериализатора по умолчанию убедитесь, что ваши типы [поддерживаются сериализатором контрактов данных](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx).
+ - Service Fabric делает состояние высокодоступным, *реплицируя* его между узлами и сохраняя на локальном диске, а коллекции Reliable Collections сохраняют ваши данные на локальном диске каждой реплики. Это означает, что все объекты, хранящиеся в Reliable Collections, должны поддерживать *сериализацию*. По умолчанию в Reliable Collections для сериализации используется [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx). Поэтому при использовании сериализатора по умолчанию убедитесь, что ваши типы [поддерживаются сериализатором контрактов данных](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx).
 
  - Когда вы зафиксируете транзакции в Reliable Collections, объекты реплицируются и становятся высокодоступными. Объекты, сохраненные в Reliable Collections, хранятся в локальной памяти вашей службы. Это означает, что у вас есть локальная ссылка на объект.
 
@@ -192,7 +192,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 Теперь вернемся к приложению *HelloWorld*. Теперь вы можете построить и развернуть свои службы. Когда вы нажмете клавишу **F5**, приложение будет построено и развернуто в вашем локальном кластере.
 
-Запустив службы, вы можете просмотреть созданные события трассировки событий Windows в окне **События диагностики**. Обратите внимание, что в приложении отображаются события как из службы без отслеживания состояния, так и из службы с отслеживанием состояния. Поток можно приостановить, нажав кнопку **Приостановить**. Затем можно просмотреть подробные сведения о сообщении, развернув его.
+Запустив службы, вы сможете просмотреть созданные события трассировки событий Windows в окне **События диагностики**. Обратите внимание, что в приложении отображаются события как из службы без отслеживания состояния, так и из службы с отслеживанием состояния. Поток можно приостановить, нажав кнопку **Приостановить**. Затем можно просмотреть подробные сведения о сообщении, развернув его.
 
 >[AZURE.NOTE] Перед запуском приложения убедитесь, что кластер локальной разработки запущен. Сведения о настройке локальной среды см. в [руководстве по началу работы](service-fabric-get-started.md).
 
@@ -213,4 +213,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [Справочник разработчика по надежным службам](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

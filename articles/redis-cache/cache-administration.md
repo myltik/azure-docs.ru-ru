@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/05/2016"
+	ms.date="07/13/2016"
 	ms.author="sdanie" />
 
 # Администрирование кэша Redis для Azure
@@ -80,7 +80,7 @@
 
 ### Можно ли перезагрузить кэш с помощью PowerShell, интерфейса командной строки или других средств управления?
 
-В данный момент эта функция не поддерживается, но она появится в ближайшее время.
+Да, инструкции по использованию PowerShell см. в разделе, посвященном [перезагрузке кэша Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-a-redis-cache).
 
 ### Для каких ценовых категорий доступна функция перезагрузки?
 
@@ -114,6 +114,6 @@
 
 ## Дальнейшие действия
 
--	Дополнительная информация о [кэше Redis для Azure уровня Premium](cache-premium-tier-intro.md).
+-	См. дополнительную информацию о [кэше Redis для Azure уровня "Премиум"](cache-premium-tier-intro.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

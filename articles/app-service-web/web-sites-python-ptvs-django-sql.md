@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/25/2016"
+	ms.date="07/07/2016"
 	ms.author="huguesv"/>
 
 
@@ -26,16 +26,16 @@
 
 Вы узнаете, как использовать базы данных SQL, размещенные на платформе Azure, как настроить веб-приложение для работы с базой данных SQL, а затем опубликовать его в [веб-приложениях службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Зайдите в [Центр по разработке для Python], где можно найти статьи о разработке веб-приложений службы приложений Azure с PTVS при помощи веб-платформ Bottle, Flask и Django, с использованием MongoDB, табличного хранилища Azure, MySQL и служб Базы данных SQL. Хотя эта статья ориентирована в первую очередь на службу приложений, при разработке для [облачных служб Azure] используются аналогичные процедуры.
+В [центре разработчиков для Python] доступны материалы по разработке веб-приложений службы приложений Azure с использованием PTVS, веб-платформ Bottle, Flask и Django, хранилища таблиц Azure, а также служб базы данных SQL и MySQL. Хотя эта статья ориентирована в первую очередь на службу приложений, при разработке для [облачных служб Azure] используются аналогичные процедуры.
 
 ## Предварительные требования
 
- - Visual Studio 2013 или 2015
+ - Visual Studio 2015
+ - [Python 2.7 (32-разрядная версия).]
  - [Инструменты Python 2.2 для Visual Studio]
  - [Образцы VSIX средств Python 2.2 для Visual Studio]
- - [Пакет SDK для Azure для VS 2013] или [пакет SDK для Azure для VS 2015].
- - [Python 2.7 (32-разрядная версия)]
- - Django 1.6 или более ранняя версия.
+ - [Инструменты пакета SDK для Azure для Visual Studio 2015]
+ - Django 1.9 или более поздней версии.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -45,9 +45,9 @@
 
 В этом разделе мы создадим проект Visual Studio с помощью шаблона. Мы создадим виртуальную среду и установим необходимые пакеты. Мы создадим локальную базу данных с помощью sqlite. Затем запустим веб-приложение локально.
 
-1.  В Visual Studio выберите **Файл** > **Создать проект**.
+1.  В Visual Studio выберите **Файл** > **Создать проект**.
 
-1.  В шаблонах проекта PTVS Samples VSIX в секции **Python** выберите **Примеры**. Выберите **Веб-проект опросов Django** и нажмите кнопку «ОК», чтобы создать проект.
+1.  Чтобы найти шаблоны [примеров VSIX для инструментов Python 2.2 для Visual Studio], в разделе **Python** выберите **Примеры**. Выберите **Веб-проект опросов Django** и нажмите кнопку «ОК», чтобы создать проект.
 
   	![Диалоговое окно «Новый проект»](./media/web-sites-python-ptvs-django-sql/PollsDjangoNewProject.png)
 
@@ -59,15 +59,9 @@
 
   	![Диалоговое окно «Добавление виртуальной среды»](./media/web-sites-python-ptvs-django-sql/PollsCommonAddVirtualEnv.png)
 
-1.  Щелкните правой кнопкой мыши узел проекта и выберите **Python**, **База данных синхронизации Django**.
+1.  В **обозревателе решений** щелкните правой кнопкой мыши узел проекта, а затем выберите **Python** и **Django Migrate** (Миграция Django). Выберите **Django Create Superuser** (Создать суперпользователя Django).
 
-  	![Команда базы данных синхронизации Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoSyncDB.png)
-
-1.  Откроется консоль управления Django. Следуйте инструкциям на экране для создания пользователя.
-
-    Будет создана база данных sqlite в папке проекта.
-
-  	![Окно консоли управления Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
+1.  Откроется консоль управления Django, а в папке проекта будет создана база данных sqlite. Следуйте инструкциям на экране для создания пользователя.
 
 1.  Убедитесь в том, что приложение работает, нажав клавишу <kbd>F5</kbd>.
 
@@ -97,11 +91,7 @@
 
 1.  В нижней части панели навигации щелкните **СОЗДАТЬ** и выберите **Данные + Хранение** > **База данных SQL**.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png) -->
-
 1.  Настройте новую Базу данных SQL, создав новую группу ресурсов, и выберите соответствующее расположение для нее.
-
-  	<!-- ![Quick Create SQL Database](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlCreate.png) -->
 
 1.  После создания Базы данных SQL щелкните **Открыть в Visual Studio** в колонке базы данных.
 2.  Щелкните **Настроить брандмауэр**.
@@ -148,11 +138,9 @@
 
   	![Диалоговое окно «Установка пакета Python»](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
-1.  Щелкните правой кнопкой мыши узел проекта и выберите **Python**, **База данных синхронизации Django**.
+1.  В **обозревателе решений** щелкните правой кнопкой мыши узел проекта, а затем выберите **Python** и **Django Migrate** (Миграция Django). Выберите **Django Create Superuser** (Создать суперпользователя Django).
 
     В результате будут созданы таблицы для базы данных SQL, созданной в предыдущем разделе. Следуя подсказкам, создайте пользователя, отличного от пользователя базы данных sqlite, которого мы создали в первом разделе.
-
-  	![Окно консоли управления Django](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
 1.  Запустите приложение, нажав клавишу `F5`. Опросы, созданные с помощью команды **Создать примеры опросов** и отправленных данных голосования, будут сериализованы в базе данных SQL.
 
@@ -163,7 +151,7 @@
 
 1.  В **обозревателе решений** щелкните правой кнопкой мыши узел проекта и выберите **Опубликовать**.
 
-  	<!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png) -->
+  	![Диалоговое окно «Публикация веб-сайта»](./media/web-sites-python-ptvs-django-sql/PollsCommonPublishWebSiteDialog.png)
 
 1.  Щелкните **Веб-приложения Microsoft Azure**.
 
@@ -175,8 +163,6 @@
 	-	**Группа ресурсов**
 	-	**Регион**
 	-	Для параметра **Сервер баз данных** оставьте значение **Без базы данных**
-
-  	<!-- ![Create Site on Microsoft Azure Dialog](./media/web-sites-python-ptvs-django-sql/PollsCommonCreateWebSite.png) -->
 
 1.  Примите значения по умолчанию и щелкните **Опубликовать**.
 
@@ -202,7 +188,7 @@
 
 
 <!--Link references-->
-[Центр по разработке для Python]: /develop/python/
+[центре разработчиков для Python]: /develop/python/
 [облачных служб Azure]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
@@ -210,9 +196,9 @@
 [Средства Python для Visual Studio]: http://aka.ms/ptvs
 [Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Образцы VSIX средств Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Пакет SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[пакет SDK для Azure для VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190
+[примеров VSIX для инструментов Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Инструменты пакета SDK для Azure для Visual Studio 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Python 2.7 (32-разрядная версия).]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Удаленная отладка в Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Веб-проекты]: http://go.microsoft.com/fwlink/?LinkId=624027
@@ -220,4 +206,4 @@
 [Документация по Django]: https://www.djangoproject.com/
 [База данных SQL]: /documentation/services/sql-database/
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0713_2016-->

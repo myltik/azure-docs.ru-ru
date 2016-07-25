@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="03/11/2016"
-	ms.author="wesmc"/>
+	ms.date="07/08/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Аутентификация с помощью интерфейсов REST API Mobile Engagement
 
@@ -40,7 +40,7 @@
 
 Следуйте приведенным ниже инструкциям, чтобы выполнить установку с помощью сценария PowerShell, для реализации которого требуется минимальное время и использование наиболее допустимых значений по умолчанию. При необходимости также можно выполнить указания по [установке вручную](mobile-engagement-api-authentication-manual.md) непосредственно на портале Azure и осуществить более точную настройку.
 
-1. Получите последнюю версию Azure PowerShell [здесь](http://aka.ms/webpi-azps). Дополнительные сведения об инструкциях по скачиванию см. по этой [ссылке](../powershell-install-configure.md).  
+1. Получите последнюю версию Azure PowerShell [здесь](http://aka.ms/webpi-azps). Дополнительные сведения об инструкциях по скачиванию см. по этой [ссылке](../powershell-install-configure.md).
 
 2. После установки Azure PowerShell используйте следующие команды, чтобы проверить наличие установленного **модуля Azure**:
 
@@ -94,8 +94,8 @@
 
 1. Вызовите API со следующими параметрами и замените TENANT\_ID, CLIENT\_ID и CLIENT\_SECRET:
 
-	- **URL-адрес запроса** как **https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
-- **Заголовок Content-Type HTTP** как *application/x-www-form-urlencoded*
+	- **URL-адрес запроса** как *https://login.microsoftonline.com/{TENANT\_ID}/oauth2/token*
+	- **Заголовок Content-Type HTTP** как *application/x-www-form-urlencoded*
 	- **Текст запроса HTTP** как *grant\_type=client\_credentials&client\_id={CLIENT\_ID}&client\_secret={CLIENT\_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F*
 
 	Вот пример запроса:
@@ -141,13 +141,13 @@
 	- **1** `{subscription-id}`
 	- **2** `{app-collection}`
 	- **3** `{app-resource-name}`
-	- **4** Ваша группа ресурсов будет носить имя **MobileEngagement** до тех пор, пока не будет создана новая группа. 
+	- **4** Ваша группа ресурсов будет носить имя **MobileEngagement** до тех пор, пока не будет создана новая группа.
 
 	![Параметры URI API Mobile Engagement][2]
 
 >[AZURE.NOTE] <br/>
 >1. Игнорируйте параметр корневого адреса API, так как он предназначался для предыдущих API.<br/>
->2. Если вы создали приложение с помощью классического портала Azure, используемое имя ресурса приложения должно отличаться от имени самого приложения. Если вы создали приложение на портале Azure, используйте имя самого приложения (для приложений, создаваемых на новом портале, никакой разницы между именем ресурса приложения и именем приложения нет).  
+>2. Если вы создали приложение с помощью классического портала Azure, используемое имя ресурса приложения должно отличаться от имени самого приложения. Если вы создали приложение на портале Azure, используйте имя самого приложения (для приложений, создаваемых на новом портале, никакой разницы между именем ресурса приложения и именем приложения нет).
 
 <!-- Images -->
 [1]: ./media/mobile-engagement-api-authentication/azure-module.png
@@ -155,4 +155,4 @@
 [3]: ./media/mobile-engagement-api-authentication/ps-cmdlets.png
 [4]: ./media/mobile-engagement-api-authentication/ad-app-creation.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

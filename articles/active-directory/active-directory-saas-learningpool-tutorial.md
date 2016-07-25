@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с Learningpool
@@ -37,7 +37,7 @@
 
 ###Чтобы включить интеграцию приложений для Learningpool, выполните следующие действия.
 
-1.  На портале управления Azure в левой области навигации нажмите **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-learningpool-tutorial/IC700993.png "Active Directory")
 
@@ -72,7 +72,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции приложений **Learningpool** портала Azure AD выберите в верхнем меню пункт **Атрибуты**, чтобы открыть диалоговое окно **Атрибуты токена SAML**.
+1.  На странице интеграции приложений **Learningpool** классического портала Azure выберите в верхнем меню пункт **Атрибуты**, чтобы открыть диалоговое окно **Атрибуты токена SAML**.
 
     ![Атрибуты](./media/active-directory-saas-learningpool-tutorial/IC795075.png "Атрибуты")
 
@@ -106,7 +106,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Настройка единого входа")
 
-7.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес входа в Learningpool** введите URL-адрес, используемый вашими пользователями для входа в приложение Learningpool (например, https://parliament.preview.learningpool.com/auth/shibboleth/index.php)), и нажмите кнопку **Далее**.
+7.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Learningpool** введите URL-адрес, используемый вашими пользователями для входа в приложение Learningpool (например, https://parliament.preview.learningpool.com/auth/shibboleth/index.php), и нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Настройка URL-адреса приложения")
 
@@ -118,7 +118,7 @@
 
     >[AZURE.NOTE]Группа поддержки Learningpool должна включить единый вход.
 
-10. На портале Azure AD выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Настройка единого входа")
 ##Настройка подготовки учетных записей пользователей
@@ -135,9 +135,9 @@
 
 ###Чтобы назначить пользователей Learningpool, выполните следующие действия.
 
-1.  На портале Azure AD создайте тестовую учетную запись.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  На странице интеграции приложений **Learningpool** нажмите кнопку **Назначить пользователей**.
+2.  На странице интеграции приложений **Learningpool** щелкните **Назначить пользователей**.
 
     ![Назначить пользователей](./media/active-directory-saas-learningpool-tutorial/IC795081.png "Назначить пользователей")
 
@@ -147,4 +147,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

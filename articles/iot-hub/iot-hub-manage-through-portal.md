@@ -157,10 +157,19 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения о центре IoT в Azure см. по следующим ссылкам:
+Дополнительные сведения об управлении центром IoT в Azure см. по следующим ссылкам:
 
-- [Начало работы с центром IoT (руководство)][lnk-get-started]
-- [Что такое центр IoT в Azure?][]
+- [Массовое управление удостоверениями устройств центра IoT][lnk-bulk]
+- [Показатели использования][lnk-metrics]
+- [Мониторинг операций][lnk-monitor]
+- [Настройка и управление доступом к центру IoT][lnk-itpro]
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Разработка решения][lnk-design]
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -173,6 +182,16 @@
   [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Что такое центр IoT в Azure?]: iot-hub-what-is-iot-hub.md
+[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
+[lnk-metrics]: iot-hub-metrics.md
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

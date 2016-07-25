@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Проверка подлинности с использованием субъекта-службы для приложений API в службе приложений Azure
 
@@ -415,4 +415,4 @@
 
 Сведения о других способах развертывания проектов Visual Studio в приложениях API с помощью Visual Studio или функции [автоматизации развертывания](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) из [системы управления версиями](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control) см. в статье [Развертывание приложения в службе приложений Azure](../app-service-web/web-sites-deploy.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

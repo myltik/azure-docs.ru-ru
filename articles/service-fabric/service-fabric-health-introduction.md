@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Общие сведения о наблюдении за работоспособностью системы в Service Fabric
@@ -331,10 +331,12 @@ HealthEvents                    :
 
 [Использование отчетов о работоспособности системы для устранения неполадок](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
+[Проверка работоспособности службы и оповещение о проблемах](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+
 [Добавление настраиваемых отчетов о работоспособности Service Fabric](service-fabric-report-health.md)
 
 [Мониторинг и диагностика состояния служб в локальной среде разработки](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

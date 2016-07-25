@@ -111,12 +111,20 @@
 
 ## Дальнейшие действия
 
-Вы завершили изучение основных понятий управления устройствами с помощью примера пользовательского интерфейса управления устройствами. Если вы хотите еще глубже изучить интерфейсы API управления устройствами и поэкспериментировать с примерами кода, ознакомьтесь с перечисленными ниже учебниками для разработчиков.
+Вы завершили изучение основных понятий управления устройствами с помощью примера пользовательского интерфейса управления устройствами. Если вы хотите подробнее изучить возможности API-интерфейсов управления устройствами и поэкспериментировать с примерами кода, см. следующие руководства для разработчиков.
 
 - [How to use the device twin (Использование "двойника" устройства)][lnk-tutorial-twin]
 - [How to find device twins using queries (Поиск "двойников" устройств с использованием запросов)][lnk-tutorial-queries]
-- [Учебник по использованию заданий устройства для обновления встроенного ПО устройства (предварительная версия)][lnk-tutorial-jobs]
+- [How to use device jobs to update device firmware (Использование заданий устройства для обновления встроенного ПО устройства)][lnk-tutorial-jobs]
+- [Включение управляемых устройств за шлюзом IoT][lnk-dm-gateway]
 - [Знакомство с клиентской библиотекой управления устройствами для центра Azure IoT][lnk-library-c]
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Разработка решения][lnk-design]
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 [1]: media/iot-hub-device-management-ui-sample/image1.png
 [2]: media/iot-hub-device-management-ui-sample/image2.png
@@ -130,9 +138,16 @@
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management/
-[lnk-library-c]: iot-hub-device-management-library.md
+
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-tutorial-queries]: iot-hub-device-management-device-query.md
 [lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
 
-<!---HONumber=AcomDC_0615_2016-->
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

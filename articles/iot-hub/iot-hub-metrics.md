@@ -54,11 +54,17 @@
 
 ## Дальнейшие действия
 
-Вы ознакомились с общими сведениями о метриках диагностики. Чтобы узнать больше, перейдите по этим ссылкам:
+Вы ознакомились с общими сведениями о метриках диагностики. Чтобы узнать больше об управлении центром Azure IoT, перейдите по этим ссылкам:
 
-- [Мониторинг операций центра IoT][lnk-operations-monitoring]
-- [Масштабирование центра IoT][lnk-scaling]
-- [Высокая доступность и аварийное восстановление центра IoT][lnk-dr]
+- [Мониторинг операций][lnk-monitor]
+- [Настройка и управление доступом к центру IoT][lnk-itpro]
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Разработка решения][lnk-design]
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
 
 <!-- Links and images -->
 [1]: media/iot-hub-metrics/enable-metrics-1.png
@@ -70,4 +76,12 @@
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
 
-<!---HONumber=AcomDC_0706_2016-->
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-itpro]: iot-hub-itpro-info.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+
+<!---HONumber=AcomDC_0713_2016-->

@@ -80,7 +80,7 @@
 3. Нажмите кнопку **Добавить Runbook**, а затем **Импорт**.
 4. Щелкните **файл модуля Runbook** и выберите файл для импорта.
 2. Если поле **Имя** активно, его можно изменить. Имя модуля Runbook должно начинаться с буквы и содержать буквы, цифры, символы подчеркивания и дефисы.
-3. [Тип Runbook](automation-runbook-types.md) буден выбран автоматически, но его можно изменить, приняв во внимание применимые ограничения. 
+3. [Тип Runbook](automation-runbook-types.md) буден выбран автоматически, но его можно изменить, приняв во внимание применимые ограничения.
 3. Новый модуль Runbook появится в списке модулей Runbook для учетной записи автоматизации.
 4. Перед запуском модуля его необходимо [опубликовать](#publishing-a-runbook).
 
@@ -92,7 +92,7 @@
 
 Приведенные ниже примеры команд демонстрируют импорт файла сценария в модуль Runbook.
 
-    $automationAccountName =  AutomationAccount"
+    $automationAccountName =  "AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $scriptPath = "C:\Runbooks\Sample_TestRunbook.ps1"
     $RGName = "ResourceGroup"
@@ -123,7 +123,7 @@
 
 Командлет [Publish-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) позволяет опубликовать модуль Runbook с помощью Windows PowerShell. Команды в приведенном ниже примере показывают, как опубликовать образец модуля Runbook.
 
-	$automationAccountName =  AutomationAccount"
+	$automationAccountName =  "AutomationAccount"
     $runbookName = "Sample_TestRunbook"
     $RGName = "ResourceGroup"
 
@@ -136,4 +136,4 @@
 - Дополнительные сведения о редактировании модулей Runbook PowerShell и рабочих процессов PowerShell с помощью текстового редактора см. в статье [Editing textual runbooks in Azure Automation](automation-edit-textual-runbook.md) (Изменение текстовых модулей Runbook в службе автоматизации Azure).
 - Дополнительные сведения о графической разработке модулей Runbook см. в статье [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

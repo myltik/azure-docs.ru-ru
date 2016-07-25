@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2016"
+	ms.date="07/11/2016"
 	ms.author="jeedes"/>
 
 
@@ -58,7 +58,7 @@
 
 **Чтобы добавить IBM Kenexa Survey Enterprise из коллекции, выполните следующие действия.**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
 	![Active Directory][1]
 
@@ -143,7 +143,7 @@
 
  - Скачанный файл сертификата
  - **URL-адрес издателя**;
- - **URL-адрес единого входа SAML**; 
+ - **URL-адрес единого входа SAML**;
  - **URL-адрес службы единого выхода**.
 
 	> [AZURE.NOTE] Обратите внимание, что значение утверждения NameID в ответе должно соответствовать идентификатору единого входа, настроенному в системе Kenexa. Поэтому поработайте с группой поддержки Kenexa, чтобы сопоставить соответствующий идентификатор пользователя в вашей организации как идентификатор единого входа. По умолчанию Azure AD задаст NameIdentifier в качестве значения UPN. Это можно изменить на вкладке "Атрибут", как показано на следующем снимке экрана. Интеграция будет работать только после завершения правильного сопоставления.
@@ -289,4 +289,4 @@
 [204]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

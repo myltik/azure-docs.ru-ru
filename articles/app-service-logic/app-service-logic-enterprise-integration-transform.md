@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обзор пакета интеграции Enterprise | Служба приложений Microsoft Azure" 
+	pageTitle="Обзор пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Используйте функции пакета интеграции Enterprise, чтобы реализовать сценарии бизнес-процессов и интеграции с помощью службы приложений Microsoft Azure." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Интеграция Enterprise с преобразованием данных XML
@@ -34,20 +34,16 @@
 
 ### Предварительные требования 
 В предварительной версии потребуется выполнить следующее.
+
 -  [Создайте контейнер функции Azure](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Создайте контейнер функции Azure.").
+-  [Добавьте функцию в контейнер функций Azure.](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Этот шаблон создает функцию Azure на C# на основе webhook с возможностями преобразования, которую можно использовать в сценариях интеграции приложений логики.")
+-  Создание учетной записи интеграции и добавление карты в нее
 
-
->[AZURE.TIP] Запишите имя контейнера функций Azure, оно понадобится на следующем шаге.
-
-
--  [Добавьте функцию в контейнер функций Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Этот шаблон создает функцию Azure на C# на основе webhook с возможностями преобразования, которую можно использовать в сценариях интеграции приложений логики.").
-
-
->[AZURE.TIP] Запишите имя функций, оно понадобится на следующем шаге.
+>[AZURE.TIP] Запишите имена контейнера функций Azure и функции Azure, они понадобятся на следующем шаге.
 
 Теперь, когда предварительные требования выполнены, пора создать приложение логики.
 
-1. Создайте приложение логики и [свяжите его с учетной записью интеграции](./app-service-logic-enterprise-integration-accounts.md "Узнайте, как связать учетную запись интеграции с приложением логики."), содержащей преобразование.
+1. Создайте приложение логики и [свяжите его с учетной записью интеграции](./app-service-logic-enterprise-integration-accounts.md "Узнайте, как связать учетную запись интеграции с приложением логики."), содержащей карту.
 2. Добавьте триггер **Request - When an HTTP request is received** (Запрос: при получении HTTP-запроса) в свое приложение логики. ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)
 3. Добавьте действие **Transform XML** (Преобразование XML), щелкнув **Добавить действие**. ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)
 4. Введите слово *transform* в поле поиска, чтобы отфильтровать все действия и оставить только те, которые вы хотите использовать. ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)
@@ -74,7 +70,8 @@
 
 
 ## Подробнее
-- [Узнайте больше о пакете интеграции Enterprise](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.").
+- [Узнайте больше о пакете интеграции Enterprise.](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.")
+- [Узнайте больше о картах](./app-service-logic-enterprise-integration-maps.md "Узнайте о картах интеграции Enterprise.").
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

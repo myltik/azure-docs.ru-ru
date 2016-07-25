@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="07/12/2016"
    ms.author="larryfr"/>
 
 #Выполнение заданий Pig через подключение к удаленному рабочему столу
@@ -136,4 +136,4 @@
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

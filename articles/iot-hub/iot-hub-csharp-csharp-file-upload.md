@@ -149,17 +149,18 @@
 
 ## Дальнейшие действия
 
-В этом учебнике было показано, как использовать возможности передачи файлов центра IoT, чтобы упросить передачу файлов из устройств. Изучение функций и сценариев центра IoT можно продолжить в следующем руководстве:
+В этом учебнике было показано, как использовать возможности передачи файлов центра IoT, чтобы упросить передачу файлов из устройств. Изучение функций и сценариев центра IoT можно продолжить в следующих руководствах:
 
-- [Обработка сообщений, отправляемых с устройств в облако] — в нем показано, как надежно обрабатывать данные телеметрии и интерактивные сообщения, поступающие от устройств.
+- [Создание центра IoT программным образом][lnk-create-hub]
+- [Знакомство с пакетом SDK для устройств Azure IoT для C][lnk-c-sdk]
+- [Пакеты SDK для центра IoT][lnk-sdks]
 
-Дополнительная информация о центре IoT приведена в следующих статьях:
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-* [Обзор центра IoT]
-* [Руководство разработчика по центру IoT]
-* [Руководство по центру IoT]
-* [Поддерживаемые платформы устройств и языки][Supported devices]
-* [Центр разработчика IoT Azure]
+- [Разработка решения][lnk-design]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 <!-- Images. -->
 
@@ -169,33 +170,29 @@
 
 <!-- Links -->
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
-
 [портала Azure]: https://portal.azure.com/
 
 [фабрика данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/documentation/services/hdinsight/
 
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Отправка сообщений из облака на устройства с помощью центра IoT]: iot-hub-csharp-csharp-c2d.md
 [Обработка сообщений с устройства в облако]: iot-hub-csharp-csharp-process-d2c.md
-[Обработка сообщений, отправляемых с устройств в облако]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-
-[Обзор центра IoT]: iot-hub-what-is-iot-hub.md
-[Руководство по центру IoT]: iot-hub-guidance.md
-[Руководство разработчика по центру IoT]: iot-hub-devguide.md
-[IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Приступая к работе с центром IoT]: iot-hub-csharp-csharp-getstarted.md
-[Supported devices]: iot-hub-tested-configurations.md
-[Центр разработчика IoT Azure]: http://www.azure.com/develop/iot
 [Центре разработчика для IoT в Azure]: http://www.azure.com/develop/iot
 
-[IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [хранилища Azure]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Управление центрами IoT через портал Azure]: iot-hub-manage-through-portal.md#file-upload
 [пакета SDK для службы Microsoft Azure IoT]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-create-hub]: iot-hub-rm-template-powershell.md
+[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

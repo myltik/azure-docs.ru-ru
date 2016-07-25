@@ -426,7 +426,17 @@ pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
 
 ## Дальнейшие действия
 
-Дополнительные сведения см. на странице репозитория с [пакетом SDK для шлюза Azure IoT][lnk-sdk].
+Если вы хотите подробнее изучить возможности пакета SDK для шлюза и поэкспериментировать с примерами кода, см. следующие руководства и ресурсы для разработчиков.
+
+- [Пакет SDK для шлюза IoT (бета-версия): управление устройствами с помощью пакета SDK для шлюза][lnk-manage-devices]
+- [Пакет SDK для шлюза IoT Azure][lnk-gateway-sdk]
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Разработка решения][lnk-design]
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
@@ -441,4 +451,11 @@ pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

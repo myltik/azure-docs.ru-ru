@@ -119,7 +119,18 @@
 
 ## Дальнейшие действия
 
-Сведения об использовании пакета SDK для шлюза см. в статье [пакет SDK для IoT Azure][lnk-gateway-sdk] в GitHub.
+Если вы хотите подробнее изучить возможности пакета SDK для шлюза и поэкспериментировать с примерами кода, см. следующие руководства и ресурсы для разработчиков.
+
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через реальное устройство с ОС Linux][lnk-physical-device]
+- [Пакет SDK для шлюза IoT (бета-версия): управление устройствами с помощью пакета SDK для шлюза][lnk-manage-devices]
+- [Пакет SDK для шлюза IoT Azure][lnk-gateway-sdk]
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Разработка решения][lnk-design]
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -128,4 +139,12 @@
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-<!---HONumber=AcomDC_0608_2016-->
+[lnk-physical-device]: iot-hub-gateway-sdk-physical-device.md
+[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

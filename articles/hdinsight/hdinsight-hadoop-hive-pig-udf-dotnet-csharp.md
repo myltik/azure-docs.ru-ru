@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/22/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 
@@ -26,7 +26,7 @@ Hive и Pig идеально подходят для работы с данны�
 
 ##Предварительные требования
 
-* Windows 7, Windows 8 или Windows 8.1.
+* Windows 7 или более поздней версии.
 
 * Visual Studio следующих версий:
 
@@ -34,7 +34,7 @@ Hive и Pig идеально подходят для работы с данны�
 
 	* Visual Studio 2013 Community, Professional, Premium или Ultimate с [обновлением 4](https://www.microsoft.com/download/details.aspx?id=44921);
 
-	* предварительная версия Visual Studio 2015.
+	* Visual Studio 2015
 
 * Hadoop в кластере HDInsight. Пошаговые указания по созданию кластера см. в разделе [Подготовка кластера HDInsight](hdinsight-provision-clusters.md).
 
@@ -241,4 +241,4 @@ Hive и Pig идеально подходят для работы с данны�
 
 * [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/10/2016" 
-	ms.author="wesmc" />
+	ms.date="07/07/2016" 
+	ms.author="wesmc;ricksal" />
 
 #Использование REST для доступа к интерфейсам API службы Azure Mobile Engagement
 
@@ -49,7 +49,7 @@
 
 ## Создание приложения API службы
 
-1. Во-первых, в этом примере потребуется использовать четыре параметра проверки подлинности. Это **SubscriptionId**, **TenantId**, **ApplicationId** и **Secret**. Для получения этих параметров проверки подлинности рекомендуется использовать сценарий PowerShell, как описывается в разделе *Однократная настройка (с использованием сценария)* в учебнике [Проверка подлинности](mobile-engagement-api-authentication.md#authentication). 
+1. Во-первых, в этом примере потребуется использовать четыре параметра проверки подлинности. Это **SubscriptionId**, **TenantId**, **ApplicationId** и **Secret**. Для получения этих параметров проверки подлинности рекомендуется использовать сценарий PowerShell, как описывается в разделе *Однократная настройка (с использованием сценария)* в учебнике [Проверка подлинности](mobile-engagement-api-authentication.md#authentication).
 
 2. Для демонстрации работы с интерфейсами API службы REST с целью создания и активации новой кампании типа "Объявление" мы будем использовать простое консольное приложение Windows. Откройте Visual Studio и создайте **Консольное приложение**.
 
@@ -461,4 +461,4 @@
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0713_2016-->

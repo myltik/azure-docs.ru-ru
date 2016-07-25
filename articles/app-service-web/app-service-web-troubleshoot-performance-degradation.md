@@ -1,12 +1,4 @@
-<properties
-	pageTitle="Устранение неполадок со снижением производительности веб-приложения"
-	description="Эта статья поможет устранить проблемы со снижением производительности веб-приложения, размещенного в службе приложений Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
-	editor=""
-	tags="top-support-issue"/>
+<properties pageTitle="Низкая производительность веб-приложения в службе приложений | Microsoft Azure" description="Эта статья поможет устранить причины низкой производительности веб-приложения в службе приложений Azure." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="производтельность веб-приложения, медленное приложение, приложение медленно работает"/>
 
 <tags
 	ms.service="app-service-web"
@@ -14,12 +6,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="07/06/2016"
 	ms.author="cephalin"/>
 
-# Устранение неполадок со снижением производительности веб-приложения
+# Устранение причин низкой производительности веб-приложения в службе приложений Azure
 
-Эта статья поможет устранить проблемы со снижением производительности веб-приложения, размещенного в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Эта статья поможет устранить причины снижения производительности веб-приложения, размещенного в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Если вам потребуется дополнительная помощь по любому из вопросов, рассматриваемых в статье, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/support/forums/). Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт службы поддержки Azure](https://azure.microsoft.com/support/options/) и щелкните **Поддержка**.
 
@@ -64,7 +56,7 @@ Microsoft Azure информирует о каждом случае прерыв
 -	рабочий набор памяти;
 -	Requests (Запросы)
 
-![](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
+![Мониторинг производительности веб-приложения](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
 Дополнительные сведения см. в следующих статьях:
 
@@ -182,8 +174,8 @@ Microsoft Azure информирует о каждом случае прерыв
 
 Обычно это самый простой способ восстановления после проблемы, которая возникла один раз. Остановить или перезапустить приложение можно при помощи колонки веб-приложения на [портале Azure](https://portal.azure.com/).
 
- ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ ![Перезапуск веб-приложение для устранения проблем с производительностью](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0713_2016-->

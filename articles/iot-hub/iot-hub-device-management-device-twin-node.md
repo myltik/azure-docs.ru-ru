@@ -54,7 +54,7 @@
 
 Чтобы запустить пример, необходимо выполнить ```jobClient_devicePropertyReadWrite.js```. Эта функция считывает свойства устройства из "двойника" и с физического устройства. Кроме того, она изменяет свойство устройства на физическом устройстве. Чтобы запустить пример, выполните следующие действия.
 
-1.  В корневой папке, куда был клонирован репозиторий **azure-iot-sdks**, перейдите к папке **azure-iot-sdks/node/service/samples**.  
+1.  В корневой папке, куда был клонирован репозиторий **azure-iot-sdks**, перейдите к папке **azure-iot-sdks/node/service/samples**.
 
 2.  Откройте файл **jobClient\_devicePropertyReadWrite.js** и замените заполнитель строкой подключения центра IoT.
 
@@ -128,10 +128,17 @@ set_device_batterylevel(0, level);
 Дополнительные сведения о возможностях управления устройствами центра IoT Azure можно просмотреть в руководствах:
 
 - [How to find device twins using queries (Поиск "двойников" устройств с использованием запросов)][lnk-tutorial-queries]
+- [How to use device jobs to update device firmware (Использование заданий устройства для обновления встроенного ПО устройства)][lnk-tutorial-jobs]
+- [Включение управляемых устройств за шлюзом IoT][lnk-dm-gateway]
+- [Знакомство с клиентской библиотекой управления устройствами для центра Azure IoT][lnk-library-c]
+- Клиентская библиотека управления устройствами содержит полноценный пример кода с использованием [устройства Intel Edison][lnk-edison]
 
-- [How to use device jobs to update device firmware (Использование заданий устройства для обновления встроенного ПО устройства)][lnk-dm-jobs]
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-- Клиентские библиотеки управления устройствами содержат полноценный пример использования [устройства Intel Edison][lnk-edison].
+- [Разработка решения][lnk-design]
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 <!-- images and links -->
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png
@@ -145,4 +152,14 @@ set_device_batterylevel(0, level);
 [lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-<!---HONumber=AcomDC_0622_2016-->
+[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
+[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

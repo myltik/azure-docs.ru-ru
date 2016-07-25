@@ -4,7 +4,7 @@
 	services=""
     documentationCenter=".net"
     suite=""
-	authors="alancameronwills"
+	authors="harikmenon"
 	manager="douge"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="03/25/2016"
-	ms.author="awills"/>
+	ms.author="harikm"/>
 
 # Система IoT MyDriving: быстрый запуск
 
@@ -54,7 +54,7 @@ MyDriving — это система, демонстрирующая проект
 
 *Возникли проблемы с запуском приложения на устройстве Windows 10 Mobile?* Возможно, вы не установили на телефон последние обновления. Если дело в этом, установите следующие обновления:
 
- - [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx) 
+ - [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx)
 
  - [Microsoft.NET.Native.Runtime.1.1.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Runtime.1.1.appx)
 
@@ -170,4 +170,4 @@ MyDriving — это система, демонстрирующая проект
   [портал HockeyApp]: https://rink.hockeyapp.org
   [заявку в GitHub]: https://github.com/Azure-Samples/MyDriving/issues
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0713_2016-->

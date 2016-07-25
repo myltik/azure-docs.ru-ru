@@ -140,15 +140,15 @@
 
 	Приведенный ниже командлет добавляет маршрут по умолчанию в таблицу маршрутизации, созданную в действии 1. Обратите внимание, что поддерживается только такой маршрут, когда указан префикс места назначения "0.0.0.0/0" для значения VPNGateway свойства nexthop.
  
-		Set-AzureRoute –RouteTableName "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+		Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
 
 3. Сопоставьте таблицу маршрутизации с подсетями.
 
 	После создания таблицы маршрутизации и добавления маршрута с помощью командлета ниже добавьте таблицу маршрутизации в подсеть виртуальной сети или сопоставьте таблицу с этой подсетью. В примерах ниже показано, как добавить таблицу маршрутизации MyRouteTable в подсети Midtier и Backend виртуальной сети MultiTier-VNet.
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
 
-		Set-AzureSubnetRouteTable -VNetName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+		Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
 
 4. Назначьте сайт по умолчанию для принудительного туннелирования.
 
@@ -161,7 +161,7 @@
 
 ### Удаление таблицы маршрутизации
 
-	Remove-AzureRouteTable -RouteTableName <routeTableName>
+	Remove-AzureRouteTable -Name <routeTableName>
 
 ### Отображение таблицы маршрутизации
 
@@ -173,14 +173,14 @@
 
 ### Удаление маршрута из подсети
 
-	Remove-AzureSubnetRouteTable –VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Remove-AzureSubnetRouteTable –VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Отображение таблицы маршрутизации, сопоставленной с подсетью
 	
-	Get-AzureSubnetRouteTable -VNetName <virtualNetworkName> -SubnetName <subnetName>
+	Get-AzureSubnetRouteTable -VirtualNetworkName <virtualNetworkName> -SubnetName <subnetName>
 
 ### Удаление сайта по умолчанию из VPN-шлюза виртуальной сети
 
-	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
+	Remove-AzureVnetGatewayDefaultSite -VNetName <virtualNetworkName>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

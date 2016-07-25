@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/30/2016"
+   ms.date="07/11/2016"
    ms.author="tomfitz"/>
 
 # Развертывание ресурсов с использованием шаблонов Resource Manager и Azure PowerShell
@@ -189,4 +189,4 @@
 - Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
 - Дополнительные сведения об использовании ссылки на KeyVault для передачи безопасных значений см. в разделе [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->
