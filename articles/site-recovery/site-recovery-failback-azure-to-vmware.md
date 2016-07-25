@@ -112,7 +112,7 @@
 	
 	1. Имя образа — *Microsoft Azure Site Recovery Process Server V2*. Необходимо выбрать *классическую* модель развертывания.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.PNG)
+		![](./media/site-recovery-failback-azure-to-vmware-new/templateName.PNG)
 	
 	2. Установите сервер обработки, как указано [здесь](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server).
 	
@@ -252,4 +252,4 @@
 - ExpressRoute необходимо настроить в виртуальной сети Azure, где будет выполняться отработка отказа исходных машин и где будут размещены виртуальные машины Azure после отработки отказа.
 - Данные реплицируются в учетную запись хранения Azure в общедоступной конечной точке. В ExpressRoute следует настроить общедоступный пиринг с целевым центром обработки данных, чтобы для репликации Site Recovery использовалось подключение ExpressRoute.
 
-<!----HONumber=AcomDC_0713_2016--->
+<!-----HONumber=AcomDC_0713_2016--->
