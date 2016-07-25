@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/22/2016"
+    ms.date="07/11/2016"
     ms.author="sethm"/>
 
 # Создание ресурсов служебной шины с использованием шаблонов Azure Resource Manager
@@ -22,7 +22,7 @@
 
 В шаблонах Azure Resource Manager определяются ресурсы для развертывания решения и указываются параметры и переменные, позволяющие вводить значения для различных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания. Подробные сведения о создании шаблонов Azure Resource Manager и описание формата шаблонов см. в статье [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
 
->[AZURE.NOTE] В примерах в этой статье показано, как использовать Azure Resource Manager для создания пространства имен и объекта обмена сообщениями (очереди) служебной шины. Чтобы получить другие образцы шаблонов, обратитесь к [коллекции шаблонов быстрого запуска Azure][] и введите в строке поиска "Служебная шина".
+>[AZURE.NOTE] В примерах в этой статье показано, как использовать Azure Resource Manager для создания пространства имен и объекта обмена сообщениями (очереди) служебной шины. Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][] выполните поиск по запросу "служебная шина".
 
 ## Шаблоны Resource Manager для служебной шины и концентраторов событий
 
@@ -124,7 +124,7 @@
 
 ### Создание файла параметров (необязательно)
 
-Чтобы использовать необязательный файл параметров, скопируйте файл [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json). Замените значение `serviceBusNamespaceName` на имя пространства имен служебной шины, которое нужно создать в этом развертывании, а значение `serviceBusQueueName` — на имя очереди, которую нужно создать.
+Чтобы использовать необязательный файл параметров, скопируйте файл [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.parameters.json). Замените значение `serviceBusNamespaceName` на название пространства имен служебной шины, которое нужно создать в этом развертывании, а значение `serviceBusQueueName` — на имя очереди, которую нужно создать.
 
 ```
 {
@@ -154,13 +154,13 @@
 Login-AzureRmAccount
 ```
 
-Вам будет предложено войти в учетную запись Azure. После входа в систему выполните следующую команду, чтобы просмотреть доступные подписки:
+Вам будет предложено войти в учетную запись Azure. Войдя в систему, выполните следующую команду, чтобы просмотреть доступные подписки.
 
 ```
 Get-AzureRMSubscription
 ```
 
-Эта команда возвращает список доступных подписок Azure. Выберите подписку для текущего сеанса, выполнив приведенную ниже команду. Замените `<YourSubscriptionId>` на идентификатор GUID подписки Azure, которую хотите использовать.
+Эта команда возвращает список доступных подписок Azure. Выберите подписку для текущего сеанса, выполнив приведенную ниже команду. Замените `<YourSubscriptionId>` идентификатором GUID подписки Azure, которую вы хотите использовать.
 
 ```
 Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
@@ -174,7 +174,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
-В случае успешного выполнения операции появится сводка по новой группе ресурсов.
+После успешного выполнения операции появится сводка по новой группе ресурсов.
 
 ```
 ResourceGroupName : MyDemoRG
@@ -194,7 +194,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 
 ### Создание развертывания
 
-Чтобы создать развертывание, выполните команду `New-AzureRmResourceGroupDeployment` и укажите необходимые параметры при появлении запроса. Параметры включают в себя имя развертывания, имя группы ресурсов и путь к файлу шаблона или его URL-адрес. Если параметр **Mode** не указан, то используется значение по умолчанию **Incremental**. Дополнительные сведения см. в статье [Добавочные и полные развертывания](../resource-group-template-deploy.md#incremental-and-complete-deployments).
+Чтобы создать развертывание, выполните команду `New-AzureRmResourceGroupDeployment` и укажите необходимые параметры при появлении запроса. Параметры включают в себя имя развертывания, имя группы ресурсов и путь к файлу шаблона или его URL-адрес. Если параметр **Режим** не указан, используется стандартное значение **Добавочный**. Дополнительные сведения см. в статье [Добавочные и полные развертывания](../resource-group-template-deploy.md#incremental-and-complete-deployments).
 
 Следующая команда запрашивает три параметра в окне PowerShell:
 
@@ -202,7 +202,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
-Чтобы использовать вместо этого файл параметров, используйте приведенную ниже команду.
+Чтобы использовать вместо этого файл параметров, выполните приведенную ниже команду.
 
 ```
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -251,6 +251,6 @@ Parameters        :
 
 [Общие сведения о диспетчере ресурсов Azure]: ../resource-group-overview.md
 [Развертывание ресурсов с использованием шаблонов Azure Resource Manager]: ../resource-group-template-deploy.md
-[коллекции шаблонов быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[шаблонов быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

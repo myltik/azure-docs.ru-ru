@@ -13,12 +13,12 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="04/21/2016"
+	ms.topic="article"
+	ms.date="07/11/2016"
 	ms.author="iainfou"/>
 
 # Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

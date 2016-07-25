@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/06/2016"
+   ms.date="07/08/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 # Восстановление размещения виртуальных машин и физических серверов VMware с переносом из Azure в VMware с помощью службы Azure Site Recovery (устарело)
@@ -428,4 +428,4 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

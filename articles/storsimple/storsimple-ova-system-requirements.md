@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/28/2016"
+   ms.date="07/13/2016"
    ms.author="alkohli"/>
 
 # Системные требования для виртуального массива StorSimple
@@ -93,6 +93,9 @@
 
 <sup>1</sup> Входящие порты не требуется открывать при общем доступе через Интернет.
 
+> [AZURE.IMPORTANT] Убедитесь, что брандмауэр не изменяет и не расшифровывает SSL-трафик между устройством StorSimple и средой Azure.
+
+
 ### Шаблоны URL-адресов для правил брандмауэра 
 
 Нередко сетевые администраторы могут настраивать правила брандмауэра на основе шаблонов URL-адресов, чтобы фильтровать входящий и исходящий трафик. Виртуальный массив и служба диспетчера StorSimple зависят от других приложений Майкрософт, в том числе служебной шины Microsoft Azure, контроля доступа Azure Active Directory, учетных записей хранения и серверов центра обновления Майкрософт. Шаблоны URL-адресов, связанных с этими приложениями, можно использовать для настройки правил брандмауэра. Важно понимать, что шаблоны URL-адресов, связанных с этими приложениями, могут меняться. Поэтому сетевому администратору потребуется отслеживать правила брандмауэра для StorSimple и обновлять их по мере необходимости.
@@ -101,8 +104,8 @@
 
 > [AZURE.NOTE] 
 > 
-> - В качестве IP-адресов устройств (источников) всегда должны устанавливаться все сетевые интерфейсы с поддержкой облака. 
-> - В качестве IP-адресов назначения должны устанавливаться [диапазоны IP-адресов центра обработки данных Azure](https://www.microsoft.com/ru-RU/download/confirmation.aspx?id=41653).
+> - В качестве IP-адресов устройств (источников) всегда должны устанавливаться все сетевые интерфейсы с поддержкой облака.
+> - В качестве IP-адресов назначения следует указать [диапазоны IP-адресов центра обработки данных Azure](https://www.microsoft.com/ru-RU/download/confirmation.aspx?id=41653).
 
 
 | Шаблон URL-адреса | Компонент или функция |
@@ -110,14 +113,14 @@
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Служба диспетчера StorSimple,<br>служба контроля доступа,<br>служебная шина Azure|
 |`http://*.backup.windowsazure.com`|Регистрация устройства|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Отзыв сертификатов |
-| `https://*.core.windows.net/*` | Учетные записи хранения Azure и мониторинг |
+| `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Учетные записи хранения Azure и мониторинг |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Серверы Центра обновления Майкрософт<br> |
 | `http://*.deploy.akamaitechnologies.com` |CDN Akamai |
 | `https://*.partners.extranet.microsoft.com/*` | Вспомогательный пакет |
-| `http://*.data.microsoft.com ` | Служба телеметрии в Windows, см. [обновление для улучшения качества программного обеспечения и телеметрии диагностики](https://support.microsoft.com/ru-RU/kb/3068708) |
+| `http://*.data.microsoft.com ` | Служба телеметрии в Windows; см. [обновление для улучшения качества программного обеспечения и телеметрии диагностики](https://support.microsoft.com/ru-RU/kb/3068708) |
 
 ## Дальнейшие действия
 
 -   [Подготовка портала для развертывания виртуального массива StorSimple.](storsimple-ova-deploy1-portal-prep.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

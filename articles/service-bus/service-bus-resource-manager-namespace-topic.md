@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
 # Создание пространства имен служебной шины с разделом и подпиской с помощью шаблона диспетчера ресурсов Azure
@@ -31,15 +31,13 @@
 >-    [Создание пространства имен служебной шины с очередью](service-bus-resource-manager-namespace-queue.md)
 >-    [Создайте пространство имен служебной шины](service-bus-resource-manager-namespace.md)
 >
->Для получения последних шаблонов обратитесь к статье [Шаблоны быстрого запуска Azure][] и введите в строке поиска "Служебная шина".
+>Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][] выполните поиск по запросу "служебная шина".
 
 ## Что вы развернете?
 
 С помощью этого шаблона вы развернете пространство имен служебной шины с разделом и подпиской.
 
-Разделы и подписки предоставляют вид взаимодействия "один ко многим" в рамках шаблона *публикации или подписки*.
-
-[Ознакомьтесь с дополнительными сведениями о разделах и подписках служебной шины][].
+[Разделы и подписки служебной шины](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) предоставляют вид взаимодействия "один ко многим" в рамках шаблона *публикации или подписки*.
 
 Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
 
@@ -49,7 +47,7 @@
 
 С помощью диспетчера ресурсов Azure можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел `Parameters`, содержащий все значения параметров. Для этих значений необходимо определить параметры, которые будут зависеть от развертываемого проекта либо от среды, в которой выполняется развертывание. Не задавайте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
 
-Далее следует описание каждого параметра в шаблоне.
+Шаблон определяет следующие параметры.
 
 ### serviceBusNamespaceName
 
@@ -156,10 +154,10 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
 
   [Создание шаблонов Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [Шаблоны быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/
-  [Ознакомьтесь с дополнительными сведениями о разделах и подписках служебной шины]: service-bus-queues-topics-subscriptions.md
+  [шаблонов быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+  [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Шаблон пространства имен служебной шины с разделом и подпиской]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-and-subscription/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

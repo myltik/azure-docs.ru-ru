@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Включение метрик хранилища на портале Azure | Microsoft Azure" 
-	description="Как включить метрики хранилища для служб больших двоичных объектов, очередей, таблиц и файлов." 
-	services="storage" 
-	documentationCenter="" 
-	authors="robinsh" 
-	manager="carmonm" 
+<properties
+	pageTitle="Включение метрик хранилища на портале Azure | Microsoft Azure"
+	description="Как включить метрики хранилища для служб больших двоичных объектов, очередей, таблиц и файлов."
+	services="storage"
+	documentationCenter=""
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/09/2016" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/05/2016"
 	ms.author="robinsh"/>
 
 # Включение метрик хранилища Azure и просмотр данных метрик
@@ -30,7 +30,7 @@
 
 Выполните следующие действия, чтобы включить метрики на [портале Azure](https://portal.azure.com).
 
-1. Войдите в свою учетную запись хранения. 
+1. Войдите в свою учетную запись хранения.
 1. Откройте колонку **Параметры** и выберите **Диагностика**.
 1. Убедитесь, что в разделе **Состояние** задано значение **Вкл**.
 1. Выберите метрики для служб, за которыми вы хотите наблюдать.
@@ -71,7 +71,7 @@
     // Create service client for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Enable Storage Analytics logging and set retention policy to 10 days. 
+    // Enable Storage Analytics logging and set retention policy to 10 days.
     ServiceProperties properties = new ServiceProperties();
     properties.Logging.LoggingOperations = LoggingOperations.All;
     properties.Logging.RetentionDays = 10;
@@ -92,7 +92,7 @@
     // Set the service properties.
     blobClient.SetServiceProperties(properties);
 
-    
+
 ## Просмотр метрик хранилища
 
 После настройки метрик аналитики хранилища для мониторинга учетной записи хранения функция аналитики хранилища записывает метрики в набор известных таблиц в учетной записи хранения. Вы можете настроить диаграммы для просмотра почасовых метрик на [портале Azure](https://portal.azure.com).
@@ -102,7 +102,16 @@
 3. Чтобы изменить метрики, отображаемые на диаграмме, щелкните ссылку **Изменить**. Добавлять и удалять отдельные метрики можно, устанавливая и снимая выделение.
 4. Закончив редактировать метрики, нажмите кнопку **Сохранить**.
 
-Чтобы скачивать метрики для длительного хранения или анализа в локальной среде, необходимо использовать соответствующий инструмент или написать код для чтения таблиц. Необходимо скачать минутные метрики для анализа. Таблицы не отображаются, если в учетной записи хранения выведены все таблицы. Однако к ним можно обращаться напрямую по имени. Многие сторонние инструменты обзора хранилищ поддерживают эти таблицы и позволяют просматривать их непосредственно (см. список доступных инструментов в записи блога [Обозреватели службы хранилища Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx)).
+Чтобы скачивать метрики для длительного хранения или анализа в локальной среде, вам потребуется следующее.
+
+- Используйте средство, которое поддерживает эти таблицы, а также позволяет просматривать и скачивать их.
+- Напишите пользовательское приложение или сценарий для чтения и хранения этих таблиц.
+
+Многие сторонние инструменты обзора хранилищ поддерживают эти таблицы и позволяют просматривать их напрямую. Список доступных инструментов см. в разделе [Обучающие ресурсы для хранилища Azure](storage-explorers.md).
+
+> [AZURE.NOTE] Начиная с версии 0.8.0 [обозревателя службы хранилища Microsoft Azure](http://storageexplorer.com/) можно просматривать и скачивать таблицы метрик аналитики.
+
+Чтобы получить доступ к таблицам аналитики программными средствами, обратите внимание, что таблицы аналитики не отображаются в списке всех таблиц в учетной записи хранения. Можно обратиться к ним непосредственно по имени или использовать [API CloudAnalyticsClient](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) в клиентской библиотеке .NET для запроса имен таблиц.
 
 ### Часовые метрики
 - $MetricsHourPrimaryTransactionsBlob
@@ -148,7 +157,7 @@
     // Convert the dates to the format used in the PartitionKey
     var start = startDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
     var end = endDateTime.ToUniversalTime().ToString("yyyyMMdd'T'HHmm");
-    
+
     var services = Enum.GetValues(typeof(StorageService));
     foreach (StorageService service in services)
     {
@@ -161,9 +170,9 @@
     // Note, you can't filter using the entity properties Time, AccessType, or TransactionType
     // because they are calculated fields in the MetricsEntity class.
     // The PartitionKey identifies the DataTime of the metrics.
-    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0 
+    where entity.PartitionKey.CompareTo(start) >= 0 && entity.PartitionKey.CompareTo(end) <= 0
     select entity;
-    
+
     // Filter on "user" transactions after fetching the metrics from Table Storage.
     // (StartsWith is not supported using LINQ with Azure table storage)
     var results = query.ToList().Where(m => m.RowKey.StartsWith("user"));
@@ -171,7 +180,7 @@
     Console.WriteLine(resultString);
     }
     }
-    
+
     private static string MetricsString(MetricsEntity entity, OperationContext opContext)
     {
     var entityProperties = entity.WriteEntity(opContext);
@@ -181,7 +190,7 @@
     string.Format("TransactionType: {0}, ", entity.TransactionType) +
     string.Join(",", entityProperties.Select(e => new KeyValuePair<string, string>(e.Key.ToString(), e.Value.PropertyAsObject.ToString())));
     return entityString;
-    
+
     }
 
 
@@ -203,6 +212,5 @@
 
 ## Дальнейшие действия:
 [Включение ведения журнала и доступа к данным журнала хранилища](https://msdn.microsoft.com/library/dn782840.aspx)
- 
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

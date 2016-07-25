@@ -33,11 +33,11 @@
 		[OrderID] [int] NOT NULL, 
 		[CustomerID] [int] NOT NULL 
 		) 
-	INSERT INTO [dbo].[OrderInformation] \([OrderID], [CustomerID]) VALUES (123, 1) 
-	INSERT INTO [dbo].[OrderInformation] \([OrderID], [CustomerID]) VALUES (149, 2) 
-	INSERT INTO [dbo].[OrderInformation] \([OrderID], [CustomerID]) VALUES (857, 2) 
-	INSERT INTO [dbo].[OrderInformation] \([OrderID], [CustomerID]) VALUES (321, 1) 
-	INSERT INTO [dbo].[OrderInformation] \([OrderID], [CustomerID]) VALUES (564, 8) 
+	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1) 
+	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2) 
+	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2) 
+	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
+	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
 Отправьте в базу данных **Customers** указанный ниже запрос, чтобы создать таблицу сведений о клиентах **CustomerInformation** и заполнить ее примерами данных.
 
@@ -47,9 +47,9 @@
 		[Company] [varchar](50) NULL 
 		CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC) 
 	) 
-	INSERT INTO [dbo].[CustomerInformation] \([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC') 
-	INSERT INTO [dbo].[CustomerInformation] \([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ') 
-	INSERT INTO [dbo].[CustomerInformation] \([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO') 
+	INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC') 
+	INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ') 
+	INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO') 
 
 ## Создание объектов базы данных
 ### Главный ключ и учетные данные для конкретной базы данных
@@ -62,7 +62,7 @@
 		WITH IDENTITY = '<username>', 
 		SECRET = '<password>';  
 
-	Вместо параметров username и password укажите соответственно имя пользователя и пароль, используемые для входа в базу данных «Клиенты».
+	Вместо параметров username и password укажите соответственно имя пользователя и пароль, используемые для входа в базу данных «Клиенты». Проверка подлинности с помощью Azure Active Directory и эластичных запросов сейчас не поддерживается.
 
 ### Внешние источники данных
 Для создания внешнего источника данных выполните следующую команду в базе данных «Заказы».
@@ -106,4 +106,4 @@
 
 <!--anchors-->
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

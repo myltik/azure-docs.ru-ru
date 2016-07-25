@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2016" 
+	ms.date="07/13/2016" 
 	ms.author="szark"/>
 
 
@@ -25,9 +25,11 @@
 
 ##Введение
 
-Агент Linux для Azure (/usr/sbin/waagent) управляет взаимодействием виртуальной машины с контроллером структуры Azure. Он выполняет следующие действия:
+Агент Linux для Azure (/usr/sbin/waagent) управляет взаимодействием виртуальной машины с контроллером структуры Azure. Сведения об установке и обновлении агента на работающей виртуальной машине см. в статье [Как обновить агент Linux для Azure на виртуальной машине до последней версии с сайта GitHub](virtual-machines-linux-update-agent.md).
 
-> [AZURE.NOTE] Последнюю версию этого руководства см. в [файле сведений](https://github.com/Azure/WALinuxAgent/blob/2.0/README) об агенте Azure для Linux.
+Агент Azure для Linux отвечает за следующие функции:
+
+> [AZURE.NOTE] Последнюю версию этого руководства см. в [файле сведений](https://github.com/Azure/WALinuxAgent/blob/master/README.md) об агенте Azure для Linux.
 
 * **Подготовка образа**
   - Создание учетной записи пользователя
@@ -323,4 +325,4 @@
 
  
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0713_2016-->

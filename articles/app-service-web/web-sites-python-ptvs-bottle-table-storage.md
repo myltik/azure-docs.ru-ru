@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/20/2016"
+	ms.date="07/07/2016"
 	ms.author="huvalo"/>
 
 
@@ -29,10 +29,10 @@
 
 ## Предварительные требования
 
- - Visual Studio 2013 или 2015
+ - Visual Studio 2015
  - [Инструменты Python 2.2 для Visual Studio]
  - [Образцы VSIX средств Python 2.2 для Visual Studio]
- - [Пакет инструментов SDK Azure для VS 2013] или [пакет инструментов SDK Azure для VS 2015]
+ - [Инструменты пакета SDK для Azure для Visual Studio 2015]
  - [Python 2.7 (32-разрядный)] или [Python 3.4 (32-разрядный)]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -43,9 +43,9 @@
 
 В этом разделе мы создадим проект Visual Studio с помощью шаблона. Мы создадим виртуальную среду и установим необходимые пакеты. Затем мы запустим приложение локально в размещенном в памяти репозитории.
 
-1.  В Visual Studio выберите **Файл** > **Создать проект**.
+1.  В Visual Studio выберите **Файл** > **Создать проект**.
 
-1.  В шаблонах проекта PTVS Samples VSIX в секции **Python** выберите **Примеры**. Выберите **Веб-проект опросов Bottle** и нажмите кнопку «ОК», чтобы создать проект.
+1.  Чтобы найти шаблоны [примеров VSIX для инструментов Python 2.2 для Visual Studio], в разделе **Python** выберите **Примеры**. Выберите **Веб-проект опросов Bottle** и нажмите кнопку «ОК», чтобы создать проект.
 
   	![Диалоговое окно «Новый проект»](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleNewProject.png)
 
@@ -69,15 +69,15 @@
 
 1.  Войдите на [портал Azure](https://portal.azure.com/).
 
-2. Щелкните значок **Создать** в левом нижнем углу страницы, затем выберите **Данные + хранилище** > **Учетная запись хранения**. Нажмите кнопку **Создать**, присвойте учетной записи хранения уникальное имя и создайте для нее новую [группу ресурсов](../resource-group-overview.md).
+1. Щелкните значок **Создать** в левом нижнем углу страницы, затем выберите **Данные + хранилище** > **Учетная запись хранения**. Нажмите кнопку **Создать**, присвойте учетной записи хранения уникальное имя и создайте для нее новую [группу ресурсов](../resource-group-overview.md).
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
+  	![Быстрое создание](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
 
 	После создания учетной записи хранения на кнопке **Уведомления**загорится зеленым слово **УСПЕШНО** и откроется колонка учетной записи хранения, в которой будет видно, что учетная запись относится к созданной вами группе ресурсов.
 
-  	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
+1. Щелкните элемент **Ключи доступа** в колонке учетной записи хранения. Запишите имя учетной записи и значение key1.
 
-5. Щелкните часть **Настройки** в колонке учетной записи хранения. Запишите имя учетной записи и первичный ключ.
+  	![ключей](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageKeys.png)
 
 	Эта информация нам понадобится для настройки проекта в следующем разделе.
 
@@ -89,7 +89,7 @@
 
   	![Параметры отладки проекта](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageProjectDebugSettings.png)
 
-1.  Установите значения переменных среды для своего приложения в разделе **Команда отладки сервера** > **Среда**.
+1.  Установите значения переменных среды для своего приложения в разделе **Команда отладки сервера** > **Среда**.
 
         REPOSITORY_NAME=azuretablestorage
         STORAGE_NAME=<storage account name>
@@ -103,7 +103,7 @@
 
 1.  Запустите приложение, нажав клавишу `F5`. Опросы, созданные с помощью команды **Создать примеры опросов**, и отправленные при голосовании данные будут сериализованы в табличном хранилище Azure.
 
-	> [AZURE.NOTE] Виртуальная среда Python 2.7 может вызвать исключение в Visual Studio. Нажмите клавишу `F5`, чтобы продолжить загрузку веб-проекта.
+	> [AZURE.NOTE] Виртуальная среда Python 2.7 может вызвать исключение в Visual Studio. Нажмите клавишу `F5`, чтобы продолжить загрузку веб-проекта.
 
 1.  Перейдите на страницу **О программе**, чтобы убедиться в том, что приложение использует репозиторий **табличного хранилища Azure**.
 
@@ -111,17 +111,17 @@
 
 ## Знакомство с хранилищем таблиц Azure
 
-Таблицы хранилища легко просматривать и редактировать с помощью обозревателя сервера в Visual Studio. В этом разделе мы будем использовать обозреватель сервера для просмотра содержимого таблиц приложения опросника.
+Таблицы хранилища легко просматривать и редактировать с помощью Cloud Explorer в Visual Studio. В этом разделе мы будем использовать обозреватель сервера для просмотра содержимого таблиц приложения опросника.
 
 > [AZURE.NOTE] Для этого требуется установить инструменты Microsoft Azure, которые доступны в составе пакета [SDK для Azure для .NET].
 
-1.  Откройте **обозреватель сервера**. Разверните **Azure**, **Хранилище**, свою учетную запись хранения, а затем **Таблицы**.
+1.  Откройте **Cloud Explorer**. Разверните узел **Учетные записи хранения**, свою учетную запись хранения, а затем узел **Таблицы**.
 
-  	<!-- ![Server Explorer](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png) -->
+  	![Обозреватель облака](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png)
 
 1.  Дважды щелкните таблицу **опросов** или **вариантов**, чтобы просмотреть содержимое таблицы в окне документа, а также добавить, удалить или отредактировать записи.
 
-  	<!-- ![Table Query Results](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png) -->
+  	![Результаты запросов таблицы](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png)
 
 ## Публикация веб-приложения в службе приложений Azure
 
@@ -129,7 +129,7 @@
 
 1.  В **обозревателе решений** щелкните правой кнопкой мыши узел проекта и выберите **Опубликовать**.
 
-  	<!-- ![Publish Web Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png) -->
+  	![Диалоговое окно «Публикация веб-сайта»](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png)
 
 1.  Щелкните **Веб-приложения Microsoft Azure**.
 
@@ -142,8 +142,6 @@
 	-	**Регион**
 	-	Для параметра **Сервер баз данных** оставьте значение **Без базы данных**
 
-  	<!-- ![Create Web App on Microsoft Azure Dialog](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonCreateWebSite.png) -->
-
 1.  Примите значения по умолчанию и щелкните **Опубликовать**.
 
 1.  Опубликованное веб-приложение автоматически откроется в вашем браузере. Если перейти на страницу «О программе», вы увидите, что используется размещенный **в памяти** репозиторий, а не репозиторий **табличного хранилища Azure**.
@@ -154,19 +152,15 @@
 
 В этом разделе мы настроим переменные среды для экземпляра веб-приложений.
 
-1.  На [портале Azure] откройте колонку веб-приложения, выбрав **Обзор** > **Веб-приложения** > имя вашего веб-приложения.
+1.  На [портале Azure] откройте колонку веб-приложения, выбрав **Обзор** > **Службы приложений** > имя вашего веб-приложения.
 
 1.  В колонке веб-приложения щелкните **Все параметры**, а затем — **Параметры приложения**.
 
-  	<!-- ![Top Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png) -->
+1.  Прокрутите список вниз до раздела **Параметры приложения** и присвойте переменным **REPOSITORY\_NAME**, **STORAGE\_NAME** и **STORAGE\_KEY** значения, описанные ранее в разделе **Настройка проекта**.
 
-1.  Прокрутите список вниз до раздела **Параметры приложения** и присвойте переменным **REPOSITORY_NAME**, **STORAGE_NAME** и **STORAGE_KEY** значения, описанные в разделе **Настройка проекта**.
+  	![Параметры приложения](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 
-  	<!-- ![App Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
-
-1. Нажмите **СОХРАНИТЬ**, а затем **ПЕРЕЗАПУСТИТЬ** и, наконец, **ОБЗОР**.
-
-  	<!-- ![Bottom Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureBottomMenu.png) -->
+1.  Щелкните **Save** (Сохранить). После получения уведомлений о том, что изменения были применены, щелкните **Обзор** в главной колонке веб-приложения.
 
 1.  Вы должны увидеть, что веб-приложение работает корректно и использует репозиторий **табличного хранилища Azure**.
 
@@ -203,8 +197,8 @@
 [Средства Python для Visual Studio]: http://aka.ms/ptvs
 [Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
 [Образцы VSIX средств Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
-[Пакет инструментов SDK Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[пакет инструментов SDK Azure для VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[примеров VSIX для инструментов Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
+[Инструменты пакета SDK для Azure для Visual Studio 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
@@ -216,4 +210,4 @@
 [Пакет SDK для Azure для Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0713_2016-->

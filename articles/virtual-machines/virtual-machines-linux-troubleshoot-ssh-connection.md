@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Устранение неполадок SSH-подключения к виртуальной машине Azure | Microsoft Azure"
+	pageTitle="Ошибка, сбой или отклонение SSH-подключения к виртуальной машине Linux | Microsoft Azure"
 	description="Диагностика и исправление ошибок SSH, например «ошибка SSH-подключения» или «в SSH-подключении отказано», для виртуальной машины под управлением Linux."
-	keywords="в SSH-подключении отказано, ошибка SSH, Azure SSH, ошибка SSH-подключения"
+	keywords="отклонение SSH-подключения, ошибка SSH, Azure SSH, ошибка SSH-подключения"
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -14,13 +14,13 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.topic="article"
+	ms.date="07/06/2016"
 	ms.author="iainfou"/>
 
-# Устранение неполадок SSH-подключения к виртуальной машине Azure
+# Устранение неполадок с SSH-подключением к виртуальной машине Azure Linux: сбой, ошибка или отклонение
 
-При попытке подключения к виртуальной машине Azure под управлением Linux ошибки с подключением Secure Shell (SSH) могут возникнуть по нескольким причинам. В этой статье вы узнаете, как их выявить и устранить.
+При попытке подключения к виртуальной машине Azure под управлением Linux ошибка, сбой или отклонение подключения Secure Shell (SSH) может возникнуть по нескольким причинам. В этой статье вы узнаете, как их выявить и устранить.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -124,7 +124,7 @@ azure vm extension set <resource group> <vmname> VMAccessForLinux Microsoft.OSTC
 	- сбросить конфигурацию SSH.
 
 - Проверьте работоспособность ресурсов виртуальной машины, чтобы выявить любые проблемы, связанные с платформой.<br> Последовательно выберите **Обзор** > **Виртуальные машины (классика)** > *ваша виртуальная машина Linux* > **Параметры** > **Проверить работоспособность**.
-	 
+
 
 ## Дополнительные ресурсы
 
@@ -134,4 +134,4 @@ azure vm extension set <resource group> <vmname> VMAccessForLinux Microsoft.OSTC
 
 - Дополнительные сведения об устранении неполадок на виртуальных машинах, созданных с помощью классической модели развертывания, см. в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](virtual-machines-linux-classic-reset-access.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0713_2016-->

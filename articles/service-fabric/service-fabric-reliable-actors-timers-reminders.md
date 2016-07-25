@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
@@ -107,7 +107,7 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
 
 При активации напоминания среда выполнения субъектов Reliable Actors вызовет метод субъекта `ReceiveReminderAsync`. Субъект может зарегистрировать несколько напоминаний, и метод `ReceiveReminderAsync` будет вызываться при активации любого из них. Субъект с помощью имени напоминания, переданного методу `ReceiveReminderAsync`, может выяснить, какое напоминание сработало.
 
-После завершения вызова `ReceiveReminderAsync` среда выполнения субъектов сохраняет состояние субъекта. В случае ошибки при сохранении состояния объект данного субъекта отключается и активным становится новый экземпляр. Чтобы указать, что состояние не требуется сохранять по завершении обратного вызова напоминания, можно установить флаг `ActorReminderAttributes.ReadOnly` в параметре `attributes` при вызове метода `RegisterReminder` для создания напоминания.
+Когда вызов `ReceiveReminderAsync` будет завершен, среда выполнения субъектов сохранит состояние субъекта. В случае ошибки при сохранении состояния объект данного субъекта отключается и активным становится новый экземпляр.
 
 Чтобы отменить регистрацию напоминания, субъект вызывает метод `UnregisterReminder` (см. пример ниже).
 
@@ -125,4 +125,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
  - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Пример кода](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0713_2016-->

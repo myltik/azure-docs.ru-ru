@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
-   ms.author="mfussell"/>
+   ms.date="07/05/2016"
+   ms.author="vturecek"/>
 
 # Подключение к службам в Service Fabric и взаимодействие с ними
 Служба Service Fabric, запущенная в кластере Service Fabric, обычно распределена между несколькими виртуальными машинами. Владелец службы или платформа Service Fabric могут перемещать ее из одного расположения в другое. Службы не привязаны статически к определенному компьютеру или адресу.
@@ -139,4 +139,4 @@ Service Fabric включает службу именования, котора�
 [7]: ./media/service-fabric-connect-and-communicate-with-services/distributedservices.png
 [8]: ./media/service-fabric-connect-and-communicate-with-services/loadbalancerprobe.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

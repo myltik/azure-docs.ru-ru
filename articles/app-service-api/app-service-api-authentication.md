@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/23/2016"
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Проверка подлинности и авторизация для приложений API в службе приложений Azure
 
@@ -28,7 +28,7 @@
 
 * Выполняется предварительная обработка входящих запросов API. Это означает, что проверка подлинности работает с любыми языками и средами, которые поддерживает служба приложений.
 * Вы можете выбрать, насколько подробной должна быть проверка подлинности в коде приложения.
-* Выполняется проверка подлинности как конечных пользователей, так и учетных записей служб. 
+* Выполняется проверка подлинности как конечных пользователей, так и учетных записей служб.
 * Поддерживаются пять поставщиков удостоверений: Azure Active Directory, Facebook, Google, Twitter и учетная запись Майкрософт.
 * Работает одинаково для приложений API, веб-приложений и мобильных приложений.
 
@@ -94,12 +94,12 @@
 Дополнительную информацию о проверке подлинности и авторизации в службе приложений Azure см. на следующих ресурсах:
 
 * [Расширение проверки подлинности и авторизации службы приложений](/blog/announcing-app-service-authentication-authorization/)
-* [Настройка приложения службы приложений для использования входа Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (содержит ссылки на описания других поставщиков проверки подлинности в верхней части страницы). 
+* [Настройка приложения службы приложений для использования входа Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (содержит ссылки на описания других поставщиков проверки подлинности в верхней части страницы).
 
 Дополнительные сведения о протоколах OAuth 2.0, OpenID Connect и веб-маркерах JSON (JWT) см. в следующих статьях:
 
-* [Приступая к работе с протоколом OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Приступая к работе с протоколом OAuth 2.0") 
-* [Общие сведения о протоколах OAuth2, OpenID Connect и JSON Web Tokens (JWT), курс PluralSight](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
+* [Приступая к работе с протоколом OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Приступая к работе с протоколом OAuth 2.0")
+* [Общие сведения о протоколах OAuth2, OpenID Connect и JSON Web Tokens (JWT), курс PluralSight](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction)
 * [Построение и защита RESTful API для нескольких клиентов в ASP.NET, курс PluralSight](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
 
 Дополнительные сведения об Azure Active Directory см. в следующих статьях.
@@ -112,4 +112,4 @@
 
 В этой статье вы познакомились с функциями проверки подлинности и авторизации службы приложений, которые можно использовать для приложений API. В следующем учебнике начальной серии вы узнаете, как реализовать [проверку подлинности пользователя для приложений API службы приложений Azure](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0713_2016-->

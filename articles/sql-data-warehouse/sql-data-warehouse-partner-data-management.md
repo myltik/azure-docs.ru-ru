@@ -13,38 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/27/2016"
+   ms.date="07/11/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Партнеры по управлению данными хранилища данных SQL
 
-Для создания собственного комплексного решение для хранилища данных можно воспользоваться одним из широкого спектра ведущих профессиональных средств.
-
-В этой статье перечислены партнерские компании, которые разработали решения для управления данными хранилища данных SQL.
+Для создания собственного комплексного решение для хранилища данных можно воспользоваться одним из широкого спектра ведущих профессиональных средств. Ниже перечислены партнерские компании, которые разработали решения для управления данными хранилища данных SQL.
 
 ## Наши партнеры по управлению данными
 
 | Партнер | Описание | Ссылки | Видеоролики |
 | ------- | ----------- | ----- | ------ |
-| ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>Coffing Data Warehousing предоставляет Nexus Chameleon, средство с 10-летней историей разработки систем создания запросов. Nexus предоставляется как средство работы с запросами для хранилища данных SQL. Nexus позволяет создавать запросы для локальных и облачных систем и объединять данные между разными платформами. Выбери, щелкни, создай отчет! | [Marketplace][coffing_marketplace]<br>[Веб-сайт][coffing_website]<br>[Пресс-релиз][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] | [![Видео о Coffing](./media/sql-data-warehouse-integrate-solution-partners/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
-| ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD предоставляет инструменты, которые нужны, чтобы создавать точные модели данных, снижать избыточность данных, повышать производительность и соблюдать стандарты. Используя графический интерфейс, разработанный с учетом опыта работы пользователей, разработчик может легко создавать модели баз данных. Вы сможете использовать новые функции MicroERD благодаря регулярным и быстрым обновлениям. | [Веб-сайт][inbrein_website]<br>[Информационный лист][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] | [![Видео о Inbrein](./media/sql-data-warehouse-integrate-solution-partners/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE)|
-| ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian сводит в каталоги, сохраняет метаданные и управляет ими, помогая решать ключевые вопросы управления данными. Кроме того, мы предоставляем программные решения для управления метаданными, данными и ресурсами, которые позволяют управлять метаданными и публиковать их из разных средств и технологий. | [Marketplace][infolibrarian_marketplace]<br>[Веб-сайт][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] | [![Видео о Infolibrarian](./media/sql-data-warehouse-integrate-solution-partners/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
-| ![Redpoint Global][4] |**RedPoint Interaction**<br>RedPoint Interaction значительно расширяет возможности по привлечению клиентов к непрерывному диалогу посредством всех каналов связи и точек соприкосновения. Обеспечивается простое управление всем жизненным циклом многоканального маркетинга из одной точки оперативного управления. | [Marketplace][redpoint_it_marketplace]<br>[Веб-сайт][redpoint_it_website]<br>[Пресс-релиз][redpoint_press]<br>[Информационный лист][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] | [![Видео о Redpoint DM](./media/sql-data-warehouse-integrate-solution-partners/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
-| ![Redpoint Global][4] |**RedPoint Data Management**<br>RedPoint Data Management позволяет маркетологам сводить вместе данные из разных источников для привлечения клиентов через разные каналы и осуществлять структурированное и неструктурированное управление данными. Используя преимущества хранилища данных SQL Microsoft Azure, пользователи RedPoint доводят до максимума ценность структурированных и неструктурированных данных и обеспечивают точные и контекстные взаимодействия, которые так необходимы для современного многоканального потребителя. Интерфейс обеспечивает перетаскивание данных и упрощает процесс управления данными. | [Marketplace][redpoint_dm_marketplace]<br>[Веб-сайт][redpoint_dm_website]<br>[Пресс-релиз][redpoint_press]<br>[Информационный лист][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] | [![Видео о Redpoint DM](./media/sql-data-warehouse-integrate-solution-partners/redpoint_dm_video.jpg)](https://vimeo.com/103715581) |
+| ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>Coffing Data Warehousing предоставляет Nexus Chameleon, средство с 10-летней историей разработки систем создания запросов. Nexus предоставляется как средство работы с запросами для хранилища данных SQL. Nexus позволяет создавать запросы для локальных и облачных систем и объединять данные между разными платформами. Выбери, щелкни, создай отчет! | [Marketplace][coffing_marketplace]<br>[Веб-сайт][coffing_website]<br>[Пресс-релиз][coffing_press]<br>[Twitter][coffing_twitter]<br>[YouTube][coffing_youtube] | [![Видео о Coffing](./media/sql-data-warehouse-partner-data-management/coffing_video.jpg)](https://www.youtube.com/watch?v=N5GSxBEySFc) |
+| ![Inbrein][2] |**MicroERD**<br>Inbrein MicroERD предоставляет инструменты, с помощью которых вы можете создавать точные модели данных, снижать избыточность данных, повышать производительность и соблюдать стандарты. Используя графический интерфейс, разработанный с учетом опыта работы пользователей, разработчик может легко создавать модели баз данных. Вы сможете использовать новые функции MicroERD благодаря регулярным и быстрым обновлениям. | [Веб-сайт][inbrein_website]<br>[Информационный лист][inbrein_datasheet]<br>[Twitter][inbrein_twitter]<br>[YouTube][inbrein_youtube] | [![Видео о Inbrein](./media/sql-data-warehouse-partner-data-management/inbrein_video.jpg)](https://www.youtube.com/watch?v=IGHSAk4bxdE)|
+| ![Infolibrarian][3] |**Infolibrarian**<br>InfoLibrarian сводит в каталоги, сохраняет метаданные и управляет ими, помогая решать ключевые вопросы управления данными. Кроме того, мы предоставляем программные решения для управления метаданными, данными и ресурсами, которые позволяют управлять метаданными и публиковать их из разных средств и технологий. | [Marketplace][infolibrarian_marketplace]<br>[Веб-сайт][infolibrarian_website]<br>[Twitter][infolibrarian_twitter] | [![Видео о Infolibrarian](./media/sql-data-warehouse-partner-data-management/infolibrarian_video.png)](http://www.infolibcorp.com/metadata-management-videos/vdbplayer.swf?volume=100&url=video/infolibrarian-azure-provisioning.mp4) |
+| ![Redpoint Global][4] |**RedPoint Interaction**<br>RedPoint Interaction значительно расширяет возможности по привлечению клиентов к непрерывному диалогу посредством всех каналов связи и точек соприкосновения. Обеспечивается простое управление всем жизненным циклом многоканального маркетинга из одной точки оперативного управления. | [Marketplace][redpoint_it_marketplace]<br>[Веб-сайт][redpoint_it_website]<br>[Пресс-релиз][redpoint_press]<br>[Информационный лист][redpoint_it_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] | [![Видео о Redpoint DM](./media/sql-data-warehouse-partner-data-management/redpoint_it_video.jpg)](https://vimeo.com/103715582) |
+| ![Redpoint Global][4] |**RedPoint Data Management**<br>RedPoint Data Management позволяет маркетологам сводить вместе данные из разных источников для привлечения клиентов через разные каналы и управлять структурированными и неструктурированными данными. Используя преимущества хранилища данных SQL Microsoft Azure, пользователи RedPoint доводят до максимума ценность структурированных и неструктурированных данных и обеспечивают точные и контекстные взаимодействия, которые так необходимы для современного многоканального потребителя. Интерфейс обеспечивает перетаскивание данных и упрощает процесс управления данными. | [Marketplace][redpoint_dm_marketplace]<br>[Веб-сайт][redpoint_dm_website]<br>[Пресс-релиз][redpoint_press]<br>[Информационный лист][redpoint_dm_datasheet]<br>[Twitter][redpoint_twitter]<br>[YouTube][redpoint_youtube] | [![Видео о Redpoint DM](./media/sql-data-warehouse-partner-data-management/redpoint_dm_video.jpg)](https://vimeo.com/103715581) |
 | ![SQL Sentry][5] |**SQL Sentry**<br>SQL Sentry Performance Advisor обеспечивает актуальные и исторические представления наиболее важных данных из хранилища данных SQL Azure, позволяя увидеть тенденции изменения производительности и получить подробные сведения для более глубокого анализа и устранения неполадок. Performance Advisor обеспечивает просмотр данных производительности для любого момента времени или диапазона дат. | [Marketplace][sql_sentry_marketplace]<br>[Веб-сайт][sql_sentry_website]<br>[Пресс-релиз][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
 
 ## Дальнейшие действия
 
-Чтобы узнать больше о нескольких других партнерах, ознакомьтесь со следующими статьями.
-- [Партнеры по бизнес-аналитике хранилища данных SQL][bi_partners]
-- [Партнеры по интеграции данных хранилища данных SQL][di_partners]
+Дополнительные сведения о некоторых других партнеров см. в статьях [Партнеры по бизнес-аналитике хранилища данных SQL][bi_partners] и [Партнеры по управлению данными хранилища данных SQL][di_partners].
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-integrate-solution-partners/coffing_data_warehousing_logo.png
-[2]: ./media/sql-data-warehouse-integrate-solution-partners/inbrein_logo.png
-[3]: ./media/sql-data-warehouse-integrate-solution-partners/infolibrarian_logo.png
-[4]: ./media/sql-data-warehouse-integrate-solution-partners/redpoint_global_logo.png
-[5]: ./media/sql-data-warehouse-integrate-solution-partners/sql_sentry_logo.png
+[1]: ./media/sql-data-warehouse-partner-data-management/coffing_data_warehousing_logo.png
+[2]: ./media/sql-data-warehouse-partner-data-management/inbrein_logo.png
+[3]: ./media/sql-data-warehouse-partner-data-management/infolibrarian_logo.png
+[4]: ./media/sql-data-warehouse-partner-data-management/redpoint_global_logo.png
+[5]: ./media/sql-data-warehouse-partner-data-management/sql_sentry_logo.png
 
 <!--Article links-->
 [bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
@@ -101,4 +97,4 @@
 
 <!--Video links-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

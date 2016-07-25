@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/07/2016"
    ms.author="jeffstok"
 />
 
@@ -46,7 +46,7 @@ Microsoft Server R в кластере Azure HDInsight (предваритель
 2.	Повторный анализ выполняется быстрее для данных в локальной среде, особенно в формате XDF.
 3.	Из текстовых источников данных желательно передавать лишь небольшие объемы данных. Если нужные данные имеют большой объем, преобразуйте их в формат XDF перед анализом.
 4.	При копировании или потоковой передаче на граничный узел больших объемов данных для анализа нагрузка быстро становится запредельной.
-5.	Spark справляется с анализом данных в Hadoop быстрее, чем Map Reduce, но только если объем данных не очень велик и позволяет разместить их в распределенной памяти.
+5.	Spark работает быстрее, чем MapReduce для анализа в Hadoop.
 
 С учетом этих принципов ниже приведены некоторые общие правила выбора контекста вычислений.
 
@@ -61,7 +61,7 @@ Microsoft Server R в кластере Azure HDInsight (предваритель
 
 ### Hadoop Map Reduce
 
-- Если данные для анализа настолько велики, что производительность Spark начинает снижаться, воспользуйтесь контекстом Map Reduce.
+- Используйте, только при нерешаемых проблемах с использованием контекста вычислений Spark из-за замедления производительности.
 
 ## Встроенная справка по rxSetComputeContext
 
@@ -81,4 +81,4 @@ Microsoft Server R в кластере Azure HDInsight (предваритель
 - [Add RStudio Server to HDInsight Premium (Добавление RStudio Server в HDInsight Premium)](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Azure Storage options for R Server on HDInsight Premium (Параметры хранилища Azure для R Server в HDInsight Premium)](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0713_2016-->

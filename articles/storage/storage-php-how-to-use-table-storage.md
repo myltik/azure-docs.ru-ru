@@ -3,8 +3,8 @@
 	description="Вы узнаете, как использовать службу таблиц в PHP для создания и удаления таблиц, вставки, удаления строк и создания запросов для таблиц."
 	services="storage"
 	documentationCenter="php"
-	authors="allclark"
-	manager="douge"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
 	ms.date="06/01/2016"
-	ms.author="allclark;yaqiyang"/>
+	ms.author="robmcm"/>
 
 
 # Использование табличного хранилища из PHP
@@ -478,4 +478,4 @@
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0713_2016-->

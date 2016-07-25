@@ -13,30 +13,59 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
 # Повторный вход надежных субъектов
 Среда выполнения Reliable Actors по умолчанию разрешает повторный вход на основе логического контекста вызова. Это позволяет субъектам выполнять повторный вход, если они находятся в той же цепочке контекста вызова. Например, субъект A отправляет сообщение субъекту B, который отправляет сообщение субъекту C. В ходе обработки сообщения, если субъект C осуществит вызов субъекта A, сообщение будет означать повторный вход, поэтому будет разрешено. Любые другие сообщения, являющиеся частью другого контекста вызова, будут заблокированы на субъекте A до тех пор, пока он не завершит обработку.
 
-Субъекты, которым необходимо запретить повторный вход на основе логического контекста вызова, могут отключить его путем оформления класса субъекта с `ReentrantAttribute(ReentrancyMode.Disallowed)`.
+
+Для реализации повторного входа субъектов доступно два варианта (определено в перечислении `ActorReentrancyMode`):
+
+ - `LogicalCallContext` (поведение по умолчанию);
+ - `Disallowed` — отключает повторный вход.
 
 ```csharp
-public enum ReentrancyMode
+public enum ActorReentrancyMode
 {
     LogicalCallContext = 1,
     Disallowed = 2
 }
 ```
 
-В следующем коде показан класс субъекта, который задает `ReentrancyMode.Disallowed` в качестве режима повторного входа. В этом случае, если субъект отправляет сообщение повторного входа другому субъекту, будет выдано исключение типа `FabricException`.
+Повторный вход можно настроить в параметрах `ActorService` во время регистрации. Параметр применяется ко всем экземплярам субъекта, созданным в службе субъектов.
+
+В следующем примере показана служба субъекта, которая задает `ActorReentrancyMode.Disallowed` в качестве режима повторного входа. Следовательно, если субъект отправляет сообщение повторного входа другому субъекту, будет выдано исключение типа `FabricException`.
 
 ```csharp
-[Reentrant(ReentrancyMode.Disallowed)]
-class MyActor : Actor, IMyActor
+static class Program
 {
-    ...
+    static void Main()
+    {
+        try
+        {
+            ActorRuntime.RegisterActorAsync<Actor1>(
+                (context, actorType) => new ActorService(
+                    context, 
+                    actorType, () => new Actor1(), 
+                    settings: new ActorServiceSettings()
+                    {
+                        ActorConcurrencySettings = new ActorConcurrencySettings()
+                        {
+                            ReentrancyMode = ActorReentrancyMode.Disallowed
+                        }
+                    }))
+                .GetAwaiter().GetResult();
+
+            Thread.Sleep(Timeout.Infinite);
+        }
+        catch (Exception e)
+        {
+            ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
+            throw;
+        }
+    }
 }
 ```
 
@@ -45,4 +74,4 @@ class MyActor : Actor, IMyActor
  - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Пример кода](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0713_2016-->

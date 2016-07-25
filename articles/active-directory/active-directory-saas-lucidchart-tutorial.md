@@ -3,14 +3,15 @@
     description="Узнайте, как использовать Lucidchart вместе с Azure Active Directory для реализации единого входа, автоматической подготовки и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" 
+	manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/14/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с Lucidchart
@@ -36,7 +37,7 @@
 
 ###Чтобы включить интеграцию приложений для Lucidchart, выполните следующие действия.
 
-1.  На портале управления Azure в левой области навигации нажмите **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-lucidchart-tutorial/IC700993.png "Active Directory")
 
@@ -67,7 +68,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции с приложением **Lucidchart** портала Azure AD нажмите **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На странице интеграции с приложением **Lucidchart** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-lucidchart-tutorial/IC791186.png "Настройка единого входа")
 
@@ -75,7 +76,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-lucidchart-tutorial/IC791187.png "Настройка единого входа")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес входа в Lucidchart** введите URL-адрес, используемый вашими пользователями для входа в приложение Lucidchart (например, **https://chart2.office.lucidchart.com/saml/sso/azure*")), и нажмите кнопку **Далее**.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Lucidchart** введите URL-адрес, используемый вашими пользователями для входа в приложение Lucidchart (например, "*https://chart2.office.lucidchart.com/saml/sso/azure*"), и нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-lucidchart-tutorial/IC791188.png "Настройка URL-адреса приложения")
 
@@ -112,9 +113,9 @@
 
 ###Чтобы назначить пользователей Lucidchart, выполните следующие действия.
 
-1.  На портале Azure AD создайте тестовую учетную запись.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  На странице интеграции с приложением **Lucidchart** нажмите кнопку **Назначить пользователей**.
+2.  На странице интеграции с приложением **Lucidchart** щелкните **Назначить пользователей**.
 
     ![Назначить пользователей](./media/active-directory-saas-lucidchart-tutorial/IC791197.png "Назначить пользователей")
 
@@ -124,4 +125,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0121_2016-->
+<!---HONumber=AcomDC_0713_2016-->

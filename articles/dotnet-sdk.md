@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="06/30/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Что такое «пакет Azure SDK для .NET»?
 
@@ -41,7 +41,7 @@
 - [Microsoft ASP.NET и пакет Web Tools для Visual Studio](#wte)
 - [Средства озера данных Microsoft Azure для Visual Studio](#datalake)
 
-###<a id="vwd"></a>Visual Studio Express для Web
+###<a id="vwd"></a>Visual Studio Community Edition 2015
 
 Если на компьютере не установлен Visual Studio, пакет SDK установит [Visual Studio Community Edition 2015](https://www.visualstudio.com/products/visual-studio-community-vs).
 
@@ -51,7 +51,7 @@
 
 ###<a id="stgtools"></a>Средства хранилища Microsoft Azure
 
-Будет установлено [AzCopy](http://aka.ms/AzCopy), средство командной строки, которое можно использовать для переноса данных в учетную запись хранения Azure и из нее.
+Будет установлена программа командной строки [AzCopy](http://aka.ms/AzCopy), которую можно использовать для переноса данных в учетную запись хранения Azure и из нее.
 
 ###<a id="auth"></a>Средства создания Microsoft Azure
 
@@ -191,4 +191,4 @@ Azure PowerShell позволяет [автоматизировать созда
 
 Справочная документация клиентских библиотек Azure см. в разделе [Справочник по Azure для .NET](https://azure.microsoft.com/documentation/api/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

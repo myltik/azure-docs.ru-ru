@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 # Часто задаваемые вопросы о каталоге данных Azure
@@ -140,4 +140,4 @@
 
 Перейдите на [форум каталога данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Ответы на вопросы, заданные на форуме, будут опубликованы здесь.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0713_2016-->

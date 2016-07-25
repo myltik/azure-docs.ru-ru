@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/12/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Индексирование таблиц в хранилище данных SQL
@@ -27,7 +27,7 @@
 - [Статистика][]
 - [Временные таблицы][]
 
-В хранилище данных SQL предоставляется несколько вариантов индексирования, включая использование [кластеризованных индексов Columnstore][], а также [кластеризованных и некластеризованных индексов][]. Кроме того, также предоставляется вариант без использования индексов — использование [кучи][]. В этой статье рассматриваются преимущества каждого типа индексирования, а также приведены способы достижения максимальной производительности при использовании индексов. Дополнительные сведения о создании таблиц в хранилище данных SQL см. в статье [Create table syntax][] \(Синтаксис инструкции CREATE TABLE).
+В хранилище данных SQL предоставляется несколько вариантов индексирования, включая использование [кластеризованных индексов Columnstore][], а также [кластеризованных и некластеризованных индексов][]. Кроме того, также предоставляется вариант без использования индексов — использование [кучи][]. В этой статье рассматриваются преимущества каждого типа индексирования, а также приведены способы достижения максимальной производительности при использовании индексов. Дополнительные сведения о создании таблиц в хранилище данных SQL см. в статье [Create table syntax][] (Синтаксис инструкции CREATE TABLE).
 
 ## Кластеризованные индексы Columnstore
 
@@ -232,7 +232,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### Шаг 2. Перестройка кластеризованных индексов Columnstore, используя пользователя с более высоким классом ресурсов
 Войдите в систему от имени пользователя из шага 1 (например, LoadUser), которому теперь соответствует более высокий класс ресурсов, и выполните инструкции ALTER INDEX. Убедитесь, что этот пользователь имеет разрешение ALTER в отношении таблиц, в которых будет выполнятся перестроение индекса. В этих примерах показано перестроение всего индекса Columnstore и перестроение одной секции. В больших таблицах целесообразно перестроить только одну секцию за раз.
 
-Кроме того, вместо перестроения индекса можно копировать таблицу в новую таблицу, используя инструкцию [CTAS][]. Какой способ лучше? Для больших объемов данных использование CTAS обычно превосходит по скорости [ALTER INDEX][]. Что же касается небольших объемов данных, рекомендуется использовать инструкцию [ALTER INDEX][]. Она выполняется легче и не требует замены таблицы. Дополнительные сведения о перестроении индексов с использованием инструкции CTAS см. в **следующем разделе**.
+Кроме того, вместо перестроения индекса можно копировать таблицу в новую таблицу, используя инструкцию [CTAS][]. Какой способ лучше? Для больших объемов данных инструкция [CTAS][] обычно выполняется быстрее, чем [ALTER INDEX][]. Что же касается небольших объемов данных, рекомендуется использовать инструкцию [ALTER INDEX][]. Она выполняется легче и не требует замены таблицы. Дополнительные сведения о перестроении индексов с использованием инструкции CTAS см. в **следующем разделе**.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -244,7 +244,17 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
 ```
 
-В хранилище данных SQL операция перестроения индекса выполняется в автономном режиме. Дополнительные сведения см. в разделе об инструкции ALTER INDEX REBUILD статьи [Columnstore Indexes Defragmentation][] \(Дефрагментация индексов Columnstore) и в разделе о синтаксисе [ALTER INDEX (Transact-SQL)][].
+```sql
+-- Rebuild a single partition with archival compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+```
+
+```sql
+-- Rebuild a single partition with columnstore compression
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+```
+
+В хранилище данных SQL операция перестроения индекса выполняется в автономном режиме. Дополнительные сведения см. в разделе об инструкции ALTER INDEX REBUILD статьи, посвященной [дефрагментации индексов Columnstore][] и в разделе о синтаксисе [ALTER INDEX (Transact-SQL)][].
  
 ### Шаг 3. Проверка улучшения качества кластеризованных сегментов Columnstore
 Повторно выполните запрос на определение таблицы с сегментами низкого качества и убедитесь, что качество сегментов улучшилось. Если это не так, возможно, в таблице слишком широкие строки. Если для перестроения индексов требуется более высокий объем памяти, рекомендуется использовать более высокий класс ресурсов или увеличить количество DWU.
@@ -292,7 +302,7 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-Дополнительные сведения о повторном создании секций с помощью `CTAS` см. в статье [Partitioning tables in SQL Data Warehouse][] \(Секционирование таблиц в хранилище данных SQL).
+Дополнительные сведения о повторном создании секций с помощью `CTAS` см. в статье, посвященной [секционировании таблиц в хранилище данных SQL][].
 
 ## Дальнейшие действия
 
@@ -309,13 +319,14 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 [Распределение]: ./sql-data-warehouse-tables-distribute.md
 [Индекс]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Partitioning tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-partition.md
 [Секция]: ./sql-data-warehouse-tables-partition.md
+[секционировании таблиц в хранилище данных SQL]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Статистика]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
 [Временные таблицы]: ./sql-data-warehouse-tables-temporary.md
 [Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[CTAS]: ./sql-data-warehouse-develop-ctas.md
 [Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
@@ -324,9 +335,9 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 [кучи]: https://msdn.microsoft.com/library/hh213609.aspx
 [кластеризованных и некластеризованных индексов]: https://msdn.microsoft.com/library/ms190457.aspx
 [create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
-[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
+[дефрагментации индексов Columnstore]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
 [кластеризованных индексов Columnstore]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

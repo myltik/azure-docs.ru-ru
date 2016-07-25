@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обзор карт и пакета интеграции Enterprise | Служба приложений Microsoft Azure" 
+	pageTitle="Обзор карт и пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Узнайте, как использовать карты с пакетом интеграции Enterprise и приложениями логики." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Узнайте о картах и пакете интеграции Enterprise
@@ -47,15 +47,15 @@
 4. Выберите файл карты, который следует передать, используя появившееся диалоговое окно выбора файлов, затем щелкните **Открыть** в средстве выбора файлов. ![](./media/app-service-logic-enterprise-integration-maps/edit-2.png)
 5. После передачи карты отобразится всплывающее уведомление.
 
-
 ## Как удалить карту?
 1. Выберите элемент **Maps** (Карты).
 2. В открывшейся колонке "Maps" (Карты) выберите карту, которую вы хотите удалить.
 3. Щелкните ссылку **Удалить**. ![](./media/app-service-logic-enterprise-integration-maps/delete.png)
 4. Подтвердите, что действительно собираетесь удалить карту. ![](./media/app-service-logic-enterprise-integration-maps/delete-confirmation-1.png)
 
-
 ## Дальнейшие действия
-- [Узнайте больше о соглашениях](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.")
+- [Узнайте больше о пакете интеграции Enterprise.](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.")
+- [Узнайте больше о соглашениях](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.").
+- [Узнайте больше о преобразованиях](./app-service-logic-enterprise-integration-transform.md "Узнайте о преобразованиях в рамках корпоративной интеграции.").
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->

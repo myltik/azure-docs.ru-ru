@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/22/2016"
+   ms.date="07/12/2016"
    ms.author="larryfr"/>
 
 # Использование MapReduce в Hadoop в HDInsight с помощью удаленного рабочего стола
@@ -47,7 +47,7 @@
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **wasb://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются в **wasb:///example/data/WordCountOutput**.
+	При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **wasb://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются здесь: **wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] Дополнительные сведения об этом задании MapReduce и данные для примера см. в разделе <a href="hdinsight-use-mapreduce.md">Использование MapReduce в HDInsight в Hadoop</a>.
 
@@ -62,7 +62,7 @@
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
-	Должно отобразиться два файла, **\_SUCCESS** и **part-r-00000**. Файл **part-r-00000** содержит выходные данные этого задания.
+	Должно отобразиться два файла: **\_SUCCESS** и **part-r-00000**. Файл **part-r-00000** содержит выходные данные этого задания.
 
 	> [AZURE.NOTE] Некоторые задания MapReduce могут разделять результаты на несколько файлов **part-r-№№№№№**. В этом случае используйте суффикс №№№№№, чтобы определить порядок файлов.
 
@@ -96,4 +96,4 @@
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0713_2016-->

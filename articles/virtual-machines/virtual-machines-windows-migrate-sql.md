@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/07/2016"
 	ms.author="carlasab"/>
 
 
 # Миграция базы данных SQL Server в экземпляр SQL Server на виртуальной машине Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] Модель диспетчера ресурсов.
 
 
 Существует несколько методов миграции пользовательской базы данных локального SQL Server в SQL Server на виртуальной машине Azure. В данной статье кратко рассматриваются различные методы, рекомендованы лучшие методы для различных сценариев. Кроме того, в статье есть [инструкции](#azure-vm-deployment-wizard-tutorial) по использованию мастера **развертывания баз данных SQL Server на виртуальной машине Microsoft Azure**.
@@ -178,4 +178,6 @@
 
 Подробные сведения о работе SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+Инструкции по созданию образ виртуальной машины Azure SQL Server из записанного образа см. в [рекомендациях по клонированию виртуальных машин Azure SQL из записанных образов](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) в блоге инженеров CSS SQL Server.
+
+<!---HONumber=AcomDC_0713_2016-->

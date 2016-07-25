@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="07/13/2016" 
 	ms.author="sdanie"/>
 
 # Импорт и экспорт данных в кэше Redis для Azure
@@ -137,11 +137,13 @@
 
 ### Можно ли автоматизировать функцию импорта/экспорта с помощью PowerShell, интерфейса командной строки или других клиентов управления?
 
-Эта функциональность недоступна на этапе предварительной версии, но ее выпуск ожидается в ближайшее время.
+Да, инструкции по использованию PowerShell см. в разделах, посвященных [импорту](cache-howto-manage-redis-cache-powershell.md#to-import-a-redis-cache) и [экспорту](cache-howto-manage-redis-cache-powershell.md#to-export-a-redis-cache) кэша Redis.
+
+
 
 ### Во время операции импорта/экспорта возникла ошибка времени ожидания. Что это означает?
 
-Если перед запуском операции вы находитесь в колонке **Импорт данных** или **Экспорт данных** дольше 15 минут, появится сообщение об ошибке указанного ниже типа.
+Если перед запуском операции вы находитесь в колонке **Импорт данных** или **Экспорт данных** дольше 15 минут, появится сообщение об ошибке следующего типа.
 
     The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
 
@@ -168,4 +170,4 @@
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0713_2016-->

@@ -171,6 +171,7 @@
 |[Bluebird EF400](http://www.mypidion.com/product/product_tab.asp?bmenu=1&t_idx=519) |Windows 10 IoT Mobile Enterprise| C#|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-mobile-enterprise-EF400-csharp.md)|
 |[Bluebird EF500](http://www.mypidion.com/product/product_tab.asp?bmenu=1&t_idx=511) |Windows 10 IoT Mobile Enterprise | C#|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-mobile-enterprise-EF500-csharp.md)|
 |[Bluebird EF500R](http://www.mypidion.com/product/product_tab.asp?bmenu=1&t_idx=511) |Windows 10 IoT Mobile Enterprise | C#|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-mobile-enterprise-EF500R-csharp.md)|
+|[Clientron IT800](http://www.clientron.com/en/goods.php?act=view&no=38) |Ubuntu | C|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ubuntu-it800-c.md)|
 |[Clientron PT6500](http://www.clientron.com/en/goods.php?act=view&no=20) |Ubuntu | C|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ubuntu-PT6500-c.md)|
 |[Туннель ComponentSoft RFID](http://www.componentsoft.com/) |Windows 10 | C#|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-rfid-tunnel-csharp.md)|
 |[Contec BX-320](http://www3.contec.co.jp) |Windows 10 | C#|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-BX-320-csharp.md)|
@@ -209,6 +210,7 @@
 |[Keith & Koep TrizepsVII](http://keith-koep.com/en/products/products-trizeps/trizeps-vii-features/) |Debian | C|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/debian-trizeps-vii-c.md)|
 |[Lanner LEC-6030](http://www.lannerinc.com/products/industrial-communication-platforms/industrial-cyber-security-box-pc/lec-6030) |Windows 10 IoT Core | C#|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-iot-core-lanner-lec-6030e-csharp.md)|
 |[Libelium Meshlium Xtreme](http://www.libelium.com/products/meshlium/) |Debian | Java|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/Debian-meshlium-java.md)|
+|[MDS Technology IDM-IWP-HW-2](http://mdstec.com/en/contents/?no=326) |Windows | Java|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-idm-iwp-hw-2-java.md)|
 |[MechaTracks 3GPI](http://www.mechatrax.com/products/3gpi) |Raspbian | C|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/raspbian-3gpi-c.md)|
 |[Minnowboard Max](http://www.minnowboard.org/meet-minnowboard-max/) |Windows 7, 8, 10 | C#|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-minnowboard-max-csharp.md)|
 |[MiTAC Computing Technology Pluto E220](http://client.mitac.com/products-Embedded-Box-PC-PlutoE220.html) |Windows 10 | C#|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-pluto-e220-csharp.md)|
@@ -242,6 +244,7 @@
 |[Smarthesia PasSy Gateway](http://www.smarthesia.com/#!home-page/gj699) |Yocto| JavaScript|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/yocto-PasSy-Gateway-nodejs.md)|
 |[SOTEC CloudPlug](http://cloudplug.info/) |YOCTO | C|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-sotec-cloudplug-c.md)|
 |[Sparkfun ThingDev](https://www.sparkfun.com/products/13711) |RTOS| Arduino, C|[Приступая к работе](https://azure.microsoft.com/ru-RU/documentation/samples/iot-hub-c-thingdev-getstartedkit/)|
+|[Techman Robot Inc. TM5](http://tm-robot.com/robot/) |Windows Embedded Standard 7 | C|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-embedded-standard-7-tm5-c.md)|
 |[TI CC3200](http://www.ti.com/product/cc3200) |TI-RTOS 2.x | C|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/ti-rtos-ti-cc3200-c.md)|
 |[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto) | Java|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-run-sample-toradex-linux.md)|
 |[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto) | JavaScript|[Приступая к работе](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-run-sample-toradex-linux.md)|
@@ -268,7 +271,28 @@
 
 Узнайте больше о разработке решений с использованием устройств, [сертифицированных для IoT](http://azure.com/iotdev).
 
+Дополнительные сведения о планировании развертывания центра IoT см. в следующих руководствах:
+
+- [Поддержка дополнительных протоколов для центра IoT][lnk-protocols]
+- [Сравнение центра IoT и концентраторов событий][lnk-compare]
+- [Масштабирование центра IoT][lnk-scaling]
+
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
+
+- [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
+
 
 [lnk-iot-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0629_2016-->
+[lnk-protocols]: iot-hub-protocol-gateway.md
+[lnk-compare]: iot-hub-compare-event-hubs.md
+[lnk-scaling]: iot-hub-scaling.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
+
+<!---HONumber=AcomDC_0713_2016-->

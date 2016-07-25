@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обзор схем и пакета интеграции Enterprise | Служба приложений Microsoft Azure" 
+	pageTitle="Обзор схем и пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Узнайте, как использовать схемы с пакетом интеграции Enterprise и приложениями логики." 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Сведения о схемах и пакете интеграции Enterprise  
@@ -53,8 +53,8 @@
 
 ## Дальнейшие действия
 
-- [Узнайте больше о соглашениях](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.")
+- [Узнайте больше о пакете интеграции Enterprise.](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.")
 
       
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0713_2016-->
