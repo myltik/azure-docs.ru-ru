@@ -38,7 +38,7 @@
 
 Используйте эту архитектуру, когда сервер обработки находится в Azure и у вас VPN-подключение или подключение ExpressRoute.
 
-![Схема архитектуры для VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![Схема архитектуры для VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Чтобы просмотреть полный список портов и схему архитектуры восстановления, обратитесь к рисунку ниже.
 
@@ -98,7 +98,7 @@
 
 1.  Последовательно выберите пункты "Хранилище" > Manage Site Recovery Infrastructure (Управление инфраструктурой Site Recovery) > **Серверы конфигурации** под заголовком For VMware and Physical Machines (Для VMware и физических компьютеров), а затем выберите сервер конфигурации. Щелкните значок "+Сервер обработки".
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-processserver.PNG)
 
 2. Выберите для развертывания сервера обработки параметр "Развернуть сервер обработки для восстановления размещения в Azure".
 
@@ -108,11 +108,11 @@
 
 5. Если вы выбрали сеть *классического развертывания*, вам будет предложено создать виртуальную машину на основе коллекции Azure и установить на нее сервер обработки.
 
-	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.png)
+	![](./media/site-recovery-failback-azure-to-vmware-new/add-classic.PNG)
 	
 	1. Имя образа — *Microsoft Azure Site Recovery Process Server V2*. Необходимо выбрать *классическую* модель развертывания.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/templatename.PNG)
 	
 	2. Установите сервер обработки, как указано [здесь](./site-recovery-vmware-to-azure-classicz.md#step-5-install-the-management-server).
 	
@@ -128,7 +128,7 @@
 	
 	5. конкретная сеть и сетевая карта для подключения к этой сети. Примечание. Вам потребуется создать свою собственную [сетевую карту](../virtual-network/virtual-networks-multiple-nics.md) и выбрать ее в процессе развертывания.
 	
-		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.png)
+		![](./media/site-recovery-failback-azure-to-vmware-new/psinputsadd.PNG)
 	
 	6. Нажмите кнопку ОК. Она запустит задание, которое создаст виртуальную машину с типом развертывания "диспетчер ресурсов" и установкой сервера обработки. Необходимо запустить программу установки на виртуальной машине, чтобы зарегистрировать сервер для сервера конфигурации. Для этого выполните [эти действия](./site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
@@ -252,4 +252,4 @@
 - ExpressRoute необходимо настроить в виртуальной сети Azure, где будет выполняться отработка отказа исходных машин и где будут размещены виртуальные машины Azure после отработки отказа.
 - Данные реплицируются в учетную запись хранения Azure в общедоступной конечной точке. В ExpressRoute следует настроить общедоступный пиринг с целевым центром обработки данных, чтобы для репликации Site Recovery использовалось подключение ExpressRoute.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016--->

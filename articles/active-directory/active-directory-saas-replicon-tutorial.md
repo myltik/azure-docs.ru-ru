@@ -83,7 +83,8 @@
     1.  В текстовом поле **URL-адрес входа в Replicon** введите URL-адрес клиента Replicon (например, *https://na2.replicon.com/company/saml2/sp-sso/post*).
     2.  В текстовом поле **URL-адрес ответа Replicon** введите URL-адрес службы Replicon **AssertionConsumerService** (например, *https://global.replicon.com/!/saml2/company/sso/post*).
 
-        >[AZURE.NOTE] URL-адрес можно получить из метаданных Replicon по адресу: **https://global.replicon.com/!/saml2/\<ключ\_вашей\_компании>**.
+        >[AZURE.NOTE] URL-адрес можно получить из метаданных Replicon по адресу: 
+	**https://global.replicon.com/!/saml2/\<ключ\_вашей\_компании>**.
 
     3.  Нажмите кнопку **Далее**.
 

@@ -140,7 +140,9 @@
 
         |Атрибут утверждения| Атрибут субъекта|
 		|-------------------|--------------------|
-        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| firstname|--------------------|--------------------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| lastname|-----------| |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
+        |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname| firstname|--------------------|--------------------| 
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname| lastname|-----------| 
+	|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|email|
 
     >[AZURE.NOTE]Конфигурация атрибутов зависит от способа разработки приложений в HCP, т. е. какие атрибуты предполагается использовать в ответе SAML и какое имя (атрибут субъекта) используется для доступа к этому атрибуту в коде.
     >  
