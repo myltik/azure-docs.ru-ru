@@ -10,7 +10,7 @@
 <tags
  ms.service="iot-hub"
  ms.devlang="dotnet"
- ms.topic="hero-article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
@@ -100,7 +100,7 @@
 
 Скрипт выполняет следующее:
 
-1.  Запускает **cmake**, чтобы создать решение Visual Studio 2015 для виртуального устройства. Файл этого проекта — **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Обратите внимание, что исходные файлы находятся в папке **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Запускает **cmake**, чтобы создать решение Visual Studio 2015 для виртуального устройства. Файл этого проекта — **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Обратите внимание, что исходные файлы находятся в папке ***azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Создает проект виртуального устройства **iotdm\_simple\_sample.vcxproj**.
 
@@ -197,4 +197,4 @@
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

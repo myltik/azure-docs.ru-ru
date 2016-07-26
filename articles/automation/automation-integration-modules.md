@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="07/08/2016"
+   ms.date="07/14/2016"
    ms.author="magoedte" />
 
 # Модули интеграции службы автоматизации Azure
@@ -201,4 +201,4 @@
 - Сведения о том, как начать работу с модулями Runbook рабочих процессов PowerShell, см. в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
 - Дополнительные сведения о создании модулей PowerShell см. в статье [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) (Написание модуля Windows PowerShell).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
