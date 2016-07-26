@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/16/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -130,7 +130,7 @@
 
 **Облачные инструменты**. Хранилище данных SQL можно использовать с рядом новых инструментов в Azure, включая фабрику данных, Stream Analytics, машинное обучение и Power BI. Полный список см. в [обзоре интегрированных средств][].
 
-**Сторонние инструменты**. Сертифицированную интеграцию с хранилищем данных SQL поддерживает большое количество сторонних инструментов. Полный список см. в статье [SQL Data Warehouse business intelligence partners][] (Партнеры по бизнес-аналитике хранилища данных SQL).
+**Сторонние инструменты**. Сертифицированную интеграцию с хранилищем данных SQL поддерживает большое количество сторонних инструментов. Полный список см. в статье [SQL Data Warehouse business intelligence partners][] \(Партнеры по бизнес-аналитике хранилища данных SQL).
 
 ## Сценарии для гибридных источников данных
 
@@ -176,9 +176,9 @@
 [Блоги]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Блоги группы CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Запросы функций.]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Форум MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
+[Форум MSDN]: https://social.msdn.microsoft.com/Forums/azure/ru-RU/home?forum=AzureSQLDataWarehouse
 [Форум Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Видеоролики]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

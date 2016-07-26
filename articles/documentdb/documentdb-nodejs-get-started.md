@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Добро пожаловать в руководство по Node.js, посвященное пакету SDK для Node.js DocumentDB. После изучения этого руководства у вас будет консольное приложение, которое создает ресурсы DocumentDB, в том числе базу данных Node, и отправляет запросы к ним.
+Добро пожаловать в руководство по Node.js, посвященное пакету Azure SDK для Node.js DocumentDB. После изучения этого руководства у вас будет консольное приложение, которое создает ресурсы DocumentDB, в том числе базу данных Node, и отправляет запросы к ним.
 
 Мы рассмотрим следующие вопросы:
 
@@ -621,4 +621,4 @@ DocumentDB поддерживает удаление документов JSON.
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

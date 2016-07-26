@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/29/2016"
+   ms.date="07/18/2016"
    ms.author="sonyam;barbkess;sonyama"/>
 
 # Создание запроса в службу поддержки для хранилища данных SQL
@@ -31,10 +31,14 @@
 3. В колонке «Справка + поддержка» щелкните **Создать запрос на техническую поддержку**.
 
     ![Новый запрос на техническую поддержку](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
+    
+    <a name="request-quota-change"></a>
 
 4. Выберите **Тип запроса**.
 
     ![Тип запроса](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
+    
+    >[AZURE.NOTE]  По умолчанию для каждого экземпляра SQL Server (например, myserver.database.windows.net) предусмотрена следующая **квота на DTU**: 45 000. Эта квота является просто ограничением для безопасности. Вы можете увеличить квоту, отправив запрос в службу поддержки и указав *квоту* в качестве типа запроса. Чтобы вычислить потребности в DTU, вам нужно знать, что каждые 100 [DWU][] хранилища данных SQL используют 750 DTU. Следовательно, стандартная квота в 45 000 позволит вам создать базу данных до DW6000 (45 000/750) или несколько менее крупных баз данных с меньшим значением DWU. Если, например, вы хотите разместить две базы данных DW6000 на одном сервере SQL Server, следует запросить квоту DTU 90 000. Текущее потребление DTU можно просмотреть в колонке SQL Server на портале. В рамках квоты DTU учитываются как приостановленные базы данных, так и базы данных с отменой приостановки.
 
 5. Выберите **подписку**, в которой размещена база данных с соответствующей проблемой.
 
@@ -44,17 +48,15 @@
 
     ![Ресурс](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 
-7. Выберите свой **План поддержки**.
+7. Выберите свой [план поддержки Azure][].
 
-    - Поддержка по **проблемам, связанным с выставлением счетов и управлением подпиской**, доступна на всех уровнях.
-    - Поддержка по **замене или ремонту** обеспечивается на уровнях поддержки Developer, Standard, Pro Direct и Premier. Проблемы из категории **замена или ремонт** — это возникающие при использовании Azure проблемы, относительно которых имеются обоснованные предположения, что их причиной стала корпорация Майкрософт.
-    - Услуги **обучения** и **консультирования разработчиков** доступны на уровнях поддержки Professional Direct и Premier.
+    - Поддержка по **вопросам, связанным с выставлением счетов, квотами и управлением подпиской**, доступна на всех уровнях.
+    - Поддержка по **замене или ремонту** обеспечивается на уровнях поддержки [Developer][], [Standard][], [Professional Direct][] и [Premier][]. Проблемы характера «замена или ремонт» — это возникающие при использовании Azure проблемы, относительно которых имеются обоснованные предположения, что их причиной стала корпорация Майкрософт.
+    - Услуги **обучения** и **консультирования разработчиков** доступны на уровнях поддержки [Professional Direct][] и [Premier][].
     
-    Дополнительные сведения о поддержке Azure, включая области действия, время реагирования, цены и т. д., см. на странице [планов поддержки Azure][]. Также см. страницу [Часто задаваемые вопросы о поддержке Azure][].
+    При наличии плана поддержки Premier можно также создавать отчеты по неполадкам хранилища данных SQL на [портале Microsoft Premier][]. Дополнительные сведения о доступной поддержке, включая области действия, время реагирования, цены и т. д., см. на странице [планов поддержки Azure][Azure support plan]. Также см. страницу [Часто задаваемые вопросы о поддержке Azure][].
 
     ![План поддержки](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-
-    При наличии плана поддержки Premier можно также создавать отчеты по неполадкам хранилища данных SQL на [портале Microsoft Premier][].
 
 8. Выберите значения **Тип проблемы** и **Категория**.
 
@@ -79,14 +81,26 @@
 
 ## Другие ресурсы
 
-Кроме того, вы можете взаимодействовать с сообществом хранилища данных SQL на странице [Stack Overflow][] или на [форуме MSDN, посвященном хранилищу данных SQL Azure][].
+Кроме того, вы можете присоединиться к сообществу пользователей хранилища данных SQL на странице [Stack Overflow][] или обратиться на [форум MSDN, посвященный хранилищу данных SQL Azure][].
 
-<!-- External links -->
+<!--Image references--> 
+
+<!--Article references--> 
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+
+<!--MSDN references--> 
+
+<!--Other web references--> 
 [портал Azure]: https://portal.azure.com/
-[планов поддержки Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[план поддержки Azure]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
+[Developer]: https://azure.microsoft.com/support/plans/developer/
+[Standard]: https://azure.microsoft.com/support/plans/standard/
+[Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/
+[Premier]: https://azure.microsoft.com/support/plans/premier/
 [Часто задаваемые вопросы о поддержке Azure]: https://azure.microsoft.com/support/faq/
 [портале Microsoft Premier]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[форуме MSDN, посвященном хранилищу данных SQL Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[форум MSDN, посвященный хранилищу данных SQL Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->
