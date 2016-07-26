@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
+   ms.date="07/19/2016"
    ms.author="owend"/>
 
 # Внедрение отчета Power BI с помощью IFrame
@@ -28,23 +28,23 @@
 - Шаг 1. [Получение отчета в рабочей области](#GetReport). На этом этапе вы используете поток маркеров приложений, чтобы получить маркер доступа для вызова операции REST [Получить отчеты](https://msdn.microsoft.com/library/mt711510.aspx). Получив отчет из списка **Получение отчетов**, внедрите отчет в приложение с помощью элемента **IFrame**.
 - Шаг 2. [Внедрение отчета в приложение](#EmbedReport). На этом шаге используется маркер для отчета, код JavaScript и IFrame, чтобы интегрировать или внедрить отчет в веб-приложение.
 
-Если нужно запустить пример, чтобы узнать, как интегрировать отчет, скачайте пример [интеграции отчета с использованием IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) на GitHub и настройте три параметра Web.Config:
+Если нужно запустить пример, скачайте пример [интеграции отчета с использованием IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) на GitHub и настройте три параметра Web.Config:
 
-- **AccessKey**. **AccessKey** используется для создания веб-маркера JSON Web Token (JWT), предназначенного для получения и внедрения отчетов. Чтобы узнать, как получить **AccessKey**, см. статью [Начало работы с Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-- **WorkspaceName**. Чтобы узнать, как получить **WorkspaceName**, см. статью [Начало работы с Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-- **WorkspaceId**. Чтобы узнать, как получить **WorkspaceId**, см. статью [Начало работы с Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
+- **AccessKey**. **AccessKey** используется для создания веб-маркера JSON Web Token (JWT), предназначенного для получения и внедрения отчетов.
+- **Имя коллекции рабочей области** — определяет рабочую область.
+- **Идентификатор рабочей области** — уникальный идентификатор рабочей области.
 
-В следующих разделах содержится код, необходимый для интеграции отчета.
+Чтобы узнать, как получить ключ доступа, имя коллекции рабочей области и идентификатор рабочей области на портале Azure, см. статью [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md).
 
 <a name="GetReport"/>
 ## Получение отчета в рабочей области
 
-Чтобы интегрировать отчет в приложение, понадобятся такие параметры отчета, как **ID** и **embedUrl**. Чтобы получить параметры отчета **ID** и **embedUrl**, вызовите операцию REST [Получить отчеты](https://msdn.microsoft.com/library/mt711510.aspx) и выберите отчет в списке JSON. В разделе [Внедрение отчета в приложение](#EmbedReport) используются параметры отчета **ID** и **embedUrl** для внедрения отчета в приложение.
+Чтобы интегрировать отчет в приложение, понадобятся такие параметры отчета, как **ID** и **embedUrl**. Чтобы получить эти параметры, вызовите операцию REST [Получить отчеты](https://msdn.microsoft.com/library/mt711510.aspx) и выберите отчет в списке JSON.
 
 ### Ответ JSON на операцию получения отчетов
 ```
 {
-  "@odata.context":"https://api.powerbi.com/beta/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
+  "@odata.context":"https://api.powerbi.com/v1.0/collections/{WorkspaceName}/workspaces/{WorkspaceId}/$metadata#reports","value":[
     {
       "id":"804d3664-…-e71882055dba","name":"Import report sample","webUrl":"https://embedded.powerbi.com/reports/804d3664-...-e71882055dba","embedUrl":"https://embedded.powerbi.com/appTokenReportEmbed?reportId=804d3664-...-e71882055dba"
     },{
@@ -55,25 +55,13 @@
 
 ```
 
-Чтобы вызвать операцию REST [Получить отчеты](https://msdn.microsoft.com/library/mt711510.aspx), используйте маркер приложения. Дополнительные сведения о потоке маркеров приложений см. в статье [Сведения о потоке маркеров приложений в Power BI Embedded](power-bi-embedded-app-token-flow.md). В следующем коде описывается получение списка отчетов JSON. Чтобы внедрить отчет, см. раздел [Внедрение отчета в приложение](#EmbedReport).
+Чтобы вызвать операцию REST [Получить отчеты](https://msdn.microsoft.com/library/mt711510.aspx), используйте маркер приложения. Дополнительную информацию о потоке маркеров приложений см. в статье [Сведения о потоке маркеров приложений в Power BI Embedded](power-bi-embedded-app-token-flow.md). В следующем коде описывается получение списка отчетов JSON.
 
 ```
 protected void getReportsButton_Click(object sender, EventArgs e)
 {
-    //Get an app token to generate a JSON Web Token (JWT). An app token flow is a claims-based design pattern.
-    //To learn how you can code an app token flow to generate a JWT, see the PowerBIToken class.
-    var appToken = PowerBIToken.CreateDevToken(workspaceName, workspaceId);
-
-    //After you get a PowerBIToken which has Claims including your WorkspaceName and WorkspaceID,
-    //you generate JSON Web Token (JWT) . The Generate() method uses classes from System.IdentityModel.Tokens: SigningCredentials,
-    //JwtSecurityToken, and JwtSecurityTokenHandler.
-    string jwt = appToken.Generate(accessKey);
-
-    //Set app token textbox to JWT string to show that the JWT was generated
-    appTokenTextbox.Text = jwt;
-
     //Construct reports uri resource string
-    var uri = String.Format("https://api.powerbi.com/beta/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
+    var uri = String.Format("https://api.powerbi.com/v1.0/collections/{0}/workspaces/{1}/reports", workspaceName, workspaceId);
 
     //Configure reports request
     System.Net.WebRequest request = System.Net.WebRequest.Create(uri) as System.Net.HttpWebRequest;
@@ -82,7 +70,7 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 
     //Set the WebRequest header to AppToken, and jwt
     //Note the use of AppToken instead of Bearer
-    request.Headers.Add("Authorization", String.Format("AppToken {0}", jwt));
+    request.Headers.Add("Authorization", String.Format("AppKey {0}", accessKey));
 
     //Get reports response from request.GetResponse()
     using (var response = request.GetResponse() as System.Net.HttpWebResponse)
@@ -104,12 +92,13 @@ protected void getReportsButton_Click(object sender, EventArgs e)
         }
     }
 }
+
 ```
 
 <a name="EmbedReport"/>
 ## Внедрение отчета в приложение
 
-Прежде чем отчет можно будет внедрить в приложение, для отчета необходимо получить маркер внедрения. Этот маркер похож на маркер приложения, используемый для вызова операций REST **Power BI Embedded**, но он создается для ресурса отчета, а не для ресурса REST. Ниже приведен код, который позволяет получить маркер приложения для отчета. Чтобы использовать маркер отчета для приложения, см. раздел [Внедрение отчета в приложение](#EmbedReportJS).
+Прежде чем отчет можно будет внедрить в приложение, для отчета необходимо получить маркер внедрения. Этот маркер похож на маркер приложения, используемый для вызова операций REST в Power BI Embedded, но он создается для ресурса отчета, а не для ресурса REST. Ниже приведен код, который позволяет получить маркер приложения для отчета.
 
 <a name="EmbedReportToken"/>
 ### Получение маркера приложения для отчета
@@ -133,7 +122,7 @@ protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 <a name="EmbedReportJS"/>
 ### Интеграция отчета в приложение
 
-Чтобы внедрить отчет **Power BI** в приложение, используйте IFrame и код JavaScript. Ниже приведен пример IFrame и код JavaScript для внедрения отчета. Все примеры кода по внедрению отчета см. в примере [интеграции отчета с помощью IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) на GitHub.
+Чтобы внедрить в приложение отчет **Power BI**, используйте IFrame и код JavaScript. Ниже приведен пример IFrame и код JavaScript для внедрения отчета. Все примеры кода по внедрению отчета см. в примере [интеграции отчета с помощью IFrame](https://github.com/Azure-Samples/power-bi-embedded-iframe) на GitHub.
 
 ![IFrame](media\power-bi-embedded-integrate-report\Iframe.png)
 
@@ -223,4 +212,4 @@ $filter=Store/Chain%20eq%20'Lindseys'
 - [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
 - [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

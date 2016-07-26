@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/27/2016"
+	ms.date="07/14/2016"
 	ms.author="andkjell;billmath"/>
 
 # Интеграция локальных удостоверений с Azure Active Directory
@@ -138,8 +138,9 @@ Azure AD Connect поставляется с несколькими функци
 
 Раздел |  
 --------- | ---------
+Все статьи, посвященные AD FS | [Azure AD Connect и федерация](active-directory-aadconnectfed-whatis.md)
 Настройка служб AD FS с поддоменами | [Поддержка нескольких доменов для федерации с Azure AD](active-directory-aadconnect-multiple-domains.md)
-Управление фермой AD FS | [AD FS management and customizaton with Azure AD Connect (Управление службой AD FS и ее настройка с помощью Azure AD Connect)](active-directory-aadconnect-federation-management.md)
+Управление фермой AD FS | [AD FS management and customizaton with Azure AD Connect](active-directory-aadconnect-federation-management.md) (Управление службой AD FS и ее настройка с помощью Azure AD Connect)
 Обновление сертификатов федерации вручную | [Обновление сертификатов федерации для Office 365 и Azure AD](active-directory-aadconnect-o365-certs.md)
 
 ## Дополнительные сведения и ссылки
@@ -161,4 +162,4 @@ Azure AD Connect поставляется с несколькими функци
 
 >[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

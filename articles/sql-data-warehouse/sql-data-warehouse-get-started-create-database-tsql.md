@@ -31,7 +31,7 @@
 
 - **Учетная запись Azure.** Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][] или [кредитов Azure MSDN][].
 - **Сервер SQL Azure версии 12.** См. разделы, посвященные [созданию логического сервера базы данных SQL с помощью портала Azure][] или [с помощью PowerShell][].
-- **Имя группы ресурсов.** Используйте ту же группу ресурсов, что и для сервера SQL Azure версии 12, или создайте новую группу ресурсов, следуя инструкциям из [этой статьи][].
+- **Имя группы ресурсов.** Используйте ту же группу ресурсов, что и для Azure SQL Server версии 12, или создайте новую группу ресурсов, следуя инструкциям из [этой статьи][].
 - **Visual Studio с инструментами SQL Server Data Tools**. Инструкции по установке см. в статье [Установка Visual Studio 2015 и SSDT для хранилища данных SQL][].
 
 > [AZURE.NOTE] Создание хранилища данных SQL может привести к дополнительным расходам. Дополнительные сведения о ценах см. на странице [Цены на хранилище данных SQL][].
@@ -67,7 +67,7 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 [загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [созданию логического сервера базы данных SQL с помощью портала Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [с помощью PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[этой статьи]: ../azure-portal/resource-group-portal.md
+[этой статьи]: ../resource-group-template-deploy-portal.md
 [Установка Visual Studio 2015 и SSDT для хранилища данных SQL]: ./sql-data-warehouse-install-visual-studio.md
 
 
@@ -80,4 +80,4 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

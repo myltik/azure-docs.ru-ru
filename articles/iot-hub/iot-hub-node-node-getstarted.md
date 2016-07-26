@@ -201,10 +201,10 @@
     var Message = require('azure-iot-device').Message;
     ```
 
-5. Добавьте переменную **connectionString**, чтобы создать с ее помощью клиент устройства. Замените значение **{youriothubname}** именем центра IoT, а **{yourdevicekey}** — значением ключа устройства, сформированным при работе с разделом *Создание удостоверения устройства*.
+5. Добавьте переменную **connectionString**, чтобы создать с ее помощью клиент устройства. Замените значение **{youriothostname}** именем центра IoT, созданного в разделе *Создание центра IoT Hub*, а значение **{yourdevicekey}** — ключом устройства, созданным в разделе *Создание удостоверения устройства*:
 
     ```
-    var connectionString = 'HostName={youriothubname}.azure-devices.net;DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
     var client = clientFromConnectionString(connectionString);
     ```
@@ -220,7 +220,7 @@
     }
     ```
 
-7. Создайте обратный вызов и используйте функцию **setInterval**, чтобы отправлять новое сообщение в центр IoT каждую секунду.
+7. Создайте обратный вызов и используйте функцию **setInterval**, чтобы отправлять новое сообщение в центр IoT каждую секунду:
 
     ```
     var connectCallback = function (err) {
@@ -286,7 +286,7 @@
 - [Приступая к работе с функцией управления устройствами центра IoT Azure с использованием C# (предварительная версия)][lnk-device-management]
 - [Пакет SDK для шлюза IoT (бета-версия): начало работы с Linux][lnk-gateway-SDK]
 
-В руководстве по [обработке сообщений, отправляемых с устройства в облако][lnk-process-d2c-tutorial], показано, как расширить свое решение IoT и обрабатывать такие сообщения с применением масштабирования.
+В руководстве по [обработке сообщений, отправляемых с устройства в облако][lnk-process-d2c-tutorial], показано, как расширить решение IoT и обрабатывать такие сообщения при масштабировании.
 
 <!-- Images. -->
 [6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
@@ -312,4 +312,4 @@
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
