@@ -100,7 +100,7 @@
 
 Скрипт выполняет следующее:
 
-1.  Запускает **cmake**, чтобы создать решение Visual Studio 2015 для виртуального устройства. Файл этого проекта — **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Обратите внимание, что исходные файлы находятся в папке ***azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
+1.  Запускает **cmake**, чтобы создать решение Visual Studio 2015 для виртуального устройства. Файл этого проекта — **azure-iot-sdks\\csharp\\service\\samples\\cmake\\iotdm\_client\\samples\\iotdm\_simple\_sample\\iotdm\_simple\_sample.vcxproj**. Обратите внимание, что исходные файлы находятся в папке **azure-iot-sdks\\c\\iotdm\_client\\samples\\iotdm\_simple\_sample**.
 
 2.  Создает проект виртуального устройства **iotdm\_simple\_sample.vcxproj**.
 
