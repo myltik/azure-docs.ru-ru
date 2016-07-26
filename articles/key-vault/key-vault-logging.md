@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/06/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 
 # Ведение журнала хранилища ключей Azure #
@@ -34,6 +34,8 @@
 >
 >В настоящее время нельзя настроить хранилище ключей Azure на портале Azure. Вместо этого используйте эти указания по работе с Azure PowerShell.
 
+Собираемые журналы можно визуализировать с помощью Log Analytics в Operations Management Suite. Дополнительные сведения см. в статье [Azure Key Vault (Preview) solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md) (Решение хранилища ключей Azure (предварительная версия) в Log Analytics).
+
 Общую информацию о хранилище ключей Azure см. в статье [Что такое хранилище ключей Azure?](key-vault-whatis.md)
 
 ## Предварительные требования
@@ -41,7 +43,7 @@
 Для работы с этим учебником требуется:
 
 - Существующее хранилище ключей, которое вы используете.
-- Azure PowerShell, **начиная с версии 1.0.1**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`.
+- Azure PowerShell, **начиная с версии 1.0.1**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`.
 - Достаточный объем хранилища в Azure для журналов хранилищ ключей.
 
 
@@ -68,7 +70,7 @@
 
 Хотя вы можете использовать и существующую учетную запись хранения для журналов, мы создадим новую учетную запись, которая будет использоваться для сбора данных хранилища ключей. Эти сведения нам нужно будет указать позже. Сейчас же для удобства работы мы сохраним их в переменной с именем **sa**.
 
-Чтобы упростить управление, мы также будем использовать ту же группу ресурсов, которая содержит наше хранилище ключей. Согласно инструкциям из руководства [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md) эта группа ресурсов называется **ContosoResourceGroup**. Также мы будем продолжать использовать расположение «Восточная Азия». Замените эти значения собственными.
+Чтобы упростить управление, мы также будем использовать ту же группу ресурсов, которая содержит наше хранилище ключей. Согласно инструкциям из руководства [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md) эта группа ресурсов называется **ContosoResourceGroup**. Также мы будем продолжать использовать регион "Восточная Азия". Замените эти значения собственными.
 
 	$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
 
@@ -84,7 +86,7 @@
 
 ## <a id="enable"></a>Включение ведения журналов ##
 
-Мы включим ведение журналов хранилища ключей с помощью командлета Set-AzureRmDiagnosticSetting и переменных, которые мы создали для новой учетной записи хранения и хранилища ключей. Мы также добавим флаг **-Enabled** для параметра **$true** и зададим категорию AuditEvent (единственная категория для ведения журнала хранилища ключей).
+Мы включим ведение журналов хранилища ключей с помощью командлета Set-AzureRmDiagnosticSetting и переменных, которые мы создали для новой учетной записи хранения и хранилища ключей. Мы также добавим флаг **-Enabled** для параметра **$true** и зададим категорию AuditEvent (единственная категория для ведения журнала хранилища ключей):
 
    
 	Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
@@ -156,11 +158,11 @@
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 
-- Если у вас есть несколько групп ресурсов, но вы хотите загрузить журналы только для одной группы, используйте `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`.
+- Если у вас есть несколько групп ресурсов, но вы хотите загрузить журналы только для одной группы, используйте `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 
-- Если вы хотите загрузить все журналы за январь 2016 г., используйте `-Blob '*/year=2016/m=01/*'`.
+- Если вы хотите загрузить все журналы за январь 2016 г., используйте `-Blob '*/year=2016/m=01/*'`:
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 
@@ -272,4 +274,4 @@
 
 Руководство по смене ключей и аудиту журналов с помощью хранилища ключей Azure см. в статье [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Как настроить в хранилище ключей полную смену ключей и аудит).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -142,6 +142,7 @@ ExpressRoute поддерживается во всех регионах и ра
 |---|---|---|
 |**Alaska Communications**|Equinix|Сиэтл;|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Кремниевая долина|
+|**[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)**|Equinix|Сингапур|
 
 ## Системные интеграторы ExpressRoute
 
@@ -151,7 +152,7 @@ ExpressRoute поддерживается во всех регионах и ра
 |---|---|
 |**[Avanade Inc.](http://www.avanade.com/)**| Азия, Европа, США |
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Европа |
-|**[Equinix Professional Services](http://www.equinix.com/services/consulting/)**|США||
+|**[Equinix Professional Services](http://www.equinix.com/services/consulting/)**|США|
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Азия |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | США |
 |**[Project Leadership](http://www.projectleadership.net/azure)** | США |
@@ -164,4 +165,4 @@ ExpressRoute поддерживается во всех регионах и ра
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

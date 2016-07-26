@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="markusvi"
 	writer="markvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/25/2016"
+	ms.date="07/13/2016"
 	ms.author="markvi"/>
 
 # Администрирование каталога Azure AD
@@ -148,4 +148,4 @@ Azure AD предоставляет основные возможности уп
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0720_2016-->

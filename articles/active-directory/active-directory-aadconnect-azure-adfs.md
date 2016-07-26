@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/26/2016"
+	ms.date="07/13/2016"
 	ms.author="anandy;billmath"/>
 
-# Службы федерации Active Directory в Azure 
+# Развертывание AD FS в Azure 
 
 В службах федерации Active Directory (AD FS) представлены возможности упрощенной безопасной федерации удостоверений и единого входа. Федерация с Azure AD или O365 дает пользователям возможность выполнять проверку подлинности с использованием локальных учетных данных и получать доступ ко всем ресурсам в облаке. В связи с этим требуется высокодоступная инфраструктура AD FS, обеспечивающая доступ к ресурсам как в локальной, так и в облачной средах. С помощью развертывания AD FS в Azure можно достичь необходимого уровня доступности с минимальными усилиями. Ниже перечислены некоторые преимущества развертывания AD FS в Azure.
 
@@ -259,11 +259,9 @@
 |:----|:----|:------:|
 |AllowHTTPSFromDMZ|	Разрешение взаимодействия с DMZ по протоколу HTTPS | Входящий трафик |
 |DenyAllFromDMZ| Это правило будет блокировать весь трафик из DMZ во внутреннюю подсеть. Правило AllowHTTPSFromDMZ уже отвечает за взаимодействие по протоколу HTTPS и блокирует все остальное | Входящий трафик |
-|AllowHTTPSToDMZ| Это правило разрешает взаимодействие с DMZ по протоколу HTTPS | Исходящие |
-|DenyDMZAll| Это правило будет блокировать весь трафик, поступающий в DMZ, за исключением HTTPS-трафика | Исходящие |
 |DenyInternetOutbound| Нет доступа к Интернету | Исходящие |
 
-![Правила доступа INT (входящий трафик)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png) ![Правила доступа INT (исходящий трафик)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png)
+[комментарий]: <> (![Правила доступа INT (входящий трафик)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [комментарий]: <> (![Правила доступа INT (исходящий трафик)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
 **9.2. Обеспечение защиты подсети DMZ**
 
@@ -271,13 +269,12 @@
 |:----|:----|:------:|
 |AllowHttpsFromVirtualNetwork| Разрешение обмена данными по протоколу HTTPS из виртуальной сети | Входящий трафик |
 |AllowHTTPSInternet| Разрешение обмена данными между DMZ и Интернетом по протоколу HTTPS | Входящий трафик|
-|DenyingressexceptHTTPS|	Блокирование всего, кроме HTTPS-трафика из Интернета | Входящий трафик |
-|AllowOutToADFS| Разрешение обмена данными по протоколу HTTPS с внутренней подсетью | Исходящие |
-|AllowHTTPSToInternet| Разрешение обмена данными с Интернетом по протоколу HTTPS | Исходящие |
+|DenyingressexceptHTTPS| Блокирование всего, кроме HTTPS-трафика из Интернета | Входящий трафик |
 |DenyOutToInternet|	Блокирование всего, кроме HTTPS-трафика, поступающего в Интернет | Исходящие |
 
-![Правила доступа EXT (входящий трафик)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png) ![Правила доступа EXT (исходящий трафик)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png)
+[комментарий]: <> (![Правила доступа EXT (входящий трафик)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [комментарий]: <> (![Правила доступа EXT (исходящий трафик)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
+>[AZURE.NOTE] Если проверка подлинности сертификата клиента (проверка подлинности TLS-порта клиента: с использованием сертификатов пользователей X509) является обязательной, для AD FS требуется, чтобы TCP-порт 49443 был включен, обеспечивая входящий доступ.
 
 ###10\. Тестирование входа AD FS
 
@@ -299,11 +296,11 @@
 * [Приступая к созданию балансировщика нагрузки для Интернета в диспетчере ресурсов с помощью PowerShell](https://aka.ms/Azure/ILB/Internet)
 * [Учетные записи хранения](https://aka.ms/Azure/Storage)
 * [Виртуальные сети Azure](https://aka.ms/Azure/VNet)
-* [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks) (Ссылки на ресурсы по AD FS и прокси веб-приложений)
+* [AD FS and Web Application Proxy Links (Ссылки на ресурсы по AD FS и прокси веб-приложений)](http://aka.ms/ADFSLinks)
 
 ## Дальнейшие действия
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 * [Настройка служб AD FS и управление ими с использованием Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

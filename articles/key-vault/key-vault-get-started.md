@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/06/2016"
+	ms.date="07/15/2016"
 	ms.author="cabailey"/>
 
 # Приступая к работе с хранилищем ключей Azure #
@@ -35,7 +35,7 @@
 Для работы с этим учебником требуется:
 
 - подписка на Microsoft Azure. Если у вас нет подписки, вы можете зарегистрироваться для использования [бесплатной учетной записи](https://azure.microsoft.com/pricing/free-trial/).
-- Azure PowerShell, **начиная с версии 1.1.0**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`. Если у вас установлено средство Azure PowerShell версий 0.9.1–0.9.8, вы можете использовать это руководство с некоторыми незначительными поправками. Например, вам нужно использовать команду `Switch-AzureMode AzureResourceManager`; также отличаются некоторые команды хранилища ключей Azure. Полный список командлетов хранилища ключей для Azure PowerShell версий 0.9.1–0.9.8 см. в статье [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx) (Командлеты хранилища ключей Azure). 
+- Azure PowerShell, **начиная с версии 1.1.0**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`. Если у вас установлено средство Azure PowerShell версий 0.9.1–0.9.8, вы можете использовать это руководство с некоторыми незначительными поправками. Например, вам нужно использовать команду `Switch-AzureMode AzureResourceManager`; также отличаются некоторые команды хранилища ключей Azure. Полный список командлетов хранилища ключей для Azure PowerShell версий 0.9.1–0.9.8 см. в статье [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx) (Командлеты хранилища ключей Azure).
 - приложение, для которого вы будете настраивать использование ключа или пароля, созданного по этому учебнику. Пример приложения доступен в [Центре загрузки Майкрософт](http://www.microsoft.com/ru-RU/download/details.aspx?id=45343). Указания см. в сопутствующем файле Readme.
 
 
@@ -116,7 +116,7 @@
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Теперь созданный или переданный в хранилище ключей Azure ключ можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**, а для получения данной конкретной версии используйте адрес **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**.
+Теперь созданный или переданный в хранилище ключей Azure ключ можно вызвать, используя его URI. Используйте адрес **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**, чтобы всегда получать текущую версию, и адрес **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** — чтобы получить именно эту версию.
 
 Чтобы отобразить URI для этого ключа, введите:
 
@@ -130,7 +130,7 @@
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword**, а для получения данной конкретной версии используйте адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Используйте адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword**, чтобы всегда получать текущую версию, и адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** — чтобы получить именно эту версию.
 
 Чтобы отобразить URI для этого секрета, введите:
 
@@ -150,7 +150,7 @@
 
 >[AZURE.IMPORTANT] Чтобы завершить прохождение этого учебника, учетная запись, хранилище и приложение, которое вы будете регистрировать на этом шаге, должны находиться в одном каталоге Azure.
 
-Приложения, которые используют хранилища ключей, должны пройти аутентификацию с использованием маркера Azure Active Directory. Для этого владельцу приложения необходимо сначала зарегистрировать приложение в Azure Active Directory. В конце регистрации владелец приложения получает следующие значения.
+Приложения, которые используют хранилища ключей, должны пройти аутентификацию с использованием токена Azure Active Directory. Для этого владельцу приложения необходимо сначала зарегистрировать приложение в Azure Active Directory. В конце регистрации владелец приложения получает следующие значения.
 
 
 - **Идентификатор приложения** (также известный как идентификатор клиента) и **ключ аутентификации** (также известный как общий секрет). Для получения маркера приложение должно предоставить Azure Active Directory оба этих значения. Настроенный способ предоставления зависит от приложения. В примере приложения, использующего хранилище ключей, владелец задает эти значения в файле app.config.
@@ -214,7 +214,7 @@
 
 ## <a id="delete"></a>Удаление хранилища ключей, а также связанных ключей и секретов ##
 
-Если вам больше не нужно хранилище ключей (и содержащийся в нем ключ или секрет), его можно удалить с помощью командлета [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx).
+Если вам больше не нужно хранилище ключей (а также содержащийся в нем ключ или секрет), его можно удалить с помощью командлета [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx).
 
 	Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -245,4 +245,4 @@
 
 Справочные материалы по программированию см. в [руководстве разработчика для хранилища ключей Azure](key-vault-developers-guide.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

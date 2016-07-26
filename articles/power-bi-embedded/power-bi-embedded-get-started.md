@@ -54,7 +54,7 @@
 <a name="view-access-keys"/>
 ## Просмотр ключей доступа для вызова API Power BI
 
-Сведения, необходимые для вызова REST API Power BI, включают такой важный элемент, как **ключи доступа**. Эти ключи используются для создания **маркеров приложения** для проверки подлинности запросов к API. Чтобы просмотреть **ключи доступа**, в **колонке параметров** щелкните **Ключи доступа**. Дополнительные сведения о **маркерах приложения** см. в статье [Как устроен поток маркеров приложений?](power-bi-embedded-app-token-flow.md)
+Сведения, необходимые для вызова REST API Power BI, включают такой важный элемент, как **ключи доступа**. Эти ключи используются для создания **маркеров приложения** для проверки подлинности запросов к API. Чтобы просмотреть **ключи доступа**, в **колонке параметров** щелкните **Ключи доступа**. Дополнительные сведения о **маркерах приложений** см. в статье [Сведения о потоке маркеров приложений в Power BI Embedded](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -98,9 +98,7 @@
 
 ## См. также
 - [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)
-- [Что такое Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Начало работы с Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Цены на Power BI Embedded](http://go.microsoft.com/fwlink/?LinkID=760527)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->
