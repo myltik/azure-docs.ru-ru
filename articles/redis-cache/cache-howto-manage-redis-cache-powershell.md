@@ -24,7 +24,7 @@
 
 В этом разделе демонстрируется выполнение таких обычных задач, как создание, обновление и масштабирование экземпляров кэша Redis для Azure, повторное создание ключей доступа и просмотр сведений о кэшах. Полный список командлетов PowerShell для работы с кэшем Redis для Azure см. в разделе [Командлеты кэша Redis для Azure](https://msdn.microsoft.com/library/azure/mt634513.aspx).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](#classic) описаны далее в этой статье.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)].
 
 ## Предварительные требования
 
@@ -817,4 +817,4 @@
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->
