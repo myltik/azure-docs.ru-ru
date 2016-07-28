@@ -76,7 +76,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-projectplace-tutorial/IC790221.png "Настройка единого входа")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Projectplace** введите URL-адрес клиента Projectplace (например, "*http://company.projectplace.com*") и нажмите кнопку **Далее*.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Projectplace** введите URL-адрес клиента Projectplace (например, "*http://company.projectplace.com*") и нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-projectplace-tutorial/IC790222.png "Настройка URL-адреса приложения")
 

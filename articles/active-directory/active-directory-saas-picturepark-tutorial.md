@@ -78,7 +78,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-picturepark-tutorial/IC795059.png "Настройка единого входа")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Picturepark** введите свой URL-адрес, используя шаблон "*http://company.picturepark.com*", а затем нажмите кнопку **Далее*.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Picturepark** введите свой URL-адрес, используя шаблон "*http://company.picturepark.com*", а затем нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-picturepark-tutorial/IC795060.png "Настройка URL-адреса приложения")
 
