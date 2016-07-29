@@ -785,7 +785,7 @@ Traces
 
 **Аргументы**
 
-* *Table1*, *Table2*…
+* *Table1*, *Table2* …
  *  Имя таблицы, например `requests`, или таблицы, определенной в [предложении let](#let-clause).
  *  Выражение запроса, например `(requests | where success=="True")`.
  *  Набор таблиц, указанных с помощью подстановочного знака. Например, `e*` формирует объединение всех таблиц, определенных в предыдущих предложениях let, имена которых начинаются с "e", вместе с таблицей exceptions.
@@ -2500,4 +2500,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->
