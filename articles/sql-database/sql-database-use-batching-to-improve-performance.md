@@ -234,7 +234,7 @@
 	{
 	    connection.Open();
 	
-	    string insertCommand = "INSERT INTO [MyTable] ( mytext, num ) " +
+	    string insertCommand = "INSERT INTO [MyTable] \( mytext, num ) " +
 	        "VALUES (@p1, @p2), (@p3, @p4), (@p5, @p6), (@p7, @p8), (@p9, @p10)";
 	
 	    SqlCommand cmd = new SqlCommand(insertCommand, connection);
@@ -454,7 +454,7 @@
 
 	ALTER TABLE [dbo].[PurchaseOrderDetail]  WITH CHECK ADD 
 	CONSTRAINT [FK_OrderID_PurchaseOrder] FOREIGN KEY([OrderID])
-	REFERENCES [dbo].[PurchaseOrder] ([OrderID])
+	REFERENCES [dbo].[PurchaseOrder] \([OrderID])
 
 Чтобы использовать параметры, которые возвращают табличное значение, необходимо иметь по одному пользовательскому типу таблицы для каждой целевой таблицы.
 
