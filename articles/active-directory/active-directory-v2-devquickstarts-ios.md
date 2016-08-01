@@ -50,7 +50,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 Создайте новое приложение на [портале регистрации приложений](https://apps.dev.microsoft.com) или выполните подробные инструкции по [регистрации приложения с использованием конечной точки версии 2.0](active-directory-v2-app-registration.md). Не забудьте:
 
 - Скопируйте назначенный вашему приложению **идентификатор приложения**. Он вскоре вам понадобится.
-- Добавьте для приложения **мобильную** платформу.
+- Добавьте для приложения **мобильную** платформу.
 - Скопируйте значение **URI перенаправления** с портала. Необходимо использовать стандартное значение `urn:ietf:wg:oauth:2.0:oob`.
 
 
@@ -108,7 +108,7 @@ $ vi Podfile
 - Давайте добавим несколько значений в файл `LoginViewController.m`, чтобы задать контекст для аутентификации и авторизации. Описание значений указано после кода.
 
 	```objc
-	NSString *scopes = @"offline_access User.ReadBasic.All";
+	NSString *scopes = @"openid offline_access User.Read";
 	NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 	NSString *loginURL = @"https://login.microsoftonline.com/common/login";
 	NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
@@ -124,7 +124,7 @@ $ vi Podfile
 
 Давайте взглянем на сведения о коде.
 
-Первая строка — для `scopes`. Значение `User.ReadBasic.All` позволяет считывать базовый профиль всех пользователей в каталоге.
+Первая строка — для `scopes`. Значение `User.Read` позволяет считывать базовый профиль вошедшего пользователя.
 
 Дополнительные сведения о всех доступных областях действия см. в разделе [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes) (Области действия разрешений Microsoft Graph).
 
@@ -588,4 +588,4 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
 
 Рекомендуем вам получать уведомления о произошедших инцидентах безопасности. Для этого посетите [Технический центр безопасности](https://technet.microsoft.com/security/dd252948) и подпишитесь на уведомления о советах безопасности.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

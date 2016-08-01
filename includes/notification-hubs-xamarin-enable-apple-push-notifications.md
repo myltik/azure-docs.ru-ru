@@ -35,9 +35,9 @@
 2. Обновите для нового приложения следующие три поля и нажмите кнопку **Продолжить**.
 
 	* **Имя**. В разделе **Описание идентификатора приложения** в поле **Описание идентификатора приложения** введите описательное имя своего приложения.
-	
-	* **Идентификатор набора**. В разделе **Явный идентификатор приложения** введите в форму `<Organization Identifier>.<Product Name>` **идентификатор набора**, как упоминалось в [руководстве по распространению приложения](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Используемые значения должны соответствовать значениям в проекте XCode или Xamarin для вашего приложения.
-	 
+
+	* **Идентификатор набора**. В разделе **Явный идентификатор приложения** введите в форму `<Organization Identifier>.<Product Name>` **идентификатор набора**, как упоминалось в [руководстве по распространению приложения](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Используемые значения должны соответствовать значениям в проекте XCode, Xamarin или Cordova для вашего приложения.
+
 	* **Push-уведомления**. В разделе **Службы приложений** установите флажок **Push-уведомления**.
 
 	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
@@ -54,7 +54,7 @@
 
    	Откроется помощник "Добавление сертификата iOS".
 
-    > [AZURE.NOTE]В этом учебнике используется сертификат разработки. Тот же процесс используется при регистрации сертификата производства. Только убедитесь, что при отправке уведомлений используется тот же тип сертификата.
+    > [AZURE.NOTE] В этом учебнике используется сертификат разработки. Тот же процесс используется при регистрации сертификата производства. Только убедитесь, что при отправке уведомлений используется тот же тип сертификата.
 
 7. Щелкните **Выбрать файл**, перейдите в папку, в которую ранее был сохранен CSR-файл. Нажмите кнопку **Создать**.
 
@@ -68,13 +68,13 @@
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]По умолчанию загруженный файл сертификата разработки называется **aps\_development.cer**.
+    > [AZURE.NOTE] По умолчанию загруженный файл сертификата разработки называется **aps\_development.cer**.
 
 9. Дважды щелкните скачанный сертификат push-уведомлений **aps\_development.cer**. При этом новый сертификат устанавливается в Keychain, как показано ниже:
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
-    > [AZURE.NOTE]Имя вашего сертификата может отличаться, но оно будет начинаться с префикса **Apple Development iOS Push Services:**.
+    > [AZURE.NOTE] Имя вашего сертификата может отличаться, но оно будет начинаться с префикса **Apple Development iOS Push Services:**.
 
 10. В программе Keychain Access щелкните правой кнопкой мыши новый сертификат push-уведомлений, созданный в категории **Сертификаты**. Щелкните **Экспорт**, укажите имя файла, выберите формат **.p12** и нажмите кнопку **Сохранить**.
 
@@ -110,4 +110,4 @@
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0720_2016-->

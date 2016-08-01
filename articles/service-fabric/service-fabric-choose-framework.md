@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
+   ms.date="07/18/2016"
    ms.author="seanmck"/>
 
 # Общие сведения о модели программирования Service Fabric
@@ -45,4 +45,4 @@ Service Fabric предлагает несколько способов запи
 ## Дальнейшие действия
 [Узнайте больше о надежных субъектах](service-fabric-reliable-actors-introduction.md) или начните с [написания первой службы надежного субъекта](service-fabric-reliable-actors-get-started.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

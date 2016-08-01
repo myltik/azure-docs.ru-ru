@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="07/19/2016"
    ms.author="tomfitz"/>
 
 # Создание приложения Active Directory и субъекта-службы с доступом к ресурсам с помощью портала
@@ -24,16 +24,13 @@
 - [Портал](resource-group-create-service-principal-portal.md)
 
 
-При наличии автоматизированного процесса или приложения, требующего доступа к ресурсам или их изменения, необходимо настроить приложение Active Directory и присвоить ему необходимые разрешения. В этой статье рассказывается, как это сделать с помощью портала. В настоящее время роли приложения Active Directory необходимо создать на классическом портале, а затем перейти на портал Azure и назначить приложению роль.
+При наличии приложения, требующего доступа к ресурсам или разрешения на их изменение, необходимо настроить приложение Active Directory (AD) и назначить ему необходимые разрешения. В этой статье рассказывается, как это сделать с помощью портала. В настоящее время роли приложения Active Directory необходимо создать на классическом портале, а затем перейти на портал Azure и назначить приложению роль.
 
-Для приложения Active Directory можно использовать один из двух вариантов проверки подлинности:
-
-1. Создать идентификатор и ключ проверки подлинности для приложения и указывать эти учетные данные при выполнении приложения. Используйте этот параметр для автоматизированных процессов, выполняемых без участия пользователя.
-2. Разрешить пользователю входить в Azure через приложение, а затем использовать учетные данные для доступа к ресурсам от имени пользователя. Используйте этот параметр для приложений, запускаемых пользователем.
+> [AZURE.NOTE] Настроить приложение AD и субъект-службы будет проще через [PowerShell](resource-group-authenticate-service-principal.md) или [Azure CLI](resource-group-authenticate-service-principal-cli.md), особенно если необходимо использовать проверку подлинности на основе сертификата. В этой статье не показано, как использовать сертификат.
 
 Пояснения к терминам Active Directory см. в статье [Объекты приложений и объекты субъектов-служб](./active-directory/active-directory-application-objects.md). Дополнительные сведения об аутентификации Active Directory см. в статье [Сценарии проверки подлинности в Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
-Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [руководстве разработчика по авторизации с помощью API диспетчера Azure Resource Manager](resource-manager-api-authentication.md).
+Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](resource-manager-api-authentication.md).
 
 ## Создание приложения Active Directory
 
@@ -47,7 +44,7 @@
 
      ![выбор каталога](./media/resource-group-create-service-principal-portal/active-directory-details.png)
      
-    Чтобы найти каталог своей подписки, щелкните **Параметры** и найдите каталог по его имени.
+    Чтобы определить каталог для подписки, выберите пункт **Параметры** и найдите имя каталога.
    
      ![поиск каталога по умолчанию](./media/resource-group-create-service-principal-portal/show-default-directory.png)
 
@@ -63,15 +60,15 @@
 
      ![добавление](./media/resource-group-create-service-principal-portal/add-icon.png)
 
-5. Выберите тип приложения, которое вы хотите создать. В целях этого руководства выберите **Добавить приложение, разрабатываемое моей организацией**.
+5. Выберите тип приложения, которое вы хотите создать. Для работы с данным руководством выберите **Добавить приложение, разрабатываемое моей организацией**.
 
      ![новое приложение](./media/resource-group-create-service-principal-portal/what-do-you-want-to-do.png)
 
-6. Укажите имя и тип приложения. В целях этого руководства выберите **Веб-приложение и/или веб-API**, а затем нажмите кнопку "Далее". Если вы выберете вариант **Собственное клиентское приложение**, дальнейшие действия будут отличаться от описанных в статье.
+6. Укажите имя и тип приложения. Для работы с данным руководством выберите **ВЕБ-ПРИЛОЖЕНИЕ И/ИЛИ ВЕБ-API**, а затем нажмите кнопку "Далее". При выборе параметра **СОБСТВЕННОЕ КЛИЕНТСКОЕ ПРИЛОЖЕНИЕ** дальнейшие действия будут отличаться от описанных в статье.
 
      ![указание имени приложения](./media/resource-group-create-service-principal-portal/tell-us-about-your-application.png)
 
-7. Задайте свойства приложения. В поле **URL-адрес входа** введите URI веб-сайта, который описывает ваше приложение. Существование этого сайта не проверяется. В поле **URI ИДЕНТИФИКАТОРА ПРИЛОЖЕНИЯ** введите URI, который идентифицирует ваше приложение.
+7. Задайте свойства приложения. В поле **URL-АДРЕС ВХОДА** введите URI веб-сайта, который описывает ваше приложение. Существование этого сайта не проверяется. В поле **URI ИДЕНТИФИКАТОРА ПРИЛОЖЕНИЯ** введите URI, который идентифицирует ваше приложение.
 
      ![свойства приложения](./media/resource-group-create-service-principal-portal/app-properties.png)
 
@@ -85,7 +82,7 @@
 
      ![настройка приложения](./media/resource-group-create-service-principal-portal/application-configure.png)
 
-2. Скопируйте значение в поле **Идентификатор клиента**.
+2. Скопируйте значение в поле **ИДЕНТИФИКАТОР КЛИЕНТА**.
   
      ![идентификатор клиента](./media/resource-group-create-service-principal-portal/client-id.png)
 
@@ -119,7 +116,7 @@
 
 Если приложение получает доступ к ресурсам от имени выполнившего вход пользователя, необходимо предоставить приложению делегированное разрешение для доступа к другим приложениям. Это можно сделать на вкладке **Настройка** в разделе **Разрешения для других приложений**. По умолчанию делегированное разрешение для Azure Active Directory уже включено. Оставьте это делегированное разрешение без изменений.
 
-1. Щелкните **Добавить приложение**.
+1. Выберите **Добавить приложение**.
 
 2. Из списка выберите **Azure Service Management API** (API управления службами Azure). Затем щелкните значок завершения.
 
@@ -140,6 +137,8 @@
 ## Назначение роли приложению
 
 Если приложение выполняется под собственными учетными данными, ему необходимо назначить роль. Необходимо решить, какая роль предоставит приложению необходимые разрешения. Дополнительные сведения о доступных ролях см. в статье [RBAC: встроенные роли](./active-directory/role-based-access-built-in-roles.md).
+
+Чтобы назначить роль, требуется доступ `Microsoft.Authorization/*/Write`, который предоставляется с помощью роли [Владелец](./active-directory/role-based-access-built-in-roles.md#owner) или [Администратор доступа пользователей](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
 
 Вы можете задать область действия на уровне подписки, группы ресурсов или ресурса. Разрешения наследуются на более низких уровнях области действия (например, добавление приложения в роль читателя для группы ресурсов означает, что оно может считывать группу ресурсов и все содержащиеся в ней ресурсы).
 
@@ -171,22 +170,39 @@
 
 Подробнее о назначении пользователям и приложениям ролей с помощью портала см. в разделе [Управление доступом с помощью портала управления Azure](role-based-access-control-configure.md#manage-access-using-the-azure-management-portal).
 
-## Получение маркера доступа в коде
+## Примеры приложений
 
-Теперь приложение Active Directory настроено для доступа к ресурсам. В приложении вы указываете учетные данные и получаете маркер доступа. Этот маркер доступа используется для запросов доступа к ресурсам.
+Следующие примеры приложений демонстрируют вход в качестве субъекта-службы.
 
-Вы готовы программно входить в приложение.
+**.NET**
 
-- Примеры для .NET см. в статье [Пакет SDK .NET для Azure Resource Manager](resource-manager-net-sdk.md).
-- Примеры для Java см. в статье [Пакет SDK Java для Azure Resource Manager](resource-manager-java-sdk.md).
-- Примеры для Python см. в статье [Resource Management Authentication](https://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementauthentication.html) (Аутентификация при управлении ресурсами).
-- Примеры для REST см. в статье [API-интерфейсы REST для Resource Manager](resource-manager-rest-api.md).
+- [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона с помощью .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+- [Управление ресурсами и группами ресурсов Azure с помощью .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 
-Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [руководстве разработчика по авторизации с помощью API диспетчера Azure Resource Manager](resource-manager-api-authentication.md).
+**Java**
+
+- [Приступая к работе с ресурсами: развертывание с помощью шаблона Azure Resource Manager на Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+- [Приступая к работе с ресурсами: управление группой ресурсов на Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group//)
+
+**Python**
+
+- [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона на Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+- [Управление ресурсами и группами ресурсов Azure с помощью Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+
+**Node.js**
+
+- [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона на Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+- [Управление ресурсами и группами ресурсов Azure с помощью Node.js](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+
+**Ruby**
+
+- [Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона на Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+- [Управление ресурсами и группами ресурсов Azure с помощью Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+
 
 ## Дальнейшие действия
 
 - Дополнительные сведения о настройке политик безопасности см. в статье [Контроль доступа на основе ролей Azure](./active-directory/role-based-access-control-configure.md).
 - Видеодемонстрация этих шагов представлена в статье [Включение программного управления ресурсов Azure с помощью Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

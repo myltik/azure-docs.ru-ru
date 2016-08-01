@@ -54,8 +54,8 @@
 - **ResultCode** получает код результата.
 - **RequestCount** получает число запросов.
 - **BytesSent** получает число отправленных байт.
-- **BytesSent** получает значение задержки сервера.
-- **BytesSent** получает полное время выполнения запроса.
+- **ServerLatency** получает значение задержки сервера.
+- **EndToEndLatency** получает полное время выполнения запроса.
 
 ###Пример результата запроса конечной точки потоковой передачи
 
@@ -235,4 +235,4 @@
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

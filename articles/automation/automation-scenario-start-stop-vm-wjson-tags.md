@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/12/2016"
+   ms.date="07/18/2016"
    ms.author="magoedte;paulomarquesc" />
 
 # Сценарий службы автоматизации Azure: создание расписания запуска и завершения работы виртуальной машины Azure с помощью тегов в формате JSON
@@ -29,10 +29,11 @@
 
 Этот сценарий фактически принимает строку JSON в указанном формате и добавляет ее в качестве значения для тега Schedule. Затем модуль Runbook получает список всех групп ресурсов и виртуальных машин и определяет расписание для каждой виртуальной машины на основе указанных выше сценариев. После этого он будет перебирать виртуальные машины по заданным расписаниям и оценивать действие, которое должно быть выполнено: остановка, завершение работы либо пропуск действия.
 
+Эти модули Runbook выполняют проверку подлинности с помощью [учетной записи запуска от имени Azure](../automation/automation-sec-configure-azure-runas-account.md).
 
 ## Получение сценария
 
-Этот сценарий состоит из четырех модулей Runbook рабочего процесса PowerShell, которые можно скачать из [коллекции TechNet](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) или репозитория [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) для данного проекта.
+Сценарий состоит из четырех модулей Runbook рабочего процесса PowerShell, которые можно скачать из [коллекции TechNet](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) или репозитория [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) для этого проекта.
 
 Модуль Runbook | Описание 
 ----------|----------
@@ -46,7 +47,7 @@ Remove-ResourceSchedule | Удаляет тег Schedule виртуальной 
 
 ### Установка и публикация модулей Runbook
 
-После скачивания модулей Runbook вы можете импортировать их с помощью процедуры, описанной в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation). Опубликуйте каждый модуль Runbook после импорта в учетную запись автоматизации.
+Скачав модули Runbook, вы можете импортировать их с помощью процедуры, описанной в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation). Опубликуйте каждый модуль Runbook после импорта в учетную запись автоматизации.
 
 
 ### Добавление расписания в Test-ResourceSchedule
@@ -56,12 +57,12 @@ Remove-ResourceSchedule | Удаляет тег Schedule виртуальной 
 1. На портале Azure откройте свою учетную запись службы автоматизации и щелкните элемент **Модули Runbook**.
 2. В колонке **Test-ResourceSchedule** щелкните элемент **Расписания**.
 3. В колонке **Расписания** щелкните **Добавить расписание**.
-4. В колонке **Расписания** выберите **Связать расписание с модулем Runbook**, затем в колонке **Расписание** выберите **Создать новое расписание**.
+4. В колонке **Расписания** выберите **Связать расписание с модулем Runbook**, а затем в колонке **Расписание** выберите **Создать новое расписание**.
 5.  В колонке **Новое расписание** введите имя расписания. Например, HourlyExecution.
 6. В поле **Запуск** расписания задайте время запуска с приращением, округленным до часов.
-7. Выберите **Повторение** и для интервала **Reoccur every** (Повторяется каждые) выберите значение **1 час**.
-8. Убедитесь, что для параметра **Задать срок действия** задано значение **Нет**, и щелкните **Создать**, чтобы сохранить новое расписание.
-9. В колонке параметров **Включить модуль Runbook в расписание** выберите параметр **Параметры и настройки запуска**. В колонке **Параметры** модуля Test-ResourceSchedule в поле **SubscriptionName** (Имя подписки) введите имя подписки. Это единственный параметр, необходимый для модуля Runbook. По завершении нажмите кнопку **ОК**.
+7. Выберите **Повторение** и для интервала **Reoccur every** (Повторяется кажд.) выберите значение **1 час**.
+8. Для параметра **Задать срок действия** задайте значение **Нет** и щелкните **Создать**, чтобы сохранить новое расписание.
+9. В колонке параметров **Включить модуль Runbook в расписание** выберите параметр **Параметры и настройки запуска**. В колонке **Параметры** модуля Test-ResourceSchedule в поле **SubscriptionName** введите имя подписки. Это единственный параметр, необходимый для модуля Runbook. По завершении нажмите кнопку **ОК**.
    
 
 После этого расписание Runbook должно выглядеть следующим образом.<br> ![Настроенный модуль Runbook Test-ResourceSchedule](./media/automation-scenario-start-stop-vm-wjson-tags/automation-schedule-config.png)<br>
@@ -112,7 +113,7 @@ Remove-ResourceSchedule | Удаляет тег Schedule виртуальной 
 
 ## Добавление тегов для групп ресурсов или виртуальных машин
 
-Для завершения работы виртуальных машин необходимо отметить тегом их или группы ресурсов, в которых они находятся. Виртуальные машины, у которых нет тега Schedule, не проверяются, поэтому их запуск или завершение работы не выполняется. Существует два способа добавления тега для виртуальных машин или групп ресурсов при использовании этого решения: непосредственно на портале или с помощью модулей Runbook **Add-ResourceSchedule**, **Update-ResourceSchedule** и **Remove-ResourceSchedule**.
+Для завершения работы виртуальных машин необходимо отметить тегом их или группы ресурсов, в которых они находятся. Виртуальные машины, у которых нет тега Schedule, не проверяются, поэтому их запуск или завершение работы не выполняется. Существует два способа маркировки виртуальных машин или групп ресурсов при использовании этого решения: непосредственно на портале или с помощью модулей Runbook **Add-ResourceSchedule**, **Update-ResourceSchedule** и **Remove-ResourceSchedule**.
 
 ### Пометка с помощью портала
 
@@ -123,7 +124,7 @@ Remove-ResourceSchedule | Удаляет тег Schedule виртуальной 
         {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
    
 
-2. Выберите виртуальную машину или группу ресурсов, чтобы применить это расписание, щелкнув значок "Тег".<br>![Параметр тега виртуальной машины](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)
+2. Выберите виртуальную машину или группу ресурсов, чтобы применить это расписание. Для этого щелкните значок "Тег".<br>![Параметр тега виртуальной машины](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)
 3. Теги определяются следующей парой "ключ-значение". Введите **Schedule** в поле **Ключ** и вставьте строку JSON в поле **Значение**, после чего нажмите кнопку **Сохранить**. Новый тег должен появиться в списке тегов для ресурса.<br>![Тег Schedule виртуальной машины](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 
 
@@ -151,7 +152,7 @@ Remove-ResourceSchedule | Удаляет тег Schedule виртуальной 
         $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
         "VmName"="VM01";"Schedule"=$schedule}
 
-    Если вы добавляете тег для группы ресурсов, то просто удалите параметр *VMName* из хэш-таблицы $params следующим образом.
+    Если вы отмечаете тегами группу ресурсов, просто удалите параметр *VMName* из хэш-таблицы $params следующим образом.
 
         $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
         "Schedule"=$schedule}
@@ -161,7 +162,7 @@ Remove-ResourceSchedule | Удаляет тег Schedule виртуальной 
         Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
 
-5. Если вы хотите обновить тег группы ресурсов или виртуальной машины, то выполните модуль Runbook **Update-ResourceSchedule** со следующими параметрами.
+5. Если вы хотите обновить тег группы ресурсов или виртуальной машины, выполните модуль Runbook **Update-ResourceSchedule** со следующими параметрами.
 
         Start-AzureRmAutomationRunbook -Name "Update-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
@@ -180,7 +181,7 @@ Remove-ResourceSchedule | Удаляет тег Schedule виртуальной 
         $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01" ` 
         ;"VmName"="VM01"}
 
-    Если вы удаляете тег группы ресурсов, то просто удалите параметр *VMName* из хэш-таблицы $params следующим образом.
+    Если вы удаляете тег группы ресурсов, просто удалите параметр *VMName* из хэш-таблицы $params следующим образом.
 
         $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
 
@@ -189,7 +190,7 @@ Remove-ResourceSchedule | Удаляет тег Schedule виртуальной 
         Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
 
-4. Если вы хотите обновить тег группы ресурсов или виртуальной машины, то выполните модуль Runbook **Remove-ResourceSchedule** со следующими параметрами.
+4. Если вы хотите обновить тег группы ресурсов или виртуальной машины, выполните модуль Runbook **Remove-ResourceSchedule** со следующими параметрами.
 
         Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
@@ -204,6 +205,7 @@ Remove-ResourceSchedule | Удаляет тег Schedule виртуальной 
 -  Сведения о том, как начать работу с модулями Runbook рабочих процессов PowerShell, см. в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
 -  Дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях см. в статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md).
 -  Дополнительные сведения о функции поддержки сценариев PowerShell см. в статье, посвященной [поддержке собственных сценариев PowerShell в службе автоматизации Azure](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
--  Чтобы узнать больше о ведении журнала и выходных данных Runbook, ознакомьтесь с разделом [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md).
+-  Чтобы узнать больше о ведении журнала и выходных данных Runbook, ознакомьтесь со статьей [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md).
+-  Дополнительные сведения об учетной записи запуска от имени Azure и о том, как с ее помощью проверить подлинность модулей Runbook, см. в статье [Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени](../automation/automation-sec-configure-azure-runas-account.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

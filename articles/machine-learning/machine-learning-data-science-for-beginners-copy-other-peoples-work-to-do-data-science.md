@@ -14,16 +14,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/30/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
-# Обработка и анализ данных для начинающих (видео 5). Копирование работы других пользователей для обработки и анализа данных
+# Копирование работы других пользователей для обработки и анализа данных
+
+## Видео 5. Обработка и анализ данных для начинающих
 
 Одним из секретов успешного процесса обработки и анализа данных является умение использовать работу других пользователей в своих целях. Найдите пример алгоритма кластеризации для выполнения собственного эксперимента.
 
 Для получения оптимального результата просмотрите все видео в указанном порядке. [Перейти к списку видео](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science]
+
+## Другие видео из этого цикла
+
+*Обработка и анализ данных для начинающих* — это пять коротких видеороликов с основными сведениями об обработке и анализе данных.
+
+  * Видео 1. [5 вопросов, на которые дают ответ обработка и анализ данных](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 мин 14 с)*
+  * Видео 2. [Готовы ли ваши данные к обработке и анализу?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 мин 56 с)*
+  * Видео 3. [Задайте вопрос, на который можно ответить с помощью данных](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 мин 17 с)*
+  * Видео 4. [Прогнозирование ответа с помощью простой модели](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 мин 42 с)*
+  * Видео 5. Копирование работы других пользователей для обработки и анализа данных.
 
 ## Расшифровка видео "Копирование работы других пользователей для обработки и анализа данных"
 
@@ -43,7 +55,7 @@
 
 ![Коллекция Cortana Intelligence](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
 
-Если щелкнуть вкладку **Эксперимент** вверху, отобразятся недавно добавленные и самые популярные эксперименты в коллекции. Чтобы просмотреть другие эксперименты, щелкните вкладку **Просмотреть все** в верхней части экрана. Откроется страница, где можно ввести условия и выбрать фильтры для поиска.
+Если щелкнуть вверху вкладку **Experiments** (Эксперименты), то отобразятся недавно добавленные и самые популярные эксперименты в коллекции. Чтобы просмотреть другие эксперименты, щелкните вкладку **Browse All** (Просмотреть все) в верхней части экрана. Откроется страница, где можно ввести условия и выбрать фильтры для поиска.
 
 ## Поиск и использование примера с применением кластеризации
 
@@ -59,7 +71,7 @@
 
 ![Страница описания эксперимента с применением кластеризации](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
 
-Обратите внимание на кнопку **Открыть в Studio**.
+Обратите внимание на кнопку **Open in Studio** (Открыть в студии).
 
 ![Кнопка "Открыть в Studio"](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
@@ -79,19 +91,10 @@
 
 Обязательно ознакомьтесь с другими видео из цикла "Обработка и анализ данных для начинающих" курса по Машинному обучению Microsoft Azure.
 
-## Другие видео из этого цикла
-
-*Обработка и анализ данных для начинающих* — это пять коротких видеороликов с основными сведениями об обработке и анализе данных.
-
-  * Видео 1. [5 вопросов, на которые дают ответ обработка и анализ данных](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md).
-  * Видео 2. [Готовы ли ваши данные к обработке и анализу?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
-  * Видео 3. [Задайте вопрос, на который можно ответить с помощью данных](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md).
-  * Видео 4. [Прогнозирование ответа с помощью простой модели](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md).
-  * Видео 5. Копирование работы других пользователей для обработки и анализа данных.
 
 ## Дальнейшие действия
 
   * [Выполните свой первый эксперимент по обработке и анализу данных с использованием Машинного обучения Azure.](machine-learning-create-experiment.md)
   * [Ознакомьтесь с введением в машинное обучение в Microsoft Azure.](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

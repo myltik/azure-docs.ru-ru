@@ -14,7 +14,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/06/2016"
+   ms.date="07/19/2016"
    ms.author="charwen"/>
 
 # Настройка шлюза виртуальной сети для ExpressRoute с помощью диспетчера ресурсов и PowerShell
@@ -43,4 +43,4 @@
 
 После создания шлюза виртуальной сети вы можете связать виртуальную сеть с каналом ExpressRoute. См. статью [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0720_2016-->

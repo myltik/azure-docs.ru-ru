@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/18/2016"
 	ms.author="ricksal"/>
 
 # Добавление проверки подлинности в приложение Android
@@ -69,4 +69,4 @@
 [Начало работы с мобильными приложениями]: app-service-mobile-android-get-started.md
 [Начало работы с мобильными службами]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

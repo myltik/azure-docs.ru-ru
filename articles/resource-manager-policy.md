@@ -254,7 +254,7 @@
 
 ### Контроль служб: выбор каталога служб
 
-В представленном ниже примере показано, как использовать источник. В нем указано, что допускаются только службы типа Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/*, Microsoft.Network/*. Остальные службы не отклоняются.
+В представленном ниже примере показано, как использовать источник. В нем указано, что допускаются только службы типа Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\*. Остальные службы не отклоняются.
 
     {
       "if" : {
@@ -468,4 +468,4 @@
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->

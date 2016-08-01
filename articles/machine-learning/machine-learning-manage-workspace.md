@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
 # Управление рабочей областью машинного обучения Azure
+
+>[AZURE.NOTE] Процедуры, описанные в этой статье, относятся к классическим веб-службам Машинного обучения Azure. Сведения об управлении новыми веб-службами см. в разделе [Управление новой веб-службой машинного обучения](machine-learning-manage-new-webservice.md).
+
 С помощью классического портала Azure можно управлять рабочими областями машинного обучения для следующего:
 
 - мониторинга использования рабочей области;
@@ -94,4 +97,4 @@
 [consume]: machine-learning-consume-web-services.md
 [marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

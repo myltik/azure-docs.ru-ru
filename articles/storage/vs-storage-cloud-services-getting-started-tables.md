@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="05/08/2016"
+    ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Начало работы с табличным хранилищем Azure и подключенными службами Visual Studio (проектами облачных служб)
+
+[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
 ##Обзор
 
@@ -71,7 +73,7 @@
 
 ## Добавление сущности в таблицу
 
-Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей с именем **CustomerEntity**, который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела.
+Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей с именем **CustomerEntity**, который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела.
 
 	public class CustomerEntity : TableEntity
 	{
@@ -197,4 +199,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -19,7 +19,7 @@
 
 # Использование MongoChef с учетной записью DocumentDB с поддержкой протокола MongoDB
 
-Для подключения с помощью MongoChef к учетной записи DocumentDB с поддержкой протокола MongoDB вам потребуется:
+Для подключения с помощью MongoChef к учетной записи Azure DocumentDB с поддержкой протокола MongoDB вам потребуется:
 
 - скачать и установить [MongoChef](http://3t.io/mongochef);
 - подготовить сведения о [строке подключения](documentdb-connect-mongodb-account.md) для учетной записи DocumentDB с поддержкой протокола MongoDB;
@@ -132,4 +132,4 @@
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->
