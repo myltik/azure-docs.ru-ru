@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/19/2016"
 	ms.author="cephalin"/>
 
 # Развертывание веб-приложения Sails.js в службе приложений Azure
@@ -22,11 +22,11 @@
 
 ## Предварительные требования
 
-- Node.js. Двоичные файлы установки доступны [здесь](https://nodejs.org/).
-- Sails.js. Инструкции по установке доступны [здесь](http://sailsjs.org/get-started).
+- [Node.js](https://nodejs.org/).
+- [Sails.js](http://sailsjs.org/get-started).
 - Общие знания о работе Sails.js. Этот учебник не содержит рекомендаций по решению проблем, связанных с управлением Sails.js в целом.
-- Git. Двоичные файлы установки доступны [здесь](http://www.git-scm.com/downloads).
-- Azure CLI. Инструкции по установке доступны [здесь](../xplat-cli-install.md).
+- [Git](http://www.git-scm.com/downloads).
+- [Azure CLI](../xplat-cli-install.md).
 - Учетная запись Microsoft Azure. Если у вас нет учетной записи, можно [подписаться на бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Чтобы увидеть службу приложений Azure в действии до создания учетной записи Azure, перейдите на страницу [пробного использования службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751). Там можно быстро создать кратковременное приложение начального уровня в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
@@ -99,36 +99,21 @@
 
     Сведения об этих параметрах конфигурации можно найти в [документации Sails.js](http://sailsjs.org/documentation/reference/configuration/sails-config).
 
-    Далее необходимо убедиться, что [Grunt](https://www.npmjs.com/package/grunt) совместим с сетевыми дисками Azure. На момент написания этой статьи Grunt может выдавать сообщение об ошибке ["ENOTSUP: операция не поддерживается для данного сокета"](https://github.com/isaacs/node-glob/issues/205). Это вызвано тем, что сейчас он использует устаревший пакет [glob](https://www.npmjs.com/package/glob) (версии 3.1.21), который не поддерживает сетевые диски. Выполнив следующие действия, можно заставить Grunt использовать пакет [glob версии 5.0.14 или более поздней версии](https://github.com/isaacs/node-glob/commit/bf3381e90e283624fbd652835e1aefa55d45e2c7).
+    Далее необходимо убедиться, что [Grunt](https://www.npmjs.com/package/grunt) совместим с сетевыми дисками Azure. Версии Grunt, предшествующие 1.0.0, используют устаревший пакет [glob](https://www.npmjs.com/package/glob) (до версии 5.0.14), который не поддерживает сетевые диски.
 
-3. Поскольку `npm install` уже запущен при создании приложения, создайте файл npm-shrinkwrap.json в корневом каталоге проекта:
+3. Откройте файл package.json и измените версию `grunt` на `1.0.0`, а затем удалите все пакеты `grunt-*`. Свойство `dependencies` должно выглядеть следующим образом:
 
-        npm shrinkwrap
-
-4. Откройте файл npm-shrinkwrap.json, найдите код json для `"grunt":` и добавьте зависимость для необходимой версии glob. Результирующий код json должен выглядеть следующим образом:
-
-        "grunt": {
-            "version": "0.4.5",
-            "from": "grunt@0.4.5",
-            "resolved": "https://registry.npmjs.org/grunt/-/grunt-0.4.5.tgz",
-            "dependencies": {
-                "glob": {
-                    "version": "5.0.14",
-                    "from": "glob@5.0.14",
-                    "resolved": "https://registry.npmjs.org/glob/-/glob-5.0.14.tgz"
-                }
-            }
+        "dependencies": {
+            "ejs": "<leave-as-is>",
+            "grunt": "1.0.0",
+            "include-all": "<leave-as-is>",
+            "rc": "<leave-as-is>",
+            "sails": "<leave-as-is>",
+            "sails-disk": "<leave-as-is>",
+            "sails-sqlserver": "<leave-as-is>"
         },
 
-5. Найти все ссылки на glob, указав в строке поиска `"glob":`. Если в любой из ссылок указана версия 3.1.21 или более ранняя версия, измените код json на следующий:
-
-        "glob": {
-            "version": "5.0.14",
-            "from": "glob@5.0.14",
-            "resolved": "https://registry.npmjs.org/glob/-/glob-5.0.14.tgz"
-        }
-
-6. Сохраните изменения и проверьте их, чтобы убедиться, что приложение все еще работает локально:
+6. Сохраните изменения и проверьте их, чтобы убедиться, что приложение все еще работает локально. Для этого удалите папку `node_modules`, а затем выполните следующую команду:
 
         npm install
         sails lift
@@ -154,7 +139,7 @@
                 .-..-.
 
     Sails              <|    .-..-.
-    v0.12.1             |\
+    v0.12.3             |\
                         /|.\
                         / || \
                     ,'  |'  \
@@ -167,6 +152,8 @@
     To see your app, visit http://localhost:\\.\pipe\a76e8111-663e-449d-956e-5c5deff2d304
     To shut down Sails, press <CTRL> + C at any time.
 
+Степень детализации журналов stdout определяется в файле [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging).
+
 ## Подключение к базе данных в Azure
 
 Чтобы подключиться к базе данных Azure, создайте в Azure базу данных выбранного типа (база данных SQL Azure, MySQL, MongoDB, кэш Redis для Azure и т. д.) и используйте соответствующий [адаптер хранилища данных](https://github.com/balderdashy/sails#compatibility) для подключения к ней. Действия, описанные в этом разделе, показывают, как подключиться к базе данных SQL Azure.
@@ -177,17 +164,7 @@
 
         npm install sails-sqlserver --save
 
-    Поскольку вы изменили файл package.json, необходимо повторно создать файл npm-shrinkwrap.json. Вы сделаете это позже.
-    
-3. Удалите каталог node\_modules/.
-
-4. Запустите `npm shrinkwrap`.
-
-5. Снова откройте файл npm-shrinkwrap.json и обновите версии пакета `glob` так же, как в предыдущем разделе.
-
-    Теперь вернитесь к основной задаче.
-        
-3. Откройте файл config/connections.js и добавьте следующий код json в список адаптеров:
+3. Откройте файл config/connections.js и добавьте в список следующий объект соединения:
 
         sqlserver: {
             adapter: 'sails-sqlserver',
@@ -207,35 +184,68 @@
         azure site appsetting add sqlserver="<database server name>.database.windows.net"
         azure site appsetting add dbname="<database name>"
         
-4. Откройте файл config/env/production.js для настройки рабочей среды и установите `connection` и `migrate` в объекте JSON `models`:
+    Чтобы предотвратить доступ системы управления версиями (Git) к конфиденциальным данным, в код приложения Azure необходимо добавить собственные параметры. Далее необходимо настроить такие же данные о подключении для среды разработки.
+
+4. Откройте файл config/local.js и добавьте следующий объект соединения:
+
+        connections: {
+            sqlserver: {
+                user: "<database server administrator>",
+                password: "<database server password>",
+                host: "<database server name>.database.windows.net", 
+                database: "<database name>",
+            },
+        },
+    
+    Эта конфигурация позволяет переопределить параметры локальной среды в файле config/connections.js. Этот файл входит в список исключений, определенный в GITIGNORE-файле по умолчанию для проекта, поэтому его нельзя сохранить в репозитории Git. Теперь подключаться к базе данных SQL Azure можно как из веб-приложения Azure, так из локальной среды разработки.
+
+4. Чтобы настроить рабочую среду, откройте файл config/env/production.js и добавьте в него следующий объект `models`:
+
+        models: {
+            connection: 'sqlserver',
+            migrate: 'safe'
+        },
+
+4. Чтобы настроить среду разработки, откройте файл config/env/development.js и добавьте в него следующий объект `models`:
 
         models: {
             connection: 'sqlserver',
             migrate: 'alter'
         },
 
-4. В терминале [создайте](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) [проектный API](http://sailsjs.org/documentation/concepts/blueprints) для Sails.js, как обычно. Например:
+    Объект `migrate: 'alter'` позволяет использовать компоненты миграции для создания и обновления таблиц в базе данных SQL Azure. Так как приложение Sails.js не поддерживает параметр `migrate: 'alter'`, в рабочей среде Azure используется параметр `migrate: 'safe'` (дополнительные сведения см. в [документации по Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
+
+4. Чтобы создать базу данных с возможностями миграции Sails.js, в терминале [создайте](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) [проектный API](http://sailsjs.org/documentation/concepts/blueprints) для Sails.js, следуя обычной процедуре, а затем выполните команду `sails lift`. Например:
 
          sails generate api mywidget
-     
-5. Сохраните все изменения, отправьте их в Azure и перейдите к своему приложению, чтобы убедиться, что оно работает.
+         sails lift
+
+    После выполнения этой команды создается пустая модель `mywidget`, но с ее помощью можно подтвердить наличие связи с базой данных. При выполнении команды `sails lift` для моделей, используемых приложением, создаются отсутствующие таблицы.
+
+6. Обратитесь к проектному API, только что созданному в браузере. Например:
+
+        http://localhost:1337/mywidget/create
+    
+    API должен возвратить созданный объект в окно браузера, что будет означать, что база данных успешно создана.
+
+        {"id":1,"createdAt":"2016-03-28T23:08:01.000Z","updatedAt":"2016-03-28T23:08:01.000Z"}
+
+5. Теперь отправьте изменения в Azure и перейдите к своему приложению, чтобы убедиться, что оно работает.
 
         git add .
         git commit -m "<your commit message>"
         git push azure master
         azure site browse
 
-6. Теперь обратитесь к проектному API, только что созданному в браузере. Например:
+6. Обратитесь к проектному API веб-приложения Azure. Например:
 
-        http://<appname>.azurewebsites.net/widget/create
-    
-    API должен возвращать созданный объект обратно в окно браузера:
-    
-        {"id":1,"createdAt":"2016-03-28T23:08:01.000Z","updatedAt":"2016-03-28T23:08:01.000Z"}
+        http://<appname>.azurewebsites.net/mywidget/create
+
+    Если API возвращает другой объект, это значит, что между веб-приложением Azure и базой данных SQL Azure осуществляется взаимодействие.
 
 ## Дополнительные ресурсы
 
 - [Приступая к работе с веб-приложениями Node.js в службе приложений Azure](app-service-web-nodejs-get-started.md)
 - [Использование модулей Node.js с приложениями Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

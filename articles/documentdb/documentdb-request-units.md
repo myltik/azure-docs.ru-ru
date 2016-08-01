@@ -202,7 +202,7 @@ DocumentDB обеспечивает высокую прогнозируемую 
 
 ##Дальнейшие действия
 
-Дополнительные сведения о резервировании пропускной способности с помощью Azure DocumentDB см. в следующих ресурсах:
+Дополнительные сведения о резервировании пропускной способности с помощью баз данных Azure DocumentDB см. в следующих ресурсах:
  
 - [Цены на DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Управление емкостью DocumentDB](documentdb-manage.md)
@@ -220,4 +220,4 @@ DocumentDB обеспечивает высокую прогнозируемую 
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

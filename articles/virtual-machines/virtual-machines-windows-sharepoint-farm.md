@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание ферм серверов SharePoint | Microsoft Azure"
-	description="Быстро создавайте фермы SharePoint Server 2013, как базовые, так и с высоким уровнем доступности, используя Marketplace портала Azure."
+	description="Быстрое создание новой фермы SharePoint 2013 или SharePoint 2016 в Azure."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -14,12 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
 # Создание ферм серверов SharePoint
 
-С помощью Marketplace на портале Microsoft Azure можно быстро создавать предварительно настроенные фермы SharePoint Server 2013. Это позволяет сэкономить много времени при необходимости использовать базовую или высокодоступную ферму SharePoint в среде разработки и тестирования или в ходе оценки SharePoint Server 2013 в качестве решения для совместной работы в рамках организации.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] классической модели.
+
+## Фермы SharePoint 2013
+
+С помощью Marketplace на портале Microsoft Azure можно быстро создавать предварительно настроенные фермы SharePoint Server 2013. Это позволяет сэкономить много времени при необходимости использовать базовую или высокодоступную ферму SharePoint в среде разработки и тестирования или в ходе оценки SharePoint Server 2013 в качестве решения для совместной работы в рамках организации.
 
 > [AZURE.NOTE] Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure. Он был заменен на **SharePoint 2013 non-HA Farm** (Ферма SharePoint 2013 без высокой доступности) и **SharePoint 2013 HA Farm** (Высокодоступная ферма SharePoint 2013).
 
@@ -53,16 +57,20 @@
 
 Портал Azure создает обе эти фермы только в облачной виртуальной сети с веб-присутствием. Подключение VPN типа "сеть-сеть" или ExpressRoute обратно к сети организации не создается.
 
+## Фермы SharePoint 2016
+
+Ознакомьтесь [в этом разделе](https://technet.microsoft.com/library/mt723354.aspx) с инструкциями о том, как создать приведенную ниже ферму SharePoint 2016 с одним сервером.
+
+![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
+
 ## Управление фермами SharePoint
 
 Для администрирования серверов этих ферм можно использовать подключения к удаленному рабочему столу. Дополнительные сведения см. в статье [Вход на виртуальную машину](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
 
 На сайте Центра администрирования SharePoint можно настраивать "Мои сайты", приложения SharePoint и другие функции. Более подробную информацию см. в разделе [Настройка SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE] С помощью [образа пробной версии SharePoint Server 2016](https://azure.microsoft.com/blog/test-sharepoint-server-2016/) можно создать виртуальную машину SharePoint Server 2016.
-
 ## Дальнейшие действия
 
 - Ознакомьтесь с дополнительными конфигурациями [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) в службах инфраструктуры Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

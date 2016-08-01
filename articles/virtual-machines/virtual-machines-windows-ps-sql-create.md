@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="04/20/2016"
+	ms.date="07/15/2016"
 	ms.author="jroth"/>
 
 # Подготовка виртуальной машины SQL Server к работе с помощью Azure PowerShell (в Resource Manager)
@@ -310,4 +310,4 @@
 ## Дальнейшие действия
 После создания виртуальной машины вы можете подключиться к ней, используя протокол удаленного рабочего и настроив подключение. Дополнительные сведения см. в статье [Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)](virtual-machines-windows-sql-connect.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0720_2016-->

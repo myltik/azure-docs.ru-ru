@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Создание имитации гибридной облачной среды для тестирования
@@ -40,7 +40,7 @@
 1.	настройка виртуальной сети TestLab.
 2.	создание виртуальной сети между организациями.
 3.	создание подключения типа «VNet-to-VNet».
-4.	Настройка DC2. 
+4.	Настройка DC2.
 
 Если у вас еще нет подписки Azure, вы можете зарегистрироваться для получения бесплатной пробной версии на веб-сайте [Try Azure](https://azure.microsoft.com/pricing/free-trial/). Если у вас есть подписка MSDN или Visual Studio, ознакомьтесь с разделом [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -62,7 +62,7 @@
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Настройте свою подписку Azure. Используйте ту же подписку, которая использовалась для построения базовой конфигурации. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
+Настройте свою подписку Azure. Используйте ту же подписку, которая использовалась для построения базовой конфигурации. Замените все содержимое внутри кавычек, включая знаки < и >, правильными именами.
 
 	$subscr="<subscription name>"
 	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
@@ -213,4 +213,4 @@
 
 - Настройка [фермы интрасети SharePoint ](virtual-machines-windows-ps-hybrid-cloud-test-env-sp.md), [бизнес-приложения для Интернета](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) или [сервера синхронизации каталогов Office 365 (DirSync)](virtual-machines-windows-ps-hybrid-cloud-test-env-dirsync.md) в этой среде.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -2,7 +2,7 @@
 	pageTitle="Приступая к работе с пакетом Azure CDN SDK для Node.js | Microsoft Azure"
 	description="Узнайте, как создать приложение Node.js для управления Azure CDN."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter="nodejs"
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/19/2016"
 	ms.author="casoper"/>
 
 # Приступая к разработке для Azure CDN
@@ -49,7 +49,7 @@
 
 Когда установка этих пакетов завершится, файл *package.json* должен выглядеть примерно так (номер версии может отличаться).
 
-```
+``` json
 {
   "name": "cdn_node",
   "version": "1.0.0",
@@ -75,14 +75,14 @@
 
 1. В начале файла добавьте строки required для всех наших пакетов NPM:
 
-	```
+	``` javascript
 	var msRestAzure = require('ms-rest-azure');
 	var cdnManagementClient = require('azure-arm-cdn');
 	```
 
 2. Необходимо определить несколько констант, которые будут использоваться нашими методами. Добавьте следующий код. Обязательно замените заполнители, включая **&lt;угловые скобки&gt;**, собственными значениями.
 
-	```
+	``` javascript
 	//Tenant app constants
 	const clientId = "<YOUR CLIENT ID>";
 	const clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
@@ -96,7 +96,7 @@
 
 3. Далее мы создадим клиент управления CDN и передадим ему наши учетные данные.
 
-	```
+	``` javascript
 	var credentials = new msRestAzure.ApplicationTokenCredentials(clientId, tenantId, clientSecret);
 	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
 	```
@@ -105,7 +105,7 @@
 
 	>[AZURE.IMPORTANT] Используйте приведенный пример кода, только если решили использовать аутентификацию отдельных пользователей, а не субъект-службу. Следите за тем, чтобы ваши учетные данные пользователя хранились в секрете.
 
-	```
+	``` javascript
 	var credentials = new msRestAzure.UserTokenCredentials(clientId, 
 		tenantId, '<username>', '<password>', '<redirect URI>');
 	var cdnClient = new cdnManagementClient(credentials, subscriptionId);
@@ -116,7 +116,7 @@
 
 4.  Консольное приложение Node.js будет принимать некоторые параметры командной строки. Давайте добавим проверку того, что передан хотя бы один параметр.
 
-	```
+	```javascript
 	//Collect command line parameters
 	var parms = process.argv.slice(2);
 
@@ -131,7 +131,7 @@
 
 5. Теперь мы добрались до основной части нашей программы — мы будем запускать другие функции в зависимости от того, какие параметры были переданы.
 
-	```
+	```javascript
 	switch(parms[0].toLowerCase())
 	{
 		case "list":
@@ -158,7 +158,7 @@
 
 6.  Также мы будем проверять, передано ли нужное число параметров; если параметры имеют неправильный формат, будут отображены подсказки. Давайте создадим для этого функции.
 
-	```
+	```javascript
 	function requireParms(parmCount) {
 		if(parms.length < parmCount) {
 			usageHelp(parms[0].toLowerCase());
@@ -197,7 +197,7 @@
 
 7. Кроме того, мы будем использовать на клиенте управления CDN асинхронные функции, поэтому нам нужен метод для обратного вызова после завершения их работы. Давайте создадим такой метод, который будет отображать данные, полученные от клиента управления CDN (если они есть) и корректно завершать работу программы.
 
-	```
+	```javascript
 	function callback(err, result, request, response) {
 		if (err) {
 			console.log(err);
@@ -215,7 +215,7 @@
 
 Давайте начнем с кода, который выводит список существующих профилей и конечных точек. Я дополню код комментариями с описанием синтаксиса, чтобы было понятно, для чего предназначен каждый параметр.
 
-```
+```javascript
 // list profiles
 // list endpoints <profile name>
 function cdnList(){
@@ -244,7 +244,7 @@ function cdnList(){
 
 Теперь давайте напишем функцию для создания профилей и конечных точек.
 
-```
+```javascript
 function cdnCreate() {
     requireParms(2);
     switch(parms[1].toLowerCase())
@@ -297,7 +297,7 @@ function cdnCreateEndpoint() {
 
 Одной из задач, которая может выполняться в программе после создания конечной точки, является очистка содержимого в ней.
 
-```
+```javascript
 // purge <profile name> <endpoint name> <path>
 function cdnPurge() {
     requireParms(4);
@@ -311,7 +311,7 @@ function cdnPurge() {
 
 Наша последняя функция будет удалять конечные точки и профили.
 
-```
+```javascript
 function cdnDelete() {
     requireParms(2);
     switch(parms[1].toLowerCase())
@@ -367,4 +367,4 @@ function cdnDelete() {
 
 Чтобы получить дополнительную документацию о пакете SDK Azure для Node.js, откройте [полный справочник](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

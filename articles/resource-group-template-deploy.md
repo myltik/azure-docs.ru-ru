@@ -23,6 +23,7 @@
 - [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
 - [Портал](resource-group-template-deploy-portal.md)
 - [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
@@ -33,8 +34,8 @@
 
 > [AZURE.TIP] Справку по отладке ошибок во время развертывания можно получить в следующих статьях.
 >
-> - [Просмотр операций развертывания с помощью Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) содержит информацию о том, как получить сведения, которые помогут устранить ошибку.
-> - [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью диспетчера ресурсов Azure](resource-manager-common-deployment-errors.md) содержит информацию о том, как устранять распространенные ошибки при развертывании.
+> - [Просмотр операций развертывания с помощью Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md) — руководство по получению сведений, которые помогут устранить ошибку.
+> - [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md) — руководство по устранению распространенных ошибок при развертывании.
 
 Шаблон может быть локальным файлом или внешним файл, доступным по универсальному коду ресурса (URI). Если шаблон находится в учетной записи хранения, то во время развертывания можно ограничить доступ к шаблону и предоставить маркер подписанного URL-адреса (SAS).
 
@@ -61,7 +62,7 @@
         Account     : someone@example.com
         ...
 
-2. Если у вас несколько подписок, укажите идентификатор той из них, которую хотите использовать для развертывания, с помощью команды **Set-AzureRmContext**.
+2. Если у вас несколько подписок, укажите идентификатор той, которая будет использоваться для развертывания, с помощью команды **Set-AzureRmContext**.
 
         Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
@@ -83,11 +84,11 @@
              *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-4. Перед выполнением развертывания можно проверить его параметры. С помощью командлета **Test-AzureRmResourceGroupDeployment** можно выявить проблемы перед созданием фактических ресурсов. В следующем примере показано, как проверить развертывание.
+4. Перед выполнением развертывания можно проверить его параметры. С помощью командлета **Test-AzureRmResourceGroupDeployment** можно выявить проблемы до создания фактических ресурсов. В следующем примере показано, как проверить развертывание.
 
         Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate>
 
-5. Чтобы создать новое развертывание для группы ресурсов, выполните командлет **New-AzureRmResourceGroupDeployment** и укажите необходимые параметры. Параметры будут включать в себя имя развертывания, имя группы ресурсов, путь или URL-адрес созданного шаблона и другие параметры, необходимые для вашего сценария. Если параметр **Mode** не указан, то используется значение по умолчанию **Incremental**. Чтобы выполнить полное развертывание, установите для параметра **Режим** значение **Полный**. Будьте внимательны при использовании полного режима, так как вы можете случайно удалить ресурсы, которые находятся не в шаблоне.
+5. Чтобы создать новое развертывание для группы ресурсов, выполните командлет **New-AzureRmResourceGroupDeployment** и укажите необходимые параметры. Параметры будут включать в себя имя развертывания, имя группы ресурсов, путь или URL-адрес созданного шаблона и другие параметры, необходимые для вашего сценария. Если параметр **Режим** не задан, используется стандартное значение **Добавочный**. Чтобы выполнить полное развертывание, установите для параметра **Режим** значение **Полный**. Будьте внимательны при использовании полного режима, так как вы можете случайно удалить ресурсы, которые находятся не в шаблоне.
 
      Для развертывания локального шаблона используйте параметр **TemplateFile**.
 
@@ -125,13 +126,13 @@
         Mode              : Incremental
         ...
 
-     Если шаблон содержит параметр с именем, которое совпадает с одним из параметров в команде для развертывания шаблона (например, в шаблоне есть параметр с именем **ResourceGroupName**, которое совпадает с именем параметра **ResourceGroupName** в командлете [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)), вам будет предложено указать название для параметра с постфиксом **FromTemplate** (например, **ResourceGroupNameFromTemplate**). В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
+     Шаблон может содержать параметр с именем, которое совпадает с одним из параметров в команде для развертывания шаблона (например, в шаблоне есть параметр с именем **ResourceGroupName**, которое совпадает с именем параметра **ResourceGroupName** в командлете [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx)). В таком случае вам будет предложено указать значение для параметра с постфиксом **FromTemplate** (например, **ResourceGroupNameFromTemplate**). В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
 
 6. Если вы хотите добавлять в журнал дополнительные сведения о развертывании, которые могут помочь в устранении ошибок развертывания, используйте параметр **DeploymentDebugLogLevel**. Можно задать регистрацию в журнале содержимого запроса или содержимого ответа (или и того, и другого) при операции развертывания.
 
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
         
-     Дополнительные сведения об отладке содержимого для устранения неполадок развертывания см. в разделе [Устранение неполадок развертываний групп ресурсов с помощью Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
+     Дополнительные сведения об отладке содержимого для устранения неполадок развертывания см. в статье [Просмотр операций развертывания с помощью Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md).
 
 ## Развертывание шаблона из хранилища с помощью маркера SAS
 
@@ -155,7 +156,7 @@
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-4. Создайте новый контейнер. Разрешение имеет значение **Off**; это означает, что контейнер доступен только владельцу.
+4. Создайте новый контейнер. Разрешение имеет значение **Off**. Это означает, что контейнер доступен только владельцу.
 
         New-AzureStorageContainer -Name templates -Permission Off
         
@@ -179,14 +180,14 @@
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateuri
 
-Пример использования маркера SAS со связанными шаблонами см. в разделе [Использование связанных шаблонов в диспетчере ресурсов Azure](resource-group-linked-templates.md).
+Пример использования маркера SAS со связанными шаблонами см. в статье [Использование связанных шаблонов в Azure Resource Manager](resource-group-linked-templates.md).
 
 [AZURE.INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 
 ## Дальнейшие действия
-- Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание ресурсов с использованием библиотек .NET и шаблона](virtual-machines/virtual-machines-windows-csharp-template.md).
-- Сведения об определении параметров в шаблоне см. в разделе [Создание шаблонов](resource-group-authoring-templates.md#parameters).
+- Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](virtual-machines/virtual-machines-windows-csharp-template.md).
+- Сведения об определении параметров в шаблоне см. в разделе [Параметры](resource-group-authoring-templates.md#parameters).
 - Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
-- Дополнительные сведения об использовании ссылки на KeyVault для передачи безопасных значений см. в разделе [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
+- Дополнительные сведения об использовании ссылки на KeyVault для передачи безопасных значений см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

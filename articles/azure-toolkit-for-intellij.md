@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 # Набор средств Azure для IntelliJ
 
@@ -31,6 +31,13 @@
 * [Новые возможности набора средств Azure для IntelliJ]
 * [Установка набора средств Azure для IntelliJ]
 * [Создание веб-приложения Hello World для Azure в IntelliJ]
+
+## Использование набора средств Azure для IntelliJ
+
+В следующих статьях демонстрируется использование набора средств Azure для IntelliJ для добавления функций Azure в проекты Java.
+
+* [Отладка в IntelliJ веб-приложения Java, размещенного в Azure]
+* [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux][HDInsight Tools Plugin for IntelliJ]
 
 ## См. также
 
@@ -60,4 +67,7 @@
 
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 
-<!---HONumber=AcomDC_0706_2016-->
+[Отладка в IntelliJ веб-приложения Java, размещенного в Azure]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
+[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+
+<!---HONumber=AcomDC_0720_2016-->

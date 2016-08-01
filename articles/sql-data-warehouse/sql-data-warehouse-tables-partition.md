@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Секционирование таблиц в хранилище данных SQL
@@ -146,6 +146,8 @@ AND     rp.[name]    = 'SloDWPool'
 
 ## Переключение секций
 
+Хранилище данных SQL поддерживает разбиение, слияние и переключение секций. Для каждой из этих функций используется инструкция [ALTER TABLE][].
+
 Для переключения секций между двумя таблицами необходимо убедиться, что секции выровнены по соответствующим границам и их определения таблиц совпадают. Не допускаются ограничения CHECK для задания диапазона значений в таблице, исходная таблица должна содержать те же границы секций, что и целевая таблица. Если это не так, переключение секций завершится ошибкой, так как метаданные не будут синхронизированы.
 
 ### Как разделить секцию, которая содержит данные
@@ -187,7 +189,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 > [AZURE.NOTE] Создавая объект статистики, мы обеспечиваем более точные метаданные таблицы. Если пропустить создание объекта статистики, хранилище данных SQL будет использовать значения по умолчанию. Чтобы ознакомиться с информацией о статистике, см. раздел [Статистика][].
 
-Далее мы можем выполнить запрос числа строк, воспользовавшись представлением каталога `sys.partitions`:
+Далее мы можем выполнить запрос числа строк, воспользовавшись представлением каталога `sys.partitions`.
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -373,6 +375,7 @@ DROP TABLE #partitions;
 
 <!-- MSDN Articles -->
 [Секционированные таблицы и индексы]: https://msdn.microsoft.com/library/ms190787.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/ru-RU/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [функции секционирования]: https://msdn.microsoft.com/library/ms187802.aspx
 [схему секционирования]: https://msdn.microsoft.com/library/ms179854.aspx
@@ -380,4 +383,4 @@ DROP TABLE #partitions;
 
 <!-- Other web references -->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

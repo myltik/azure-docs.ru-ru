@@ -19,7 +19,7 @@
 
 # Начало работы по созданию внутреннего балансировщика нагрузки с помощью PowerShell
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]<BR>[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)] <BR> [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
@@ -38,7 +38,7 @@
 
 Перед созданием внутренней подсистемы балансировки нагрузки необходимо настроить следующие элементы.
 
-- Настройка внешнего IP-адреса — настройка частного IP-адреса для входящего сетевого трафика. 
+- Настройка внешнего IP-адреса — настройка частного IP-адреса для входящего сетевого трафика.
 
 - Внутренний пул адресов — настройка сетевых интерфейсов, которые будут получать трафик с распределенной нагрузкой из внешнего пула IP-адресов.
 
@@ -62,7 +62,7 @@
 
 ### Шаг 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 
 
@@ -70,7 +70,7 @@
 
 Проверка подписок для учетной записи
 
-		PS C:\> get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 Вам будет предложено пройти проверку подлинности с вашими учетными данными.<BR>
 
@@ -79,7 +79,7 @@
 Выберите, какие подписки Azure будут использоваться. <BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 ### Создание группы ресурсов для подсистемы балансировки нагрузки
 
@@ -87,7 +87,7 @@
 
 Создайте группу ресурсов (пропустите этот шаг, если вы используете существующую группу).
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Оно используется по умолчанию для ресурсов в этой группе. Убедитесь, что во всех командах создания подсистемы балансировки нагрузки используется одна группа ресурсов.
 
@@ -189,7 +189,7 @@
 Результат будет аналогичным следующему:
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Ожидаемые выходные данные:
 
@@ -267,13 +267,13 @@
 
 Измените конфигурацию серверной части в сетевом интерфейсе.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Шаг 5 
 
 Сохраните объект сетевого интерфейса.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 После того как сетевой интерфейс будет добавлен в пул серверной части балансировщика нагрузки, он начнет получать сетевой трафик согласно правилам балансировки нагрузки для соответствующего ресурса балансировщика.
 
@@ -316,4 +316,4 @@
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0720_2016-->

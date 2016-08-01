@@ -19,10 +19,10 @@
 
 # Квоты по умолчанию для DocumentDB
 
-В следующей таблице описаны квоты по умолчанию на ресурсы DocumentDB.
+В следующей таблице описаны квоты по умолчанию на ресурсы базы данных Azure DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 Квоты, перечисленные со звездочкой (*), [могут быть изменены при обращении в службу поддержки Azure](documentdb-increase-limits.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

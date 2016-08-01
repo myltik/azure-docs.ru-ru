@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Развертывание ресурсов Azure с помощью портала Azure | Microsoft Azure" 
+	pageTitle="Развертывание ресурсов Azure с помощью портала Azure | Microsoft Azure" 
 	description="Узнайте, как использовать портал Azure для развертывания ресурсов и управления ими." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
@@ -23,13 +23,14 @@
 - [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
 - [Портал](resource-group-template-deploy-portal.md)
 - [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
 - [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 
-В этой статье показано, как использовать [портал Azure](https://portal.azure.com) с [Azure Resource Manager](resource-group-overview.md) для развертывания ресурсов Azure. Чтобы узнать об управлении ресурсами, ознакомьтесь с разделом [Развертывание ресурсов Azure и управление ими с помощью портала Azure](./azure-portal/resource-group-portal.md).
+В этой статье показано, как использовать [портал Azure](https://portal.azure.com) с [Azure Resource Manager](resource-group-overview.md) для развертывания ресурсов Azure. Сведения об управлении ресурсами см. в статье [Управление ресурсами Azure через портал](./azure-portal/resource-group-portal.md).
 
 В настоящее время не все службы поддерживают текущую версию портала или диспетчер ресурсов. Для этих служб необходимо использовать [классический портал](https://manage.windowsazure.com). Состояние каждой службы можно просмотреть на [диаграмме доступности на портале Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
@@ -67,7 +68,7 @@
 
     ![просмотр уведомления](./media/resource-group-template-deploy-portal/view-notification.png)
 
-5. После развертывания ресурсов можно добавлять ресурсы в группу с помощью команды **Добавить** в колонке этой группы ресурсов.
+5. Развернув ресурсы, вы можете добавлять другие ресурсы в группу с помощью команды **Добавить** в колонке этой группы ресурсов.
 
     ![Добавить ресурсы](./media/resource-group-template-deploy-portal/add-resource.png)
 
@@ -79,7 +80,7 @@
 
     ![поиск развертывания шаблона](./media/resource-group-template-deploy-portal/search-template.png)
 
-2. Из списка доступных ресурсов выберите **Развертывание шаблона**.
+2. В списке доступных ресурсов выберите **Развертывание шаблона**.
 
     ![выберите "развертывание шаблона"](./media/resource-group-template-deploy-portal/select-template.png)
 
@@ -87,7 +88,7 @@
 
     ![создание шаблона](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    В редакторе добавьте данные в формате JSON, определяющие ресурсы, которые требуется развернуть. Выполнив это, нажмите кнопку **Сохранить**. Указания по созданию данных в формате JSON см. в [пошаговом руководстве по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md).
+    В редакторе добавьте данные в формате JSON, определяющие ресурсы, которые требуется развернуть. По завершении нажмите кнопку **Сохранить**. Указания по созданию данных в формате JSON см. в [пошаговом руководстве по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md).
 
     ![изменение шаблона](./media/resource-group-template-deploy-portal/edit-template.png)
 
@@ -119,8 +120,8 @@
 
 ## Дальнейшие действия
 
-- Сведения о просмотре журналов аудита см. в статье [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
-- Сведения об устранении неполадок развертывания см. в статье [Устранение неполадок развертываний групп ресурсов с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
-- Чтобы извлечь шаблон из развернутой службы или группы ресурсов, ознакомьтесь с разделом [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
+- Сведения о просмотре журналов аудита см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).
+- Сведения об устранении неполадок развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Чтобы извлечь шаблон из развернутой службы или группы ресурсов, ознакомьтесь со статьей [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

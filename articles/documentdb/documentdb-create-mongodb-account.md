@@ -18,7 +18,7 @@
 
 # Создание учетной записи DocumentDB с поддержкой протокола MongoDB с помощью портала Azure
 
-Чтобы создать учетную запись DocumentDB с поддержкой протокола MongoDB, вам потребуется следующее.
+Чтобы создать учетную запись Azure DocumentDB с поддержкой протокола MongoDB, вам потребуется следующее.
 
 - Учетная запись Azure. Если у вас ее нет, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/).
 
@@ -62,9 +62,9 @@
 
 	Или вы можете наблюдать за ходом выполнения на портале "Уведомления".
 
-	![Быстрое создание баз данных — снимок экрана: центр уведомлений, где показано, что создается учетная запись DocumentDB](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)
+	![Быстрое создание баз данных — снимок экрана: центр уведомлений, где показано, что создается учетная запись DocumentDB](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)
 
-	![Снимок экрана: центр уведомлений, где показано, что учетная запись DocumentDB успешно создана и развернута в группе ресурсов — уведомление создателя базы данных в Интернете](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-5.png)
+	![Снимок экрана: центр уведомлений, где показано, что учетная запись DocumentDB успешно создана и развернута в группе ресурсов — уведомление создателя базы данных в Интернете](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-5.png)
 
 8.	После создания учетной записи она будет готова для использования с параметрами по умолчанию.
 
@@ -78,4 +78,4 @@
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

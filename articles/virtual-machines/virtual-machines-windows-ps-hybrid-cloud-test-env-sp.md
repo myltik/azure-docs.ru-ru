@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="07/19/2016" 
 	ms.author="josephd"/>
 
 # Настройка фермы SharePoint интрасети в гибридном облаке для тестирования
 
-В этом разделе описываются шаги по созданию гибридной облачной среды для тестирования фермы SharePoint интрасети, размещенной в Microsoft Azure. Это конфигурация, которая получается в результате.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
+
+В этом разделе описываются шаги по созданию гибридной облачной среды для тестирования фермы интрасети SharePoint 2013 или SharePoint 2016, размещенной в Microsoft Azure. Это конфигурация, которая получается в результате.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
  
@@ -39,9 +41,9 @@
 
 1.	настройка гибридной облачной среды для тестирования.
 2.	настройка компьютера с SQL Server (SQL1).
-3.	настройка сервера SharePoint (SP1).
+3.	Настройка сервера SharePoint (SP1) под управлением SharePoint 2013 или SharePoint 2016.
 
-Для этой рабочей нагрузки требуется подписка Azure. Если у вас есть подписка MSDN или Visual Studio, ознакомьтесь с разделом [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Для этой рабочей нагрузки требуется подписка Azure. Если у вас есть подписка MSDN или Visual Studio, см. раздел [Ежемесячная сумма денег на счете в Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Этап 1. Настройка гибридной облачной среды
 
@@ -51,7 +53,7 @@
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph1.png)
 
-> [AZURE.NOTE] На этапе 1 можно также настроить [имитацию гибридной облачной среды для тестирования](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
+> [AZURE.NOTE] На этапе 1 можно также настроить [смоделированную гибридную облачную среду для тестирования](virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md).
  
 ## Этап 2. Настройка компьютера с SQL Server (SQL1)
 
@@ -65,7 +67,7 @@
 
 При появлении запроса укажите пароль учетной записи SPFarmAdmin. Введите надежный пароль и запишите его в безопасном месте.
 
-Теперь создайте виртуальную машину Azure для SQL1, выполнив следующие команды в командной строке Azure PowerShell на локальном компьютере. Перед выполнение этих команд заполните значения переменных и удалите символы < and >.
+Теперь создайте виртуальную машину Azure для SQL1, выполнив следующие команды в командной строке Azure PowerShell на локальном компьютере. Перед выполнением этих команд заполните значения переменных и удалите знаки < и >.
 
 	$rgName="<your resource group name>"
 	$locName="<the Azure location of your resource group>"
@@ -75,7 +77,7 @@
 	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
 	$pip=New-AzureRMPublicIpAddress -Name SQL1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureRMNetworkInterface -Name SQL1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
-	$vm=New-AzureRMVMConfig -VMName SQL1 -VMSize Standard_A4
+	$vm=New-AzureRMVMConfig -VMName SQL1 -VMSize Standard_D4
 	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/SQL1-SQLDataDisk.vhd"
 	Add-AzureRMVMDataDisk -VM $vm -Name "Data" -DiskSizeInGB 100 -VhdUri $vhdURI  -CreateOption empty
@@ -133,7 +135,7 @@
 2.	В окне **Подключение к серверу** щелкните **Подключить**.
 3.	В древовидном представлении обозревателя объектов щелкните правой кнопкой мыши **SQL1**, а затем щелкните **Свойства**.
 4.	В окне **Свойства сервера** щелкните **Параметры базы данных**.
-5.	Найдите **Места хранения, используемые базой данных по умолчанию** и задайте следующие значения: 
+5.	Найдите **Места хранения, используемые базой данных по умолчанию** и задайте следующие значения:
 	- Для элемента **Данные** введите путь **f:\\Data**.
 	- Для элемента **Журнал** введите путь **f:\\Log**.
 	- Для элемента **Резервное копирование** введите путь **f:\\Backup**.
@@ -152,7 +154,9 @@
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph2.png)
 
-## Этап 3. Настройка сервера SharePoint (SP1)
+Перейдите к соответствующему этапу 3, чтобы настроить сервер SharePoint 2013 или SharePoint 2016.
+
+## Этап 3. Настройка сервера SharePoint 2013 (SP1)
 
 Сначала создайте виртуальную машину Azure для SP1, выполнив следующие команды в командной строке Azure PowerShell на локальном компьютере.
 
@@ -164,7 +168,7 @@
 	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
 	$pip=New-AzureRMPublicIpAddress -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureRMNetworkInterface -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
-	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_A3
+	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_D3_V2
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the SharePoint 2013 server." 
 	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName SP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2013 -Version "latest"
@@ -192,13 +196,13 @@
 
 После перезапуска используйте портал Azure для подключения к SP1 с помощью учетной записи CORP\\User1 и ее пароля.
 
-После этого настройте SP1 для новой фермы SharePoint и сайта рабочей группы по умолчанию.
+После этого настройте пакет обновления 1 (SP1) для новой фермы SharePoint 2013 и сайта группы по умолчанию.
 
 1.	На начальном экране введите **Продукты SharePoint 2013**, а затем щелкните **Мастер настройки продуктов SharePoint 2013**. Когда вам будет предложено разрешить программе вносить изменения на компьютере, нажмите кнопку **Да**.
-2.	На странице «Продукты SharePoint» нажмите кнопку **Далее**. 
+2.	На странице «Продукты SharePoint» нажмите кнопку **Далее**.
 3.	В диалоговом окне, уведомляющем о том, что некоторые службы, возможно, потребуется перезапустить во время настройки, щелкните **Да**.
 4.	На странице "Подключение к ферме серверов" щелкните **Создать новую ферму серверов**, а затем щелкните **Далее**.
-5.	На странице "Указание параметров базы данных конфигурации" введите **sql1.corp.contoso.com** в поле **Сервер базы данных**, **CORP\\SPFarmAdmin** — в поле **Имя пользователя**, пароль учетной записи SPFarmAdmin — в поле **Пароль**, а затем щелкните **Далее**.
+5.	На странице "Указание параметров базы данных конфигурации" введите **sql1.corp.contoso.com** в поле **Сервер базы данных**, **CORP\\SPFarmAdmin** — в поле **Имя пользователя**, пароль учетной записи SPFarmAdmin — в поле **Пароль**, а затем щелкните **Далее**.
 6.	На странице "Задание параметров безопасности фермы" введите **P@ssphrase** в поля **Парольная фраза** и **Подтверждение пароля**, а затем нажмите кнопку **Далее**.
 7.	На странице настройки веб-приложения центра администрирования SharePoint нажмите кнопку **Далее**.
 8.	На странице «Выполнение мастера настройки продуктов SharePoint» нажмите кнопку **Далее**. Завершение мастера настройки продуктов SharePoint может занять несколько минут.
@@ -216,10 +220,83 @@
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
  
-Ферма SharePoint интрасети в гибридной облачной среде теперь готова для тестирования.
+Ферма интрасети SharePoint 2013 в гибридной облачной среде теперь готова к тестированию.
+
+
+## Этап 3. Настройка сервера SharePoint 2016 (SP1)
+
+Сначала создайте виртуальную машину Azure для SP1, выполнив следующие команды в командной строке Azure PowerShell на локальном компьютере.
+
+	$rgName="<your resource group name>"
+	$locName="<the Azure location of your resource group>"
+	$saName="<your storage account name>"
+	
+	$vnet=Get-AzureRMVirtualNetwork -Name "TestVNET" -ResourceGroupName $rgName
+	$subnet=Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "TestSubnet"
+	$pip=New-AzureRMPublicIpAddress -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic=New-AzureRMNetworkInterface -Name SP1-NIC -ResourceGroupName $rgName -Location $locName -Subnet $subnet -PublicIpAddress $pip
+	$vm=New-AzureRMVMConfig -VMName SP1 -VMSize Standard_D3_V2
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the SharePoint 2016 server." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName SP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2016 -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/SP1-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+
+Затем используйте портал Azure, чтобы подключиться к виртуальной машине SP1 с помощью учетных данных локального администратора.
+
+Далее настройте правила брандмауэра Windows, чтобы разрешить трафик для тестирования базовых параметров подключения. Выполните следующие команды в командной строке Windows PowerShell на SP1.
+
+	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
+	ping dc2.corp.contoso.com
+
+В результате выполнения команды ping должны возвратиться четыре успешных ответа с IP-адреса 192.168.0.4.
+
+Затем присоедините виртуальную машину SP1 к домену Active Directory CORP, выполнив следующие команды в командной строке Windows PowerShell.
+
+	Add-Computer -DomainName corp.contoso.com
+	Restart-Computer
+
+Используйте учетную запись CORP\\User1 при появлении запроса на ввод учетных данных домена для команды **Add-Computer**.
+
+После перезапуска используйте портал Azure для подключения к SP1 с помощью учетной записи CORP\\User1 и ее пароля.
+
+После этого настройте пакет обновления 1 (SP1) для новой фермы SharePoint 2016 одним сервером и сайта группы по умолчанию.
+
+1. На начальном экране введите **SharePoint**, а затем щелкните **Мастер настройки продуктов SharePoint 2016**.
+2. На странице «Продукты SharePoint» нажмите кнопку **Далее**.
+3. Откроется диалоговое окно **Мастер настройки продуктов SharePoint** с предупреждением о том, что службы (например, IIS) будут перезапущены или сброшены. Щелкните **Да**.
+4. На странице подключения к ферме серверов выберите **Создать новую ферму серверов** и нажмите кнопку **Далее**.
+5. Откроется страница «Указание параметров базы данных конфигурации».
+	- В поле **Сервера базы данных** введите **SQL1**.
+	- В поле **Пользователь** введите **CORP\\SPFarmAdmin**.
+	- В поле **Пароль** введите пароль учетной записи SPFarmAdmin.
+6. Нажмите кнопку **Далее**.
+7. На странице "Задание параметров безопасности фермы" дважды введите **P@ssphrase**, после его нажмите кнопку **Далее**.
+8. 	На странице "Specify Server Role" (Задание роли сервера) в поле **Single-Server Farm** (Ферма с одним сервером) щелкните **Single-Server Farm** (Ферма с одним сервером), после чего нажмите кнопку **Далее**.
+9. На странице настройки веб-приложения центра администрирования SharePoint нажмите кнопку **Далее**.
+10. Откроется страница «Выполнение мастера настройки продуктов SharePoint». Нажмите кнопку **Далее**.
+11. Откроется страница «Настройка продуктов SharePoint». Подождите, пока не завершится настройка.
+12. На странице "Настройка успешно завершена" нажмите кнопку **Готово**. Будет запущен новый веб-сайт администрирования.
+13. На странице "Помочь сделать SharePoint лучше" щелкните выбранный вариант участия в программе улучшения качества программного обеспечения и нажмите кнопку **ОК**.
+14. На странице приветствия щелкните **Запуск мастера**.
+15. На странице "Service Applications and Services" (Приложения служб и службы) в разделе **Учетная запись службы** щелкните **Использовать существующую управляемую учетную запись**, а затем нажмите кнопку **Далее**. Перед появлением следующей страницы может пройти несколько минут.
+16. На странице "Создание семейства веб-сайтов" в поле **Заголовок** введите **Contoso**, затем нажмите кнопку **ОК**.
+17. На странице "Выполнение мастера настройки фермы завершено" нажмите кнопку **Готово**. Отобразится веб-страница центра администрирования SharePoint.
+18. Войдите на компьютер CLIENT1 с учетными данными учетной записи CORP\\User1, а затем запустите Internet Explorer.
+19.	В адресной строке введите **http://sp1/** и нажмите клавишу ВВОД. Должен появиться сайт рабочей группы в SharePoint для Contoso Corporation. Сайту может потребоваться некоторое время для подготовки к просмотру.
+
+Это текущая конфигурация.
+
+![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sp/virtual-machines-windows-ps-hybrid-cloud-test-env-sp-ph3.png)
+ 
+Ферма интрасети SharePoint 2016 с одним сервером в гибридной облачной среде теперь готова к тестированию.
+
 
 ## Дальнейшие действия
 
-- [Настройка](https://technet.microsoft.com/library/ee836142.aspx) фермы SharePoint.
+- [Настройка](https://technet.microsoft.com/library/ee836142.aspx) фермы SharePoint 2013.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

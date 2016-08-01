@@ -14,17 +14,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/15/2016"
    ms.author="cgronlun;brohrer;garye"/>
 
 
-# Обработка и анализ данных для начинающих (видео 2): "Готовы ли ваши данные к обработке и анализу?"
+# Готовы ли ваши данные к обработке и анализу?
+
+## Видео 2. Обработка и анализ данных для начинающих
 
 Узнайте, как выполнить оценку данных, чтобы убедиться, что они соответствуют основным критериям для обработки и анализа.
 
 Для получения оптимального результата просмотрите все видео в указанном порядке. [Перейти к списку видео](#other-videos-in-this-series)
 
 > [AZURE.VIDEO data-science-for-beginners-series-is-your-data-ready-for-data-science]
+
+## Другие видео из этого цикла
+
+*Обработка и анализ данных для начинающих* — это пять коротких видеороликов с основными сведениями об обработке и анализе данных.
+
+  * Видео 1. [5 вопросов, на которые дают ответ обработка и анализ данных](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 мин 14 с)*
+  * Видео 2. Готовы ли ваши данные к обработке и анализу?
+  * Видео 3. [Задайте вопрос, на который можно ответить с помощью данных](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 мин 17 с)*
+  * Видео 4. [Прогнозирование ответа с помощью простой модели](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 мин 42 с)*
+  * Видео 5. [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 мин 18 с)*
 
 ## Расшифровка видео "Готовы ли ваши данные к обработке и анализу?"
 
@@ -100,15 +112,6 @@
 Обязательно ознакомьтесь с другими 4 видео из цикла *Обработка и анализ данных для начинающих* курса по Машинному обучению Microsoft Azure.
 
 
-## Другие видео из этого цикла
-
-*Обработка и анализ данных для начинающих* — это пять коротких видеороликов с основными сведениями об обработке и анализе данных.
-
-  * Видео 1. [5 вопросов, на которые дают ответ обработка и анализ данных](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md).
-  * Видео 2. Готовы ли ваши данные к обработке и анализу?
-  * Видео 3. [Задайте вопрос, на который можно ответить с помощью данных](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md).
-  * Видео 4. [Прогнозирование ответа с помощью простой модели](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md).
-  * Видео 5. [Копирование работы других пользователей для обработки и анализа данных](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md).
 
 
 ## Дальнейшие действия
@@ -116,4 +119,4 @@
   * [Выполните свой первый эксперимент по обработке и анализу данных с использованием Машинного обучения Azure.](machine-learning-create-experiment.md)
   * [Ознакомьтесь с введением в машинное обучение в Microsoft Azure.](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

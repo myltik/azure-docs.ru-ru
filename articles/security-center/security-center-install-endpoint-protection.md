@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/12/2016"
+   ms.date="07/15/2016"
    ms.author="terrylan"/>
 
 # Установка Endpoint Protection в центре безопасности Azure
@@ -30,7 +30,7 @@
 
 3. Откроется колонка **Select Endpoint Protection** (Выбрать Endpoint Protection), в которой вы можете выбрать необходимое решение для защиты от вредоносных программ. В этом примере мы выберем **Антивредоносное ПО Майкрософт**. ![Выберите Endpoint Protection][3]
 
-4. На экран будут выведены дополнительные сведения о решении защиты от вредоносных программ. Нажмите кнопку **Создать**. ![][4]
+4. На экран будут выведены дополнительные сведения о решении защиты от вредоносных программ. Нажмите кнопку **Создать**. ![Создание решения для защиты от вредоносных программ][4]
 
 5. В колонке **Добавление расширения** введите необходимые параметры конфигурации и нажмите кнопку **ОК**. Дополнительные сведения о параметрах конфигурации см. в разделе [Стандартная и настраиваемая конфигурации антивредоносного ПО](../azure-security-antimalware.md#default-and-custom-antimalware-configuration).
 
@@ -58,4 +58,4 @@
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]: ./media/security-center-install-endpoint-protection/create-antimalware-solution.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

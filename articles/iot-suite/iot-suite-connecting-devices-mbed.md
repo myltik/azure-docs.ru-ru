@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/26/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
@@ -22,11 +22,11 @@
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Выполнение сборки и запуск примера решения на C в mbed
+## Выполнение сборки и запуск примера решения на C
 
 Ниже перечислены инструкции по подключению устройства [Freescale FRDM-K64F с поддержкой mbed][lnk-mbed-home] к решению для удаленного мониторинга.
 
-### Подключение устройства к сети и настольному компьютеру
+### Подключение устройства mbed к сети и настольному компьютеру
 
 1. Подключите устройство mbed к сети, используя кабель Ethernet. Это необходимо, так как примеру приложения требуется доступ к Интернету.
 
@@ -36,7 +36,7 @@
 
 ### Создание проекта mbed и импорт примера кода
 
-1. Откройте в веб-браузере [сайт для разработчиков](https://developer.mbed.org/) на портале mbed.org. Если у вас еще нет учетной записи, зарегистрируйтесь (бесплатно). Если учетная запись есть, используйте ее для входа. Щелкните **Compiler** (Компилятор) в правом верхнем углу страницы. Откроется интерфейс управления рабочими областями.
+1. Откройте в веб-браузере [сайт для разработчиков](https://developer.mbed.org/) на портале mbed.org. Если у вас еще нет учетной записи, зарегистрируйтесь (бесплатно). Если учетная запись есть, используйте ее для входа. Щелкните **Compiler** (Компилятор) в правом верхнем углу страницы. Отобразится интерфейс *Рабочая область*.
 
 2. Убедитесь, что в правом верхнем углу окна отображается аппаратная платформа, которую вы используете. В противном случае щелкните значок и выберите другую платформу.
 
@@ -48,7 +48,7 @@
 
     ![][7]
 
-5. В окне компилятора mbed вы увидите, что при импорте проекта были импортированы различные библиотеки. Некоторые из них предоставляются и обслуживаются командой разработчиков Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), остальные являются библиотеками сторонних производителей, доступными в каталоге библиотек mbed.
+5. В окне компилятора mbed вы увидите, что при импорте проекта также импортируются различные библиотеки. Некоторые из них предоставляются и обслуживаются командой разработчиков Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [azure\_uamqp](https://developer.mbed.org/users/AzureIoTClient/code/azure_uamqp/)), остальные являются библиотеками сторонних производителей, доступными в каталоге библиотек mbed.
 
     ![][8]
 
@@ -61,7 +61,7 @@
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
 
-7. Измените [идентификатор устройства] и [ключ устройства] в соответствии с параметрами своего устройства, чтобы программа смогла подключиться к центру IoT. Используйте имя узла центра IoT для замены заполнителей [IoTHub Name] и [IoTHub Suffix, т.е. azure-devices.net]. Например, если имя узла центра IoT — contoso.azure-devices.net, то contoso — это **hubName** (имя центра), а все остальное — **hubSuffix** (суффикс центра):
+7. Измените [идентификатор устройства] и [ключ устройства] в соответствии с параметрами своего устройства, чтобы программа смогла подключиться к центру IoT. Используйте имя узла центра IoT для замены заполнителей [IoTHub Name] и [IoTHub Suffix, т.е. azure-devices.net]. Например, если имя узла центра IoT — **contoso.azure-devices.net**, то **contoso** — это **hubName** (имя центра), а все остальное — **hubSuffix** (суффикс центра):
 
     ```
     static const char* deviceId = "mydevice";
@@ -74,7 +74,7 @@
 
 ### Разбор кода
 
-Если вам интересно, как работает программа, в этом разделе описаны основные фрагменты примера кода. Если вы просто хотите запустить код, сразу перейдите к разделу [Сборка и запуск программы](#buildandrun).
+Если вам интересно, как работает программа, в этом разделе описаны основные фрагменты примера кода. Если вы просто хотите запустить код, сразу перейдите к разделу [Сборка и запуск проекта](#buildandrun).
 
 #### Определение модели
 
@@ -152,7 +152,7 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 - Отправляет сведения о самом устройстве, включая поддерживаемые им команды, в центр IoT с помощью библиотеки сериализатора. Когда центр получает это сообщение, он изменяет состояние устройства на панели мониторинга с **Ожидание** на **Работает**.
 - Запускает цикл **while**, который каждую секунду отправляет значения температуры, внешней температуры и влажности в центр IoT.
 
-Для справки ниже приведен пример сообщения **DeviceInfo**, которое отправляется в центр IoT при запуске устройства:
+Для справки ниже приведен пример сообщения **DeviceInfo**, которое отправляется в центр IoT при запуске устройства.
 
 ```
 {
@@ -171,13 +171,13 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 }
 ```
 
-Для справки ниже приведен пример сообщения **Telemetry**, которое отправляется в центр IoT:
+Для справки ниже приведен пример сообщения **Telemetry**, которое отправляется в центр IoT.
 
 ```
 {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
 ```
 
-Для справки ниже приведен пример **команды**, получаемой из центра IoT:
+Для справки ниже приведен пример **команды**, получаемой из центра IoT.
 
 ```
 {
@@ -220,4 +220,4 @@ EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
 [lnk-mbed-pcconnect]: https://developer.mbed.org/platforms/FRDM-K64F/#pc-configuration
 [lnk-serializer]: https://azure.microsoft.com/documentation/articles/iot-hub-device-sdk-c-intro/#serializer
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -47,7 +47,7 @@
 
 Чтобы начать работу:
 
-1. Откройте Azure PowerShell. 
+1. Откройте Azure PowerShell.
 2. В командной строке PowerShell выполните приведенные далее команды, чтобы войти в Azure Resource Manager Azure и выбрать свою подписку.
 
     ```PowerShell
@@ -125,6 +125,7 @@ $resultDatabase
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 [Средства управления]: ./sql-data-warehouse-overview-manage.md
 [Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
+[Manage compute power in Azure SQL Data Warehouse (Overview)]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -135,4 +136,4 @@ $resultDatabase
 [Установщик веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->

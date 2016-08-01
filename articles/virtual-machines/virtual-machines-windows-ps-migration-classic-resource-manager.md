@@ -32,7 +32,7 @@
 
 Есть два основных способа установки — с помощью [коллекции PowerShell](https://www.powershellgallery.com/profiles/azure-sdk/) и [установщика веб-платформы (WebPI)](http://aka.ms/webpi-azps). Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе.
 
-Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com//blog/azps-1-0/).
+Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 ## Шаг 3. Настройка подписки и регистрация для использования миграции
 
@@ -94,18 +94,33 @@
 
 Подготовьте к переносу виртуальные машины в облачной службе. Возможно два варианта.
 
-Если вы хотите перенести виртуальные машины в виртуальную сеть, созданную платформой, используйте следующую команду.
+1. Вы хотите перенести виртуальные машины в виртуальную сеть, автоматически созданную платформой.
 
-	Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+	Первым шагом является проверка возможности переноса облачной службы с помощью следующей команды.
 
-Если вы хотите перенести их в существующую виртуальную сеть в модели развертывания с помощью Resource Manager, используйте следующую команду.
+		$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+		$validate.ValidationMessages
 
-	$existingVnetRGName = "<Existing VNET's Resource Group Name>"
-	$vnetName = "<Virtual Network Name>"
-	$subnetName = "<Subnet name>"
-	Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName 		-VirtualNetworkName $vnetName -SubnetName $subnetName
+	Приведенная выше команда отобразит все предупреждения и ошибки, которые помешают переносу. Если проверка выполнена успешно, то можно переходить к шагу подготовки ниже.
 
-Когда операция подготовки успешно завершится, вы сможете запросить состояние переноса виртуальных машин, чтобы убедиться, что все они `Prepared`.
+		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+
+2. Вы хотите перенести виртуальные машины в существующую виртуальную сеть в модели развертывания с помощью Resource Manager.
+
+		$existingVnetRGName = "<Existing VNET's Resource Group Name>"
+		$vnetName = "<Virtual Network Name>"
+		$subnetName = "<Subnet name>"
+
+	Первым шагом является проверка возможности переноса облачной службы с помощью следующей команды.
+
+		$validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
+		$validate.ValidationMessages
+
+	Приведенная выше команда отобразит все предупреждения и ошибки, которые помешают переносу. Если проверка выполнена успешно, то можно переходить к шагу подготовки ниже.
+
+		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
+
+Когда операция подготовки успешно завершится, вы сможете запросить состояние переноса виртуальных машин, чтобы убедиться, что все они находятся в состоянии `Prepared`.
 
 	$vmName = "<vm-name>"
 	$vm = Get-AzureVM -ServiceName $serviceName -Name $vmName
@@ -117,15 +132,22 @@
 
 Если подготовленная конфигурация вас устраивает, можете продолжать процесс. Выполните следующую команду, чтобы зафиксировать ресурсы.
 
-	Move-AzureService -Commit -ServiceName docmigtest1 -DeploymentName docmigtest1
+	Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 
 ### Перенос виртуальных машин в виртуальную сеть
 
-Выберите виртуальную сеть, в которую будете переносить ресурсы. Обратите внимание: если в виртуальной сети есть виртуальные машины, веб-роли или рабочие роли с неподдерживаемыми конфигурациями, вы получите сообщение об ошибке проверки.
-
-Подготовьте виртуальную сеть к переносу, используя следующую команду.
+Выберите виртуальную сеть, в которую будете переносить ресурсы.
 
 	$vnetName = "VNET-Name"
+
+>[AZURE.NOTE] Если в виртуальной сети есть виртуальные машины, веб-роли или рабочие роли с неподдерживаемыми конфигурациями, то вы получите сообщение об ошибке проверки.
+
+Первым шагом является проверка возможности переноса виртуальной сети с помощью следующей команды.
+
+	Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+
+Приведенная выше команда отобразит все предупреждения и ошибки, которые помешают переносу. Если проверка выполнена успешно, то можно переходить к шагу подготовки ниже.
+	
 	Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
 
 Проверьте конфигурацию для подготовленных виртуальных машин с помощью PowerShell или портала Azure. Если вы не готовы к миграции и хотите вернуть предыдущее состояние, используйте следующую команду.
@@ -159,4 +181,4 @@
 - [Техническое руководство по поддерживаемому платформой переносу из классической модели в модель Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Клонирование классической виртуальной машины в Azure Resource Manager с помощью сценариев PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->
