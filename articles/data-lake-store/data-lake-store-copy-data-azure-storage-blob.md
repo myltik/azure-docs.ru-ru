@@ -13,14 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="07/19/2016"
    ms.author="nitinme"/>
 
 # Копирование данных из больших двоичных объектов хранилища Azure в хранилище озера данных
 
-Хранилище озера данных Azure предоставляет средство командной строки [AdlCopy](http://aka.ms/downloadadlcopy) для копирования данных **из больших двоичных объектов хранилища Azure в хранилище озера данных**. AdlCopy нельзя использовать для копирования данных из хранилища озера данных в большие двоичные объекты хранилища Azure.
+Azure Data Lake Store предоставляет программу командной строки [AdlCopy](http://aka.ms/downloadadlcopy) для копирования данных из указанных ниже источников.
 
-Средство AdlCopy можно использовать двумя способами:
+* Из больших двоичных объектов службы хранилища Azure в Data Lake Store. AdlCopy нельзя использовать для копирования данных из хранилища озера данных в большие двоичные объекты хранилища Azure.
+
+* Между двумя учетными записями хранения Azure Data Lake Store.
+
+Также можно использовать инструмент AdlCopy в двух различных режимах:
 
 * **Автономный**, при котором для выполнения задачи используются ресурсы хранилища озера данных.
 * **С помощью учетной записи аналитики озера данных**, при котором для выполнения операции копирования используются единицы, назначенные учетной записи аналитики озера данных. Этот вариант можно использовать, если вы хотите, чтобы задачи копирования выполнялись предсказуемым образом.
@@ -39,21 +43,22 @@
 
 Используйте следующий синтаксис для работы со средством AdlCopy
 
-	AdlCopy /Source <Blob source> /Dest <ADLS destination> /SourceKey <Key for Blob account> /Account <ADLA account> /Unit <Number of Analytics units>
+	AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Unit <Number of Analytics units> /Pattern 
 
 Параметры синтаксиса описаны ниже:
 
 | Параметр | Описание |
 |-----------|------------|
-| Источник | Указывает расположение исходных данных в хранилище больших двоичных объектов Azure. Источником может быть контейнер больших двоичных объектов или большой двоичный объект. |
+| Источник | Указывает расположение исходных данных в хранилище больших двоичных объектов Azure. Источником может быть контейнер больших двоичных объектов, сам большой двоичный объект или другая учетная запись Data Lake Store. |
 | Dest | Указывает целевое хранилище озера данных для копирования. |
-| SourceKey | Указывает ключ доступа к хранилищу для источника — хранилища больших двоичных объектов Azure. |
+| SourceKey | Указывает ключ доступа к хранилищу для источника — хранилища больших двоичных объектов Azure. Это необходимо только в том случае, если источником является контейнер больших двоичных объектов или сам большой двоичный объект. |
 | Учетная запись | **Необязательно**. Используйте этот вариант, если хотите, чтобы для запуска задания копирования использовалась учетная запись аналитики озера данных Azure. Если при запуске средства указан параметр /Account, но не указана учетная запись аналитики озера данных Azure, то для запуска задания AdlCopy использует учетную запись по умолчанию. Кроме того, при использовании этого параметра необходимо добавить источник (хранилище больших двоичных Azure) и место назначения (хранилище озера данных Azure) в качестве источников данных для вашей учетной записи аналитики озера данных. |
-| Units | Указывает количество единиц аналитики озера данных, которые будут использоваться для задания копирования. Этот параметр является обязательным, если вы указываете учетную запись аналитики озера данных с помощью параметра **/Account**.                                                                                                                                                                                                                                                                                                                                               
+| Units | Указывает количество единиц аналитики озера данных, которые будут использоваться для задания копирования. Этот параметр является обязательным, если вы указываете учетную запись аналитики озера данных с помощью параметра **/Account**.
+| Модель | Определяет шаблон регулярного выражения, который указывает, какие именно большие двоичные объекты и файлы нужно копировать. В AdlCopy используется сопоставление с учетом регистра. Если шаблон не указан, то по умолчанию используется копирование всех элементов. Задание нескольких шаблонов не поддерживается.                                                                                                                                                                                                                                                                                                                                               
 
 
 
-## Автономное использование средства AdlCopy
+## Использование AdlCopy (автономно) для копирования данных из большого двоичного объекта службы хранилища Azure
 
 1. Откройте командную строку и перейдите в каталог, в который установлено средство AdlCopy, обычно `%HOMEPATH%\Documents\adlcopy`.
 
@@ -63,45 +68,91 @@
 
 	Например:
 
-		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+		AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+
+	
+	>[AZURE.NOTE] Приведенный выше синтаксис указывает файл, который будет скопирован в папку в учетной записи Data Lake Store. Инструмент AdlCopy создает папку, если указанного имени папки не существует.
 
 	Вам будет предложено ввести учетные данные для подписки Azure, в которой расположена учетная запись хранилища озера данных. Вы увидите результат, аналогичный приведенному ниже:
 
 		Initializing Copy.
 		Copy Started.
-		...............
-		0.00% data copied.
-		. . .
-		. . .
 		100% data copied.
-		Finishing copy.
-		....
-		Copy Completed.
+		Finishing Copy.
+		Copy Completed. 1 file copied.
 
-1. Также можно скопировать все большие двоичные объекты из одного контейнера в учетную запись хранилища данных озера, используя следующую команду:
+3. Также можно скопировать все большие двоичные объекты из одного контейнера в учетную запись хранилища данных озера, используя следующую команду:
 
 		AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>		
 
 	Например:
 
-		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
+		AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
+## Использование AdlCopy (автономно) для копирования данных из другой учетной записи Data Lake Store
 
+Также можно использовать AdlCopy для копирования данных между двумя учетными записями Data Lake Store.
 
-## Использование AdlCopy с учетной записью аналитики озера данных
+1. Откройте командную строку и перейдите в каталог, в который установлено средство AdlCopy, обычно `%HOMEPATH%\Documents\adlcopy`.
+
+2. Чтобы скопировать определенный файл из одной учетной записи Data Lake Store в другую, выполните следующую команду.
+
+		AdlCopy /Source adl://<source_adls_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adls_account>.azuredatalakestore.net/<path>/
+
+	Например:
+
+		AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
+
+	>[AZURE.NOTE] Приведенный выше синтаксис указывает файл, который будет скопирован в папку в целевой учетной записи Data Lake Store. Инструмент AdlCopy создает папку, если указанного имени папки не существует.
+
+	Вам будет предложено ввести учетные данные для подписки Azure, в которой расположена учетная запись хранилища озера данных. Вы увидите результат, аналогичный приведенному ниже:
+
+		Initializing Copy.
+		Copy Started.|
+		100% data copied.
+		Finishing Copy.
+		Copy Completed. 1 file copied.
+
+3. Следующая команда копирует все файлы из указанной папки в исходной учетной записи Data Lake Store в папку в целевой учетной записи Data Lake Store.
+
+		AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
+
+## Использование AdlCopy (с учетной записью Data Lake Analytics) для копирования данных
 
 Вы также можете воспользоваться своей учетной записью аналитики озера данных для запуска задания AdlCopy для копирования данных из хранилища больших двоичных объектов Azure в хранилище озера данных. Этот вариант обычно используется, если объем перемещаемых данных измеряется гигабайтами или терабайтами и вам необходима лучшая и прогнозируемая производительность.
 
-Для использования учетной записи аналитики озера данных с AdlCopy необходимо добавить источник (хранилище больших двоичных Azure) и место назначения (хранилище озера данных Azure) в качестве источников данных для вашей учетной записи аналитики озера данных. Инструкции по добавлению дополнительных источников данных в учетную записи аналитики озера данных см. в разделе [Управление источниками данных аналитики озера данных](..//data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
+Чтобы использовать учетную запись Data Lake Analytics с AdlCopy для копирования из большого двоичного объекта службы хранилища Azure, необходимо добавить источник (большой двоичный объект службы хранилища Azure) в качестве источника данных для вашей учетной записи Data Lake Analytics. Инструкции по добавлению дополнительных источников данных в учетную записи аналитики озера данных см. в разделе [Управление источниками данных аналитики озера данных](..//data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-account-data-sources).
 
-Выполните следующую команду:
+>[AZURE.NOTE] Если копирование выполняется с использованием учетной записи Data Lake Analytics, а источником является учетная запись Azure Data Lake Store, то учетную запись Data Lake Store не требуется связывать с учетной записью Data Lake Analytics. Связь исходного хранилища с учетной записью Data Lake Analytics требуется только в том случае, если источником является учетная запись хранения Azure.
+
+Выполните следующую команду, чтобы скопировать данные из большого двоичного объекта службы хранилища Azure в учетную запись Data Lake Store, используя учетную запись Data Lake Analytics:
 
 	AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Unit <number_of_data_lake_analytics_units_to_be_used>
 
 Например:
 
-	AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeaccount /Units 2
+	AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
+
+Аналогичным образом выполните следующую команду, чтобы скопировать данные из большого двоичного объекта службы хранилища Azure в учетную запись Data Lake Store, используя учетную запись Data Lake Analytics:
+
+	AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
+
+## Использование AdlCopy для копирования данных с помощью сопоставления шаблонов
+
+В этом разделе показано, как использовать AdlCopy для копирования данных из источника (в приведенном ниже примере — из большого двоичного объекта службы хранилища Azure) в целевую учетную запись Data Lake Store с помощью сопоставления шаблонов. Например, описанные ниже действия можно использовать для копирования всех файлов с расширением CSV из исходного большого двоичного объекта в целевое хранилище.
+
+1. Откройте командную строку и перейдите в каталог, в который установлено средство AdlCopy, обычно `%HOMEPATH%\Documents\adlcopy`.
+
+2. Выполните следующую команду, чтобы скопировать все файлы с расширением CSV из указанного большого двоичного объекта из исходного контейнера в Data Lake Store:
+
+		AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
+
+	Например:
+
+		AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
+
+	
 ## Выставление счетов
 
 * При автономном использовании средства AdlCopy исходящий трафик для перемещения данных будет тарифицироваться в том случае, если источник учетной записи хранилища Azure и хранилище озера данных находятся в разных регионах.
@@ -110,7 +161,7 @@
 
 ## Рекомендации по использованию AdlCopy
 
-* AdlCopy (для версии 1.0.4) поддерживает копирование данных из источников, которые совокупно содержат более тысяч файлов и папок. Тем не менее, если при копировании большого набора данных возникают проблемы, то вы можете распределить файлы и папки в разных вложенных папках и использовать путь к этим вложенным папкам в качестве источника.
+* AdlCopy (для версии 1.0.5) поддерживает копирование данных из источников, которые совокупно содержат тысячи файлов и папок. Тем не менее, если при копировании большого набора данных возникают проблемы, то вы можете распределить файлы и папки в разных вложенных папках и использовать путь к этим вложенным папкам в качестве источника.
 
 ## Дальнейшие действия
 
@@ -118,4 +169,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

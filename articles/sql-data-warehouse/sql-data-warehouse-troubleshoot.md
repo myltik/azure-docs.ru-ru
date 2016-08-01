@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Устранение неполадок хранилища данных SQL Azure
@@ -50,6 +50,7 @@
 
 | Проблема | Способы устранения: |
 | :----------------------------------| :---------------------------------------------- |
+| Msg 40847: не удалось выполнить операцию, так как сервер превысил допустимую квоту в 45 000 DTU. | Либо уменьшите значение [DWU][] создаваемой базы данных, либо [запросите увеличение квоты][].|
 | Анализ использования пространства | Сведения об использовании пространства в системе см. в разделе о [размерах таблиц][].|
 | Справка по управлению таблицами | Справочную информацию об управлении таблицами см. в статье, содержащей [общие сведения о таблицах][Overview]. Эта статья также включает в себя ссылки на разделы с более подробными сведениями о [типах данных таблиц][Data types], [распределении][Distribute], [индексировании][Index] и [секционировании таблицы][Partition], а также сведениями об [управлении статистикой таблиц][Statistics] и о [временных таблицах][Temporary].|
 
@@ -65,12 +66,13 @@
 
 | Проблема | Способы устранения: |
 | :----------------------------------| :---------------------------------------------- |
-| Неподдерживаемые функции базы данных SQL | См. раздел [Неподдерживаемые функции таблиц][].|
-| Неподдерживаемые типы данных базы данных SQL | См. раздел [Неподдерживаемые типы данных][].|
-| Ограничения относительно инструкций DELETE и UPDATE | См. разделы об обходных решениях для инструкций [UPDATE][] и [DELETE][], а также об [использовании инструкции CTAS для обхода неподдерживаемого синтаксиса UPDATE и DELETE][]. |
-| Инструкция MERGE не поддерживается | См. раздел, касающийся [обходных решений для инструкции MERGE][].|
-| Ограничения хранимых процедур | См. раздел об [ограничениях хранимых процедур][], чтобы получить общие сведения о некоторых из них.|
-| Определяемые пользователем функции не поддерживают инструкции SELECT | Это текущее ограничение определяемых пользователем функций. Сведения о поддерживаемом синтаксисе см. в статье документации об инструкции [CREATE FUNCTION][]. |
+| Неподдерживаемые функции базы данных SQL | Ознакомьтесь с разделом [Неподдерживаемые функции таблиц][].|
+| Неподдерживаемые типы данных базы данных SQL | Ознакомьтесь с разделом [Неподдерживаемые типы данных][].|
+| Ограничения относительно инструкций DELETE и UPDATE | Ознакомьтесь с обходных решениях для инструкций [UPDATE][] и [DELETE][], а также с [использованием инструкции CTAS для обхода неподдерживаемого синтаксиса UPDATE и DELETE][]. |
+| Инструкция MERGE не поддерживается | Ознакомьтесь с [обходными решениями для инструкции MERGE][].|
+| Ограничения хранимых процедур | Ознакомьтесь с [ограничениями хранимых процедур][].|
+| Определяемые пользователем функции не поддерживают инструкции SELECT | Это текущее ограничение определяемых пользователем функций. Сведения о поддерживаемом синтаксисе см. в разделе документации об инструкции [CREATE FUNCTION][]. |
+'<--LocComment: страница не найдена, раздел "Ограничения хранимых процедур" поврежден. Я попыталась исправить ссылку в справочных материалах к статье -->'
 
 ## Дальнейшие действия
 
@@ -91,6 +93,8 @@
 [общими сведениями о безопасности]: ./sql-data-warehouse-overview-manage-security.md
 [Создание запроса в службу поддержки]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [масштабирования хранилища данных SQL]: ./sql-data-warehouse-manage-compute-overview.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[запросите увеличение квоты]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [посвященной мониторингу запросов]: ./sql-data-warehouse-manage-monitor.md
 [указания по подготовке]: ./sql-data-warehouse-get-started-provision.md
 [настройке доступа брандмауэра сервера к IP-адресу клиента]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
@@ -109,11 +113,11 @@
 [низкого качества индекса Columnstore]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [повторном создании индексов для повышения качества сегментов]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [управления рабочими нагрузками]: ./sql-data-warehouse-develop-concurrency.md
-[использовании инструкции CTAS для обхода неподдерживаемого синтаксиса UPDATE и DELETE]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
+[использованием инструкции CTAS для обхода неподдерживаемого синтаксиса UPDATE и DELETE]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
 [UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
-[обходных решений для инструкции MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[ограничениях хранимых процедур]: /sql-data-warehouse-develop-stored-procedures/#limitations
+[обходными решениями для инструкции MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[ограничениями хранимых процедур]: /sql-data-warehouse-develop-stored-procedures.md#limitations
 [Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
 [Обход требования PolyBase UTF-8]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
@@ -131,4 +135,4 @@
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Видеоролики]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

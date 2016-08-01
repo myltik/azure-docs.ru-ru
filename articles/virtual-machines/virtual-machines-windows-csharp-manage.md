@@ -69,12 +69,12 @@
 	    {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var result = context.AcquireTokenAsync("https://management.azure.com/", cc);
+          var result = await context.AcquireTokenAsync("https://management.azure.com/", cc);
           if (result == null)
           {
             throw new InvalidOperationException("Could not get the token");
           }
-          return token;
+          return result;
         }
 	
     Замените {client-id} идентификатором приложения Azure Active Directory, {client-secret} — ключом доступа приложения AD, а {tenant-id} — кодом клиента своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureRmSubscription. Ключ доступа можно узнать на портале Azure.
@@ -432,4 +432,4 @@
 
 При наличии проблем с развертыванием ознакомьтесь с [устранением неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

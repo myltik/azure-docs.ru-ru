@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/11/2016"
+   ms.date="07/19/2016"
    ms.author="nitinme"/>
 
 # Доступ к журналам диагностики Azure Data Lake Store
@@ -50,6 +50,13 @@
 
 ## Просмотр журналов диагностики для учетной записи Data Lake Store
 
+Существует два способа просмотра данных журнала для учетной записи Data Lake Store:
+
+* из представления параметров учетной записи Data Lake Store;
+* из учетной записи хранения Azure, в которой хранятся данные.
+
+### Использование представления параметров Data Lake Store
+
 1. В колонке **Параметры** учетной записи Data Lake Store щелкните **Журналы диагностики**.
 
 	![Просмотр ведения журнала диагностики](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Просмотр журналов диагностики")
@@ -59,6 +66,23 @@
 	* Журналы аудита похожи на журналы запросов, но содержат более подробную статистику операций с учетной записью Data Lake Store. Например, вызов API для одной передачи в журнале запросов может породить несколько операций добавления в журналах аудита.
 
 3. Щелкните ссылку **Скачать** для каждой записи журнала, чтобы скачать журналы.
+
+### Использование учетной записи хранения Azure, в которой хранятся данные
+
+1. Откройте колонку учетной записи хранения Azure, связанную с Data Lake Store для ведения журнала, и щелкните "BLOB-объекты". В колонке **Служба BLOB-объектов** отображается два контейнера.
+
+	![Просмотр ведения журнала диагностики](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Просмотр журналов диагностики")
+
+	* В контейнере **insights-logs-audit** содержатся журналы аудита.
+	* В контейнере **insights-logs-requests** содержатся журналы запросов.
+
+2. Журналы в этих контейнерах хранятся с использованием следующей структуры:
+
+	![Просмотр ведения журнала диагностики](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Просмотр журналов диагностики")
+
+	Например, полный путь к журналу аудита может выглядеть таким образом: `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+
+	Аналогично, полный путь к журналу запросов может выглядеть так: `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
 ## Описание структуры данных журнала
 
@@ -93,7 +117,7 @@
 
 | Имя | Тип | Описание |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| Twitter в режиме реального | Строка | Метка времени журнала (в формате UTC). |
+| Twitter в режиме реального | String | Метка времени журнала (в формате UTC). |
 | resourceId | Строка | Идентификатор ресурса, с которым была выполнена операция. |
 | категория | Строка | Категория журнала. Например, **Requests**. |
 | operationName | Строка | Имя операции, добавленной в журнал. Например, getfilestatus. |
@@ -157,9 +181,15 @@
 |------------|--------|------------------------------------------|
 | StreamName | String | Путь выполнения операции. |
 
+
+## Примеры обработки данных журнала
+
+В Azure Data Lake Store есть пример обработки и анализа данных журнала. Этот пример можно найти по адресу [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+
+
 ## См. также
 
 - [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 - [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

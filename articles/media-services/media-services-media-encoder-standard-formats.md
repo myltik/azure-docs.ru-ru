@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016"
+	ms.date="07/17/2016"
 	ms.author="juliako;anilmur"/>
 
 #Форматы и кодеки стандартного кодировщика служб мультимедиа
@@ -88,7 +88,7 @@ MP3 (MPEG-1 Audio Layer 3)|Да
 Windows Media Audio|Да 
 WAV/PCM|Да 
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Да 
-[Opus] (https://en.wikipedia.org/wiki/Opus_(audio_format) |Да 
+[Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Да 
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Да 
 AMR (adaptive multi-rate)|Да
 AES (SMPTE 331M и 302M, AES3-2003) |Нет 
@@ -123,4 +123,4 @@ MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 
 [Кодирование с помощью стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

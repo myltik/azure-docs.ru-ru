@@ -3,8 +3,8 @@
 	description="Узнайте, как автоматизировать репликацию виртуальных машин Hyper-V в облаках VMM с помощью Azure Site Recovery и PowerShell."
 	services="site-recovery"
 	documentationCenter=""
-	authors="csilauraa"
-	manager="jwhit"
+	authors="bsiva"
+	manager="abhiag"
 	editor="tysonn"/>
 
 <tags
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
-	ms.author="lauraa"/>
+	ms.date="07/12/2016"
+	ms.author="bsiva"/>
 
 # Репликация виртуальных машин Hyper-V из облаков VMM в Azure с помощью PowerShell (классическая модель)
 
 > [AZURE.SELECTOR]
 - [Портал Azure](site-recovery-vmm-to-azure.md)
-- [PowerShell в режиме ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [PowerShell — Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 - [Классический портал](site-recovery-vmm-to-azure-classic.md)
 - [PowerShell — классическая модель](site-recovery-deploy-with-powershell.md)
 
@@ -46,7 +46,7 @@
 
 ### Предварительные требования Azure
 
-- Вам потребуется учетная запись [Microsoft Azure](https://azure.microsoft.com/). Начните с [бесплатной пробной версии](pricing/free-trial/).
+- Вам потребуется учетная запись [Microsoft Azure](https://azure.microsoft.com/). Начните с [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 - Для хранения реплицируемых данных потребуется учетная запись хранения Azure. На учетной записи необходимо включить георепликацию. Она должна находиться в том же регионе, что и хранилище Azure Site Recovery, и быть связана с той же подпиской. См. [дополнительные сведения о службе хранилища Azure](../storage/storage-introduction.md).
 - Вам потребуется убедиться, что защищаемые виртуальные машины соответствуют [предварительным требованиям к виртуальным машинам Azure](site-recovery-best-practices.md#virtual-machines).
 
@@ -60,7 +60,7 @@
 ### Предварительные требования Hyper-V
 
 - Серверы узлов Hyper-V должны работать под управлением Windows Server 2012 (или более поздних версий) с ролью Hyper-V и установленными последними обновлениями.
-- Если Hyper-V выполняется в кластере, учтите, что брокер кластера не создается автоматически при использовании кластера на основе статических IP-адресов. Вам потребуется настроить брокер кластера вручную. Для этого выберите «Диспетчер сервера» > «Диспетчер отказоустойчивости кластеров», подключитесь к кластеру, щелкните **Настройка роли** и выберите **Брокер реплики Hyper-V** в окне мастера высокой доступности **Выберите роль**. 
+- Если Hyper-V выполняется в кластере, учтите, что брокер кластера не создается автоматически при использовании кластера на основе статических IP-адресов. Вам потребуется настроить брокер кластера вручную. Для этого выберите «Диспетчер сервера» > «Диспетчер отказоустойчивости кластеров», подключитесь к кластеру, щелкните **Настройка роли** и выберите **Брокер реплики Hyper-V** в окне мастера высокой доступности **Выберите роль**.
 - Все кластеры или серверы узлов Hyper-V, для которых вы настраиваете управление защитой, должны быть включены в облако VMM.
 
 ### Предварительные требования сетевого сопоставления
@@ -449,4 +449,4 @@ marsagentinstaller.exe /q /nu
 
 [Узнайте больше](https://msdn.microsoft.com/library/dn850420.aspx) о командлетах PowerShell для Azure Site Recovery. </a>.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

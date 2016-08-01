@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Начало работы с эмулятором Hadoop для HDInsight | Microsoft Azure"
-	description="Используйте установленный эмулятор, учебник MapReduce и другие образцы, чтобы познакомиться с экосистемой Hadoop. Эмулятор HDInsight работает в качестве изолированной среды Hadoop."
-	keywords="эмулятор, экосистема hadoop, песочница hadoop, руководство по mapreduce"
+	pageTitle="Использование песочницы Hadoop для ознакомления с Hadoop | Microsoft Azure"
+	description="Чтобы начать ознакомление с экосистемой Hadoop, можно настроить на виртуальной машине Azure песочницу Hadoop с платформы Hortonworks. "
+	keywords="эмулятор hadoop,песочница hadoop"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -14,14 +14,16 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="05/05/2016"
 	ms.author="nitinme"/>
 
-# Начало работы в экосистеме Hadoop с изолированной средой Hadoop
+# Начало работы в экосистеме Hadoop с песочницей Hadoop на виртуальной машине
 
-Чтобы ознакомиться с экосистемой Hadoop, вы можете настроить на виртуальной машине изолированную среду Hadoop (с платформы Hortonworks). Изолированная среда представляет собой локальную среду разработки для ознакомления с Hadoop, распределенной файловой системой Hadoop (HDFS), отправкой заданий и т. д. Чтобы начать работу с изолированной средой Hadoop Hortonworks, перейдите на страницу [Hortonworks Sandbox](http://hortonworks.com/downloads/#sandbox) (Изолированная среда Hortonworks) и найдите раздел **Hortonworks Sandbox on a VM** (Изолированная среда Hortonworks на виртуальной машине). Рекомендуется ознакомиться с руководствами, доступными для изолированной среды, чтобы разобраться в HDFS, узнать, как задания передаются в кластер, как отслеживать выполнение задания в кластере, и получить другие сведения.
+Чтобы ознакомиться с экосистемой Hadoop, вы можете настроить на виртуальной машине песочницу Hadoop с платформы Hortonworks. Песочница представляет собой локальную среду разработки для ознакомления с Hadoop, распределенной файловой системой Hadoop (HDFS) и отправкой заданий.
+
+Чтобы начать работу с изолированной средой Hadoop Hortonworks, перейдите на страницу [Hortonworks Sandbox](http://hortonworks.com/downloads/#sandbox) (Песочница Hortonworks) и найдите раздел **Hortonworks Sandbox on a VM** (Песочница Hortonworks на виртуальной машине). Рекомендуется ознакомиться с учебниками, доступными для изолированной среды, чтобы разобраться в HDFS, узнать, как задания передаются в кластер, как отслеживать выполнение заданий в кластере и т. д.
 
 Если вы знакомы с Hadoop, вы можете начать использовать Hadoop в Azure, создав кластер HDInsight. Дополнительную информацию см. в статье [Руководство по Hadoop. Начало работы с Hadoop в HDInsight на платформе Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="05/03/2016"
+ms.date="07/19/2016"
 ms.author="larryfr"/>
 
 #Миграция из кластера HDInsight под управлением Windows на кластер под управлением Linux
@@ -22,7 +22,7 @@ ms.author="larryfr"/>
 
 Этот документ содержит сведения о различиях между HDInsight в Windows и Linux и руководство по миграции существующих рабочих нагрузок на кластер под управлением Linux.
 
-> [AZURE.NOTE] Ubuntu 12.04.05 LTS — это дистрибутив Linux, используемый для кластеров HDInsight под управлением Linux.
+> [AZURE.NOTE] В кластерах HDInsight в качестве операционной системы для узлов в кластере используется Ubuntu Long Term Support (LTS). В кластерах HDInsight 3.3 и 3.4 используется Ubuntu 14.0.4 LTS; в более ранних версиях HDInsight использовалась система Ubuntu 12.04.05 LTS.
 
 ## Задачи миграции
 
@@ -254,4 +254,4 @@ Ambari имеет систему предупреждений, которые м
 
 -   [Выполняйте управление кластером под управлением Linux с помощью Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Льгота на гибридное использование Azure для Windows Server | Microsoft Azure"
-   description="Узнайте, как воспользоваться преимуществами программы Software Assurance для Windows Server, чтобы перенести свои локальные лицензии в Azure"
+   description="Узнайте, как воспользоваться преимуществами программы Software Assurance для Windows Server, чтобы перенести свои локальные лицензии в Azure."
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -49,8 +49,7 @@ Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorag
 При развертывании виртуальной машины Windows Server с помощью PowerShell вам предоставляется дополнительный параметр для `-LicenseType`. После загрузки виртуального жесткого диска в Azure необходимо создать новую виртуальную машину с помощью командлета `New-AzureRmVM` и указать тип лицензирования следующим образом:
 
 ```
-New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
-    -LicenseType Windows_Server
+New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm -LicenseType Windows_Server
 ```
 
 Вы можете подробнее [прочитать о развертывании виртуальной машины в Azure с помощью PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) ниже или просмотреть описания в руководстве [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](./virtual-machines-windows-ps-create.md).
@@ -67,7 +66,7 @@ New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm
 ```
  
 ## Проверка наличия льготы на гибридное использование Azure для Windows Server
-После развертывания виртуальной машины с помощью Resource Manager или PowerShell проверьте тип лицензии с помощью командлета `Get-AzureRmVM` следующим образом:
+После развертывания виртуальной машины с помощью Resource Manager или PowerShell проверьте тип лицензии с помощью командлета `Get-AzureRmVM` следующим образом.
  
 ```
 Get-AzureRmVM -ResourceGroup MyResourceGroup -Name MyVM
@@ -151,7 +150,7 @@ $storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -A
 $osDiskName = "licensing.vhd"
 $osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 $urlOfUploadedImageVhd = "https://testlicensing.blob.core.windows.net/vhd/licensing.vhd"
-$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
+$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption FromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
 ```
 
 Наконец, создайте виртуальную машину и определите тип лицензии для использования льготы на гибридное использование Azure.
@@ -166,4 +165,4 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 
 Узнайте больше об [использовании шаблонов Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

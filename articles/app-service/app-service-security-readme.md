@@ -22,4 +22,6 @@
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-<!---HONumber=AcomDC_0413_2016-->
+Служба приложений Azure использует ту же антивредоносную программу, что и облачные службы Azure и виртуальные машины. Дополнительные сведения об этой программе см. в статье [Антивредоносное ПО Майкрософт для облачных служб и виртуальных машин Azure](../azure-security-antimalware.md)
+
+<!---HONumber=AcomDC_0720_2016-->

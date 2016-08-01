@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="07/07/2016"
+   ms.date="07/19/2016"
    ms.author="jeffstok"
 />
 
@@ -80,23 +80,23 @@
 
 	Чтобы создать и использовать их, для параметра "Тип проверки подлинности SSH" выберите значение "ОТКРЫТЫЙ КЛЮЧ" и выполните приведенные ниже действия. При выполнении этих указаний предполагается, что установлена среда Cygwin с программой ssh-keygen или эквивалентным средством.
 
-	- Создайте пару открытого и закрытого ключей с помощью командной строки на ноутбуке:
+	-    Создайте пару открытого и закрытого ключей с помощью командной строки на ноутбуке:
 	  
-			````ssh-keygen -t rsa -b 2048 –f <private-key-filename>````
-
-    - В результате будет создан файл закрытого и открытого ключей с именем <имя\_файла\_закрытого\_ключа >.pub (например, davec или davec.pub). Затем при назначении учетных данных кластера HDI укажите файл открытого ключа (PUB-файл).
-    
-	![Колонка учетных данных](./media/hdinsight-getting-started-with-r/publickeyfile.png)
-
-	- Измените разрешения в файле закрытого ключа на ноутбуке:
-    
-			````chmod 600 <private-key-filename>````
-
-	- Используйте файл закрытого ключа и SSH для удаленного входа в систему. Пример:
-	
-			````ssh –i <private-key-filename> remoteuser@<hostname public ip>````
-
-	  Кроме того, его можно использовать в клиенте как часть определения контекста вычислений Hadoop Spark для R Server (дополнительные сведения см. в подразделе об использовании Microsoft R Server в качестве клиента Hadoop раздела Creating a Compute Context for Spark (Создание контекста вычислений для Spark) руководства по началу работы с функцией RevoScaleR в Hadoop Spark).
+		    ssh-keygen -t rsa -b 2048 –f <private-key-filename>
+      
+    -    В результате будет создан файл закрытого и открытого ключей с именем <имя\_файла\_закрытого\_ключа >.pub (например, davec или davec.pub). Затем при назначении учетных данных кластера HDI укажите файл открытого ключа (PUB-файл).
+      
+		![Колонка учетных данных](./media/hdinsight-getting-started-with-r/publickeyfile.png)
+      
+	-    Измените разрешения в файле закрытого ключа на ноутбуке:
+      
+			chmod 600 <private-key-filename>
+      
+	-    Используйте файл закрытого ключа и SSH для удаленного входа в систему. Пример:
+	  
+			ssh –i <private-key-filename> remoteuser@<hostname public ip>
+      
+	  Кроме того, его можно использовать в клиенте как часть определения контекста вычислений Hadoop Spark для R Server (дополнительные сведения см. в подразделе об использовании Microsoft R Server в качестве клиента Hadoop раздела [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) (Создание контекста вычислений для Spark) [руководства по началу работы с функцией RevoScaleR в Hadoop Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).
 
 7. Щелкните **Источник данных**, чтобы выбрать источник данных для кластера. Щелкнув __Выберите учетную запись хранения__, выберите имеющуюся учетную запись или создайте новую с помощью ссылки __Создать__ в разделе __Выберите учетную запись хранения__.
 
@@ -117,9 +117,12 @@
 	> [AZURE.NOTE] Если требуется, то на портале можно изменить количество рабочих узлов в кластере ("Кластер" -> "Параметры" -> "Изменить масштаб кластера"). Таким образом, кластер можно перевести в состояние ожидания, когда он не используется, или увеличить его емкость для выполнения масштабных заданий.
 
 	При изменении размера кластера, граничного узла и числа узлов данных необходимо учитывать следующие факторы:
-
-	• Если объем данных большой, производительность распределенных анализов R Server в Spark пропорциональна количеству рабочих узлов. • Производительность анализов R Server линейно зависит от размера анализируемых данных. • Если объем данных небольшой или средний, для оптимальной производительности анализ данных необходимо выполнять в рамках локального контекста вычислений на граничном узле. Дополнительные сведения об использовании локального контекста вычислений и контекста вычислений Spark см. в статье "Параметры контекста вычислений для R Server в HDInsight (предварительная версия)". • Если войти на граничный узел и запустить там R-скрипт, все RX-функции, кроме RX-функций ScaleR, будут выполняться на нем **локально**. Поэтому необходимо соответствующим образом задать объем памяти и количество ядер граничного узла. Эти же рекомендации применимы при использовании на ноутбуке сервера R Server в HDI в качестве удаленного контекста вычислений.
-
+   
+    - Если объем данных большой, производительность распределенных анализов R Server в Spark пропорциональна количеству рабочих узлов.
+    - Производительность анализов R Server линейно зависит от размера анализируемых данных. Например:
+        - Если объем данных небольшой или средний, для оптимальной производительности анализ данных необходимо выполнять в рамках локального контекста вычислений на граничном узле. Дополнительные сведения об использовании локального контекста вычислений и контекста вычислений Spark см. в статье "Параметры контекста вычислений для R Server в HDInsight (предварительная версия)".<br>
+        - Если войти на граничный узел и запустить там R-скрипт, все RX-функции, кроме RX-функций ScaleR, будут выполняться на нем <strong>локально</strong>. Поэтому необходимо соответствующим образом задать объем памяти и количество ядер граничного узла. Эти же рекомендации применимы при использовании на ноутбуке сервера R Server в HDI в качестве удаленного контекста вычислений.
+    
     ![Колонка "Ценовые категории узла"](./media/hdinsight-getting-started-with-r/pricingtier.png)
 
     Нажмите кнопку **Выбрать**, чтобы сохранить конфигурацию цен узла.
@@ -130,7 +133,7 @@
     | ------------------ | --------------------- |
     | ![Индикатор подготовки на начальной панели](./media/hdinsight-getting-started-with-r/provisioning.png) | ![Плитка создания кластера](./media/hdinsight-getting-started-with-r/provisioned.png) |
 
-    > [AZURE.NOTE] Обычно создание кластера занимает около 15 минут. Вы можете отслеживать процесс создания с помощью элемента на начальной панели или записи **Уведомления** в левой части страницы.
+    > [AZURE.NOTE] Обычно создание кластера занимает около 15 минут. Вы можете отслеживать процесс создания с помощью элемента на начальной панели или записи **Уведомления** в левой части страницы.
 
 ## Подключение к пограничному узлу R Server
 
@@ -197,27 +200,31 @@
 
 ## Использование R Server в HDI из удаленного экземпляра Microsoft R Server или клиента Microsoft R Client
 
-Для доступа к кластеру можно использовать пару открытого и закрытого ключей, как описано в одном из предыдущих разделов. Кроме того, доступ к контексту вычислений Hadoop Spark в HDI можно установить из удаленного экземпляра Microsoft R Server или клиента Microsoft R Client, запущенного на настольном компьютере или ноутбуке (дополнительные сведения см. в подразделе об использовании Microsoft R Server в качестве клиента Hadoop раздела Creating a Compute Context for Spark (Создание контекста вычислений для Spark) руководства по началу работы с функцией RevoScaleR в Hadoop Spark). Для этого при определении контекста вычислений RxSpark на ноутбуке необходимо указать следующие параметры: dfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches и sshProfileScript. Например:
+Для доступа к кластеру можно использовать пару открытого и закрытого ключей, как описано в одном из предыдущих разделов. Кроме того, доступ к контексту вычислений Hadoop Spark в HDI можно установить из удаленного экземпляра Microsoft R Server или клиента Microsoft R Client, запущенного на настольном компьютере или ноутбуке (дополнительные сведения см. в подразделе об использовании Microsoft R Server в качестве клиента Hadoop раздела [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) (Создание контекста вычислений для Spark) [руководства по началу работы с функцией RevoScaleR в Hadoop Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)). Для этого при определении контекста вычислений RxSpark на ноутбуке необходимо указать следующие параметры: dfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches и sshProfileScript. Например:
 
     
-        mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
-        mySshUsername  <- 'remoteuser'# HDI SSH username
-        mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
-    
-        myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
-        myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
-    
-        mySparkCluster <- RxSpark(
-          hdfsShareDir = myhdfsShareDir,
-          shareDir = myShareDir,
-          sshUsername  = mySshUsername,
-          sshHostname  = mySshHostname,
-          sshSwitches  = mySshSwitches,
-          sshProfileScript = '/etc/profile',
-          nameNode = myNameNode,
-          port = myPort,
-          consoleOutput= TRUE
-        )
+    myNameNode <- "default"
+    myPort <- 0 
+ 
+    mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
+    mySshUsername  <- 'remoteuser'# HDI SSH username
+    mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
+ 
+    myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
+    myShareDir <- paste("/var/RevoShare" , mySshUsername, sep="/")
+ 
+    mySparkCluster <- RxSpark(
+      hdfsShareDir = myhdfsShareDir,
+      shareDir     = myShareDir,
+      sshUsername  = mySshUsername,
+      sshHostname  = mySshHostname,
+      sshSwitches  = mySshSwitches,
+      sshProfileScript = '/etc/profile',
+      nameNode     = myNameNode,
+      port         = myPort,
+      consoleOutput= TRUE
+    )
+
     
  
 ## Использование контекста вычислений
@@ -371,9 +378,9 @@
     * __URI bash-скрипта__: http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh.
     * __Головной__: флажок должен быть __снят__.
     * __Рабочий__: флажок должен быть __установлен__.
-    * __Zookeeper__: флажок должен быть __установлен__.
+    * __Zookeeper__: флажок должен быть __снят__.
     * __Параметры__: устанавливаемые пакеты R. Например, `bitops stringr arules`
-    * __Persist this script…__ (Сохранить этот скрипт…): флажок должен быть __установлен__.
+    * __Сохранить этот скрипт…__: флажок должен быть __установлен__.
     
     > [AZURE.IMPORTANT] Если для устанавливаемых пакетов R требуется добавить системные библиотеки, необходимо скачать основной сценарий, используемый в этой статье, и добавить шаги для установки системных библиотек. Затем необходимо передать измененный сценарий в общедоступный контейнер больших двоичных объектов в службе хранилище Azure и использовать этот измененный сценарий для установки пакетов.
     >
@@ -402,6 +409,6 @@
 
 Оба шаблона создают новый кластер HDInsight и связанную с ним учетную запись хранения. Их можно использовать с помощью Azure CLI, Azure PowerShell или портала Azure.
 
-Общую информацию об использовании шаблонов ARM см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+Общую информацию об использовании шаблонов Azure Resource Manager см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

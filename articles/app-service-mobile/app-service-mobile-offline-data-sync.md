@@ -38,6 +38,7 @@
 * [iOS: включение автономной синхронизации]
 * [Xamarin iOS: включение автономной синхронизации]
 * [Xamarin Android: включение автономной синхронизации]
+* [Xamarin.Forms: включение автономной синхронизации](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 * [Windows 8.1: включение автономной синхронизации]
 
 ## Что такое таблица синхронизации?
@@ -104,4 +105,4 @@
 [Xamarin Android: включение автономной синхронизации]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: включение автономной синхронизации]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

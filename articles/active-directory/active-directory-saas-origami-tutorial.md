@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
@@ -25,9 +25,9 @@
 
 - С помощью Azure AD вы можете контролировать доступ к Origami.
 - Вы можете включить автоматический вход пользователей в Origami (единый вход) с учетной записью Azure AD.
-- Вы можете управлять учетными записями централизованно — через классический портал Azure.
+- Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Предварительные требования
 
@@ -156,11 +156,11 @@
 
 6. На классическом портале выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
 	
-	![Единый вход в Azure AD][10]
+	![Единый вход в Azure AD][10]
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
  
-	![Единый вход в Azure AD][11]
+	![Единый вход в Azure AD][11]
 
 
 ### Создание тестового пользователя Azure AD
@@ -317,4 +317,4 @@
 [204]: ./media/active-directory-saas-origami-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-origami-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

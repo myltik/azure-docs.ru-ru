@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Добавление хранилища Azure с использованием подключенных служб в Visual Studio | Microsoft Azure"
+   pageTitle="Добавление хранилища Azure с использованием подключенных служб в Visual Studio | Microsoft Azure"
    description="Добавление хранилища Azure в приложение с помощью диалогового окна ";Добавление подключенных служб"; в Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
@@ -7,11 +7,11 @@
    manager="douge"
    editor="" />
 <tags 
-   ms.service="visual-studio-online"
+   ms.service="storage"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="mobile"
+   ms.workload="na"
    ms.date="06/01/2016"
    ms.author="tarcher" />
 
@@ -76,9 +76,9 @@ Visual Studio 2015 позволяет подключить любую облач
 
 Когда вы закроете диалоговое окно, Visual Studio добавит ссылки и внесет изменения в определенные файлы конфигурации. Конкретные изменения зависят от типа проекта.
 
- - В случае проектов ASP.NET см. статью [Что произошло: проекты ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
- - В случае проектов ASP.NET 5 см. статью [Что произошло: проекты ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
- - В случае проектов облачной службы (веб-ролей и рабочих ролей) см. статью [Что произошло: проекты облачной службы](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
+ - В случае проектов ASP.NET см. статью [Что произошло: проекты ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126).
+ - В случае проектов ASP.NET 5 см. статью [Что произошло: проекты ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124).
+ - В случае проектов облачной службы (веб-ролей и рабочих ролей) см. статью [Что произошло: проекты облачной службы](http://go.microsoft.com/fwlink/p/?LinkId=516965).
  - В случае проектов WebJob см. статью [Что произошло: проекты WebJob](./storage/vs-storage-webjobs-what-happened.md).
 
 ## Дальнейшие действия
@@ -94,4 +94,4 @@ Visual Studio 2015 позволяет подключить любую облач
 
      - [Хранилище документации на сайте azure.microsoft.com](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Добавление Azure Active Directory с помощью подключенных служб в Visual Studio | Microsoft Azure"
+   pageTitle="Добавление Azure Active Directory с помощью подключенных служб в Visual Studio | Microsoft Azure"
    description="Добавление Azure Active Directory с помощью диалогового окна ";Добавление подключенных служб"; в Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
@@ -7,11 +7,11 @@
    manager="douge"
    editor="" />
 <tags 
-   ms.service="visual-studio-online"
+   ms.service="active-directory"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="visual-studio-online"
+   ms.workload="na"
    ms.date="05/08/2016"
    ms.author="tarcher" />
 
@@ -79,4 +79,4 @@ Azure Active Directory (Azure AD) позволяет обеспечить еди
 
  - [Записи блога: общие сведения об Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0720_2016-->

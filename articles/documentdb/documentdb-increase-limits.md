@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Запрос увеличения ограничений учетной записи DocumentDB | Microsoft Azure"
-	description="Узнайте, как запросить изменение ограничений DocumentDB, например допустимого числа коллекций, хранимых процедур и предложений запросов."
+	pageTitle="Запрос увеличения квот учетной записи DocumentDB | Microsoft Azure"
+	description="Узнайте, как запросить изменение квот базы данных DocumentDB, например объема хранилища документов или пропускной способности для коллекции."
 	services="documentdb"
 	authors="AndrewHoh"
 	manager="jhubbard"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="07/14/2016"
 	ms.author="anhoh"/>
 
 # Запрос увеличения ограничения учетной записи DocumentDB
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) применяет ряд ограничений и квот по умолчанию. Несколько квот могут быть изменены при обращении в службу поддержки Azure. В этой статье показано, как запросить увеличение ограничения учетной записи.
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) применяет ряд квот по умолчанию, которые могут быть изменены при обращении в службу поддержки Azure. В этой статье показано, как запросить увеличение квоты.
 
 Ознакомившись с данной статьей, вы сможете ответить на следующие вопросы.
 
--	Какие квоты DocumentDB могут быть изменены при обращении в службу поддержки Azure?
+-	Какие квоты базы данных DocumentDB могут быть изменены при обращении в службу поддержки Azure?
 -	Как запросить изменение квоты учетной записи DocumentDB?
 
 ##<a id="Quotas"></a> Квоты учетной записи DocumentDB
@@ -63,4 +63,4 @@
 ##<a name="NextSteps"></a>Дальнейшие действия
 - Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

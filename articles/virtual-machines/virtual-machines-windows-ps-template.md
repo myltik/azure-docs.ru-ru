@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов
@@ -27,9 +27,9 @@
 
 ## Шаг 1. Создание файла шаблона
 
-Вы можете создать собственный шаблон на основе [шаблонов Azure Resource Manager](../resource-group-authoring-templates.md). Кроме того, можно развернуть шаблоны, которые были созданы для вас на основе [шаблонов быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/). Пример, используемый в этой статье, похож на шаблон, описанный в статье [Deploy a simple Windows VM in West US](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows/) (Развертывание простой виртуальной машины Windows в западной части США).
+Вы можете создать собственный шаблон на основе [шаблонов Azure Resource Manager](../resource-group-authoring-templates.md). Кроме того, можно развернуть шаблоны, которые были созданы для вас на основе [шаблонов быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/).
 
-1. Откройте текстовый редактор и скопируйте эти данные JSON в новый файл с именем *VirtualMachineTemplate.json*:
+1. Откройте текстовый редактор и скопируйте эти данные JSON в новый файл с именем *VirtualMachineTemplate.json*.
 
         {
           "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -203,7 +203,7 @@
 
 Чтобы задать значения для параметров ресурсов, которые были определены в шаблоне, вы создаете файл параметров, содержащий значения, и передаете его в диспетчер ресурсов с шаблоном.
 
-1. В текстовом редакторе скопируйте эти данные JSON в новый файл с именем *Parameters.json*:
+1. В текстовом редакторе скопируйте эти данные JSON в новый файл с именем *Parameters.json*.
 
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
@@ -216,7 +216,7 @@
           }
         }
 
-4. Сохраните файл параметров.
+2. Сохраните файл параметров.
 
 ## Шаг 3. Установка Azure PowerShell
 
@@ -224,11 +224,11 @@
 
 ## Шаг 4. Создание группы ресурсов
 
-Все ресурсы должны развертываться в группе ресурсов. Дополнительные сведения см. в статье [Общие сведения об Azure Resource Manager](../resource-group-overview.md).
+Все ресурсы должны развертываться в группе ресурсов. Дополнительные сведения см. в [обзоре Azure Resource Manager](../resource-group-overview.md).
 
 1. Получите список доступных расположений, где можно создавать ресурсы.
 
-	    Get-AzureLocation | sort Name | Select Name
+	    Get-AzureRmLocation | sort DisplayName | Select DisplayName
 
 2. Замените значение **$locName** расположением из списка, например **Центральная часть США**. Создайте переменную.
 
@@ -247,15 +247,15 @@
         Tags              :
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
 
-### Шаг 7. Создание ресурсов с помощью шаблона и параметров
+### Шаг 5. Создание ресурсов с помощью шаблона и параметров
 
-1. Замените значение **$deployName** именем развертывания. Замените значение **$templatePath** путем и именем файла шаблона. Замените значение **$parameterFile** путем и именем файла параметров. Создайте переменные. 
+1. Замените значение **$deployName** именем развертывания. Замените значение **$templatePath** путем и именем файла шаблона. Замените значение **$parameterFile** путем и именем файла параметров. Создайте переменные.
 
         $deployName="deployment name"
         $templatePath = "template path"
         $parameterFile = "parameter file"
 
-4. Разверните шаблон.
+2. Разверните шаблон.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName "davidmurg6" -TemplateFile $templatePath -TemplateParameterFile $parameterFile
 
@@ -281,7 +281,7 @@
 
 ## Дальнейшие действия
 
-- При наличии проблем с развертыванием см. статью [Устранение неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Узнайте, как управлять созданной виртуальной машиной, из статьи [Управление виртуальными машинами с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
+- При наличии проблем с развертыванием ознакомьтесь с [устранением неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C#](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0720_2016-->

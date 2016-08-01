@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 # Новые возможности набора средств Azure для IntelliJ
 
@@ -32,7 +32,7 @@
 * **Поддержка последних выпусков пакета SDK для Java (JDK)**. Набором средств Azure для IntelliJ теперь поддерживаются последние версии пакета SDK для Java (JDK).
 * **Поддержка пакета SDK Azure версии 2.9.1**. Последняя версия пакета SDK Azure теперь является минимальным необходимым условием для установки набора средств Azure для IntelliJ.
 * **Интегрированные примеры**. Набор средств Azure для IntelliJ теперь содержит несколько примеров приложений, помогающих разработчикам приступить к работе.
-* **Интеграция средств HDInsight**. Средства HDInsight Azure теперь входят в набор средств Azure для IntelliJ.
+* **Интеграция средств HDInsight**. Средства HDInsight Azure теперь входят в набор средств Azure для IntelliJ. Дополнительные сведения см. в статье [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux].
 * **Удаленная отладка веб-приложений Java**. Набор средств Azure для IntelliJ теперь поддерживает удаленную отладку веб-приложений Java в службе приложений Azure.
 
 ### 12 апреля 2016 г.
@@ -71,4 +71,6 @@
 
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
-<!---HONumber=AcomDC_0706_2016-->
+[Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+
+<!---HONumber=AcomDC_0720_2016-->
