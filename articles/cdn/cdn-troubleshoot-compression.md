@@ -2,7 +2,7 @@
 	pageTitle="Устранение неполадок со сжатием файлов CDN"
 	description="Узнайте, как устранить неполадки со сжатием файлов CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/14/2016"
 	ms.author="casoper"/>
     
 # Устранение неполадок со сжатием файлов CDN
@@ -79,7 +79,7 @@
 С помощью средств разработчика в браузере проверьте заголовки ответов, чтобы убедиться в том, что файл кэширован в регионе, где он запрашивается.
 
 - Проверьте заголовок ответа **Server**. Он должен иметь формат **Платформа (POP/идентификатор сервера)**, как показано в примере ниже.
-- Проверьте заголовок ответа **X-Cache**. Он должен иметь значение **HIT**.  
+- Проверьте заголовок ответа **X-Cache**. Он должен иметь значение **HIT**.
 
 ![Заголовки ответа CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
@@ -92,4 +92,11 @@
 - более 128 байт;
 - менее 1 МБ.
 
-<!---HONumber=AcomDC_0518_2016-->
+### Проверьте, есть ли в запросе на сервере-источнике заголовок **Via**.
+
+Заголовок HTTP **Via** указывает веб-серверу, что запрос передается через прокси-сервер. Если запрос содержит заголовок **Via**, веб-серверы Microsoft IIS по умолчанию не сжимают ответы. Чтобы изменить это поведение, сделайте следующее.
+
+- **IIS 6**: [задайте HcNoCompressionForProxies="FALSE" в свойствах метабазы IIS](https://msdn.microsoft.com/library/ms525390.aspx).
+- **IIS 7 и выше**: [задайте для **noCompressionForHttp10** и **noCompressionForProxies** значение False в конфигурации сервера](http://www.iis.net/configreference/system.webserver/httpcompression).
+
+<!---HONumber=AcomDC_0720_2016-->

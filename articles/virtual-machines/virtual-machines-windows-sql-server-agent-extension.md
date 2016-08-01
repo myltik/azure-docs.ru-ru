@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/16/2016"
+	ms.date="07/14/2016"
 	ms.author="jroth"/>
 
 # Расширение агента SQL Server для виртуальных машин SQL Server (Resource Manager)
@@ -25,8 +25,7 @@
 
 Расширение агента IaaS для SQL Server (SQLIaaSExtension) запускается на виртуальных машинах Azure для автоматизации задач администрирования. В этом разделе представлен обзор служб, поддерживаемых расширением, а также указания по установке, проверке состояния и удалению расширения.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-Классическая модель развертывания. При необходимости см. статью о классической модели развертывания — [Расширение агента IaaS для SQL Server (классическая модель)](virtual-machines-windows-classic-sql-server-agent-extension.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания. При необходимости см. статью о классической модели развертывания — [Расширение агента IaaS для SQL Server (классическая модель)](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
 ## Поддерживаемые службы
 
@@ -67,6 +66,8 @@
 
 После обновления расширения агента IaaS SQL до последней версии виртуальную машину необходимо перезапустить.
 
+>[AZURE.NOTE] Если расширение агента IaaS SQL Server установлено на виртуальную машину вручную, то для использования его функций и управления ими необходимо использовать команды PowerShell. Интерфейс портала доступен только для образов SQL Server из коллекции.
+
 ## Состояние
 
 Одним из способов проверки того, что расширение установлено, является просмотр состояния агента на портале Azure. В колонке виртуальной машины выберите **Все параметры**, а затем щелкните **Расширения**. В списке будет указано расширение **SQLIaaSExtension**.
@@ -97,6 +98,6 @@
 
 Начните работать с одной из служб, поддерживаемых расширением. Дополнительные сведения см. в разделе [Поддерживаемые службы](#supported-services) в этой статье.
 
-Подробные сведения о работе SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
+Подробные сведения о работе SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0720_2016-->

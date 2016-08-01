@@ -48,7 +48,7 @@ git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.g
 Создайте новое приложение на [портале регистрации приложений](https://apps.dev.microsoft.com) или выполните подробные инструкции по [регистрации приложения с использованием конечной точки версии 2.0](active-directory-v2-app-registration.md). Не забудьте:
 
 - Скопируйте назначенный вашему приложению **идентификатор приложения**. Он вскоре вам понадобится.
-- Добавьте для приложения **мобильную** платформу.
+- Добавьте для приложения **мобильную** платформу.
 - Скопируйте значение **URI перенаправления** с портала. Необходимо использовать стандартное значение `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
 
@@ -148,12 +148,12 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 	```xml
 	    <string-array name="oidc_scopes">
 	        <item>openid</item>
-	        <item>User.ReadBasic.All</item>
+	        <item>https://graph.microsoft.com/User.Read</item>
 	        <item>offline_access</item>
 	    </string-array>
 	```
 
-Значение `User.ReadBasic.All` в `oidc_scopes` позволяет считывать базовый профиль всех пользователей в каталоге. Дополнительные сведения о всех доступных областях действия см. в разделе [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes) (Области действия разрешений Microsoft Graph).
+Значение `User.Read` в `oidc_scopes` позволяет считывать базовый профиль вошедшего пользователя. Дополнительные сведения о всех доступных областях действия см. в разделе [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes) (Области действия разрешений Microsoft Graph).
 
 Пояснения об использовании `openid` или `offline_access` в качестве областей действия в OpenID Connect см. в разделе [Протоколы версии 2.0 — поток кода авторизации OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
@@ -196,4 +196,4 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 Рекомендуем вам получать уведомления об инцидентах безопасности. Для этого посетите [Технический центр безопасности](https://technet.microsoft.com/security/dd252948) и подпишитесь на уведомления о советах безопасности.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

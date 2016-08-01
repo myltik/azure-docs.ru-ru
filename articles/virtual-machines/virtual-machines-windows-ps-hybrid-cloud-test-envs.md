@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="04/01/2016"
+	ms.date="07/19/2016"
 	ms.author="josephd"/>
 
 # Гибридные облачные тестовые среды Azure
@@ -50,4 +50,4 @@
 
 - Изучите [руководство по реализации](virtual-machines-linux-infrastructure-service-guidelines.md), чтобы спроектировать пользовательское развертывание для разработки и тестирования или рабочее развертывание в службах инфраструктуры Azure.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0720_2016-->

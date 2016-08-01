@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="07/19/2016"
 	ms.author="casoper"/>
 
 # Приступая к разработке для Azure CDN
@@ -58,7 +58,7 @@
 
 1. На вкладке Program.cs замените расположенные вверху директивы `using` на следующие.
 
-	```
+	```csharp
 	using System;
 	using System.Collections.Generic;
 	using Microsoft.Azure.Management.Cdn;
@@ -71,7 +71,7 @@
 
 2. Необходимо определить несколько констант, которые будут использоваться нашими методами. В классе `Program` перед методом `Main` добавьте приведенный ниже код. Обязательно замените заполнители, включая **&lt;угловые скобки&gt;**, собственными значениями.
 
-	```
+	```csharp
 	//Tenant app constants
 	private const string clientID = "<YOUR CLIENT ID>";
 	private const string clientSecret = "<YOUR CLIENT AUTHENTICATION KEY>"; //Only for service principals
@@ -87,14 +87,14 @@
 
 3. Кроме того, на уровне класса определите эти две переменные. Мы воспользуемся ими позже, чтобы определить, существует ли профиль или конечная точка.
 
-	```
+	```csharp
 	static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
 	```
 
 4.  Замените метод `Main` следующим кодом.
 
-	```
+	```csharp
 	static void Main(string[] args)
 	{
 		//Get a token
@@ -130,7 +130,7 @@
 
 5. Некоторые из других методов будет запрашивать у пользователя ответ на вопрос в формате "Да/нет". Добавьте следующий метод, чтобы упростить это.
 
-	```
+	```csharp
 	private static bool PromptUser(string Question)
 	{
 		Console.Write(Question + " (Y/N): ");
@@ -158,7 +158,7 @@
 
 Прежде чем можно будет использовать библиотеку управления Azure CDN, необходимо аутентифицировать наш субъект-службу и получить токен аутентификации. Этот метод использует ADAL для получения токена.
 
-```
+```csharp
 private static AuthenticationResult GetAccessToken()
 {
 	AuthenticationContext authContext = new AuthenticationContext(authority); 
@@ -174,7 +174,7 @@ private static AuthenticationResult GetAccessToken()
 
 >[AZURE.IMPORTANT] Используйте приведенный пример кода, только если решили использовать аутентификацию отдельных пользователей, а не субъект-службу.
 
-```
+```csharp
 private static AuthenticationResult GetAccessToken()
 {
 	AuthenticationContext authContext = new AuthenticationContext(authority);
@@ -191,7 +191,7 @@ private static AuthenticationResult GetAccessToken()
 
 Теперь все готово к выполнению операций CDN. Первое, что делает наш метод, — выводит список профилей и конечных точек в группе ресурсов и, если он обнаруживает совпадение с именами профиля и конечных точек, указанными в константах, то учитывает это на будущее, чтобы мы не пытались создать повторяющиеся значения.
 
-```
+```csharp
 private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 {
 	// List all the CDN profiles in this resource group
@@ -226,7 +226,7 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 
 Далее мы создадим профиль.
 
-```
+```csharp
 private static void CreateCdnProfile(CdnManagementClient cdn)
 {
 	if (profileAlreadyExists)
@@ -245,7 +245,7 @@ private static void CreateCdnProfile(CdnManagementClient cdn)
 
 После этого мы создадим конечную точку.
 
-```
+```csharp
 private static void CreateCdnEndpoint(CdnManagementClient cdn)
 {
 	if (endpointAlreadyExists)
@@ -274,7 +274,7 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 
 После создания конечной точки одной из распространенных задач, которая может выполняться в нашей программе, является очистка содержимого в конечной точке.
 
-```
+```csharp
 private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 {
 	if (PromptUser(String.Format("Purge CDN endpoint {0}?", endpointName)))
@@ -293,7 +293,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 
 Последние методы удаляют конечную точку и профиль.
 
-```
+```csharp
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
 {
 	if(PromptUser(String.Format("Delete CDN endpoint {0} on profile {1}?", endpointName, profileName)))
@@ -337,4 +337,4 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 Чтобы найти дополнительную документацию по библиотеке управления Azure CDN для .NET, воспользуйтесь [справкой на сайте MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

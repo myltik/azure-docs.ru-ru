@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Управление ресурсами Azure с помощью портала Azure | Microsoft Azure" 
+	pageTitle="Управление ресурсами Azure с помощью портала Azure | Microsoft Azure" 
 	description="Узнайте, как использовать портал Azure и Azure Resource Manager для управления ресурсами. Показано, как работать с панелями мониторинга и элементами для отслеживания ресурсов." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
@@ -23,12 +23,13 @@
 - [Портал](azure-portal/resource-group-portal.md)
 - [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
 - [Azure PowerShell](powershell-azure-resource-manager.md)
+- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 - [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
 - [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
 - [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
 - [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
-В этой статье показано, как использовать [портал Azure](https://portal.azure.com) с [Azure Resource Manager](../resource-group-overview.md) для управления ресурсами Azure. Сведения о развертывании ресурсов через портал см. в разделе [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
+В этой статье показано, как использовать [портал Azure](https://portal.azure.com) с [Azure Resource Manager](../resource-group-overview.md) для управления ресурсами Azure. Сведения о развертывании ресурсов через портал см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
 
 В настоящее время не все службы поддерживают текущую версию портала или диспетчер ресурсов. Для этих служб необходимо использовать [классический портал](https://manage.windowsazure.com). Состояние каждой службы можно просмотреть на [диаграмме доступности на портале Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
@@ -39,10 +40,10 @@
 
 !["Веб-транзакции"](./media/resource-group-portal/dashboard.png)
 
-> [AZURE.TIP] Чтобы изучить работу с панелями мониторинга, рекомендуется просмотреть видео [Build Custom Dashboards in the Microsoft Azure Portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) (Создание пользовательских панелей мониторинга на портале Microsoft Azure).
+> [AZURE.TIP] Чтобы изучить работу с панелями мониторинга, рекомендуется просмотреть видео, посвященное [созданию пользовательских панелей мониторинга на портале Microsoft Azure](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards).
 
 ### Совместное использование панелей мониторинга Azure и контроль доступа
-После настройки панели мониторинга ее можно опубликовать и использовать совместно с другими пользователями в организации. Доступ к информации, отображаемой в элементах на портале, контролируется с помощью [управления доступом на основе ролей](../active-directory/role-based-access-control-configure.md) Azure. Все опубликованные панели мониторинга реализуются как ресурсы Azure. С точки зрения контроля доступа панели мониторинга ничем не отличаются от виртуальных машин и учетных записей хранения.
+После настройки панели мониторинга ее можно опубликовать и использовать совместно с другими пользователями в организации. Доступ к информации, отображаемой на плитках на портале, настраивается с помощью [управления доступом на основе ролей](../active-directory/role-based-access-control-configure.md) Azure. Все опубликованные панели мониторинга реализуются как ресурсы Azure. С точки зрения контроля доступа панели мониторинга ничем не отличаются от виртуальных машин и учетных записей хранения.
 
 Ниже приведен пример. Допустим, у вас есть подписка Azure, а некоторым участникам рабочей группы назначены роли **владельца**, **участника** или **читателя** в подписке. Пользователи, являющиеся владельцами или участниками, могут просматривать, создавать, изменять и удалять панели мониторинга в подписке, а также получать их списки. Пользователи, являющиеся читателями, могут просматривать панели мониторинга и получать их списки, но не могут изменять или удалять их. Пользователи с доступом для чтения могут вносить локальные изменения в опубликованную панель мониторинга (например, при устранении неполадок), но не могут публиковать эти изменения на сервере. Они получат возможность создать закрытую копию панели мониторинга для собственных потребностей.
 
@@ -60,7 +61,7 @@
 
     При выборе любого ресурса отобразится информация об этом ресурсе.
 
-3. В колонку группы ресурсов можно добавить графики и таблицы, выбрав элемент **Добавить раздел** под разделом сводки.
+3. В колонку ресурса можно добавить графики и таблицы, выбрав элемент **Добавить раздел** под разделом сводки.
 
     ![добавление раздела](./media/resource-group-portal/add-section.png)
 
@@ -127,8 +128,8 @@
 
 ## Дальнейшие действия
 
-- Сведения о просмотре журналов аудита см. в статье [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md).
-- Сведения об устранении неполадок развертывания см. в статье [Устранение неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Сведения о развертывании ресурсов через портал см. в разделе [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
+- Сведения о просмотре журналов аудита см. в статье [Операции аудита с помощью Resource Manager](../resource-group-audit.md).
+- Сведения об устранении неполадок развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Сведения о развертывании ресурсов через портал см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

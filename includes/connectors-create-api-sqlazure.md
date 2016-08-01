@@ -1,13 +1,10 @@
 ### Предварительные требования
 
-- Учетная запись [SQL Azure](https://www.microsoft.com/sql)
+- Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
+- [База данных SQL Azure](../articles/sql-database/sql-database-get-started.md) и сведения о подключении, включая имя сервера, имя базы данных и имя пользователя и пароль. Эта информация используется в строке подключения базы данных SQL: Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={ваше\_имя\_пользователя};Password={ваш\_пароль};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
+> [AZURE.NOTE] При создании базы данных SQL Azure можно также создать примеры баз данных, включенных в SQL.
 
-Перед использованием учетной записи SQL Azure в приложении логики необходимо авторизовать приложение логики для подключения к учетной записи SQL Azure. Это легко сделать в приложении логики на портале Azure.
+Узнайте больше о [базах данных SQL Azure](https://azure.microsoft.com/services/sql-database).
 
-Ниже приведены указания по авторизации приложения логики для подключения к учетной записи SQL Azure.
-1. Чтобы создать подключение к SQL Azure, в конструкторе приложений логики в раскрывающемся списке выберите параметр **Показать управляемые API Microsoft**, а затем введите в поле поиска *SQL Azure*. Выберите триггер или действие, которые хотите использовать: ![Этап создания подключения SQL Azure](./media/connectors-create-api-sql/sql-1.png)
-2. Если вы ранее не создавали подключения к SQL Azure, вам будет предложено ввести учетные данные SQL Azure. Эти учетные данные будут использоваться для авторизации приложения логики, чтобы оно могло подключиться и получить доступ к данным вашей учетной записи SQL Azure. Строка подключения к SQL выглядит следующим образом: **Server=tcp:[serverName].database.windows.net;Database=myDataBase; User ID=[LoginForDb]@[serverName];Password=myPassword;Trusted\_Connection=False; Encrypt=True;** ![Этап создания подключения SQL Azure](./media/connectors-create-api-sql/sql-2.png)
-3. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики: ![Этап создания подключения SQL Azure](./media/connectors-create-api-sql/sql-3.png)
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

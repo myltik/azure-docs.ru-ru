@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/28/2016"
+   ms.date="07/19/2016"
    ms.author="sstein"/>
 
 # Анализ производительности базы данных SQL
@@ -68,4 +68,4 @@
 - [Руководство по производительности базы данных SQL Azure](sql-database-performance-guidance.md)
 - [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

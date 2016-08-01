@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Переход на другое предложение Azure | Microsoft Azure"
+	pageTitle="Переключение подписки Azure на другое предложение | Microsoft Azure"
 	description="Описывает, как подписчик служб Azure может переключиться на другое предложение Azure"
 	services=""
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="07/15/2016"
 	ms.author="genli"/>
 
-# Переход на другое предложение Azure
+# Переключение подписки Azure на другое предложение
 
 Действующую подписку можно перевести на более выгодное предложение без простоя службы. Смена предложения может потребоваться по одной из следующих причин:
 
@@ -75,4 +75,4 @@
 -	Смена предложения с [оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/) на [предложение с предоплатой на 12 месяцев](https://azure.microsoft.com/offers/ms-azr-0026p/)
 -	Смена предложения с [оплатой по мере использования](https://azure.microsoft.com/offers/ms-azr-0003p/) на любой [ежемесячный кредит Azure для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/18/2016"
 	ms.author="donnam;ricksal"/>
 
 # Включение автономной синхронизации для мобильного приложения Android
@@ -104,7 +104,7 @@
 
 * [Автономная синхронизация данных в мобильных приложениях Azure]
 
-* [Облачное покрытие: автономная синхронизация в мобильных службах Azure] \(примечание: видео рассказывает о мобильных службах, однако точно так же автономная синхронизация работает в мобильных приложениях Azure)
+* [Облачное покрытие: автономная синхронизация в мобильных службах Azure] (примечание: видео рассказывает о мобильных службах, однако точно так же автономная синхронизация работает в мобильных приложениях Azure)
 
 
 <!-- URLs. -->
@@ -116,4 +116,4 @@
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0720_2016-->

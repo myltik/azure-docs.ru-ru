@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/29/2016"
+     ms.date="07/19/2016"
      ms.author="dobett"/>
 
 # Учебник: как обрабатывать сообщения, отправляемые с устройства в облако, с помощью центра IoT
@@ -139,7 +139,7 @@
 
 3. Найдите **WindowsAzure.ServiceBus**, щелкните **Установить** и примите условия использования. После этого будут выполнены скачивание, установка и добавление ссылки на [пакет NuGet служебной шины Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) со всеми ее зависимостями.
 
-4. Найдите **Концентратор событий служебной шины Microsoft Azure — EventProcessorHost**, а затем щелкните **Установить** и примите условия использования. Будет скачана, установлена и добавлена ссылка на [пакет концентратора событий служебной шины Azure — EventProcessorHost NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) со всеми его зависимостями.
+4. Найдите **Концентратор событий служебной шины Microsoft Azure — EventProcessorHost**, а затем щелкните **Установить** и примите условия использования. Будет скачана, установлена и добавлена ссылка на [пакет концентратора событий служебной шины Azure — EventProcessorHost NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) со всеми его зависимостями.
 
 5. Щелкните правой кнопкой мыши проект **ProcessDeviceToCloudMessages**, выберите команду **Добавить**, а затем щелкните элемент **Класс**. Присвойте классу имя **StoreEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс.
 
@@ -448,4 +448,4 @@
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0720_2016-->

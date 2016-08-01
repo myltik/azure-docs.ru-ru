@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="07/07/2016" 
+	ms.author="robmcm;asirveda"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
@@ -24,7 +24,7 @@
 
 * <https://github.com/microsoft/azure-tools-for-java>
 
-> [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки IntelliJ. Дополнительные сведения см. в разделе [Azure Toolkit for IntelliJ] \(Набор средств Azure для IntelliJ).
+> [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки IntelliJ. Дополнительные сведения см. в разделе [Azure Toolkit for IntelliJ] (Набор средств Azure для IntelliJ).
 
 ## Приступая к работе с набором средств Azure для Eclipse
 
@@ -52,7 +52,9 @@
 
 * [Отображение в Eclipse содержимого Javadoc для пакета библиотек Azure для Java]
 * [Развертывание крупных систем]
+* [Отладка в Eclipse веб-приложения Java, размещенного в Azure]
 * [Отладка приложений Azure в Eclipse]
+* [Использование подключаемого модуля средств HDInsight для Eclipse для создания приложений Spark для кластера Spark в HDInsight на платформе Linux][HDInsight Tools Plugin for Eclipse]
 
 ## См. также
 
@@ -89,11 +91,13 @@
 [Список учетных записей хранения Azure]: ./azure-toolkit-for-eclipse-azure-storage-account-list.md
 [Создание облачной службы Hello World для Azure в Eclipse]: ./azure-toolkit-for-eclipse-creating-a-hello-world-application.md
 [Отладка приложений Azure в Eclipse]: ./azure-toolkit-for-eclipse-debugging-azure-applications.md
+[Отладка в Eclipse веб-приложения Java, размещенного в Azure]: ./app-service-web/app-service-web-debug-java-web-app-in-eclipse.md
 [Развертывание крупных систем]: ./azure-toolkit-for-eclipse-deploying-large-deployments.md
 [Отображение в Eclipse содержимого Javadoc для пакета библиотек Azure для Java]: ./azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md
 [Включение удаленного доступа для развертываний Azure в Eclipse]: ./azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md
-[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
 [Включение сходства сеанса]: ./azure-toolkit-for-eclipse-enable-session-affinity.md
+[HDInsight Tools Plugin for Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: ./active-directory/active-directory-java-authenticate-users-access-control-eclipse.md
 
 <!-- [How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539 -->
 <!-- [How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542 -->
@@ -103,4 +107,4 @@
 <!-- [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549 -->
 <!-- [Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551 -->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

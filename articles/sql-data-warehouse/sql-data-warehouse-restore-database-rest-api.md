@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/28/2016"
+   ms.date="07/18/2016"
    ms.author="sonyama;barbkess"/>
 
 # Восстановление хранилища данных SQL Azure (REST API)
@@ -28,7 +28,7 @@
 
 ## Перед началом работы
 
-**Проверьте ресурсы DTU.** Каждое хранилище данных SQL размещается на логическом сервере SQL Server. Этот логический сервер имеет предельную емкость, измеряемую в DTU. Перед восстановлением хранилища данных SQL важно убедиться, что логический сервер SQL Server, на котором размещена база данных, имеет достаточное количество DTU для восстанавливаемой базы данных. В этой записи блога вы можете узнать больше о том, [как просмотреть и увеличить квоту DTU][].
+**Проверьте ресурсы DTU.** Каждое хранилище данных SQL размещается на сервере SQL Server (например, myserver.database.windows.net), которому выделена квота DTU по умолчанию. Перед восстановлением хранилища данных SQL убедитесь, что у сервера SQL Server осталась достаточная квота DTU для восстанавливаемой базы данных. Чтобы узнать, как вычислить необходимое количество DTU или запросить дополнительные единицы DTU, ознакомьтесь с разделом [Создание запроса в службу поддержки для хранилища данных SQL][].
 
 ## Восстановление активной или приостановленной базы данных
 
@@ -59,6 +59,7 @@
 
 <!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: ./sql-database-business-continuity.md
+[Создание запроса в службу поддержки для хранилища данных SQL]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Финализация восстановленной базы данных SQL Azure]: ./sql-database-recovered-finalize.md
 [How to install and configure Azure PowerShell]: ./powershell-install-configure.md
 [Обзор]: ./sql-data-warehouse-restore-database-overview.md
@@ -73,12 +74,8 @@
 [List restorable dropped databases]: https://msdn.microsoft.com/library/azure/dn509562.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
-
-<!--Blog references-->
-[как просмотреть и увеличить квоту DTU]: https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/
-
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0720_2016-->

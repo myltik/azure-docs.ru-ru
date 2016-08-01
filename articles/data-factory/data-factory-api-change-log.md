@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Фабрика данных — журнал изменений API для .NET | Microsoft Azure" 
-	description="Описываются критические изменения, добавления функций, исправления ошибок и т. д. — для определенной версии API для .NET для фабрики данных Azure." 
+	description="Описываются критические изменения, добавления функций, исправления ошибок и т. д. — для определенной версии API для .NET для фабрики данных Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,14 +16,42 @@
 	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
-# Фабрика данных Azure — журнал изменений в .NET API 
+# Фабрика данных Azure — журнал изменений в .NET API 
 В этой статье содержится информация об изменениях в определенной версии пакета SDK для фабрики данных Azure. Последнюю версию пакета NuGet для фабрики данных Azure можно найти [здесь](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories).
+
+## Версия 4.9.1
+_Дата выпуска: 5 июля 2016 г._
+
+### Исправления
+
+- Отменена проверка подлинности на основе веб-интерфейса API для [WebLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.weblinkedservice.authenticationtype.aspx).
+
+## Версия 4.9.0
+_Дата выпуска: 10 июня 2016 г._
+
+### Добавление функций
+
+- Добавлены свойства [EnableStaging](https://msdn.microsoft.com/library/mt767916.aspx) и [StagingSettings](https://msdn.microsoft.com/library/mt767918.aspx) в CopyActivity. Информацию об этой функции см. в разделе [Промежуточное копирование](data-factory-copy-activity-performance.md#staged-copy).
+
+
+### Исправления
+
+- Добавлена перегрузка метода [ActivityWindowOperationExtensions.List](https://msdn.microsoft.com/library/mt767915.aspx), который принимает экземпляр [ActivityWindowsByActivityListParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.activitywindowsbyactivitylistparameters.aspx).
+- Свойства [WriteBatchSize](https://msdn.microsoft.com/library/dn884293.aspx) и [WriteBatchTimeout](https://msdn.microsoft.com/library/dn884245.aspx) отмечены как необязательные в CopySink.
+
+## Версия 4.8.0
+_Дата выпуска: 25 мая 2016 г._
+
+### Добавление функций
+- В действие копирования добавлены следующие дополнительные свойства, которые предназначены для настройки производительности копирования:
+	- [ParallelCopies](https://msdn.microsoft.com/library/mt767910.aspx)
+	- [CloudDataMovementUnits](https://msdn.microsoft.com/library/mt767912.aspx)
 
 ## Версия 4.7.0
 Дата выпуска: 20 мая 2016 г.
 
 ### Добавление функций
-* Добавлен новый тип StorageFormat [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) для копирования файлов в формате столбцов с оптимизацией по строкам (ORC).
+* Добавлен новый тип StorageFormat — [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) — для копирования файлов в формате столбцов с оптимизацией по строкам (ORC).
 * Добавлены свойства [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) и PolyBaseSettings в SqlDWSink.
     * Позволяет использовать PolyBase для копирования данных в хранилище данных SQL.
 
@@ -66,7 +94,7 @@
 ### Новые функции
 
 - Для действий копирования в качестве источника и приемника данных добавлен следующий тип связанной службы:
-	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Основные сведения и примеры см. в статье [Azure Storage SAS Linked Service](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) (Связанная служба SAS хранилища Azure).
+	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). Основные сведения и примеры см. в разделе [Связанная служба SAS службы хранилища Azure](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service).
 
 ## Версия 4.3.0
 Дата выпуска: 25.11.2015
@@ -74,15 +102,15 @@
 ### Новые функции
 
 - Для действий копирования в качестве источника данных добавлен следующий тип связанной службы:
-	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Основные сведения и примеры см. в статье [Move data from HDFS using Data Factory](data-factory-hdfs-connector.md) (Перемещение данных из локальной системы HDFS с помощью фабрики данных Azure).
-	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Основные сведения и примеры см. в статье [Move data From ODBC data stores using Azure Data Factory](data-factory-odbc-connector.md) (Перемещение данных из хранилищ данных ODBC с помощью фабрики данных Azure).
+	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). Основные сведения и примеры см. в статье [Перемещение данных из локальной системы HDFS с помощью фабрики данных Azure](data-factory-hdfs-connector.md).
+	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). Основные сведения и примеры см. в статье [Перемещение данных из хранилищ данных ODBC с помощью фабрики данных Azure](data-factory-odbc-connector.md).
 
 ## Версия 4.2.0
 Дата выпуска: 10.11.2015
 
 ### Новые функции
 
-- Был добавлен следующий новый тип действия: [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx). Подробные сведения об этом действии см. в статье [Updating Azure ML models using the Update Resource Activity](data-factory-azure-ml-batch-execution-activity.md#updating-azure-ml-models-using-the-update-resource-activity) (Обновление моделей машинного обучения Azure с помощью действия "Обновить ресурс").
+- Был добавлен следующий новый тип действия: [AzureMLUpdateResourceActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremlupdateresourceactivity.aspx). Подробные сведения об этом действии см. в разделе [Обновление моделей машинного обучения Azure с помощью действия "Обновить ресурс"](data-factory-azure-ml-batch-execution-activity.md#updating-azure-ml-models-using-the-update-resource-activity).
 - Новое необязательное свойство [updateResourceEndpoint](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.updateresourceendpoint.aspx) было добавлено в [класс AzureMLLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuremllinkedservice.aspx).
 - Свойства [LongRunningOperationInitialTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationinitialtimeout.aspx) и [LongRunningOperationRetryTimeout](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.longrunningoperationretrytimeout.aspx) были добавлены в класс [DataFactoryManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.datafactorymanagementclient.aspx).
 - Разрешена настройка времени ожидания для клиентских вызовов в службу фабрики данных.
@@ -164,4 +192,4 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 
 - Теперь поддерживаются запуск хранимой процедуры для базы данных SQL Azure и источников хранилищ данных SQL в ходе операции копирования. Классы [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) и [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) имеют следующие свойства для поддержки этой возможности: **SqlReaderStoredProcedureName** и **StoredProcedureParameters**. Подробные сведения об этих свойствах см. в статьях [Базы данных SQL Azure](data-factory-azure-sql-connector.md#sqlsource) и [Хранилище данных SQL Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) на сайте Azure.com.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0720_2016-->

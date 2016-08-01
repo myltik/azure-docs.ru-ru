@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/01/2016"
+   ms.date="07/18/2016"
    ms.author="ryanwi"/>
 
 # Безопасное подключение к кластеру
-Когда клиент подключается к узлу кластера Service Fabric, он может пройти аутентификацию и установить безопасную связь с помощью безопасности на основе сертификатов. Это гарантирует, что только авторизованные пользователи могут получить доступ к кластеру для развертывания приложений и выполнения задач управления. Безопасность на основе сертификатов необходимо предварительно включить в кластере при его создании. Дополнительные сведения о сценариях обеспечения безопасности кластеров см. в разделе [Безопасность кластера](service-fabric-cluster-security.md).
+Когда клиент подключается к узлу кластера Service Fabric, он может пройти аутентификацию и установить безопасную связь с помощью безопасности на основе сертификатов. Это гарантирует, что только авторизованные пользователи могут получить доступ к кластеру для развертывания приложений и выполнения задач управления. Безопасность на основе сертификатов необходимо предварительно включить в кластере при его создании. Для обеспечения безопасности кластера следует использовать по крайней мере два сертификата: один для кластера и сервера, а второй для клиентского доступа. Рекомендуется также использовать дополнительные сертификаты и сертификаты клиентского доступа. Дополнительные сведения о сценариях обеспечения безопасности кластеров см. в разделе [Безопасность кластера](service-fabric-cluster-security.md).
 
-Чтобы защитить обмен данными между клиентом и узлом кластера с помощью безопасности на основе сертификатов, необходимо сначала получить сертификат клиента и установить его в личное хранилище (Мое) на локальном компьютере или в личное хранилище текущего пользователя.
+Чтобы защитить обмен данными между клиентом и узлом кластера с помощью безопасности на основе сертификатов, необходимо сначала получить сертификат клиента и установить его в личное хранилище (Мое) на локальном компьютере или в личное хранилище текущего пользователя. Отпечаток в сертификате сервера также понадобится, чтобы клиент мог аутентифицировать кластер.
 
-Выполните следующий командлет PowerShell, чтобы установить сертификат на компьютер, который будет использоваться для доступа к кластеру.
+Выполните следующий командлет PowerShell, чтобы установить сертификат клиента на компьютер, который будет использоваться для доступа к кластеру.
 
 ```powershell
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -50,25 +50,26 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Например, приведенная выше команда PowerShell должна выглядеть следующим образом:
+Например, приведенная выше команда PowerShell должна выглядеть следующим образом. *ServerCertThumbprint* — отпечаток сертификата сервера, установленного на узлах кластера, *FindValue* — отпечаток сертификата клиента администрирования.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint C179E609BBF0B227844342535142306F3913D6ED `
-          -FindType FindByThumbprint -FindValue C179E609BBF0B227844342535142306F3913D6ED `
+          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
+          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
           -StoreLocation CurrentUser -StoreName My
 ```
 
 ## Подключение к защищенному кластеру с помощью интерфейсов API FabricClient
-Ниже мы привели [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). У узлов в кластере, общее имя или DNS-имя которых в сети SAN отображается в [свойстве RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx), заданном для [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx), должны быть действительные сертификаты. Это обеспечивает взаимную аутентификацию между клиентом и узлом кластера.
+Ниже приведен [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). У узлов в кластере должны быть действительные сертификаты, общее имя или DNS-имя которых в сети SAN отображается в [свойстве RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx), заданном для [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Это обеспечивает взаимную аутентификацию между клиентом и узлом кластера.
 
 ```csharp
-string thumb = "C179E609BBF0B227844342535142306F3913D6ED";
+string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
+string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
 string CommonName = "www.clustername.westus.azure.com";
 string connection = "clustername.westus.cloudapp.azure.com:19000";
 
-X509Credentials xc = GetCredentials(thumb, CommonName);
+X509Credentials xc = GetCredentials(clientCertThumb, serverCertThumb, CommonName);
 FabricClient fc = new FabricClient(xc, connection);
 Task<bool> t = fc.PropertyManager.NameExistsAsync(new Uri("fabric:/any"));
 try
@@ -87,15 +88,20 @@ catch (Exception e)
 
 ...
 
-static X509Credentials GetCredentials(string thumb, string name)
+static X509Credentials GetCredentials(string clientCertThumb, string serverCertThumb, string name)
 {
     X509Credentials xc = new X509Credentials();
+
+    // Client certificate
     xc.StoreLocation = StoreLocation.CurrentUser;
     xc.StoreName = "MY";
     xc.FindType = X509FindType.FindByThumbprint;
     xc.FindValue = thumb;
+
+    // Server certificate
     xc.RemoteCertThumbprints.Add(thumb);
     xc.RemoteCommonNames.Add(name);
+
     xc.ProtectionLevel = ProtectionLevel.EncryptAndSign;
     return xc;
 }
@@ -109,4 +115,4 @@ static X509Credentials GetCredentials(string thumb, string name)
 - [Общие сведения о модели работоспособности в Service Fabric](service-fabric-health-introduction.md)
 - [Безопасность приложений и запуск от имени](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0720_2016-->
