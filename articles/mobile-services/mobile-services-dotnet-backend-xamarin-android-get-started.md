@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="01/14/2016"
+	ms.date="07/21/2016"
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > Аналогичные сведения для мобильных приложений см. в статье [Создание приложения Xamarin.Android](../app-service-mobile/app-service-mobile-xamarin-android-get-started.md).
@@ -33,7 +33,7 @@
 
 Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными приложениям Xamarin Android.
 
->[AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. 
+>[AZURE.NOTE]Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. 
 >Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started). Для работы с этим руководством требуется [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546). Доступна бесплатная пробная версия.
 
 ## Создание новой мобильной службы
@@ -46,7 +46,7 @@
 
 В этом разделе предстоит скачать новое приложение Xamarin Android и проект службы для мобильной службы.
 
-1. Если вы еще не сделали это, установите Visual Studio с расширением Xamarin. Инструкции см. в [руководстве по установке и настройке Visual Studio и Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). О том, как использовать Xamarin Studio на компьютере Mac OS X, см. в [руководстве по установке, настройке и проверке для пользователей Mac](https://msdn.microsoft.com/library/mt488770.aspx).  
+1. Если вы еще не сделали это, установите Visual Studio с расширением Xamarin. Инструкции см. в [руководстве по установке и настройке Visual Studio и Xamarin](https://msdn.microsoft.com/library/mt613162.aspx). О том, как использовать Xamarin Studio на компьютере Mac OS X, см. в [руководстве по установке, настройке и проверке для пользователей Mac](https://msdn.microsoft.com/library/mt488770.aspx).
 
 2. На [классическом портале] щелкните раздел **Мобильные службы** и выберите только что созданную мобильную службу.
 
@@ -131,4 +131,4 @@
 [Серверная версия JavaScript]: mobile-services-android-get-started.md
 [Устранение неполадок серверной части в мобильных службах .NET]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0727_2016-->

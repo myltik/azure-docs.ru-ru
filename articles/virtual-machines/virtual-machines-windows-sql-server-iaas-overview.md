@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/13/2016"
+	ms.date="07/22/2016"
 	ms.author="jroth"/>
 
 # Приступая к работе с SQL Server в виртуальных машинах Azure
@@ -31,7 +31,7 @@
 
 При перемещении других рабочих нагрузок в Azure (например, корпоративных приложений) целесообразно также переместить все зависимые базы данных SQL Server в Azure, чтобы повысить производительность. Однако размещение нагрузок SQL Server в виртуальных машинах Azure предоставляет и другие преимущества. Например, вы автоматически получаете доступ ко множеству центров обработки данных, что позволяет обеспечить глобальное присутствие и аварийное восстановление. Полный список сценариев и преимуществ можно найти на странице [SQL Server на виртуальных машинах](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
-> [AZURE.NOTE] При оценке использования SQL Server в виртуальных машинах Azure следует также рассмотреть другие варианты хранилищ и служб SQL Azure, в том числе [базу данных SQL](../sql-database/sql-database-technical-overview.md), [хранилище данных SQL](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) и [базу данных SQL Server Stretch] (../sql -server-stretch-database/sql-server-stretch-database-overview.md). Подробное сравнение см. в статье [Вы можете выбрать компонент SQL Server в облаке: база данных SQL Azure (PaaS) или SQL Server на виртуальных машинах Azure (IaaS)](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
+> [AZURE.NOTE] При оценке использования SQL Server в виртуальных машинах Azure следует также рассмотреть другие варианты хранилищ и служб SQL Azure, в том числе [базу данных SQL](../sql-database/sql-database-technical-overview.md), [хранилище данных SQL](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) и [базу данных SQL Server Stretch] (../sql -server-stretch-database/sql-server-stretch-database-overview.md). Подробное сравнение см. в статье [Choose a cloud SQL Server option: Azure SQL (PaaS) Database or SQL Server on Azure VMs (IaaS)](../sql-database/sql-database-paas-vs-sql-server-iaas.md) (Выбор компонента SQL Server в облаке: база данных SQL Azure (PaaS) или SQL Server на виртуальных машинах Azure (IaaS).
 
 Решив выполнять рабочие нагрузки SQL Server в виртуальных машинах Azure, следует определиться, будете ли вы использовать образ виртуальной машины, включающий затраты на лицензирование SQL Server. Можно также использовать собственную лицензию (BYOL) и платить только за виртуальную машину. Эти варианты описаны в следующих двух разделах.
 
@@ -78,7 +78,7 @@
 Дополнительные рекомендации по обеспечению высокого уровня доступности см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
 ### Резервное копирование данных
-В виртуальных машинах Azure можно использовать преимущества [автоматической архивации](virtual-machines-windows-sql-automated-backup.md), при которой регулярно создаются резервные копии базы данных в хранилище BLOB-объектов. Это также можно выполнять вручную. Дополнительные сведения см. в статье [Использование службы хранилища Azure для архивации и восстановления SQL Server](../sql-database/storage-use-storage-sql-server-backup-restore.md). Обзор параметров резервного копирования и восстановления см. в статье [Резервное копирование и восстановление SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-backup-recovery.md).
+В виртуальных машинах Azure можно использовать преимущества [автоматической архивации](virtual-machines-windows-sql-automated-backup.md), при которой регулярно создаются резервные копии базы данных в хранилище BLOB-объектов. Это также можно выполнять вручную. Дополнительные сведения см. в статье [Use Azure Storage for SQL Server Backup and Restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md) (Использование службы хранилища Azure для архивации и восстановления SQL Server). Обзор параметров резервного копирования и восстановления см. в статье [Резервное копирование и восстановление SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 ### Автоматизация обновлений
 В виртуальных машинах Azure можно использовать [автоматическую установку исправлений](virtual-machines-windows-sql-automated-patching.md), чтобы планировать период обслуживания для автоматической установки важных обновлений для Windows и SQL Server.
@@ -91,4 +91,4 @@
 
 У вас остались вопросы? Сначала ознакомьтесь со статьей [Часто задаваемые вопросы об SQL Server в виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-faq.md). Чтобы получить поддержку от корпорации Майкрософт и сообщества, вы также можете оставить комментарий под любой статьей о виртуальных машинах SQL.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

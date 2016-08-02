@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="11/30/2015"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
-&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -49,7 +48,7 @@
 	Можно использовать любой веб-сервер для размещения приложения, однако ниже приведены веб-серверы, которые поддерживаются доступными для загрузки сценариями.
 
 + Браузер, который поддерживает HTML5.
-+ Учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).
 
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
@@ -120,11 +119,9 @@
 ## <a name="next-steps"> </a>Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
 
-* **[Добавление проверки подлинности к приложению мобильных служб]** 
-	Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
+* **[Добавление проверки подлинности к приложению мобильных служб]** Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
-* **[Использование клиента HTML/JavaScript для мобильных служб Azure]** 
-	Узнайте больше о том, как использовать мобильные службы с HTML и JavaScript.
+* **[Использование клиента HTML/JavaScript для мобильных служб Azure]** Узнайте больше о том, как использовать мобильные службы с HTML и JavaScript.
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -157,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

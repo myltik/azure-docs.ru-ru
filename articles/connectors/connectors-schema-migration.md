@@ -9,7 +9,7 @@
     tags="connectors"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -20,7 +20,7 @@
 # Перенос приложений логики в версию схемы 2015-08-01-preview
 
 Чтобы переместить существующие приложения логики в новую схему, выполните следующие действия:
-1. Откройте приложение логики на портале Azure.  
+1. Откройте приложение логики на портале Azure.
 2. Нажмите кнопку "Обновить схему".
 
  ![Значок API][step1] На странице "Обновление схемы" отобразятся ссылки на документ, который содержит сведения об улучшениях в новой схеме. ![Значок API][step2]
@@ -42,4 +42,4 @@
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0727_2016-->

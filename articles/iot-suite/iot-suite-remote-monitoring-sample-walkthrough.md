@@ -34,7 +34,7 @@
 
 ## Виртуальные устройства
 
-В настроенном решении виртуальное устройство представляет собой устройство охлаждения (например, кондиционер воздуха в помещении или установку кондиционирования воздуха объекта). При развертывании предварительно настроенного решения вы также автоматически подготавливаете четыре виртуальных устройства, которые выполняются в [веб-задании Azure][lnk-webjobs]. Эти устройства упрощают изучение поведения решения, не требуя развертывания физических устройств. Сведения о развертывании физического устройства см. в руководстве [Подключение устройства к предварительно настроенному решению для удаленного мониторинга][lnk-connectyourdevice].
+В настроенном решении виртуальное устройство представляет собой устройство охлаждения (например, кондиционер воздуха в помещении или установку кондиционирования воздуха объекта). При развертывании предварительно настроенного решения вы также автоматически подготавливаете четыре виртуальных устройства, которые выполняются в [веб-задании Azure][lnk-webjobs]. Эти устройства упрощают изучение поведения решения, не требуя развертывания физических устройств. Сведения о развертывании физического устройства см. в руководстве [Подключение устройства к предварительно настроенному решению для удаленного мониторинга][lnk-connect-rm].
 
 Каждое виртуальное устройство может отправлять следующие типы сообщений в центр IoT.
 
@@ -218,12 +218,17 @@ GROUP BY
 - [IoT Suite - Under The Hood - Remote Monitoring (IoT Suite. Как работает удаленный мониторинг).](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 - [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices (IoT Suite. Удаленный мониторинг: добавление реальных и виртуальных устройств).](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
+Дополнительные сведения об IoT Suite см. в следующих статьях.
+
+- [Подключение устройства к предварительно настроенному решению для удаленного мониторинга][lnk-connect-rm]
+- [Разрешения на сайте azureiotsuite.com][lnk-permissions]
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-connectyourdevice]: iot-suite-connecting-devices.md
 [lnk-iothub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-webjobs]: https://azure.microsoft.com/documentation/articles/websites-webjobs-resources/
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

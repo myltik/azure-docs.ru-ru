@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/16/2016"
+   ms.date="07/23/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
@@ -146,7 +146,7 @@
 
 ## Дальнейшие действия
 
-Теперь, когда вам уже известны некоторые сведения о хранилище данных SQL, узнайте о том, как быстро [создать хранилище данных SQL][] и [загрузить демонстрационные данные][]. Или ознакомьтесь со следующими ресурсами, посвященными хранилищу данных SQL.
+Теперь, когда вам уже известны некоторые сведения о хранилище данных SQL, узнайте о том, как быстро [создать хранилище данных SQL][] и [загрузить демонстрационные данные][]. Если вы раньше не работали с Azure, используйте [глоссарий Azure Глоссарий][], чтобы узнать значение новых терминов. Или ознакомьтесь со следующими ресурсами, посвященными хранилищу данных SQL.
 
 - [Блоги]
 - [Запросы функций.]
@@ -169,6 +169,7 @@
 [SQL Data Warehouse business intelligence partners]: sql-data-warehouse-partner-business-intelligence.md
 [обзоре интегрированных средств]: sql-data-warehouse-overview-integrate.md
 [Восстановление хранилища данных SQL Azure (обзор)]: sql-data-warehouse-restore-database-overview.md
+[глоссарий Azure Глоссарий]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -181,4 +182,4 @@
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Видеоролики]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

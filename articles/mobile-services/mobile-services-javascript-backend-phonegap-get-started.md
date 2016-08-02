@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="get-started-article" 
-	ms.date="02/10/2016"
+	ms.date="07/21/2016"
 	ms.author="ggailey777"/>
 
 # Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)] &nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
@@ -39,7 +39,7 @@
 + PhoneGap поддерживает разработку для нескольких платформ. Помимо самих средств PhoneGap необходимо установить средства для каждой используемой платформы.
 
 	- Windows Phone: установите [Visual Studio 2012 Express для Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374).
-	- iOS: установите [Xcode] (требуется версия 4ю4ю или выше).
+	- iOS: установите [Xcode] \(требуется версия 4ю4ю или выше).
 	- Android: установите [средства разработчика Android][Android SDK]. <br/>(Пакет SDK мобильных служб для Android поддерживает приложения, предназначенные для Android 2.2 и более поздних версий. Для запуска приложения быстрого запуска требуется Android 4.2 или более поздней версии.)
 
 ## Создание новой мобильной службы
@@ -153,7 +153,7 @@
 ## Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
 
-* **[Добавление проверки подлинности к приложению мобильных служб]** Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.  
+* **[Добавление проверки подлинности к приложению мобильных служб]** Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
 * **[Добавление push-уведомлений в приложение](https://msdn.microsoft.com/magazine/dn879353.aspx)** Узнайте, как зарегистрироваться для использования push-уведомлений и отправлять их в приложение.
 
@@ -176,4 +176,4 @@
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

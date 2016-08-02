@@ -25,21 +25,19 @@
 
 Эти предварительно настроенные решения представляют собой полные работающие комплексные решения, которые включают имитированные устройства для начала работы, предварительно настроенные службы Azure, такие как [центр IoT Azure][], [концентраторы событий Azure][], [Azure Stream Analytics][], [служба машинного обучения Azure][] и [служба хранилища Azure][], а также консоли управления конкретными решениями. Предварительно настроенные решения содержат проверенный, готовый к работе код, который можно настраивать и расширять для реализации определенных сценариев IoT.
 
-Возможно, вас также интересует служба [центра IoT Azure][], которая использует многие из предварительно настроенных решений. [центра IoT Azure][] обеспечивает безопасный и надежный двунаправленный обмен данными между устройствами и облаком, которые используются в архитектуре предварительно настроенных решений.
+Возможно, вас также интересует служба [центра IoT Azure][], которая использует многие из предварительно настроенных решений. [Центр IoT Azure][] обеспечивает безопасный и надежный двунаправленный обмен данными между устройствами и облаком, которые используются в архитектуре предварительно настроенных решений.
 
 ## Дальнейшие действия
 
-Дополнительные сведения об IoT в Azure см. в следующих статьях:
+Ознакомьтесь с этими статьями, чтобы узнать больше об IoT Suite и предварительно настроенных решениях.
 
-- [Общие сведения о наборе Azure IoT][lnk-suite-overview]
-- [Приступая к работе с предварительно настроенными решениями IoT][lnk-preconfigured-solutions]
-- [Подключение устройства к решению для удаленного мониторинга Azure IoT][lnk-connecting]
-- [Центр Azure IoT]
+- [Что такое Azure IoT Suite?][lnk-whatissuite]
+- [Что такое предварительно настроенные решения Azure IoT Suite?][lnk-whatarepreconfigured]
 
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-connecting]: iot-suite-connecting-devices.md
+[lnk-whatissuite]: iot-suite-overview.md
+[lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
+
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
-[Центр Azure IoT]: https://azure.microsoft.com/documentation/services/iot-hub/
 [центр IoT Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
 [центра IoT Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
 [концентраторы событий Azure]: https://azure.microsoft.com/documentation/services/event-hubs/
@@ -48,4 +46,4 @@
 [служба хранилища Azure]: https://azure.microsoft.com/documentation/services/storage/
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

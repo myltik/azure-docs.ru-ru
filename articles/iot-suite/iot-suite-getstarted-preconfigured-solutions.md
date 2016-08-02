@@ -91,7 +91,7 @@
 
 ## Добавление нового виртуального устройства
 
-При развертывании предварительно настроенного решения автоматически подготавливаются четыре примера устройств, которые можно увидеть в списке устройств. Это *виртуальные устройства*, работающие в веб-задании Azure. Виртуальные устройства позволяют легко экспериментировать с предварительно настроенным решением без развертывания физических устройств. Если вы хотите подключить к решению физическое устройство, см. руководство [Подключение устройства к предварительно настроенному решению для удаленного мониторинга][lnk-connecting-devices].
+При развертывании предварительно настроенного решения автоматически подготавливаются четыре примера устройств, которые можно увидеть в списке устройств. Это *виртуальные устройства*, работающие в веб-задании Azure. Виртуальные устройства позволяют легко экспериментировать с предварительно настроенным решением без развертывания физических устройств. Если вы хотите подключить к решению физическое устройство, см. руководство [Подключение устройства к предварительно настроенному решению для удаленного мониторинга][lnk-connect-rm].
 
 Далее объясняется, как добавить новое виртуальное устройство к решению.
 
@@ -105,7 +105,7 @@
 
     ![Настройка сведений о новом устройстве на панели мониторинга][img-addnew]
     
-    Помимо создания виртуального устройства, можно также добавить физическое устройство на панели **Пользовательское устройство**. Дополнительные сведения см. в статье [Подключение устройства к предварительно настроенному решению для удаленного мониторинга IoT Suite][lnk-connecting-devices].
+    Помимо создания виртуального устройства, можно также добавить физическое устройство на панели **Пользовательское устройство**. Дополнительные сведения см. в статье [Подключение устройства к предварительно настроенному решению для удаленного мониторинга IoT Suite][lnk-connect-rm].
 
 4.  Выберите пункт **Задать идентификатор устройства самостоятельно** и укажите имя уникального идентификатора устройства: **mydevice\_01**.
 
@@ -207,10 +207,11 @@
 
 ## Дальнейшие действия
 
-Теперь, когда вы создали рабочее предварительно настроенное решение, можете перейти к следующим пошаговым руководствам:
+Теперь, когда вы развернули рабочее предварительно настроенное решение, вы можете продолжить знакомство с IoT Suite. См. следующие статьи.
 
--   [Рекомендации по настройке предварительно настроенных решений][lnk-customize]
--   [Обзор предварительно настроенного решения прогнозного обслуживания][lnk-predictive]
+- [Пошаговое руководство по работе с настроенным решением для удаленного мониторинга][lnk-rm-walkthrough]
+- [Подключение устройства к предварительно настроенному решению для удаленного мониторинга][lnk-connect-rm]
+- [Разрешения на сайте azureiotsuite.com][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
 [img-dashboard]: media/iot-suite-getstarted-preconfigured-solutions/dashboard.png
@@ -239,13 +240,13 @@
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
-[lnk-connecting-devices]: iot-suite-connecting-devices.md
 [lnk-logic-apps]: https://azure.microsoft.com/documentation/services/app-service/logic/
 [lnk-portal]: http://portal.azure.com/
 [lnk-rmgithub]: https://github.com/Azure/azure-iot-remote-monitoring
 [lnk-devicemetadata]: iot-suite-what-are-preconfigured-solutions.md#device-identity-registry-and-documentdb
 [lnk-logicapptutorial]: iot-suite-logic-apps-tutorial.md
+[lnk-rm-walkthrough]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-connect-rm]: iot-suite-connecting-devices.md
+[lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

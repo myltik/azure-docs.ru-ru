@@ -42,7 +42,7 @@
 
 Предварительно настроенное решение прогнозируемого обслуживания Azure IoT использует модель регрессии, созданную на основе этого шаблона. Это решение развертывается в подписке Azure и предоставляется с помощью автоматически созданного интерфейса API. Решение включает набор проверочных данных, представляющий 4 (из 100) двигателя и 4 (из 21) потока данных датчиков, который обеспечивает точный результат из обученной модели.
 
-*[1] А. Саксена (A. Saxena) и К. Гебель (K. Goebel) (2008). "Набор данных для симуляции деградации турбореактивного двигателя" ("Turbofan Engine Degradation Simulation Data Set"), Хранилище данных Центра прогнозирования Эймса (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), Исследовательский центр Эймса, Моффетт-филд, Калифорния*
+*[1] А. Саксена (A. Saxena) и К. Гебель (K. Goebel) (2008). "Набор данных для симуляции деградации турбореактивного двигателя" ("Turbofan Engine Degradation Simulation Data Set"), Хранилище данных Центра прогнозирования Эймса (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/, Исследовательский центр Эймса, Моффетт-филд, Калифорния*
 
 ## Дальнейшие действия
 
@@ -58,4 +58,12 @@
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_0525_2016-->
+Вы можете также ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
+
+- [Часто задаваемые вопросы об IoT Suite][lnk-faq]
+- [Все аспекты безопасности IoT][lnk-security-groundup]
+
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
+<!---HONumber=AcomDC_0727_2016-->
