@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2016"
+	ms.date="07/26/2016"
 	ms.author="gusapost"/>
 
 # Приступая к работе с хранилищем очередей Azure с помощью .NET
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Обзор
 
@@ -28,14 +28,14 @@
 
 В этом руководстве показано, как написать код .NET для некоторых распространенных сценариев использования хранилища очередей Azure. Эти сценарии включают создание и удаление очередей, а также добавление, чтение и удаление сообщений.
 
-**Предполагаемое время выполнения:** 45 минут.
+**Предполагаемое время выполнения:** 45 минут.
 
 **Предварительные требования**
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/ru-RU/visual-studio-homepage-vs.aspx)
 - [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Диспетчер конфигураций Azure для .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- [Учетная запись хранения Azure](storage-create-storage-account.md#create-a-storage-account)
+- [учетная запись хранения Azure](storage-create-storage-account.md#create-a-storage-account).
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -265,7 +265,7 @@
 - Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
     - Хранение структурированных данных: [Приступая к работе с хранилищем таблиц Azure с помощью .NET](storage-dotnet-how-to-use-tables.md).
     - Хранение неструктурированных данных: [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md).
-    - Хранение реляционных данных: [Как использовать базу данных SQL Azure в приложениях .NET](sql-database-dotnet-how-to-use.md).
+    - Хранение реляционных данных: [Подключение к базе данных SQL с помощью .NET (C#)](sql-database-dotnet-how-to-use.md).
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
@@ -275,4 +275,4 @@
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

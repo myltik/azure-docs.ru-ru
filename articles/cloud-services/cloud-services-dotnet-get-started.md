@@ -203,7 +203,7 @@
 
 	Территориальные группы Azure обеспечивают механизм для минимизации расстояния между ресурсами в центре обработки данных, что позволяет уменьшить задержку. В этом учебнике территориальные группы не используются. Дополнительные сведения см. в разделе [Создание территориальной группы в Azure](http://msdn.microsoft.com/library/jj156209.aspx).
 
-6. В раскрывающемся списке **Репликация** установите значение **Локально избыточное**.
+6. В раскрывающемся списке **Репликация ** установите значение **Локально избыточное**.
 
 	При включении георепликации для учетной записи хранения хранящиеся данные реплицируются в дополнительный центр обработки данных для обеспечения возможности отработки отказа в это расположение в случае крупной аварии в основном расположении. Георепликация может потребовать дополнительных затрат. Для учетных записей тестирования и разработки оплачивать георепликацию обычно не требуется. Дополнительные сведения см. в разделе [Создание, удаление учетной записи хранения или управление ей](../storage/storage-create-storage-account.md#replication-options).
 
@@ -229,7 +229,7 @@
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
 	Оставьте файл открытым для редактирования.
 
 2. На [классическом портале Azure](http://manage.windowsazure.com) в области слева щелкните элемент **Базы данных SQL**, выберите базу данных, созданную для этого руководства, затем перейдите на вкладку **Панель мониторинга** и щелкните пункт **Показать строки подключения**.
@@ -314,10 +314,10 @@
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -442,7 +442,7 @@
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
 	Если вы используете Visual Studio 2015, замените v11.0 на MSSQLLocalDB.
 
 2. Сохраните изменения.
@@ -455,7 +455,7 @@
 
 	Оставьте **конфигурацию службы** установленной как **Все конфигурации**.
 
-5. Добавьте новую настройку с именем *StorageConnectionString*. Задайте **Тип** как *ConnectionString* и установите **Значение** как *UseDevelopmentStorage=true*.
+5. Добавьте новую настройку с именем *StorageConnectionString*. Задайте **Тип** как *ConnectionString* и установите **Значение ** как *UseDevelopmentStorage=true*.
 
 	![Новая строка подключения](./media/cloud-services-dotnet-get-started/scall.png)
 
@@ -482,7 +482,7 @@
 3. В проекте ContosoAdsCommon удалите файл *Class1.cs* и добавьте на его место файлы *Ad.cs* и *ContosoAdscontext.cs* из загруженного проекта.
 
 3. В проекте ContosoAdsCommon добавьте следующие файлы из загруженного проекта.
-	- *Global.asax.cs*.  
+	- *Global.asax.cs*.
 	- В папку *Views\\Shared*: файл *\_Layout.cshtml*.
 	- В папку *Views\\Home*: файл *Index.cshtml*.
 	- В папку *Controllers*: *AdController.cs*
@@ -599,7 +599,7 @@ imagesQueue.CreateIfNotExists();
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Файл *\_Layout.cshtml* устанавливает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
+Файл *\_Layout.cshtml* задает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -868,5 +868,6 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 * [Облачные службы Azure, часть 1: Введение](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Управление облачными службами](cloud-services-how-to-manage.md)
 * [Хранилище Azure](/documentation/services/storage/)
+* [Как выбрать поставщика облачных служб](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
+	ms.date="07/22/2016"
 	ms.author="wesmc"/>
 
 # Отправка push-уведомлений в приложения Chrome с помощью Центров уведомлений Azure
@@ -462,10 +462,10 @@
 [21]: ./media/notification-hubs-chrome-get-started/FinalFolderView.png
 
 <!-- URLs. -->
-[Образец использования концентратора уведомлений с приложением Chrome]: http://google.com
+[Образец использования концентратора уведомлений с приложением Chrome]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
 [консоли Google Cloud]: http://cloud.google.com/console
 [Azure Classic Portal]: https://manage.windowsazure.com/
-[Общие сведения о концентраторах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Общие сведения о концентраторах уведомлений]: notification-hubs-push-notification-overview.md
 [Chrome Apps Overview]: https://developer.chrome.com/apps/about_apps
 [образце использования службы GCM для приложения Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
@@ -477,4 +477,4 @@
 [Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание хранилища данных SQL с помощью Powershell | Microsoft Azure"
-   description="Создание хранилища данных SQL с помощью Powershell"
+   pageTitle="Создание хранилища данных SQL с помощью PowerShell | Microsoft Azure"
+   description="Создание хранилища данных SQL с помощью PowerShell"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,27 +13,31 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="07/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-# Создание хранилища данных SQL с помощью Powershell
+# Создание хранилища данных SQL с помощью PowerShell
 
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
+В этой статье описано, как создать хранилище данных SQL с помощью PowerShell.
+
 ## Предварительные требования
-Прежде чем приступить к работе, убедитесь, что у вас есть следующие необходимые компоненты.
 
-- **Учетная запись Azure.** Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][] или [кредитов Azure MSDN][].
-- **Сервер SQL Azure версии 12.** См. разделы, посвященные [созданию логического сервера базы данных SQL с помощью портала Azure][] или [с помощью PowerShell][].
-- **Имя группы ресурсов.** Используйте ту же группу ресурсов, что и для Azure SQL Server версии 12, или создайте новую группу ресурсов, следуя инструкциям из [этой статьи][].
-- **PowerShell версии 1.0.3 или выше.** Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][]. Дополнительную информацию об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
+Для начала работы вам потребуются перечисленные ниже компоненты и данные.
 
-> [AZURE.NOTE] Создание хранилища данных SQL может привести к дополнительным расходам. Дополнительные сведения о ценах см. на странице [Цены на хранилище данных SQL][].
+- **Учетная запись Azure**. Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][] или [кредитов Azure MSDN][].
+- **Сервер SQL Azure**. См. сведения в статьях, посвященных [созданию логического сервера базы данных SQL с помощью портала Azure][] или [с помощью PowerShell][].
+- **Группа ресурсов**. Используйте ту же группу ресурсов, что и для Azure SQL Server, или [создайте новую группу ресурсов][].
+- **PowerShell версии 1.0.3 или выше**. Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с помощью [установщика веб-платформы Майкрософт][]. Дополнительные сведения об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
+
+> [AZURE.NOTE] Создание хранилища данных SQL может привести к дополнительным расходам. Дополнительные сведения о ценах см. на странице [цен на хранилище данных SQL][].
 
 ## Создание хранилища данных SQL
+
 1. Откройте Windows PowerShell.
 2. Используйте этот командлет для входа в диспетчер ресурсов Azure.
 
@@ -84,7 +88,7 @@
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [созданию логического сервера базы данных SQL с помощью портала Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [с помощью PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[этой статьи]: ../resource-group-template-deploy-portal.md
+[создайте новую группу ресурсов]: ../resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
@@ -93,8 +97,8 @@
 
 <!--Other Web references-->
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
-[Цены на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[цен на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

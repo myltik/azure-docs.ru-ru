@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/21/2016"
+	ms.date="07/20/2016"
 	ms.author="carlrab"/>
 
 # Вы можете выбрать компонент SQL Server в облаке: база данных SQL Azure (PaaS) или SQL Server на виртуальных машинах Azure (IaaS)
@@ -31,7 +31,7 @@
 
 Одна из первых вещей, которые нужно определить до обсуждения, — можете ли вы использовать базы данных Azure и локальные базы данных SQL Server совместно. Платформа Microsoft Data использует технологию SQL Server, поэтому она доступна для физических локальных компьютеров, частных облачных сред (в том числе для размещенных облачных сред сторонних поставщиков) и для общедоступного облака. Это позволяет вам обеспечить соответствие различным уникальным бизнес-требованиям с помощью сочетания локальных и облачных развертываний, используя в этих средах один и тот же набор серверных продуктов, средств разработки и приобретенный опыт.
 
-   ![Варианты облачной БД SQL Server: SQL Server (IaaS) или база данных SQL в облаке (SaaS).](./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
+   ![Варианты облачной БД SQL Server: SQL Server (IaaS) или база данных SQL в облаке (SaaS).](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
 Как видно на схеме, каждый предложенный вариант можно охарактеризовать по уровню администрирования его инфраструктуры (по оси X) и по степени эффективности затрат, которая достигается за счет консолидации на уровне базы данных и автоматики, (по оси Y).
 
@@ -156,4 +156,4 @@
 - Чтобы приступить к работе с SQL Server на виртуальной машине Azure, см. статью [Подготовка виртуальной машины SQL Server на портале Azure](../virtual-machines/virtual-machines-windows-portal-sql-server-provision.md).
 - См. страницу [SQL Server на виртуальных машинах Azure: схема обучения](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

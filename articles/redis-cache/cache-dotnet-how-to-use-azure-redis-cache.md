@@ -193,7 +193,9 @@ Redis хранит большинство данных в строках Redis, 
 -	[Включите диагностику кэша](cache-how-to-monitor.md#enable-cache-diagnostics), чтобы можно было [наблюдать](cache-how-to-monitor.md) за работоспособностью кэша. Метрики можно просмотреть на портале Azure. Кроме того, их можно [скачать и просмотреть](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) с помощью привычных вам инструментов.
 -	Ознакомьтесь с [документацией по клиенту кэша StackExchange.Redis][].
 	-	Доступ к кэшу Redis для Azure можно получить из многих клиентов Redis и языков разработки. Дополнительные сведения см. на странице [http://redis.io/clients][].
-	-	Кэш Redis для Azure может также использоваться со службами, такими как Redsmin. Дополнительные сведения см. в статье [Получение строки подключения Redis для Azure и ее использование с Redsmin][].
+-	Кэш Redis для Azure можно также использовать со сторонними службами и средствами, например с Redsmin и Redis Desktop Manager.
+	-	Дополнительные сведения о Redsmin см. в статье [Получение строки подключения Redis для Azure и ее использование с Redsmin][].
+	-	Вы можете открыть и проверить свои данные в кэше Redis для Azure с помощью графического пользовательского интерфейса [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
 -	См. документацию по [redis][]\: прочитайте [статью о типах данных redis][] и [пятнадцатиминутное введение в типы данных Redis][].
 
 
@@ -284,4 +286,4 @@ Redis хранит большинство данных в строках Redis, 
 
 [Принципы работы строк приложений и подключения]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->
