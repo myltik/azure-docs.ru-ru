@@ -171,7 +171,7 @@ Push-облако Baidu — это китайская облачная служ
 
 ##Подключение приложения к концентратору уведомлений
 
-1. В ADT Eclipse создайте новый проект Android (**Файл** > **Создать** > **Проект приложения Android**).
+1. В ADT Eclipse создайте новый проект Android (**Файл** > **Создать** > **Проект приложения Android**).
 
     ![][23]
 
@@ -264,7 +264,7 @@ Push-облако Baidu — это китайская облачная служ
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Присвойте параметру **API\_KEY** значение, которое вы получили ранее из облачного проекта Baidu, а параметрам **NotificationHubName** и **NotificationHubConnectionString** — имя вашего центра уведомлений и значение DefaultListenSharedAccessSignature соответственно, полученные на классическом портале Azure.
+	Присвойте параметру **API\_KEY** значение, которое вы получили ранее из облачного проекта Baidu, а параметрам **NotificationHubName** и **NotificationHubConnectionString** — имя вашего центра уведомлений и значение DefaultListenSharedAccessSignature соответственно, полученные на классическом портале Azure.
 
 11. Добавьте новый класс с именем **DemoApplication.java**, затем добавьте в него следующий код:
 

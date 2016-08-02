@@ -24,7 +24,7 @@
 ## Предварительные требования
 
  - Visual Studio 2013 или 2015
- - [инструменты Python для Visual Studio][] (PTVS);
+ - [инструменты Python для Visual Studio][] \(PTVS);
  - [Пакет SDK Azure для VS 2013][] или [Пакет SDK Azure для VS 2015][]
  - [Python 2.7 (32-разрядный)][] или [Python 3.5 (32-разрядный)][].
 

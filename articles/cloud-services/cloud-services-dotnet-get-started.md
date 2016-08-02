@@ -455,7 +455,7 @@
 
 	Оставьте **конфигурацию службы** установленной как **Все конфигурации**.
 
-5. Добавьте новую настройку с именем *StorageConnectionString*. Задайте **Тип** как *ConnectionString* и установите **Значение ** как *UseDevelopmentStorage=true*.
+5. Добавьте новую настройку с именем *StorageConnectionString*. Задайте **Тип** как *ConnectionString* и установите **Значение** как *UseDevelopmentStorage=true*.
 
 	![Новая строка подключения](./media/cloud-services-dotnet-get-started/scall.png)
 
