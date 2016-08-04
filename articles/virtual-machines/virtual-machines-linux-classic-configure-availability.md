@@ -28,4 +28,4 @@
 
 Дополнительные ресурсы, посвященные классическому развертыванию, перечислены в статье [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource-links.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!----HONumber=AcomDC_0713_2016-->

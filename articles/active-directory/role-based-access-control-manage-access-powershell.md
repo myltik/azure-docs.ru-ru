@@ -154,6 +154,7 @@
 ![RBAC PowerShell — Get-AzureRmRoleDefinition — снимок экрана](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## См. также
-- [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md) [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+- [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
+[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 <!---HONumber=AcomDC_0720_2016-->
