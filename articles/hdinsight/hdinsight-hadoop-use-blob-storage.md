@@ -152,18 +152,14 @@ HDInsight предоставляет доступ к распределенно�
 	wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
 
-> [AZURE.NOTE] Для обращения к файлам в эмуляторе хранения (эмуляторе, работающем в HDInsight) используется синтаксис <i>wasb://&lt;ContainerName&gt;@storageemulator</i>.
-
-
-
 Эта схема URI предоставляет как незашифрованный доступ с префиксом *wasb:*, так и доступ с использованием SSL-шифрования с *wasbs*. Мы рекомендуем использовать *wasbs* всегда, когда это возможно, даже при обращении к данным, которые хранятся в том же регионе Azure.
 
 Параметр &lt;BlobStorageContainerName&gt определяет имя контейнера в хранилище BLOB-объектов Azure. Параметр The &lt;StorageAccountName&gt; определяет имя учетной записи хранения Azure. Обязательно использовать полное доменное имя (FQDN).
 
 Если оба параметра (&lt;BlobStorageContainerName&gt; и &lt;StorageAccountName&gt;) не заданы, используется файловая система по умолчанию. Для файлов в файловой системе по умолчанию можно использовать относительный или абсолютный путь. Например, для ссылки на файл *hadoop-mapreduce-examples.jar*, который поставляется с кластерами HDInsight, можно использовать один из следующих вариантов:
 
-	wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-	wasb:///example/jars/hadoop-mapreduce-examples.jar
+	wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+	wasbs:///example/jars/hadoop-mapreduce-examples.jar
 	/example/jars/hadoop-mapreduce-examples.jar
 
 > [AZURE.NOTE] В кластерах HDInsight версий 2.1 и 1.6 файл называется <i>hadoop-examples.jar</i>.
@@ -260,7 +256,8 @@ HDInsight предоставляет доступ к распределенно�
 
 ###Выполнение запросов Hive с использованием неопределенной учетной записи хранения
 
-В этом пример показано, как получить список папки из учетной записи хранения, которая не была задана при создании. $clusterName = "<имя\_кластера\_HDInsight>"
+В этом пример показано, как получить список папки из учетной записи хранения, которая не была задана при создании.
+	$clusterName = "<HDInsightClusterName>"
 
 	$undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
 	$undefinedContainer = "<UnboundedBlobContainerAssociatedWithTheStorageAccount>"
@@ -272,7 +269,7 @@ HDInsight предоставляет доступ к распределенно�
 	$defines = @{}
 	$defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-	Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+	Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ## Дальнейшие действия
 
@@ -301,4 +298,4 @@ HDInsight предоставляет доступ к распределенно�
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0727_2016-->

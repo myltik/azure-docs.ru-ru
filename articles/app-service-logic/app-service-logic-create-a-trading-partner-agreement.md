@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
 	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
@@ -53,7 +53,7 @@
 
 
 ## BizTalk X12
-- Выполняет соглашения X12, как определено в соответствующем экземпляре приложения API TPM. 
+- Выполняет соглашения X12, как определено в соответствующем экземпляре приложения API TPM.
 - Предоставляет сведения обработки и отслеживания X12 для устранения неполадок.
 - Предоставляет управление состоянием пакетов (start и stop), как определено в соглашениях X12 в соответствующем экземпляре приложения API TPM.
 
@@ -79,4 +79,4 @@
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!---HONumber=AcomDC_0420_2016--->
+<!---HONumber=AcomDC_0727_2016-->

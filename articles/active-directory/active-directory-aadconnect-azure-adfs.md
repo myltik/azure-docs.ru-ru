@@ -257,7 +257,7 @@
 
 |правило;|Описание|Поток|
 |:----|:----|:------:|
-|AllowHTTPSFromDMZ|	Разрешение взаимодействия с DMZ по протоколу HTTPS | Входящий трафик |
+|AllowHTTPSFromDMZ| Разрешение взаимодействия с DMZ по протоколу HTTPS | Входящий трафик |
 |DenyAllFromDMZ| Это правило будет блокировать весь трафик из DMZ во внутреннюю подсеть. Правило AllowHTTPSFromDMZ уже отвечает за взаимодействие по протоколу HTTPS и блокирует все остальное | Входящий трафик |
 |DenyInternetOutbound| Нет доступа к Интернету | Исходящие |
 
@@ -303,4 +303,4 @@
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 * [Настройка служб AD FS и управление ими с использованием Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->
