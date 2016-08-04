@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/22/2016"
+	ms.date="07/22/2016"
 	ms.author="rachelap"/>
 
 # Развертывание веб-приложения ASP.NET в службе приложений Azure с помощью Visual Studio
@@ -240,4 +240,6 @@
 
 	Дополнительные сведения о работе с группами ресурсов на портале Azure см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+*	Дополнительные примеры создания веб-приложения ASP.NET в службе приложений см. в статье [Создание и развертывание веб-приложения ASP.NET в службе приложений Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service), описывающей [демонстрационный проект](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные примеры из демонстрационного проекта HealthClinic.biz см. на странице [Примеры использования средств разработчика Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+
+<!---HONumber=AcomDC_0727_2016-->

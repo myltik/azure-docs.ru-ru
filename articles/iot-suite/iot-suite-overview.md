@@ -53,14 +53,7 @@
 
 ## Дальнейшие действия
 
-Теперь, когда вы ознакомились с возможностями IoT Suite и его основными компонентами, вы можете:
-
-- Дополнительные сведения о предварительно настроенных решениях пакета IoT Suite см. в статье [Что такое предварительно настроенные решения Azure IoT Suite?][lnk-what-are-preconfig]
-
-- Чтобы приступить к работе с помощью одного из предварительно настроенных решений, см. руководство [Начало работы с решениями IoT с предварительно заданными параметрами][lnk-preconfig-start].
-
-- Дополнительные сведения о службе центра IoT Azure см. в [документации по центру IoT][lnk-iot-hub].
-
+Теперь, когда вы ознакомились с основной информацией о функциях, возможностях и основных компонентах IoT Suite, вы можете узнать больше о предварительно настроенных решениях в IoT Suite. См. статью [Что такое предварительно настроенные решения Azure IoT Suite?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -71,7 +64,5 @@
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Предварительная версия Azure AD B2C | Microsoft Azure"
+	pageTitle="Azure AD B2C | Microsoft Azure"
 	description="Как с помощью Azure Active Directory B2C создать веб-API .NET, защищенный маркерами доступа OAuth 2.0 для проверки подлинности."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="07/22/2016"
 	ms.author="dastrock"/>
 
-# Предварительная версия Azure Active Directory B2C: создание веб-API .NET
+# Azure Active Directory B2C: создание веб-API .NET
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-С помощью Azure Active Directory (Azure AD) B2C можно защитить веб-API с помощью маркера доступа OAuth 2.0. Эти маркеры позволяют клиентским приложениям, использующим Azure AD B2C, проходить проверку подлинности для API. В этой статье описывается, как создать MVC-приложение .NET "Список дел", которое предусматривает регистрацию и вход пользователя, а также управление профилем. Списки дел пользователей будут храниться в службе задач. Это веб-API, которое позволяет пользователям, прошедшим проверку подлинности, создавать и считывать задачи из своих списков дел.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+С помощью Azure Active Directory (Azure AD) B2C можно защитить веб-API с помощью маркера доступа OAuth 2.0. Эти маркеры позволяют клиентским приложениям, использующим Azure AD B2C, проходить проверку подлинности для API. В этой статье показано, как создать интерфейс веб-API .NET "Список дел" с использованием модели Model-View-Controller (MVC), который позволяет пользователям выполнять задачи CRUD. Этот веб-API защищен с помощью Azure AD B2C. Управлять списком дел могут только пользователи, прошедшие проверку подлинности.
 
 ## Создание каталога Azure AD B2C
 
@@ -32,7 +30,7 @@
 
 Затем необходимо создать приложение в каталоге B2C. Это дает Azure AD информацию, необходимую для безопасного взаимодействия с вашим приложением. Чтобы создать приложение, следуйте [этим инструкциям](active-directory-b2c-app-registration.md). Не забудьте сделать следующее.
 
-- Включите **веб-приложение** или **веб-API** в свое приложение.
+- Включите в приложение **веб-приложение** или **веб-API**.
 - Используйте **универсальный код ресурса перенаправления** `https://localhost:44316/` для веб-приложения. Это стандартное расположение клиента веб-приложения для этого примера.
 - Скопируйте **идентификатор приложения**, назначенный приложению. Он понадобится вам позднее.
 
@@ -40,12 +38,12 @@
 
 ## Создание политик
 
-В Azure AD B2C любое взаимодействие с пользователем определяется [политикой](active-directory-b2c-reference-policies.md). Клиент в этом примере кода включает три способа работы с идентификацией: регистрацию, вход в систему и изменение профиля. Вам потребуется создать по одной политике для каждого типа, как описано в [справочнике по политикам](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании своих трех политик обязательно сделайте следующее:
+В Azure AD B2C любое взаимодействие с пользователем определяется [политикой](active-directory-b2c-reference-policies.md). Клиент в этом примере кода включает три способа работы с идентификацией: регистрацию, вход в систему и изменение профиля. Вам потребуется создать по одной политике для каждого типа, как описано в [справочнике по политикам](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании своих трех политик обязательно сделайте следующее:
 
-- В колонке поставщиков удостоверений выберите **Регистрация с помощью идентификатора пользователя** или **Регистрация по электронной почте**.
-- В политике регистрации выберите **Отображаемое имя** и другие атрибуты регистрации.
+- В колонке поставщиков удостоверений выберите **User ID sign-up** (Регистрация с помощью идентификатора пользователя) или **Email sign-up** (Регистрация по электронной почте).
+- В политике регистрации укажите **отображаемое имя** и другие атрибуты регистрации.
 - В каждой политике в качестве утверждения приложения выберите утверждения **Отображаемое имя** и **Идентификатор объекта**. Можно также выбрать другие утверждения.
-- Скопируйте **имя** каждой политики после ее создания. Эти имена политик понадобятся вам через некоторое время.
+- Скопируйте **имя** каждой созданной политики. Эти имена политик понадобятся вам через некоторое время.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -53,9 +51,7 @@
 
 ## Загрузка кода
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-devquickstarts-bug-fix.md)]
-
-Код, используемый в этом руководстве, размещен на портале [GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Чтобы выполнить сборку примера, [скачайте схему проекта в ZIP-архиве](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Ее также можно клонировать:
+Код для этого руководства [размещен на портале GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Чтобы выполнить сборку примера, [скачайте схему проекта в виде ZIP-архива](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Ее также можно клонировать:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
@@ -67,47 +63,26 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 
 ## Настройка веб-приложения для задач
 
-Когда пользователь взаимодействует с `TaskWebApp`, клиент отправляет запросы в Azure AD и получает токены, которые можно использовать для вызова веб-API `TaskService`. Чтобы пользователь мог выполнить вход и получить токены, необходимо предоставить `TaskWebApp` определенные сведения о приложении. В корне проекта `TaskWebApp` откройте файл `web.config` и замените значения в разделе `<appSettings>`.
+Когда пользователь взаимодействует с `TaskWebApp`, клиент отправляет запросы в Azure AD и получает токены, которые можно использовать для вызова веб-API `TaskService`. Чтобы пользователь мог выполнить вход и получить токены, необходимо предоставить `TaskWebApp` определенные сведения о приложении. В корне проекта `TaskWebApp` откройте файл `web.config` и замените значения в разделе `<appSettings>`. Можно не менять значения `AadInstance`, `RedirectUri` и `TaskServiceUrl`.
 
 ```
-<appSettings>
+  <appSettings>
     <add key="webpages:Version" value="3.0.0.0" />
     <add key="webpages:Enabled" value="false" />
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
-    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure Portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
+    <add key="ida:Tenant" value="fabrikamb2c.onmicrosoft.com" />
+    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
+    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
     <add key="ida:RedirectUri" value="https://localhost:44316/" />
-    <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g. b2c_1_sign_up]" />
-    <add key="ida:SignInPolicyId" value="[Enter your sign in policy name, e.g. b2c_1_sign_in]" />
-    <add key="ida:UserProfilePolicyId" value="[Enter your edit profile policy name, e.g. b2c_1_profile_edit" />
+    <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
+    <add key="ida:SignInPolicyId" value="b2c_1_sign_in" />
+    <add key="ida:UserProfilePolicyId" value="b2c_1_edit_profile" />
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
-</appSettings>
+  </appSettings>
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
-
-Кроме того, необходимо указать имя политики входа в двух декораторах `[PolicyAuthorize]`. Атрибут `[PolicyAuthorize]` используется для вызова определенной политики, когда пользователь пытается обратиться к странице приложения, требующей проверки подлинности.
-
-```C#
-// Controllers\HomeController.cs
-
-[PolicyAuthorize(Policy = "{Enter the name of your sign in policy, e.g. b2c_1_my_sign_in}")]
-public ActionResult Claims()
-{
-```
-
-```C#
-// Controllers\TasksController.cs
-
-[PolicyAuthorize(Policy = "{Enter the name of your sign in policy, e.g. b2c_1_my_sign_in}")]
-public class TasksController : Controller
-{
-```
-
-Чтобы узнать, как веб-приложения, например `TaskWebApp`, используют Azure AD B2C, см. статью [Предварительная версия Azure AD B2C: создание веб-приложения API .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Данная статья не описывает создание клиента `TaskWebApp`. Сведения о создании веб-приложения с помощью Azure AD B2C см. в [этом руководстве](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Защита API
 
@@ -123,23 +98,25 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
 ### Ввод данных B2C
-В корне проекта `TaskService` откройте файл `web.config` и замените значения в разделе `<appSettings>`. Эти значения будут использоваться в API и библиотеке OWIN.
+В корне проекта `TaskService` откройте файл `web.config` и замените значения в разделе `<appSettings>`. Эти значения будут использоваться в API и библиотеке OWIN. Можно оставить значение `AadInstance` без изменений.
 
 ```
-<appSettings>
+  <appSettings>
     <add key="webpages:Version" value="3.0.0.0" />
     <add key="webpages:Enabled" value="false" />
     <add key="ClientValidationEnabled" value="true" />
     <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/{1}/{2}?p={3}" />
-    <add key="ida:Tenant" value="{Enter the name of your B2C tenant - it usually looks like constoso.onmicrosoft.com}" />
-    <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
-    <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
-</appSettings>
+    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration?p={1}" />
+    <add key="ida:Tenant" value="fabrikamb2c.onmicrosoft.com" />
+    <add key="ida:ClientId" value="90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6" />
+    <add key="ida:SignUpPolicyId" value="b2c_1_sign_up" />
+    <add key="ida:SignInPolicyId" value="b2c_1_sign_in" />
+    <add key="ida:UserProfilePolicyId" value="b2c_1_edit_profile" />
+  </appSettings>
 ```
 
 ### Добавление класса запуска OWIN
-Добавьте класс запуска OWIN в проект `TaskService` с именем `Startup.cs`. Щелкните проект правой кнопкой мыши и выберите **Добавить** в контекстном меню, затем **Новый элемент**, после чего найдите OWIN.
+Добавьте класс запуска OWIN в проект `TaskService` с именем `Startup.cs`. Щелкните проект правой кнопкой мыши и выберите пункт **Добавить** в контекстном меню, а затем — **Новый элемент**, после чего найдите OWIN.
 
 
 ```C#
@@ -164,27 +141,36 @@ public partial class Startup
 
 public partial class Startup
 {
-	// These values are pulled from web.config
-	public static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
-	public static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
-	public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
-	public static string commonPolicy = ConfigurationManager.AppSettings["ida:PolicyId"];
-	private const string discoverySuffix = ".well-known/openid-configuration";
+    // These values are pulled from web.config
+    public static string aadInstance = ConfigurationManager.AppSettings["ida:AadInstance"];
+    public static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
+    public static string clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+    public static string signUpPolicy = ConfigurationManager.AppSettings["ida:SignUpPolicyId"];
+    public static string signInPolicy = ConfigurationManager.AppSettings["ida:SignInPolicyId"];
+    public static string editProfilePolicy = ConfigurationManager.AppSettings["ida:UserProfilePolicyId"];
 
-	public void ConfigureAuth(IAppBuilder app)
-	{   
-		TokenValidationParameters tvps = new TokenValidationParameters
-		{
-			// This is where you specify that your API accepts tokens only from its own clients
-			ValidAudience = clientId,
-		};
+    public void ConfigureAuth(IAppBuilder app)
+    {   
+        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(signUpPolicy));
+        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(signInPolicy));
+        app.UseOAuthBearerAuthentication(CreateBearerOptionsFromPolicy(editProfilePolicy));
+    }
 
-		app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
-		{   
-			// This SecurityTokenProvider fetches the Azure AD B2C metadata and signing keys from the OpenID Connect metadata endpoint
-			AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, "v2.0", discoverySuffix, commonPolicy)))
-		});
-	}
+    public OAuthBearerAuthenticationOptions CreateBearerOptionsFromPolicy(string policy)
+    {
+        TokenValidationParameters tvps = new TokenValidationParameters
+        {
+            // This is where you specify that your API only accepts tokens from its own clients
+            ValidAudience = clientId,
+            AuthenticationType = policy,
+        };
+
+        return new OAuthBearerAuthenticationOptions
+        {
+            // This SecurityTokenProvider fetches the Azure AD B2C metadata & signing keys from the OpenIDConnect metadata endpoint
+            AccessTokenFormat = new JwtFormat(tvps, new OpenIdConnectCachingSecurityTokenProvider(String.Format(aadInstance, tenant, policy))),
+        };
+    }
 }
 ```
 
@@ -221,7 +207,7 @@ public IEnumerable<Models.Task> Get()
 
 ## Изменение политик
 
-Теперь, когда у вас есть API, защищенный с помощью Azure AD B2C, можно поэкспериментировать с политиками приложения и понаблюдать, как это влияет (или не влияет) на API. Вы можете <!--add **identity providers** to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->управлять утверждениями приложения в политиках и изменять сведения о пользователе, доступные в веб-API. Любые дополнительные утверждения, которые вы добавляете, будут доступны для веб-API .NET MVC в объекте `ClaimsPrincipal`, как описано ранее в этой статье.
+Теперь, когда у вас есть API, защищенный с помощью Azure AD B2C, можно поэкспериментировать с политиками приложения и понаблюдать, как это влияет (или не влияет) на API. Вы можете управлять утверждениями приложения в политиках и изменять сведения о пользователе, доступные в веб-API. Любые дополнительные утверждения, которые вы добавляете, будут доступны для веб-API .NET MVC в объекте `ClaimsPrincipal`, как описано ранее в этой статье.
 
 <!--
 
@@ -235,4 +221,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

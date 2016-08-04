@@ -62,8 +62,18 @@
 
 См. запись блога Эрика Голпа (Eric Golpe) [Пошаговое руководство по удалению клиента Azure AD][lnk-delete-aad-tennant].
 
+## Дальнейшие действия
+
+Вы можете также ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
+
+- [Обзор предварительно настроенного решения прогнозного обслуживания][lnk-predictive-overview]
+- [Все аспекты безопасности IoT][lnk-security-groundup]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[link-azuresublimits]: https://azure.microsoft.com/ru-RU/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
+[link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -72,4 +82,4 @@
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -80,4 +80,4 @@
 ## Дополнительные сведения о соединителях и приложениях API
 [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Подключение к локальным соединителям, размещенным в службе приложений Azure, с помощью диспетчера гибридных подключений](app-service-logic-hybrid-connection-manager.md) [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

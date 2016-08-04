@@ -13,12 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="07/23/2016"
    ms.author="sonyama;barbkess"/>
 
 # Установка Visual Studio 2015 и SSDT для хранилища данных SQL
 
-При разработке приложений для хранилища данных SQL мы рекомендуем использовать Visual Studio 2015 с последней версией SQL Server Data Tools (SSDT). Также для обратной совместимости поддерживается Visual Studio 2013 с SSDT.
+При разработке приложений для хранилища данных SQL мы рекомендуем использовать Visual Studio 2015 с последней версией SQL Server Data Tools (SSDT). Также для обратной совместимости поддерживается Visual Studio 2013 Update 5 с SSDT.
 
 С помощью Visual Studio с SSDT вы сможете использовать обозреватель объектов SQL Server для визуального исследования таблиц, представлений, хранимых процедур и многих других объектов в хранилище данных SQL, а также выполнения запросов.
 
@@ -56,4 +56,4 @@
 [установке Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [Скачивание последней версии SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

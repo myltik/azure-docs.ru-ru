@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="05/23/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Начните работать с хранилищем Azure за пять минут 
@@ -28,7 +28,7 @@
 
 Для начала работы вам потребуются следующие необходимые компоненты:
 
-1. Чтобы скомпилировать и собрать приложение, на компьютере должна быть установлена версия [Visual Studio](https://www.visualstudio.com/). 
+1. Чтобы скомпилировать и собрать приложение, на компьютере должна быть установлена версия [Visual Studio](https://www.visualstudio.com/).
 
 2. Установите последнюю версию [SDK Azure для .NET](https://azure.microsoft.com/downloads/). Пакет SDK включает образцы проектов Azure QuickStart, эмулятор хранения Azure и [клиентскую библиотеку хранилища Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
@@ -90,7 +90,7 @@
 Затем запустите пример приложения в эмуляторе хранения Azure:
 
 1.	Нажмите кнопку **Пуск** или клавишу Windows, найдите *Эмулятор хранения Microsoft Azure* и запустите приложение. При запуске эмулятора в панели задач Windows появятся соответствующий значок и уведомление.
-2.	В Visual Studio щелкните **Построить решение** в меню **Построение**. 
+2.	В Visual Studio щелкните **Построить решение** в меню **Построение**.
 3.	В меню **Отладка** нажмите клавишу **F11** для пошагового запуска решений или клавишу **F5** для запуска решения от начала до конца.
 
 ## Дальнейшие действия
@@ -98,6 +98,7 @@
 Дополнительные сведения о хранилище Azure:
 
 * [Введение в службу хранилища Microsoft Azure](storage-introduction.md)
+* [Приступая к работе с обозревателем службы хранилища (предварительная версия)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md)
 * [Приступая к работе с хранилищем таблиц Azure с помощью .NET](storage-dotnet-how-to-use-tables.md)
 * [Приступая к работе с хранилищем очередей Azure с помощью .NET](storage-dotnet-how-to-use-queues.md)
@@ -110,4 +111,4 @@
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->
