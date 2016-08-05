@@ -3,7 +3,7 @@
    description="Узнайте о командах, которые можно использовать для автоматизации задач управления виртуальными машинами."
    services="virtual-machines-windows"
    documentationCenter="windows"
-   authors="singhkay"
+   authors="rothja"
    manager="timlt"
    editor=""
    tags="azure-service-management"/>
