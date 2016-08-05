@@ -199,7 +199,7 @@
 
 2. В окне мастера добавления узла на странице **Выбор метода развертывания** нажмите кнопку **Добавить узлы Azure**, а затем **Далее**.
 
-	![Add Azure Node][add\_node1\_1]
+	![Add Azure Node][add\_node1_1]
 
 3. На странице **Укажите новые узлы** выберите созданный ранее шаблон узла Azure (который по умолчанию называется **шаблоном узла Azure по умолчанию**). Затем укажите узлы **2** **мелких** узла и нажмите кнопку **Далее**.
 
@@ -347,4 +347,4 @@
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->
