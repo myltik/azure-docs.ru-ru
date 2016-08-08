@@ -108,7 +108,7 @@
 <!-- URLs. -->
 [руководстве по обеспечению непрерывности бизнеса на основе базы данных SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
-[[GitHub]]: https://github.com/
+[GitHub]: https://github.com/
 [системы управления версиями]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
 [с помощью Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [классическом портале Azure]: http://manage.windowsazure.com/

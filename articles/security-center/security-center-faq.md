@@ -124,9 +124,9 @@ Microsoft Security Response Center (MSRC) проводит выборочный 
 
 - Ubuntu версии 12.04, 14.04, 15.10, 16.04.
 - Debian версии 7, 8.
-- CentOS версии 6.*, 7.*.
-- Red Hat Enterprise Linux (RHEL) версии 6.*, 7.*.
-- SUSE Linux Enterprise Server (SLES) версии 11.*, 12.*.
+- CentOS версии 6.\*, 7.*.
+- Red Hat Enterprise Linux (RHEL) версии 6.\*, 7.*.
+- SUSE Linux Enterprise Server (SLES) версии 11.\*, 12.*.
 
 Также поддерживаются виртуальные машины, запущенные в облачной службе. Мониторинг выполняется только для облачных служб и рабочих ролей, запущенных в слотах рабочей среды. Дополнительные сведения об облачной службе см. в разделе [Обзор облачных служб](../cloud-services/cloud-services-choose-me.md).
 
