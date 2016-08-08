@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -44,7 +44,7 @@
 
 Также можно установить модуль PowerShell вручную:
 
-1. Скачайте последний выпуск [модуля для создания шаблона приложения логики](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
+1. Скачайте последний выпуск [модуля для создания шаблона приложения логики](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).
 1. Извлеките содержимое папки в папку модуля PowerShell (обычно это `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
 Чтобы модуль поддерживал любой маркер доступа клиента или подписки, рекомендуется использовать программу командной строки [ARMClient](https://github.com/projectkudu/ARMClient). В этой [записи блога](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) программа ARMClient рассматривается подробней.
@@ -85,4 +85,4 @@
 <!-- Image References -->
 [1]: ./media/app-service-logic-create-deploy-template/emptyReleaseDefinition.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

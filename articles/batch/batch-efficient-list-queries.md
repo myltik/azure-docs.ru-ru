@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Эффективные запросы списков в пакетной службе Azure | Microsoft Azure"
-	description="Повысьте эффективность, уменьшив объем возвращаемых данных при запросе сущностей пакетной службы Azure: пулов, заданий, задач и вычислительных узлов."
+	description="Сведения о повышении производительности за счет фильтрации запросов, а именно при запросе информации о сущностях пакетной службы: пулах, заданиях, задачах и вычислительных узлах."
 	services="batch"
 	documentationCenter=".net"
 	authors="mmacy"
@@ -13,34 +13,39 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="04/21/2016"
+	ms.date="07/25/2016"
 	ms.author="marsma" />
 
 # Эффективные запросы к пакетной службе Azure
 
-Узнайте больше о том, как повысить производительность приложения пакетной службы Azure, уменьшив объем данных, возвращаемых при запросе этой службы с помощью [пакета .NET][api_net] библиотеки.
+В этой статье вы узнаете, как повысить производительность приложения пакетной службы Azure, уменьшив объем данных, возвращаемых службой при запросе заданий, задач и вычислительных узлов с помощью библиотеки [.NET для пакетной службы][api_net].
 
-Пакетная служба Azure предлагает большие вычислительные возможности. В рабочей среде такие сущности, как задания, задачи и вычислительные узлы, могут исчисляться тысячами. Поэтому при получении сведений об этих элементах может создаваться большой объем данных, которые нужно передавать из службы в приложение по каждому запросу. Ограничение количества элементов и типов сведений, возвращаемых для каждого запроса, повышает скорость их обработки и, как следствие, производительность вашего приложения.
+Почти все приложения, использующие пакетную службу, должны выполнять определенный тип операций мониторинга или других операций, отправляющих запросы в пакетную службу (часто на регулярной основе). Например, чтобы определить, находятся ли в очереди задачи задания, необходимо получить данные о каждой задаче в задании. Чтобы определить состояние узлов в пуле, нужно получить данные о каждом из этих узлов. В этой статье объясняется, как выполнять такие запросы наиболее эффективно.
 
-Почти каждое приложение, использующее пакетную службу, выполняет определенный тип операций мониторинга или других операций, отправляющих запросы в пакетную службу (часто на регулярной основе). Например, чтобы определить емкость и состояние пула, необходимо запросить каждый узел в пуле, а для того, чтобы определить, какие задачи в задании все еще находятся в очереди, необходимо запросить каждую задачу в задании. В этой статье объясняется, как выполнять такие запросы наиболее эффективно.
+## Знакомство с DetailLevel
 
-Этот фрагмент кода API [пакетной службы для .NET][api_net] получает все задачи, связанные с заданием, а также *полный* набор их свойств:
+В рабочем приложении пакетной службы такие сущности, как задания, задачи и вычислительные узлы, могут исчисляться тысячами. Поэтому при получении сведений об этих элементах может создаваться большой объем данных, которые нужно передавать из службы в приложение по каждому запросу. Ограничение количества элементов и типов сведений, возвращаемых запросом, повышает скорость их обработки и, как следствие, производительность вашего приложения.
+
+Этот фрагмент кода API [пакетной службы для .NET][api_net] перечисляет *все* задачи, связанные с заданием, а также выводит *полный* набор их свойств:
 
 ```csharp
 // Get a collection of all of the tasks and all of their properties for job-001
-IPagedEnumerable<CloudTask> allTasks = batchClient.JobOperations.ListTasks("job-001");
+IPagedEnumerable<CloudTask> allTasks =
+	batchClient.JobOperations.ListTasks("job-001");
 ```
 
-Однако список можно получить и гораздо более эффективным способом. Для этого необходимо передать объект [ODATADetailLevel][odata] методу [JobOperations.ListTasks][net_list_tasks]. Этот фрагмент кода возвращает только идентификатор, командную строку и информационные свойства вычислительного узла только для завершенных задач:
+Однако можно выполнить более эффективный запрос списка, применив к запросу уровень детализации. Для этого необходимо передать объект [ODATADetailLevel][odata] методу [JobOperations.ListTasks][net_list_tasks]. Этот фрагмент кода возвращает только идентификатор, командную строку и информационные свойства вычислительного узла только для завершенных задач:
 
 ```csharp
-// Configure an ODATADetailLevel specifying a subset of tasks and their properties to return
+// Configure an ODATADetailLevel specifying a subset of tasks and
+// their properties to return
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 detailLevel.FilterClause = "state eq 'completed'";
 detailLevel.SelectClause = "id,commandLine,nodeInfo";
 
 // Supply the ODATADetailLevel to the ListTasks method
-IPagedEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks("job-001", detailLevel);
+IPagedEnumerable<CloudTask> completedTasks =
+	batchClient.JobOperations.ListTasks("job-001", detailLevel);
 ```
 
 Если, как в приведенном выше примере сценария, задание состоит из тысяч задач, результаты для второго запроса обычно возвращаются быстрее, чем для первого. [Ниже](#efficient-querying-in-batch-net) приведены дополнительные сведения об использовании ODATADetailLevel при получении списка элементов с помощью API пакетной службы для .NET.
@@ -48,9 +53,9 @@ IPagedEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks
 > [AZURE.IMPORTANT]
 Мы настоятельно рекомендуем *всегда* передавать объект ODATADetailLevel в вызовы API .NET для получения списков. Это обеспечит максимальную эффективность и производительность приложения. Задание уровня детализации помогает снизить время ответа пакетной службы, повысить эффективность использования сети и минимизировать использование памяти клиентскими приложениями.
 
-## Средства для эффективного выполнения запроса
+## Фильтрация, выборка и развертывание
 
-API [пакетной службы для .NET][api_net] и [пакетной службы для REST][api_rest] позволяют сократить количество возвращаемых в списке элементов и объем сведений, возвращаемых для каждого элемента. Для этого в запросе необходимо указать строки **filter**, **select** и **expand**.
+API [пакетной службы для .NET][api_net] и [для REST][api_rest] позволяют сократить количество возвращаемых в списке элементов и объем сведений, возвращаемых для каждого элемента. Для этого в запросе необходимо указать строки **filter**, **select** и **expand**.
 
 ### Фильтр
 Строка фильтра (filter) — это выражение, которое уменьшает число возвращаемых элементов. Например, можно вывести список только выполняющихся задач в задании или только вычислительных узлов, которые готовы к выполнению задач.
@@ -75,11 +80,12 @@ API [пакетной службы для .NET][api_net] и [пакетной с
 
 > [AZURE.NOTE] При создании какого-либо из трех типов строк запроса (filter, select или expand) необходимо убедиться, что имена свойств и регистр совпадают с аналогичными элементами REST API. Например, при работе с классом [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) в .NET необходимо указывать свойство **state**, а не **State**, несмотря на то, что в .NET используется свойство [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Сопоставление свойств API для .NET и REST см. в таблице ниже.
 
-### Спецификации строк фильтрации, выборки и развертывания
+### Правила строк фильтрации, выборки и развертывания
 
-- Свойства, задаваемые в строках фильтрации, выборки и развертывания, соответствуют именам свойств в API [пакетной службы для REST][api_rest] — даже при использовании [пакетной службы .NET][api_net].
+- Имена свойств в строках фильтрации, выборки и развертывания должны отобразиться в API [пакетной службы для REST][api_rest] даже при использовании [пакетной службы .NET][api_net].
 - Имена всех свойств чувствительны к регистру, но для значений свойств регистр значения не имеет.
 - Строки даты и времени могут иметь один из двух форматов и должны начинаться с `DateTime`.
+
   - Пример формата W3C-DTF: `creationTime gt DateTime'2011-05-08T08:49:37Z'`.
   - Пример формата RFC 1123: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`.
 - Строки с логическими выражениями должны иметь значение `true` или `false`.
@@ -96,26 +102,29 @@ API [пакетной службы для .NET][api_net] и [пакетной с
 Ниже приведен фрагмент кода, который с помощью API пакетной службы для .NET отправляет эффективный запрос пакетной службе для получения статистики по определенному набору пулов. В этом сценарии у пользователя пакетной службы есть как тестовые, так и рабочие пулы. Идентификаторы тестовых пулов имеют префикс "test", а рабочих пулов — "prod". В приведенном фрагменте *myBatchClient* является правильно инициализированным экземпляром класса [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient).
 
 ```csharp
-// First we need an ODATADetailLevel instance on which to set the expand, filter, and select
-// clause strings
+// First we need an ODATADetailLevel instance on which to set the filter, select,
+// and expand clause strings
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 
-// We want to pull only the "test" pools, so we limit the number of items returned by using a
-// FilterClause and specifying that the pool IDs must start with "test"
+// We want to pull only the "test" pools, so we limit the number of items returned
+// by using a FilterClause and specifying that the pool IDs must start with "test"
 detailLevel.FilterClause = "startswith(id, 'test')";
 
-// To further limit the data that crosses the wire, configure the SelectClause to limit the
-// properties that are returned on each CloudPool object to only CloudPool.Id and CloudPool.Statistics
+// To further limit the data that crosses the wire, configure the SelectClause to
+// limit the properties that are returned on each CloudPool object to only
+// CloudPool.Id and CloudPool.Statistics
 detailLevel.SelectClause = "id, stats";
 
-// Specify the ExpandClause so that the .NET API pulls the statistics for the CloudPools in a single
-// underlying REST API call. Note that we use the pool's REST API element name "stats" here as opposed
-// to "Statistics" as it appears in the .NET API (CloudPool.Statistics)
+// Specify the ExpandClause so that the .NET API pulls the statistics for the
+// CloudPools in a single underlying REST API call. Note that we use the pool's
+// REST API element name "stats" here as opposed to "Statistics" as it appears in
+// the .NET API (CloudPool.Statistics)
 detailLevel.ExpandClause = "stats";
 
-// Now get our collection of pools, minimizing the amount of data that is returned by specifying the
-// detail level that we configured above
-List<CloudPool> testPools = await myBatchClient.PoolOperations.ListPools(detailLevel).ToListAsync();
+// Now get our collection of pools, minimizing the amount of data that is returned
+// by specifying the detail level that we configured above
+List<CloudPool> testPools =
+	await myBatchClient.PoolOperations.ListPools(detailLevel).ToListAsync();
 ```
 
 > [AZURE.TIP] Экземпляр [ODATADetailLevel][odata] с предложениями Select и Expand также можно передать в соответствующие методы Get для ограничения объема возвращаемых данных, например в метод [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx).
@@ -127,7 +136,7 @@ List<CloudPool> testPools = await myBatchClient.PoolOperations.ListPools(detailL
 ### Сопоставления для строк фильтрации
 
 - **Методы списка .NET** — каждый из методов API для .NET в этом столбце принимает объект [ODATADetailLevel][odata] в качестве параметра.
-- **Запросы списка REST** — каждая страница API REST, связанная с этим столбцом, содержит таблицу со свойствами и операциями, разрешенными в строках *фильтрации*. Эти имена свойств и операции будут использоваться при создании строки [ODATADetailLevel.FilterClause][odata_filter].
+- **Запросы списка REST** — каждая страница REST API, связанная с этим столбцом, содержит таблицу со свойствами и операциями, разрешенными в строках *фильтрации*. Эти имена свойств и операции будут использоваться при создании строки [ODATADetailLevel.FilterClause][odata_filter].
 
 | Методы списка .NET | Запросы списка REST |
 |---|---|
@@ -145,7 +154,7 @@ List<CloudPool> testPools = await myBatchClient.PoolOperations.ListPools(detailL
 ### Сопоставления для строк выборки
 
 - **Типы пакетной службы для .NET** — типы API пакетной службы для .NET.
-- **Сущности API REST** — каждая страница в этом столбце содержит одну или несколько таблиц с именами свойств API REST для соответствующих типов. Эти имена свойств используются при создании строк *выборки*. Они также будут использоваться при создании строки [ODATADetailLevel.SelectClause][odata_select].
+- **Сущности REST API** — каждая страница в этом столбце содержит одну или несколько таблиц с именами свойств API REST для соответствующих типов. Эти имена свойств используются при создании строк *выборки*. Они также будут использоваться при создании строки [ODATADetailLevel.SelectClause][odata_select].
 
 | Типы пакетной службы для .NET | Сущности API REST |
 |---|---|
@@ -156,9 +165,9 @@ List<CloudPool> testPools = await myBatchClient.PoolOperations.ListPools(detailL
 | [CloudPool][net_pool] | [Получение информации о пуле][rest_get_pool] |
 | [CloudTask][net_task] | [Получение информации о задаче][rest_get_task] |
 
-### Пример: создание строки фильтрации
+## Пример. Создание строки фильтрации
 
-При создании строки фильтрации для [ODATADetailLevel.FilterClause][odata_filter] обратитесь к таблице, приведенной выше в разделе "Сопоставления для строк фильтрации", для поиска страницы документации по REST API, соответствующей операции списка, которую необходимо выполнить. В первой многострочной таблице на этой странице содержатся фильтруемые свойства и соответствующие поддерживаемые ими операторы. К примеру, вы хотите получить все задачи с ненулевым кодом возврата. В строке [Вывод задач, связанных с заданием][rest_list_tasks], указана строка с соответствующим параметром и допустимые операторы.
+При создании строки фильтрации для [ODATADetailLevel.FilterClause][odata_filter] обратитесь к таблице, приведенной выше в разделе "Сопоставления для строк фильтрации", для поиска страницы документации по REST API, соответствующей операции списка, которую необходимо выполнить. В первой многострочной таблице на этой странице содержатся фильтруемые свойства и соответствующие поддерживаемые ими операторы. К примеру, вы хотите получить все задачи с ненулевым кодом возврата. В строке [Вывод задач, связанных с заданием][rest_list_tasks] указана строка с соответствующим параметром и допустимые операторы.
 
 | Свойство | Разрешенные операции | Тип |
 | :--- | :--- | :--- |
@@ -168,7 +177,7 @@ List<CloudPool> testPools = await myBatchClient.PoolOperations.ListPools(detailL
 
 `(executionInfo/exitCode lt 0) or (executionInfo/exitCode gt 0)`
 
-### Пример: создание строки выборки
+## Пример. Создание строки выборки
 
 Для создания [ODATADetailLevel.SelectClause][odata_select] обратитесь к приведенной выше таблице в разделе "Сопоставления для строк выборки" и перейдите на страницу REST API, которая соответствует типу выводимой сущности. В первой многострочной таблице на этой странице содержатся выбираемые свойства и соответствующие поддерживаемые ими операторы. Например, если вы хотите получить только идентификатор и командную строку для каждой задачи в списке, эти строки вы найдете в соответствующей таблице [Получение информации о задаче][rest_get_task].
 
@@ -181,34 +190,66 @@ List<CloudPool> testPools = await myBatchClient.PoolOperations.ListPools(detailL
 
 `id, commandLine`
 
-## Дальнейшие действия
+## Примеры кода
 
 ### Пример кода с эффективными запросами списков
 
 Ознакомьтесь с примером проекта [EfficientListQueries][efficient_query_sample] на GitHub, чтобы узнать, как эффективные запросы на получение списков могут повлиять на производительность в приложении. Это консольное приложение C# создает и добавляет большое количество задач в задание. Затем оно выполняет несколько вызовов метода [JobOperations.ListTasks][net_list_tasks] и передает объекты [ODATADetailLevel][odata], настроенные с различными значениями свойств для изменения объема возвращаемых данных. Вывод приложения должен быть похож на приведенный ниже:
 
-		Adding 5000 tasks to job jobEffQuery...
-		5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+```
+Adding 5000 tasks to job jobEffQuery...
+5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
 
-		4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
-		0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
-		59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
-		5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
-		5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
-		5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
+4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
+0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
+59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
+5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
+5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
+5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
 
-		Sample complete, hit ENTER to continue...
+Sample complete, hit ENTER to continue...
+```
 
 Как показано в сведениях о затраченном времени, путем ограничения свойств и количества возвращаемых элементов можно значительно уменьшить время отклика на запрос. Этот и другие примеры проектов находятся в репозитории [azure-batch-samples][github_samples] на веб-сайте GitHub.
 
+### Библиотека BatchMetrics и пример кода
+
+Помимо примера кода EfficientListQueries, приведенного выше, можно использовать проект [BatchMetrics][batch_metrics], содержащийся в репозитории [azure-batch-samples][github_samples] на GitHub. Пример проекта BatchMetrics демонстрирует, как эффективно отслеживать ход выполнения задания пакетной службы Azure с помощью API пакетной службы.
+
+Пример [BatchMetrics][batch_metrics] включает в себя проект библиотеки классов .NET, который можно внедрить в собственные проекты, а также простую программу командной строки для проверки и демонстрации использования библиотеки.
+
+В примере приложения проекта демонстрируются следующие операции:
+
+1. Выбор определенных атрибутов для скачивания только необходимых свойств.
+2. Фильтрация времени смены состояния для скачивания изменений, отправленных с момента последнего запроса.
+
+Например, в библиотеке BatchMetrics используется приведенный ниже метод. Он возвращает объект ODATADetailLevel, указывающий, что для сущностей, к которым обращен запрос, нужно получить только свойства `id` и `state`. Он также указывает, что должны быть возвращены только те сущности, состояние которых изменилось с момента, указанного в значении параметра `DateTime`.
+
+```csharp
+internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
+{
+    return new ODATADetailLevel(
+        selectClause: "id, state",
+        filterClause: string.Format("stateTransitionTime gt DateTime'{0:o}'", time)
+    );
+}
+```
+
+## Дальнейшие действия
+
+### Параллельные задачи узла
+
+Еще одна статья, посвященная производительности приложения пакетной службы, — [Повышение эффективности вычислительных ресурсов в пакетной службе Azure благодаря параллельному выполнению задач на узлах](batch-parallel-node-tasks.md). Для эффективной обработки некоторых типов рабочих нагрузок можно применять параллельное выполнение задач на меньшем количестве более крупных вычислительных узлов. Дополнительные сведения о таком сценарии см. [здесь](batch-parallel-node-tasks.md#example-scenario).
+
 ### Форум по Пакетной службе
 
-[Форум по пакетной службе Azure][forum] на сайте MSDN — отличное место, где можно обсудить пакет и задать вопросы о службе. Изучайте полезные «прикрепленные» сообщения и задавайте вопросы, возникающие во время сборки пакетных решений.
+[Форум по пакетной службе Azure][forum] на сайте MSDN — отличное место, где можно обсудить пакетную службу и задать о ней вопросы. Изучайте полезные «прикрепленные» сообщения и задавайте вопросы, возникающие во время сборки пакетных решений.
 
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
 [forum]: https://social.msdn.microsoft.com/forums/azure/ru-RU/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
@@ -254,4 +295,4 @@ List<CloudPool> testPools = await myBatchClient.PoolOperations.ListPools(detailL
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0727_2016-->

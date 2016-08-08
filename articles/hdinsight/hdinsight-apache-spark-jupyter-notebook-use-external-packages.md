@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -35,7 +35,7 @@
 
 ## Использование внешних пакетов с записными книжками Jupyter 
 
-1. На начальной панели [портала Azure](https://portal.azure.com/) щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, вы можете перейти к кластеру, выбрав пункты **Просмотреть все** и **Кластеры HDInsight**.   
+1. На начальной панели [портала Azure](https://portal.azure.com/) щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, вы можете перейти к кластеру, выбрав пункты **Просмотреть все** и **Кластеры HDInsight**.
 
 2. В колонке кластера Spark щелкните **Быстрые ссылки**, затем в колонке **Панель мониторинга кластера** выберите **Jupyter Notebook**. При появлении запроса введите учетные данные администратора для кластера.
 
@@ -76,7 +76,7 @@
 		val df = sqlContext.read.format("com.databricks.spark.csv").
         option("header", "true").
         option("inferSchema", "true").
-        load("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 7. Затем можно запустить фрагменты кода, как показано ниже, чтобы просмотреть данные из таблицы данных, созданной на предыдущем шаге.
 
@@ -126,4 +126,4 @@
 
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

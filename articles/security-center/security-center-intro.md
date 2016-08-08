@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="07/21/2016"
    ms.author="terrylan"/>
 
 # Введение в Центр безопасности Azure
 
 Узнайте о Центре безопасности Azure, его основных возможностях и о том, как он работает.
 
-> [AZURE.NOTE] Сведения в этом документе относятся к предварительной версии Центра безопасности Azure. В документе приводится обзор службы с помощью примера развертывания.
+> [AZURE.NOTE] В документе приводится обзор службы с помощью примера развертывания.
 
 ## Что такое Центр безопасности Azure?
  Центр безопасности помогает вам выявлять и предотвращать угрозы, а также принимать ответные меры благодаря более полной информации о состоянии ресурсов Azure и контролю над их безопасностью. Она включает встроенные функции мониторинга безопасности и управления политиками для подписок Azure, помогает выявлять угрозы, которые в противном случае могли бы оказаться незамеченными, и взаимодействует с широким комплексом решений по обеспечению безопасности.
@@ -150,7 +150,7 @@
 - [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — последние новости и информация об обеспечении безопасности в Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.PNG
+[1]: ./media/security-center-intro/security-tile.png
 [2]: ./media/security-center-intro/security-center.png
 [3]: ./media/security-center-intro/security-policy.png
 [4]: ./media/security-center-intro/security-policy-blade.png
@@ -160,4 +160,4 @@
 [8]: ./media/security-center-intro/security-alert-detail.png
 [9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

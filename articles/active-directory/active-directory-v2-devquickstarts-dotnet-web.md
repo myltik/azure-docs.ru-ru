@@ -54,7 +54,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 -	Добавьте класс запуска OWIN в проект под названием `Startup.cs`. Щелкните проект правой кнопкой мыши и выберите **Добавить** > **Новый элемент** и найдите «OWIN». При запуске вашего приложения промежуточный слой OWIN вызовет метод `Configuration(...)`.
--	Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле. В методе `Configuration(...)` вызовите метод ConfgureAuth(...), чтобы настроить аутентификацию для веб-приложения.  
+-	Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле. В методе `Configuration(...)` вызовите метод ConfgureAuth(...), чтобы настроить аутентификацию для веб-приложения.
 
 ```C#
 [assembly: OwinStartup(typeof(Startup))]
@@ -68,7 +68,8 @@ namespace TodoList_WebApp
 			ConfigureAuth(app);
 		}
 	}
-}```
+}
+```
 
 -	Откройте файл `App_Start\Startup.Auth.cs` и реализуйте метод `ConfigureAuth(...)`. Параметры, указанные в `OpenIdConnectAuthenticationOptions`, будут служить координатами приложения для взаимодействия с Azure AD. Также будет необходимо настроить проверку подлинности для файлов Cookie — промежуточный слой OpenID Connect использует файлы cookie под обложками.
 
@@ -211,4 +212,4 @@ public ActionResult About()
 
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

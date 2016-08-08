@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="04/20/2016"
+	ms.date="07/22/2016"
 	ms.author="rasquill"/>
 
 # Использование машины Docker с драйвером Azure
@@ -130,4 +130,6 @@ d5b78f27b335        nginx               "nginx -g 'daemon off"   5 minutes ago  
 
 При желании вы можете попробовать воспользоваться [расширением виртуальных машин Docker](virtual-machines-linux-dockerextension.md) в Azure для выполнения этой же операции с помощью интерфейса командной строки Azure или шаблонов Azure Resource Manager.
 
-<!---HONumber=AcomDC_0427_2016-->
+Дополнительные примеры работы с Docker см. в статье [Работа с Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker), описывающей [демонстрационный проект](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные примеры из демонстрационного проекта HealthClinic.biz см. на странице [Примеры использования средств разработчика Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+
+<!---HONumber=AcomDC_0727_2016-->

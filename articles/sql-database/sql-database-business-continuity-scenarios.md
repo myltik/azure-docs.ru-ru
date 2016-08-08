@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="07/16/2016"
 	ms.author="carlrab"
    ms.workload="sqldb-bcdr"
 	ms.topic="article"
@@ -76,4 +76,4 @@
 - Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md).
 - Чтобы узнать об использовании создаваемых автоматически резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

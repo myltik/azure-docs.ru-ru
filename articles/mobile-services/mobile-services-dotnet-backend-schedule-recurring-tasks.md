@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="02/07/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Планирование повторяющихся заданий в мобильных службах
@@ -24,8 +24,8 @@
 
 
 > [AZURE.SELECTOR]
-- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
+- [Сервер .NET.](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Серверная служба JavaScript](mobile-services-schedule-recurring-tasks.md)
 
 В этой статье объясняется, как использовать функциональные возможности планировщика заданий на классическом портале Azure для создания кода серверного сценария, который выполняется на основе определенного расписания. В этом случае сценарий периодически проверяет удаленную службу (в данном случае Twitter) и сохраняет результаты в новой таблице. В число других периодических задач, которые могут быть запланированы, входят следующие:
 
@@ -91,7 +91,7 @@
 	        public DateTime Date { get; set; }
     	}
 
-4. Разверните папку Models, откройте файл контекста модели данных (под названием *имя\_службы*Context.cs) и добавьте следующее свойство, которое возвращает типизированный набор **DbSet**:
+4. Разверните папку Models, откройте файл контекста модели данных (с именем *имя\_службы*Context.cs) и добавьте следующее свойство, которое возвращает объект с типом **DbSet**:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -218,7 +218,7 @@
 		    }
 		}
 
-	В приведенном выше коде необходимо заменить строки _todolistService_ и _todolistContext_ на пространство имен и DbContext скачанного проекта, т. е. *mobile&#95;service&#95;name*Service и *mobile&#95;service&#95;name*Context соответственно.
+	В приведенном выше коде необходимо заменить строки _todolistService_ и _todolistContext_ на пространство имен и DbContext скачанного проекта, т. е. *mobile&#95;service&#95;name*Service и *mobile&#95;service&#95;name*Context соответственно.
 
 	В приведенном выше коде переопределяющий метод **ExecuteAsync** вызывает API запросов Твиттера с помощью сохраненных учетных данных для запроса последних твитов, содержащих хэш-тег `#mobileservices`. Повторяющиеся твиты и ответы исключаются из результатов еще до того, как они сохраняются в таблице.
 
@@ -305,4 +305,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Проект LINQ to Twitter CodePlex]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

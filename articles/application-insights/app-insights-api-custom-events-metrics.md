@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/11/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
 
 # API Application Insights для пользовательских событий и метрик 
@@ -240,7 +240,7 @@
     // ... process the request ...
 
     stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
+    telemetry.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
@@ -300,7 +300,21 @@
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-Ограничения по размеру `message` гораздо выше, чем ограничение для свойств. Вы можете выполнять поиск содержимого сообщения, но (в отличие от значений свойств) не можете фильтровать его.
+
+Вы можете выполнять поиск содержимого сообщения, но (в отличие от значений свойств) не можете фильтровать его.
+
+Ограничения по размеру `message` гораздо выше, чем ограничение для свойств. Преимуществом TrackTrace является возможность добавления в сообщения относительно длинных данных, например данных POST.
+
+
+Кроме того, вы можете настроить для сообщения уровень серьезности. Как и для других данных телеметрии, вы можете добавлять значения свойств, используемые для фильтрации или поиска различных наборов трассировки. Например:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+Так вы сможете отфильтровать в колонке [поиска][diagnostic] все сообщения с нужным уровнем серьезности, относящиеся к определенной базе данных.
 
 ## Отслеживание зависимостей
 
@@ -690,7 +704,7 @@
 
 Класс TelemetryClient включает свойство Context, содержащее несколько значений, которые отправляются вместе со всеми данными телеметрии. Как правило, их задают модули стандартной телеметрии, но их также можно задать самостоятельно. Например:
 
-    telemetryClient.Context.Operation.Name = "MyOperationName";
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 Если задать эти значения самостоятельно, мы советуем удалить соответствующую строку из файла [ApplicationInsights.config][config], чтобы не перепутать собственные значения и стандартные значения.
 
@@ -778,4 +792,4 @@
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # Рассылка push-уведомлений проверенным пользователям
@@ -101,4 +101,4 @@
 [Добавление push-уведомлений в приложение]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Добавление push-уведомлений в приложение мобильных служб]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

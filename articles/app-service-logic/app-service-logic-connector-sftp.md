@@ -8,7 +8,7 @@
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -24,6 +24,6 @@
 ## Дальнейшие действия    
 
 - [Узнайте больше о новом соединителе.](../connectors/connectors-create-api-sftp.md)
-- Ознакомьтесь с [полным списком](../connectors/apis-list.md) соединителей, работающих с новой схемой приложений логики версии 2015-08-01-preview.  
+- Ознакомьтесь с [полным списком](../connectors/apis-list.md) соединителей, работающих с новой схемой приложений логики версии 2015-08-01-preview.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

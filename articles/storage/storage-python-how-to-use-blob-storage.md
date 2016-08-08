@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-    ms.date="04/29/2016"
+    ms.date="07/26/2016"
 	ms.author="jehine"/>
 
 # Использование хранилища больших двоичных объектов Azure из Python
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Обзор
 
@@ -59,7 +59,7 @@
 
 ## Отправка BLOB-объекта в контейнер
 
-Чтобы создать BLOB-объект и передать данные, используйте метод **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** или **create\_blob\_from\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
+Чтобы создать блочный BLOB-объект и передать данные, используйте метод **create\_blob\_from\_path**, **create\_blob\_from\_stream**, **create\_blob\_from\_bytes** или **create\_blob\_from\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
 
 **create\_blob\_from\_path** передает содержимое файла из заданного пути, **create\_blob\_from\_stream** передает содержимое уже открытого файла или потока. **create\_blob\_from\_bytes** передает массив байтов, а **create\_blob\_from\_text** передает заданное текстовое значение в заданной кодировке (по умолчанию — UTF-8).
 
@@ -122,9 +122,9 @@
 - [Центр по разработке для Python](/develop/python/)
 - [API-интерфейс REST служб хранилища Azure](http://msdn.microsoft.com/library/azure/dd179355)
 - [Блог рабочей группы службы хранилища Azure]
-- [пакет SDK для службы хранилища Microsoft Azure для Python]
+- [Пакет SDK для службы хранилища Microsoft Azure для Python]
 
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

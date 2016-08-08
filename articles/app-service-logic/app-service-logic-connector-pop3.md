@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -65,8 +65,7 @@
 5.	Теперь можно использовать соединитель POP3 в потоке. Выберите триггер "Получение электронной почты" и укажите частоту и интервал. Можно использовать адрес электронной почты, извлеченный из триггера POP3, для других действий в потоке.
 		 
 
-	![][5]
-	![][6]
+	![][5] ![][6]
 
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. статью [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md)
@@ -86,4 +85,4 @@
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

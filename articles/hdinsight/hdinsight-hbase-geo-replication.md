@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/28/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Настройка георепликации HBase в HDInsight
@@ -248,7 +248,7 @@
 
 Образец файла данных был передан в открытый контейнер больших двоичных объектов Azure со следующим URL-адресом:
 
-		wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+		wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 Содержимое файла:
 
@@ -273,7 +273,7 @@
 
 4. передача данных:
 
-		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+		hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
 
@@ -314,4 +314,4 @@
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

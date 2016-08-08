@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="07/20/2016"
 	ms.author="markvi;liviodlc"/>
 
 #Указатель статей по управлению приложениями в Azure Active Directory
@@ -114,7 +114,7 @@ Azure AD Connect доступно для [всех выпусков Azure Active
 | :---: | --- |
 | Общие сведения о возможностях условного доступа, предлагаемых в Azure AD, Office 365 и Intune | [Управление рисками с помощью условного доступа](active-directory-conditional-access.md) |
 | Включение условного доступа для определенных типов ресурсов | [Предварительная версия Azure условного доступа для приложений SaaS](active-directory-conditional-access-azuread-connected-apps.md)<br /><br />[Политики условного доступа к службам Office 365 с устройств](active-directory-conditional-access-device-policies.md)<br /><br />[Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](active-directory-conditional-access-on-premises-setup.md)<br /><br />[Работа с условным доступом](active-directory-application-proxy-conditional-access.md) |
-| Регистрация устройств в Azure Active Directory для включения политики условного доступа на основе устройств | [Общие сведения о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8-1.md)<br />— [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
+| Регистрация устройств в Azure Active Directory для включения политики условного доступа на основе устройств | [Общие сведения о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)<br />— [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)<br />— [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md) |
 | Использование приложения Azure Authenticator версии для Android для политик, связанных с многофакторной проверкой подлинности | [Azure Authenticator для Android](active-directory-conditional-access-azure-authenticator-app.md) |
 
 Условный доступ — это функция [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -228,4 +228,4 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

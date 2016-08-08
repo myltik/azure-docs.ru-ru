@@ -9,7 +9,7 @@ editor=""
 tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
@@ -23,9 +23,9 @@ Project Online — это гибкое интернет-решение для у
 
 Соединитель ProjectOnline можно использовать из следующих компонентов:
 
-- [Приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
-- [PowerApps.](http://powerapps.microsoft.com)  
-- [Поток](http://flow.microsoft.com)  
+- [Приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+- [PowerApps.](http://powerapps.microsoft.com)
+- [Поток](http://flow.microsoft.com)
 
 >[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
@@ -524,4 +524,4 @@ Project Online — это гибкое интернет-решение для у
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

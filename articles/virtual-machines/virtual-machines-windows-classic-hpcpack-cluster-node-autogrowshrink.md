@@ -1,5 +1,5 @@
 <properties
- pageTitle="Автомасштабирование вычислительных ресурсов в кластере HPC | Microsoft Azure"
+ pageTitle="Автоматическое масштабирование узлов кластера пакета HPC | Microsoft Azure"
  description="Автоматическое увеличение и уменьшение количества вычислительных узлов кластера пакета HPC в Azure"
  services="virtual-machines-windows"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/14/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Автоматическое изменение размера ресурсов кластера пакета HPC в Azure в соответствии с рабочей нагрузкой кластера
@@ -21,9 +21,9 @@ ms.service="virtual-machines-windows"
 
 
 
-Если вы развертываете в кластере пакета HPC "расширительные" узлы Azure или создаете кластер пакета HPC на виртуальных машинах Azure, может потребоваться способ автоматического увеличения или уменьшения количества вычислительных ресурсов Azure (например, ядер) в соответствии с текущей рабочей нагрузкой заданий в кластере. Это позволяет более эффективно использовать ресурсы Azure и управлять затратами на них. Для этого настройте свойство кластера пакета HPC **AutoGrowShrink**. Можно также выполнить скрипт HPC PowerShell **AzureAutoGrowShrink.ps1**, устанавливаемый вместе с пакетом HPC.
+Если вы развертываете в кластере пакета HPC "расширительные" узлы Azure или создаете кластер пакета HPC на виртуальных машинах Azure, может потребоваться способ автоматического увеличения или уменьшения количества вычислительных ресурсов Azure (например, узлов или ядер) в соответствии с текущей рабочей нагрузкой заданий в кластере. Это позволяет более эффективно использовать ресурсы Azure и управлять затратами на них. Для этого настройте свойство кластера пакета HPC **AutoGrowShrink**. Можно также выполнить скрипт HPC PowerShell **AzureAutoGrowShrink.ps1**, устанавливаемый вместе с пакетом HPC.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]. Кроме того, в настоящее время можно автоматически увеличивать и уменьшать только вычислительные узлы пакета HPC под управлением ОС Windows Server.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Кроме того, в настоящее время можно автоматически увеличивать и уменьшать только вычислительные узлы пакета HPC под управлением ОС Windows Server.
 
 ## Настройка свойства кластера AutoGrowShrink
 
@@ -34,7 +34,7 @@ ms.service="virtual-machines-windows"
 
 * **Для кластера с головным узлом в Azure** — при использовании скрипта развертывания IaaS пакета HPC для создания кластера включите свойство кластера **AutoGrowShrink**, задав параметр AutoGrowShrink в файле конфигурации кластера. Дополнительные сведения см. в сопроводительной документации [файла загрузки скрипта](https://www.microsoft.com/download/details.aspx?id=44949).
 
-    Кроме того, настройте свойство кластера **AutoGrowShrink** после развертывания кластера с помощью команд HPC PowerShell, описанных в следующем разделе. Чтобы использовать для этого HPC PowerShell, сначала выполните следующие действия.
+    Кроме того, включите свойство кластера **AutoGrowShrink** после развертывания кластера с помощью команд HPC PowerShell, описанных в следующем разделе. Чтобы подготовиться к этому, выполните описанные ниже действия.
     1. Настройте сертификат управления Azure на головном узле и в подписке Azure. Для тестового развертывания можно использовать самозаверяющий сертификат Microsoft HPC Azure по умолчанию, который пакет HPC устанавливает на головном узле, и просто передать этот сертификат в подписку Azure. Сведения о параметрах и необходимых действиях см. в [руководстве библиотеки TechNet](https://technet.microsoft.com/library/gg481759.aspx).
     2. Выполните на головном узле команду **regedit**, перейдите к расположению HKLM\\SOFTWARE\\Micorsoft\\HPC\\IaasInfo и добавьте новое строковое значение. Для имени значения задайте значение "Отпечаток", а для данных значения — отпечаток сертификата, указанный в шаге 1.
 
@@ -179,4 +179,4 @@ AzureAutoGrowShrink.ps1
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

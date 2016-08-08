@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/21/2016" 
 	ms.author="andrl"/>
 
 
@@ -34,12 +34,12 @@
 **Предварительные требования**
 
 1. Для использования этих примеров NoSQL требуется учетная запись Azure.
-    - Вы можете [открыть учетную запись Azure бесплатно](https://azure.microsoft.com/pricing/free-trial/) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после использования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты не будет взиматься плата, если вы явно не измените параметры и не попросите снимать плату.
-   - Вы можете [активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) — каждый месяц ваша подписка Visual Studio предоставляет вам кредиты, которые можно использовать для оплаты служб Azure.
+    - Вы можете [открыть учетную запись Azure бесплатно](https://azure.microsoft.com/pricing/free-trial/) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после использования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты не будет взиматься плата, если вы явно не измените параметры и не попросите снимать плату.
+   - Вы можете [активировать преимущества подписчика Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) — каждый месяц ваша подписка Visual Studio предоставляет вам кредиты, которые можно использовать для оплаты служб Azure.
 2. Вам также понадобится [пакет NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
 
 > [AZURE.NOTE]
-Каждый приведенный здесь пример самодостаточный. Он устанавливается самостоятельно и выполняет необходимую очистку после удаления. Поэтому примеры выполняют несколько вызовов метода CreateDocumentCollectionAsync(). Каждый раз, когда это происходит, вам выставляется счет за 1 час использования каждого уровня производительности создаваемой коллекции.
+Каждый приведенный здесь пример самодостаточный. Он устанавливается самостоятельно и выполняет необходимую очистку после удаления. Поэтому примеры выполняют несколько вызовов метода CreateDocumentCollectionAsync(). Каждый раз, когда это происходит, вам выставляется счет за 1 час использования каждого уровня производительности создаваемой коллекции.
 
 ## Примеры баз данных
 
@@ -149,6 +149,8 @@
 [Выполнение запроса с использованием операторов string, math и array](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L527-L552) | [DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx)
 [Выполнение параметризованного SQL-запроса с использованием SqlQuerySpec](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L140-L174) | [DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx)<br>[SqlQuerySpec](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.sqlqueryspec.aspx)
 [Выполнение запроса с применением явного разбиения на страницы](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L554-L576) | [DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx)
+[Выполнение запроса к секционированным коллекциям в параллельном режиме](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L664-L734) | [DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx)
+[Выполнение запроса к секционированным коллекциям с использованием предложения Order By](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L737-L810) | [DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx)
 
 Дополнительные сведения о написании запросов см. в статье [SQL-запрос в DocumentDB](documentdb-sql-query.md).
 
@@ -179,4 +181,4 @@
 [Установка разрешений на коллекцию или документ](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) | [DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx)
 [Получение списка разрешений пользователя](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) | [DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

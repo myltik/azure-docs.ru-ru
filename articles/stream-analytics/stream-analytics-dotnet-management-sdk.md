@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="05/03/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 
@@ -32,7 +32,7 @@ Azure Stream Analytics является полностью управляемо�
 
 - Установите Visual Studio 2012 или 2013.
 - Скачанный и установленный [пакет SDK для Azure .NET](https://azure.microsoft.com/downloads/).
-- Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).  
+- Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 
 		# Log in to your Azure account
@@ -366,4 +366,4 @@ Azure Stream Analytics является полностью управляемо�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

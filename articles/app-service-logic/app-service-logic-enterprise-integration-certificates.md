@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -73,4 +73,4 @@
 - [Создание приложения логики, использующего возможности "бизнес-бизнес"](./app-service-logic-enterprise-integration-b2b.md)
 - [Узнайте больше о хранилище ключей Azure](../key-vault/key-vault-get-started.md "Сведения о хранилище ключей")
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

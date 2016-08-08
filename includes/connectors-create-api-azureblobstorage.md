@@ -1,27 +1,33 @@
 ### Предварительные требования
-
 - Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
-- [Учетная запись хранилища BLOB-объектов](../articles/storage/storage-create-storage-account.md), включая имя учетной записи хранения и ее ключ доступа. Эта информация указана в свойствах учетной записи хранения на портале Azure.
+- [Учетная запись хранилища BLOB-объектов](../articles/storage/storage-create-storage-account.md), включая имя учетной записи хранения и ее ключ доступа. Эта информация указана в свойствах учетной записи хранения на портале Azure. Узнайте больше о [службе хранилища Azure](../articles/storage/storage-introduction.md).
 
-Узнайте больше о [службе хранилища Azure](../articles/storage/storage-introduction.md).
+Прежде чем использовать в приложении логики свою учетную запись хранения BLOB-объектов Azure, подключитесь к этой учетной записи. Это можно легко сделать из приложения логики на портале Azure.
 
-<!--Archived
-Before you use your Azure Blob Storage account in a logic app, authorize the logic app to connect to your Azure Blob Storage account. Fortunately, you can do this easily from within your logic app on the Azure  portal.  
+Для подключения к своей учетной записи хранения BLOB-объектов Azure выполните следующие действия.
 
-Here are the steps to authorize your logic app to connect to your Azure Blob Storage account:  
+1. Создайте приложение логики. В конструкторе приложений логики добавьте триггер, а затем добавьте действие. В раскрывающемся списке выберите параметр **Показать API, управляемые Майкрософт**, а затем введите в поле поиска "blob". Выберите одно из действий.
 
-1. To create a connection to Azure Blob Storage, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Azure Blob Storage* in the search box. Select the trigger or action you'll like to use:  
+	![Этап создания подключения к хранилищу BLOB-объектов Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)
 
-	![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
+2. Если вы ранее не создавали подключения к службе хранилища Azure, появится запрос на ввод сведений о подключении.
 
-2. If you haven't created any connections to Azure Blob Storage before, you'll get prompted to provide your Azure Blob Storage credentials. These credentials will be used to authorize your Logic app to connect to, and access your Azure Blob Storage account's data:  
+	![Этап создания подключения к хранилищу BLOB-объектов Azure](./media/connectors-create-api-azureblobstorage/connection-details.png)
 
-	![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-2.png)  
+3. Введите сведения об учетной записи хранения. Свойства со звездочкой обязательные.
 
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
+	| Свойство | Сведения |
+|---|---|
+| Имя подключения* | Введите имя подключения |
+| Имя учетной записи хранения Azure* | Введите имя учетной записи хранения. Оно отображается в свойствах хранилища на портале Azure |
+| Ключ доступа к учетной записи хранилища BLOB-объектов Azure* | Введите ключ учетной записи хранения. Он отображается в свойствах хранилища на портале Azure |
 
-	![Azure Blob Storage connection creation step](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
+	Эти учетные данные используются для авторизации приложения логики, чтобы оно могло подключиться и получить доступ к данным.
 
--->
+4. Нажмите кнопку **Создать**.
 
-<!---HONumber=AcomDC_0720_2016-->
+5. Обратите внимание, что было создано подключение. Теперь перейдите к другим действиям в приложении логики.
+
+	![Этап создания подключения к хранилищу BLOB-объектов Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)
+
+<!---HONumber=AcomDC_0727_2016-->

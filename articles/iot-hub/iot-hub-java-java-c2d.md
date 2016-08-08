@@ -79,7 +79,7 @@
 
     > [AZURE.NOTE] Если в качестве транспорта вместо AMQP используется HTTP/1, то экземпляр **DeviceClient** редко проверяет наличие сообщений от центра IoT (реже чем каждые 25 минут). Дополнительную информацию о различиях между поддержкой AMQP и HTTP/1, а также регулировании центра IoT см. в [руководстве разработчика для центра IoT][IoT Hub Developer Guide - C2D].
 
-## Отправка сообщения, передаваемого из облака на устройство, из серверной части приложений
+## Отправка сообщения из облака на устройство
 
 В этом разделе вам предстоит создать консольное приложение Java, которое отправляет сообщения, передаваемые из облака на устройство, в приложение виртуального устройства. Вам потребуется идентификатор устройства, добавленного при выполнении инструкций руководства [Приступая к работе с центром IoT], и строка подключения к центру IoT. Ее можно получить на [портале Azure].
 
@@ -165,7 +165,7 @@
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][img-simulated-device]
+    ![Запуск приложения виртуального устройства][img-simulated-device]
 
 2. В командной строке в папке send-c2d-messages выполните следующую команду, чтобы отправить сообщение из облака на устройство и ожидать подтверждения доставки.
 
@@ -173,7 +173,7 @@
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][img-send-command]
+    ![Выполнение команды для отправки сообщения из облака на устройство][img-send-command]
 
 ## Дальнейшие действия
 
@@ -192,12 +192,7 @@
 [Приступая к работе с центром Azure IoT с использованием Java]: iot-hub-java-java-getstarted.md
 [Приступая к работе с центром IoT]: iot-hub-java-java-getstarted.md
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
-[IoT Hub Guidance]: iot-hub-guidance.md
 [руководстве разработчика по центру IoT]: iot-hub-devguide.md
-[Supported device platforms and languages]: iot-hub-supported-devices.md
 [центре разработчика для Azure IoT]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
@@ -205,4 +200,4 @@
 [портале Azure]: https://portal.azure.com
 [документации по Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

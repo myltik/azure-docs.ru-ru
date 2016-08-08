@@ -13,18 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="07/20/2016"
 	ms.author="ashwink"/>
 
 # Примеры команд для межплатформенного интерфейса командной строки Azure Insights
 
-В этой статье приведены примеры команд для работы с функциями мониторинга Azure Insights. Azure Insights позволяет выполнять автомасштабирование облачных служб, виртуальных машин и веб-приложений, отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии.
+В этой статье приведены примеры команд для работы с функциями мониторинга Azure Insights. Azure Insights позволяет выполнять автоматическое масштабирование облачных служб, виртуальных машин и веб-приложений, отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии.
 
->[AZURE.NOTE] Некоторые из последних исправлений для Azure Insights CLI еще не завершены. По этой причине некоторые новые возможности еще не доступны в текущей версии Azure CLI. В то же время вы можете использовать последнюю версию Azure Insights CLI, которая включает в себя исправления. Для этого скачайте последний архив TAR Azure XPLAT CLI из ветви разработки [отсюда](http://github.com/Azure/azure-xplat-cli/archive/dev.tar.gz) и следуйте инструкциям в [репозитории кроссплатформенной командной строки Microsoft Azure](https://github.com/Azure/azure-xplat-cli#installation-from-a-particular-branch-of-this-repository), чтобы установить этот компонент. В ближайшее время в обновление Azure Insights будут добавлены исправления для Azure CLI. Когда изменения будут доступны в главной ветви Azure CLI, мы обновим этот документ.
 
 ## Предварительные требования
 
-Если вы еще не установили Azure CLI, обратитесь к разделу [Установка Azure CLI](../xplat-cli-install.md). Если вы не знакомы с Azure CLI, прочтите о нем подробнее в разделе [Использование Azure CLI для Mac, Linux и Windows с диспетчером ресурсов Azure](../xplat-cli-azure-resource-manager.md).
+Если вы еще не установили интерфейс командной строки Azure, обратитесь к разделу [Установка интерфейса командной строки Azure](../xplat-cli-install.md). Если вы не знакомы с интерфейсом командной строки Azure, прочтите о нем подробнее в разделе [Использование интерфейса командной строки Azure для Mac, Linux и Windows с помощью Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
 
 В Windows установите npm с [веб-сайта Node.js](https://nodejs.org/). После завершения установки, запустив CMD.exe с привилегиями администратора, выполните следующую команду из папки, в которой установлена npm:
@@ -221,4 +220,4 @@ node bin\azure insights autoscale setting list montest2 -n setting2
 node bin\azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

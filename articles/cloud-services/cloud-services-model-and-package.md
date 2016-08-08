@@ -249,7 +249,6 @@ Azure разрешает только одну точку входа для ве
 
 Я создаю пакет облачной службы и я хочу выполнить следующие действия.
 
-* [Настройка локальных ресурсов хранилища](cloud-services-configure-local-storage-resources.md)
 * [Настроить удаленный рабочий стол для экземпляра облачной службы][remotedesktop]
 * [Развернуть проект облачной службы][deploy]
 
@@ -267,4 +266,4 @@ Azure разрешает только одну точку входа для ве
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

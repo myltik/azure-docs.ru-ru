@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="04/18/2016"
+ ms.date="07/22/2016"
  ms.author="danlep"/>
 
 # Управление числом и доступностью вычислительных узлов в кластере пакета HPC в Azure
@@ -179,4 +179,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * Если вам требуется возможность автоматического увеличения или уменьшения числа узлов кластера в соответствии с текущей рабочей нагрузкой заданий и задач в кластере, см. статью [Автоматическое масштабирование вычислительных ресурсов Azure в кластере пакета HPC согласно рабочей нагрузке кластера](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

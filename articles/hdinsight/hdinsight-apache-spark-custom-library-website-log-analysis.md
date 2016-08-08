@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 # Анализ журналов веб-сайтов с помощью пользовательской библиотеки и кластера Apache Spark в HDInsight на платформе Linux
@@ -36,7 +36,7 @@
 
 После сохранения данных в виде таблицы Hive можно переходить к следующему разделу и подключится к таблице Hive с помощью средств бизнес-аналитики, таких как Power BI и Tableau.
 
-1. На начальной панели [портала Azure](https://portal.azure.com/) щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, вы можете перейти к кластеру, выбрав пункты **Просмотреть все** и **Кластеры HDInsight**.   
+1. На начальной панели [портала Azure](https://portal.azure.com/) щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, вы можете перейти к кластеру, выбрав пункты **Просмотреть все** и **Кластеры HDInsight**.
 
 2. В колонке кластера Spark щелкните **Быстрые ссылки**, затем в колонке **Панель мониторинга кластера** выберите **Jupyter Notebook**. При появлении запроса введите учетные данные администратора для кластера.
 
@@ -62,7 +62,7 @@
 5. Создайте RDD, используя пример данных журнала, уже доступных в кластере. Доступ к данным в связанной с кластером учетной записи хранения по умолчанию вы можете получить с помощью файла **\\HdiSamples\\HdiSamples\\WebsiteLogSampleData\\SampleLog\\909f2b.log**.
 
 
-		logs = sc.textFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
+		logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
 
 
 6. Извлеките пример набора журналов и убедитесь в том, что описанный выше шаг успешно выполнен.
@@ -88,7 +88,7 @@
 	Однако в `PYTHONPATH` эта библиотека не входит, поэтому использовать ее с помощью такого оператора импорта, как `import iislogparser`, нельзя. Чтобы использовать эту библиотеку, необходимо распространить ее на все рабочие узлы. Выполните следующий фрагмент кода.
 
 
-		sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
+		sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
 9. `iislogparser` предоставляет функцию `parse_log_line`, которая возвращает `None`, если строка журнала является строкой заголовка, или экземпляр класса `LogLine` при обнаружении строки журнала. Класс `LogLine` позволяет извлечь только строки журнала из RDD:
@@ -119,7 +119,7 @@
 		numLines = logLines.count()
 		numErrors = errors.count()
 		print 'There are', numErrors, 'errors and', numLines, 'log entries'
-		errors.map(lambda p: str(p)).saveAsTextFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
+		errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
 
 	Вы должны увидеть подобные выходные данные:
 
@@ -252,4 +252,4 @@
 
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

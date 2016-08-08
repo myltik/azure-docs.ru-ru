@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -47,4 +47,4 @@ XPath|string|Путь запроса внутри XML.
 <!-- Links -->
 [Создайте новое приложение логики]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

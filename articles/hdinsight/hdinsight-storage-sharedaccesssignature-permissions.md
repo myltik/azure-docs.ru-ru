@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/05/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Использование подписанных URL-адресов хранилища Azure для ограничения доступа к данным с помощью HDInsight
@@ -226,25 +226,25 @@ HDInsight использует для хранения данных хранил
 
 1. Когда появится запрос, введите следующую команду: Замените __SASCONTAINER__ на имя контейнера, созданного для учетной записи хранения SAS. Замените __SASACCOUNTNAME__ на имя учетной записи хранения, используемой для SAS:
 
-        hdfs dfs -ls wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+        hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     
     Появится список содержимого контейнера, который должен содержать файл, загруженный при создании контейнера и SAS.
     
 2. Проверьте, можете ли вы прочитать содержимое файла, выполнив следующую команду: Замените __SASCONTAINER__ и __SASACCOUNTNAME__, как в предыдущем действии. Замените __FILENAME__ на имя файла, отображенное в предыдущей команде:
 
-        hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
+        hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME
         
     На экране появится содержимое файла.
     
 3. Загрузите файл в локальную файловую систему, выполнив следующую команду:
 
-        hdfs dfs -get wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
+        hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/FILENAME testfile.txt
     
     Файл будет загружен на локальный компьютер с именем __testfile.txt__.
 
 4. Передайте локальный файл в новый файл с именем __testupload.txt__ в хранилище SAS, выполнив следующую команду:
 
-        hdfs dfs -put testfile.txt wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+        hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
     
     Должно появиться сообщение следующего вида:
     
@@ -252,7 +252,7 @@ HDInsight использует для хранения данных хранил
         
     Эта ошибка возникает из-за того, что расположение хранилища доступно только для чтения и включения в списки. Разместите данные в хранилище по умолчанию доступного для записи кластера, выполнив следующую команду:
     
-        hdfs dfs -put testfile.txt wasb:///testupload.txt
+        hdfs dfs -put testfile.txt wasbs:///testupload.txt
         
     На этот раз операция должна завершиться успешно.
     
@@ -290,4 +290,4 @@ __Решение__. Используйте пароль, отвечающий с
 
 [powershell]: ../powershell-install-configure.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

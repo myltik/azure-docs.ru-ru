@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
+	ms.date="07/25/2016"
 	ms.author="larryfr"/>
 
 #Использование Sqoop с Hadoop в HDInsight (SSH)
@@ -106,9 +106,9 @@
 
 4. Для экспорта данных из **hivesampletable** в таблицу **mobiledata** используйте следующую команду:
 
-        sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
+        sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasbs:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Она дает Sqoop указание на подключение к базе данных SQL, базе данных **sqooptest** и экспорт данных из **wasb:///hive/warehouse/hivesampletable** (физические файлы для *hivesampletable*) в таблицу **mobiledata**.
+    Она дает Sqoop указание на подключение к базе данных SQL, базе данных **sqooptest** и экспорт данных из **wasbs:///hive/warehouse/hivesampletable** (физические файлы для *hivesampletable*) в таблицу **mobiledata**.
 
 5. После выполнения команды используйте следующую команду для подключения к базе данных с помощью TSQL:
 
@@ -123,15 +123,15 @@
 
 ##Импорт Sqoop
 
-1. Для импорта данных из таблицы **mobiledata** базы данных SQL в каталог **wasb:///tutorials/usesqoop/importeddata** в HDInsight используйте следующую команду:
+1. Для импорта данных из таблицы **mobiledata** базы данных SQL в каталог **wasbs:///tutorials/usesqoop/importeddata** в HDInsight используйте следующую команду:
 
-        sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+        sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
     В импортированных данных будут содержаться поля, разделенные символом табуляции, а строки будут завершаться символом новой строки.
 
 2. После завершения импорта используйте следующую команду для вывода списка данных в новом каталоге:
 
-        hadoop fs -text wasb:///tutorials/usesqoop/importeddata/part-m-00000
+        hadoop fs -text wasbs:///tutorials/usesqoop/importeddata/part-m-00000
 
 ##Использование SQL Server
 
@@ -170,7 +170,7 @@ Sqoop можно также использовать для импорта и э
 
 * При подключении к SQL Server из HDInsight может потребоваться IP-адрес сервера SQL Server, если не настроена служба доменных имен (DNS) для разрешения имен в виртуальной сети Azure. Например:
 
-        sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
+        sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasbs:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
 ##Ограничения
 
@@ -206,4 +206,4 @@ Sqoop можно также использовать для импорта и э
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

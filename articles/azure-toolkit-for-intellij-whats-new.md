@@ -71,6 +71,6 @@
 
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 
-[Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

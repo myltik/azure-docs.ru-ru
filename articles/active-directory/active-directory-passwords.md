@@ -106,7 +106,7 @@
 | Как разрешить пользователям разблокировать учетные записи AD без сброса пароля? | [Настройка: включение для пользователей возможности разблокировать учетные записи AD без сброса пароля](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | Как включить уведомления о сбросе пароля для пользователей? | [Настройка: уведомление пользователей о сбросе паролей](active-directory-passwords-customize.md#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | Как включить уведомления о сбросе пароля для администраторов? | [Настройка: уведомление других администраторов о сбросе пароля администратора](active-directory-passwords-customize.md#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Как настроить оформление интерфейса сброса пароля? | [Настройка: название организации, фирменная символика и эмблемы](active-directory-passwords-customize.md#password-managment-look-and-feel) |
+| Как настроить оформление интерфейса сброса пароля? | [Настройка: название организации, фирменная символика и эмблемы](active-directory-passwords-customize.md#password-management-look-and-feel) |
 
 
 ##Настройка использования сброса паролей пользователями
@@ -252,4 +252,4 @@
 * [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
 * [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

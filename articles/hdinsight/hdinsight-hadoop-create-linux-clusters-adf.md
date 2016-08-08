@@ -24,7 +24,7 @@
 [Фабрика данных Azure](../data-factory/data-factory-introduction.md) представляет собой облачную службу интеграции информации, которая организует и автоматизирует перемещение и преобразование данных. В этой статье вы узнаете, как создать [связанную службу Azure HDInsight по запросу](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) с помощью фабрики данных Azure и использовать кластер для выполнения задания Hive. Ниже приведена последовательность действий верхнего уровня.
 
 1. Создание кластера HDInsight по запросу.
-2. Запуск задания Hive для чтения необработанных данных веб-журнала из исходной учетной записи хранения BLOB-объектов, преобразования данных и записи выходных данных в целевую учетную запись хранения BLOB-объектов. 
+2. Запуск задания Hive для чтения необработанных данных веб-журнала из исходной учетной записи хранения BLOB-объектов, преобразования данных и записи выходных данных в целевую учетную запись хранения BLOB-объектов.
 3. Удаление кластера на основе параметра срока жизни.
 
 Действие Hive, определенное в конвейере фабрики данных, вызывает предварительно определенный сценарий HiveQL. Сценарий создает внешнюю таблицу, которая ссылается на необработанные данные веб-журнала в хранилище BLOB-объектов Azure, а затем разбивает необработанные данные по годам и месяцам.
@@ -47,14 +47,14 @@
 
 - Счета за кластеры HDInsight выставляются пропорционально по минутам вне зависимости от того, пользовались вы кластером или нет. При использовании фабрики данных кластеры создаются по запросу. Кластеры автоматически удаляются по завершении задания. Поэтому вы платите только за время выполнения задания и непродолжительное время простоя (время жизни).
 - Можно создать рабочий процесс с помощью конвейера фабрики данных.
-- Можно запланировать выполнение рекурсивных заданий.  
+- Можно запланировать выполнение рекурсивных заданий.
 
 ##Предварительные требования:
 
 Прежде чем следовать указаниям в этой статье, необходимо подготовить следующее:
 
 - [Подписка Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Azure CLI или Azure PowerShell. 
+- Azure CLI или Azure PowerShell.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
@@ -181,7 +181,7 @@
 
 1. Выполните вход на [портал Azure](https://portal.azure.com).
 2. Щелкните **Группы ресурсов** на левой панели.
-3. Дважды щелкните имя группы ресурсов, созданной в сценарии CLI или PowerShell. Если отображается слишком много групп ресурсов, используйте фильтр. 
+3. Дважды щелкните имя группы ресурсов, созданной в сценарии CLI или PowerShell. Если отображается слишком много групп ресурсов, используйте фильтр.
 4. В элементе **Ресурсы** должен отображаться один ресурс, если только группа ресурсов не является общей для других проектов. Это учетная запись хранения с именем, указанным ранее. Щелкните имя учетной записи хранения.
 5. Щелкните элемент **BLOB-объекты**.
 6. Щелкните контейнер **adfgetstarted**. Вы увидите две папки — **input data** и **script**.
@@ -293,8 +293,8 @@
                     "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
                     "scriptLinkedService": "[variables('storageLinkedServiceName')]",
                     "defines": {
-                        "inputtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
-                        "partitionedtable": "[concat('wasb://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
+                        "inputtable": "[concat('wasbs://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/inputdata')]",
+                        "partitionedtable": "[concat('wasbs://adfgetstarted@', parameters('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
                     }
                 },
                 "inputs": [
@@ -320,9 +320,9 @@
     
 **Создание фабрики данных**
 
-1. Щелкните следующее изображение, чтобы войти в Azure и открыть шаблон ARM на портале Azure. Шаблон находится по адресу https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. 
+1. Щелкните следующее изображение, чтобы войти в Azure и открыть шаблон ARM на портале Azure. Шаблон находится по адресу https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Введите значения для **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** и **STORAGEACCOUNTKEY** для учетной записи, созданной в последнем разделе, и нажмите кнопку **ОК**. Имя фабрики данных должно быть глобально уникальным.
 3. В разделе **Группа ресурсов** выберите ту же группу ресурсов, которая использовалась в последнем разделе.
@@ -342,12 +342,12 @@
 
 1. Для проверки содержимого контейнера adfgetstarted используйте процедуру из последнего сеанса. Кроме контейнера **adfgetsarted**, существует два новых контейнера.
 
-    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx — это контейнер по умолчанию для кластера HDInsight. Имя контейнера по умолчанию соответствует шаблону "adf>yourdatafactoryname>-linkedservicename-datetimestamp". 
+    - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx — это контейнер по умолчанию для кластера HDInsight. Имя контейнера по умолчанию соответствует шаблону "adf>yourdatafactoryname>-linkedservicename-datetimestamp".
     - adfjobs — это контейнер для журналов заданий ADF.
     
-    Выходные данные фабрики данных хранятся в afgetstarted, как было настроено в шаблоне ARM. 
+    Выходные данные фабрики данных хранятся в afgetstarted, как было настроено в шаблоне ARM.
 2. Щелкните **adfgetstarted**.
-3. Дважды щелкните **partitioneddata**. Вы увидите папку **year=2014**, так как все веб-журналы датированы 2014 годом. 
+3. Дважды щелкните **partitioneddata**. Вы увидите папку **year=2014**, так как все веб-журналы датированы 2014 годом.
 
     ![Фабрика данных Azure — выходные данные конвейера действия hive в HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
 
@@ -438,4 +438,4 @@
 - [Документация по HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Документация по фабрике данных](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

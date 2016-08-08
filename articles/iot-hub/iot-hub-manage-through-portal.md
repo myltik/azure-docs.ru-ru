@@ -170,6 +170,7 @@
 - [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
 - [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
 - [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Все аспекты безопасности решения IoT][lnk-securing]
 
 
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
@@ -193,5 +194,6 @@
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

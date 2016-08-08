@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="07/26/2016"
 	ms.author="larryfr"/>
 
 # Разработка программ MapReduce на Java для Hadoop в HDInsight на платформе Linux
@@ -248,13 +248,13 @@
 
 2. В сеансе SSH используйте следующую команду для запуска приложения MapReduce:
 
-		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
+		yarn jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/wordcountout
 
-	Она будет использовать приложение WordCount MapReduce, чтобы подсчитать слова в файле davinci.txt и сохранить результаты в \_\___wasb:///example/data/wordcountout__. Файлы ввода и вывода хранятся в хранилище кластера по умолчанию.
+	Она будет использовать приложение WordCount MapReduce, чтобы подсчитать слова в файле davinci.txt и сохранить результаты в \_\_wasbs:///example/data/wordcountout__. Файлы ввода и вывода хранятся в хранилище кластера по умолчанию.
 
 3. После завершения задания просмотрите результаты с помощью следующей команды.
 
-		hdfs dfs -cat wasb:///example/data/wordcountout/*
+		hdfs dfs -cat wasbs:///example/data/wordcountout/*
 
 	Должен появиться список слов и чисел со значениями, похожими на приведенные ниже:
 
@@ -288,4 +288,4 @@
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

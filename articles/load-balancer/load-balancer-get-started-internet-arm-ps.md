@@ -164,7 +164,7 @@
 	$vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 	$backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 
 
-### Шаг 2.
+### Шаг 2
 
 Создайте сетевую карту *lb-nic1-be* и сопоставьте ее с первым правилом NAT, а также с первым (и единственным) пулом внутренних адресов.
 	
@@ -308,4 +308,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/26/2016"
 	ms.author="emgerner"/>
 
 
 # Использование табличного хранилища из Python
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Обзор
 
@@ -144,9 +144,9 @@
 - [Центр по разработке для Python](/develop/python/)
 - [API-интерфейс REST служб хранилища Azure](http://msdn.microsoft.com/library/azure/dd179355)
 - [Блог рабочей группы службы хранилища Azure]
-- [пакет SDK для службы хранилища Microsoft Azure для Python]
+- [Пакет SDK для службы хранилища Microsoft Azure для Python]
 
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

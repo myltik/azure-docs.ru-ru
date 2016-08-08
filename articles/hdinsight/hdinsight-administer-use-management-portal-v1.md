@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью классического портала Azure
@@ -102,9 +102,7 @@ HDInsight работает со множеством компонентов Hado
 
 > [AZURE.NOTE] Можно также включить удаленный рабочий стол в кластере с помощью пакета SDK для HDInsight .NET. Используйте метод **EnableRdp** в клиентском объекте HDInsight следующим образом: **client.EnableRdp(имя\_кластера, расположение, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Аналогично, чтобы отключить удаленный рабочий стол в кластере, можно использовать **client.DisableRdp(имя\_кластера, расположение)**. Дополнительные сведения об этих методах см. в разделе [Справочник по пакету SDK для HDInsight .NET](http://go.microsoft.com/fwlink/?LinkId=529017). Это применимо только для кластеров HDInsight под управлением Windows.
 
-
-
-> [AZURE.NOTE] После включения RDP для кластера прежде чем подключаться к кластеру, вам необходимо обновить страницу.
+> После включения RDP для кластера прежде чем подключаться к кластеру, вам необходимо обновить страницу.
 
 **Подключение к кластеру с помощью RDP**
 
@@ -201,4 +199,4 @@ HDInsight работает со множеством компонентов Hado
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

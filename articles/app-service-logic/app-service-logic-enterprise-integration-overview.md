@@ -8,7 +8,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -61,4 +61,4 @@
 - [Проверка сообщений XML](./app-service-logic-enterprise-integration-xml.md "Узнайте, как проверять сообщения XML с помощью приложений логики.")
 - [Преобразование XML-файла](./app-service-logic-enterprise-integration-transform.md "Узнайте о картах интеграции Enterprise.")
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

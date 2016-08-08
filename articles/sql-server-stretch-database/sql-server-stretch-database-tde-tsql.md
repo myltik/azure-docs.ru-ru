@@ -16,7 +16,7 @@
    ms.date="06/14/2016"
    ms.author="douglaslMS"/>
 
-# Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure
+# Включение прозрачного шифрования данных (TDE) для базы данных Stretch в Azure (Transact-SQL)
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-server-stretch-database-encryption-tde.md)
 - [TSQL](sql-server-stretch-database-encryption-tde-tsql.md)
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

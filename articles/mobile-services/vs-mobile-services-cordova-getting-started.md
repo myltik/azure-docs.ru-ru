@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="07/21/2016"
 	ms.author="mlearned"/>
 
 # Приступая к работе с мобильными службами (проекты Cordova)
@@ -69,7 +69,7 @@
             items = results.slice();
         });
 
-Дополнительные примеры запросов см. в разделе, посвященному объекту [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
+Дополнительные примеры запросов см. в разделе, посвященному объекту [query](https://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 ##Обновление элемента таблицы
 
@@ -88,6 +88,4 @@
         items.splice(items.indexOf(todoItem), 1);
     });
 
-[Дополнительные сведения о мобильных службах](https://azure.microsoft.com/documentation/services/mobile-services/)
-
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

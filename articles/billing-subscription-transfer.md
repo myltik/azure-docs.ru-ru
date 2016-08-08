@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="07/12/2016"
+   ms.date="07/21/2016"
    ms.author="genli"/>
 
 # Передача подписки Azure
@@ -131,4 +131,4 @@
 4. Обновите оповещения о выставлении счетов для этой подписки в [центре учетных записей Azure](https://account.windowsazure.com/Subscriptions) [Подробнее](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Если вы работаете с партнером, рекомендуется обновить ИД партнера для этой подписки. Это можно сделать в [центре учетных записей Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Список учебников по интеграции приложений SaaS с Azure AD | Microsoft Azure"
+    pageTitle="Список учебников по интеграции приложений SaaS с Azure AD | Microsoft Azure"
     description="Учебники по настройке единого входа Azure Active Directory для различных сторонних приложений SaaS."
     services="active-directory"
     documentationCenter=""
@@ -13,16 +13,17 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="07/19/2016"
+    ms.date="07/22/2016"
     ms.author="markvi"/>
 
 #Список учебников по интеграции приложений SaaS с Azure Active Directory
 
-Чтобы помочь вам интегрировать все облачные (SaaS) приложения с Azure Active Directory, мы разработали коллекцию учебников. В этих руководствах описаны все необходимые этапы настройки.
+Чтобы помочь вам интегрировать все облачные [(SaaS)](https://azure.microsoft.com/overview/what-is-saas/) приложения с Azure Active Directory, мы разработали коллекцию учебников. В этих руководствах описаны все необходимые этапы настройки.
 
-Полный список предварительно интегрированных в Azure AD приложений SaaS см. в разделе [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Полный список предварительно интегрированных в Azure AD приложений SaaS см. в разделе [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ##Список учебников
+
 
 | Логотип| Имя приложения |
 | --- | --- |
@@ -110,6 +111,7 @@
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Halogen_Software.png)| [Halogen Software](https://go.microsoft.com/fwLink/?LinkID=530241&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Heroku.png)| [Heroku](https://go.microsoft.com/fwLink/?LinkID=733446&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_HighTail.png)| [Hightail](http://go.microsoft.com/fwlink/?LinkId=733463&clcid=0x409)|
+| ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_HireVue.png)| [HireVue](https://go.microsoft.com/fwLink/?LinkID=807990&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_HPESaaS.png)| [HPE SaaS](https://go.microsoft.com/fwLink/?LinkID=708663&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_HR2day.png)| [HR2day by Merces](https://go.microsoft.com/fwLink/?LinkID=708684&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Huddle.png)| [Huddle](https://go.microsoft.com/fwLink/?LinkID=403227&clcid=0x409)|
@@ -251,11 +253,9 @@
 
 
 
-
-
 ##Связанные статьи
 
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 - [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->
