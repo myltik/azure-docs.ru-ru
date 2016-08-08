@@ -12,8 +12,8 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-   ms.workload="sqldb-bcdr"
-    ms.date="06/14/2016"
+   ms.workload="NA"
+    ms.date="07/14/2016"
     ms.author="sstein"/>
 
 # Настройка георепликации базы данных SQL Azure с помощью PowerShell
@@ -146,6 +146,6 @@
 ## Дальнейшие действия
 
 - Чтобы больше узнать об активной георепликации, ознакомьтесь с разделом [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
-- Чтобы изучить сценарии проектирования и восстановления непрерывности бизнес-процессов, ознакомьтесь со [сценариями обеспечения непрерывности](sql-database-business-continuity-scenarios.md).
+- Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

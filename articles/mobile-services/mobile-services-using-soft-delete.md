@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Использование удаления с возможностью восстановления в мобильных службах
@@ -165,4 +165,4 @@
 [Автономная синхронизация данных для мобильных служб]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [классическом портале Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0727_2016-->

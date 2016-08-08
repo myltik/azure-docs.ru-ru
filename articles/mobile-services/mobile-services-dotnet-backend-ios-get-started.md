@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
@@ -101,4 +101,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Серверная версия JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

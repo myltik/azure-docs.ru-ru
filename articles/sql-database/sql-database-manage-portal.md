@@ -35,7 +35,7 @@
 
 На портале Azure реализован набор наиболее часто используемых операций с базой данных, которые вызываются из верхней колонки базы. Можно восстановить базу данных до более раннего состояния, открыть базу данных в Visual Studio, скопировать базу данных на новый сервер, а также экспортировать базу данных в учетную запись хранения Azure.
 
-- [Восстановление базы данных SQL](sql-database-user-error-recovery.md)
+- [Восстановление базы данных SQL](sql-database-recovery-using-backups.md)
 - [Открытие базы данных SQL в Visual Studio](sql-database-connect-query.md)
 - [Экспорт базы данных SQL](sql-database-export.md)
 
@@ -74,4 +74,4 @@
 
 - [База данных SQL](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

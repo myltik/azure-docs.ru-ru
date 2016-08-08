@@ -143,10 +143,13 @@
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-HttpResponseMessage response = Request.CreateResponse(); response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml"); return response; } }
+    	    HttpResponseMessage response = Request.CreateResponse();
+    	    response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+    	    return response;
+    	}
+    }
 
-
-Нажмите клавишу **F6**, чтобы выполнить сборку и проверить решение.
+Нажмите клавишу **F6**, чтобы построить и проверить решение.
 
 ## Публикация проекта в Azure
 
@@ -413,4 +416,4 @@ API-интерфейсы настраиваются на портале изда
 [Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
 [Начало работы со службой управления Azure API]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

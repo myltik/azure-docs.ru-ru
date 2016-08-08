@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с мобильным приложением Javascript после добавления мобильных служб с помощью подключенных служб Visual Studio | Microsoft Azure" 
+	pageTitle="Приступая к работе с мобильным приложением Javascript после добавления мобильных служб с помощью подключенных служб Visual Studio | Microsoft Azure " 
 	description="Как начать использовать мобильные службы в проекте JavaScript в Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="07/21/2016" 
 	ms.author="mlearned"/>
 
 # Приступая к работе с мобильным приложением Javascript после добавления мобильных служб Azure с помощью подключенных служб Visual Studio
@@ -88,4 +88,4 @@
 
 [Дополнительные сведения о мобильных службах](https://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0727_2016-->

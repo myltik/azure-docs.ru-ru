@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Использование прослушивателя и соединителя HTTP в приложениях логики | Служба приложений Microsoft Azure"
+   pageTitle="Использование прослушивателя и соединителя HTTP в приложениях логики | Служба приложений Microsoft Azure "
    description="Как создать и настроить прослушиватель HTTP и соединитель действия HTTP или приложение API и использовать его в приложении логики в службе приложений Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -89,4 +89,4 @@
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

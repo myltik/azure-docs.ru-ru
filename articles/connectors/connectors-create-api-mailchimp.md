@@ -9,7 +9,7 @@ editor=""
 tags="connectors" />
 
 <tags
-ms.service="app-service-logic"
+ms.service="logic-apps"
 ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
@@ -23,9 +23,9 @@ ms.author="deonhe"/>
 
 Соединитель MailChimp можно использовать из таких компонентов, как:
 
-- [Приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md)  
-- [PowerApps.](http://powerapps.microsoft.com)  
-- [Поток](http://flows.microsoft.com)  
+- [Приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md)
+- [PowerApps.](http://powerapps.microsoft.com)
+- [Поток](http://flows.microsoft.com)
 
 >[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
@@ -419,7 +419,7 @@ ms.author="deonhe"/>
 |social\_card|не определено|Нет |
 |report\_summary|не определено|Нет |
 |delivery\_status|не определено|Нет |
-|_\_links|array|No |
+|\_links|array|Нет |
 
 
 
@@ -552,7 +552,7 @@ ms.author="deonhe"/>
 |visibility|строка|Нет |
 |modules|array|Нет |
 |stats|не определено|Нет |
-|_\_links|array|No |
+|\_links|array|Нет |
 
 
 
@@ -651,7 +651,7 @@ ms.author="deonhe"/>
 |location|не определено|Нет |
 |last\_note|не определено|Нет |
 |list\_id|string|Нет |
-|_\_links|array|No |
+|\_links|array|Нет |
 
 
 
@@ -738,10 +738,10 @@ ms.author="deonhe"/>
 |location|не определено|Нет |
 |last\_note|не определено|Нет |
 |list\_id|string|Нет |
-|_\_links|array|No |
+|\_links|array|Нет |
 
 
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

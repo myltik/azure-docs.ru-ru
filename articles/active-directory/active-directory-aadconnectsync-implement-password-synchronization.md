@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 <tags
 	ms.service="active-directory"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="07/20/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -31,14 +31,14 @@
 
 За счет сокращения числа паролей, которые должны помнить пользователи, до одного единственного, синхронизация паролей дает следующие преимущества:
 
-- Повышение производительности пользователей 
-- Снижение затрат, связанных со службой технической поддержки  
+- Повышение производительности пользователей
+- Снижение затрат, связанных со службой технической поддержки
 
 Если выбран параметр [**Федерация с AD FS**](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect), можно также включить синхронизацию паролей на случай сбоя в инфраструктуре AD FS.
 
 Синхронизация паролей — это расширение функции синхронизации каталогов, реализованное при помощи служб синхронизации Azure AD Connect. Для использования синхронизации паролей в определенной среде необходимо выполнение следующих действий.
 
-- Установка Azure AD Connect  
+- Установка Azure AD Connect
 
 - Настройка синхронизации служб каталогов между локальной службой AD и Azure Active Directory
 
@@ -129,8 +129,8 @@
 
 1. Перейдите к папке **\\Program Files\\Azure AD Sync\\Bin**.
 2. Откройте файл **miiserver.exe.config**.
-2. Перейдите на узел **конфигурации или среды выполнения** (в конце файла конфигурации). 
-3. Добавьте следующий узел: **<enforceFIPSPolicy enabled="false"/>**. 
+2. Перейдите на узел **конфигурации или среды выполнения** (в конце файла конфигурации).
+3. Добавьте следующий узел: **<enforceFIPSPolicy enabled="false"/>**.
 4. Сохраните изменения.
 
 Дополнительные сведения о безопасности и FIPS см. в записи блога [Синхронизация паролей, шифрование и соответствие FIPS в AAD](http://blogs.technet.com/b/ad/archive/2014/06/28/aad-password-sync-encryption-and-and-fips-compliance.aspx).
@@ -201,4 +201,4 @@
 * [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

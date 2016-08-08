@@ -87,14 +87,9 @@
 
 ## Дальнейшие действия
 
-- [Импорт BACPAC-файла в базу данных SQL Azure](sql-database-import.md)
-- [Импорт BACPAC-файла в базу данных SQL Server](https://msdn.microsoft.com/library/hh710052.aspx)
+- Чтобы узнать об импорте BACPAC-файла в базу данных SQL Azure, ознакомьтесь с разделом [Импорт BACPAC-файла для создания новой базы данных SQL Azure](sql-database-import.md).
+- Чтобы узнать об импорте BACPAC-файла в базу данных SQL Server, ознакомьтесь с разделом [Импорт файла BACPAC для создания новой пользовательской базы данных](https://msdn.microsoft.com/library/hh710052.aspx).
 
-## Дополнительные ресурсы
-
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
-- [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
 
 <!--Image references-->
@@ -104,4 +99,4 @@
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

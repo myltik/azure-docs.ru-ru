@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Создание приложения списка лидеров с помощью внутреннего сервера .NET мобильных служб Azure
@@ -765,4 +765,4 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 [Добавление push-уведомлений]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

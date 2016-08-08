@@ -45,9 +45,9 @@
 
 2. Чтобы выполнить пример задания MapReduce с помощью команды **Hadoop**, используйте следующую команду:
 
-		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
+		hadoop jar hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
 
-	При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **wasb://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются здесь: **wasb:///example/data/WordCountOutput**.
+	При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **wasbs://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются здесь: **wasbs:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE] Дополнительные сведения об этом задании MapReduce и данные для примера см. в разделе <a href="hdinsight-use-mapreduce.md">Использование MapReduce в HDInsight в Hadoop</a>.
 
@@ -58,9 +58,9 @@
 		File Output Format Counters
         Bytes Written=337623
 
-3. По завершении задания воспользуйтесь следующей командой, чтобы вывести список выходных файлов, хранящихся в **wasb://example/data/WordCountOutput**.
+3. По завершении задания воспользуйтесь следующей командой, чтобы вывести список выходных файлов, хранящихся в **wasbs://example/data/WordCountOutput**.
 
-		hadoop fs -ls wasb:///example/data/WordCountOutput
+		hadoop fs -ls wasbs:///example/data/WordCountOutput
 
 	Должно отобразиться два файла: **\_SUCCESS** и **part-r-00000**. Файл **part-r-00000** содержит выходные данные этого задания.
 
@@ -68,9 +68,9 @@
 
 4. Чтобы просмотреть выходные данные, используйте следующую команду:
 
-		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
+		hadoop fs -cat wasbs:///example/data/WordCountOutput/part-r-00000
 
-	Отобразится список слов, которые содержатся в файле **wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого слова. Ниже приведен пример данных, которые будут содержаться в файле.
+	Отобразится список слов, которые содержатся в файле **wasbs://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого слова. Ниже приведен пример данных, которые будут содержаться в файле.
 
 		wreathed        3
 		wreathing       1
@@ -96,4 +96,4 @@
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

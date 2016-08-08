@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="07/21/2016" 
 	ms.author="tomfitz"/>
 
 # Перемещение ресурсов в новую группу ресурсов или подписку
@@ -272,4 +272,4 @@
 - Сведения о функциях портала для управления подпиской см. в статье [Управление ресурсами Azure через портал](./azure-portal/resource-group-portal.md).
 - Сведения о логической организации ресурсов см. в разделе [Использование тегов для организации ресурсов в Azure](resource-group-using-tags.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

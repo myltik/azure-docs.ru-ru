@@ -34,17 +34,17 @@ Microsoft R Server в кластере HDInsight (предварительная
 2. Укажите также дополнительную учетную запись хранения с именем **storage2**.
 3. Скопируйте файл mycsv.csv в каталог /share и выполните анализ этого файла.
 
-````
-hadoop fs –mkdir /share
-hadoop fs –copyFromLocal myscsv.scv /share  
-````
+    ````
+    hadoop fs –mkdir /share
+    hadoop fs –copyFromLocal myscsv.scv /share  
+    ````
 
 3.	В коде R задайте узел имени **default** и определите каталог и файл для обработки.
 
-````
-myNameNode <- "default"
-myPort <- 0
-````
+    ````
+    myNameNode <- "default"
+    myPort <- 0
+    ````
 
   Расположение данных
 
@@ -66,13 +66,13 @@ myPort <- 0
 
     inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
-Все ссылки на каталоги и файлы указывают на учетную запись хранения wasb://container1@storage1.blob.core.windows.net. Это **учетная запись хранения по умолчанию**, связанная с кластером HDInsight.
+Все ссылки на каталоги и файлы указывают на учетную запись хранения wasbs://container1@storage1.blob.core.windows.net. Это **учетная запись хранения по умолчанию**, связанная с кластером HDInsight.
 
 Теперь предположим, что вы хотите обработать файл с именем mySpecial.csv, расположенный в каталоге /private контейнера **container2** в учетной записи хранения **storage2**.
 
 В коде R измените ссылку на узел имени так, чтобы она указывала на учетную запись хранения **storage2**.
 
-    myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
+    myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
     myPort <- 0
 
   Расположение данных
@@ -95,13 +95,13 @@ myPort <- 0
 
     inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
 
-Теперь все ссылки на каталоги и файлы указывают на учетную запись хранения wasb://container2@storage2.blob.core.windows.net. Это указанный вами **узел имени**.
+Теперь все ссылки на каталоги и файлы указывают на учетную запись хранения wasbs://container2@storage2.blob.core.windows.net. Это указанный вами **узел имени**.
 
 Обратите внимание, что в учетной записи хранения **storage2** следует настроить каталог /user/RevoShare/<имя пользователя SSH>.
 
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
-    hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
+    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
 ## Использование хранилища озера данных Azure
 
@@ -113,11 +113,11 @@ myPort <- 0
 
 ### Добавление субъекта-службы
 1. Когда вы создаете кластер HDInsight, выберите на вкладке **Источник данных** вариант **Удостоверение кластера AAD**.
-2. В диалоговом окне **Удостоверение кластера AAD** в разделе **Выберите субъект-службу AD** выберите **Создать новый**.
+2. В диалоговом окне **Удостоверение кластера AAD** в разделе **Выбрать субъект-службу AD** выберите **Создать**.
 
 Когда вы присвоите имя и создадите пароль для субъекта-службы, откроется новая вкладка, где можно связать субъект-службу с хранилищами озера данных.
 
-Обратите внимание, что доступ к хранилищу озера данных можно добавить и позже, открыв хранилище озера данных на портале Azure и выбрав **Обозреватель данных** > **Доступ**. На следующем примере диалогового окна показано, как можно создать субъект-службу и связать его с хранилищем озера данных rkadl11.
+Обратите внимание, что доступ к Data Lake Store можно добавить и позже, открыв Data Lake Store на портале Azure и выбрав **Обозреватель данных** > **Доступ**. На следующем примере диалогового окна показано, как можно создать субъект-службу и связать его с хранилищем озера данных rkadl11.
 
 ![Создание субъекта-службы хранилища озера данных 1](./media/hdinsight-hadoop-r-server-storage/hdinsight-hadoop-r-server-storage-adls-sp1.png)
 
@@ -190,4 +190,4 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 - [Add RStudio Server to HDInsight Premium (Добавление RStudio Server в HDInsight "Премиум")](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Варианты контекста вычислений для R Server в HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

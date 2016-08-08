@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/08/2016"
+   ms.date="07/22/2016"
    ms.author="allclark" />
 
 # Отладка приложений в локальном контейнере Docker
@@ -107,6 +107,7 @@
 - [Docker Tools for Visual Studio Code](http://aka.ms/dockertoolsforvscode) (Инструменты Docker для Visual Studio Code) — языковые службы для редактирования файлов Docker с дополнительными сценариями E2E (ожидаются в ближайшее время).
 - [Windows Container Information](http://aka.ms/containers) (Сведения о контейнерах Windows) — сведения о Windows Server и Nano Server.
 - [Служба контейнеров Azure](https://azure.microsoft.com/services/container-service/) — [общие сведения о службе контейнеров Azure](http://aka.ms/AzureContainerService).
+-    Дополнительные примеры работы с Docker см. в статье [Работа с Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker), описывающей [демонстрационный проект](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные примеры из демонстрационного проекта HealthClinic.biz см. на странице [Примеры использования средств разработчика Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 ## Различные инструменты Docker
 
@@ -124,4 +125,4 @@
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

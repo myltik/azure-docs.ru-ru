@@ -47,7 +47,7 @@ Giraph можно установить в кластере любого типа
    
 ## Установка Giraph с помощью портала
 
-1. Начните создание кластера с помощью параметра **НАСТРАИВАЕМОЕ СОЗДАНИЕ**, как описано в разделе [Создание кластеров Hadoop в HDInsight с пользовательскими параметрами](hdinsight-provision-clusters.md#portal). 
+1. Начните создание кластера с помощью параметра **НАСТРАИВАЕМОЕ СОЗДАНИЕ**, как описано в разделе [Создание кластеров Hadoop в HDInsight с пользовательскими параметрами](hdinsight-provision-clusters.md#portal).
 2. На странице **Действия сценариев** мастера щелкните **Добавить действие сценария** для предоставления информации о данном действии сценария, как показано ниже:
 
 	![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-giraph-install-v1/hdi-script-action-giraph.png "Использование действия сценария для настройки кластера")
@@ -94,14 +94,14 @@ Giraph можно установить в кластере любого типа
 
 		$clusterName = "clustername"
 		# Giraph examples jar
-		$jarFile = "wasb:///example/jars/giraph-examples.jar"
+		$jarFile = "wasbs:///example/jars/giraph-examples.jar"
 		# Arguments for this job
 		$jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
 		                "-ca", "mapred.job.tracker=headnodehost:9010",
 		                "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-		                "-vip", "wasb:///example/data/tiny_graph.txt",
+		                "-vip", "wasbs:///example/data/tiny_graph.txt",
 		                "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-		                "-op",  "wasb:///example/output/shortestpaths",
+		                "-op",  "wasbs:///example/output/shortestpaths",
 		                "-w", "2"
 		# Create the definition
 		$jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -120,7 +120,7 @@ Giraph можно установить в кластере любого типа
 
 	В приведенном выше примере замените **clustername** именем кластера HDInsight, где установлен Giraph.
 
-5. Просмотрите результаты. После завершения задания результаты будут сохранены в двух выходных файлах в папке \_\___wasb:///example/out/shotestpaths__. Эти файлы называются __part-m-00001__ и __part-m-00002__. Выполните следующие действия, чтобы скачать и просмотреть выходные данные.
+5. Просмотрите результаты. После завершения задания результаты будут сохранены в двух выходных файлах в папке __wasbs:///example/out/shotestpaths__. Эти файлы называются __part-m-00001__ и __part-m-00002\_\_. Выполните следующие действия, чтобы скачать и просмотреть выходные данные.
 
 		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		$storageAccountName = "<StorageAccountName>"   # Azure Storage account name
@@ -194,4 +194,4 @@ Giraph можно установить в кластере любого типа
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

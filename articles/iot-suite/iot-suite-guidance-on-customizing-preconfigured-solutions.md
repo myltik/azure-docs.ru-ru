@@ -154,7 +154,15 @@
 
 ## Дальнейшие действия
 
-Ссылки на дополнительные сведения и документацию по устройствам IoT см. на [сайте для разработчиков IoT Azure](https://azure.microsoft.com/develop/iot/).
+Дополнительные сведения о настройке решений с предварительно заданными параметрами см. в статьях:
+
+- [Руководство. Подключение приложения логики к предварительно настроенному решению для удаленного мониторинга Azure IoT Suite][lnk-logicapp]
+- [Использование динамической телеметрии с предварительно настроенным решением для удаленного мониторинга][lnk-dynamic]
+- [Метаданные сведений об устройстве в предварительно настроенном решении для удаленного мониторинга][lnk-devinfo]
+
+[lnk-logicapp]: iot-suite-logic-apps-tutorial.md
+[lnk-dynamic]: iot-suite-dynamic-telemetry.md
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [пакета SDK устройства IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md
@@ -164,4 +172,4 @@
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-classic-portal]: https://manage.windowsazure.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

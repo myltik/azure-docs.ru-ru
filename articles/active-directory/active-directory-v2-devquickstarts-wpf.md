@@ -23,7 +23,7 @@
 > [AZURE.NOTE]
 	Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
 
-[Собственным приложениям .NET, которые работают на устройстве](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD предлагает использовать библиотеку проверки подлинности Active Directory (ADAL). Единственная задача ADAL — упрощение процесса получения приложением маркеров доступа и вызова веб-служб. Чтобы показать, насколько это просто, создадим приложение To Do List (ведение списка дел) для .NET WPF, которое:
+Для [собственных приложений .NET, запущенных на устройстве](active-directory-v2-flows.md#mobile-and-native-apps), в Azure AD предлагается использовать библиотеку проверки подлинности Майкрософт (MSAL). MSAL помогает приложению быстро получать маркеры доступа и вызывать веб-службы. Чтобы показать, насколько это просто, создадим приложение To Do List (ведение списка дел) для .NET WPF, которое:
 
 -	выполняет вход пользователя и получает маркеры доступа с помощью [протокола проверки подлинности OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow);
 -	безопасно вызывает серверную веб-службу списка дел, которая также защищена OAuth 2.0.
@@ -42,34 +42,33 @@
 
 - запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
 - Добавьте для приложения **мобильную** платформу.
-- Скопируйте с портала **универсальный код ресурса (URI) перенаправления**. Необходимо использовать стандартное значение `urn:ietf:wg:oauth:2.0:oob`.
 
-## Установка и настройка ADAL
-Теперь ваше приложение зарегистрировано в Майкрософт, можно установить ADAL и написать свой собственный код для идентификации. Чтобы ADAL могла обмениваться информацией с конечной точкой v2.0, необходимо предоставить некоторую информацию о регистрации вашего приложения.
+## Установка и настройка MSAL
+Ваше приложение зарегистрировано в Майкрософт. Теперь вы можете установить MSAL и написать собственный код для работы с удостоверением. Чтобы библиотека MSAL могла обмениваться информацией с конечной точкой версии 2.0, вам нужно предоставить определенную информацию о регистрации приложения.
 
--	Сначала добавьте ADAL в проект TodoListClient с помощью консоли диспетчера пакетов.
+-	Сначала добавьте MSAL в проект TodoListClient с помощью консоли диспетчера пакетов.
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
+PM> Install-Package Microsoft.Identity.Client -ProjectName TodoListClient -IncludePrerelease
 ```
 
--	В проекте TodoListClient откройте `app.config`. Замените значения элементов в разделе `<appSettings>` на значения, введенные на портале регистрации приложений. Код будет использовать эти значения при каждом обращении к библиотеке ADAL.
+-	В проекте TodoListClient откройте `app.config`. Замените значения элементов в разделе `<appSettings>` на значения, введенные на портале регистрации приложений. Код будет использовать эти значения при каждом обращении к библиотеке MSAL.
     -	`ida:ClientId` — это **идентификатор приложения**, скопированный с портала.
-    -	`ida:RedirectUri` — это **универсальный код ресурса (URI) перенаправления** с портала.
-- В проекте TodoList-Service откройте `web.config` в корневой папке проекта.  
+
+- В проекте TodoList-Service откройте `web.config` в корневой папке проекта.
     - Замените значение `ida:Audience` на **идентификатор приложения** с портала.
 
-## Использование ADAL для получения маркеров
-Основной принцип ADAL состоит в следующем: каждый раз, когда вашему приложению необходим маркер доступа, оно будет просто вызывать `authContext.AcquireToken(...)`, а ADAL сделает все остальное.
+## Использование MSAL для получения маркеров
+MSAL используется следующим образом. Каждый раз, когда приложению требуется маркер доступа, оно будет просто вызывать `app.AcquireToken(...)`, а MSAL сделает все остальное.
 
--	В проекте `TodoListClient` откройте `MainWindow.xaml.cs` и найдите метод `OnInitialized(...)`. Первый шаг состоит в инициализации `AuthenticationContext` — основного класса ADAL. Здесь вы отправляете в ADAL координаты, которые ему требуются для взаимодействия с Azure AD, и сообщаете о способе кэширования маркеров.
+-	В проекте `TodoListClient` откройте `MainWindow.xaml.cs` и найдите метод `OnInitialized(...)`. Первый шаг — инициализация в приложении `PublicClientApplication`, основного класса MSAL, представляющего собственные приложения. На этом этапе вы отправляете в MSAL координаты, необходимые для взаимодействия с Azure AD, а также сообщаете о способе кэширования маркеров.
 
 ```C#
 protected override async void OnInitialized(EventArgs e)
 {
 		base.OnInitialized(e);
 
-		authContext = new AuthenticationContext(authority, new FileCache());
+		app = new PublicClientApplication(new FileCache());
 		AuthenticationResult result = null;
 		...
 }
@@ -79,40 +78,37 @@ protected override async void OnInitialized(EventArgs e)
 
 ```C#
 // As the app starts, we want to check to see if the user is already signed in.
-// You can do so by trying to get a token from ADAL, passing in the parameter
-// PromptBehavior.Never.  This forces ADAL to throw an exception if it cannot
+// You can do so by trying to get a token from MSAL, using the method
+// AcquireTokenSilent.  This forces MSAL to throw an exception if it cannot
 // get a token for the user without showing a UI.
-
 try
 {
-		result = await authContext.AcquireTokenAsync(new string[] { clientId }, null, clientId, redirectUri, new PlatformParameters(PromptBehavior.Never, null));
-
-		// If we got here, a valid token is in the cache.  Proceed to
-		// fetch the user's tasks from the TodoListService via the
-		// GetTodoList() method.
-
-		SignInButton.Content = "Clear Cache";
-		GetTodoList();
+    result = await app.AcquireTokenSilentAsync(new string[] { clientId });
+    // If we got here, a valid token is in the cache - or MSAL was able to get a new oen via refresh token.
+    // Proceed to fetch the user's tasks from the TodoListService via the GetTodoList() method.
+    
+    SignInButton.Content = "Clear Cache";
+    GetTodoList();
 }
-catch (AdalException ex)
+catch (MsalException ex)
 {
-		if (ex.ErrorCode == "user_interaction_required")
-		{
-				// If user interaction is required, the app should take no action,
-				// and simply show the user the sign in button.
-		}
-		else
-		{
-				// Here, we catch all other AdalExceptions
-
-				string message = ex.Message;
-				if (ex.InnerException != null)
-				{
-						message += "Inner Exception : " + ex.InnerException.Message;
-				}
-				MessageBox.Show(message);
-		}
+    if (ex.ErrorCode == "user_interaction_required")
+    {
+        // If user interaction is required, the app should take no action,
+        // and simply show the user the sign in button.
+    }
+    else
+    {
+        // Here, we catch all other MsalExceptions
+        string message = ex.Message;
+        if (ex.InnerException != null)
+        {
+            message += "Inner Exception : " + ex.InnerException.Message;
+        }
+        MessageBox.Show(message);
+    }
 }
+
 ```
 
 - Если пользователь не выполнил вход и нажал кнопку "Вход", необходимо вызвать пользовательский интерфейс входа и запросить ввод учетных данных. Реализуйте обработчик кнопки "Вход".
@@ -122,90 +118,94 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
 		// TODO: Sign the user out if they clicked the "Clear Cache" button
 
-		// If the user clicked the 'Sign-In' button, force
-		// ADAL to prompt the user for credentials by specifying
-		// PromptBehavior.Always.  ADAL will get a token for the
-		// TodoListService and cache it for you.
+// If the user clicked the 'Sign-In' button, force
+// MSAL to prompt the user for credentials by using
+// AcquireTokenAsync, a method that is guaranteed to show a prompt to the user.
+// MSAL will get a token for the TodoListService and cache it for you.
 
-		AuthenticationResult result = null;
-		try
-		{
-				result = await authContext.AcquireTokenAsync(new string[] { clientId }, null, clientId, redirectUri, new PlatformParameters(PromptBehavior.Always, null));
-				SignInButton.Content = "Clear Cache";
-				GetTodoList();
-		}
-		catch (AdalException ex)
-		{
-				// If ADAL cannot get a token, it will throw an exception.
-				// If the user canceled the login, it will result in the
-				// error code 'authentication_canceled'.
+AuthenticationResult result = null;
+try
+{
+    result = await app.AcquireTokenAsync(new string[] { clientId });
+    SignInButton.Content = "Clear Cache";
+    GetTodoList();
+}
+catch (MsalException ex)
+{
+    // If MSAL cannot get a token, it will throw an exception.
+    // If the user canceled the login, it will result in the
+    // error code 'authentication_canceled'.
 
-				if (ex.ErrorCode == "authentication_canceled")
-				{
-						MessageBox.Show("Sign in was canceled by the user");
-				}
-				else
-				{
-						// An unexpected error occurred.
-						string message = ex.Message;
-						if (ex.InnerException != null)
-						{
-								message += "Inner Exception : " + ex.InnerException.Message;
-						}
+    if (ex.ErrorCode == "authentication_canceled")
+    {
+        MessageBox.Show("Sign in was canceled by the user");
+    }
+    else
+    {
+        // An unexpected error occurred.
+        string message = ex.Message;
+        if (ex.InnerException != null)
+        {
+            message += "Inner Exception : " + ex.InnerException.Message;
+        }
 
-						MessageBox.Show(message);
-				}
+        MessageBox.Show(message);
+    }
 
-				return;
-		}
+    return;
+}
+
 
 }
 ```
 
-- Если пользователь успешно выполняет вход, ADAL получит и кэширует маркер, а вы сможете вызвать метод `GetTodoList()`. Осталось получить задачи пользователя — реализовать метод `GetTodoList()`.
+- Если пользователь успешно выполняет вход, MSAL получает и кэширует маркер, а вы можете вызвать метод `GetTodoList()`. Осталось получить задачи пользователя — реализовать метод `GetTodoList()`.
 
 ```C#
 private async void GetTodoList()
 {
-		AuthenticationResult result = null;
-		try
-		{
-				// Here, we try to get an access token to call the TodoListService
-				// without invoking any UI prompt.  PromptBehavior.Never forces
-				// ADAL to throw an exception if it cannot get a token silently.
 
-				result = await authContext.AcquireTokenAsync(new string[] { clientId }, null, clientId, redirectUri, new PlatformParameters(PromptBehavior.Never, null));
-		}
-		catch (AdalException ex)
-		{
-				// ADAL couldn't get a token silently, so show the user a message
-				// and let them click the Sign-In button.
+AuthenticationResult result = null;
+try
+{
+    // Here, we try to get an access token to call the TodoListService
+    // without invoking any UI prompt.  AcquireTokenSilentAsync forces
+    // MSAL to throw an exception if it cannot get a token silently.
 
-				if (ex.ErrorCode == "user_interaction_required")
-				{
-						MessageBox.Show("Please sign in first");
-						SignInButton.Content = "Sign In";
-				}
-				else
-				{
-						// In any other case, an unexpected error occurred.
 
-						string message = ex.Message;
-						if (ex.InnerException != null)
-						{
-								message += "Inner Exception : " + ex.InnerException.Message;
-						}
-						MessageBox.Show(message);
-				}
+    result = await app.AcquireTokenSilentAsync(new string[] { clientId });
+}
+catch (MsalException ex)
+{
+    // MSAL couldn't get a token silently, so show the user a message
+    // and let them click the Sign-In button.
 
-				return;
-		}
+    if (ex.ErrorCode == "user_interaction_required")
+    {
+        MessageBox.Show("Please sign in first");
+        SignInButton.Content = "Sign In";
+    }
+    else
+    {
+        // In any other case, an unexpected error occurred.
 
-		// Once the token has been returned by ADAL,
-    // add it to the http authorization header,
-    // before making the call to access the To Do list service.
+        string message = ex.Message;
+        if (ex.InnerException != null)
+        {
+            message += "Inner Exception : " + ex.InnerException.Message;
+        }
+        MessageBox.Show(message);
+    }
 
-    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
+    return;
+}
+
+// Once the token has been returned by MSAL,
+// add it to the http authorization header,
+// before making the call to access the To Do list service.
+
+httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
+
 
 		...
 ...
@@ -217,14 +217,14 @@ private async void GetTodoList()
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
 		// If the user clicked the 'clear cache' button,
-		// clear the ADAL token cache and show the user as signed out.
+		// clear the MSAL token cache and show the user as signed out.
 		// It's also necessary to clear the cookies from the browser
 		// control so the next user has a chance to sign in.
 
 		if (SignInButton.Content.ToString() == "Clear Cache")
 		{
 				TodoList.ItemsSource = string.Empty;
-				authContext.TokenCache.Clear();
+				app.UserTokenCache.Clear(app.ClientId);
 				ClearCookies();
 				SignInButton.Content = "Sign In";
 				return;
@@ -235,9 +235,9 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 
 ## Выполнить
 
-Поздравляем! Теперь у вас есть работающее приложение .NET WPF, которое может проверять подлинность пользователей и выполнять безопасные вызовы веб-API при помощи OAuth 2.0. Запустите оба проекта и выполните вход с личной учетной записью Майкрософт, рабочей или учебной учетной записью. Добавьте задачи в список дел этого пользователя.   Выйдите из системы и выполните вход от имени других пользователей, чтобы просмотреть их списки дел. Закройте приложение и снова его запустите. Обратите внимание, что сеанс пользователя при этом не прервался. Это связано с тем, что приложение кэширует маркеры в локальный файл.
+Поздравляем! Теперь у вас есть работающее приложение .NET WPF, которое может проверять подлинность пользователей и выполнять безопасные вызовы веб-API при помощи OAuth 2.0. Запустите оба проекта и выполните вход с личной учетной записью Майкрософт, рабочей или учебной учетной записью. Добавьте задачи в список дел этого пользователя.   Выйдите из системы и выполните вход от имени других пользователей, чтобы просмотреть их списки дел. Закройте приложение и снова его запустите. Обратите внимание, что сеанс пользователя при этом не прерывается, так как приложение кэширует маркеры в локальный файл.
 
-ADAL позволяет легко реализовать в приложении функции идентификации, объединяющие для одного человека личные и рабочие учетные записи. Он отвечает за всю грязную работу: управление кэшем, поддержку протокола OAuth, предоставление пользователю пользовательского интерфейса для входа, обновление истекших маркеров и многое другое. Все, что вам действительно нужно знать, — это вызов интерфейса API `authContext.AcquireTokenAsync(...)`.
+MSAL позволяет легко включать в приложение общие функции идентификации, позволяя использовать личные и рабочие учетные записи. Он отвечает за всю грязную работу: управление кэшем, поддержку протокола OAuth, предоставление пользователю пользовательского интерфейса для входа, обновление истекших маркеров и многое другое. Все, что вам действительно нужно знать, — это вызов интерфейса API `app.AcquireTokenAsync(...)`.
 
 Готовый пример (без ваших значений конфигурации) [можно скачать в виде ZIP-файла здесь](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip) или клонировать с портала GitHub.
 
@@ -251,10 +251,10 @@ ADAL позволяет легко реализовать в приложени�
 
 Дополнительные ресурсы:
 - [Руководство разработчика версии 2.0 >>](active-directory-appmodel-v2-overview.md)
-- [Тег StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
+- [Тег msal на сайте StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
 
 ## Получение обновлений системы безопасности для наших продуктов
 
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="larryfr"/>
 
 
@@ -64,7 +64,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 ##Создайте рабочий каталог
 
-Ресурсы, необходимые для выполнения задания, должны находиться в том же каталоге. В этом примере используются **wasb:///tutorials/useoozie**. Для создания этого каталога и каталога данных, в котором будет размещаться новая таблица Hive, созданная этим рабочим процессом, воспользуйтесь следующей командой:
+Ресурсы, необходимые для выполнения задания, должны находиться в том же каталоге. В этом примере используются **wasbs:///tutorials/useoozie**. Для создания этого каталога и каталога данных, в котором будет размещаться новая таблица Hive, созданная этим рабочим процессом, воспользуйтесь следующей командой:
 
 	hdfs dfs -mkdir -p /tutorials/useoozie/data
 
@@ -114,7 +114,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 2. Нажмите Ctrl-X, чтобы закрыть редактор. При появлении запроса нажмите **Y** для сохранения файла, затем нажмите **Enter** для использования имени файла **useooziewf.hql**.
 
-3. Для копирования **useooziewf.hql** в **wasb:///tutorials/useoozie/useooziewf.hql** выполните следующие команды:
+3. Для копирования **useooziewf.hql** в **wasbs:///tutorials/useoozie/useooziewf.hql** выполните следующие команды:
 
 		hdfs dfs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -195,7 +195,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 2. Нажмите Ctrl-X, затем **Y** и **Enter** для сохранения файла.
 
-3. Скопируйте файл **workflow.xml** в **wasb:///tutorials/useoozie/workflow.xml** с помощью следующей команды:
+3. Скопируйте файл **workflow.xml** в **wasbs:///tutorials/useoozie/workflow.xml** с помощью следующей команды:
 
 		hdfs dfs -copyFromLocal workflow.xml /tutorials/useoozie/workflow.xml
 
@@ -257,9 +257,9 @@ Apache Oozie — это система рабочих процессов и ко
 	Эта команда возвращает следующую информацию:
 
 		<name>fs.defaultFS</name>
-		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+		<value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Сохраните значение **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, так как оно будет использоваться в последующих шагах.
+	Сохраните значение **wasbs://mycontainer@mystorageaccount.blob.core.windows.net**, так как оно будет использоваться в последующих шагах.
 
 2. Воспользуйтесь следующей командой для получения полного имени домена головного узла кластера: Оно будет использовано для адреса кластера в JobTracker. Позже он будет использован в файле конфигурации.
 
@@ -282,7 +282,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 		  <property>
 		    <name>nameNode</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
 		  </property>
 
 		  <property>
@@ -302,7 +302,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 		  <property>
 		    <name>hiveScript</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
 		  </property>
 
 		  <property>
@@ -312,7 +312,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 		  <property>
 		    <name>hiveDataFolder</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
 		  </property>
 
 		  <property>
@@ -332,13 +332,13 @@ Apache Oozie — это система рабочих процессов и ко
 
 		  <property>
 		    <name>oozie.wf.application.path</name>
-		    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+		    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
 		  </property>
 		</configuration>
 
-	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
+	* Замените все вхождения **wasbs://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
 
-	> [AZURE.WARNING] В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
+	> [AZURE.WARNING] В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasbs:///) приведет к сбою при запуске задания RunHiveScript.
 
 	* Замените **JOBTRACKERADDRESS** на адрес JobTracker/ResourceManager, полученный ранее.
 
@@ -392,7 +392,7 @@ Apache Oozie — это система рабочих процессов и ко
 		Job ID : 0000005-150622124850154-oozie-oozi-W
 		------------------------------------------------------------------------------------------------------------------------------------
 		Workflow Name : useooziewf
-		App Path      : wasb:///tutorials/useoozie
+		App Path      : wasbs:///tutorials/useoozie
 		Status        : PREP
 		Run           : 0
 		User          : USERNAME
@@ -454,7 +454,7 @@ Oozie REST API позволяет создавать собственные ут
 
 1. Создайте туннель SSH для кластера HDInsight. Дополнительные сведения о том, как это сделать, можно узнать в статье [Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. После создания туннеля откройте веб-интерфейс Ambari в браузере. Универсальный код ресурса (URI) веб-сайта Ambari: **https://CLUSTERNAME.azurehdinsight.net**. Замените **CLUSTERNAME** именем своего кластера HDInsight под управлением Linux.
+2. После создания туннеля откройте веб-интерфейс Ambari в браузере. URI сайта Ambari следующий: **https://CLUSTERNAME.azurehdinsight.net**. Замените **CLUSTERNAME** именем своего кластера HDInsight под управлением Linux.
 
 3. В левой части страницы выберите **Oozie**, затем **Quick Links** и, наконец, **Oozie Web UI**.
 
@@ -530,7 +530,7 @@ Oozie REST API позволяет создавать собственные ут
 
 		    <property>
 		      <name>workflowPath</name>
-		      <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+		      <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
 		    </property>
 
 		Замените значения **mycontainer** и **mystorageaccount** на значения, используемые в других записях файла job.xml.
@@ -599,7 +599,7 @@ Oozie REST API позволяет создавать собственные ут
 
 	JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Причина**: WASB-адреса, используемые в файле **job.xml**, не содержат контейнера хранилища или имени учетной записи хранилища. Формат адреса WASB должен быть следующим `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Причина**: WASB-адреса, используемые в файле **job.xml**, не содержат контейнера хранилища или имени учетной записи хранилища. Формат адреса WASB должен быть следующим `wasbs://containername@storageaccountname.blob.core.windows.net`.
 
 **Решение**: Измените адреса WASB, используемые заданием.
 
@@ -695,4 +695,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->
