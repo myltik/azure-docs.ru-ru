@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Предварительная версия Azure Active Directory B2C: создание клиента Azure Active Directory B2C | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: создание клиента Azure Active Directory B2C | Microsoft Azure"
 	description="Раздел о том, как создать клиент Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -11,27 +11,22 @@
 	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.topic="article"
+    ms.devlang="na"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Предварительная версия Azure Active Directory B2C: создание клиента Azure AD B2C
+# Azure Active Directory B2C: создание клиента Azure AD B2C
 
 Чтобы начать работу с Microsoft Azure Active Directory (Azure AD) B2C, выполните три шага, описанные в этой статье.
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## Шаг 1. Оформление подписки Azure
 
 Если у вас уже есть подписка Azure, этот шаг можно пропустить. Если у вас ее нет, зарегистрируйтесь для оформления [подписки Azure](../active-directory/sign-up-organization.md) и получения доступа к Azure AD B2C.
 
-> [AZURE.NOTE]
-В настоящее время предварительную версию Azure AD B2C можно использовать бесплатно, однако в ней есть ограничение в 50 000 пользователей на клиента. Подписка Azure необходима для доступа к [классическому порталу Azure](http://manage.windowsazure.com/).
-
 ## Шаг 2. Создание клиента Azure AD B2C
 
-Чтобы создать клиент Azure AD B2C, выполните указанные ниже действия. Сейчас функции B2C нельзя включить в существующих каталогах, если они у вас есть.
+Чтобы создать клиент Azure AD B2C, выполните указанные ниже действия. Сейчас функции B2C нельзя включить в существующих клиентах.
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com/) под именем администратора подписки. Это та же рабочая или учебная учетная запись либо учетная запись Майкрософт, которая использовалась для регистрации в Azure.
 2. Щелкните **Создать** > **Службы приложений** > **Active Directory** > **Каталог** > **Настраиваемое создание**.
@@ -45,6 +40,9 @@
     ![Снимок экрана: флажок создания каталога B2C](./media/active-directory-b2c-get-started/create-b2c-directory.png)
 
 6. Ваш клиент создан и должен отобразиться в расширении Active Directory. Кроме того, теперь вы — глобальный администратор клиента. При необходимости можно добавить других глобальных администраторов.
+
+    > [AZURE.IMPORTANT]
+	Если вы планируете использовать B2C клиент для рабочего приложения, см. статью, в которой [сравниваются рабочая версия и предварительная версия клиента B2C](active-directory-b2c-reference-tenant-type.md).
 
 ## Шаг 3. Переход к колонке функций B2C на портале Azure
 
@@ -67,8 +65,18 @@
     > [AZURE.NOTE]
     Управлять пользователями, группами, настройками самостоятельного сброса пароля и фирменной символикой для своего клиента можно на [классическом портале Azure](https://manage.windowsazure.com/).
 
+## Быстрый доступ к колонке функций B2C на портале Azure
+
+Мы добавили ярлык колонки функций B2C на портале Azure, чтобы вы могли быстро ее найти.
+
+1. Войдите на портал Azure как глобальный администратор клиента B2C. Если вы уже вошли в другой клиент, вы можете переключаться между клиентами в правом верхнем углу.
+2. Нажмите кнопку **Обзор** в области навигации слева.
+3. Для доступа к колонке с функциями B2C щелкните ярлык **Azure AD B2C**.
+
+    ![Снимок экрана: переход к колонке функций B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
+
 ## Дальнейшие действия
 
 Сведения о том, как зарегистрировать приложение в Azure AD B2C и быстро создать простое приложение, см. в статье [Предварительная версия Azure Active Directory B2C: регистрация приложения](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/20/2016" 
+	ms.date="07/25/2016" 
 	ms.author="rnagpal"/>
 
 # Пакет SDK для DocumentDB
@@ -24,7 +24,7 @@
 - [Пакет SDK для Java](documentdb-sdk-java.md)
 - [Пакет SDK для Python](documentdb-sdk-python.md)
 
-##Пакет SDK для DocumentDB .NET
+## Пакет SDK для DocumentDB .NET
 
 <table>
 <tr><td>**Скачивание**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
@@ -36,22 +36,19 @@
 
 ## Заметки о выпуске
 
-### <a name="1.9.1"/>[1\.9.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.1)
-  - Добавлена поддержка для параллельных запросов SELECT VALUE, запросов TOP и ORDER BY между секциями.
-  - Улучшена производительность запросов TOP и ORDER BY между секциями.
-  - Обновлено сообщение об ошибке, уточняющее, что получено необработанное исключение System.NotSupportedException при выполнении запросов к секционированным коллекциям. Во избежание этой ошибки в окне свойств проекта на вкладке "Сборка" снимите флажок "Предпочтительно 32-разр.".
+### <a name="1.9.2"/>[1\.9.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.2)
+> [AZURE.IMPORTANT] При выполнении запросов к секционированным коллекциям может порождаться исключение System.NotSupportedException. Во избежание этой ошибки в окне свойств проекта на вкладке "Сборка" снимите флажок "Предпочтительно 32-разр.".
+
+  - Добавлена поддержка параллельных запросов для секционированных коллекций.
+  - Добавлена поддержка запросов ORDER BY и TOP между секциями для секционированных коллекций.
   - Исправлено отсутствие ссылок на файлы DocumentDB.Spatial.Sql.dll и Microsoft.Azure.Documents.ServiceInterop.dll, которые необходимы при указании ссылки на проект DocumentDB со ссылкой на пакет Nuget для DocumentDB.
   - Добавлена возможность использования параметров различных типов, когда применяются определяемые пользователем функции в LINQ.
-
-
-### <a name="1.9.0"/>[1\.9.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.0)
-  - Режим подключения по умолчанию для клиента .NET изменен на ConnectionMode.Direct, чтобы повысить производительность благодаря прямому подключению по протоколу TCP. Прекращается поддержка свойства ConnectionPolicy.ConnectionProtocol. В перечисление ConnectionMode добавлено значение DirectHttps.
   - Исправлена ошибка в глобально реплицируемых учетных записях, где вызовы Upsert направлялись в расположения для чтения, а не расположения для записи.
-  - В интерфейс IDocumentClient добавлены методы , которые отсутствовали, в частности следующие: UpsertAttachmentAsync, который принимает в качестве параметров mediaStream и варианты; CreateAttachmentAsync, который принимает в качестве параметра варианты; и CreateOfferQuery, который принимает в качестве параметра querySpec.
+  - В интерфейс IDocumentClient добавлены методы, которые отсутствовали:
+      - UpsertAttachmentAsync, который принимает в качестве параметров mediaStream и варианты;
+      - CreateAttachmentAsync, который принимает в качестве параметра варианты;
+      - и CreateOfferQuery, который принимает в качестве параметра querySpec.
   - Открыты общие классы, которые доступны в интерфейсе IDocumentClient.
-  - Добавлена поддержка параллельных запросов для секционированных коллекций.
-  - Добавлена поддержка запросов Order By между секциями для секционированных коллекций.
-  
 
 ### <a name="1.8.0"/>[1\.8.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.8.0)
   - Добавлена поддержка учетных записей базы данных в нескольких регионах.
@@ -124,9 +121,9 @@
   - Поставщик LINQ поддерживает OrderBy() или OrderByDescending().
   - IndexingPolicy поддерживает Order By.
   
-		**Следует учесть: потенциальное изменение, нарушающее функциональность** 
+		**NB: Possible breaking change** 
   
-    	Если имеется существующий код, который предоставляет коллекции с пользовательской политикой индексирования, он должен быть обновлен и должен поддерживать новый класс IndexingPolicy. Если такой политики нет, это изменение на вас не влияет.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Новые классы HashPartitionResolver и RangePartitionResolver и интерфейс IPartitionResolver для поддержки секционирования данных.
@@ -158,8 +155,9 @@
  
 | Version (версия) | Дата выпуска | Дата вывода 
 | ---	  | ---	         | ---
-| [1\.9.1](#1.9.1) | 20 июля 2016 г. |---
-| [1\.9.0](#1.9.0) | 9 июля 2016 г. |---
+| [1\.9.2](#1.9.2) | 23 июля 2016 г. |---
+| 1.9.1 | Не рекомендуется |---
+| 1.9.0 | Не рекомендуется |---
 | [1\.8.0](#1.8.0) | 14 июня 2016 г. |---
 | [1\.7.1](#1.7.1) | 6 мая 2016 г. |---
 | [1\.7.0](#1.7.0) | 26 апреля 2016 г. |---
@@ -175,9 +173,9 @@
 | [1\.2.0](#1.2.0) | 6 июля 2015 г. |---
 | [1\.1.0](#1.1.0) | 30 апреля 2015 г. |---
 | [1\.0.0](#1.0.0) | 8 апреля 2015 г. |---
-| [0\.9.3-prelease](#0.9.x-preview) | 12 марта 2015 г. | 29 февраля 2016 г.
-| [0\.9.2-prelease](#0.9.x-preview) | Январь 2015 г. | 29 февраля 2016 г.
-| [0\.9.1-prelease](#0.9.x-preview) | 13 октября 2014 г. | 29 февраля 2016 г.
+| [0\.9.3-prelease](#0.9.x-preview) | 12 марта 2015 г. | 29 февраля 2016 г. 
+| [0\.9.2-prelease](#0.9.x-preview) | Январь 2015 г. | 29 февраля 2016 г. 
+| [0\.9.1-prelease](#0.9.x-preview) | 13 октября 2014 г. | 29 февраля 2016 г. 
 | [0\.9.0-prelease](#0.9.x-preview) | 21 августа 2014 г. | 29 февраля 2016 г.
 
 ## Часто задаваемые вопросы
@@ -187,4 +185,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

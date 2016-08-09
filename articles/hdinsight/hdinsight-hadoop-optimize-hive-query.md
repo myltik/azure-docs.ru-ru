@@ -28,9 +28,9 @@
 
 - Во время подготовки можно указать количество рабочих узлов при помощи портала Azure, Azure PowerShell или кросс-платформенного интерфейса командной строки. Дополнительную информацию см. в разделе [Подготовка кластеров HDInsight](hdinsight-provision-clusters.md). На следующем экране показана рабочая конфигурация узла на портале Azure.
 
-	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
+	![scaleout\_1][image-hdi-optimize-hive-scaleout\_1]
 
-- Во время выполнения можно масштабировать кластер без необходимости его повторного создания. Такой способ показан ниже. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
+- Во время выполнения можно масштабировать кластер без необходимости его повторного создания. Такой способ показан ниже. ![scaleout\_1][image-hdi-optimize-hive-scaleout\_2]
 
 Дополнительные сведения о разных виртуальных машинах, поддерживаемых HDInsight приведены в разделе [HDInsight цены](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -38,7 +38,7 @@
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/) — это механизм выполнения, альтернативный механизму MapReduce:
 
-![tez\_1][image-hdi-optimize-hive-tez_1]
+![tez\_1][image-hdi-optimize-hive-tez\_1]
 
 
 Tez работает быстрее, так как:
@@ -91,7 +91,7 @@ Tez работает быстрее, так как:
 
 Секционирование данных Hive реализуется путем реорганизации необработанных данных в новые каталоги с присвоением каждой секции своего собственного каталога, где секция определяется пользователем. Следующая схема иллюстрирует секционирование таблицы Hive по столбцу *Год*. Для каждого года создается новый каталог.
 
-![Секционирование][image-hdi-optimize-hive-partitioning_1]
+![partitioning][image-hdi-optimize-hive-partitioning\_1]
 
 Некоторые рекомендации для выполнения секционирования:
 
@@ -123,7 +123,7 @@ Tez работает быстрее, так как:
 	    WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
 
 	    ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-	    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+	    LOCATION ‘wasbs://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
 
 - **Динамическое секционирование** означает, что Hive автоматически создаст секции для вас. Поскольку таблица секционирования уже была создана из промежуточной таблицы, теперь достаточно только выполнить вставку данных в секционированную таблицу, как показано ниже:
 
@@ -216,9 +216,6 @@ Hive поддерживает различные форматы. Наприме�
 - [Использование Hive в HDInsight для анализа журналов веб-сайтов](hdinsight-hive-analyze-website-log.md)
 
 
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
-[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
-[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
-[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
+[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

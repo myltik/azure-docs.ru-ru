@@ -1,5 +1,5 @@
 <properties
- pageTitle="Центр IoT: руководство | Microsoft Azure"
+ pageTitle="Центр IoT: руководство | Microsoft Azure"
  description="Разделы, посвященные шлюзам, подготовке устройств и проверке подлинности для разработки решений IoT с помощью центра IoT Azure."
  services="iot-hub"
  documentationCenter=""
@@ -109,6 +109,7 @@ IoT решения хранят такие данные об отдельных 
 - [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
 - [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
 - [Управление центрами IoT через портал Azure][lnk-portal-manage]
+- [Все аспекты безопасности решения IoT][lnk-securing]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
@@ -135,5 +136,6 @@ IoT решения хранят такие данные об отдельных 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal-manage]: iot-hub-manage-through-portal.md
 [lnk-sas-token]: iot-hub-sas-tokens.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

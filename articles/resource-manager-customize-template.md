@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/10/2016"
+	ms.date="08/01/2016"
 	ms.author="tomfitz"/>
 
 # Настройка экспортированного шаблона Azure Resource Manager
@@ -233,4 +233,4 @@
 - Чтобы узнать, как экспортировать шаблон с помощью интерфейса командной строки Azure, см. статью [Использование Azure CLI для Mac, Linux и Windows с Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 - Сведения о структуре шаблонов см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -126,7 +126,7 @@
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**.
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**.
 
 Список свойств, поддерживаемых RelationalSource, см. в разделе [Свойства типа RelationalSource](#relationalsource-type-properties).
 	
@@ -192,7 +192,7 @@
 
 ## Свойства типа "Набор данных Salesforce"
 
-Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, BLOB-объекты Azure, таблицы Azure и т. д.).
+Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, BLOB-объекты Azure, таблицы Azure и т. д.).
 
 Раздел **typeProperties** во всех типах наборов данных разный. В нем содержится информация о расположении данных в хранилище данных. Раздел typeProperties для набора данных с типом **RelationalTable** имеет следующие свойства.
 
@@ -205,9 +205,9 @@
 ![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## Свойства типа RelationalSource
-Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Такие свойства, как имя, описание, входные и выходные таблицы, различные политики и т. д., доступны для всех типов действий.
+Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Такие свойства, как имя, описание, входные и выходные таблицы, различные политики и т. д., доступны для всех типов действий.
 
-То, какие свойства будут доступны в разделе typeProperties, зависит от типа действия, а в случае с действием копирования — еще и от типов источников и приемников.
+То, какие свойства будут доступны в разделе typeProperties, зависит от типа действия, а в случае с действием копирования — еще и от типов источников и приемников.
 
 В случае действия копирования, когда источник относится к типу **RelationalSource** (который содержит Salesforce), в разделе typeProperties доступны следующие свойства.
 
@@ -215,9 +215,12 @@
 | -------- | ----------- | -------------- | -------- |
 | запрос | Используйте пользовательский запрос для чтения данных. | Запрос SQL-92 или запрос, написанный на [объектно-ориентированном языке запросов Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.ru-RU.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Например, select * from MyTable\_\_c | Нет (если для **dataset** задано значение **tableName**) |
 
-> [AZURE.IMPORTANT]  Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.<br> Используйте язык SOQL при указании запроса с использованием предложения WHERE в столбце даты и времени. Например, $$Text.Format('SELECT Id, Type, Name, BillingCity, BillingCountry FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd).
+> [AZURE.IMPORTANT]  Имя API для любых настраиваемых объектов должно содержать приставку \_\_c. <br><br> Используйте язык SOQL при указании запроса с использованием предложения WHERE в столбце даты и времени. Например, $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd). Или запрос SQL, например, $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
 
 ![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+
+## Извлечение данных из отчета Salesforce
+Из отчетов Salesforce можно извлекать данные, указывая запросы в формате {call "<имя\_отчета>"}, например: "query": "{call "TestReport"}".
 
 ## Ограничения запросов Salesforce
 Для Salesforce установлены ограничения на общее число запросов API и одновременных запросов API. Дополнительные сведения см. в разделе **API Request Limits** (Ограничения запросов API) статьи [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/ru-RU/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Ограничения запросов API в Salesforce).
@@ -254,6 +257,6 @@ URL-адрес | Строка
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Производительность и настройка  
-См. [руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в котором описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
+См. статью [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

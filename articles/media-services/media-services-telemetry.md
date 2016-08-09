@@ -1,11 +1,22 @@
 <properties pageTitle="Телеметрия служб мультимедиа Azure с использованием .NET | Microsoft Azure" 
 	description="В этой статье показано, как использовать телеметрию службы мультимедиа Azure." 
-	services="" 
-	documentationCenter=""
-	authors="juliako" />
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="erikre" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/23/2016"   
+	ms.author="juliako"/>
 
 # Телеметрия служб мультимедиа Azure с использованием .NET
-
+ 
 ## Обзор
 
 Благодаря функциям телеметрии и мониторинга служб мультимедиа клиенты могут получать доступ к данным метрик для своих служб. Текущая версия поддерживает данные телеметрии для канала и конечной точки потоковой передачи StreamingEndpoint. Телеметрию можно настроить на уровне детализации компонента. Существует два уровня детализации: "Обычный" и "Подробный". Текущая версия поддерживает только "Обычный".
@@ -37,55 +48,52 @@
                 new ComponentMonitoringSetting(MonitoringComponent.StreamingEndpoint, MonitoringLevel.Normal)
             });
 
+## Использование данных телеметрии
 
-## Журнал StreamingEndpoint
+Данные телеметрии записываются в таблицу службы хранилища Azure в учетной записи хранения, указанной при настройке данных телеметрии для учетной записи служб мультимедиа. Система телеметрии будет создавать отдельную таблицу для данных по каждому новому дню в 00:00 UTC. К примеру, с именем TelemetryMetrics20160321, где 20160321 — это дата создания таблицы. Для каждого дня будет создана отдельная таблица.
 
-###Доступные метрики
+Можно запрашивать в таблицах следующие данные метрик.
+
+### Журнал StreamingEndpoint
 
 Вы можете запрашивать следующие метрики StreamingEndPoint.
 
-- **PartitionKey** получает ключ раздела записи.
-- **RowKey** получает ключ строки записи.
-- **AccountId** получает идентификатор учетной записи служб мультимедиа.
-- **AccountId** получает идентификатор конечной точки потоковой передачи служб мультимедиа.
-- **ObservedTime** получает время обнаружения метрики.
-- **HostName** получает имя узла конечной точки потоковой передачи.
-- **StatusCode** получает код состояния.
-- **ResultCode** получает код результата.
-- **RequestCount** получает число запросов.
-- **BytesSent** получает число отправленных байт.
-- **ServerLatency** получает значение задержки сервера.
-- **EndToEndLatency** получает полное время выполнения запроса.
-
-###Пример результата запроса конечной точки потоковой передачи
-
-![Запрос конечной точки потоковой передачи](media/media-services-telemetry/media-services-telemetry01.png)
+Свойство|Описание|Образец значения
+---|---|---
+**PartitionKey**|Получает ключ секции записи.|60b71b0f6a0e4d869eb0645c16d708e1\_6efed125eef44fb5b61916edc80e6e23
+**RowKey**|Получает ключ строки записи.|00959\_00000
+**AccountId**|Получает идентификатор учетной записи служб мультимедиа.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**StreamingEndpointId**|Получает идентификатор конечной точки потоковой передачи служб мультимедиа.|d17ec9e4-a5d4-033d-0c36-def70229f06f
+**ObservedTime**|Получает время обнаружения метрики.|20/01/16 23:44:01
+**HostName**|Получает имя узла конечной точки потоковой передачи.|builddemoserver.origin.mediaservices.windows.net
+**StatusCode**|Получает код состояния.|200
+**ResultCode**|Получает код результата.|S\_OK
+**RequestCount**|Получает число запросов.|3
+**Передано байт**|Получает число отправленных байт.|2987358
+**ServerLatency**|Получает значение задержки сервера (включая хранилище).|129
+**EndToEndLatency**|Получает полное время выполнения запроса.|250
 
 
-## Состояние динамического канала
-
-###Доступные метрики
+### Состояние динамического канала
 
 Вы можете запрашивать следующие метрики динамического канала.
 
-- **PartitionKey** получает ключ раздела записи.
-- **RowKey** получает ключ строки записи.
-- **AccountId** получает идентификатор учетной записи служб мультимедиа.
-- **ChannelId** получает идентификатор канала служб мультимедиа.
-- **ObservedTime** получает время обнаружения метрики.
-- **CustomAttributes** получает настраиваемые атрибуты.
-- **TrackType** получает тип отслеживания.
-- **TrackType** получает имя отслеживания.
-- **Bitrate** получает значение скорости.
-- **IncomingBitrate** получает значение входящей скорости.
-- **OverlapCount** получает число перекрытий.
-- **DiscontinuityCount** возвращает число нарушений.
-- **LastTimestamp** получает последнюю метку времени.
+Свойство|Описание|Образец значения
+---|---|---
+**PartitionKey**|Получает ключ секции записи.|60b71b0f6a0e4d869eb0645c16d708e1\_0625cc45918e4f98acfc9a33e8066628
+**RowKey**|Получает ключ строки записи.|13872\_00005
+**AccountId**|Получает идентификатор учетной записи служб мультимедиа.|6efed125-eef4-4fb5-b619-16edc80e6e23
+**ChannelId**|Получает идентификатор канала служб мультимедиа.|
+**ObservedTime**|Получает время обнаружения метрики.|21/01/2016 20:08:49
+**CustomAttributes**|Получает настраиваемые атрибуты.|
+**TrackType**|Получает тип отслеживания.|video
+**TrackName**|Получает имя отслеживания.|video
+**Bitrate**|Получает значение скорости.|785000
+**IncomingBitrate**|Получает значение входящей скорости.|784548
+**OverlapCount**|Получает число перекрытий.|0
+**DiscontinuityCount**|Получает число нарушений.|0
+**LastTimestamp**|Получает последнюю метку времени.|1800488800
  
-###Пример результата запроса динамического канала
-
-![Запрос конечной точки потоковой передачи](media/media-services-telemetry/media-services-telemetry01.png)
-
 ## Пример метрики StreamingEndpoint
 		
 	using System;
@@ -125,8 +133,7 @@
 	            // Used the cached credentials to create CloudMediaContext.
 	            _context = new CloudMediaContext(_cachedCredentials);
 	
-	            INotificationEndPoint notificationEndPoint = 
-	                          _context.NotificationEndPoints.Create("monitoring", NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	
 	            var monitoringConfigurations = _context.MonitoringConfigurations;
 	            IMonitoringConfiguration monitoringConfiguration = null;
@@ -138,6 +145,10 @@
 	            }
 	            else
 	            {
+		            INotificationEndPoint notificationEndPoint = 
+		                          _context.NotificationEndPoints.Create("monitoring", 
+								  NotificationEndPointType.AzureTable, GetTableEndPoint());
+
 	                monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
 	                    new List<ComponentMonitoringSetting>()
 	                    {
@@ -235,4 +246,4 @@
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

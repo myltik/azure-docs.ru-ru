@@ -9,7 +9,7 @@
 	tags="connectors"/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -85,4 +85,4 @@
 
 Опробуйте платформу и [создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md) прямо сейчас. Чтобы узнать, какие другие соединители доступны в приложениях логики, см. [список интерфейсов API](apis-list.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

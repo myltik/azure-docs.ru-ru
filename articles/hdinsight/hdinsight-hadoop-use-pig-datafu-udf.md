@@ -47,7 +47,7 @@ DataFu можно скачать и установить из репозитор
 
         hdfs dfs -put datafu-1.2.0.jar /example/jars
     
-    > [AZURE.NOTE] Приведенный выше пример сохраняет JAR-файл в `wasb:///example/jars`, так как этот каталог уже существует в хранилище кластера. Можно использовать любое расположение в хранилище кластера HDInsight.
+    > [AZURE.NOTE] Приведенный выше пример сохраняет JAR-файл в `wasbs:///example/jars`, так как этот каталог уже существует в хранилище кластера. Можно использовать любое расположение в хранилище кластера HDInsight.
 
 ##Использование DataFu с Pig
 
@@ -55,7 +55,7 @@ DataFu можно скачать и установить из репозитор
 
 > [AZURE.IMPORTANT] При использовании DataFu из Pig в кластере HDInsight под управлением Linux необходимо сначала зарегистрировать JAR-файл с помощью следующего оператора Pig Latin:
 >
-> ```register wasb:///example/jars/datafu-1.2.0.jar```
+> ```register wasbs:///example/jars/datafu-1.2.0.jar```
 >
 > В кластерах HDInsight под управлением Windows DataFu регистрируется по умолчанию.
 
@@ -107,4 +107,4 @@ DataFu можно скачать и установить из репозитор
 
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

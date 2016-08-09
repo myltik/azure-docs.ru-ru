@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/17/2016"
+   ms.date="07/23/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Аутентификация в хранилище данных SQL Azure
@@ -44,14 +44,14 @@
 1. Укажите базу данных по умолчанию при регистрации сервера в обозревателе объектов SQL Server в SSDT или в строке подключения приложения. Например, включите параметр InitialCatalog для подключения ODBC.
 2. Выделите пользовательскую базу данных перед созданием сеанса в SSDT.
 
-> [AZURE.NOTE] Инструкции по подключению к хранилищу данных SQL с помощью SSDT см. в статье [Query Azure SQL Data Warehouse (Visual Studio)][] (Выполнение запросов к хранилищу данных SQL Azure (Visual Studio)).
+> [AZURE.NOTE] Инструкции по подключению к хранилищу данных SQL с помощью SSDT см. в статье [Запросы к хранилищу данных SQL Azure (Visual Studio)][].
 
-Важно отметить, что использовать оператор **USE<your DB>** (Transact-SQL) для изменения базы данных, к которой осуществляется подключение, нельзя.
+Важно отметить, что использовать инструкцию **USE <ваша БД>** (Transact-SQL) для изменения базы данных, к которой осуществляется подключение, невозможно.
 
 
 ## Аутентификация Azure Active Directory (AAD)
 
-Проверка подлинности Azure Active Directory — это механизм подключения к хранилищу данных SQL Microsoft Azure с помощью удостоверений в Azure Active Directory (Azure AD). С помощью проверки подлинности Azure Active Directory можно централизованно управлять удостоверениями пользователей базы данных и другими службами Майкрософт. Централизованное управление удостоверениями позволяет использовать единое расположение для управления пользователями хранилища данных SQL и упрощает управление разрешениями.
+Аутентификация [Azure Active Directory][What is Azure Active Directory] — это механизм подключения к хранилищу данных SQL Microsoft Azure с помощью удостоверений в Azure Active Directory (Azure AD). С помощью проверки подлинности Azure Active Directory можно централизованно управлять удостоверениями пользователей базы данных и другими службами Майкрософт. Централизованное управление удостоверениями позволяет использовать единое расположение для управления пользователями хранилища данных SQL и упрощает управление разрешениями.
 
 ### Преимущества
 
@@ -86,10 +86,11 @@
 
 ## Дальнейшие действия
 
-Чтобы приступить к отправке запросов к хранилищу данных с помощью Visual Studio и других приложений, ознакомьтесь с разделом [Query Azure SQL Data Warehouse (Visual Studio)][] (Выполнение запросов к хранилищу данных SQL Azure (Visual Studio)).
+Чтобы приступить к отправке запросов к хранилищу данных с помощью Visual Studio и других приложений, ознакомьтесь с разделом [Запросы к хранилищу данных SQL Azure (Visual Studio)][].
 
 <!-- Article references -->
-[Защита базы данных в хранилище данных SQL]: sql-data-warehouse-overview-manage-security.md
-[Query Azure SQL Data Warehouse (Visual Studio)]: sql-data-warehouse-query-visual-studio.md
+[Защита базы данных в хранилище данных SQL]: ./sql-data-warehouse-overview-manage-security.md
+[Запросы к хранилищу данных SQL Azure (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
+[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0727_2016-->

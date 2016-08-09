@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Обзор Azure CDN"
+	pageTitle="Обзор Azure CDN | Microsoft Azure"
 	description="Узнайте, что собой представляет сеть доставки содержимого (CDN) Azure и как ее использовать для доставки больших объемов содержимого посредством кэширования BLOB-объектов и статического содержимого."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/05/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Общие сведения о сети доставки содержимого(CDN) Azure
@@ -82,4 +82,4 @@
 
 Сведения о ценах см. на странице [Сведения о ценах на использование сети доставки содержимого (CDN)](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

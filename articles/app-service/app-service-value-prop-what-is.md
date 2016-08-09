@@ -33,7 +33,7 @@
 
 - **Поддержка нескольких языков и платформ**. Служба приложений превосходно поддерживает ASP.NET, Node.js, Java, PHP и Python. Кроме того, в виртуальных машинах службы приложений можно запустить [Windows PowerShell и другие сценарии или исполняемые файлы](../app-service-web/web-sites-create-web-jobs.md).
 
-- **Оптимизация DevOps**. Настраивайте [непрерывную интеграцию и развертывание](../app-service-web/app-service-continous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](../app-service-web/web-sites-staged-publishing.md). Выполняйте [тестирование A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](../powershell-install-configure.md) или [кроссплатформенного интерфейса командной строки (CLI)](../xplat-cli-install.md).
+- **Оптимизация DevOps**. Настраивайте [непрерывную интеграцию и развертывание](../app-service-web/app-service-continuous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](../app-service-web/web-sites-staged-publishing.md). Выполняйте [тестирование A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](../powershell-install-configure.md) или [кроссплатформенного интерфейса командной строки (CLI)](../xplat-cli-install.md).
  
 - **Высокодоступное глобальное масштабирование**. [Увеличивайте](../app-service-web/web-sites-scale.md) либо [уменьшайте](../azure-portal/insights-how-to-scale.md) размер вручную или автоматически. Храните приложения в любом месте глобальной инфраструктуры центра обработки данных. При этом [соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/app-service/) гарантирует высокую доступность.
 
@@ -80,4 +80,4 @@
 * [Создание приложения API](../app-service-api/app-service-api-dotnet-get-started.md)
 * [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

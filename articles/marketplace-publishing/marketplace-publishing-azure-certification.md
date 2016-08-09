@@ -3,7 +3,7 @@
    description="Узнайте о партнерской программе сертификации Microsoft Azure и о том, как продать образ виртуальной машины, шаблон решения, службу разработчика или службу данных в Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter="na"
-   authors="anishkannan "
+   authors="HannibalSII"
    manager=" "
    editor=""
    tags=""/>
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2015"
+   ms.date="07/21/2016"
    ms.author="anishk;hascipio"/>
 
 # Предварительное утверждение с помощью программы сертификации Microsoft Azure
 
 Эта статья содержит инструкции по получению сертификации Microsoft Azure. Подробный обзор программы сертификации Microsoft Azure и ее преимуществ приведен на странице [http://azure.com/certified](http://azure.com/certified)
 
-> [AZURE.NOTE]Сертификация Azure применяется только при создании виртуальных машин, шаблонов решения и служб разработчика для Azure Marketplace. Если вы не создаете ни одного из этих артефактов, пропустите этот шаг и перейдите к пункту [Учетная запись продавца Майкрософт: создание и регистрация](marketplace-publishing-accounts-creation-registration.md).
+> [AZURE.NOTE] Сертификация Azure применяется только при создании виртуальных машин, шаблонов решения и служб разработчика для Azure Marketplace. Если вы не создаете ни одного из этих артефактов, пропустите этот шаг и перейдите к пункту [Учетная запись продавца Майкрософт: создание и регистрация](marketplace-publishing-accounts-creation-registration.md).
 
 ## Приступая к работе
 1. Первый шаг на пути к сертификации приложения или службы и их принятия в Azure Marketplace — заполнение формы приложения на веб-странице [Сертификация Microsoft Azure](https://azure.microsoft.com/marketplace/partner-program/).
@@ -32,7 +32,7 @@
 
 **Допустимые страны продаж**
 
-> [AZURE.WARNING]Для продажи своих услуг в Microsoft Azure Marketplace ваша учетная запись должна быть зарегистрирована для одной из утвержденных "стран продаж". Это ограничение связано с выплатами и налогообложением. Мы активно стараемся расширить этот список стран, поэтому следите за новостями. Полный список см. в разделе 1b [политик участия в Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> [AZURE.WARNING] Для продажи своих услуг в Microsoft Azure Marketplace ваша учетная запись должна быть зарегистрирована для одной из утвержденных "стран продаж". Это ограничение связано с выплатами и налогообложением. Мы активно стараемся расширить этот список стран, поэтому следите за новостями. Полный список см. в разделе 1b [политик участия в Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 ## Дальнейшие действия
 После получения предварительного утверждения программы сертификации Microsoft Azure можно перейти к пункту [Учетная запись продавца Майкрософт: создание и регистрация](marketplace-publishing-accounts-creation-registration.md).
@@ -40,4 +40,4 @@
 ## См. также
 - [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0727_2016-->

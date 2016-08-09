@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Установка MySQL на виртуальную машину OpenSUSE Linux в Microsoft Azure"
-	description="Узнайте, как установить MySQL на виртуальной машине в Azure."
+	pageTitle="Установка MySQL на виртуальную машину OpenSUSE | Microsoft Azure"
+	description="Узнайте, как установить MySQL на виртуальную машину OpenSUSE Linux в Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="07/19/2016"
 	ms.author="cynthn"/>
 
 # Установка MySQL на виртуальной машине под управлением OpenSUSE Linux в Azure
@@ -41,4 +41,4 @@
 [MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,11 +1,11 @@
 
 <properties
-	pageTitle="Технический справочник: условный доступ к приложениям Azure AD | Microsoft Azure"
+	pageTitle="Техническая информация об условном доступе в Azure Active Directory | Microsoft Azure"
 	description="С условным контролем доступа при проверке подлинности пользователя и перед предоставлением ему доступа к приложению Azure Active Directory проверяет определенные условия, которые вы можете выбрать. Если эти условия выполняются, пользователь проходит проверку подлинности, и ему дается доступ к приложению."
     services="active-directory"
 	documentationCenter=""
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,10 +14,10 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="07/26/2016"
+	ms.author="markvi"/>
 
-# Технический справочник: условный доступ к приложениям Azure AD
+# Техническая информация об условном доступе в Azure Active Directory.
 
 ## Службы, включаемые с условным доступом
 Правила условного доступа поддерживаются в самых разных типах приложений Azure AD. В этот список входят:
@@ -82,4 +82,4 @@
 - [Защита доступа к Office 365 и другим приложениям, подключенным к Azure Active Directory](active-directory-conditional-access.md)
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

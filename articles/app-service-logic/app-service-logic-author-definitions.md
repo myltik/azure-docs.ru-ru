@@ -1,48 +1,74 @@
 <properties 
 	pageTitle="Создание определений приложений логики | Microsoft Azure" 
 	description="Узнайте, как создать определение JSON для приложений логики." 
-	authors="stepsic-microsoft-com" 
+	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
 	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
-	ms.author="stepsic"/>
+	ms.date="07/25/2016"
+	ms.author="jehollan"/>
 	
 # Создание определений приложений логики
-В этом разделе показано, как использовать определения [приложений логики службы приложений](app-service-logic-what-are-logic-apps.md), которые представляют собой простой декларативный язык JSON. Если вы этого еще не сделали, сначала ознакомьтесь с тем, [как создать новое приложение логики](app-service-logic-create-a-logic-app.md). Можно также прочитать [полные справочные материалы по языку определения на сайте MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx).
+В этой статье показано, как использовать определения [Azure Logic Apps](app-service-logic-what-are-logic-apps.md), являющиеся простым декларативным языком JSON. Если вы этого еще не сделали, сначала ознакомьтесь с тем, [как создать новое приложение логики](app-service-logic-create-a-logic-app.md). Можно также прочитать [полные справочные материалы по языку определения на сайте MSDN](http://aka.ms/logicappsdocs).
 
 ## Несколько действий по списку, которые повторяются
 
-Общая схема такова: определить один шаг, который возвращает список элементов, а затем следовать последовательности из двух или более действий, которые вы хотите сделать для каждого элемента списка.
+Для массива, состоящего из 10 000 элементов, можно использовать [тип foreach](app-service-logic-loops-and-scopes.md) для повторения действий или выполнения действий для каждого из элементов.
 
-![Повторение по спискам](./media/app-service-logic-author-definitions/newrepeatoverlists.png)
+## Шаг обработки ошибок, если что-то пошло не так
 
-![Повторение по спискам](./media/app-service-logic-author-definitions/newrepeatoverlists2.png)
-
-![Повторение по спискам](./media/app-service-logic-author-definitions/newrepeatoverlists3.png)
-
-![Повторение по спискам](./media/app-service-logic-author-definitions/newrepeatoverlists4.png)
-
- 
-В этом примере 3 действия.
-
-1. Получение списка статей. При этом возвращается объект, содержащий массив.
-
-2. Действие, которое переходит к свойству ссылки для каждой статьи и возвращает фактическое расположение статьи.
-
-3. Действие, которое выполняет итерацию всех результатов из второго действия для скачивания фактических статей.
+Обычно необходима возможность записать *шаги по исправлению* — определенную логику, которая используется, **только если** один или несколько из вызовов не удалось выполнить. В этом примере мы получаем данные из различных мест, но если вызов завершается неудачно, я хочу отправить (POST) сообщение куда-то, чтобы можно было отследить этот сбой позже.
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+	},
+	"triggers": {
+		"manual": {
+			"type": "manual"
+		}
+	},
+	"actions": {
+		"readData": {
+			"type": "Http",
+			"inputs": {
+				"method": "GET",
+				"uri": "http://myurl"
+			}
+		},
+		"postToErrorMessageQueue": {
+			"type": "ApiConnection",
+			"inputs": "...",
+			"runAfter": {
+				"readData": ["Failed"]
+			}
+		}
+	},
+	"outputs": {}
+}
+```
+
+Вы можете использовать свойство `runAfter`, чтобы настроить запуск `postToErrorMessageQueue` только после неудачного выполнения `readData` (**Failed**). Возможные значения свойства `runAfter` также могут быть представлены списком, например `["Succeeded", "Failed"]`.
+
+Наконец, так как сбой теперь обработан, мы больше не помечаем выполнение меткой **Сбой**. Как видите, это выполнение **успешно** завершено, хотя на одном шаге произошел сбой, так как мной был написан шаг для обработки данного сбоя.
+
+## Два (или более) шага, выполняемые параллельно
+
+Чтобы несколько действий выполнялись параллельно, свойство `runAfter` не должно изменяться во время выполнения.
+
+```
+{
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {},
 	"triggers": {
@@ -51,40 +77,110 @@
 		}
 	},
 	"actions": {
-		"getArticles": {
+		"readData": {
 			"type": "Http",
 			"inputs": {
 				"method": "GET",
-				"uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+				"uri": "http://myurl"
 			}
 		},
-		"readLinks": {
+		"branch1": {
 			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item().link"
-			},
-			"forEach": "@body('getArticles').responseData.feed.entries"
+			"inputs": "...",
+			"runAfter": {
+				"readData": ["Succeeded"]
+			}
 		},
-		"downloadLinks": {
+		"branch2": {
 			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item().outputs.headers.location"
-			},
-			"conditions": [{
-				"expression": "@not(equals(actions('readLinks').status, 'Skipped'))"
-			}],
-			"forEach": "@actions('readLinks').outputs"
+			"inputs": "...",
+			"runAfter": {
+				"readData": ["Succeeded"]
+			}
 		}
 	},
 	"outputs": {}
 }
 ```
 
-Как указано в описании [использования функций приложений логики](app-service-logic-use-logic-app-features.md), итерация первого списка выполняется с помощью свойства `forEach:` из второго действия. Тем не менее для третьего действия необходимо выбрать свойство `@actions('readLinks').outputs`, так как второе выполняется для каждой статьи.
+Как видно в приведенном выше примере, для ветвей `branch1` и `branch2` задано выполнение после `readData`. В результате обе эти ветви будут выполняться одновременно.
 
-Внутри действия можно использовать функцию [`item()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#item). В этом примере необходимо было получить заголовок `location`, поэтому мне пришлось снова использовать `@item().outputs.headers` для получения выходных данных выполнения второго действия, итерацию которых мы теперь осуществляем.
+![Параллельно](./media/app-service-logic-author-definitions/parallel.png)
+
+Как видите, метки времени для обеих ветвей идентичны.
+
+## Соединение двух параллельных ветвей
+
+Можно объединить два действия, которые были настроены для параллельного выполнения, добавив элементы в свойство `runAfter` (см. выше).
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-04-01-preview/workflowdefinition.json#",
+    "actions": {
+        "readData": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {},
+            "type": "Http"
+        },
+        "branch1": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {
+                "readData": [
+                    "Succeeded"
+                ]
+            },
+            "type": "Http"
+        },
+        "branch2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {
+                "readData": [
+                    "Succeeded"
+                ]
+            },
+            "type": "Http"
+        },
+        "join": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://myurl"
+            },
+            "runAfter": {
+                "branch1": [
+                    "Succeeded"
+                ],
+                "branch2": [
+                    "Succeeded"
+                ]
+            },
+            "type": "Http"
+        }
+    },
+    "contentVersion": "1.0.0.0",
+    "outputs": {},
+    "parameters": {},
+    "triggers": {
+        "manual": {
+            "inputs": {
+                "schema": {}
+            },
+            "kind": "Http",
+            "type": "Request"
+        }
+    }
+}
+```
+
+![Параллельно](./media/app-service-logic-author-definitions/join.png)
 
 ## Сопоставление элементов в списке с какой-либо другой конфигурацией
 
@@ -92,7 +188,7 @@
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"specialCategories": {
@@ -143,344 +239,6 @@
 
 Здесь следует уделить внимание двум моментам. Во-первых, это функция [`intersection()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection), используемая для проверки, соответствует ли категория одной из известных определенных категорий. Во-вторых, когда мы получаем категорию, мы можем извлечь элемент из сопоставления с помощью квадратных скобок: `parameters[...]`.
 
-## Добавление в цепочку и вложение приложений логики во время повторения для списка
-
-Часто бывает проще управлять приложениями логики, когда они больше разделены. Это можно сделать, разделив логику на несколько определений и вызывая их из одного родительского определения. В этом примере будет родительское приложение логики, получающее заказы, и дочернее приложение логики, которое выполняет некоторые действия для каждого заказа.
-
-В родительском приложении логики:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"orders": {
-			"defaultValue": [{
-				"quantity": 10,
-				"id": "myorder1"
-			}, {
-				"quantity": 200,
-				"id": "specialOrder"
-			}, {
-				"quantity": 5,
-				"id": "myOtherOrder"
-			}],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"iterateOverOrders": {
-			"type": "Workflow",
-			"inputs": {
-				"uri": "https://westus.logic.azure.com/subscriptions/xxxxxx-xxxxx-xxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Logic/workflows/xxxxxxx",
-				"apiVersion": "2015-02-01-preview",
-				"trigger": {
-					"name": "submitOrder",
-					"outputs": {
-						"body": "@item()"
-					}
-				},
-				"authentication": {
-					"type": "Basic",
-					"username": "default",
-					"password": "xxxxxxxxxxxxxx"
-				}
-			},
-			"forEach": "@parameters('orders')"
-		},
-		"sendInvoices": {
-			"type": "Http",
-			"inputs": {
-				"uri": "http://www.example.com/?invoiceID=@{item().outputs.run.outputs.deliverTime.value}",
-				"method": "GET"
-			},
-			"forEach": "@outputs('iterateOverOrders')"
-		}
-	},
-	"outputs": {}
-}
-```
-
-Затем в дочернем приложении логики вы используете функцию [`triggerBody()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerBody) для получения значений, которые были переданы в дочерний рабочий процесс. Затем в качестве выходных данных укажите данные, которые необходимо вернуть в родительский поток.
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"calulatePrice": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?action=calcPrice&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
-			}
-		},
-		"calculateDeliveryTime": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?action=calcTime&id=@{triggerBody().id}&qty=@{triggerBody().quantity}"
-			}
-		}
-	},
-	"outputs": {
-		"deliverTime": {
-			"type": "String",
-			"value": "@outputs('calculateDeliveryTime').headers.etag"
-		}
-	}
-}
-```
-
-Вы можете прочитать о [действии типа приложения логики на сайте MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx).
-
->[AZURE.NOTE]Конструктор приложений логики не поддерживает действия типа приложения логики, поэтому вам потребуется вручную изменить определение.
-
-
-## Шаг обработки ошибок, если что-то пошло не так
-
-Обычно необходима возможность записать *шаги по исправлению* — определенную логику, которая используется, **только если** один или несколько из вызовов не удалось выполнить. В этом примере мы получаем данные из различных мест, но если вызов завершается неудачно, я хочу отправить (POST) сообщение куда-то, чтобы можно было отследить этот сбой позже.
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"dataFeeds": {
-			"defaultValue": ["https://www.microsoft.com/ru-RU/default.aspx", "https://gibberish.gibberish/"],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item()"
-			},
-			"forEach": "@parameters('dataFeeds')"
-		},
-		"postToErrorMessageQueue": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?noteAnErrorFor=@{item().inputs.uri}"
-			},
-			"conditions": [{
-				"expression": "@equals(actions('readData').status, 'Failed')"
-			}, {
-				"expression": "@equals(item().status, 'Failed')"
-			}],
-			"forEach": "@actions('readData').outputs"
-		}
-	},
-	"outputs": {}
-}
-```
-
-Я использую два условия, так как на первом шаге выполняется повторение для списка. Если имеется только одно действие, вам потребуется только одно условие (первое). Также обратите внимание, что можно использовать *входы* в действие, завершившееся сбоем, на шаге исправления — здесь я передаю вызвавший сбой URL-адрес на второй шаг.
-
-![Исправление](./media/app-service-logic-author-definitions/remediation.png)
-
-Наконец, так как сбой теперь обработан, мы больше не помечаем выполнение меткой **Сбой**. Как видите, это выполнение **успешно** завершено, хотя на одном шаге произошел сбой, так как мной был написан шаг для обработки данного сбоя.
-
-## Два (или более) шага, выполняемые параллельно
-
-Для выполнения нескольких действий одновременно, а не последовательно, необходимо удалить условие `dependsOn`, которое связывает эти два действия. После удаления зависимости действия автоматически будут выполняться параллельно, если только им не требуются данные друг от друга.
-
-![Ветви](./media/app-service-logic-author-definitions/branches.png)
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"dataFeeds": {
-			"defaultValue": ["https://www.microsoft.com/ru-RU/default.aspx", "https://office.live.com/start/default.aspx"],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@item()"
-			},
-			"forEach": "@parameters('dataFeeds')"
-		},
-		"branch1": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?branch1Logic=@{item().inputs.uri}"
-			},
-			"forEach": "@actions('readData').outputs"
-		},
-		"branch2": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?branch2Logic=@{item().inputs.uri}"
-			},
-			"forEach": "@actions('readData').outputs"
-		}
-	},
-	"outputs": {}
-}
-```
-
-Как видно в приведенном выше примере, branch1 и branch2 зависят только от содержимого из readData. В результате обе эти ветви будут выполняться одновременно.
-
-![Параллельно](./media/app-service-logic-author-definitions/parallel.png)
-
-Как видите, метки времени для обеих ветвей идентичны.
-
-## Соединение двух условных ветвей логики
-
-Можно объединить два условных потока логики (которые могут быть выполнены или нет), задав одно действие, которое использует данные из обеих ветвей.
-
-Ваша стратегия при этом зависит от того, обрабатываете вы один элемент или коллекцию элементов. Если используется один элемент, вам нужно будет задействовать функцию [`coalesce()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#coalesce).
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"order": {
-			"defaultValue": {
-				"quantity": 10,
-				"id": "myorder1"
-			},
-			"type": "Object"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"handleNormalOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderNormally=@{parameters('order').id}"
-			},
-			"conditions": [{
-				"expression": "@lessOrEquals(parameters('order').quantity, 100)"
-			}]
-		},
-		"handleSpecialOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderSpecially=@{parameters('order').id}"
-			},
-			"conditions": [{
-				"expression": "@greater(parameters('order').quantity, 100)"
-			}]
-		},
-		"submitInvoice": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?invoice=@{coalesce(outputs('handleNormalOrders')?.headers?.etag,outputs('handleSpecialOrders')?.headers?.etag )}"
-			},
-			"conditions": [{
-				"expression": "@or(equals(actions('handleNormalOrders').status, 'Succeeded'), equals(actions('handleSpecialOrders').status, 'Succeeded'))"
-			}]
-		}
-	},
-	"outputs": {}
-}
-```
- 
-Кроме того, если первые две ветви работают, например, со списком заказов, то, возможно, необходимо будет использовать функцию [`union()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#union) для объединения данных из обеих ветвей.
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"orders": {
-			"defaultValue": [{
-				"quantity": 10,
-				"id": "myorder1"
-			}, {
-				"quantity": 200,
-				"id": "specialOrder"
-			}, {
-				"quantity": 5,
-				"id": "myOtherOrder"
-			}],
-			"type": "Array"
-		}
-	},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"handleNormalOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderNormally=@{item().id}"
-			},
-			"conditions": [{
-				"expression": "@lessOrEquals(item().quantity, 100)"
-			}],
-			"forEach": "@parameters('orders')"
-		},
-		"handleSpecialOrders": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?orderSpecially=@{item().id}"
-			},
-			"conditions": [{
-				"expression": "@greater(item().quantity, 100)"
-			}],
-			"forEach": "@parameters('orders')"
-		},
-		"submitInvoice": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/?invoice=@{item().outputs.headers.etag}"
-			},
-			"conditions": [{
-				"expression": "@equals(item().status, 'Succeeded')"
-			}],
-			"forEach": "@union(actions('handleNormalOrders').outputs, actions('handleSpecialOrders').outputs)"
-		}
-	},
-	"outputs": {}
-}
-```
 ## Работа со строками
 
 Существуют различные функции, которые могут оперировать строкой. Рассмотрим пример, когда у нас есть строка, которую необходимо передать в систему, но вы не уверены, что кодировка символов будет обработана правильно. Один из вариантов — закодировать эту строку в Base64. Однако во избежание экранирования в URL-адресе мы заменим несколько знаков.
@@ -489,7 +247,7 @@
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"order": {
@@ -539,7 +297,7 @@
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"order": {
@@ -564,14 +322,15 @@
 			}
 		},
 		"timingWarning": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
-			},
-			"conditions": [{
-				"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
-			}]
+			"actions" {
+				"type": "Http",
+				"inputs": {
+					"method": "GET",
+					"uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+				},
+				"runAfter": {}
+			}
+			"expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))"
 		}
 	},
 	"outputs": {}
@@ -581,57 +340,6 @@
 В этом примере производится извлечение `startTime` из предыдущего шага. Затем мы получаем текущее время и вычитаем одну секунду: [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) (можно использовать и другие единицы времени, например `minutes` или `hours`). Наконец, мы можем сравнить эти два значения. Если первое меньше второго, то это значит, что с момента первоначального размещения заказа прошло больше секунды.
 
 Также обратите внимание, что можно использовать модули форматирования строк для форматирования дат: в строке запроса я использую [`utcnow('r')`](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow), чтобы получить RFC1123. Все сведения о форматировании дат [приведены на сайте MSDN](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
-
-## Передача значений во время выполнения для изменения поведения
-
-Предположим, имеются различные поведения, которые необходимо выполнять по некоторому значению, используемому для запуска приложения логики. Можно использовать функцию [`triggerOutputs()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#triggerOutputs), чтобы получить эти значения на основании переданных данных.
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"readData": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "@triggerOutputs().uriToGet"
-			}
-		},
-		"extraStep": {
-			"type": "Http",
-			"inputs": {
-				"method": "POST",
-				"uri": "http://www.example.com/extraStep"
-			},
-			"conditions": [{
-				"expression": "@triggerOutputs().doMoreLogic"
-			}]
-		}
-	},
-	"outputs": {}
-}
-```
-
-Чтобы это действительно заработало, при запуске выполнения необходимо передать нужные свойства (в приведенном выше примере `uriToGet` и `doMoreLogic`).
-
-Со следующими полезными данными. Обратите внимание, что теперь вы предоставили приложению логики значения для использования.
-
-```
-{
-    "outputs": {
-        "uriToGet" : "http://my.uri.I.want/",
-        "doMoreLogic" : true
-    }
-}
-``` 
-
-При запуске это приложение логики вызывает переданный мной универсальный код ресурса (URI) и выполняет этот дополнительный шаг, так как мной передано значение `true`. Если изменять параметры необходимо только во время развертывания (не при *каждом запуске*), то следует использовать `parameters`, которые вызываются ниже.
 
 ## Использование параметров во время развертывания для разных сред
 
@@ -643,10 +351,10 @@
 
 ```
 {
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
-		"connection": {
+		"uri": {
 			"type": "string"
 		}
 	},
@@ -660,7 +368,7 @@
 			"type": "Http",
 			"inputs": {
 				"method": "GET",
-				"uri": "@parameters('connection')"
+				"uri": "@parameters('uri')"
 			}
 		}
 	},
@@ -668,17 +376,11 @@
 }
 ```
 
-Затем в фактическом запросе `PUT` для приложения логики можно указать параметр `connection`. Обратите внимание, что, так как значения по умолчанию больше нет, этот параметр является обязательным в полезных данных приложения логики.
+Затем в фактическом запросе `PUT` для приложения логики можно указать параметр `uri`. Обратите внимание, что, так как значения по умолчанию больше нет, этот параметр является обязательным в полезных данных приложения логики.
 
 ```
 {
-    "properties": {
-        "sku": {
-            "name": "Premium",
-            "plan": {
-                "id": "/subscriptions/xxxxx/resourceGroups/xxxxxx/providers/Microsoft.Web/serverFarms/xxxxxx"
-            }
-        },
+    "properties": {},
         "definition": {
           // Use the definition from above here
         },
@@ -694,41 +396,6 @@
 
 Затем в каждой среде можно предоставить другое значение для параметра `connection`.
 
-## Выполнение шага до тех пор, пока не будет выполнено условие
-
-Представим, что есть интерфейс API, который нужно вызвать. При этом необходимо дождаться определенного ответа перед продолжением. Представим также, что требуется подождать, пока кто-то отправит файл в каталог перед обработкой файла. Это можно сделать с помощью *do-until*:
-
-```
-{
-	"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {},
-	"triggers": {
-		"manual": {
-			"type": "manual"
-		}
-	},
-	"actions": {
-		"http0": {
-			"type": "Http",
-			"inputs": {
-				"method": "GET",
-				"uri": "http://mydomain/listfiles"
-			},
-			"until": {
-				"limit": {
-					"timeout": "PT10M"
-				},
-				"conditions": [{
-					"expression": "@greater(length(action().outputs.body),0)"
-				}]
-			}
-		}
-	},
-	"outputs": {}
-}
-```
-
 В [документации по интерфейсу API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) описаны все параметры для создания приложений логики и управления ими.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0727_2016-->

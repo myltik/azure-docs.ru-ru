@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Использование аналитики — эффективного инструмента поиска Application Insights | Microsoft Azure" 
-	description="Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights. " 
+	description="Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights. " 
 	services="application-insights" 
     documentationCenter=""
 	authors="danhadari" 
@@ -19,14 +19,14 @@
 # Использование аналитики в Application Insights
 
 
-[Аналитика](app-insights-analytics.md) — это эффективный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
+[Аналитика](app-insights-analytics.md) — это эффективный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
+* **[Просмотрите видео с вводной информацией](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Протестируйте аналитику на смоделированных данных](https://analytics.applicationinsights.io/demo)**, если ваше приложение еще не отправляет данные в Application Insights.
 
 ## Открытие аналитики
 
-В домашнем ресурсе вашего приложения в Application Insights щелкните "Аналитика".
-
-![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics-using/001.png)
+В домашнем ресурсе вашего приложения в Application Insights щелкните "Аналитика". ![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics-using/001.png)
 
 Встроенный учебник подаст вам некоторые идеи о возможностях.
 
@@ -40,7 +40,7 @@
 
 Начните с имен таблиц, перечисленных в левой части окна (либо с операторов [range](app-insights-analytics-reference.md#range-operator) или [union](app-insights-analytics-reference.md#union-operator)). Используйте `|` для создания конвейера [операторов](app-insights-analytics-reference.md#queries-and-operators). IntelliSense подскажет вам операторы и некоторые элементы выражений, которые можно использовать.
 
-Сведения см. в [обзоре языка аналитики](app-insights-analytics-tour.md) и [справочнике по языку](app-insights-analytics-reference.md).
+См. [обзор языка аналитики](app-insights-analytics-tour.md) и [справочник по языку](app-insights-analytics-reference.md).
 
 ### Выполнение запроса
 
@@ -104,9 +104,9 @@
 
 Рекомендуется избегать превышения ограничения. Используйте такие операторы:
 
-* [where timestamp > ago(3d)](app-insights-analytics-reference.md#where-operator);
-* [top 100 by timestamp](app-insights-analytics-reference.md#top-operator);
-* [take 100](app-insights-analytics-reference.md#take-operator);
+* [where timestamp > ago(3d);](app-insights-analytics-reference.md#where-operator)
+* [top 100 by timestamp;](app-insights-analytics-reference.md#top-operator)
+* [take 100;](app-insights-analytics-reference.md#take-operator)
 * [summarize](app-insights-analytics-reference.md#summarize-operator)
 
 
@@ -119,13 +119,15 @@
 
 Если у вас несколько столбцов правильных типов, можно выбрать оси X и Y, а также столбец измерений, чтобы разделить по ним результаты.
 
-По умолчанию результаты изначально отображаются в виде таблицы, а схему вы выбираете вручную. Можно также использовать [директиву render](app-insights-analytics-reference.md#render-directive) в конце запроса, чтобы выбрать схему.
+По умолчанию результаты изначально отображаются в виде таблицы, а схему вы выбираете вручную. Можно также использовать [директиву render](app-insights-analytics-reference.md#render-directive) в конце запроса, чтобы выбрать диаграмму.
+
+Вы можете закрепить диаграмму на одной из [общих панелей мониторинга](app-insights-dashboards.md), просто щелкнув значок булавки. (Доступно только для приложений в платной ценовой категории.)
 
 ## Экспорт в Excel
 
 После выполнения запроса можно скачать CSV-файл. Щелкните **Экспорт**, а затем выберите Excel.
 
-## Экспорт в Power BI
+## Экспорт в Power BI
 
 1. Поместите курсор в запрос, щелкните **Экспорт** и выберите Power BI.
 
@@ -135,7 +137,7 @@
 
 3. Скопируйте скрипт на языке M в расширенный редактор запросов Power BI Desktop.
  * Откройте экспортированный файл.
- * В Power BI Desktop выберите **"Получить данные", "Пустой запрос", "Расширенный редактор"** и вставьте этот скрипт на языке M.
+ * В Power BI Desktop выберите **Получить данные, Пустой запрос, Расширенный редактор** и вставьте этот скрипт на языке M.
 
     ![](./media/app-insights-analytics-using/250.png)
 
@@ -148,4 +150,4 @@
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

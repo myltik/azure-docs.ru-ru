@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -53,7 +53,7 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 Точно так же можно указать действие для выполнения.
 
 Входные данные для действия:
-- **выражение JavaScript** — выражение, которое будет оцениваться. Необходимо добавить в него инструкцию `return`, чтобы получить содержимое. 
+- **выражение JavaScript** — выражение, которое будет оцениваться. Необходимо добавить в него инструкцию `return`, чтобы получить содержимое.
 - **Объект контекста** — необязательный объект, который может быть передан в триггер. Можно определить любое количество свойств, однако сущность верхнего уровня должна быть объектом, например `{ "bar" : 0}`.
 
 Предположим, вы используете триггер Office 365 **Новое сообщение электронной почты**. Этот триггер возвращает следующий объект:
@@ -99,4 +99,4 @@ return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name;
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -133,6 +133,7 @@
 - [Руководство разработчика по центру Azure IoT (IoT — Интернет вещей)][lnk-devguide]
 - [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
 - [Управление центрами IoT через портал Azure][lnk-portal]
+- [Все аспекты безопасности решения IoT][lnk-securing]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -148,5 +149,6 @@
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

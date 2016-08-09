@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="Использование Azure CDN"
+	 pageTitle="Использование Azure CDN | Microsoft Azure"
 	 description="В этом разделе показано, как включить сеть доставки содержимого (CDN) для Azure. В этом руководстве описано, как создать профиль CDN и конечную точку."
 	 services="cdn"
 	 documentationCenter=""
@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="05/24/2016" 
+	 ms.date="07/28/2016" 
 	 ms.author="casoper"/>
 
 # Использование Azure CDN  
@@ -67,7 +67,7 @@
 	
 	> [AZURE.NOTE] **Порт источника** влияет только на то, какой порт будет использовать конечная точка для получения данных из источника. Сама конечная точка будет доступна конечным клиентам только на портах HTTP и HTTPS по умолчанию (80 и 443) вне зависимости от **порта источника**.
 	>
-	> В конечных точках **Azure CDN от Akamai** запрещено указывать полный диапазон портов TCP для источников. Список запрещенных портов источников см. в статье [Azure CDN from Akamai Behavior Details](cdn-akamai-behavior-details.md) (Особенности поведения Azure CDN от Akamai).
+	> В конечных точках **Azure CDN от Akamai** запрещено указывать полный диапазон портов TCP для источников. Список запрещенных портов источников см. в статье [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Разрешенные порты источников Azure CDN от Akamai).
 	>
 	> Доступ к содержимому CDN с использованием HTTPS имеет следующие ограничения.
 	> 
@@ -97,4 +97,4 @@
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

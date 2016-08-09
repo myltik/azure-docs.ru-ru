@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -165,12 +165,12 @@
 		    val conf = new SparkConf().setAppName("MyClusterApp")
 		    val sc = new SparkContext(conf)
 		
-		    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
 		    //find the rows which have only one digit in the 7th column in the CSV
 		    val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
 		
-		    rdd1.saveAsTextFile("wasb:///HVACOut")
+		    rdd1.saveAsTextFile("wasbs:///HVACOut")
 		  }		
 		}
 
@@ -212,7 +212,7 @@
 
 	![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-5.png)
 
-4. Щелкните имя связанного с кластером контейнера хранилища. В правой области появится папка с именем **HVACOut**. Дважды щелкнув эту папку, вы увидите файлы **part-**. Откройте один из этих файлов для просмотра выходных данных приложения.
+4. Щелкните имя связанного с кластером контейнера хранилища. В правой области появится папка с именем **HVACOut**. Дважды щелкнув эту папку, вы увидите файлы **part-***. Откройте один из этих файлов для просмотра выходных данных приложения.
 
 ### Доступ к серверу журнала Spark
 
@@ -247,7 +247,7 @@
 	* В правой области выберите **Spark on HDInsight Local Run Sample (Scala)** (Пример локального запуска Spark в HDInsight (Scala)).
 	* Нажмите кнопку **Далее**.
 
-2. Чтобы предоставить сведения о проекте, выполните шаги 3–6, как описано в предыдущем разделе [Настройка проекта приложения Spark Scala для кластера HDInsight Spark] \(#set-up-a-spark-scala-application-project-for-an-hdinsight-spark кластера).
+2. Чтобы предоставить сведения о проекте, выполните шаги 3–6, как описано в предыдущем разделе [Настройка проекта приложения Spark Scala для кластера HDInsight Spark] (#set-up-a-spark-scala-application-project-for-an-hdinsight-spark кластера).
 
 3. Шаблон добавляет пример кода (**LogQuery**) в папку **src**, который можно запустить локально на компьютере.
 
@@ -306,4 +306,4 @@
 
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

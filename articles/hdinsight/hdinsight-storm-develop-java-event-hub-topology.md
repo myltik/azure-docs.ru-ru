@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="07/25/2016"
    ms.author="larryfr"/>
 
 # Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)
@@ -390,7 +390,7 @@ JAR-файл, созданный проектом, содержит две то�
 
 7. В __консоли запросов__ выберите __Редактор Hive__ и замените код по умолчанию `select * from hivesampletable` на следующий:
 
-        create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasb:///devicedata/';
+        create external table devicedata (deviceid string, devicevalue int) row format delimited fields terminated by ',' stored as textfile location 'wasbs:///devicedata/';
         select * from devicedata limit 10;
 
     Щелкните __Выбрать__, чтобы выполнить запрос. В результате будет возвращено 10 строк из данных, записанных топологией EventHubReader в хранилище Azure (WASB). После выполнения запроса вы увидите примерно следующее:
@@ -453,4 +453,4 @@ EventHubSpout периодически передает информацию о 
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

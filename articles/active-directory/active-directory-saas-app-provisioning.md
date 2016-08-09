@@ -20,7 +20,7 @@
 
 ##Что такое автоматическая подготовка пользователей для приложений SaaS
 
-Служба Azure Active Directory (Azure AD) предоставляет возможность автоматизировать процесс создания, обслуживания и удаления удостоверений пользователей в облачных приложениях (Saas), таких как Dropbox, Salesforce, ServiceNow и другие.
+Служба Azure Active Directory (Azure AD) предоставляет возможность автоматизировать процесс создания, обслуживания и удаления удостоверений пользователей в облачных приложениях ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)), таких как Dropbox, Salesforce, ServiceNow и другие.
 
 **Ниже приведены некоторые примеры возможностей, которые предоставляет эта функция.**
 
@@ -116,4 +116,4 @@ Azure AD готовит пользователей для приложения S
 - [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
 - [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0727_2016-->

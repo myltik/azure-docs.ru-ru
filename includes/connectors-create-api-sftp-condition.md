@@ -1,11 +1,8 @@
-1. Select **+ New step** to add the action.  
-- Select the **Add an action** link. This opens the search box where you can search for any action you would like to take. For this example, SharePoint actions are of interest.    
-![SFTP condition image 1](./media/connectors-create-api-sftp/condition-1.png)    
-- Select **Choose a value** on the left. 
-![SFTP condition image 2](./media/connectors-create-api-sftp/condition-2.png)    
-- Select **File content** to indicate that you want to evaluate the file contents in the condition.      
-![SFTP condition image 3](./media/connectors-create-api-sftp/condition-3.png)   
-- Select *contains* from the list of operators.       
-![SFTP condition image 4](./media/connectors-create-api-sftp/condition-4.png)   
-- Select **Choose a value** on the right and enter *ExtractMeFirst*. In this example, ExtractMeFirst is a value that is expected to be in a file by persons who have access to the SFTP folder to indicate that it is an archive file that should be extracted.  
-![SFTP condition image 5](./media/connectors-create-api-sftp/condition-5.png)   
+1. Выберите **+ Новый шаг**, чтобы добавить действие.
+- Щелкните ссылку **Добавить действие**. Откроется поле поиска. В этом поле вы можете выполнить поиск действия, которое нужно применить. В нашем случае это действия SharePoint. ![Условие SFTP, изображение 1](./media/connectors-create-api-sftp/condition-1.png)
+- Щелкните **Выберите значение** слева. ![Условие SFTP, изображение 2](./media/connectors-create-api-sftp/condition-2.png)
+- Выберите **Содержимое файла**, чтобы указать, что в условии нужно оценивать содержимое файла. ![Условие SFTP, изображение 3](./media/connectors-create-api-sftp/condition-3.png)
+- Выберите *содержит* из списка операторов. ![Условие SFTP, изображение 4](./media/connectors-create-api-sftp/condition-4.png)
+- Щелкните **Выберите значение** справа и введите *ExtractMeFirst*. В этом примере значение ExtractMeFirst ожидается в файле пользователей, имеющих доступ к папке SFTP. Оно указывает, что это файл архива, который следует извлечь. ![Условие SFTP, изображение 5](./media/connectors-create-api-sftp/condition-5.png)
+
+<!---HONumber=AcomDC_0727_2016-->

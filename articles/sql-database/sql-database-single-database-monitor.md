@@ -4,7 +4,7 @@
 	keywords="мониторинг базы данных, производительность облачной базы данных"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -47,4 +47,4 @@
 
 Для пулов эластичных баз данных можно отслеживать отдельные базы данных в пуле с помощью способов, описанных в этом разделе. Но также можно отслеживать и пул в целом. Дополнительные сведения см. в статье [Мониторинг пула эластичных баз данных и управление им](sql-database-elastic-pool-manage-portal.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

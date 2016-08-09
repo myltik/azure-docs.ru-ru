@@ -2,7 +2,7 @@
 
 > [AZURE.NOTE] Azure предоставляет две модели развертывания: с использованием [Resource Manager][resource-manager-overview] и классическую. В этой статье описывается использование модели развертывания c использованием диспетчера ресурсов, которую рекомендует применять для новых развертываний корпорация Майкрософт.
 
-Мы не рекомендуем использовать отдельную виртуальную машину для рабочих нагрузок рабочей среды, так как Azure не предусматривает поддержку соглашения об уровне обслуживания с гарантией времени непрерывной работы при запуске одной виртуальной машины. Чтобы воспользоваться соглашением об уровне обслуживания, необходимо развернуть несколько виртуальных машин в группе доступности. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
+Мы не рекомендуем использовать отдельную виртуальную машину для рабочих нагрузок рабочей среды, так как Azure не предусматривает поддержку соглашения об уровне обслуживания с гарантией времени непрерывной работы при запуске одной виртуальной машины. Чтобы воспользоваться соглашением об уровне обслуживания, необходимо развернуть несколько виртуальных машин в группе доступности. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] (Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
 
 ## Схема архитектуры
 
@@ -10,15 +10,15 @@
 
 ![[0]][0]
 
-- **Группа ресурсов.** [Группа ресурсов][resource-manager-overview] представляет собой контейнер, содержащий связанные ресурсы. Создайте группу ресурсов для хранения ресурсов виртуальной машины.
+- **Группа ресурсов.** [_Группа ресурсов_][resource-manager-overview] представляет собой контейнер, содержащий связанные ресурсы. Создайте группу ресурсов для хранения ресурсов виртуальной машины.
 
 - **Виртуальная машина**. Виртуальную машину можно подготовить на основе списка опубликованных образов или VHD-файла, переданного в хранилище BLOB-объектов Azure.
 
-- **Диск ОС.** Этот диск представляет собой VHD-файл, сохраненный в [службе хранилища Azure][azure-storage]. Это означает, что он сохранится, даже если хост-компьютер выйдет из строя. Выберите диск ОС — `/dev/sda1`.
+- **Диск ОС.** Этот диск представляет собой VHD-файл, сохраненный в [службе хранилища Azure][azure-storage]. Это означает, что он сохранится, даже если хост-компьютер выйдет из строя. Выберите диск операционной системы — `/dev/sda1`.
 
 - **Временный диск.** Виртуальная машина создается с временным диском. Временный диск хранится на физическом диске хост-компьютера. Он _не_ сохраняется в службе хранилища Azure и может быть удален во время перезагрузки и других событий жизненного цикла виртуальной машины. Используйте этот диск только для временных данных, таких как данные страниц или файлы подкачки. Временный диск `/dev/sdb1` подключен к `/mnt/resource` или `/mnt`.
 
-- **Диски данных.** [Диск данных][data-disk] — это постоянный виртуальный жесткий диск, используемый для хранения данных приложений. Диски данных, такие как диск ОС, хранятся в службе хранилища Azure.
+- **Диски данных.** [Диск данных][data-disk] — это постоянный виртуальный жесткий диск, используемый для хранения данных приложений. Диски данных, такие как диск ОС, хранятся в службе хранилища Azure.
 
 - **Виртуальная сеть и подсеть.** Каждая виртуальная машина в Azure развертывается в виртуальной сети, которая затем разделяется на подсети.
 
@@ -46,7 +46,7 @@
 
 ### Рекомендации по дискам и хранилищам
 
-- Для наилучшей производительности дисковых операций ввода-вывода мы рекомендуем [хранилище класса Premium][premium-storage], в котором для хранения данных используются твердотельные накопители (SSD). Цена зависит от размера подготовленного диска. Скорость выполнения операций ввода-вывода и пропускная способность (т. е. скорость передачи данных) также зависят от размера диска. Поэтому во время подготовки диска следует учитывать все эти факторы.
+- Для наилучшей производительности дисковых операций ввода-вывода мы рекомендуем [хранилище класса Premium][premium-storage], в котором для хранения данных используются твердотельные накопители (SSD). Цена зависит от размера подготовленного диска. Скорость выполнения операций ввода-вывода и пропускная способность (т. е. скорость передачи данных) также зависят от размера диска. Поэтому во время подготовки диска следует учитывать все эти факторы.
 
 - Добавьте один или несколько дисков данных. При создании виртуальный машины жесткий диск не форматируется. Чтобы отформатировать диск, войдите в систему виртуальной машины. Диски данных отображается как `/dev/sdc`, `/dev/sdd` и так далее. Можно выполнить `lsblk`, чтобы вывести список блочных устройств, включая диски. Чтобы использовать диск данных, создайте новый раздел и файловую систему, после чего подключите этот диск. Например:
 
@@ -70,6 +70,7 @@
 
 - Для повышения производительности храните журналы диагностики в отдельной учетной записи хранения. Учетной записи локально избыточного хранилища достаточно для хранения журналов диагностики.
 
+
 ### Рекомендации по сети
 
 - Общедоступный IP-адрес может быть динамическим или статическим. По умолчанию используется динамический IP-адрес.
@@ -80,13 +81,13 @@
 
 - Все группы безопасности сети содержат набор [правил по умолчанию][nsg-default-rules], включая правило, которое блокирует весь входящий трафик Интернета. Правила по умолчанию нельзя удалить, но их можно переопределить другими правилами. Чтобы разрешить трафик Интернета, создайте правила, разрешающие входящий трафик для определенных портов. Например, это может быть порт 80 для протокола HTTP.
 
-- Чтобы включить доступ по протоколу SSH, добавьте в группу безопасности сети правило, которое разрешает входящий трафик через TCP-порт 22.
+- Чтобы включить доступ по протоколу SSH, добавьте в группу безопасности сети правило, которое разрешает входящий трафик через TCP-порт 22.
 
 ## Вопросы масштабируемости
 
 - Размер виртуальной машины можно [увеличивать и уменьшать][vm-resize].
 
-- Для горизонтального развертывания поместите две или больше виртуальных машин в группу доступности, регулируемую балансировщиком нагрузки. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
+- Для горизонтального развертывания поместите две или больше виртуальных машин в группу доступности, регулируемую балансировщиком нагрузки. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] (Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
 
 ## Вопросы доступности
 
@@ -100,7 +101,7 @@
 
 ## Вопросы управляемости
 
-- **Группы ресурсов.** Поместите тесно связанные ресурсы с одинаковым жизненным циклом в одну [группу ресурсов][resource-manager-overview]. Группы ресурсов позволяют развертывать и отслеживать ресурсы в виде группы и получать сводные счета за затраты на группу ресурсов. Можно также удалить ресурсы в виде набора, что очень удобно для тестирования развернутых служб. Присваивайте ресурсам информативные имена. Это упростит поиск определенного ресурса и понимание его роли. Ознакомьтесь с разделом [Recommended naming conventions for Azure resources][naming conventions] \(Рекомендуемые соглашения об именовании ресурсов Azure).
+- **Группы ресурсов.** Поместите тесно связанные ресурсы с одинаковым жизненным циклом в одну [группу ресурсов][resource-manager-overview]. Группы ресурсов позволяют развертывать и отслеживать ресурсы в виде группы и получать сводные счета за затраты на группу ресурсов. Можно также удалить ресурсы в виде набора, что очень удобно для тестирования развернутых служб. Присваивайте ресурсам информативные имена. Это упростит поиск определенного ресурса и понимание его роли. Ознакомьтесь с разделом [Recommended naming conventions for Azure resources][naming conventions] (Рекомендуемые соглашения об именовании ресурсов Azure).
 
 - **SSH**. Перед созданием виртуальной машины Linux создайте парные 2048-разрядные ключи RSA (открытый и закрытый). При создании виртуальной машины используйте файл открытого ключа. Дополнительную информацию см. в разделе [Использование SSH с Linux и Mac в Azure][ssh-linux].
 
@@ -130,199 +131,226 @@
 
 - Автоматизируйте обновление операционной системы с помощью расширения виртуальной машины [OSPatching]. Установите это расширение при подготовке виртуальной машины. Можно указать, как часто следует устанавливать исправления и требуется ли перезагрузка после их установки.
 
-- Используйте [управление доступом на основе ролей][rbac] \(RBAC) для управления доступом к разворачиваемым ресурсам Azure. RBAC позволяет назначить роли авторизации участникам команды DevOps. Например, роль "Читатель" позволяет просматривать ресурсы Azure, но не позволяет создавать и удалять их или управлять ими. Некоторые роли относятся к определенным типам ресурсов Azure. Например, роль "Участник виртуальных машин" позволяет перезапустить виртуальную машину или отменить ее выделение, сбросить пароль администратора, создать новую виртуальную машину и так далее. К другим [встроенным ролям RBAC][rbac-roles], которые могут быть полезными в этой эталонной архитектуре, относятся [Пользователь лаборатории для разработки и тестирования][rbac-devtest] и [Участник сети][rbac-network]. Пользователю можно назначить несколько ролей. Можно также создать пользовательские роли, чтобы более детально настроить разрешения.
+- Используйте [управление доступом на основе ролей][rbac] (RBAC) для управления доступом к разворачиваемым ресурсам Azure. RBAC позволяет назначить роли авторизации участникам команды DevOps. Например, роль "Читатель" позволяет просматривать ресурсы Azure, но не позволяет создавать и удалять их или управлять ими. Некоторые роли относятся к определенным типам ресурсов Azure. Например, роль "Участник виртуальных машин" позволяет перезапустить виртуальную машину или отменить ее выделение, сбросить пароль администратора, создать новую виртуальную машину и так далее. К другим [встроенным ролям RBAC][rbac-roles], которые могут быть полезными в этой эталонной архитектуре, относятся [Пользователь DevTest Labs][rbac-devtest] и [Участник сети][rbac-network]. Пользователю можно назначить несколько ролей. Можно также создать пользовательские роли, чтобы более детально настроить разрешения.
 
     > [AZURE.NOTE] RBAC не ограничивает действия, которые может выполнять пользователь, вошедший в виртуальную машину. Эти разрешения определяются типом учетной записи в гостевой ОС.
 
 - Просматривать действия по подготовке и другие события для виртуальной машины можно с помощью [журналов аудита][audit-logs].
 
-- Если нужно шифровать диски ОС и диски данных, рассмотрите возможность применения [шифрования дисков Azure][disk-encryption].
+- Если нужно шифровать диски операционной системы и диски данных, рассмотрите возможность применения [шифрования дисков Azure][disk-encryption].
 
 ## Компоненты решения
 
-<!-- TO BE UPDATED WHEN THE NEW TEMPLATES ARE AVAILABLE -->
+Вы можете воспользоваться примером сценария решения [Deploy-ReferenceArchitecture.ps1][solution-script], чтобы реализовать архитектуру согласно рекомендациям, приведенным в этой статье. В этом сценарии используются шаблоны [Azure Resource Manager][arm-templates]. Они предоставляются в виде набора фундаментальных стандартных блоков, каждый из которых выполняет определенное действие, например создает виртуальную сеть или настраивает группу безопасности сети. Задача сценария — координировать развертывание шаблона.
 
-Следующий сценарий Bash выполняет команды [интерфейса командной строки Azure (Azure CLI)][azure-cli], чтобы развернуть один экземпляр виртуальной машины и связанную с ним сеть и ресурсы хранения, как показано на схеме выше.
+В шаблонах используются параметры, содержащихся в отдельных JSON-файлах. Можно изменить параметры в этих файлах, чтобы настроить развертывание в соответствии со своими требованиями. При этом нет необходимости изменять сами шаблоны. Обратите внимание, что не следует изменять схемы объектов в файлах параметров.
 
-Этот сценарий использует соглашения об именовании, описанные в разделе [Recommended naming conventions for Azure resources][naming conventions] \(Рекомендуемые соглашения об именовании для ресурсов Azure).
+При изменении шаблонов создавайте объекты, которые следуют соглашениям об именовании, описанным в разделе [Recommended naming conventions for Azure resources][naming conventions] (Рекомендуемые соглашения об именовании для ресурсов Azure).
 
-Выполните следующее, чтобы запустить этот сценарий.
+Для создания виртуальной машины и окружающей инфраструктуры сценарий ссылается на следующие файлы параметров.
 
-1. Создайте 2048-разрядный ключ RSA для аутентификации.
+- **[virtualNetwork.parameters.json][vnet-parameters]**. Этот файл определяет параметры виртуальной сети, например имя, адресное пространство, подсети и адреса всех необходимых DNS-серверов. Обратите внимание, что адреса подсети должны быть включены в адресное пространство виртуальной сети.
 
-        ssh-keygen -t rsa -b 2048
+	```json
+	"parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet",
+          "addressPrefixes": [
+            "172.17.0.0/16"
+          ],
+          "subnets": [
+            {
+              "name": "app1-subnet",
+              "addressPrefix": "172.17.0.0/24"
+            }
+          ],
+          "dnsServers": [ ]
+        }
+      }
+	}
+	```
 
-2. Передайте в сценарий идентификатор подписки Azure и имя файла открытого ключа в качестве параметров.
+- **[networkSecurityGroup.parameters.json][nsg-parameters]**. Этот файл содержит определения групп безопасности сети и их правил. Параметр `name` в блоке `virtualNetworkSettings` задает виртуальную сеть, к которой подключена группа безопасности сети. Параметр `subnets` в блоке `networkSecurityGroupSettings` идентифицирует все подсети в виртуальной сети, к которым применяются правила группы безопасности сети. Это должны быть элементы, определенные в файле **virtualNetwork.parameters.json**.
 
-        ./azurecli-single-vm-sample.sh <subscription ID> ~/.ssh/id_rsa.pub
+	Правило безопасности, показанное в примере, позволяет пользователю подключаться к виртуальной машине через подключение SSH. Можно открыть дополнительные порты (или запретить доступ через определенные порты), добавив дополнительные элементы в массив `securityRules`.
 
-3. После завершения выполнения сценария войдите в виртуальную машину с помощью протокола SSH. Используйте закрытый ключ для аутентификации.
+	```json
+	"parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet"
+        },
+        "metadata": {
+          "description": "Infrastructure Settings"
+        }
+      },
+      "networkSecurityGroupSettings": {
+        "value": {
+          "name": "app1-nsg",
+          "subnets": [
+            "app1-subnet"
+          ],
+          "securityRules": [
+            {
+              "name": "default-allow-ssh",
+              "direction": "Inbound",
+              "priority": 1000,
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "22",
+              "access": "Allow",
+              "protocol": "Tcp"
+            }
+          ]
+        }
+      }
+	}
+	```
 
-        ssh testuser@<app>-vm1.<location>.cloudapp.azure.com -i ~/.ssh/id_rsa
+- **[virtualMachineParameters.json][vm-parameters]**. Этот файл определяет параметры виртуальной машины, включая ее имя и размер, учетные данные безопасности для пользователя-администратора, создаваемые диски и учетные записи хранения для хранения этих дисков.
 
-    Здесь: `<app>` — значение переменной сценария `APP_NAME`, а `<location>` — значение переменной `LOCATION`.
+	Обязательно присвойте параметру `osType` значение `linux`. Необходимо также указать образ в разделе `imageReference`. Значения, приведенные ниже, позволяют создать виртуальную машину с помощью последней сборки RedHat Linux 7.2. Для получения списка всех доступных образов RedHat в регионе (в примере используется регион "западная часть США") можно использовать следующую команду в интерфейсе командной строки Azure.
 
-```bat
-#!/bin/bash
+	```powershell
+	azure vm image list westus redhat rhel
+	```
 
-############################################################################
-#script for generating infrastructure for single VM running linux          #
-# of user choice. It creates azure resource group, storage account for VM  #
-# vnet, subnets for VM, and NSG rule                                       #
-# tags for main variables used                                             #
-# ScriptCommandParameters                                                  #
-# ScriptVars                                                               #
-############################################################################
+	Параметр `subnetName` в разделе `nics` задает подсеть для виртуальной машины. Точно так же параметр `name` в разделе `virtualNetworkSettings` определяет используемую виртуальную сеть. Это должны быть имена подсети и виртуальной сети, которые были определены в файле **virtualNetwork.parameters.json**.
 
-############################################################################
-# User defined functions for single VM script                              #
-# errhandle : handles errors via trap if any exception happens             #
-# in the cli execution or if the user interrupts with CTRL+C               #
-# allowing for fast interruption                                           #
-############################################################################
+	Можно создать несколько виртуальных машин, указав для них общую учетную запись хранения или отдельные учетные записи хранения, изменив параметры в разделе `buildingBlockSettings`. При создании нескольких виртуальных машин необходимо также указать имя используемой группы доступности или создать ее в разделе `availabilitySet`.
 
-# error handling or interruption via ctrl-c.
-# line number and error code of executed command is passed to errhandle function
+	```json
+	"parameters": {
+      "virtualMachinesSettings": {
+        "value": {
+          "namePrefix": "app1",
+          "computerNamePrefix": "",
+          "size": "Standard_DS1",
+          "osType": "linux",
+          "adminUsername": "testuser",
+          "adminPassword": "AweS0me@PW",
+          "osAuthenticationType": "password",
+          "nics": [
+            {
+              "isPublic": "true",
+              "subnetName": "app1-subnet",
+              "privateIPAllocationMethod": "dynamic",
+              "publicIPAllocationMethod": "dynamic",
+              "isPrimary": "true"
+            }
+          ],
+          "imageReference": {
+            "publisher": "RedHat",
+            "offer": "RHEL",
+            "sku": "7.2",
+            "version": "latest"
+          },
+          "dataDisks": {
+            "count": 2,
+            "properties": {
+              "diskSizeGB": 128,
+              "caching": "None",
+              "createOption": "Empty"
+            }
+          },
+          "osDisk": {
+            "caching": "ReadWrite"
+          },
+          "availabilitySet": {
+            "useExistingAvailabilitySet": "No",
+            "name": ""
+          }
+        },
+        "metadata": {
+          "description": "Settings for Virtual Machines"
+        }
+      },
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet",
+          "resourceGroup": "app1-dev-rg"
+        },
+        "metadata": {
+          "description": "Infrastructure Settings"
+        }
+      },
+      "buildingBlockSettings": {
+        "value": {
+          "storageAccountsCount": 1,
+          "vmCount": 1,
+          "vmStartIndex": 0
+        },
+        "metadata": {
+          "description": "Settings specific to the building block"
+        }
+      }
+	}
+	```
 
-trap 'errhandle $LINENO $?' SIGINT ERR
+## Развертывание
 
-errhandle()
-{
-  echo "Error or Interruption at line ${1} exit code ${2} "
-  exit ${2}
-}
+Перед использованием этого решения предполагается, что выполнены следующие предварительные условия.
 
-###############################################################################
-############################## End of user defined functions ##################
-###############################################################################
+- У вас есть подписка Azure, в которой можно создать группы ресурсов.
 
-# 2 paramaters are expected
-# public key file needs to be generated using ssh-keygen
+- Вы скачали и установили последнюю сборку Azure Powershell. Соответствующие инструкции см. [здесь][azure-powershell-download].
 
-if [ $# -ne 2  ]
-then
-	echo  "Usage:  ${0}  subscription-id public-ssh-key-file"
-	exit
-fi
+Чтобы выполнить сценарий, который развертывает решение, сделайте следующее.
 
-if [ ! -f $2  ]
-then
-	echo "Public Key file ${2} does not exist. please generate it"
-	echo "ssh-keygen -t rsa -b 2048"
-	exit
-fi
+1. Перейдите в подходящую папку на локальном компьютере и создайте в ней две вложенные папки:
 
-# Explicitly set the subscription to avoid confusion as to which subscription
-# is active/default
-# ScriptCommandParameters
-SUBSCRIPTION=$1
-PUBLICKEYFILE=$2
+	- Сценарии
 
-# ScriptVars
-LOCATION=eastus2
-APP_NAME=app1
-ENVIRONMENT=dev
-USERNAME=testuser
-VM_NAME="${APP_NAME}-vm1"
-RESOURCE_GROUP="${APP_NAME}-${ENVIRONMENT}-rg"
-IP_NAME="${APP_NAME}-pip"
-NIC_NAME="${VM_NAME}-1nic"
-NSG_NAME="${APP_NAME}-nsg"
-SUBNET_NAME="${APP_NAME}-subnet"
-VNET_NAME="${APP_NAME}-vnet"
-VHD_STORAGE="${VM_NAME//-}st1"
-DIAGNOSTICS_STORAGE="${VM_NAME//-}diag"
+	- Шаблоны
 
-# Use the following command to get the list of URNs for RHEL, UBUNTU, and OPENSUSE:
-# RHEL
-# azure vm image list $LOCATION  redhat RHEL 7.2
-# UBUNTU
-# azure vm image list $LOCATION canonical ubuntuserver 14.04.3-LTS
-# SUSE
-# azure vm image $LOCATION  suse opensuse 13.2
+2. В папке "Шаблоны" создайте вложенную папку с именем Linux.
 
-LINUX_BASE_IMAGE=redhat:rhel:7.2:7.2.20160302
+3. Скачайте файл [Deploy-ReferenceArchitecture.ps1][solution-script] в папку "Сценарии".
 
-# For a list of VM sizes see: 
-#   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
-# To see the VM sizes available in a region:
-# 	azure vm sizes --location <location>
-VM_SIZE=Standard_DS1
+4. Скачайте приведенные ниже файлы в папку Шаблоны/Linux:
 
-# Set up the postfix variables attached to most CLI commands
+	- [virtualNetwork.parameters.json][vnet-parameters];
 
-POSTFIX="--resource-group ${RESOURCE_GROUP} --subscription ${SUBSCRIPTION}"
+	- [networkSecurityGroup.parameters.json][nsg-parameters];
 
-azure config mode arm
+	- [virtualMachineParameters.json][vm-parameters].
 
-#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-#Create resources
+5. Откройте файл Deploy-ReferenceArchitecture.ps1 в папке "Сценарии" для редактирования и измените следующую строку, чтобы указать группу ресурсов, которую следует создать или использовать для хранения виртуальных машин и ресурсов, созданных с помощью сценария.
 
-#Create the enclosing resource group
-azure group create --name $RESOURCE_GROUP --location $LOCATION --subscription $SUBSCRIPTION
+	```powershell
+	$resourceGroupName = "app1-dev-rg"
+	```
+6. Измените каждый из JSON-файлов в папке Шаблоны/Linux, задав параметры для виртуальной сети, группы безопасности сети и виртуальной машины, как описано в предыдущем разделе "Компоненты решения".
 
-# Create the VNet
-azure network vnet create --address-prefixes 172.17.0.0/16 --name $VNET_NAME \
---location $LOCATION $POSTFIX
+	>[AZURE.NOTE] Обязательно присвойте параметру `resourceGroup` в разделе `virtualNetworkSettings` файла virtualMachineParameters.json то же значение, что было указано в файле сценария Deploy-ReferenceArchitecture.ps1.
 
-#Create the network security group
-azure network nsg create --name $NSG_NAME --location $LOCATION $POSTFIX
+7. Откройте окно Azure PowerShell, перейдите в папку "Сценарии" и выполните следующую команду.
 
-#Create the subnet
-azure network vnet subnet create --vnet-name $VNET_NAME --address-prefix  "172.17.0.0/24" \
---name $SUBNET_NAME --network-security-group-name $NSG_NAME $POSTFIX
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Linux
+	```
 
-#Create the public IP address (dynamic)
-azure network public-ip create --name $IP_NAME --domain-name-label $VM_NAME \
---location $LOCATION $POSTFIX
+	Замените `<subscription id>` идентификатором своей подписки Azure.
 
-#Create the NIC
-azure network nic create --public-ip-name $IP_NAME --subnet-name $SUBNET_NAME \
---subnet-vnet-name $VNET_NAME --name $NIC_NAME --location $LOCATION $POSTFIX
+	В `<location>` укажите регион Azure, например `eastus` или `westus`.
 
-#Create the storage account for the OS VHD
-azure storage account create --type PLRS --location $LOCATION $POSTFIX $VHD_STORAGE
-
-#Create the storage account for diagnostics logs
-azure storage account create --type LRS --location $LOCATION $POSTFIX $DIAGNOSTICS_STORAGE
-
-#Create the VM
-azure vm create --name $VM_NAME --os-type Linux --image-urn  $LINUX_BASE_IMAGE \
---vm-size $VM_SIZE --vnet-subnet-name $SUBNET_NAME --vnet-name $VNET_NAME \
---nic-name $NIC_NAME --storage-account-name $VHD_STORAGE \
---os-disk-vhd "${VM_NAME}-osdisk.vhd" --admin-username $USERNAME \
---ssh-publickey-file $PUBLICKEYFILE --boot-diagnostics-storage-uri \
-"https://${DIAGNOSTICS_STORAGE}.blob.core.windows.net/" --location $LOCATION $POSTFIX
-
-#Attach a data disk
-azure vm disk attach-new --vm-name $VM_NAME --size-in-gb 128 --vhd-name data1.vhd \
---storage-account-name $VHD_STORAGE $POSTFIX
-
-#Allow SSH
-azure network nsg rule create --nsg-name $NSG_NAME --direction Inbound --protocol Tcp \
---destination-port-range 22  --source-port-range "*"  --priority 100 --access Allow \
-SSHAllow $POSTFIX
-
-#Install patching extension
-PATCH_CONFIG='{"rebootAfterPatch":"RebootIfNeed","startTime":"3:00","dayOfWeek":"Sunday","category":"ImportantAndRecommended"}'
-azure vm extension set --name OSPatchingForLinux --publisher-name Microsoft.OSTCExtensions \
---public-config $PATCH_CONFIG --vm-name $VM_NAME --version 2.0 $POSTFIX
-```
+8. После выполнения сценария с помощью портала Azure убедитесь, что сеть, группа безопасности сети и виртуальная машина были успешно созданы.
 
 ## Дальнейшие действия
 
-Чтобы [соглашение об уровне обслуживания для виртуальных машин][vm-sla] вступило в силу, необходимо развернуть два или более экземпляров в группе доступности. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
+Чтобы [соглашение об уровне обслуживания для виртуальных машин][vm-sla] вступило в силу, необходимо развернуть два или более экземпляров в группе доступности. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] (Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
 
 <!-- links -->
 
-[arm-templates]: ../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/ru-RU/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/ru-RU/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
@@ -341,20 +369,26 @@ azure vm extension set --name OSPatchingForLinux --publisher-name Microsoft.OSTC
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/ru-RU/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/ru-RU/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/ru-RU/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/ru-RU/regions/#services
 [ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
-[0]: ./media/guidance-blueprints/compute-single-vm.png "Общая архитектура виртуальной машины Azure"
+[vm-sla]: https://azure.microsoft.com/ru-RU/support/legal/sla/virtual-machines/v1_0/
+[arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/linux/virtualNetwork.parameters.json
+[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/linux/networkSecurityGroup.parameters.json
+[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/linux/virtualMachine.parameters.json
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[0]: ./media/guidance-blueprints/compute-single-vm.png "Архитектура с одной виртуальной машиной Linux в Azure"
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

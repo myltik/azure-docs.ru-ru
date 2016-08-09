@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
@@ -43,7 +43,7 @@
 
 ### Использование портала Azure
 
-Инструкции по использованию пакета HDInsight .NET SDK для выполнения действия сценария по установке записной книжки Zeppelin см. в разделе [Настройка кластеров HDInsight с помощью действий сценариев](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). В инструкции, приведенные в этой статье, необходимо внести несколько изменений.
+Инструкции по использованию портала Azure для выполнения действия сценария по установке записной книжки Zeppelin см. в статье [Настройка кластеров HDInsight с помощью действий сценария](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). В инструкции, приведенные в этой статье, необходимо внести несколько изменений.
 
 * Требуется использовать сценарий для установки Zeppelin. Пользовательский сценарий для установки Zeppelin на кластер Spark в HDInsight доступен по следующим ссылкам.
 	* Для кластеров Spark 1.6.0: `https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark160-v01.sh`
@@ -211,18 +211,18 @@
 
 	![выбор режима FoxyProxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/selectmode.png)
 
-После выполнения этих действий только запросы URL-адресов, которые содержат строку __internal.cloudapp.net__, будут направляться через туннель SSL.
+После выполнения этих действий только запросы URL-адресов, которые содержат строку __hn0__, будут направляться через туннель SSL.
 
 ## Доступ к записной книжке Zeppelin
 
-Настроив туннелирование SSH, вы можете получить доступ к записной книжке Zeppelin в кластере Spark, выполнив описанные ниже действия.
+Настроив туннелирование SSH, вы можете получить доступ к записной книжке Zeppelin в кластере Spark, выполнив описанные ниже действия. В этом разделе показано, как выполнять инструкции %sql и %hive.
 
 1. В веб-браузере откройте следующую конечную точку:
 
 		http://hn0-myspar:9995
 
 	* **hn0** обозначает headnode0.
-	* **myspar** — это первые шесть букв имени кластера Spark.
+	* **myspar** — это первые шесть букв имени кластера Spark.
 	* **9995** — порт для доступа к записной книжке Zeppelin.
 
 2. Создайте новую записную книжку. На панели заголовка щелкните элемент **Notebook**, а затем — **Создать новую заметку**.
@@ -235,12 +235,14 @@
 
 	![Состояния записной книжки Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.newnote.connected.png "Состояния записной книжки Zeppelin")
 
+### Выполнение инструкций SQL
+
 4. Загрузите демонстрационные данные во временную таблицу. При создании кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись хранения по следующему пути: **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	В пустой абзац, созданный по умолчанию в новой записной книжке, вставьте следующий фрагмент кода.
 
 		// Create an RDD using the default Spark context, sc
-		val hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+		val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 		
 		// Define a schema
 		case class Hvac(date: String, time: String, targettemp: Integer, actualtemp: Integer, buildingID: String)
@@ -297,6 +299,41 @@
 
 	![Перезапуск интерпретатора Zeppelin](./media/hdinsight-apache-spark-use-zeppelin-notebook/hdispark.zeppelin.restart.interpreter.png "Перезапуск интерпретатора Zeppelin")
 
+### Выполнение инструкций Hive
+
+1. В записной книжке Zeppelin нажмите кнопку **Interpreter** (Интерпретатор).
+
+	![Обновление интерпретатора Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-1.png "Обновление интерпретатора Hive")
+
+2. Для интерпретатора **Hive** нажмите кнопку **Изменить**.
+
+	![Обновление интерпретатора Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-2.png "Обновление интерпретатора Hive")
+
+	Обновите следующие свойства.
+
+	* Для **default.password** задайте значение пароля, которое вы указали для администратора при создании кластера HDInsight Spark.
+	* Для **default.url** задайте значение `jdbc:hive2://<spark_cluster_name>.azurehdinsight.net:443/default;ssl=true?hive.server2.transport.mode=http;hive.server2.thrift.http.path=/hive2`. Замените **<spark\_cluster\_name>** именем своего кластера HDInsight.
+	* Для **default.user** задайте имя администратора, которое вы указали при создании кластера. Например, *admin*.
+
+3. Нажмите кнопку **Сохранить**, а при появлении запроса на перезапуск интерпретатора Hive нажмите кнопку **ОК**.
+
+4. Создайте новую записную книжку и выполните следующую инструкцию, чтобы получить полный список всех таблиц Hive в кластере.
+
+		%hive
+		SHOW TABLES
+
+	По умолчанию кластер HDInsight содержит образец таблицы с именем **hivesampletable**, поэтому должны отобразиться следующие выходные данные.
+
+	![Выходные данные Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-3.png "Выходные данные Hive")
+
+5. Выполните следующую инструкцию, чтобы получить список записей в таблице.
+
+		%hive
+		SELECT * FROM hivesampletable LIMIT 5
+
+	Должен отобразиться следующий результат.
+
+	![Выходные данные Hive](./media/hdinsight-apache-spark-use-zeppelin-notebook/zeppelin-update-hive-interpreter-4.png "Выходные данные Hive")
 
 ## <a name="seealso"></a>См. также:
 
@@ -325,7 +362,7 @@
 
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely on HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely on HDInsight Spark Linux cluster (Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
@@ -350,4 +387,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

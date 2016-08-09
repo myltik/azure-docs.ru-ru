@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Предварительная версия Azure Active Directory B2C: настройка LinkedIn | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: настройка LinkedIn | Microsoft Azure"
 	description="Регистрация и вход пользователей с помощью учетных записей LinkedIn в приложениях, защищенных с помощью Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Предварительная версия Azure Active Directory (AD) B2C: регистрация и вход пользователей с помощью учетных записей LinkedIn
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: регистрация и вход пользователей с помощью учетных записей LinkedIn
 
 ## Создание приложения LinkedIn
 
@@ -34,7 +32,7 @@
 
     ![LinkedIn — регистрация приложения](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 
-5. Скопируйте значения **Идентификатор клиента** и **Секретный ключ клиента**. (Их можно найти в разделе **Ключи аутентификации**). Оба значения необходимы для настройки LinkedIn в качестве поставщика удостоверений для вашего клиента.
+5. Скопируйте значения **Client ID** (Идентификатор клиента) и **Client Secret** (Секрет клиента). (Их можно найти в разделе **Ключи аутентификации**). Оба значения необходимы для настройки LinkedIn в качестве поставщика удостоверений для вашего клиента.
 
 	>[AZURE.NOTE] **Секрет клиента** — это важные учетные данные безопасности.
 
@@ -52,4 +50,4 @@
 6. Нажмите **Настроить этот поставщик удостоверений** и введите идентификатор клиента и секрет клиента ранее созданного приложения LinkedIn.
 7. Нажмите кнопку **ОК**, а затем **Создать**, чтобы сохранить конфигурацию LinkedIn.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

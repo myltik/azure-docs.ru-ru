@@ -1,12 +1,11 @@
-In this example, I will show you how to use the **Service Bus - When a message is received in a queue** trigger to initiate a logic app workflow when a new item is to a Service Bus queue.  
+В этом примере я покажу, как использовать триггер **Service Bus - When a message is received in a queue** (Служебная шина — при поступлении сообщения в очередь) для запуска рабочего процесса приложения логики при добавлении нового элемента в очередь служебной шины.
 
->[AZURE.NOTE]You will get prompted to sign with your Service Bus connection string if you have not already created a *connection* to Service Bus.  
+>[AZURE.NOTE]Вам будет предложено войти с помощью строки подключения к служебной шине, если вы еще не создали *подключение* к ней.
 
-1. Enter *service bus* in the search box on the logic apps designer then select the **Service Bus - When a message is received in a queue**  trigger.  
-![Service Bus trigger image 1](./media/connectors-create-api-servicebus/trigger-1.png)   
-- The **When a message is received in a queue** control is displayed.  
-![Service Bus trigger image 2](./media/connectors-create-api-servicebus/trigger-2.png)   
-- Enter the name of the Service Bus queue you would like the trigger to monitor.   
-![Service Bus trigger image 3](./media/connectors-create-api-servicebus/trigger-3.png)   
+1. Введите *service bus* в поле поиска в конструкторе приложений логики и выберите триггер **Service Bus - When a message is received in a queue** (Служебная шина — при поступлении сообщения в очередь). ![Триггер служебной шины, изображение 1](./media/connectors-create-api-servicebus/trigger-1.png)
+- Отобразится элемент управления **When a message is received in a queue** (При поступлении сообщения в очередь). ![Триггер служебной шины, изображение 2](./media/connectors-create-api-servicebus/trigger-2.png)
+- Введите имя очереди служебной шины, которую должен отслеживать триггер. ![Триггер служебной шины, изображение 3](./media/connectors-create-api-servicebus/trigger-3.png)
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a new item is  received in the queue you selected.    
+На этом этапе для приложения логики настроен триггер, который будет активировать другие триггеры и действия в рабочем процессе при поступлении нового элемента в выбранную вами очередь.
+
+<!---HONumber=AcomDC_0727_2016-->

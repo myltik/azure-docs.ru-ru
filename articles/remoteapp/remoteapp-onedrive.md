@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/15/2016"
+   ms.date="08/02/2016"
    ms.author="elizapo"/>
 
 # OneDrive для бизнеса и Azure RemoteApp
 
-Azure RemoteApp не поддерживает OneDrive для бизнеса.
+Azure RemoteApp не поддерживает агент синхронизации OneDrive для бизнеса.
 
-Ранее в этой статье описывались различные варианты реализации для использования OneDrive для бизнеса с Azure RemoteApp. Обратите внимание, что эти варианты реализации больше не поддерживаются.
+OneDrive для бизнеса можно включить в коллекцию для использования с Office 365.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

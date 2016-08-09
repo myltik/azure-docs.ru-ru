@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="07/23/2016"
 	ms.author="dariagrigoriu"/>
     
 # Непрерывное развертывание в службе приложений Azure
@@ -52,7 +52,7 @@
 
 Операции по передаче решения Visual Studio в службу приложений будут такими же, как в [предыдущем разделе](#overview), если вы настроите решение и репозиторий следующим образом.
 
--	С помощью управления версиями в Visual Studio создайте файл `.gitignore`, как на рисунке ниже, или вручную добавьте в корневую папку репозитория файл `.gitignore` с содержимым, аналогичным [примеру GITIGNORE](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore). 
+-	С помощью управления версиями в Visual Studio создайте файл `.gitignore`, как на рисунке ниже, или вручную добавьте в корневую папку репозитория файл `.gitignore` с содержимым, аналогичным [примеру GITIGNORE](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
     ![](./media/app-service-continous-deployment/VS_source_control.png)
  
@@ -72,6 +72,7 @@
 
 ## Дополнительные ресурсы
 
+* [Изучение распространенных проблем с непрерывным развертыванием](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Использование PowerShell для Azure]
 * [Средства командной строки Azure для Mac и Linux]
 * [Документация по Git]
@@ -79,7 +80,7 @@
 
 >[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
-[службы приложений Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
+[службы приложений Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-changes-existing-services/
 [портале Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/ru-RU/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
@@ -92,4 +93,4 @@
 [Приступая к работе с VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

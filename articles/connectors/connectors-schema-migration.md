@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Перенос приложений логики в версию схемы 2015-08-01-preview | Служба приложений Microsoft Azure"
 	description="Вы можете легко перенести приложения логики в последнюю версию схемы. Просто следуйте приведенным здесь инструкциям."
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MSFTMAN"
 	manager="erikre"
@@ -42,4 +42,4 @@
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
 [step2]: ./media/connectors-schema-migration/migrateschema2.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

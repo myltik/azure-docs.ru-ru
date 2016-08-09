@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="07/25/2016" 
 	ms.author="larryfr"/>
 
 #Анализ данных о задержке рейсов с помощью Hive в HDInsight
@@ -236,9 +236,9 @@
 
 3. Для экспорта данных из hivesampletable в таблицу mobiledata используйте следующую команду:
 
-		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasb:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+		sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir 'wasbs:///tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
 
-	Она дает Sqoop указание подключиться к базе данных SQL, к базе данных с таблицей delays, и экспортировать данные из wasb:///tutorials/flightdelays/output (где хранятся выходные данные запроса Hive, выполненного ранее) в таблицу delays.
+	Она дает Sqoop указание подключиться к базе данных SQL, к базе данных с таблицей delays, и экспортировать данные из wasbs:///tutorials/flightdelays/output (где хранятся выходные данные запроса Hive, выполненного ранее) в таблицу delays.
 
 4. После выполнения команды используйте следующую команду для подключения к базе данных с помощью TSQL:
 
@@ -291,4 +291,4 @@
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -207,22 +207,24 @@
 
 3. Скопируйте файл **iotdm эдисон sample.bb** из папки **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** в папку **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample**.
 
-4. Скопируйте файл **iotdm\_edison\_sample.service** из папки **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** в папку **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files**.
+4. Отредактируйте файл **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/iotdm-edison-sample.bb** и замените `-Duse_http:BOOL=OFF` на `-Duse_http:BOOL=ON`.
 
-5. Добавьте в файл **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** запись для новой инструкции. В конце файла добавьте следующую строку:
+5. Скопируйте файл **iotdm\_edison\_sample.service** из папки **~/azure-iot-sdks/c/iotdm\_client/samples/iotdm\_edison\_sample/bitbake/** в папку **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-support/iotdm-edison-sample/files**.
+
+6. Добавьте в файл **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-core/images/edison-image.bb** запись для новой инструкции. В конце файла добавьте следующую строку:
     
     ```
     IMAGE_INSTALL += "iotdm-edison-sample"
     ```
 
-6. Так как пакет SDK для шлюза и клиент для управления устройствами совместно используют некоторые библиотеки, необходимо изменить файл **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass**. В конце этого файла добавьте строки ниже. Обязательно замените `<your user>` на имя текущего пользователя:
+7. Так как пакет SDK для шлюза и клиент для управления устройствами совместно используют некоторые библиотеки, необходимо изменить файл **~/edison-src/out/linux64/poky/meta/classes/sstate.bbclass**. В конце этого файла добавьте строки ниже. Обязательно замените `<your user>` на имя текущего пользователя:
     
     ```
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/lib/libaziotsharedutil.a"
     SSTATE_DUPWHITELIST += "/home/<your user>/edison-src/out/linux64/build/tmp/sysroots/edison/usr/include/azureiot"
     ```
 
-7. Настройте автоматический запуск Wi-Fi на плате Edison, добавив в конце файла **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa\_supplicant/wpa-supplicant/wpa\_supplicant.conf-sane** приведенные ниже строки. Обязательно замените `<your wifi ssid>` и `<your wifi password>` на правильные значения для своей сети Wi-Fi.
+8. Настройте автоматический запуск Wi-Fi на плате Edison, добавив в конце файла **~/edison-src/meta-intel-edison/meta-intel-edison-distro/recipes-connectivity/wpa\_supplicant/wpa-supplicant/wpa\_supplicant.conf-sane** приведенные ниже строки. Обязательно замените `<your wifi ssid>` и `<your wifi password>` на правильные значения для своей сети Wi-Fi.
     
     ```
     network={
@@ -235,7 +237,7 @@
     }
     ```
 
-8. Теперь можно создать образ для платы Edison, содержащий пакет SDK для шлюза и клиент для управления устройствами. Команда **bitbake** будет выполняться гораздо быстрее, чем раньше, так как теперь требуется только создать инструкцию и добавить ее в образ.
+9. Теперь можно создать образ для платы Edison, содержащий пакет SDK для шлюза и клиент для управления устройствами. Команда **bitbake** будет выполняться гораздо быстрее, чем раньше, так как теперь требуется только создать инструкцию и добавить ее в образ.
     
     ```
     cd ~/edison-src/out/linux64/
@@ -243,7 +245,7 @@
     bitbake edison-image
     ```
 
-9. Завершите сборку, выполнив следующие команды:
+10. Завершите сборку, выполнив следующие команды:
   
     ```
     cd ~/edison-src/
@@ -258,13 +260,13 @@
 
 Скопируйте файлы из папки **toFlash** на компьютере Ubuntu, использованном для создания пользовательского образа, на компьютер, который подключается к плате Edison с помощью USB-кабеля.
 
-При использовании компьютера Windows для подключения к плате Edison через USB-кабель следует запустить скрипт **flashall.bat**, чтобы переключиться с платы Edison. При использовании компьютера Linux для подключения к плате Edison через USB-кабель следует запустить скрипт **flashall.bat**, чтобы переключиться с платы Edison.
+При использовании компьютера Windows для подключения к плате Edison через USB-кабель следует запустить сценарий **flashall.bat**, чтобы переключиться с платы Edison. При использовании компьютера Linux для подключения к плате Edison через USB-кабель следует запустить сценарий **flashall.bat**, чтобы переключиться с платы Edison.
 
 По завершении переключения подключитесь к плате Edison с главного компьютера, используя [подключение через последовательный порт][lnk-serial-connection], и войдите в качестве **привилегированного пользователя**. Убедитесь, что плата Edison подключена к сети Wi-Fi.
 
 ### Запуск примера
 
-Клиент для управления устройствами необходимо настроить на плате Edison для подключения к центру IoT в качестве устройства **GW-device**. В текстовом редакторе (например, **vi** или **nano**) создайте файл с именем **.cs** в папке /home/root на плате Edison. Этот файл должен содержать только строку подключения к устройству **GW-device**. Если вы не записали эту строку подключения ранее, ее можно получить из реестра устройств центра IoT с помощью [обозревателя устройств или средства iothub-explorer][lnk-explorer-tools].
+Клиент для управления устройствами необходимо настроить на плате Edison для подключения к центру IoT в качестве устройства **GW-device**. В текстовом редакторе (например, **vi** или **nano**) создайте файл с именем **.cs** в папке /home/root на плате Edison. Этот файл должен содержать только строку подключения к устройству **GW-device**. Если вы не записали эту строку подключения ранее, ее можно получить из реестра устройств центра IoT с помощью [обозревателя устройств или инструмента iothub-explorer][lnk-explorer-tools].
 
 Создав **CS**-файл, перезагрузите плату Edison, используя следующую команду:
 
@@ -299,7 +301,7 @@ systemctl status iotdm_edison_sample.service
 
 ### Запуск обновления встроенного ПО
 
-При обновлении встроенного ПО на плате Edison, запрошенном службой управления устройствами IoT, обычно скачивается ZIP-файл со встроенным ПО по указанному URL-адресу. Чтобы упростить это руководство, скопируйте ZIP-файл вручную на плату Edison и используйте при запросе на обновление URL-адрес **file://**, а не **http://**.
+При обновлении встроенного ПО на плате Edison, запрошенном службой управления устройствами IoT, обычно скачивается ZIP-файл со встроенным ПО по указанному URL-адресу. Чтобы упростить этот учебник, скопируйте ZIP-файл вручную на плату Edison и используйте при запросе на обновление URL-адрес **file://**, а не **http://**.
 
 Опять же, для упрощения работы с руководством при обновлении встроенного ПО повторно используется тот же образ встроенного ПО, а не совершенно новый образ. Вы сможете увидеть использование этого образа на плате Edison.
 
@@ -337,7 +339,7 @@ systemctl status iotdm_edison_sample.service
     npm run start
     ```
 
-8. Когда в командной строке появится сообщение Services have started (Службы запущены), откройте веб-браузер и перейдите к приложению управления устройствами по URL-адресу <http://127.0.0.1:3003>, чтобы просмотреть виртуальные устройства.
+8. Когда в командной строке появится сообщение "Services have started" (Службы запущены), откройте веб-браузер и перейдите к приложению управления устройствами по URL-адресу <http://127.0.0.1:3003>, чтобы просмотреть виртуальные устройства.
 
     ![Пользовательский интерфейс управления устройствами][img-dm-ui]
 
@@ -423,4 +425,4 @@ systemctl status iotdm_edison_sample.service
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Список соединителей, управляемых корпорацией Майкрософт, для использования в приложениях логики Microsoft Azure | Служба приложений Microsoft Azure | Microsoft Azure"
 	description="Полный список соединителей, управляемых корпорацией Майкрософт, которые можно использовать для создания приложений логики в службе приложений Azure"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MSFTMAN"
 	manager="erikre"
@@ -183,4 +183,4 @@
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

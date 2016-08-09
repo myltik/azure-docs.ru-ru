@@ -19,4 +19,24 @@
 
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-<!---HONumber=AcomDC_0622_2016-->
+## Дальнейшие действия
+
+Дополнительные сведения о безопасности решения IoT см.:
+
+- [Рекомендации по обеспечению безопасности IoT][lnk-security-best-practices]
+- [Архитектура безопасности IoT][lnk-security-architecture]
+- [Защита развертывания IoT][lnk-security-deployment]
+
+[lnk-security-best-practices]: iot-security-best-practices.md
+[lnk-security-architecture]: iot-security-architecture.md
+[lnk-security-deployment]: iot-suite-security-deployment.md
+
+Вы можете также ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
+
+- [Обзор предварительно настроенного решения прогнозного обслуживания][lnk-predictive-overview]
+- [Часто задаваемые вопросы об IoT Suite][lnk-faq]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-faq]: iot-suite-faq.md
+
+<!---HONumber=AcomDC_0727_2016-->

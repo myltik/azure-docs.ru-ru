@@ -4,7 +4,7 @@
    services="data-catalog"
    documentationCenter=""
    authors="spelluru"
-   manager=""
+   manager="paulettm"
    editor=""
    tags=""/>
 <tags 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/10/2016"
-   ms.author="spelluru"/>
+   ms.date="07/25/2016"
+   ms.author="derrickv"/>
 
 # Концепции каталога данных Azure для разработчиков
 
@@ -117,7 +117,7 @@
 
 Типы корневых ресурсов — это типы, представляющие различные типы ресурсов данных, которые могут быть зарегистрированы в каталоге. Для каждого корневого типа определено представление, описывающее ресурс и аннотации, включенные в представление. Имя представления следует использовать в соответствующем сегменте {имя\_представления} URL-адреса при публикации ресурса с помощью REST API.
 
-<table><tr><td><b>Тип ресурса (имя представления)</b></td><td><b>Дополнительные свойства</b></td><td><b>Тип данных</b></td><td><b>Разрешенные аннотации</b></td><td><b>Комментарии</b></td></tr><tr><td>Таблица ("tables")</td><td></td><td></td><td>Описание<p>FriendlyName<p>Тег<p>Схема<p>ColumnDescription<p>ColumnTag<p> Эксперт<p>Предварительный просмотр<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>Документация<p></td><td>Таблица представляет любые табличные данные. К таблицам могут относиться: таблица SQL, представление SQL, таблица Analysis Services, многомерное измерение Analysis Services, таблица Oracle и т. д.   </td></tr><tr><td>Мера ("measures")</td><td></td><td></td><td>Описание<p>FriendlyName<p>Тег<p>Эксперт<p>AccessInstruction<p>Документация<p></td><td>Этот тип представляет измерение Analysis Services.</td></tr><tr><td></td><td>measure</td><td>столбец</td><td></td><td>Метаданные, описывающие измерение</td></tr><tr><td></td><td>isCalculated </td><td>Логический</td><td></td><td>Указывает, вычисляется измерение или нет.</td></tr><tr><td></td><td>measureGroup</td><td>Строка</td><td></td><td>Физический контейнер для измерения</td></tr><td>Ключевой показатель эффективности ("kpis")</td><td></td><td></td><td>Описание<p>FriendlyName<p>Тег<p>Эксперт<p>AccessInstruction<p>Документация</td><td></td></tr><tr><td></td><td>measureGroup</td><td>Строка</td><td></td><td>Физический контейнер для измерения</td></tr><tr><td></td><td>goalExpression</td><td>Строка</td><td></td><td>Числовое выражение MDX или вычисление, которое возвращает целевое значение ключевого показателя эффективности.</td></tr><tr><td></td><td>valueExpression</td><td>Строка</td><td></td><td>Числовое выражение MDX, которое возвращает фактическое значение ключевого показателя эффективности.</td></tr><tr><td></td><td>statusExpression</td><td>Строка</td><td></td><td>Выражение MDX, которое отражает состояние ключевого показателя эффективности в заданный момент времени.</td></tr><tr><td></td><td>trendExpression</td><td>Строка</td><td></td><td>Выражение MDX, которое оценивает значение ключевого индикатора производительности во времени. В качестве тренда может использоваться любой временной критерий, который удобно использовать в заданном бизнес-контексте.</td>
+<table><tr><td><b>Тип ресурса (имя представления)</b></td><td><b>Дополнительные свойства</b></td><td><b>Тип данных</b></td><td><b>Разрешенные аннотации</b></td><td><b>Комментарии</b></td></tr><tr><td>Таблица ("tables")</td><td></td><td></td><td>Описание<p>FriendlyName<p>Тег<p>Схема<p>ColumnDescription<p>ColumnTag<p> Эксперт<p>Предварительный просмотр<p>AccessInstruction<p>TableDataProfile<p>ColumnDataProfile<p>ColumnDataClassification<p>Документация<p></td><td>Таблица представляет любые табличные данные. К таблицам могут относиться: таблица SQL, представление SQL, таблица Analysis Services, многомерное измерение Analysis Services, таблица Oracle и т. д.   </td></tr><tr><td>Мера ("measures")</td><td></td><td></td><td>Описание<p>FriendlyName<p>Тег<p>Эксперт<p>AccessInstruction<p>Документация<p></td><td>Этот тип представляет измерение Analysis Services.</td></tr><tr><td></td><td>measure</td><td>столбец</td><td></td><td>Метаданные, описывающие измерение</td></tr><tr><td></td><td>isCalculated </td><td>Логический</td><td></td><td>Указывает, вычисляется измерение или нет.</td></tr><tr><td></td><td>measureGroup</td><td>Строка</td><td></td><td>Физический контейнер для измерения</td></tr><td>Ключевой показатель эффективности ("kpis")</td><td></td><td></td><td>Описание<p>FriendlyName<p>Тег<p>Эксперт<p>AccessInstruction<p>Документация</td><td></td></tr><tr><td></td><td>measureGroup</td><td>Строка</td><td></td><td>Физический контейнер для измерения</td></tr><tr><td></td><td>goalExpression</td><td>Строка</td><td></td><td>Числовое выражение MDX или вычисление, которое возвращает целевое значение ключевого показателя эффективности.</td></tr><tr><td></td><td>valueExpression</td><td>Строка</td><td></td><td>Числовое выражение MDX, которое возвращает фактическое значение ключевого показателя эффективности.</td></tr><tr><td></td><td>statusExpression</td><td>Строка</td><td></td><td>Выражение MDX, которое отражает состояние ключевого показателя эффективности в заданный момент времени.</td></tr><tr><td></td><td>trendExpression</td><td>Строка</td><td></td><td>Выражение MDX, которое оценивает значение ключевого индикатора производительности во времени. В качестве тренда может использоваться любой временной критерий, который удобно использовать в заданном бизнес-контексте.</td>
 <tr><td>Отчет ("reports")</td><td></td><td></td><td>Описание<p>FriendlyName<p>Тег<p>Эксперт<p>AccessInstruction<p>Документация<p></td><td>Этот тип представляет отчет для служб отчетов SQL Server </td></tr><tr><td></td><td>assetCreatedDate</td><td>Строка</td><td></td><td></td></tr><tr><td></td><td>assetCreatedBy</td><td>Строка</td><td></td><td></td></tr><tr><td></td><td>assetModifiedDate</td><td>Строка</td><td></td><td></td></tr><tr><td></td><td>assetModifiedBy</td><td>Строка</td><td></td><td></td></tr><tr><td>Контейнер ("containers")</td><td></td><td></td><td>Описание<p>FriendlyName<p>Тег<p>Эксперт<p>AccessInstruction<p>Документация<p></td><td>Этот тип представляет контейнер других ресурсов, таких как база данных SQL, контейнер больших двоичных объектов Azure или модель служб Analysis Services.</td></tr></table>
 
 ### Типы аннотаций
@@ -165,6 +165,10 @@
 
 <tr><td>ColumnsDataProfile ("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columns</td></td><td>ColumnDataProfile[]</td><td>Массив профилей данных столбцов.</td></tr>
+
+<tr><td>ColumnDataClassification ("columnDataClassifications")</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnName</td><td>Строка</td><td>Имя столбца, на который ссылается эта классификация.</td></tr>
+<tr><td></td><td>классификация;</td><td>Строка</td><td>Классификация данных в этом столбце.</td></tr>
 
 <tr><td>Документация ("documentation")</td><td></td><td></td><td>Данный ресурс может иметь только одну связанную с ним документацию.</td></tr>
 <tr><td></td><td>mimeType</td><td>string</td><td>Тип mime содержимого.</td></tr>
@@ -278,7 +282,7 @@
 >
 > Роль **владельца** применима только к корневому элементу.
 >
-> Когда в каталоге создается элемент, связанная с таким элементом роль **участника** по умолчанию назначается текущему пользователю, прошедшему проверку подлинности. Чтобы обновлять элемент могли все пользователи, при первой его публикации роли **участника** в свойстве **roles** должен быть назначен специальный субъект безопасности <Everyone> (см. пример ниже). Роль **участника** изменить нельзя. Она назначается на все время существования элемента (т. е. даже **администратор** и **владелец** не имеют право изменять роль **участника**). Единственное значение, которое можно явно присвоить роли **участника** — это <Everyone>. Это значит, что **участником** может быть только пользователь, создавший элемент, или <Everyone>.
+> Когда в каталоге создается элемент, связанная с таким элементом роль **участника** по умолчанию назначается текущему пользователю, прошедшему проверку подлинности. Чтобы обновлять элемент могли все пользователи, при первой его публикации роли **участника** в свойстве **roles** должен быть назначен специальный субъект безопасности <Everyone> (см. пример ниже). Роль **участника** изменить нельзя. Она назначается на все время существования элемента (т. е. даже **администратор** и **владелец** не имеют право изменять роль **участника**). Единственное значение, которое можно явно присвоить роли **участника** — это <Everyone>. Это значит, что **участником** может быть только пользователь, создавший элемент, или <Everyone>.
 
 ###Примеры
 **Назначение роли участника <Everyone> при публикации элемента.** Специальный субъект безопасности <Everyone> имеет следующий код объекта: 00000000-0000-0000-0000-000000000201. **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
@@ -300,11 +304,53 @@
 		]
 	}
 
-  **Назначение владельцев и ограничение видимости существующего корневого элемента** **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30 { "roles": [ { "role": "Owner", "members": [ { "objectId": "c4159539-846a-45af-bdfb-58efd3772b43", "upn": "user1@contoso.com" }, { "objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f", "upn": "user2@contoso.com" } ] } ], "permissions": [ { "principal": { "objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a", "upn": "user3@contoso.com" }, "rights": [ { "right": "Read" } ] }, { "principal": { "objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31", "upn": "user4@contoso.com" }, "rights": [ { "right": "Read" } ] } ] }
+  **Назначение владельцев и ограничение видимости для существующего корневого элемента** **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+
+	{
+		"roles": [
+			{
+				"role": "Owner",
+				"members": [
+					{
+						"objectId": "c4159539-846a-45af-bdfb-58efd3772b43",
+						"upn": "user1@contoso.com"
+					},
+					{
+						"objectId": "fdabd95b-7c56-47d6-a6ba-a7c5f264533f",
+						"upn": "user2@contoso.com"
+					}
+				]
+			}
+		],
+		"permissions": [
+			{
+				"principal": {
+					"objectId": "27b9a0eb-bb71-4297-9f1f-c462dab7192a",
+					"upn": "user3@contoso.com"
+				},
+				"rights": [
+					{
+						"right": "Read"
+					}
+				]
+			},
+			{
+				"principal": {
+					"objectId": "4c8bc8ce-225c-4fcf-b09a-047030baab31",
+					"upn": "user4@contoso.com"
+				},
+				"rights": [
+					{
+						"right": "Read"
+					}
+				]
+			}
+		]
+	}
 
 > [AZURE.NOTE] В теле запроса PUT не обязательно указывать полезные данные: запрос PUT можно использовать только для обновления ролей и/или разрешений.
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0727_2016-->

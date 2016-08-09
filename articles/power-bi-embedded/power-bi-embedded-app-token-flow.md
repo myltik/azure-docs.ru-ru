@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/01/2016"
+   ms.date="07/26/2016"
    ms.author="owend"/>
 
 # Аутентификация и авторизация в Power BI Embedded
@@ -36,7 +36,7 @@
 
 | Утверждение | Описание |
 |--------------|------------|
-| **ver** | Версия маркера приложения. Текущая версия — 1.0.0 |
+| **ver** | Версия маркера приложения. Текущая версия — 0.2.0. |
 | **aud** | Целевой получатель маркера. Для Power BI Embedded используйте адрес https://analysis.windows.net/powerbi/api |
 | **iss** | Строка, указывающая приложение, которое выдает маркер |
 | **type** | Тип маркера приложения, который создается. Сейчас поддерживается только тип **embed** |
@@ -93,4 +93,4 @@
 - [Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->
