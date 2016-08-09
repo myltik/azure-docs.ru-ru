@@ -1,4 +1,4 @@
-### Добавление или удаление префиксов, если подключение через VPN-шлюз еще не создано
+### <a name="noconnection"></a>Добавление или удаление префиксов без подключения через VPN-шлюз
 
 - Чтобы **добавить** дополнительные префиксы адресов для созданного локального сетевого шлюза, у которого пока нет подключения через VPN-шлюз, используйте следующий пример.
 
@@ -11,26 +11,31 @@
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### Добавление или удаление префиксов, если подключение через VPN-шлюз уже создано
+### <a name="withconnection"></a>Добавление или удаление префиксов при подключении через VPN-шлюз
 
-Если вы уже создали VPN-подключение и желаете добавить или удалить префиксы IP-адресов, указанные для вашего локального сетевого шлюза, вам следует в правильной последовательности выполнить следующие шаги. При этом VPN-подключение будет некоторое время недоступно.
+Если вы уже создали VPN-подключение и желаете добавить или удалить префиксы IP-адресов, указанные для вашего локального сетевого шлюза, вам следует в правильной последовательности выполнить следующие шаги. При этом VPN-подключение будет некоторое время недоступно. При обновлении префиксов сначала следует удалить подключение, изменить префиксы, а затем создать новое подключение.
 
 >[AZURE.IMPORTANT] Не удаляйте VPN-шлюз. В противном случае вам придется заново выполнить все действия, чтобы восстановить его, а также повторно настроить локальный маршрутизатор с новыми параметрами.
  
-1. Удалите IPsec-подключение. 
-2. Измените префиксы IP-адресов локального сетевого шлюза. 
-3. Создайте новое IPsec-подключение. 
+1. Укажите переменные.
 
-Если нужно, используйте следующий пример.
+		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+2. Удалите подключение.
 
-	Remove-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
+		Remove-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 
-	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-	Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+3. Измените префиксы.
+
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+		-AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+4. Создайте подключение. В этом примере мы настраиваем тип подключения IPsec. Дополнительные типы подключений см. на странице с [командлетами PowerShell](https://msdn.microsoft.com/library/mt603611.aspx).
 	
-	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+		-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec `
+		-RoutingWeight 10 -SharedKey 'abc123'
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0803_2016-->

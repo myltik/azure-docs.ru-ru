@@ -4,7 +4,7 @@
 	keywords=""
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -50,4 +50,4 @@
 ## Дальнейшие действия
 Теперь, когда вы завершили работу с этим руководством по базам данных SQL, создав учетную запись пользователя и предоставив разрешения dbo пользователя учетной записи, узнайте, как [защитить базу данных SQL](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->
