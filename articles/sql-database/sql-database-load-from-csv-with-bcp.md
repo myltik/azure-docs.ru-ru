@@ -3,7 +3,7 @@
    description="Для импорта небольших объемов данных в базу данных SQL Azure используйте программу bcp."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -127,4 +127,4 @@ DateId |CalendarQuarter |FiscalQuarter
 <!--Other Web references-->
 [Центре загрузки Майкрософт]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

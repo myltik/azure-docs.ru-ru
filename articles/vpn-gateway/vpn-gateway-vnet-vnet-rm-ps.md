@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/15/2016"
+   ms.date="07/29/2016"
    ms.author="cherylmc"/>
 
 # Настройка подключения между виртуальными сетями с помощью Azure Resource Manager и PowerShell
@@ -24,6 +24,8 @@
 - [PowerShell и Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 Эта статья содержит инструкции по созданию подключения между виртуальными сетями с помощью модели развертывания Resource Manager и PowerShell. Виртуальные сети могут располагаться в одном или разных регионах; также они могут использоваться в рамках одной или разных подписок.
+
+[AZURE.INCLUDE [vpn-gateway-peering](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 **О моделях развертывания Azure**
@@ -120,7 +122,7 @@
 - TestVNet2: 10.41.0.0/16 и 10.42.0.0/16
 - FrontEnd: 10.41.0.0/24
 - BackEnd: 10.42.0.0/24
-- GatewaySubnet: 10.42.255.0.0/27
+- GatewaySubnet: 10.42.255.0/27
 - Группа ресурсов: TestRG4
 - Расположение: Запад США
 - DNS-сервер: 8.8.8.8
@@ -511,4 +513,4 @@
 - Установив подключение, можно добавить виртуальные машины в виртуальные сети. Инструкции см. в статье [Создание виртуальной машины под управлением Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 - Сведения о BGP см. в статьях [Обзор использования BGP с VPN-шлюзами Azure](vpn-gateway-bgp-overview.md) и [Настройка BGP на VPN-шлюзах Azure с помощью Azure Resource Manager и PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

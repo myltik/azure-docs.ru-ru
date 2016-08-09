@@ -32,6 +32,7 @@
 Проверьте назначение мастера и необходимые компоненты.
 
 Ниже перечислены важные предварительные требования.
+
 -   Для изменения параметров базы данных необходимо иметь права администратора.
 -   Требуется подписка Microsoft Azure.
 -   В SQL Server должна быть настроена связь с удаленным сервером Azure.
@@ -190,4 +191,4 @@
 [StretchWizardImage8]: ./media/sql-server-stretch-database-wizard/stretchwiz8.png
 [StretchWizardImage9]: ./media/sql-server-stretch-database-wizard/stretchwiz9.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

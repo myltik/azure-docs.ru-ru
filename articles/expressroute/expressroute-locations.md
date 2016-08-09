@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2016"
+   ms.date="07/28/2016"
    ms.author="cherylmc" />
 
 # Партнеры и одноранговые расположения ExpressRoute
@@ -52,6 +52,10 @@ ExpressRoute поддерживается во всех регионах и ра
 
 
 ## Расположения поставщиков услуг подключения
+
+> [AZURE.SELECTOR]
+[Locations By Provider](expressroute-locations.md#connectivity-provider-locations)
+[Providers By Location](expressroute-locations-providers.md#connectivity-provider-locations)
 
 ### Рабочая среда Azure
 
@@ -102,7 +106,7 @@ ExpressRoute поддерживается во всех регионах и ра
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Поддерживаются | Поддерживаются | Чикаго, Вашингтон (округ Колумбия) |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Поддерживаются | Поддерживаются | Чикаго, Даллас+, Нью-Йорк, Вашингтон (округ Колумбия) |
-| **[Level 3 Communications (IPVPN)](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Поддерживаются | Скоро | Чикаго, Нью-Йорк+, Вашингтон (округ Колумбия) |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Поддерживаются | Скоро | Чикаго, Нью-Йорк+, Вашингтон (округ Колумбия) |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Поддерживаются | Поддерживаются | Чикаго, Даллас+, Нью-Йорк, Вашингтон (округ Колумбия) |
 
 #### Китай
@@ -140,9 +144,11 @@ ExpressRoute поддерживается во всех регионах и ра
 
 |**Поставщик услуг подключения**|**Exchange**|**Расположения**|
 |---|---|---|
-|**Alaska Communications**|Equinix|Сиэтл;|
-|**[XO Communications](http://www.xo.com/)**|Equinix|Кремниевая долина|
 |**[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)**|Equinix|Сингапур|
+|**Alaska Communications**|Equinix|Сиэтл;|
+|**[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)**|Equinix|Нью-Йорк, Вашингтон (округ Колумбия)|
+|**[XO Communications](http://www.xo.com/)**|Equinix|Кремниевая долина|
+
 
 ## Системные интеграторы ExpressRoute
 
@@ -165,4 +171,4 @@ ExpressRoute поддерживается во всех регионах и ра
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

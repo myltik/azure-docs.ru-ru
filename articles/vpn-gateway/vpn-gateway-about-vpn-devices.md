@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/29/2016"
+   ms.date="07/28/2016"
    ms.author="cherylmc" />
 
 # О VPN-устройствах для подключений VPN-шлюзов типа "сеть-сеть"
@@ -51,7 +51,7 @@
 | Citrix | Устройство CloudBridge MPX или виртуальное устройство VPX | Недоступно | [Инструкции по интеграции](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Не совместимо |
 | Dell SonicWALL | Серия TZ, серия NSA, серия SuperMassive, серия NSA класса E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Инструкции — SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [инструкции — SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Инструкции — SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [инструкции — SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Серия BIG-IP | Недоступно | [Инструкции по настройке](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Не совместимо |
-| Fortinet | FortiGate | FortiOS 5.0.7 | [Инструкции по настройке](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Инструкции по настройке](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
+| Fortinet | FortiGate | FortiOS 5.2.7 | [Инструкции по настройке](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Инструкции по настройке](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
 | Internet Initiative Japan (IIJ) | Серия SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Инструкции по настройке](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Не совместимо |
 | Juniper | SRX | JunOS 10.2 (на основе политик), JunOS 11.4 (на основе маршрутов) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
 | Juniper | Серия J | JunOS 10.4r9 (на основе политик), JunOS 11.4 (на основе маршрутов) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
@@ -118,10 +118,7 @@
 | Версия IKE | IKEv1 | IKEv2 |
 | Алгоритм хэширования | SHA1(SHA128) | SHA1(SHA128) |
 | Время существования сопоставления безопасности второго этапа (время) | 3600 секунд | 3600 секунд |
-| Время существования сопоставления безопасности второго этапа (пропускная способность) | 102 400 000 КБ | - | 
-| Предложения для шифрования и аутентификации IPsec SA (в порядке предпочтения) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Н/д | См. раздел *Предложения для сопоставлений безопасности IPsec для шлюзов на основе маршрутов* (ниже) | 
-| Полная безопасность пересылки (PFS) | Нет | Да (группы DH 1, 2, 5, 14, 24) | 
-| Обнаружение неиспользуемых одноранговых узлов | Не поддерживается | Поддерживается |
+Время существования сопоставления безопасности второго этапа (пропускная способность) | 102 400 000 КБ | - | | Предложения для шифрования и аутентификации IPsec SA (в порядке предпочтения) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Н/д | См. раздел *Предложения для сопоставлений безопасности IPsec для шлюзов на основе маршрутов* (ниже) | | Полная безопасность пересылки (PFS) | Нет | Да (группы DH 1, 2, 5, 14, 24) | | Обнаружение неиспользуемых одноранговых узлов | Не поддерживается | Поддерживается |
 
 ### Предложения для сопоставлений безопасности IPsec для шлюзов на основе маршрутов
 
@@ -145,12 +142,11 @@
 | 14 | AH MD5 с ESP DES с HMAC со значением NULL, без предлагаемого времени существования | AH MD5 с ESP DES MD5, без времени существования |
 | 15 | AH SHA1 с ESP DES SHA1, без времени существования | ESP SHA, без времени существования |
 | 16 | AH MD5 с ESP DES MD5, без времени существования | ESP MD5, без времени существования |
-| 17 | - | AH SHA, без времени существования |
-| 18 | - | AH MD5, без времени существования |
+| 17 | - | AH SHA, без времени существования || 18 | - | AH MD5, без времени существования |
 
 
 - Можно указать NULL-шифрование ESP IPsec с высокопроизводительными VPN-шлюзами на основе маршрутизации. NULL-шифрование не защищает данные при передаче. Его следует использовать только в случаях, когда требуется максимальная пропускная способность и минимальная задержка. Клиенты могут выбрать его в случаях, когда данные передаются между виртуальными сетями или где-то в решении применяется другое шифрование.
 
 - Для распределенных подключений через Интернет используйте параметры по умолчанию VPN-шлюзов Azure с алгоритмами шифрования и хэширования, перечисленными в таблице выше, чтобы обеспечить безопасность обмена важными данными.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->
