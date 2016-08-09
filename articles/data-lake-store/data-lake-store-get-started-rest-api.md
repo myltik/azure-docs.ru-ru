@@ -61,7 +61,7 @@
 
 		https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-	>[AZURE.NOTE] <REDIRECT-URI> должен быть закодирован для использования в URL-адресе. То есть вместо https://localhost используйте `https%3A%2F%2Flocalhost`.
+	>[AZURE.NOTE] \<REDIRECT-URI> должен быть закодирован для использования в URL-адресе. То есть вместо https://localhost используйте `https%3A%2F%2Flocalhost`.
 
 	В целях обучения можно заменить значения заполнителей в URL-адресе выше и вставить его в адресную строку веб-браузера. Вы перейдете на страницу аутентификации с помощью учетной записи Azure. После входа в систему вы увидите ответ в адресной строке браузера. Ответ имеет следующий формат.
 		
@@ -76,7 +76,7 @@
         -F client_id=<CLIENT-ID> \
         -F code=<AUTHORIZATION-CODE>
 
-	>[AZURE.NOTE] В этом случае кодировать <REDIRECT-URI> не нужно.
+	>[AZURE.NOTE] В этом случае кодировать \<REDIRECT-URI> не нужно.
 
 3. Ответом является объект JSON, который содержит маркер доступа (`"access_token": "<ACCESS_TOKEN>"`) и маркер обновления (`"refresh_token": "<REFRESH_TOKEN>"`). Приложение использует маркер доступа для обращения к хранилищу озера данных Azure, а маркер обновления — для получения другого маркера доступа, когда срок действия текущего маркера доступа истечет.
 
