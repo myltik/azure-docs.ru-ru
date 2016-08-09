@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -191,7 +191,7 @@ Apache Oozie — это система рабочих процессов и ко
 	<table border = "1">
 	<tr><th>Переменные рабочего процесса</th><th>Описание</th></tr>
 	<tr><td>${jobTracker}</td><td>Укажите URL-адрес средства отслеживания заданий Hadoop. Используйте <strong>jobtrackerhost:9010</strong> в кластере HDInsight версии 3.0 и 2.0.</td></tr>
-	<tr><td>${nameNode}</td><td>Укажите URL-адрес узла имен заданий Hadoop. Используйте стандартный адрес wasb:// для файловой системы, например <i>wasb://&lt;имя_контейнера>@&lt;имя_учетной_записи_хранилища>.blob.core.windows.net</i>.</td></tr>
+	<tr><td>${nameNode}</td><td>Укажите URL-адрес узла имен заданий Hadoop. Используйте стандартный адрес wasbs:// для файловой системы, например <i>wasbs://&lt;имя_контейнера>@&lt;имя_учетной_записи_хранения>.blob.core.windows.net</i>.</td></tr>
 	<tr><td>${queueName}</td><td>Указывает имя очереди, в которую будет отправлено задание. Используйте <strong>значение по умолчанию</strong>.</td></tr>
 	</table>
 
@@ -211,7 +211,7 @@ Apache Oozie — это система рабочих процессов и ко
 	<tr><td>${hiveOutputFolder}</td><td>Папка результатов для инструкции Hive INSERT OVERWRITE. Это та же папка, что и каталог для экспорта Sqoop (export-dir).</td></tr>
 	</table>
 
-	Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] \(для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] \(для кластера HDInsight версии 2.1).
+	Дополнительные сведения о рабочем процессе Oozie и использовании его действий см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для кластера HDInsight версии 2.1).
 
 2. Сохраните файл как **C:\\Tutorials\\UseOozie\\workflow.xml** в кодировке ANSI (ASCII). (Используйте Блокнот, если ваш текстовый редактор не предоставляет такую возможность.)
 
@@ -243,15 +243,15 @@ Apache Oozie — это система рабочих процессов и ко
 
 Вы выполните скрипт Azure PowerShell для достижения следующих результатов:
 
-- Скопируйте сценарий HiveQL (useoozie.hql) в хранилище BLOB-объектов Azure (wasb:///tutorials/useoozie/useoozie.hql).
-- Скопируйте workflow.xml в wasb:///tutorials/useoozie/workflow.xml.
-- Скопируйте coordinator.xml в wasb:///tutorials/useoozie/coordinator.xml.
-- Скопируйте файл данных (/example/data/sample.log в wasb:///tutorials/useoozie/data/sample.log.
+- Скопируйте сценарий HiveQL (useoozie.hql) в хранилище BLOB-объектов Azure (wasbs:///tutorials/useoozie/useoozie.hql).
+- Скопируйте workflow.xml в wasbs:///tutorials/useoozie/workflow.xml.
+- Скопируйте coordinator.xml в wasbs:///tutorials/useoozie/coordinator.xml.
+- Скопируйте файл данных (/example/data/sample.log в wasbs:///tutorials/useoozie/data/sample.log.
 - Создайте таблицу базы данных Azure SQL для хранения данных экспорта Sqoop. Имя таблицы — *log4jLogCount*.
 
 **Общие сведения о хранилище HDInsight**
 
-HDInsight использует хранилище BLOB-объектов Azure для хранения данных. wasb:// является реализацией распределенной файловой системы Hadoop (HDFS) в хранилище BLOB-объектов Azure, предоставляемой корпорацией Майкрософт. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
+HDInsight использует хранилище BLOB-объектов Azure для хранения данных. wasbs:// является реализацией распределенной файловой системы Hadoop (HDFS) в хранилище BLOB-объектов Azure, предоставляемой корпорацией Майкрософт. Дополнительные сведения см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
 
 В процессе подготовки кластера HDInsight в качестве файловой системы по умолчанию устанавливаются учетная запись хранения BLOB-объектов Azure и конкретный контейнер из этой учетной записи, так же как и в HDFS. Помимо этой учетной записи хранения в процессе подготовки можно добавить дополнительные учетные записи хранения из той же или других подписок Azure. Инструкции по добавлению дополнительных учетных записей хранения см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. Чтобы упростить сценарий Azure PowerShell, используемый в этом учебнике, все файлы хранятся в контейнере файловой системы по умолчанию, расположенном в */tutorials/useoozie*. Имя контейнера по умолчанию совпадает с именем кластера HDInsight. Синтаксис :
 
@@ -263,8 +263,8 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 Доступ к файлу, хранящемуся в контейнере файловой системы по умолчанию, из HDInsight может осуществляться с помощью любого из следующих URI (workflow.xml используется в качестве примера):
 
-	wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/workflow.xml
-	wasb:///tutorials/useoozie/workflow.xml
+	wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/workflow.xml
+	wasbs:///tutorials/useoozie/workflow.xml
 	/tutorials/useoozie/workflow.xml
 
 Если требуется доступ к этому файлу непосредственно из учетной записи хранения, имя BLOB-объекта для файла имеет следующее значение:
@@ -378,7 +378,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 ##Запуск проекта Oozie
 
-В настоящее время Azure PowerShell не предоставляет командлеты для определения заданий Oozie. Вы можете использовать командлет **Invoke-RestMethod** для вызова веб-служб Oozie. API веб-служб Oozie представляет собой API HTTP REST JSON. Дополнительные сведения об API веб-служб Oozie см. в [документации на Apache Oozie 4.0][apache-oozie-400] \(для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] \(для кластера HDInsight версии 2.1).
+В настоящее время Azure PowerShell не предоставляет командлеты для определения заданий Oozie. Вы можете использовать командлет **Invoke-RestMethod** для вызова веб-служб Oozie. API веб-служб Oozie представляет собой API HTTP REST JSON. Дополнительные сведения об API веб-служб Oozie см. в [документации на Apache Oozie 4.0][apache-oozie-400] (для кластера HDInsight версии 3.0) или [документации на Apache Oozie 3.3.2][apache-oozie-332] (для кластера HDInsight версии 2.1).
 
 **Отправка задания Oozie**
 
@@ -394,7 +394,7 @@ HDInsight использует хранилище BLOB-объектов Azure д
 		#Azure Blob storage (WASB) variables
 		$storageAccountName = "<StorageAccountName>"
 		$storageContainerName = "<BlobContainerName>"
-		$storageUri="wasb://$storageContainerName@$storageAccountName.blob.core.windows.net"
+		$storageUri="wasbs://$storageContainerName@$storageAccountName.blob.core.windows.net"
 
 		#Azure SQL database variables
 		$sqlDatabaseServer = "<SQLDatabaseServerName>"
@@ -740,4 +740,4 @@ HDInsight использует хранилище BLOB-объектов Azure д
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

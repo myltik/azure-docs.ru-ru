@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="07/18/2016"
 ms.author="deonhe"/>
 
 # Приступая к работе с соединителем SharePoint Online 
@@ -26,7 +26,7 @@ ms.author="deonhe"/>
 С помощью SharePoint вы можете:
 
 * создавать приложения логики.
-* создавать приложения PowerApps.  
+* создавать приложения PowerApps.
 
 Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -76,13 +76,13 @@ ms.author="deonhe"/>
 
 В конструкторе приложения логики выполните следующие действия, чтобы войти в SharePoint для создания **подключения**, которое будет использоваться в приложении логики.
 
-1. В поле поиска введите "SharePoint" и дождитесь возвращения всех записей с текстом "SharePoint" в имени. ![Настройка SharePoint][1]  
-2. Выберите **SharePoint Online — When a file is created** (SharePoint Online — при создании файла).   
-3. Выберите **Вход в SharePoint Online**. ![Настройка SharePoint][2]    
-4. Укажите учетные данные SharePoint, чтобы войти и пройти аутентификацию в SharePoint. ![Настройка SharePoint][3]     
-5. После успешной аутентификации вы перейдете к своему приложению логики, чтобы завершить его, настроив параметры в диалоговом окне **When a file is created** (При создании файла) SharePoint. ![Настройка SharePoint][4]  
-6. Затем можно будет добавить другие триггеры и действия, необходимые для завершения приложения логики.   
-7. Сохраните результаты работы, выбрав **Сохранить** в строке меню вверху.  
+1. В поле поиска введите "SharePoint" и дождитесь возвращения всех записей с текстом "SharePoint" в имени. ![Настройка SharePoint][1]
+2. Выберите **SharePoint Online — When a file is created** (SharePoint Online — при создании файла).
+3. Выберите **Вход в SharePoint Online**. ![Настройка SharePoint][2]
+4. Укажите учетные данные SharePoint, чтобы войти и пройти аутентификацию в SharePoint. ![Настройка SharePoint][3]
+5. После успешной проверки подлинности вы перейдете к своему приложению логики, чтобы завершить его, настроив параметры в диалоговом окне **When a file is created** (При создании файла) SharePoint. ![Настройка SharePoint][4]
+6. Затем можно будет добавить другие триггеры и действия, необходимые для завершения приложения логики.
+7. Сохраните результаты работы, выбрав **Сохранить** в строке меню вверху.
 
 >[AZURE.TIP] Это подключение можно использовать в других приложениях логики и приложениях PowerApps.
 
@@ -335,7 +335,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
 |$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
 |$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
@@ -360,7 +360,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
 |$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
 |$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
@@ -385,7 +385,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
 |item| |Да|текст|Нет|Создаваемый элемент|
 
@@ -407,7 +407,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
 |id|целое число|Да|path|Нет|Уникальный идентификатор извлекаемого элемента|
 
@@ -429,7 +429,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
 |id|целое число|Да|path|Нет|Уникальный идентификатор удаляемого элемента|
 
@@ -451,7 +451,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|).
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
 |таблица|строка|Да|path|Нет|Имя списка SharePoint|
 |id|целое число|Да|path|Нет|Уникальный идентификатор обновляемого элемента|
 |item| |Да|текст|Нет|Элемент с измененными свойствами|
@@ -695,10 +695,10 @@ ms.author="deonhe"/>
 ## Дальнейшие действия
 [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md). [Создание приложения PowerApps](../power-apps/powerapps-get-started-azure-portal.md).
 
-[1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png
-[3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
-[4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
-[5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
+[1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
+[2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
+[3]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig3.png
+[4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
+[5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,4 +1,11 @@
-<properties pageTitle="# Настройка автоматической регистрации присоединенных к домену устройств под управлением Windows 7 | Microsoft Azure" description="Шаги по настройке присоединенных к домену устройств под управлением Windows 7 для автоматической регистрации с Azure AD. Шаги по развертыванию программного пакета регистрации устройства на присоединенных к домену устройствах под управлением Windows 7 с помощью системы распространения программного обеспечения, например System Center Configuration Manager." services="active-directory" documentationCenter="" authors="femila" manager="swadhwa editor=""/>
+<properties
+	pageTitle="# Настройка автоматической регистрации присоединенных к домену устройств Windows 7 | Microsoft Azure"
+	description="Пошаговая процедура настройки автоматической регистрации присоединенных к домену устройств Windows 7 в Azure AD, а также шаги по развертыванию программного пакета регистрации устройств на присоединенных к домену устройствах Windows 7 с помощью системы распространения программного обеспечения, например System Center Configuration Manager."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -53,4 +60,4 @@
 - [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0727_2016-->

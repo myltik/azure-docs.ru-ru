@@ -68,6 +68,6 @@
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 
 [Отладка в IntelliJ веб-приложения Java, размещенного в Azure]: ./app-service-web/app-service-web-debug-java-web-app-in-intellij.md
-[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
+[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

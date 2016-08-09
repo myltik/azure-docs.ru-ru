@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 #Подключение Excel к Hadoop с помощью драйвера Microsoft Hive ODBC
@@ -58,13 +58,13 @@
     Свойство|Описание
     ---|---
     Имя источника данных|Присвойте имя источнику данных
-    Узел|Введите <HDInsightClusterName>.azurehdinsight.net. Например, myHDICluster.azurehdinsight.net
+    Узел|Введите <Имя\_вашего\_кластера\_HDInsight>.azurehdinsight.net. Например, myHDICluster.azurehdinsight.net
     Порт|Используйте <strong>443</strong>. (Этот порт был изменен с 563 на 443.)
     База данных|Используйте <strong>значение по умолчанию</strong>.
     Тип сервера Hive|Выберите <strong>Hive Server 2</strong>.
     Механизм|Выберите <strong>Служба Azure HDInsight</strong>.
     Путь HTTP|Оставьте пустым.
-    Имя пользователя|Введите имя пользователя кластера HDInsight. Это имя пользователя, созданное во время подготовки кластера. При использовании параметра "Быстрое создание" именем пользователя по умолчанию является <strong>admin</strong>.
+    Имя пользователя|Введите имя пользователя кластера HDInsight. Это имя пользователя, созданное во время подготовки кластера. При использовании параметра «Быстрое создание» именем пользователя по умолчанию является <strong>admin</strong>.
     Пароль|Введите пароль пользователя кластера HDInsight.
     </table>
 
@@ -105,7 +105,7 @@
 	![Свойства подключения][img-hdi-simbahiveodbc-excel-connectionproperties]
 
 11. Нажмите **OK**, чтобы закрыть диалоговое окно "Свойства подключения".
-12. Нажмите кнопку **OK**, чтобы закрыть диалоговое окно **Импорт данных**.  
+12. Нажмите кнопку **OK**, чтобы закрыть диалоговое окно **Импорт данных**.
 13. Повторно введите пароль, затем нажмите кнопку **OK**. Пройдет несколько секунд, прежде чем данные будут импортированы в Excel.
 
 ##Дальнейшие действия
@@ -131,4 +131,4 @@
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

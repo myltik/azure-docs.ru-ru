@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="07/25/2016"
    ms.author="dhanyahk"/>
 
 # События отчета аудита Azure Active Directory
@@ -48,9 +48,9 @@
 Удаление субъекта-службы | Удален субъект-служба из каталога.
 Добавление учетных данных субъекта-службы | Добавлены учетные данные субъекта-службы.
 Удаление учетных данных субъекта-службы | Удалены учетные данные из субъекта-службы.
-Добавление записи делегирования | В каталоге создана запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity).
-Установка записи делегирования | В данном каталоге обновлена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity).
-Удаление записи делегирования | Из каталога удалена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity).
+Добавление записи делегирования | В каталоге создана запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity).
+Установка записи делегирования | В данном каталоге обновлена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity).
+Удаление записи делегирования | Из каталога удалена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity).
 **События роли** |
 Добавление участника роли к роли | Добавлен пользователь к роли каталога.
 Удаление участника роли из роли | Удален пользователь из роли каталога.
@@ -122,4 +122,4 @@ TelephoneNumber | Номер телефона пользователя.
 
 Записи аудита — это обязательный элемент управления для многих требований соответствия нормативам. Для клиентов, использующих отчет аудита Azure Active Directory в соответствии с нормативными требованиями, рекомендуется отправить копию этого раздела справки и копию экспортированного отчета аудита, чтобы упростить объяснение информации, содержащейся в отчетах. Если аудитору потребуется понять нормативные требования, которым в настоящее время соответствует Azure, направьте аудитора на [страницу нормативных требований](https://azure.microsoft.com/support/trust-center/compliance/) в Центре управления безопасностью Microsoft Azure.
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0727_2016-->

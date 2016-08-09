@@ -38,7 +38,7 @@
 
 1. На панели удаленного мониторинга щелкните **+ Add a device** (+ Добавить устройство), затем добавьте новое пользовательское устройство. Запишите имя узла центра IoT, идентификатор устройства и ключ устройства. Они потребуются позже, при подготовке клиентского приложения устройства remote\_monitoring.js.
 
-2. Убедитесь, что на компьютере разработки установлен компонент Node.js 0.12.x или более поздняя версия. Выполните команду `node --version` в командной строке или оболочке, чтобы проверить версию. Сведения об использовании диспетчера пакетов для установки Node.js в Linux см. в разделе [Installing Node.js via package manage][node-linux] \(Установка Node.js с помощью диспетчера пакетов).
+2. Убедитесь, что на компьютере разработки установлен компонент Node.js 0.12.x или более поздняя версия. Выполните команду `node --version` в командной строке или оболочке, чтобы проверить версию. Сведения об использовании диспетчера пакетов для установки Node.js в Linux см. в разделе [Installing Node.js via package manage][node-linux] (Установка Node.js с помощью диспетчера пакетов).
 
 3. После установки Node.js клонируйте последнюю версию репозитория [azure-iot-sdks][lnk-github-repo] на свой компьютер разработки. Всегда следует использовать ветвь **master**, чтобы получать последние версии библиотек и примеров.
 
@@ -236,10 +236,9 @@
 
 ## Дальнейшие действия
 
-Теперь, когда вы создали рабочее предварительно настроенное решение, можете перейти к следующим пошаговым руководствам:
+Теперь, когда вы узнали, как использовать динамическую телеметрию, ознакомьтесь также с информацией о том, как с помощью предварительно настроенных решений применять сведения об устройстве: [Метаданные сведений об устройстве в предварительно настроенном решении для удаленного мониторинга][lnk-devinfo].
 
--   [Рекомендации по настройке предварительно настроенных решений][lnk-customize]
--   [Обзор предварительно настроенного решения прогнозного обслуживания][lnk-predictive]
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [image1]: media/iot-suite-dynamic-telemetry/image1.png
 [image2]: media/iot-suite-dynamic-telemetry/image2.png
@@ -248,10 +247,8 @@
 [image5]: media/iot-suite-dynamic-telemetry/image5.png
 
 [lnk_free_trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-predictive]: iot-suite-predictive-overview.md
 [lnk-node]: http://nodejs.org
 [node-linux]: https://github.com/nodejs/node-v0.x-archive/wiki/Installing-Node.js-via-package-manager
 [lnk-github-repo]: https://github.com/Azure/azure-iot-sdks
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

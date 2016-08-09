@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="07/21/2016"
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности к приложению мобильных служб
@@ -82,4 +82,4 @@
 [Добавление мобильных служб в существующее приложение]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0727_2016-->

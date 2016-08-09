@@ -95,4 +95,4 @@ Standard\_GS5 | 32 | 2 | Intel Xeon E5-2698B вер. 3 с тактовой ча�
 
 * Чтобы выполнить сценарии CoreMark на виртуальных машинах Linux, скачайте [пакет сценариев CoreMark](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -30,7 +30,7 @@
 
 ### Действие
 - Щелкните соединитель Wait в области справа. ![Список действий][1]
-- Соединитель Wait поддерживает два действия: 
+- Соединитель Wait поддерживает два действия:
 	- Задержка
 	- Задержка до
 	 
@@ -56,4 +56,4 @@
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0727_2016-->

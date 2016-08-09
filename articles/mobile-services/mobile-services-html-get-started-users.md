@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="07/21/2016" 
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности к приложению мобильных служб 
@@ -35,7 +35,7 @@
 
 3. Запустите в подпапке **server** каталога приложения один из следующих файлов команд.
 
-	+ **launch-windows** (компьютеры с ОС Windows) 
+	+ **launch-windows** (компьютеры с ОС Windows)
 	+ **launch-mac.command** (компьютеры с ОС Mac OS X)
 	+ **launch-linux.sh** (компьютеры с ОС Linux)
 
@@ -105,7 +105,7 @@
 
 	>[AZURE.IMPORTANT]В приложении PhoneGap также необходимо добавить в проект следующие модули:
 	><ul><li><code>добавление модуля phonegap: https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
-	> <li><code>добавление модуля phonegap: https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
+	><li><code>добавление модуля phonegap: https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git</code></li></ul>
 
 9. Вернитесь в браузер, где работает приложение, и обновите страницу.
 
@@ -137,4 +137,4 @@
 [Справочник принципов использования мобильных служб HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0727_2016-->

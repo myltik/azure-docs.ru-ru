@@ -453,7 +453,7 @@
         }
     }
 
-Подробные сведения о классах фабрики данных, используемых в коде, см. в разделах [Класс AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Класс AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) и [Класс AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Для использования класса WindowsFormsWebAuthenticationDialog необходимо добавить ссылку на Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll.
+Подробные сведения о классах фабрики данных, используемых в коде, см. в разделах [Класс AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Класс AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) и [Класс AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Для использования в коде класса WindowsFormsWebAuthenticationDialog необходимо добавить ссылку на версию **2.9.10826.1824** файла **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll**.
  
 
 ## Свойства типа "Набор данных озера данных Azure"
@@ -562,7 +562,7 @@
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Определяет поведение копирования. | **PreserveHierarchy:** сохраняет иерархию файлов в целевой папке, т. е. относительный путь каждого целевого файла в целевой папке будет совпадать с относительным путем соответствующего исходного файла в исходной папке. <br/><br/>**FlattenHierarchy:** все файлы из исходной папки копируются на первый уровень целевой папки. Имена целевых файлов будут генерироваться автоматически.<br/><br/>**MergeFiles:** все файлы из исходной папки объединяются в один файл. Если указано имя файла или большого двоичного объекта, именем объединенного файла будет указанное имя; в противном случае имя файла будет автоматически сформировано. | Нет |
+| copyBehavior | Определяет поведение копирования. | **PreserveHierarchy**: сохраняет иерархию файлов в целевой папке, т. е. относительный путь каждого целевого файла в целевой папке будет совпадать с относительным путем соответствующего исходного файла в исходной папке. <br/><br/>**FlattenHierarchy**: все файлы из исходной папки копируются на первый уровень целевой папки. Имена целевых файлов будут генерироваться автоматически.<br/><br/>**MergeFiles**: объединяет все файлы из исходной папки в один файл. Если указано имя файла или большого двоичного объекта, именем объединенного файла будет указанное имя; в противном случае имя файла будет автоматически сформировано. | Нет |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -572,6 +572,6 @@
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Производительность и настройка  
-Ознакомьтесь со статьей [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действия копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
+См. статью [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

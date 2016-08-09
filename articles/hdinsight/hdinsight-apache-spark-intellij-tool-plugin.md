@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/25/2016"
 	ms.author="nitinme"/>
 
 
@@ -100,12 +100,12 @@
 			    val conf = new SparkConf().setAppName("MyClusterApp")
 			    val sc = new SparkContext(conf)
 
-			    val rdd = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+			    val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 			    //find the rows which have only one digit in the 7th column in the CSV
 				val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
 
-			    rdd1.saveAsTextFile("wasb:///HVACOut")
+			    rdd1.saveAsTextFile("wasbs:///HVACOut")
 			  }
 
 			}
@@ -155,7 +155,7 @@
 
 	![Доступ к хранилищу кластера](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-access-storage.png)
 
-4. Щелкните имя связанного с кластером контейнера хранилища. В правой области появится папка с именем **HVACOut**. Дважды щелкнув эту папку, вы увидите файлы **part-**. Откройте один из этих файлов для просмотра выходных данных приложения.
+4. Щелкните имя связанного с кластером контейнера хранилища. В правой области появится папка с именем **HVACOut**. Дважды щелкнув эту папку, вы увидите файлы **part-***. Откройте один из этих файлов для просмотра выходных данных приложения.
 
 ### Переход к представлению заданий непосредственно в подключаемом модуле
 
@@ -316,4 +316,4 @@
 
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0727_2016-->

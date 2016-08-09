@@ -3,7 +3,7 @@
 	description="Узнайте, как настроить доступ WinRM для использования с виртуальной машиной Azure Resource Manager."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="rothja"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>

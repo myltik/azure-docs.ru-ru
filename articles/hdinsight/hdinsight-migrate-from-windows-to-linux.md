@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/19/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Миграция из кластера HDInsight под управлением Windows на кластер под управлением Linux
@@ -79,7 +79,7 @@ ms.author="larryfr"/>
 
 6. В сеансе SSH используйте следующую команду для копирования файлов из связанной учетной записи хранения в новую учетную запись хранения по умолчанию. Замените CONTAINER и ACCOUNT на контейнер и учетную запись, которые были определены с помощью сценария PowerShell на шаге 1. Замените путь к данным на путь к файлу данных.
 
-        hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+        hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
     [AZURE.NOTE] Если структура каталогов, которая содержит данные, не существует в тестовой среде, ее можно создать с помощью следующей команды.
 
@@ -240,9 +240,9 @@ Ambari имеет систему предупреждений, которые м
 
 -   **При наличии сценариев, которые уже находятся в хранилище кластера**, для изменения сценария можно использовать следующую команду в сеансе SSH в кластерах под управлением Linux.
 
-        hdfs dfs -get wasb:///path/to/script.py oldscript.py
+        hdfs dfs -get wasbs:///path/to/script.py oldscript.py
         tr -d '\r' < oldscript.py > script.py
-        hdfs dfs -put -f script.py wasb:///path/to/script.py
+        hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ##Дальнейшие действия
 
@@ -254,4 +254,4 @@ Ambari имеет систему предупреждений, которые м
 
 -   [Выполняйте управление кластером под управлением Linux с помощью Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

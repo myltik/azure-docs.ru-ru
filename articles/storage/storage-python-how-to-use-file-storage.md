@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="07/26/2016"
 	ms.author="emgerner"/>
 
 # Использование хранилища файлов Azure из Python
 
-[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Обзор
 
@@ -30,7 +30,7 @@
 
 ## Создание общей папки
 
-Объект **FileService** позволяет работать с общими папками, каталогами и файлами. Приведенный далее код создает объект **TableService**. Добавьте следующий код в начало любого файла Python, из которого планируется получать доступ к службе хранилища Azure программным способом.
+Объект **FileService** позволяет работать с общими ресурсами, каталогами и файлами. Приведенный ниже код создает объект **TableService**. Добавьте следующий код в начало любого файла Python, из которого планируется получать доступ к службе хранилища Azure программным способом.
 
 	from azure.storage.file import FileService
 
@@ -38,7 +38,7 @@
 
 	file_service = **FileService** (account_name='myaccount', account_key='mykey')
 
-В следующем примере кода для создания общей папки (если она уже не существует) можно использовать объект **FileService**.
+В следующем примере кода для создания общего ресурса (если он не существует) можно использовать объект **FileService**.
 
 	file_service.create_share('myshare')
 
@@ -46,11 +46,11 @@
 
 Общая папка хранилища файлов Azure содержит по крайней мере, корневой каталог, где могут размещаться файлы. В этом разделе вы узнаете, как отправить файл из локального хранилища в корневой каталог общего ресурса.
 
-Для создания файла и отправки данных используйте методы **create\_file\_from\_path**, **create\_file\_from\_stream**, **create\_file\_from\_bytes** или **create\_file\_from\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
+Для создания файла и передачи данных используйте методы **create\_file\_from\_path**, **create\_file\_from\_stream**, **create\_file\_from\_bytes** или **create\_file\_from\_text**. Это высокоуровневые методы, которые выполняют необходимое фрагментирование данных, если их размер превышает 64 МБ.
 
-**create\_file\_from\_path** отправляет содержимое файла из заданного пути, **create\_file\_from\_stream** отправляет содержимое уже открытого файла или потока. **create\_file\_from\_bytes** отправляет массив байтов, **create\_file\_from\_text** отправляет заданное значение текста с использованием определенного кодирования (по умолчанию UTF-8).
+**create\_file\_from\_path** передает содержимое файла из заданного пути, **create\_file\_from\_stream** отправляет содержимое уже открытого файла или потока. **create\_file\_from\_bytes** отправляет массив байтов, **create\_file\_from\_text** отправляет заданное значение текста с использованием определенного кодирования (по умолчанию UTF-8).
 
-В примере далее содержимое файла **sunset.png** отправляется в файл **myfile**.
+В примере далее содержимое файла **sunset.png** передается в файл **myfile**.
 
 	from azure.storage.file import ContentSettings
 	file_service.create_file_from_path(
@@ -68,7 +68,7 @@
 
 ## Как получить список файлов и каталогов в общей папке
 
-Чтобы получить список файлов и каталогов в общей папке, используйте метод **list\_directories\_and\_files**. Этот метод возвращает генератор. Приведенный далее код выводит на консоль **имя** каждого файла и каталога в общей папке.
+Чтобы получить список файлов и каталогов в общем ресурсе, используйте метод **list\_directories\_and\_files**. Этот метод возвращает генератор. Приведенный далее код выводит в консоль **имя** каждого файла и каталога в общем ресурсе.
 
 	generator = file_service.list_directories_and_files('myshare')
 	for file_or_dir in generator:
@@ -100,4 +100,4 @@
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0727_2016-->

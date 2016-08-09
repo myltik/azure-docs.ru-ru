@@ -8,7 +8,7 @@
  documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -46,4 +46,4 @@
 После выбора одного из шаблонов выполните развертывание, как при создании собственного приложения логики. Подробные инструкции приведены в статье [Создание нового приложения логики, подключающего службы SaaS](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0727_2016-->

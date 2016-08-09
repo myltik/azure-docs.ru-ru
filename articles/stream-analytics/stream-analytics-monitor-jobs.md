@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 
@@ -63,7 +63,7 @@
     ```
     Get-AzureAccount
     ```
-4.	Добавьте следующие инструкции с оператором using в исходный файл (Program.cs) в проекте. 
+4.	Добавьте следующие инструкции с оператором using в исходный файл (Program.cs) в проекте.
 
     ```
         using System;
@@ -180,4 +180,4 @@
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

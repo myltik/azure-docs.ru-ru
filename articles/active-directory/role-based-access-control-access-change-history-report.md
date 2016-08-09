@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -55,7 +55,7 @@ Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::From
 ## Создание отчета с помощью Azure CLI
 Чтобы создать отчет по журналу изменений доступа с помощью интерфейса командной строки (CLI) Azure, используйте следующую команду:
 ```
-azure authorization changelog
+azure role assignment changelog list
 ```
 
 ## Экспорт в электронную таблицу
@@ -67,4 +67,4 @@ azure authorization changelog
 - Начало работы с [управлением доступом на основе ролей в Azure](role-based-access-control-configure.md)
 - Работа с [пользовательскими ролями в Azure RBAC](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

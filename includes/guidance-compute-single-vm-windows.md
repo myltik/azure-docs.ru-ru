@@ -1,8 +1,8 @@
 В этой статье описаны проверенные методы для запуска виртуальной машины Windows в Azure. Основное внимание уделяется вопросам масштабируемости, доступности, управляемости и безопасности.
 
-> [AZURE.NOTE] Azure предоставляет две модели развертывания: с использованием [Resource Manager][resource-manager-overview] и классическую. В этой статье описывается использование модели развертывания c использованием диспетчера ресурсов, которую рекомендует применять для новых развертываний корпорация Майкрософт.
+> [AZURE.NOTE] Azure предоставляет две модели развертывания: с использованием [Azure Resource Manager][resource-manager-overview] и классическую. В этой статье описывается использование модели развертывания c использованием диспетчера ресурсов, которую рекомендует применять для новых развертываний корпорация Майкрософт.
 
-Мы не рекомендуем использовать отдельную виртуальную машину для рабочих нагрузок рабочей среды, так как Azure не предусматривает поддержку соглашения об уровне обслуживания с гарантией времени непрерывной работы при запуске одной виртуальной машины. Чтобы воспользоваться соглашением об уровне обслуживания, необходимо развернуть несколько виртуальных машин в группе доступности. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
+Мы не рекомендуем использовать отдельную виртуальную машину для рабочих нагрузок рабочей среды, так как Azure не предусматривает поддержку соглашения об уровне обслуживания с гарантией времени непрерывной работы при запуске одной виртуальной машины. Чтобы воспользоваться соглашением об уровне обслуживания, необходимо развернуть несколько виртуальных машин в группе доступности. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] (Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
 
 ## Схема архитектуры
 
@@ -10,7 +10,7 @@
 
 ![[0]][0]
 
-- **Группа ресурсов.** [Группа ресурсов][resource-manager-overview] представляет собой контейнер, содержащий связанные ресурсы. Создайте группу ресурсов для хранения ресурсов виртуальной машины.
+- **Группа ресурсов.** [_Группа ресурсов_][resource-manager-overview] представляет собой контейнер, содержащий связанные ресурсы. Создайте группу ресурсов для хранения ресурсов виртуальной машины.
 
 - **Виртуальная машина**. Виртуальную машину можно подготовить на основе списка опубликованных образов или VHD-файла, переданного в хранилище BLOB-объектов Azure.
 
@@ -18,7 +18,7 @@
 
 - **Временный диск.** Виртуальная машина создается с временным диском (в Windows это диск `D:`). Временный диск хранится на физическом диске хост-компьютера. Он _не_ сохраняется в службе хранилища Azure и может быть удален во время перезагрузки и других событий жизненного цикла виртуальной машины. Используйте этот диск только для временных данных, таких как данные страниц или файлы подкачки.
 
-- **Диски данных.** [Диск данных][data-disk] — это постоянный виртуальный жесткий диск, используемый для хранения данных приложений. Диски данных, такие как диск ОС, хранятся в службе хранилища Azure.
+- **Диски данных.** [Диск данных][data-disk] — это постоянный виртуальный жесткий диск, используемый для хранения данных приложений. Диски данных, такие как диск ОС, хранятся в службе хранилища Azure.
 
 - **Виртуальная сеть и подсеть.** Каждая виртуальная машина в Azure развертывается в виртуальной сети, которая затем разделяется на подсети.
 
@@ -46,7 +46,7 @@
 
 ### Рекомендации по дискам и хранилищам
 
-- Для наилучшей производительности дисковых операций ввода-вывода мы рекомендуем [хранилище класса Premium][premium-storage], в котором для хранения данных используются твердотельные накопители (SSD). Цена зависит от размера подготовленного диска. Скорость выполнения операций ввода-вывода и пропускная способность (т. е. скорость передачи данных) также зависят от размера диска. Поэтому во время подготовки диска следует учитывать все эти факторы.
+- Для наилучшей производительности дисковых операций ввода-вывода мы рекомендуем [хранилище класса Premium][premium-storage], в котором для хранения данных используются твердотельные накопители (SSD). Цена зависит от размера подготовленного диска. Скорость выполнения операций ввода-вывода и пропускная способность (т. е. скорость передачи данных) также зависят от размера диска. Поэтому во время подготовки диска следует учитывать все эти факторы.
 
 - Добавьте один или несколько дисков данных. При создании виртуальный машины жесткий диск не форматируется. Чтобы отформатировать диск, войдите в систему виртуальной машины.
 
@@ -54,7 +54,7 @@
 
 - Для повышения производительности храните журналы диагностики в отдельной учетной записи хранения. Учетной записи локально избыточного хранилища достаточно для хранения журналов диагностики.
 
-- Если это возможно, устанавливайте приложения на диск данных, а не на диск операционной системы. Однако некоторым устаревшим приложениям может потребоваться установить компоненты на диск C:. В этом случае вы можете [изменить размер диска ОС][resize-os-disk] с помощью PowerShell.
+- Если это возможно, устанавливайте приложения на диск данных, а не на диск операционной системы. Однако некоторым устаревшим приложениям может потребоваться установить компоненты на диск C:. В этом случае вы можете [изменить размер диска операционной системы][resize-os-disk] с помощью PowerShell.
 
 ### Рекомендации по сети
 
@@ -66,13 +66,13 @@
 
 - Все группы безопасности сети содержат набор [правил по умолчанию][nsg-default-rules], включая правило, которое блокирует весь входящий трафик Интернета. Правила по умолчанию нельзя удалить, но их можно переопределить другими правилами. Чтобы разрешить трафик Интернета, создайте правила, разрешающие входящий трафик для определенных портов. Например, это может быть порт 80 для протокола HTTP.
 
-- Чтобы включить доступ по протоколу RDP, добавьте правило группы безопасности сети, которое разрешает входящий трафик через TCP-порт 3389.
+- Чтобы включить доступ по протоколу RDP, добавьте правило группы безопасности сети, которое разрешает входящий трафик через TCP-порт 3389.
 
 ## Вопросы масштабируемости
 
 - Размер виртуальной машины можно [увеличивать и уменьшать][vm-resize].
 
-- Для горизонтального развертывания поместите две или больше виртуальных машин в группу доступности, регулируемую балансировщиком нагрузки. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
+- Для горизонтального развертывания поместите две или больше виртуальных машин в группу доступности, регулируемую балансировщиком нагрузки. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] (Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
 
 ## Вопросы доступности
 
@@ -86,7 +86,7 @@
 
 ## Вопросы управляемости
 
-- **Группы ресурсов.** Поместите тесно связанные ресурсы с одинаковым жизненным циклом в одну [группу ресурсов][resource-manager-overview]. Группы ресурсов позволяют развертывать и отслеживать ресурсы в виде группы и получать сводные счета за затраты на группу ресурсов. Можно также удалить ресурсы в виде набора, что очень удобно для тестирования развернутых служб. Присваивайте ресурсам информативные имена. Это упростит поиск определенного ресурса и понимание его роли. Ознакомьтесь с разделом [Recommended naming conventions for Azure resources][naming conventions] \(Рекомендуемые соглашения об именовании ресурсов Azure).
+- **Группы ресурсов.** Поместите тесно связанные ресурсы с одинаковым жизненным циклом в одну [группу ресурсов][resource-manager-overview]. Группы ресурсов позволяют развертывать и отслеживать ресурсы в виде группы и получать сводные счета за затраты на группу ресурсов. Можно также удалить ресурсы в виде набора, что очень удобно для тестирования развернутых служб. Присваивайте ресурсам информативные имена. Это упростит поиск определенного ресурса и понимание его роли. Ознакомьтесь с разделом [Recommended naming conventions for Azure resources][naming conventions] (Рекомендуемые соглашения об именовании ресурсов Azure).
 
 - **Диагностика виртуальной машины.** Включите отслеживание и диагностику, в том числе базовые метрики работоспособности, а также ведение журналов инфраструктуры диагностики и [диагностику загрузки][boot-diagnostics]. Если виртуальную машину невозможно загрузить, для обнаружения неисправностей можно использовать диагностику загрузки. Дополнительные сведения см. в статье [Включение мониторинга и диагностики][enable-monitoring]. Используйте расширение [для сбора журналов Azure][log-collector], чтобы собирать журналы платформы Azure и отправлять их в службу хранилища Azure.
 
@@ -115,13 +115,14 @@
 - Благодаря [центру безопасности Azure][security-center] можно получить полное представление о состоянии безопасности ваших ресурсов Azure. Центр безопасности отслеживает потенциальные проблемы безопасности (например, в отношении обновлений системы и защиты от вредоносных программ), а также обеспечивает полное представление о состоянии системы безопасности развертывания.
 
     - Центр безопасности настраивается на уровне подписки Azure. Включите сбор данных безопасности, как описано в разделе [Использование Центра безопасности].
+
     - После включения сбора данных Центр безопасности автоматически проверяет все виртуальные машины, созданные для этой подписки.
 
 - **Управление исправлениями.** Если эта функция включена, то Центр безопасности проверяет, отсутствуют ли какие-либо обновления для системы безопасности и критические обновления. Используйте [параметры групповой политики][group-policy] виртуальной машины, чтобы включить автоматизированное обновление системы.
 
 - **Защита от вредоносных программ.** Если эта функция включена, то Центр безопасности проверяет, установлена ли антивредоносное ПО. Центр обеспечения безопасности также позволяет установить антивредоносное ПО с помощью портала Azure.
 
-- Используйте [управление доступом на основе ролей][rbac] \(RBAC) для управления доступом к разворачиваемым ресурсам Azure. RBAC позволяет назначить роли авторизации участникам команды DevOps. Например, роль "Читатель" позволяет просматривать ресурсы Azure, но не позволяет создавать и удалять их или управлять ими. Некоторые роли относятся к определенным типам ресурсов Azure. Например, роль "Участник виртуальных машин" позволяет перезапустить виртуальную машину или отменить ее выделение, сбросить пароль администратора, создать новую виртуальную машину и т. д. К другим [встроенным ролям RBAC][rbac-roles], которые могут быть полезными в этой эталонной архитектуре, относятся [Пользователь DevTest Labs][rbac-devtest] и [Участник сети][rbac-network]. Пользователю можно назначить несколько ролей. Можно также создать пользовательские роли, чтобы более детально настроить разрешения.
+- Используйте [управление доступом на основе ролей][rbac] (RBAC) для управления доступом к разворачиваемым ресурсам Azure. RBAC позволяет назначить роли авторизации участникам команды DevOps. Например, роль "Читатель" позволяет просматривать ресурсы Azure, но не позволяет создавать и удалять их или управлять ими. Некоторые роли относятся к определенным типам ресурсов Azure. Например, роль "Участник виртуальных машин" позволяет перезапустить виртуальную машину или отменить ее выделение, сбросить пароль администратора, создать новую виртуальную машину и так далее. К другим [встроенным ролям RBAC][rbac-roles], которые могут быть полезными в этой эталонной архитектуре, относятся [Пользователь лаборатории для разработки и тестирования][rbac-devtest] и [Участник сети][rbac-network]. Пользователю можно назначить несколько ролей. Можно также создать пользовательские роли, чтобы более детально настроить разрешения.
 
     > [AZURE.NOTE] RBAC не ограничивает действия, которые может выполнять пользователь, вошедший в виртуальную машину. Эти разрешения определяются типом учетной записи в гостевой ОС.
 
@@ -133,145 +134,226 @@
 
 - Просматривать действия по подготовке и другие события для виртуальной машины можно с помощью [журналов аудита][audit-logs].
 
-- Если нужно шифровать диски ОС и диски данных, рассмотрите возможность применения [шифрования дисков Azure][disk-encryption].
+- Если нужно шифровать диски операционной системы и диски данных, рассмотрите возможность применения [шифрования дисков Azure][disk-encryption].
 
 ## Компоненты решения
 
-Следующий пакетный сценарий Windows выполняет команды [Azure CLI][azure-cli], чтобы развернуть один экземпляр виртуальной машины и связанную с ним сеть и ресурсы хранения, как показано на схеме выше.
+Вы можете воспользоваться примером сценария решения [Deploy-ReferenceArchitecture.ps1][solution-script], чтобы реализовать архитектуру согласно рекомендациям, приведенным в этой статье. В этом сценарии используются шаблоны [Resource Manager][ARM-Templates]. Они предоставляются в виде набора фундаментальных стандартных блоков, каждый из которых выполняет определенное действие, например создает виртуальную сеть или настраивает группу безопасности сети. Задача сценария — координировать развертывание шаблона.
 
-Этот сценарий использует соглашения об именовании, описанные в разделе [Recommended naming conventions for Azure resources][naming conventions] \(Рекомендуемые соглашения об именовании для ресурсов Azure).
+В шаблонах используются параметры, содержащихся в отдельных JSON-файлах. Можно изменить параметры в этих файлах, чтобы настроить развертывание в соответствии со своими требованиями. При этом нет необходимости изменять сами шаблоны. Обратите внимание, что не следует изменять схемы объектов в файлах параметров.
 
-```bat
-ECHO OFF
-SETLOCAL
+При изменении шаблонов создавайте объекты, которые следуют соглашениям об именовании, описанным в разделе [Recommended naming conventions for Azure resources][naming conventions] (Рекомендуемые соглашения об именовании для ресурсов Azure).
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Set up variables for deploying resources to Azure.
-:: Change these variables for your own deployment.
+Для создания виртуальной машины и окружающей инфраструктуры сценарий ссылается на следующие файлы параметров.
 
-:: The APP_NAME variable must not exceed 4 characters in size.
-:: If it does the 15 character size limitation of the VM name may be exceeded.
+- **[virtualNetwork.parameters.json][vnet-parameters]**. Этот файл определяет параметры виртуальной сети, например имя, адресное пространство, подсети и адреса всех необходимых DNS-серверов. Обратите внимание, что адреса подсети должны быть включены в адресное пространство виртуальной сети.
 
-SET APP_NAME=app1
-SET LOCATION=eastus2
-SET ENVIRONMENT=dev
-SET USERNAME=testuser
+	```json
+	"parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet",
+          "addressPrefixes": [
+            "172.17.0.0/16"
+          ],
+          "subnets": [
+            {
+              "name": "app1-subnet",
+              "addressPrefix": "172.17.0.0/24"
+            }
+          ],
+          "dnsServers": [ ]
+        }
+      }
+	}
+	```
 
+- **[networkSecurityGroup.parameters.json][nsg-parameters]**. Этот файл содержит определения групп безопасности сети и их правил. Параметр `name` в блоке `virtualNetworkSettings` задает виртуальную сеть, к которой подключена группа безопасности сети. Параметр `subnets` в блоке `networkSecurityGroupSettings` идентифицирует все подсети в виртуальной сети, к которым применяются правила группы безопасности сети. Это должны быть элементы, определенные в файле **virtualNetwork.parameters.json**.
 
-:: For Windows, use the following command to get the list of URNs:
-:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
-SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
+	Обратите внимание, что правило безопасности по умолчанию, показанное в примере, позволяет пользователю подключаться к виртуальной машине через подключение к удаленному рабочему столу. Можно открыть дополнительные порты (или запретить доступ через определенные порты), добавив дополнительные элементы в массив `securityRules`.
 
-:: For a list of VM sizes see:
-::   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
-:: To see the VM sizes available in a region:
-:: 	azure vm sizes --location <location>
-SET VM_SIZE=Standard_DS1
+	```json
+	"parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet"
+        },
+        "metadata": {
+          "description": "Infrastructure Settings"
+        }
+      },
+      "networkSecurityGroupSettings": {
+        "value": {
+          "name": "app1-nsg",
+          "subnets": [
+            "app1-subnet"
+          ],
+          "securityRules": [
+            {
+              "name": "RDPAllow",
+              "direction": "Inbound",
+              "priority": 100,
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "access": "Allow",
+              "protocol": "Tcp"
+            }
+          ]
+        }
+      }
+	}
+	```
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+- **[virtualMachineParameters.json][vm-parameters]**. Этот файл определяет параметры виртуальной машины, включая ее имя и размер, учетные данные безопасности для пользователя-администратора, создаваемые диски и учетные записи хранения для хранения этих дисков.
 
-IF "%2"=="" (
-    ECHO Usage: %0 subscription-id admin-password
-    EXIT /B
-    )
+	В разделе `imageReference` необходимо указать образ. Значения, приведенные ниже, позволяют создать виртуальную машину с помощью последней сборки Windows Server 2012 R2 Datacenter. Для получения списка всех доступных образов Windows в регионе (в примере используется регион "западная часть США") можно использовать следующую команду в интерфейсе командной строки Azure.
 
-:: Explicitly set the subscription to avoid confusion as to which subscription
-:: is active/default
-SET SUBSCRIPTION=%1
-SET PASSWORD=%2
+	```powershell
+	azure vm image list westus MicrosoftWindowsServer WindowsServer
+	```
 
-:: Set up the names of things using recommended conventions
-SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
-SET VM_NAME=%APP_NAME%-vm0
+	Параметр `subnetName` в разделе `nics` задает подсеть для виртуальной машины. Точно так же параметр `name` в разделе `virtualNetworkSettings` определяет используемую виртуальную сеть. Это должны быть имена подсети и виртуальной сети, которые были определены в файле **virtualNetwork.parameters.json**.
 
-SET IP_NAME=%APP_NAME%-pip
-SET NIC_NAME=%VM_NAME%-0nic
-SET NSG_NAME=%APP_NAME%-nsg
-SET SUBNET_NAME=%APP_NAME%-subnet
-SET VNET_NAME=%APP_NAME%-vnet
-SET VHD_STORAGE=%VM_NAME:-=%st0
-SET DIAGNOSTICS_STORAGE=%VM_NAME:-=%diag
+	Можно создать несколько виртуальных машин, указав для них общую учетную запись хранения или отдельные учетные записи хранения, изменив параметры в разделе `buildingBlockSettings`. При создании нескольких виртуальных машин необходимо также указать имя используемой группы доступности или создать ее в разделе `availabilitySet`.
 
-:: Set up the postfix variables attached to most CLI commands
-SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
+	```json
+	"parameters": {
+      "virtualMachinesSettings": {
+        "value": {
+          "namePrefix": "app1",
+          "computerNamePrefix": "",
+          "size": "Standard_DS1",
+          "osType": "windows",
+          "adminUsername": "testuser",
+          "adminPassword": "AweS0me@PW",
+          "osAuthenticationType": "password",
+          "nics": [
+            {
+              "isPublic": "true",
+              "subnetName": "app1-subnet",
+              "privateIPAllocationMethod": "dynamic",
+              "publicIPAllocationMethod": "dynamic",
+              "isPrimary": "true"
+            }
+          ],
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2012-R2-Datacenter",
+            "version": "latest"
+          },
+          "dataDisks": {
+            "count": 2,
+            "properties": {
+              "diskSizeGB": 128,
+              "caching": "None",
+              "createOption": "Empty"
+            }
+          },
+          "osDisk": {
+            "caching": "ReadWrite"
+          },
+          "availabilitySet": {
+            "useExistingAvailabilitySet": "No",
+            "name": ""
+          }
+        },
+        "metadata": {
+          "description": "Settings for Virtual Machines"
+        }
+      },
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "app1-vnet",
+          "resourceGroup": "app1-dev-rg"
+        },
+        "metadata": {
+          "description": "Infrastructure Settings"
+        }
+      },
+      "buildingBlockSettings": {
+        "value": {
+          "storageAccountsCount": 1,
+          "vmCount": 1,
+          "vmStartIndex": 0
+        },
+        "metadata": {
+          "description": "Settings specific to the building block"
+        }
+      }
+	}
+	```
 
-CALL azure config mode arm
+## Развертывание
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Create resources
+Перед использованием этого решения предполагается, что выполнены следующие предварительные условия.
 
-:: Create the enclosing resource group
-CALL azure group create --name %RESOURCE_GROUP% --location %LOCATION% ^
-  --subscription %SUBSCRIPTION%
+- У вас есть подписка Azure, в которой можно создать группы ресурсов.
 
-:: Create the VNet
-CALL azure network vnet create --address-prefixes 172.17.0.0/16 ^
-  --name %VNET_NAME% --location %LOCATION% %POSTFIX%
+- Вы скачали и установили последнюю сборку Azure Powershell. Соответствующие инструкции см. [здесь][azure-powershell-download].
 
-:: Create the network security group
-CALL azure network nsg create --name %NSG_NAME% --location %LOCATION% %POSTFIX%
+Чтобы выполнить сценарий, который развертывает решение, сделайте следующее.
 
-:: Create the subnet
-CALL azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
-  172.17.0.0/24 --name %SUBNET_NAME% --network-security-group-name %NSG_NAME% ^
-  %POSTFIX%
+1. Перейдите в подходящую папку на локальном компьютере и создайте в ней две вложенные папки:
 
-:: Create the public IP address (dynamic)
-CALL azure network public-ip create --name %IP_NAME% --location %LOCATION% %POSTFIX%
+	- Сценарии
 
-:: Create the NIC
-CALL azure network nic create --public-ip-name %IP_NAME% --subnet-name ^
-  %SUBNET_NAME% --subnet-vnet-name %VNET_NAME%  --name %NIC_NAME% --location ^
-  %LOCATION% %POSTFIX%
+	- Шаблоны
 
-:: Create the storage account for the OS VHD
-CALL azure storage account create --type PLRS --location %LOCATION% %POSTFIX% ^
-  %VHD_STORAGE%
+2. В папке "Шаблоны" создайте вложенную папку с именем Windows.
 
-:: Create the storage account for diagnostics logs
-CALL azure storage account create --type LRS --location %LOCATION% %POSTFIX% ^
-  %DIAGNOSTICS_STORAGE%
+3. Скачайте файл [Deploy-ReferenceArchitecture.ps1][solution-script] в папку "Сценарии".
 
-:: Create the VM
-CALL azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
-  %WINDOWS_BASE_IMAGE% --vm-size %VM_SIZE%   --vnet-subnet-name %SUBNET_NAME% ^
-  --vnet-name %VNET_NAME% --nic-name %NIC_NAME% --storage-account-name ^
-  %VHD_STORAGE% --os-disk-vhd "%VM_NAME%-osdisk.vhd" --admin-username ^
-  "%USERNAME%" --admin-password "%PASSWORD%" --boot-diagnostics-storage-uri ^
-  "https://%DIAGNOSTICS_STORAGE%.blob.core.windows.net/" --location %LOCATION% ^
-  %POSTFIX%
+4. Скачайте приведенные ниже файлы в папку Шаблоны/Windows:
 
-:: Attach a data disk
-CALL azure vm disk attach-new --vm-name %VM_NAME% --size-in-gb 128 --vhd-name ^
-  data1.vhd --storage-account-name %VHD_STORAGE% %POSTFIX%
+	- [virtualNetwork.parameters.json][vnet-parameters];
 
-:: Allow RDP
-CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
-  --protocol Tcp --destination-port-range 3389 --source-port-range * ^
-  --priority 100 --access Allow RDPAllow %POSTFIX%
-```
+	- [networkSecurityGroup.parameters.json][nsg-parameters];
 
+	- [virtualMachineParameters.json][vm-parameters].
+
+5. Откройте файл Deploy-ReferenceArchitecture.ps1 в папке "Сценарии" для редактирования и измените следующую строку, чтобы указать группу ресурсов, которую следует создать или использовать для хранения виртуальных машин и ресурсов, созданных с помощью сценария.
+
+	```powershell
+	$resourceGroupName = "app1-dev-rg"
+	```
+6. Измените каждый из JSON-файлов в папке Шаблоны/Windows, задав параметры для виртуальной сети, группы безопасности сети и виртуальной машины, как описано в предыдущем разделе "Компоненты решения".
+
+	>[AZURE.NOTE] Обязательно присвойте параметру `resourceGroup` в разделе `virtualNetworkSettings` файла virtualMachineParameters.json то же значение, что было указано в файле сценария Deploy-ReferenceArchitecture.ps1.
+
+7. Откройте окно Azure PowerShell, перейдите в папку "Сценарии" и выполните следующую команду.
+
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
+	```
+
+	Замените `<subscription id>` идентификатором своей подписки Azure.
+
+	В `<location>` укажите регион Azure, например `eastus` или `westus`.
+
+8. После выполнения сценария с помощью портала Azure убедитесь, что сеть, группа безопасности сети и виртуальная машина были успешно созданы.
 
 ## Дальнейшие действия
 
-Чтобы [соглашение об уровне обслуживания для виртуальных машин][vm-sla] вступило в силу, необходимо развернуть два или более экземпляров в группе доступности. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] \(Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
+Чтобы [соглашение об уровне обслуживания для виртуальных машин][vm-sla] вступило в силу, необходимо развернуть два или более экземпляров в группе доступности. Дополнительные сведения см. в разделе [Running multiple VMs on Azure for scalability and availability][multi-vm] (Запуск нескольких виртуальных машин в Azure для обеспечения масштабируемости и доступности).
 
 <!-- links -->
 
-[arm-templates]: ../articles/virtual-machines/virtual-machines-windows-cli-deploy-templates.md
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/ru-RU/blog/analyze-azure-audit-logs-in-powerbi-more/
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/ru-RU/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
 [disk-encryption]: ../articles/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/ru-RU/library/dn595129.aspx
-[log-collector]: https://azure.microsoft.com/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
+[log-collector]: https://azure.microsoft.com/ru-RU/blog/simplifying-virtual-machine-troubleshooting-using-azure-log-collector/
 [manage-vm-availability]: ../articles/virtual-machines/virtual-machines-windows-manage-availability.md
 [multi-vm]: ../articles/guidance/guidance-compute-multi-vm.md
 [naming conventions]: ../articles/guidance/guidance-naming-conventions.md
@@ -283,22 +365,28 @@ CALL azure network nsg rule create --nsg-name %NSG_NAME% --direction Inbound ^
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/ru-RU/blog/viewing-vm-reboot-logs/
 [resize-os-disk]: ../articles/virtual-machines/virtual-machines-windows-expand-os-disk.md
 [Resize-VHD]: https://technet.microsoft.com/ru-RU/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/ru-RU/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
-[security-center]: https://azure.microsoft.com/services/security-center/
+[security-center]: https://azure.microsoft.com/ru-RU/services/security-center/
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-windows-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/ru-RU/regions/#services
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [Использование Центра безопасности]: ../articles/security-center/security-center-get-started.md#use-security-center
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-windows-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
-[0]: ./media/guidance-blueprints/compute-single-vm.png "Общая архитектура виртуальной машины Azure"
+[vm-sla]: https://azure.microsoft.com/ru-RU/support/legal/sla/virtual-machines/v1_0/
+[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
+[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json
+[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[0]: ./media/guidance-blueprints/compute-single-vm.png "Архитектура с одной виртуальной машиной Windows в Azure"
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

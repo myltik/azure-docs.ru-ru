@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/13/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Масштабирование заданий Azure Stream Analytics для повышения пропускной способности базы данных
@@ -350,4 +350,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0727_2016-->

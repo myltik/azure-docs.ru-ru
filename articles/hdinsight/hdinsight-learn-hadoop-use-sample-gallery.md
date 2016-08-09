@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/27/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Изучение Hadoop с помощью коллекции для начала работы с Azure HDInsight
@@ -64,4 +64,4 @@ HDInsight можно также изучить другими способами
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

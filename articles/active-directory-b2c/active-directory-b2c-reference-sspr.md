@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Предварительная версия Azure Active Directory B2C: самостоятельный сброс пароля | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: самостоятельный сброс пароля | Microsoft Azure"
 	description="Статья о том, как настроить самостоятельный сброс пароля для потребителей в Azure Active Directory B2C."
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
 
-# Предварительная версия Azure Active Directory B2C: настройка самостоятельного сброса пароля для потребителей
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: настройка самостоятельного сброса пароля для потребителей
 
 С помощью функции самостоятельного сброса пароля ваши потребители (которые зарегистрировали локальные учетные записи) могут самостоятельно сбрасывать пароли. Это значительно упрощает работу службы поддержки, особенно если вашим приложением регулярно пользуются миллионы клиентов. В настоящее время поддерживается только восстановление с помощью подтвержденного адреса электронной почты. В будущем мы добавим другие способы восстановления (подтвержденный номер телефона, секретные вопросы и т. д.).
 
@@ -43,4 +41,4 @@
 > [AZURE.NOTE]
 Страницы самостоятельного сброса пароля можно настраивать с помощью [функции фирменной символики](../active-directory/active-directory-add-company-branding.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/21/2016"
 	ms.author="krisragh"/>
 
 # Использование клиентской библиотеки iOS для мобильных служб Azure
@@ -285,7 +285,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 ##<a name="caching-tokens"></a>Практическое руководство. Кэширование маркеров проверки подлинности
 
-Посмотрим, как кэшировать маркеры в проекте [быстрого запуска мобильных служб]. Вы можете выполнить алогичные действия в рамках любого проекта.[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
+Посмотрим, как кэшировать маркеры в проекте [быстрого запуска мобильных служб]. Вы можете выполнить алогичные действия в рамках любого проекта. [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
 ##<a name="errors"></a>Практическое руководство. Обработка ошибок
 
@@ -342,4 +342,4 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [статье об обработчике конфликтов]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0727_2016-->

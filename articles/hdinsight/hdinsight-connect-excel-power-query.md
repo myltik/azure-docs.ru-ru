@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -57,7 +57,7 @@ Power Query можно использовать для импорта данны
 
 	**Примечание.** Power Query также позволяет импортировать данные из HDFS, щелкнув **Из других источников**.
 
-3. В поле **Имя учетной записи** введите имя учетной записи хранения больших двоичных объектов Azure, связанной с вашим кластером, и нажмите кнопку **ОК**. Это может быть [учетная запись хранения по умолчанию](hdinsight-administer-use-management-portal.md#find-the-default-storage-account) или связанная учетная запись хранения. Формат имеет следующий вид — *https://<StorageAccountName>.blob.core.windows.net/*.
+3. В поле **Имя учетной записи** введите имя учетной записи хранения больших двоичных объектов Azure, связанной с вашим кластером, и нажмите кнопку **ОК**. Это может быть [учетная запись хранения по умолчанию](hdinsight-administer-use-management-portal.md#find-the-default-storage-account) или связанная учетная запись хранения. Формат имеет следующий вид — *https://<Имя\_вашей\_учетной\_записи\_хранения>.blob.core.windows.net/*.
 
 4. В поле **Ключ учетной записи** введите ключ для учетной записи хранения больших двоичных объектов Azure, а затем нажмите кнопку **Сохранить**. (Необходимо сделать это при первом доступе к хранилищу.)
 
@@ -75,7 +75,7 @@ Power Query можно использовать для импорта данны
 
 В этой статье было показано, как использовать Power Query для извлечения данных из HDInsight в Excel. Аналогичным образом можно извлекать данные из HDInsight в SQL Azure. Можно также передавать данные в HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC](../../articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md)
+* [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC][hdinsight-ODBC]
 * [Отправка данных в HDInsight][hdinsight-upload-data]
 
 [hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
@@ -88,4 +88,4 @@ Power Query можно использовать для импорта данны
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

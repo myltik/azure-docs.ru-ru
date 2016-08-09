@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/03/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 # Основные сведения о службе Stream Analytics и журналах операций
@@ -25,8 +25,8 @@
 
 Доступ к журналам операций можно получить одним из двух способов.
 
-- Панель мониторинга задания Stream Analytics  
-- Службы управления на классическом портале Azure  
+- Панель мониторинга задания Stream Analytics
+- Службы управления на классическом портале Azure
 
 ## Панель мониторинга задания Stream Analytics
 
@@ -39,7 +39,7 @@
 Чтобы перейти к журналам операций Stream Analytics и других служб на классическом портале Azure вручную, выполните указанные ниже действия.
 
 1.	Нажмите **Службы управления** на [классическом портале Azure](https://manage.windowsazure.com).
-2.	Выберите значение **Stream Analytics** в поле **Тип** и имя задания а поле **Имя службы**.  
+2.	Выберите значение **Stream Analytics** в поле **Тип** и имя задания а поле **Имя службы**.
 
   ![Выбор Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
@@ -96,4 +96,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0727_2016-->

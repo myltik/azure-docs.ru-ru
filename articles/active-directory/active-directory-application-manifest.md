@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/06/2016"
+   ms.date="07/25/2016"
    ms.author="dkershaw;bryanla"/>
 
 # Основные сведения о манифесте приложения Azure Active Directory
@@ -104,7 +104,7 @@
 Теперь, когда манифест сохранен, вы можете предоставить зарегистрированному клиентскому приложению доступ к новому разрешению, которое мы добавили выше, но на этот раз вместо изменения манифеста приложения клиента вы можете воспользоваться веб-интерфейсом классического портала Azure:
 
 1. Перейдите на страницу "Настройка" клиентского приложения, для которого необходимо добавить доступ к новому API, и нажмите кнопку "Добавить приложение".
-2. Вы увидите список зарегистрированных ресурсов приложения (API) клиента. Нажмите кнопку "плюс" рядом с названием ресурса приложения, чтобы выбрать ресурс.  
+2. Вы увидите список зарегистрированных ресурсов приложения (API) клиента. Нажмите кнопку "плюс" рядом с названием ресурса приложения, чтобы выбрать ресурс.
 3. Затем установите флажок в правом нижнем углу.
 4. После возврата в раздел "Добавление приложения" страницы конфигурации клиента вы увидите новое приложение в списке. Переместите курсор мыши в раздел "Делегированные разрешения" справа от этой строки, и вы увидите раскрывающийся список. Щелкните список, а затем выберите новое разрешение, чтобы добавить его в запрошенный список разрешений клиента. Примечание: это новое разрешение будет храниться в конфигурации удостоверения клиентского приложения в свойстве коллекции requiredResourceAccess.
 
@@ -135,9 +135,9 @@
 <!--article references -->
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
-[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
-[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType
-[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
+[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
+[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
+[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-CLASSIC-PORTAL]: https://manage.windowsazure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
@@ -147,4 +147,4 @@
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -109,15 +109,9 @@
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest .OperationStatusLink
 
+
 ## Дальнейшие действия
 
-- [Импорт базы данных SQL Azure](sql-database-import-powershell.md)
+- Чтобы узнать, как импортировать базу данных Azure SQL с помощью PowerShell, ознакомьтесь с разделом [Импорт BACPAC-файла для создания новой базы данных SQL Azure с помощью PowerShell](sql-database-import-powershell.md).
 
-
-## Дополнительные ресурсы
-
-- [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
-- [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
-- [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
-
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0727_2016-->

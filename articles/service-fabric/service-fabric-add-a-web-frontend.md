@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Создание внешнего веб-интерфейса для приложения | Microsoft Azure"
+   pageTitle="Создание внешнего веб-интерфейса для приложения с помощью ASP.NET Core | Microsoft Azure"
    description="Предоставление веб-доступа к приложению Service Fabric с помощью проекта веб-API ASP.NET Core и взаимодействие между службами через ServiceProxy."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="07/22/2016"
    ms.author="seanmck"/>
 
 
-# Построение внешнего интерфейса веб-службы приложения
+# Создание внешнего интерфейса веб-службы для приложения с помощью ASP.NET Core
 
 По умолчанию службы Azure Service Fabric не предоставляют общедоступный интерфейс для веб-служб. Чтобы сделать свое приложение функциональным для клиентов HTTP, вам нужно создать веб-проект, который будет работать в качестве точки входа и обмениваться данными с отдельными службами.
 
@@ -27,7 +27,7 @@
 
 ASP.NET Core — это простое кросс-платформенное средство для разработки веб-страниц, позволяющее создавать современные пользовательские веб-интерфейсы и интерфейсы веб-API. Давайте добавим проект веб-API ASP.NET в существующее приложение.
 
->[AZURE.NOTE] Для работы с этим руководством необходимо [установить .NET Core RC2][dotnetcore-install].
+>[AZURE.NOTE] Для работы с этим учебником необходимо [установить .NET Core 1.0][dotnetcore-install].
 
 1. В обозревателе решений в проекте приложения щелкните правой кнопкой мыши **Службы** и последовательно выберите **Добавить > Новая служба Service Fabric**.
 
@@ -205,6 +205,9 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     Периодически обновляйте браузер, чтобы отслеживать актуальные показания счетчика.
 
 
+>[AZURE.WARNING] Веб-сервер ASP.NET Core, указанный в шаблоне и известный как Kestrel, [не поддерживается для обработки прямого трафика Интернета](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). Для рабочих сценариев рассмотрите возможность размещения конечных точек ASP.NET Core за [API управления][api-management-landing-page] или другим шлюзом с доступом в Интернет. Обратите внимание, что Service Fabric не поддерживается для развертывания в службах IIS.
+
+
 ## Обмен данными с субъектами
 
 В этом руководстве описывается добавление веб-интерфейса для обеспечения связи со службой с отслеживанием состояния. Однако сходную модель можно использовать для обмена данными с субъектами. Это даже проще.
@@ -240,5 +243,6 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 <!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
+[api-management-landing-page]: https://azure.microsoft.com/ru-RU/services/api-management/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0727_2016-->

@@ -4,7 +4,7 @@
 	keywords="руководство по базам данных SQL, создание базы данных SQL"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -61,4 +61,4 @@
 
 [Что такое база данных SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

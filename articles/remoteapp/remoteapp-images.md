@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/27/2016"
+    ms.date="08/02/2016"
     ms.author="elizapo" />
 
 # Что входит в образы шаблонов Azure RemoteApp?
@@ -61,7 +61,7 @@
 - Excel
 - Lync
 - OneNote
-- OneDrive для бизнеса
+- OneDrive для бизнеса (обратите внимание, что использование агента синхронизации не поддерживается в Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Word
@@ -94,7 +94,7 @@
 - Excel
 - Lync
 - OneNote
-- OneDrive для бизнеса
+- OneDrive для бизнеса (обратите внимание, что использование агента синхронизации не поддерживается в Azure RemoteApp)
 - Outlook
 - PowerPoint
 - Project
@@ -104,4 +104,4 @@
 
 > [AZURE.IMPORTANT]**Юридическая информация**. Этот образ не включает в себя лицензию Microsoft Office и *не может использоваться в производственных целях*. Образ Office 2013 профессиональный плюс предназначен исключительно для пробного использования. Если вам нужно использовать приложения Office в Azure RemoteApp в рабочей среде, используйте образ Office 365 профессиональный плюс. Дополнительные сведения о лицензировании Office см. в разделе [Использование Office 365 с Azure RemoteApp](remoteapp-o365.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->
