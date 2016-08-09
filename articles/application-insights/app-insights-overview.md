@@ -389,4 +389,4 @@ Application Insights предоставляет три типа оповещен
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!----HONumber=AcomDC_0720_2016-->

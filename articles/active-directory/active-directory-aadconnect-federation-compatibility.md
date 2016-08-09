@@ -339,4 +339,4 @@ AuthAnvil Single Sign On 4.5 реализует широко использую�
 
 Дополнительные сведения см. в статье [AuthAnvil Single Sign On](https://help.scorpionsoft.com/entries/26538603-How-can-I-Configure-Single-Sign-On-for-Office-365-).
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0720_2016-->
