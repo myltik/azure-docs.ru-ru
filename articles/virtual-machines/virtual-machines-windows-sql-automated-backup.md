@@ -24,7 +24,8 @@
 
 Служба автоматической архивации автоматически настраивает [управляемое резервное копирование на портал Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) для всех существующих и новых баз данных на виртуальной машине Azure c SQL Server 2014 Standard или Enterprise. Это позволяет настроить регулярную архивацию базы данных с использованием надежного хранилища больших двоичных объектов Azure. Автоматическая архивация зависит от [Расширения агента IaaS для SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания. Версию этой статьи для классической модели развертывания см. в разделе [Автоматическая архивация SQL Server на виртуальных машинах Azure (классическая модель)](virtual-machines-windows-classic-sql-automated-backup.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 
+Классическая модель развертывания. Версию этой статьи для классической модели развертывания см. в разделе [Автоматическая архивация SQL Server на виртуальных машинах Azure (классическая модель)](virtual-machines-windows-classic-sql-automated-backup.md).
 
 ## Предварительные требования
 
