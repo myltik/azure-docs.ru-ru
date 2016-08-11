@@ -63,7 +63,7 @@
 
 Платформа согласия основана на OAuth 2.0 и различных его процедурах, таких как предоставление кода авторизации и учетных данных пользователя, с помощью общедоступных или конфиденциальных клиентов. Благодаря OAuth 2.0 среда Azure AD позволяет создавать разнообразные клиентские приложения (например, для использования на телефоне, планшете, сервере или в Интернете) и получать доступ к необходимым ресурсам.
 
-Дополнительные сведения о платформе согласия см. в статьях [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Сценарии аутентификации в Azure AD](active-directory-authentication-scenarios.md), а также в статье, посвященной Office 365 — [Understanding authentication with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks) (Проверка подлинности с помощью API-интерфейсов Office 365).
+Дополнительные сведения о платформе согласия см. в статьях [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Сценарии аутентификации в Azure AD](active-directory-authentication-scenarios.md), а также в статье, посвященной Office 365 — [Understanding authentication with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks) \(Проверка подлинности с помощью API-интерфейсов Office 365).
 
 #### Пример процедуры согласия
 
