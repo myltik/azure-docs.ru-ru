@@ -67,7 +67,7 @@
       1. Платформа: $(BuildPlatform).
       2. Конфигурация: $(BuildConfiguration).
    3. Сборка Visual Studio (имя: Упаковка приложения).
-      1. Решение: ** \\*.sfproj.
+      1. Решение: *\*\\*.sfproj.
       2. Аргументы MSBuild: /t:Package /p:PackageLocation=$(build.artifactstagingdirectory)\\applicationpackage
       3. Платформа: $(BuildPlatform).
       4. Конфигурация: $(BuildConfiguration).
@@ -75,7 +75,7 @@
       1. Пакет приложения: $(build.artifactstagingdirectory)\\applicationpackage.
    5. Копирование файлов.
       1. Исходная папка: $(build.sourcesdirectory).
-      2. Содержимое: **\\PublishProfiles\\*.xml &lt;new line&gt; **\\ApplicationParameters\\*.xml.
+      2. Содержимое: \*\*\PublishProfiles\\\*.xml &lt;new line&gt; \*\*\ApplicationParameters\\\*.xml.
       3. Целевая папка: $(build.artifactstagingdirectory)\\projectartifacts.
    6. Публикация артефактов сборки.
       1. Путь для публикации: $(build.artifactstagingdirectory).
