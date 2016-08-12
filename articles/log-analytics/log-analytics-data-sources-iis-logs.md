@@ -71,9 +71,9 @@ Log Analytics собирает записи в журналах IIS из каж�
 |:--|:--|
 | Type=IISLog | Все записи в журнале IIS. |
 | Type=IISLog EventLevelName=error | Все события Windows с указанием серьезности ошибки. |
-| Type=W3CIISLog | Measure count() by cIP | Число записей в журнале IIS по IP-адресу клиента. |
-| Type=W3CIISLog csHost="www.contoso.com" | Measure count() by csUriStem | Число записей в журнале IIS по URL-адресу для узла www.contoso.com. |
-| Type=W3CIISLog | Measure Sum(csBytes) by Computer | top 500000| Общее количество байтов, полученных каждым компьютером IIS. |
+| Type=W3CIISLog &#124; Measure count() by cIP | Число записей в журнале IIS по IP-адресу клиента. |
+| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem | Число записей в журнале IIS по URL-адресу для узла www.contoso.com. |
+| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000| Общее количество байтов, полученных каждым компьютером IIS. |
 
 ## Дальнейшие действия
 
