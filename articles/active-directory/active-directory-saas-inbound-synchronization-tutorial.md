@@ -5,7 +5,7 @@
     authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
-.<tags 
+<tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
@@ -181,4 +181,4 @@
 
 Теперь вы можете перейти в раздел **Пользователи** и проверить выполнение импорта пользователя Workday.
 
-<!---HONumber=AcomDC_0810_2016--->
+<!---HONumber=AcomDC_0810_2016---->

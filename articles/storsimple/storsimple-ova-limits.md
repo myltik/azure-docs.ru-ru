@@ -6,7 +6,7 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-.<tags 
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -26,4 +26,4 @@
 
 [AZURE.INCLUDE [storsimple-virtual-array-limits](../../includes/storsimple-virtual-array-limits.md)]
 
-<!----HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016--->

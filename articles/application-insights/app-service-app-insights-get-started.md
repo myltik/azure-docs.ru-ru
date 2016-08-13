@@ -6,7 +6,7 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-.<tags 
+<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
@@ -144,4 +144,4 @@ Application Insights может также получать данные тел�
 
  
 
-<!---HONumber=AcomDC_0810_2016--->
+<!---HONumber=AcomDC_0810_2016---->
