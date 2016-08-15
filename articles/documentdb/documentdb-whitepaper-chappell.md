@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure | Microsoft Azure" 
+	pageTitle="Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure | Microsoft Azure" 
 	description="Скачайте технический документ Дэвида Чаппелла (David Chappell) о DocumentDB, управляемой базе данных NoSQL в Azure." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
-# Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure 
+# Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure 
+
+> [AZURE.NOTE] Последнее обновление этого технического документа выполнено в 2015 г.; здесь не описаны такие новые функции в DocumentDB, как [глобальное распространение данных](documentdb-distribute-data-globally.md) и [секционированные коллекции](documentdb-partition-data.md). Актуальные сведения о DocumentDB см. в статье [Введение DocumentDB: база данных NoSQL JSON](documentdb-introduction.md).
 
 Не уверены, подходит ли DocumentDB для вашего приложения или данных? Хотите узнать о хранении данных JSON и получении доступа к Azure DocumentDB? В таком случае этот вводный документ, написанный Дэвидом Чаппеллом (David Chappell), прекрасно подойдет для начала. В нем описывается, как извлечь выгоду из гибкости, которую предоставляют данные JSON, не имеющие схемы, позволяя с легкостью обрабатывать изменения структуры данных.
 
@@ -31,4 +33,4 @@
 **Скачивание PDF-файла:** [Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

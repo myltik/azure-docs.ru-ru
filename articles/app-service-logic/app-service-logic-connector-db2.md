@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование соединителя DB2 в службе приложений Microsoft Azure | Microsoft Azure"
    description="Использование соединителя DB2 с триггерами и действиями приложения логики"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="gplarsen"
    manager="erikre"
@@ -67,7 +67,7 @@ PollToAlterData | Нет | Инструкция UPDATE или DELETE, котор
 ## Приложение логики, которое выполняет действие соединителя DB2 для добавления данных ##
 Вы можете определить действие приложения логики для добавления данных в таблицу DB2 с помощью операции API OData «Insert» или «Post to Entity». Например, можно вставить запись для нового заказа клиента, выполнив инструкцию SQL INSERT для таблицы, в которой определен столбец идентификатора, и вернуть в приложение логики значения идентификатора для затронутых строк (SELECT ORDID FROM FINAL TABLE (INSERT INTO NWIND.NEWORDERS (CUSTID,SHIPNAME,SHIPADDR,SHIPCITY,SHIPREG,SHIPZIP) VALUES (?,?,?,?,?,?))).
 
-> [AZURE.TIP] Действие соединителя DB2 « *Post to EntitySet* » возвращает значение столбца идентификатора, а *API Insert* возвращает количество затронутых строк.
+> [AZURE.TIP] Действие соединителя DB2 «*Post to EntitySet*» возвращает значение столбца идентификатора, а *API Insert* возвращает количество затронутых строк.
 
 1. На начальной панели Azure выберите **+** (знак плюс), **Интернет+мобильные устройства**, а затем — **Приложение логики**.
 2. Введите имя (например, NewOrdersDb2), план службы приложений, другие свойства, а затем выберите **Создать**.
@@ -271,4 +271,4 @@ PollToAlterData | DELETE NEWORDERS WHERE CURRENT OF &lt;CURSOR&gt;
 [13]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_TriggersActions.png
 [14]: ./media/app-service-logic-connector-db2/LogicApp_RemoveOrdersDb2_Outputs.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

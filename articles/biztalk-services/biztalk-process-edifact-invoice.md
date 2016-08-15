@@ -1,7 +1,7 @@
 <properties
    pageTitle="Руководство по обработке счетов EDIFACT с помощью служб BizTalk Azure | Службы BizTalk Microsoft Azure"
    description="Как создать и настроить соединитель Box или приложение API и использовать его в приложении логики в службе приложений Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
@@ -313,4 +313,4 @@
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

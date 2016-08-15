@@ -593,7 +593,7 @@
 
 ## Дополнительные ресурсы
 
-[интерфейс командной строки Azure]
+[Интерфейс командной строки Azure]
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -602,7 +602,6 @@
 
 [Создание веб-приложения Node.js и его развертывание в службу приложений Azure]: web-sites-nodejs-develop-deploy-mac.md
 [Создание и развертывание веб-приложения Node.js в службе приложений Azure]: web-sites-nodejs-develop-deploy-mac.md
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [Azure Developer Center]: /develop/nodejs/
 
 [node]: http://nodejs.org
@@ -615,7 +614,6 @@
 [Создание веб-приложения Node.js в Azure с MongoDB на виртуальной машине]: web-sites-nodejs-store-data-mongodb.md
 [интерфейс командной строки Azure]: ../xplat-cli-install.md
 
-[Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
 [node-uuid]: https://www.npmjs.com/package/node-uuid
 [nconf]: https://www.npmjs.com/package/nconf
@@ -639,4 +637,4 @@
 [app-settings-save]: ./media/storage-nodejs-use-table-storage-web-site/savebutton.png
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
 pageTitle="ProjectOnline | Microsoft Azure"
 description="Создание приложений логики с помощью службы приложений Azure. Project Online — это гибкое интернет-решение для управления портфелем проектов (PPM) и повседневной работы с продуктами Майкрософт. Project Online предоставляется в рамках служб Office 365. Это решение позволяет организациям быстро приступить к работе с эффективными функциями управления проектами для планирования, определения приоритетов и управления проектами и инвестициями в портфель проектов в режиме повсеместной доступности."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -524,4 +524,4 @@ Project Online — это гибкое интернет-решение для у
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,10 +1,10 @@
-<properties 
-    pageTitle="Восстановление базы данных SQL Azure до точки во времени с помощью PowerShell | Microsoft Azure" 
-    description="Восстановление базы данных SQL Azure до точки во времени" 
-    services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jhubbard" 
+<properties
+    pageTitle="Восстановление базы данных SQL Azure до точки во времени с помощью PowerShell | Microsoft Azure"
+    description="Восстановление базы данных SQL Azure до точки во времени"
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
     editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="NA" 
+    ms.workload="NA"
     ms.date="07/17/2016"
     ms.author="sstein"/>
 
@@ -22,7 +22,7 @@
 - [Обзор](sql-database-recovery-using-backups.md)
 - [Восстановление до точки во времени: портал Azure](sql-database-point-in-time-restore-portal.md)
 
-В этой статье объясняется, как восстановить базу данных до предшествующей точки времени из [созданных автоматически резервных копий базы данных SQL](sql-database-automated-backups.md) с помощью PowerShell.
+В этой статье объясняется, как восстановить базу данных до предшествующего точки во времени из [автоматически созданных резервных копий базы данных SQL](sql-database-automated-backups.md). Это можно сделать с помощью PowerShell.
 
 [AZURE.INCLUDE [Запуск сеанса PowerShell](../../includes/sql-database-powershell.md)]
 
@@ -33,18 +33,18 @@
         $Database = Get-AzureRmSqlDatabase -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
 
 2. Восстановите базу данных до точки во времени, используя командлет [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
-    
+
         Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime UTCDateTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $Database.ResourceID -Edition "Standard" -ServiceObjectiveName "S2"
 
 
 ## Восстановление базы данных до точки во времени в пул эластичных баз данных
-   
+
 1. Получите базу данных, которую необходимо восстановить, используя командлет [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648.aspx).
 
         $Database = Get-AzureRmSqlDatabase -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
 
 2. Восстановите базу данных до точки во времени, используя командлет [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390.aspx).
-    
+
         Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime UTCDateTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName "RestoredDatabase" –ResourceId $Database.ResourceID –ElasticPoolName "elasticpool01"
 
 
@@ -56,4 +56,4 @@
 - Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md).
 - Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

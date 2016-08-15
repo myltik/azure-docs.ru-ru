@@ -32,11 +32,7 @@
 
 ## 2\. Регистрация проекта в системе управления версиями
 
-1. В Visual Studio откройте решение, которое вы хотите развернуть, или создайте новое. 
-В этом пошаговом руководстве представлены инструкции по развертыванию веб-приложения или облачной службы (приложение Azure). 
-Чтобы создать новое решение, создайте новый проект облачной службы Azure или новый проект MVC ASP.NET. Убедитесь, 
-что в проекте используется платформа .NET Framework 4 или 4.5 и создается проект облачной службы, добавьте рабочую роль и веб-роль ASP.NET MVC, после чего выберите интернет-приложение для веб-роли. При появлении запроса выберите **Интернет-приложение**. 
-Чтобы создать веб-приложение, выберите шаблон проекта "Веб-приложение ASP.NET" и затем выберите MVC. См. статью [Создание веб-приложения ASP.NET в службе приложений Azure](../app-service-web/web-sites-dotnet-get-started.md).
+1. В Visual Studio откройте решение, которое вы хотите развернуть, или создайте новое. В этом пошаговом руководстве представлены инструкции по развертыванию веб-приложения или облачной службы (приложение Azure). Чтобы создать новое решение, создайте новый проект облачной службы Azure или новый проект MVC ASP.NET. Убедитесь, что в проекте используется платформа .NET Framework 4 или 4.5 и создается проект облачной службы, добавьте рабочую роль и веб-роль ASP.NET MVC, после чего выберите интернет-приложение для веб-роли. При появлении запроса выберите **Интернет-приложение**. Чтобы создать веб-приложение, выберите шаблон проекта "Веб-приложение ASP.NET" и затем выберите MVC. См. статью [Создание веб-приложения ASP.NET в службе приложений Azure](../app-service-web/web-sites-dotnet-get-started.md).
 
 	> [AZURE.NOTE] В настоящее время Visual Studio Team Services поддерживают только развертывания непрерывной интеграции веб-приложений Visual Studio. Проекты веб-сайтов выходят за эти рамки.
 
@@ -268,7 +264,7 @@
 	![][50]
 
 ## Дальнейшие действия
-Дополнительную информацию о модульном тестировании в Visual Studio Team Services см. в разделе [Выполнение тестов в процессе сборки](http://go.microsoft.com/fwlink/p/?LinkId=510474). При использовании Git, см. разделы [Совместное использование кода в Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) и [Непрерывное развертывание с использованием GIT в службе приложений Azure](../app-service-web/web-sites-publish-source-control.md). Дополнительную информацию о Visual Studio Team Services см. в разделе [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Дополнительную информацию о модульном тестировании в Visual Studio Team Services см. в разделе [Выполнение тестов в процессе сборки](http://go.microsoft.com/fwlink/p/?LinkId=510474). При использовании Git, см. статьи с описанием [совместного использования кода в Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) и [непрерывного развертывания в службе приложений Azure](../app-service-web/app-service-continuous-deployment.md). Дополнительную информацию о Visual Studio Team Services см. в разделе [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -321,4 +317,4 @@
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

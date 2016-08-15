@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="05/18/2016"
+ ms.date="08/02/2016"
  ms.author="larryfr"/>
 
 # Разработка заданий Scalding MapReduce с помощью Apache Hadoop в HDInsight
@@ -209,7 +209,7 @@ Scalding — это библиотека Scala, которая позволяе
 
 4. После завершения задания просмотрите выходные данные с помощью следующей команды.
 
-        hdfs dfs -text wasbs:///example/wordcountout/part-00000
+        hdfs dfs -text wasbs:///example/wordcountout/*
 
     Будут отображены сведения, подобные следующим:
 
@@ -254,6 +254,8 @@ Scalding — это библиотека Scala, которая позволяе
         $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
         $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
         
+        #Login to your Azure subscription
+        Login-AzureRmAccount
         #Get HTTPS/Admin credentials for submitting the job later
         $creds = Get-Credential
         #Get the cluster info so we can get the resource group, storage, etc.
@@ -343,4 +345,4 @@ Scalding — это библиотека Scala, которая позволяе
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

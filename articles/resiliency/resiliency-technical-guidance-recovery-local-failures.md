@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/05/2016"
-   ms.author="patw;jroth;aglick"/>
+   ms.date="08/01/2016"
+   ms.author="aglick"/>
 
 #Техническое руководство по обеспечению устойчивости в Azure. Восстановление после локальных сбоев в Azure
 
@@ -223,4 +223,4 @@ Azure позволяет сохранить высокий уровень дос
 
 Этот материал входит в цикл статей, составляющих [техническое руководство по обеспечению устойчивости в Azure](./resiliency-technical-guidance.md). Следующая статья этого цикла посвящена [восстановлению после прерывания работы служб во всем регионе](./resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Использование клиента Office 365 с подпиской Azure | Microsoft Azure"
 	description="Узнайте, как добавить каталог (клиент) Office 365 в подписку Azure для создания взаимосвязи."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -145,4 +145,4 @@
 ## Дальнейшие действия
 Существуют похожие сценарии, в которых у вас уже есть подписка Office 365 и вы готовы оформить подписку Azure, но хотите при этом использовать существующие учетные записи пользователей Office 365 для подписки Azure. Кроме того, вы являетесь подписчиком Azure и хотите получить подписку Office 365 для пользователей в существующем каталоге Azure Active Directory. Сведения о способах выполнения этих задач см. в статье [Использование существующей учетной записи Office 365 с подпиской Azure или наоборот](billing-use-existing-office-365-account-azure-subscription.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

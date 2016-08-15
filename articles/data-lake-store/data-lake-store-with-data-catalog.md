@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Регистрация данных из хранилища озера данных в каталоге данных Azure
@@ -94,4 +94,4 @@
 * [Создание документации по источникам данных](../data-catalog/data-catalog-how-to-documentation.md)
 * [Интеграция хранилища озера данных с другими службами Azure](data-lake-store-integrate-with-other-services.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

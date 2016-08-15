@@ -3,8 +3,8 @@
 	description="Общие сведения о резервном копировании баз данных SQL Server с помощью службы архивации Azure"
 	services="backup"
 	documentationCenter=""
-	authors="giridharreddy"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="giridham; jimpark;"/>
+	ms.author="giridham; jimpark;markgal;trinadhk"/>
 
 
 # Резервное копирование рабочих нагрузок SQL Server в Azure с помощью DPM
@@ -174,4 +174,4 @@
 
 • [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

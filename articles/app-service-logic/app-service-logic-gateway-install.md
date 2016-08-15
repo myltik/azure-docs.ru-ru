@@ -1,7 +1,7 @@
 <properties
    pageTitle="Установка локального шлюза данных для приложений логики | Microsoft Azure"
    description="Сведения о том, как установить локальный шлюз данных для использования в приложении логики."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -221,4 +221,4 @@ TcpTestSucceeded       : True
 - [Возможности интеграции Enterprise](app-service-logic-enterprise-integration-overview.md)
 - [Соединители приложений логики](../connectors/apis-list.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

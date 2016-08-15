@@ -3,7 +3,7 @@
    description="База данных SQL Microsoft Azure, миграция базы данных, экспорт базы данных, экспорт BACPAC-файла, sqlpackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -27,13 +27,13 @@
 1. Откройте окно командной строки и измените каталог, содержащий служебную программу командной строки sqlpackage.exe. Эта служебная программа поставляется в комплекте с Visual Studio и SQL Server. С помощью функции поиска на компьютере найдите путь к своей среде.
 2. Выполните следующую команду sqlpackage.exe со следующими аргументами для вашей среды:
 
-	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file >
+	'sqlpackage.exe /Action:Export /ssn:<имя\_сервера> /sdn:<имя\_БД> /tf:<целевой\_файл>
 
 	| Аргумент | Описание |
 	|---|---|
-	| < server_name > | имя исходного сервера |
-	| < database_name > | имя исходной базы данных |
-	| < target_file > | имя файла и расположение для файла BACPAC |
+	| <имя\_сервера> | имя исходного сервера |
+	| <имя\_БД> | имя исходной базы данных |
+	| <целевой\_файл> | имя файла и расположение для файла BACPAC |
 
 	![Экспорт приложения уровня данных из меню "Задачи"](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01b.png)
 
@@ -52,4 +52,4 @@
 - [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

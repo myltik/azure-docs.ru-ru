@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Триггеры приложения API службы приложений |Microsoft Azure" 
 	description="Как реализовать триггеры в приложении API в службе приложений Azure" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
@@ -342,4 +342,4 @@
     }
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

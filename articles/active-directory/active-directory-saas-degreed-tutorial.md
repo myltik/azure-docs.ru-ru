@@ -56,7 +56,7 @@
 
 **Чтобы добавить Degreed из коллекции, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
  
 	![Active Directory][1]
 
@@ -117,7 +117,7 @@
 	![Настройка единого входа](./media/active-directory-saas-degreed-tutorial/tutorial_degreed_04.png)
 
 
-    а. В текстовом поле "URL-адрес входа" введите URL-адрес, используемый пользователями для входа в приложение Degreed, по следующей схеме: **https://<имя\_компании>.degreed.com**.
+    а. В текстовое поле "URL-адрес входа" введите URL-адрес, используемый пользователями для входа в приложение Degreed, в следующем формате: `https://degreed.com/?orgsso=<company code>`.
 
     b. Нажмите кнопку **Далее**.
 
@@ -271,4 +271,4 @@
 [204]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-degreed-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

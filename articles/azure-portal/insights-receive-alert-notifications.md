@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Получение уведомлений об оповещениях" 
-	description="Получайте уведомления, когда выполняются условия правил оповещений." 
-	authors="stepsic-microsoft-com" 
-	manager="ronmart" 
-	editor="" 
-	services="azure-portal" 
-	documentationCenter="na"/>
+<properties
+	pageTitle="Получение уведомлений об оповещениях для служб Azure | Microsoft Azure"
+	description="Получайте уведомления, когда выполняются условия правил оповещений."
+	authors="stepsic-microsoft-com"
+	manager="ronmart"
+	editor=""
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
-<tags 
-	ms.service="azure-portal" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2015" 
+<tags
+	ms.service="monitoring"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 
 # Получение уведомлений об оповещениях
@@ -32,16 +32,13 @@
 
 2. В области **Операции** щелкните плитку **Правила оповещения**.
 
-3. Выберите команду **Добавить оповещение**.
-    ![Добавление оповещения](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+3. Выберите команду **Добавить оповещение**. ![Добавление оповещения](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. Правилу оповещения можно дать имя и выбрать описание, которое будет отображаться в уведомлении по электронной почте.
 
-5. Если вы выбрали раздел **Метрики** нужно задать условия и пороговое значение для метрики. Это период времени, который Azure использует для отслеживания и фиксации активности оповещения. 
-    ![Условие и пороговое значение](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+5. Если вы выбрали раздел **Метрики** нужно задать условия и пороговое значение для метрики. Это период времени, который Azure использует для отслеживания и фиксации активности оповещения. ![Условие и пороговое значение](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
-6. Вы также можете выбрать **События** и получать уведомление, когда происходит определенное событие. 
-    ![События](./media/insights-receive-alert-notifications/Insights_Events.png)
+6. Вы также можете выбрать **События** и получать уведомление, когда происходит определенное событие. ![События](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Наконец, можно отправить уведомление по электронной почте ответственным администраторам.
 
@@ -65,6 +62,5 @@
 * [Отслеживайте производительность приложения](insights-perf-analytics.md), чтобы точно понять, как ваш код работает в облаке.
 * [Просматривайте журналы событий и аудита](insights-debugging-with-events.md), чтобы знать обо всем, что произошло в службе.
 * [Отслеживайте работоспособность службы](insights-service-health.md), чтобы знать, когда производительность Azure снизилась или работа службы нарушилась.
- 
 
-<!---HONumber=AcomDC_0218_2016-->
+<!---HONumber=AcomDC_0803_2016-->

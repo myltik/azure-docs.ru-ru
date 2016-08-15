@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2016"
+   ms.date="08/01/2016"
    ms.author="sstein"/>
 
 # Восстановление базы данных Azure SQL с помощью создаваемых автоматически резервных копий
@@ -65,7 +65,7 @@
 
 > [AZURE.IMPORTANT] При удалении экземпляра сервера базы данных SQL Azure все базы данных, находившиеся на нем, также будут удалены без возможности восстановления. В настоящее время восстановление удаленного сервера не поддерживается.
 
-Для восстановленной базы данных можно использовать прежнее или новое имя. Это можно сделать с помощью [портала Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) или [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+Для восстановленной базы данных можно использовать прежнее или новое имя. Это можно сделать с помощью [портала Azure](sql-database-restore-deleted-database-portal.md), [PowerShell](sql-database-restore-deleted-database-powershell.md) или [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 > [AZURE.SELECTOR]
 - [Восстановление удаленной базы данных: портал Azure](sql-database-restore-deleted-database-portal.md)
@@ -73,7 +73,7 @@
 
 ## Геовосстановление
 
-Геовосстановление позволяет восстановить базу данных SQL на любой сервер в любом регионе Azure из самой последней геореплицированной [ежедневной автоматически создаваемой резервной копии](sql-database-automated-backups.md). В качестве источника геовосстановление использует геоизбыточную резервную копию для восстановления базы данных, даже если она или центр обработки данных недоступны из-за сбоя. Это можно сделать с помощью [портала Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) или [REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
+Геовосстановление позволяет восстановить базу данных SQL на любой сервер в любом регионе Azure из самой последней геореплицированной [ежедневной автоматически создаваемой резервной копии](sql-database-automated-backups.md). В качестве источника геовосстановление использует геоизбыточную резервную копию для восстановления базы данных, даже если она или центр обработки данных недоступны из-за сбоя. Это можно сделать с помощью [портала Azure](sql-database-geo-restore-portal.md), [PowerShell](sql-database-geo-restore-powershell.md) или [REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 > [AZURE.SELECTOR]
 - [Геовосстановление: портал Azure](sql-database-geo-restore-portal.md)
@@ -105,7 +105,7 @@
 
 |API|Описание|
 |---|-----------|
-|[REST (createMode=Restore)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Восстанавливает базу данных.|
+|[REST (createMode=Recovery)](https://msdn.microsoft.com/library/azure/mt163685.aspx)|Восстанавливает базу данных.|
 |[Получение, создание или обновление состояния базы данных](https://msdn.microsoft.com/library/azure/mt643934.aspx)|Возвращает состояние во время операции восстановления.|
 ||||
 
@@ -122,4 +122,4 @@
 - Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md).
 - Чтобы узнать об использовании автоматически создаваемых резервных копий для архивации, ознакомьтесь с [копированием базы данных](sql-database-copy.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

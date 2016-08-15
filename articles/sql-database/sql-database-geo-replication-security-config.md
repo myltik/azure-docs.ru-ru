@@ -3,7 +3,7 @@
 	description="В этом разделе рассматриваются вопросы безопасности при управлении безопасностью после восстановления или отработки отказа базы данных."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -19,7 +19,7 @@
 
 # Как управлять безопасностью базы данных SQL после аварийного восстановления
 
->[AZURE.NOTE] Раздел [Active Geo-Replication](sql-database-geo-replication-overview.md) теперь доступен для всех баз данных и всех уровней обслуживания.
+>[AZURE.NOTE] [Active Geo-Replication]Раздел (sql-database-geo-replication-overview.md) теперь доступен для всех баз данных и всех уровней обслуживания.
 
 ## Обзор требований к проверке подлинности для аварийного восстановления
 
@@ -95,4 +95,4 @@
 
 ## Дополнительные ресурсы
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

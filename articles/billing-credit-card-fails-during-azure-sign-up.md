@@ -1,12 +1,12 @@
 <properties
 	pageTitle="При регистрации отклонена кредитная или банковская карта | Microsoft Azure"
 	description="В статье рассматриваются распространенные причины проблем, возникающих при регистрации в Microsoft Azure, например причина отклонения кредитной или банковской карты."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"
+	tags="billing,top-support-issue"
 	keywords="отклонена кредитная карта, отклонена банковская карта, ваша кредитная карта отклонена, кредитная карта не принимается"/>
 
 <tags
@@ -41,4 +41,4 @@
 
 Дополнительные сведения о том, как начать процесс настройки счета, см. в разделе [Выставление счетов Azure — как выставляется счет](https://azure.microsoft.com/pricing/invoicing/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

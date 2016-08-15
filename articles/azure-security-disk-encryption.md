@@ -34,9 +34,9 @@ Microsoft Azure обеспечивает конфиденциальность и
 Шифрование дисков Azure поддерживает следующие сценарии взаимодействия с клиентом:
 
 - включение шифрования для новых виртуальных машин IaaS, при создании которых используются предварительно зашифрованные виртуальные жесткие диски и ключи шифрования;
-- включение шифрования для новых виртуальных машин IaaS, созданных из коллекции образов Azure; 
-- включение шифрования для существующих виртуальных машин IaaS, которые уже работают в Azure. 
-- отключение шифрования на виртуальных машинах IaaS под управлением Windows. 
+- включение шифрования для новых виртуальных машин IaaS, созданных из коллекции образов Azure;
+- включение шифрования для существующих виртуальных машин IaaS, которые уже работают в Azure.
+- отключение шифрования на виртуальных машинах IaaS под управлением Windows.
 
 Когда решение появляется в Microsoft Azure, оно поддерживает следующие возможности для виртуальных машин IaaS:
 
@@ -91,7 +91,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 Дисковое шифрование Azure для виртуальных машин IaaS Windows и Linux предлагается в виде комплексного решения, которое включает расширение дискового шифрования для Windows, расширение дискового шифрования для Linux, командлеты PowerShell для дискового шифрования, командлеты CLI для дискового шифрования и шаблоны диспетчера ресурсов Azure для дискового шифрования. Решение дискового шифрования Azure поддерживается на виртуальных машинах IaaS под управлением ОС Windows или Linux. Дополнительные сведения о поддерживаемых операционных системах приведены ниже в разделе предварительных условий.
 
-**Примечание.** Плата за шифрование дисков Azure для виртуальных машин не взимается.
+**Примечание**. Плата за шифрование дисков Azure для виртуальных машин не взимается.
 
 ### Предлагаемые преимущества
 
@@ -153,11 +153,11 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 **Примечание**. Дисковое шифрование Azure требует, чтобы хранилище ключей и виртуальные машины находились в одном регионе Azure. Их настройка в отдельных регионах приведет к ошибкам при включении функции дискового шифрования Azure.
 
-- Сведения об установке и настройке хранилища ключей Azure для использования шифрования дисков Azure см. в подразделе **Подключение и настройка хранилища ключей Azure для шифрования дисков Azure** раздела *Предварительные условия* этой статьи.
+- Сведения об установке и настройке хранилища ключей Azure для использования шифрования дисков Azure см. в подразделе **Подключение и настройка хранилища ключей Azure для дискового шифрования Azure** раздела *Предварительные требования* этой статьи.
 
-- Сведения об установке и настройке приложения Azure AD в Azure Active Directory для использования шифрования дисков Azure см. в подразделе **Настройка приложения Azure AD в Azure Active Directory** раздела *Предварительные условия* этой статьи.
+- Сведения об установке и настройке приложения Azure AD в Azure Active Directory для использования шифрования дисков Azure см. в подразделе **Настройка приложения Azure AD в Azure Active Directory** раздела *Предварительные требования* этой статьи.
 
-- Сведения об установке и настройке политики доступа к хранилищу ключей для приложения Azure AD см. в подразделе **Настройка политики доступа к хранилищу ключей для приложения Azure AD** раздела *Предварительные условия* этой статьи.
+- Сведения об установке и настройке политики доступа к хранилищу ключей для приложения Azure AD см. в подразделе **Настройка политики доступа к хранилищу ключей для приложения Azure AD** раздела *Предварительные требования* этой статьи.
 
 - Сведения о подготовке предварительно зашифрованного виртуального жесткого диска Windows см. в разделе **Подготовка предварительно зашифрованного виртуального жесткого диска Windows** приложения к этой статье.
 
@@ -195,9 +195,9 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 **Примечание.** Если ваша политика безопасности ограничивает доступ к Интернету из виртуальных машин Azure, можно разрешить указанный выше URI, с которым требуется взаимодействовать, и настроить определенное правило, чтобы разрешить исходящие подключения к данным IP-адресам.
 
-- Для настройки шифрования диска Azure используйте последнюю версию пакета SDK для Azure PowerShell. Загрузите [Azure PowerShell 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) или более поздней версии
+- Для настройки шифрования диска Azure используйте последнюю версию пакета SDK для Azure PowerShell. Скачайте [Azure PowerShell 1.3.0](https://github.com/Azure/azure-powershell/releases/download/v1.3.0-March2016/azure-powershell.1.3.0.msi) или более поздней версии.
 
-**Примечание.**Шифрование дисков Azure не поддерживается в [пакете SDK для Azure PowerShell версии 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). При возникновении ошибок, связанных с использованием Azure PowerShell 1.1.0, см. запись блога [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Ошибки шифрования диска Azure, связанные с Azure PowerShell 1.1.0).
+**Примечание**. Шифрование дисков Azure не поддерживается в [пакете SDK для Azure PowerShell версии 1.1.0](https://github.com/Azure/azure-powershell/releases/tag/v1.1.0-January2016). При возникновении ошибок, связанных с использованием Azure PowerShell 1.1.0, ознакомьтесь с записью блога [Azure Disk Encryption Error Related to Azure PowerShell 1.1.0](http://blogs.msdn.com/b/azuresecurity/archive/2016/02/10/azure-disk-encryption-error-related-to-azure-powershell-1-1-0.aspx) (Ошибки шифрования дисков Azure, связанные с Azure PowerShell 1.1.0).
 
 - Чтобы запустить какую-либо команду Azure CLI и связать ее с подпиской Azure, необходимо установить версию Azure CLI.
 
@@ -207,7 +207,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 - Решение дискового шифрования Azure использует предохранитель внешнего ключа BitLocker для виртуальных машин IaaS под управлением Windows. Если ваши виртуальные машины объединены в домен, не применяйте групповые политики, требующие использования предохранителей TPM. Изучите [эту статью](https://technet.microsoft.com/library/ee706521), чтобы узнать о групповой политике "Разрешить использование BitLocker без совместимого TPM".
 
-- Чтобы создать приложение Azure AD, создать хранилище ключей или настроить существующее хранилище ключей, а также включить шифрование, для шифрования дисков Azure требуется сценарий PowerShell, который находится [здесь](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+- Чтобы создать приложение Azure AD, создать новое хранилище ключей или настроить существующее, а также включить шифрование, требуется сценарий PowerShell для шифрования дисков Azure, который находится [здесь](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 
 ### Подключение и настройка хранилища ключей Azure для дискового шифрования Azure
 
@@ -281,7 +281,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 ![Дисковое шифрование Azure](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
 
 
-**Примечание.** Описанный выше процесс не поддерживается на портале.
+**Примечание**. Описанный выше процесс не поддерживается на портале.
 
 ##### Использование существующего приложения
 
@@ -366,7 +366,7 @@ Microsoft Azure обеспечивает конфиденциальность и
     $sourceVaultId = (Get-AzureRmKeyVault -VaultName $keyVaultName -ResourceGroupName $resourceGroupName).ResourceId
     $vm = Get-AzureRmVM -ResourceGroupName $resourceGroupName -Name $vmName
     $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore "My" -CertificateUrl $certUrl
-    Update-AzureRmVM -VM $vm  -ResourceGroupName $resourceGroupName
+    Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroupName
 
 
 #### Настройка политики доступа к хранилищу ключей для приложения Azure AD
@@ -458,15 +458,15 @@ Microsoft Azure обеспечивает конфиденциальность и
 Выполните следующие действия, чтобы включить шифрование диска с помощью команд CLI.
 
 1. Задайте политики доступа к хранилищу ключей:
-	- Задайте флаг "EnabledForDiskEncryption": azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true.
-	- Предоставьте приложению Azure AD разрешения на запись секретов в хранилище ключей: azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"].
-2. Чтобы включить шифрование на существующей или работающей виртуальной машине, введите команду: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Узнайте состояние шифрования: *azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json*.
+	- Задайте флаг EnabledForDiskEncryption: azure keyvault set-policy --vault-name <имя\_хранилища\_кючей> --enabled-for-disk-encryption true.
+	- Предоставьте приложению Azure AD разрешения на запись секретов в хранилище ключей: azure keyvault set-policy --vault-name <имя\_хранилища\_кючей> --spn <ИД\_клиента\_AAD> --perms-to-keys ["all"] --perms-to-secrets ["all"].
+2. Чтобы включить шифрование на существующей или работающей виртуальной машине, введите команду: *azure vm enable-disk-encryption --resource-group <имя\_группы\_ресурсов> --name <имя\_ВМ> --aad-client-id <ИД\_клиента\_AAD> --aad-client-secret <секрет\_клиента\_AAD> --disk-encryption-key-vault-url <URL-адрес\_хранилища\_ключей> --disk-encryption-key-vault-id <ИД\_ресурса\_хранилища\_ключей>*.
+3. Узнайте состояние шифрования: *azure vm show-disk-encryption-status --resource-group <имя\_группы\_ресурсов> --name <имя\_ВМ> --json*.
 4. Чтобы включить шифрование на новой виртуальной машине с использованием клиентского зашифрованного виртуального жесткого диска, используйте команду azure vm create с такими параметрами:
-	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
-	- disk-encryption-key-url <disk-encryption-key-url>
-	- key-encryption-key-vault-id <key-encryption-key-vault-id>
-	- key-encryption-key-url <key-encryption-key-url>
+	- disk-encryption-key-vault-id <ИД\_хранилища\_ключей\_для\_шифрования\_дисков>
+	- disk-encryption-key-url <URL-адрес\_хранилища\_ключей\_для\_шифрования\_дисков>
+	- key-encryption-key-vault-id <ИД\_хранилища\_ключей\_для\_шифрования\_кючей>
+	- key-encryption-key-url <URL-адрес\_хранилища\_ключей\_для\_шифрования\_ключей>
 
 
 ### Включение шифрования на виртуальной машине IaaS Windows, которая уже существует или работает в Azure
@@ -483,7 +483,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ​AADClientID | ​Идентификатор клиента приложения Azure AD, который имеет разрешения на запись секретов в хранилище ключей |
 | AADClientSecret | ​Секрет клиента приложения Azure AD, который имеет разрешения на запись секретов в хранилище ключей |
-| keyVaultName | Имя хранилища ключей, в которое будет передан ключ BitLocker. Значение этого параметра можно получить с помощью командлета: (Get-AzureRmKeyVault -ResourceGroupName<yourResourceGroupName>). Vaultname |
+| keyVaultName | Имя хранилища ключей, в которое будет передан ключ BitLocker. Значение этого параметра можно получить с помощью командлета: (Get-AzureRmKeyVault -ResourceGroupName <имя\_вашей\_группы\_ресурсов>). Vaultname |
 | ​ keyEncryptionKeyURL | URL-адрес ключа шифрования ключа, который используется для шифрования созданного ключа BitLocker. Это необязательный параметр, если выбрать nokek в раскрывающемся списке UseExistingKek. При выборе kek в раскрывающемся списке UseExistingKek требуется указать значение keyEncryptionKeyURL |
 | ​volumeType | ​Тип тома, для которого будет выполняться шифрование. Допустимые значения: «ОС», «Данные», «Все» |
 | sequenceVersion | Версия последовательности операций с BitLocker. Этот номер версии увеличивается каждый раз, когда шифрование диска выполняется на той же VM |
@@ -501,15 +501,15 @@ Microsoft Azure обеспечивает конфиденциальность и
 Выполните следующие действия, чтобы включить шифрование на виртуальной машине IaaS Windows, которая уже существует или работает в Azure, с помощью команд CLI:
 
 1. Задайте политики доступа к хранилищу ключей:
-	- Задайте флаг "EnabledForDiskEncryption": azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true.
-	- Предоставьте приложению Azure AD разрешения на запись секретов в хранилище ключей: azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"].
-2. Чтобы включить шифрование на существующей или работающей виртуальной машине, введите команду: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Узнайте состояние шифрования: *azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json*.
+	- Задайте флаг EnabledForDiskEncryption: azure keyvault set-policy --vault-name <имя\_хранилища\_кючей> --enabled-for-disk-encryption true.
+	- Предоставьте приложению Azure AD разрешения на запись секретов в хранилище ключей: azure keyvault set-policy --vault-name <имя\_хранилища\_кючей> --spn <ИД\_клиента\_AAD> --perms-to-keys ["all"] --perms-to-secrets ["all"].
+2. Чтобы включить шифрование на существующей или работающей виртуальной машине, введите команду: *azure vm enable-disk-encryption --resource-group <имя\_группы\_ресурсов> --name <имя\_ВМ> --aad-client-id <ИД\_клиента\_AAD> --aad-client-secret <секрет\_клиента\_AAD> --disk-encryption-key-vault-url <URL-адрес\_хранилища\_ключей> --disk-encryption-key-vault-id <ИД\_ресурса\_хранилища\_ключей>*.
+3. Узнайте состояние шифрования: *azure vm show-disk-encryption-status --resource-group <имя\_группы\_ресурсов> --name <имя\_ВМ> --json*.
 4. Чтобы включить шифрование на новой виртуальной машине с использованием клиентского зашифрованного виртуального жесткого диска, используйте команду azure vm create с такими параметрами:
-	- disk-encryption-key-vault-id <disk-encryption-key-vault-id>
-	- disk-encryption-key-url <disk-encryption-key-url>
-	- key-encryption-key-vault-id <key-encryption-key-vault-id>
-	- key-encryption-key-url <key-encryption-key-url>
+	- disk-encryption-key-vault-id <ИД\_хранилища\_ключей\_для\_шифрования\_дисков>
+	- disk-encryption-key-url <URL-адрес\_хранилища\_ключей\_для\_шифрования\_дисков>
+	- key-encryption-key-vault-id <ИД\_хранилища\_ключей\_для\_шифрования\_кючей>
+	- key-encryption-key-url <URL-адрес\_хранилища\_ключей\_для\_шифрования\_ключей>
 
 
 ### Включение шифрования на виртуальной машине IaaS Linux, которая уже существует или работает в Azure
@@ -522,7 +522,7 @@ Microsoft Azure обеспечивает конфиденциальность и
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ​AADClientID | ​Идентификатор клиента приложения Azure AD, который имеет разрешения на запись секретов в хранилище ключей |
 | AADClientSecret | ​Секрет клиента приложения Azure AD, который имеет разрешения на запись секретов в хранилище ключей |
-| keyVaultName | Имя хранилища ключей, в которое будет передан ключ BitLocker. Значение этого параметра можно получить с помощью командлета: (Get-AzureRmKeyVault -ResourceGroupName<yourResourceGroupName>). Vaultname |
+| keyVaultName | Имя хранилища ключей, в которое будет передан ключ BitLocker. Значение этого параметра можно получить с помощью командлета: (Get-AzureRmKeyVault -ResourceGroupName <имя\_вашей\_группы\_ресурсов>). Vaultname |
 | ​ keyEncryptionKeyURL | URL-адрес ключа шифрования ключа, который используется для шифрования созданного ключа BitLocker. Это необязательный параметр, если выбрать nokek в раскрывающемся списке UseExistingKek. При выборе kek в раскрывающемся списке UseExistingKek требуется указать значение keyEncryptionKeyURL |
 | ​volumeType | ​Тип тома, для которого будет выполняться шифрование. Поддерживается допустимое значение «Данные». Шифрование тома ОС не поддерживается на уже запущенной VM Linux |
 | sequenceVersion | Версия последовательности операций с BitLocker. Этот номер версии увеличивается каждый раз, когда шифрование диска выполняется на той же VM |
@@ -536,19 +536,19 @@ Microsoft Azure обеспечивает конфиденциальность и
 Дисковое шифрование для клиентского зашифрованного виртуального диска можно включить с помощью команды CLI (сведения об установке CLI см. [здесь](xplat-cli-install.md)). Выполните следующие действия, чтобы включить шифрование на виртуальной машине IaaS Linux, которая уже существует или работает в Azure, с помощью команд CLI.
 
 1. Задайте политики доступа к хранилищу ключей:
-	- Задайте флаг "EnabledForDiskEncryption": azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true.
-	- Предоставьте приложению Azure AD разрешения на запись секретов в хранилище ключей: azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys ["all"] --perms-to-secrets ["all"].
-2. Чтобы включить шифрование на существующей или работающей виртуальной машине, введите команду: *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*.
-3. Узнайте состояние шифрования: azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json.
+	- Задайте флаг EnabledForDiskEncryption: azure keyvault set-policy --vault-name <имя\_хранилища\_кючей> --enabled-for-disk-encryption true.
+	- Предоставьте приложению Azure AD разрешения на запись секретов в хранилище ключей: azure keyvault set-policy --vault-name <имя\_хранилища\_кючей> --spn <ИД\_клиента\_AAD> --perms-to-keys ["all"] --perms-to-secrets ["all"].
+2. Чтобы включить шифрование на существующей или работающей виртуальной машине, введите команду: *azure vm enable-disk-encryption --resource-group <имя\_группы\_ресурсов> --name <имя\_ВМ> --aad-client-id <ИД\_клиента\_AAD> --aad-client-secret <секрет\_клиента\_AAD> --disk-encryption-key-vault-url <URL-адрес\_хранилища\_ключей> --disk-encryption-key-vault-id <ИД\_ресурса\_хранилища\_ключей>*.
+3. Узнайте состояние шифрования: azure vm show-disk-encryption-status --resource-group <имя\_группы\_ресурсов> --name <имя\_ВМ> --json.
 4. Чтобы включить шифрование на новой виртуальной машине с использованием клиентского зашифрованного виртуального жесткого диска, используйте команду azure vm create с такими параметрами:
-	- *disk-encryption-key-vault-id <disk-encryption-key-vault-id>*
-	- *disk-encryption-key-url <disk-encryption-key-url>*
-	- *key-encryption-key-vault-id <key-encryption-key-vault-id>*
-	- *key-encryption-key-url <key-encryption-key-url>*
+	- *disk-encryption-key-vault-id <ИД\_хранилища\_ключей\_для\_шифрования\_дисков>*
+	- *disk-encryption-key-url <URL-адрес\_хранилища\_ключей\_для\_шифрования\_дисков>*
+	- *key-encryption-key-vault-id <ИД\_хранилища\_ключей\_для\_шифрования\_кючей>*
+	- *key-encryption-key-url <URL-адрес\_хранилища\_ключей\_для\_шифрования\_ключей>*
 
 ### Получение состояния шифрования зашифрованной виртуальной машины IaaS
 
-Состояние шифрования можно узнать с помощью портала управления Azure, [командлетов PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) или команд CLI. В разделах ниже описано, как использовать портал Azure и команды CLI, чтобы получить состояние шифрования.
+Состояние шифрования можно узнать с помощью портала управления Azure, [командлетов PowerShell](https://msdn.microsoft.com/library/azure/mt622700.aspx) или команд интерфейса командной строки. В разделах ниже описано, как использовать портал Azure и команды CLI, чтобы получить состояние шифрования.
 
 #### Получение состояния шифрования зашифрованной виртуальной машины IaaS с помощью портала управления Azure
 
@@ -593,14 +593,14 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 | ​vmName | ​Имя виртуальной машины, на которой будет выполняться шифрование |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ​volumeType | ​Тип тома, для которого будет выполняться расшифровка. Допустимые значения: "ОС", "Данные", "Все". **Примечание.** Невозможно отключить шифрование тома ОС или загрузочного тома на работающей виртуальной машине IaaS под управлением Windows без отключения шифрования для тома "Данные". |
+| ​volumeType | ​Тип тома, для которого будет выполняться расшифровка. Допустимые значения: "ОС", "Данные", "Все". <br>**Примечание**. Невозможно отключить шифрование тома ОС или загрузочного тома на работающей виртуальной машине IaaS под управлением Windows, не отключив шифрование для тома данных. |
 | sequenceVersion | Версия последовательности операций с BitLocker. Этот номер версии увеличивается каждый раз, когда расшифровка диска выполняется на той же ВМ. |
 
 ##### Отключение шифрования на виртуальной машине IaaS Windows, которая уже существует или работает в Azure, при помощи командлета PS
 
-Командлет PS [Disable-AzureRmVMDiskEncryption](https://msdn.microsoft.com/library/azure/mt715776.aspx) отключает шифрование дисков на виртуальной машине инфраструктуры как услуги (IaaS). Этот командлет поддерживается только на виртуальных машинах под управлением Windows и не поддерживается для виртуальных машин под управлением Linux. Этот командлет устанавливает на виртуальной машине расширение для отключения шифрования. Если для параметра "Имя" не указано значение, создается расширение с именем по умолчанию "AzureDiskEncryption для виртуальных машин под управлением Windows".
+Командлет PS [Disable-AzureRmVMDiskEncryption](https://msdn.microsoft.com/library/azure/mt715776.aspx) отключает шифрование дисков на виртуальной машине IaaS. Этот командлет поддерживается только на виртуальных машинах под управлением Windows и не поддерживается для виртуальных машин под управлением Linux. Этот командлет устанавливает на виртуальной машине расширение для отключения шифрования. Если для параметра "Имя" не указано значение, создается расширение с именем по умолчанию "AzureDiskEncryption для виртуальных машин под управлением Windows".
 
-**Примечание.** Этот командлет перезагружает виртуальную машину.
+**Примечание**. Этот командлет перезагружает виртуальную машину.
 
 ## Приложение
 
@@ -845,4 +845,4 @@ Microsoft Azure обеспечивает конфиденциальность и
 
 [Изучение возможностей дискового шифрования Azure с помощью Azure PowerShell — часть 2](http://blogs.msdn.com/b/azuresecurity/archive/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2.aspx)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

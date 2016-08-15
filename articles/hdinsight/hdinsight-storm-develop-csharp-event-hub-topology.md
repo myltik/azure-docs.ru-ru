@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="larryfr"/>
 
 # Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C#)
@@ -572,4 +572,4 @@ EventHubSpout периодически передает информацию о 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

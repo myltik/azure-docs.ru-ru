@@ -19,7 +19,7 @@
 
 # Расширение Custom Script для виртуальных машин под управлением Windows
 
-В этой статье описано использование расширения Custom Script на виртуальных машинах под управлением Windows с помощью командлетов Azure Powershell.
+В этой статье представлен обзор использования расширения пользовательских сценариев на виртуальных машинах Windows с помощью командлетов Azure PowerShell и интерфейсов API управления службами Azure.
 
 Расширения виртуальной машины разработаны корпорацией Майкрософт и доверенными сторонними компаниями для расширения функциональных возможностей виртуальной машины. Общие сведения о расширениях виртуальных машин см. в статье [Расширения и компоненты виртуальных машин Azure](virtual-machines-windows-extensions-features.md).
 
@@ -86,9 +86,9 @@
 
 ### Использование расширения Custom Script с шаблонами
 
-Чтобы узнать об использовании расширения Custom Script с шаблонами диспетчера ресурсов Azure, обратитесь к документации [здесь](virtual-machines-windows-classic-extensions-customscript.md).
+Чтобы узнать об использовании расширения Custom Script с шаблонами диспетчера ресурсов Azure, обратитесь к документации [здесь](virtual-machines-windows-extensions-customscript.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

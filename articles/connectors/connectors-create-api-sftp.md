@@ -1,7 +1,7 @@
 <properties
 pageTitle="Сведения об использовании соединителя SFTP в приложениях логики | Microsoft Azure"
 description="Создание приложений логики с помощью службы приложений Azure. Подключитесь к API SFTP, чтобы отправлять и получать файлы. Вы можете выполнять различные операции, например создавать, обновлять, получать или удалять файлы."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -419,4 +419,4 @@ BlobMetadata
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

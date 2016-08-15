@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -464,4 +464,4 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 ## Ожидается в ближайшее время: API-интерфейсы для интеграции Enterprise
 Сейчас мы еще не располагаем управляемыми версиями API-интерфейсов интеграции Enterprise (например, AS2). Скоро они станут доступными, как описано в [стратегическом плане](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). А пока вы можете использовать существующие развернутые API-интерфейсы BizTalk с помощью действия HTTP, как описано выше в разделе "Использование уже развернутых приложений API".
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

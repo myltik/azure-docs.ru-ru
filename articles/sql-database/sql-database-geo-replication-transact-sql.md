@@ -3,7 +3,7 @@
     description="Настройка георепликации базы данных SQL Azure с помощью Transact-SQL"
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -187,4 +187,4 @@
 - Чтобы больше узнать об активной георепликации, ознакомьтесь с разделом [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
 - Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

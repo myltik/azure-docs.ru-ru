@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Инструкции по подаче новых запросов на техническую поддержку в утилите загрузки файлов Microsoft Azure | Microsoft Azure"
 	description="В статье представлены инструкции по подаче новых запросов на техническую поддержку в утилите загрузки файлов Microsoft Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="v-jesits"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -63,4 +64,4 @@
 | | | | | | | .zix |
 | | | | | | | .zzz |
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

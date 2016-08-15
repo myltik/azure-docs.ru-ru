@@ -4,7 +4,7 @@
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -169,4 +169,4 @@
 
 Для создания удостоверения приложения для вашего приложения логики и вызова API вам потребуется выполнить перечисленные выше шаги.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

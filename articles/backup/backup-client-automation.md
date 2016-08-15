@@ -3,7 +3,7 @@
 	description="Узнайте о том, как развернуть службу архивации Azure и управлять ею с помощью PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="nkolli1"
+	authors="saurabhsensharma"
 	manager="shivamg"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/23/2016"
-	ms.author="markgal;jimpark;nkolli"/>
+	ms.author="markgal;jimpark;nkolli;trinadhk"/>
 
 
 # Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью PowerShell
@@ -115,16 +115,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | Параметр | Сведения | значение по умолчанию |
 | ---- | ----- | ----- |
-| /q | Тихая установка | - |
-| / p:"местоположение" | Путь к папке установки агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
-| /s:"местоположение" | Путь к папке кэша агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
-| /m | Согласиться на получение обновлений от Майкрософт | - | 
-| /nu | Не проверять наличие обновлений после завершения установки | - | 
-| /d | Удаляет агент служб восстановления Microsoft Azure | - | 
-| /ph | Адрес узла прокси-сервера | - | 
-| /po | Номер порта узла прокси-сервера | - | 
-| / pu | Имя пользователя узла прокси-сервера | - | 
-| /pw | Пароль прокси-сервера | - |
+| /q | Тихая установка | - | | / p:"местоположение" | Путь к папке установки агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"местоположение" | Путь к папке кэша агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Согласиться на получение обновлений от Майкрософт | - | | /nu | Не проверять наличие обновлений после завершения установки | - | | /d | Удаляет агент служб восстановления Microsoft Azure | - | | /ph | Адрес узла прокси-сервера | - | | /po | Номер порта узла прокси-сервера | - | | / pu | Имя пользователя узла прокси-сервера | - | | /pw | Пароль прокси-сервера | - |
 
 
 ## Регистрация Windows Server или клиентского компьютера Windows в хранилище служб восстановления
@@ -627,4 +618,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 - [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 - [Резервное копирование серверов Windows](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

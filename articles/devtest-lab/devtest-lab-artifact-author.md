@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/01/2016"
 	ms.author="tarcher"/>
 
 #Создание пользовательских артефактов для виртуальной машины DevTest Labs
 
-> [AZURE.NOTE] Просмотрите видео к этой статье: [How to author custom artifacts](/documentation/videos/how-to-author-custom-artifacts) (Как создавать настраиваемые артефакты).
+> [AZURE.VIDEO how-to-author-custom-artifacts] 
 
 ## Обзор
 **Артефакты** используются для развертывания и настройки приложения после подготовки виртуальной машины. Артефакт состоит из файла определения артефакта и других файлов скриптов, которые хранятся в папке в репозитории Git. Файлы определения артефактов состоят из JSON и выражений, позволяющих указать, какие компоненты должны быть установлены на виртуальной машине. Например, можно определить имя артефакта, выполняемую команду и параметры, которые станут доступны после запуска команды. В файле определения артефакта можно ссылаться на другие файлы скриптов, используя их имена.
@@ -120,8 +120,12 @@
 
 1. Добавьте репозиторий артефактов в лабораторию: см. статью [Добавление репозитория артефактов Git в лабораторию](devtest-lab-add-artifact-repo.md).
 
+## Связанные записи в блогах
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs (Способы устранения сбоя артефактов в лабораториях для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Присоединение виртуальной машины к существующему домену AD с помощью шаблона ARM в лаборатории для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+
 ## Дальнейшие действия
 
 - Узнайте, как [добавить репозиторий артефактов Git в лабораторию](devtest-lab-add-artifact-repo.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

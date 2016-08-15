@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование средства проверки XML BizTalk в приложениях логики в службе приложений Azure | Microsoft Azure"
    description="Проверка схем с помощью средства проверки XML BizTalk в приложении логики"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
    manager="erikre"
@@ -64,4 +64,4 @@
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Почему вы получили уведомление о том, что имеется задолженность по вашей подписке Azure | Microsoft Azure"
 	description="Описание процедуры оплаты, если имеется задолженность по вашей подписке Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -45,4 +45,4 @@
 
 > [AZURE.NOTE] Если ваша подписка Azure отключена, можно включить ее повторно, выполнив приведенные в этой статье действия: [Что делать в случае отмены подписки Azure?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

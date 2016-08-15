@@ -3,7 +3,7 @@
    description="Узнайте, как Функции Azure масштабируются в соответствии с потребностями непостоянных рабочих нагрузок."
    services="functions"
    documentationCenter="na"
-   authors="eduardolaureano"
+   authors="dariagrigoriu"
    manager="erikre"
    editor=""
    tags=""
@@ -15,8 +15,8 @@
    ms.topic="reference"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="edlaure"/>
+   ms.date="08/03/2016"
+   ms.author="dariagrigoriu"/>
 
 # Масштабирование Функций Azure
 
@@ -47,4 +47,4 @@
 
 [AZURE.INCLUDE [Динамический план обслуживания](../../includes/functions-dynamic-service-plan.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0803_2016-->

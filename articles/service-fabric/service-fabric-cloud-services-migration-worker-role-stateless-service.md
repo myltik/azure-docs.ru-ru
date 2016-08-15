@@ -267,7 +267,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 
 ##Дальнейшие действия
 
-Чтобы узнать, как эффективно пользоваться всеми функциями Service Fabric, ознакомьтесь с дополнительными сведениями о службах Reliable Services платформы Service Fabric и фундаментальных различиях между облачными службами и архитектурой приложения Service Fabric.
+Чтобы узнать, как эффективно пользоваться всеми функциями Service Fabric, ознакомьтесь с дополнительными сведениями о службах Reliable Services платформы Service Fabric и фундаментальных различиях между облачными службами и архитектурой приложений Service Fabric.
 
  - [Начало работы со службами Reliable Services в Service Fabric](./service-fabric-reliable-services-quick-start.md)
 
@@ -277,4 +277,4 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 [3]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/service-fabric-cloud-service-projects.png
 [4]: ./media/service-fabric-cloud-services-migration-worker-role-stateless-service/worker-role-to-stateless-service.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

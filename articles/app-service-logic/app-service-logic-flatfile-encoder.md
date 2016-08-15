@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Использование кодировщика неструктурированных файлов BizTalk в приложении логики | Microsoft Azure" 
    description="Приложение API кодировщика неструктурированных файлов BizTalk или соединитель" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -86,4 +86,4 @@
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

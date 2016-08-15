@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Использование соединителя AS2 в приложениях логики | Служба приложений Microsoft Azure" 
    description="Как создать и настроить соединитель AS2 или приложение API и использовать его в приложении логики в службе приложений Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -122,4 +122,4 @@ URL-адрес партнера | string | Конечная точка учас�
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование соединителя ресурсов Azure в приложениях логики | Служба приложений Microsoft Azure"
    description="Из этой статьи вы узнаете, как создать и настроить соединитель ресурсов Azure или приложение API и использовать его в приложении логики в службе приложений Azure."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
    manager="erikre"
@@ -98,4 +98,4 @@
 <!--Links -->
 [Creating a Logic app]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

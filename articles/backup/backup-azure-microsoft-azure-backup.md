@@ -3,8 +3,8 @@
   description="Правильная подготовка среды к резервному копированию рабочих нагрузок с помощью сервера службы архивации Azure."
   services="backup"
   documentationCenter=""
-  authors="trinadhk"
-  manager="shreeshd"
+  authors="PVRK"
+  manager="shivamg"
   editor=""
   keywords="сервер службы архивации Azure; хранилище службы архивации"/>
 
@@ -277,4 +277,4 @@
 - [Резервное копирование сервера SharePoint](backup-azure-backup-sharepoint.md)
 - [Резервное копирование альтернативного сервера](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

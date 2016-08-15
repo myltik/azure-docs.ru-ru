@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование средства извлечения XPath BizTalk в приложениях логики в службе приложений Azure | Microsoft Azure"
    description="Средство извлечения XPath BizTalk"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
    manager="erikre"
@@ -47,4 +47,4 @@ XPath|string|Путь запроса внутри XML.
 <!-- Links -->
 [Создайте новое приложение логики]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

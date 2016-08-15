@@ -3,7 +3,7 @@
 	description="Общие сведения о резервном копировании серверов Azure с помощью службы архивации Azure"
 	services="backup"
 	documentationCenter=""
-	authors="trinadhk"
+	authors="Nkolli1"
 	manager="shreeshd"
 	editor=""
 	keywords="System Center Data Protection Manager, диспетчер защиты данных, диспетчер защиты данных резервного копирования"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/10/2016"
-	ms.author="trinadhk;giridham;jimpark"/>
+	ms.author="trinadhk;giridham;jimpark;markgal"/>
 
 # Подготовка к архивированию рабочих нагрузок в Azure с помощью DPM
 
@@ -96,4 +96,4 @@
 
 >[AZURE.NOTE] Начиная с версии System Center 2012 DPM с пакетом обновления 1 (SP1) и выше, в службе Azure можно создавать резервные копии рабочих нагрузок, защищенных DPM, с помощью службы архивации Microsoft Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

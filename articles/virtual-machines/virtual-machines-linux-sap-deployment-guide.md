@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/17/2016"
+   ms.date="08/02/2016"
    ms.author="sedusch"/>
 
 # SAP NetWeaver на виртуальных машинах Azure. Руководство по развертыванию
@@ -979,4 +979,4 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 
 Если при устранении неполадок с использованием примечания к SAP [1999351] проблема не исчезла, повторно запустите сценарий конфигурации Set-AzureRmVMAEMExtension, как описано в разделе [Расширенный мониторинг Azure для SAP: настройка расширения][deployment-guide-4.5]. Необходимо подождать час, так как счетчики аналитики или диагностики хранилищ не могут быть созданы сразу после включения. Если проблема не исчезла, откройте сообщение о поддержке клиентов SAP в компоненте BC-OP-NT-AZR для виртуальной машины Windows или BC-OP-LNX-AZR для виртуальной машины Linux.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

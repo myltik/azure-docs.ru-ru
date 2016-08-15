@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -126,4 +126,4 @@
 - Службе автомасштабирования не доступны метрики для принятия решения по масштабированию.
 - Метрики для принятия решения по масштабированию стали доступны (восстановились). Помимо приведенных условий можно настроить уведомления по электронной почте или через веб-перехватчики, чтобы узнавать об успешных действиях масштабирования.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

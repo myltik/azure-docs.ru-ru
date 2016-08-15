@@ -1,7 +1,7 @@
 <properties
 pageTitle="Сведения об использовании соединителя Salesforce в приложениях логики | Microsoft Azure"
 description="Создание приложений логики с помощью службы приложений Azure. Соединитель Salesforce предоставляет API для работы с объектами Salesforce."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -281,4 +281,4 @@ TablesList
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

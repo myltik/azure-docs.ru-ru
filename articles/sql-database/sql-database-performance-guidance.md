@@ -3,7 +3,7 @@
 	description="Эта статья содержит инструкции, которые помогут определить, подойдет ли тот или иной уровень служб для вашего приложения, а также рекомендации по настройке приложения для эффективного использования функциональности базы данных SQL Azure."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="" />
 
@@ -246,14 +246,14 @@
 		SELECT
 		    avg(avg_cpu_percent) AS 'Average CPU Utilization In Percent',
 		    max(avg_cpu_percent) AS 'Maximum CPU Utilization In Percent',
-		    avg(avg_physical_data_read_percent) AS 'Average Physical Data Read Utilization In Percent',
-		    max(avg_physical_data_read_percent) AS 'Maximum Physical Data Read Utilization In Percent',
+		    avg(avg_data_io_percent) AS 'Average Physical Data IO Utilization In Percent',
+		    max(avg_data_io_percent) AS 'Maximum Physical Data IO Utilization In Percent',
 		    avg(avg_log_write_percent) AS 'Average Log Write Utilization In Percent',
 		    max(avg_log_write_percent) AS 'Maximum Log Write Utilization In Percent',
-		    avg(active_session_count) AS 'Average # of Sessions',
-		    max(active_session_count) AS 'Maximum # of Sessions',
-		    avg(active_worker_count) AS 'Average # of Workers',
-		    max(active_worker_count) AS 'Maximum # of Workers'
+		    avg(max_session_percent) AS 'Average % of Sessions',
+		    max(max_session_percent) AS 'Maximum % of Sessions',
+		    avg(max_worker_percent) AS 'Average % of Workers',
+		    max(max_worker_percent) AS 'Maximum % of Workers'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -266,7 +266,7 @@
 		SELECT
 		    (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		    ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent'
-		    ,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
+		    ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 40 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -283,7 +283,7 @@
 		SELECT
 		(COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU Fit Percent'
 		,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log Write Fit Percent’
-		,(COUNT(database_name) - SUM(CASE WHEN avg_physical_data_read_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data Read Fit Percent'
+		,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical Data IO Fit Percent'
 		FROM sys.resource_stats
 		WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
 
@@ -507,4 +507,4 @@
 
 Уровни служб в базе данных SQL Azure расширяют возможности приложений, которые могут быть собраны в облачной среде. В сочетании с надлежащей настройкой приложения эти возможности обеспечивают мощную и прогнозируемую производительность всего приложения. В этой статье описаны рекомендуемые способы оптимизации использования ресурсов базы данных для применения одного из новых уровней служб. Тонкая настройка — это рутинная операция в облачной модели. Уровни служб и связанные с ними уровни производительности позволяют администраторам добиться максимальной производительности и минимизировать затраты при работе с платформой Microsoft Azure.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

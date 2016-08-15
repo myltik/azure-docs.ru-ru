@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Создание решений ";бизнес-бизнес"; с помощью пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Сведения о получении данных с помощью функций ";бизнес-бизнес"; пакета интеграции Enterprise" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -75,4 +75,4 @@
 
 [Узнайте больше о пакете интеграции Enterprise](./app-service-logic-enterprise-integration-overview.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

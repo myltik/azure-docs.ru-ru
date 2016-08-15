@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Копирование данных между хранилищем озера данных и базой данных SQL Azure с помощью Sqoop
@@ -33,7 +33,7 @@
 Перед началом работы с этой статьей необходимо иметь следующее:
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup). 
+- **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
 - **Кластер Azure HDInsight** с доступом к учетной записи хранилища озера данных. См. статью [Создание кластера HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md). В этой статье предполагается, что у вас есть кластер HDInsight на платформе Linux с доступом к хранилищу озера данных.
 - **База данных SQL Azure**. Инструкции по созданию базы данных см. в статье [Создание базы данных SQL Azure](../sql-database/sql-database-get-started.md).
 
@@ -92,7 +92,7 @@
 
 ### Импорт данных из базы данных SQL Azure в хранилище озера данных
 
-3. Перейдите в каталог, где доступны пакеты Sqoop. Как правило, это будет каталог `/usr/hdp/<version>/sqoop/bin`. 
+3. Перейдите в каталог, где доступны пакеты Sqoop. Как правило, это будет каталог `/usr/hdp/<version>/sqoop/bin`.
 
 4. Импортируйте данные из таблицы **Table1** в учетную запись хранилища озера данных. Используйте следующий синтаксис:
 
@@ -120,12 +120,12 @@
 		-rwxrwxrwx   0 sshuser hdfs         13 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00002
 		-rwxrwxrwx   0 sshuser hdfs         18 2016-02-26 21:09 adl://hdiadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1/part-m-00003
 
-	Каждый файл **part-m-*** соответствует строке в исходной таблице **Table1**. Чтобы проверить, просмотрите содержимое файлов part-m-*.
+	Каждый файл **part-m-*** соответствует строке в исходной таблице **Table1**. Чтобы проверить это, просмотрите содержимое файлов part-m-*.
 
 
 ### Экспорт данных из хранилища озера данных в базу данных SQL Azure
 
-6. Экспортируйте данные из учетной записи хранилища озера данных в пустую таблицу **Table2** в базе данных SQL Azure. Используйте приведенный ниже синтаксис.
+6. Экспортируйте данные из учетной записи Data Lake Store в пустую таблицу **Table2** в базе данных SQL Azure. Используйте приведенный ниже синтаксис.
 
 		
 		sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-store-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
@@ -135,7 +135,7 @@
 		
 		sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlstore.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-6. Убедитесь, что данные были отправлены в таблицу базы данных SQL. Используйте [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) или Visual Studio для подключения к базе данных SQL Azure и выполните приведенный ниже запрос.
+6. Убедитесь, что данные были отправлены в таблицу базы данных SQL. С помощью [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) или Visual Studio подключитесь к базе данных SQL Azure, а затем выполните следующий запрос.
 
 		
 		SELECT * FROM TABLE2
@@ -156,4 +156,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

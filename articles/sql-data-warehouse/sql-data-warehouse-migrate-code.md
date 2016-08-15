@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/02/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Перенос кода SQL в хранилище данных SQL
@@ -80,7 +80,7 @@
 
 Рекурсивные CTE в хранилище данных SQL не поддерживаются. Перенос рекурсивных CTE может быть частично завершен, и оптимальным решением станет разделение этой процедуры на несколько этапов. Обычно используется цикл для заполнения временной таблицы по мере выполнения рекурсивных промежуточных запросов. После заполнения временной таблицы можно возвратить данные как единый результирующий набор. Похожий подход использовался для решения `GROUP BY WITH CUBE` в статье [Группировка по параметрам в хранилище данных SQL][].
 
-## Системные функции
+## Неподдерживаемые системные функции
 
 Ряд системных функций также не поддерживаются. Ниже приводится список некоторых системных функций, которые могут быть полезны в хранилище данных.
 
@@ -91,21 +91,29 @@
 - ROWCOUNT\_BIG
 - ERROR\_LINE()
 
-Опять же, многие из этих ограничений можно обойти.
+Некоторые из этих проблем можно обойти.
 
-Например, приведенный ниже код является альтернативным решением для выборки с помощью инструкции @@ROWCOUNT.
+## Обходной путь для @@ROWCOUNT
+
+Чтобы обойти отсутствие поддержки @@ROWCOUNT, создайте хранимую процедуру, которая будет извлекать значение счетчика последней строки из sys.dm\_pdw\_request\_steps и затем выполнять `EXEC LastRowCount` после инструкции DML.
 
 ```sql
-SELECT  SUM(row_count) AS row_count
-FROM    sys.dm_pdw_sql_requests
-WHERE   row_count <> -1
-AND     request_id IN
-                    (   SELECT TOP 1    request_id
-                        FROM            sys.dm_pdw_exec_requests
-                        WHERE           session_id = SESSION_ID()
-                        AND             resource_class IS NOT NULL
-                        ORDER BY end_time DESC
-                    )
+CREATE PROCEDURE LastRowCount AS
+WITH LastRequest as 
+(   SELECT TOP 1    request_id
+    FROM            sys.dm_pdw_exec_requests
+    WHERE           session_id = SESSION_ID()
+    AND             resource_class IS NOT NULL
+    ORDER BY end_time DESC
+),
+LastRequestRowCounts as
+(
+    SELECT  step_index, row_count
+    FROM    sys.dm_pdw_request_steps
+    WHERE   row_count >= 0
+    AND     request_id IN (SELECT request_id from LastRequest)
+)
+SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ;
 ```
 
@@ -134,4 +142,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

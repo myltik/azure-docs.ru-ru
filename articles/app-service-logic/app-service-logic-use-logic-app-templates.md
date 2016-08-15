@@ -4,7 +4,7 @@
  authors="kevinlam1"
  manager="dwrede"
  editor=""
- services="app-service\logic"
+ services="logic-apps"
  documentationCenter=""/>
 
 <tags
@@ -46,4 +46,4 @@
 После выбора одного из шаблонов выполните развертывание, как при создании собственного приложения логики. Подробные инструкции приведены в статье [Создание нового приложения логики, подключающего службы SaaS](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

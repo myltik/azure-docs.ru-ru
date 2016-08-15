@@ -107,7 +107,7 @@
 
 2. Подключитесь к базе данных с помощью SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Скопируйте в буфер обмена [скрипт Transact-SQL для In-Memory OLTP](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_oltp_sample.sql).
+3. Скопируйте в буфер обмена [скрипт Transact-SQL для In-Memory OLTP](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql).
  - Этот скрипт создаст необходимые объекты In-Memory в образце базы данных AdventureWorksLT, созданной на этапе 1.
 
 4. Вставьте скрипт T-SQL в SSMS-файл, а затем выполните его.
@@ -141,7 +141,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 
 #### Сведения о созданных элементах, оптимизированных для памяти
 
-**Таблицы** — пример содержит следующие оптимизированные для памяти таблицы:
+**Таблицы** — пример содержит следующие оптимизированные для памяти таблицы:
 
 - SalesLT.Product\_inmem
 - SalesLT.SalesOrderHeader\_inmem
@@ -152,7 +152,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 
 В SSMS-файле оптимизированные для памяти таблицы можно проверить с помощью **обозревателя объектов** следующим образом.
 
-- Щелкните правой кнопкой мыши **Таблицы** > **Фильтры** > **Параметры фильтров** > **Оптимизация для памяти** и задайте значение 1.
+- Щелкните правой кнопкой мыши **Таблицы** > **Фильтры** > **Параметры фильтров** > **Оптимизация для памяти** и задайте значение 1.
 
 
 Или можно отправить запрос представлений каталога:
@@ -165,7 +165,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Скомпилированная в собственном коде хранимая процедура** — процедуру SalesLT.usp\_InsertSalesOrder\_inmem тоже можно проверить с помощью запроса представления каталога:
+**Скомпилированная в собственном коде хранимая процедура** — процедуру SalesLT.usp\_InsertSalesOrder\_inmem тоже можно проверить с помощью запроса представления каталога:
 
 
 ```
@@ -182,7 +182,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 Единственное различие между двумя следующими *хранимыми процедурами* состоит в том, что первая процедура использует оптимизированные для памяти версии таблиц, а вторая — обычные таблицы на диске:
 
 - SalesLT**.**usp\_InsertSalesOrder**\_inmem**
-- SalesLT**.**usp\_InsertSalesOrder**\_ondisk**.
+- SalesLT**.**usp\_InsertSalesOrder**\_ondisk**
 
 
 В этом разделе описано, как с помощью удобной служебной программы **ostress.exe** можно выполнить две хранимые процедуры в режиме нагрузочного теста. При этом вы можете сравнить время выполнения этих нагрузочных тестов.
@@ -233,7 +233,7 @@ end
 ```
 
 
-Чтобы создать версию предыдущего скрипта T-SQL для ostress.exe на диске (\_ondisk), просто измените оба вхождения подстроки *\_inmem* на *\_ondisk* . Эти замены влияют на имена таблиц и хранимых процедур.
+Чтобы создать версию предыдущего сценария T-SQL для ostress.exe на диске (\_ondisk), просто измените оба вхождения подстроки *\_inmem* на *\_ondisk*. Эти замены влияют на имена таблиц и хранимых процедур.
 
 
 ### Установка служебных программ RML и ostress
@@ -286,7 +286,7 @@ EXECUTE Demo.usp_DemoReset;
 
 2. Скопируйте текст предыдущей командной строки ostress.exe в буфер обмена.
 
-3. Замените <placeholders> для параметров -S, -U, -P, и -d правильными фактическими значениями.
+3. Замените <заполнители> для параметров -S, -U, -P, и -d правильными фактическими значениями.
 
 4. В окне командной строки RML запустите измененную командную строку.
 
@@ -348,7 +348,7 @@ EXECUTE Demo.usp_DemoReset;
  - Используйте такое же имя.
  - Выберите любой уровень служб категории «Премиум».
 
-2. Скопируйте [sql\_inmemory\_analytics\_sample](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/sql_in-memory_analytics_sample.sql) в буфер обмена.
+2. Скопируйте [sql\_inmemory\_analytics\_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) в буфер обмена.
  - Этот скрипт создаст необходимые объекты In-Memory в образце базы данных AdventureWorksLT, созданной на этапе 1.
  - Скрипт создает таблицу измерений и две таблицы фактов. Таблицы фактов заполняются 3,5 млн строк.
  - Выполнение скрипта может занять до 15 минут.
@@ -371,7 +371,7 @@ EXECUTE Demo.usp_DemoReset;
 #### Критические запросы для сравнения с индексом columnstore
 
 
-[Здесь](https://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/t-sql/In-Memory/clustered_columnstore_sample_queries.sql) представлено несколько типов запросов T-SQL, которые можно выполнить для анализа повышения производительности. На этапе 2 в скрипте T-SQL описано два интересующих нас запроса. Эти запросы отличаются только одной строкой:
+[Здесь](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) представлено несколько типов запросов T-SQL, которые можно выполнить для анализа повышения производительности. На этапе 2 в скрипте T-SQL описано два интересующих нас запроса. Эти запросы отличаются только одной строкой:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -537,4 +537,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - [Мониторинг хранилища In-Memory](sql-database-in-memory-oltp-monitoring.md) для компонента In-Memory OLTP.
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

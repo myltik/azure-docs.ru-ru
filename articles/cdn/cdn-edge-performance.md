@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN — анализ производительности Edge"
+	pageTitle="Анализ производительности узла Edge в CDN Azure | Microsoft Azure"
 	description="Анализ производительности узла Edge в сети CDN Microsoft Azure Аналитика производительности узла Edge предоставляет подробные сведения о трафике и использовании пропускной способности в сети CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Анализ производительности узла Edge в сети CDN Microsoft Azure
@@ -192,4 +192,4 @@ URL-адреса | Содержит диаграмму с 10 самыми поп
 * [Переопределение стандартного поведения через HTTP с помощью обработчика правил](cdn-rules-engine.md)
 * [Расширенные HTTP-отчеты](cdn-advanced-http-reports.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

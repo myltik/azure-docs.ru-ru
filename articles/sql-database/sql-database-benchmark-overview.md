@@ -3,7 +3,7 @@
 	description="В этом разделе описывается тест производительности Базы данных SQL Azure, используемый при измерении ее производительности."
 	services="sql-database"
 	documentationCenter="na"
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor="monicar" />
 
@@ -130,4 +130,4 @@
 
 [Руководство по производительности для отдельных баз данных](sql-database-performance-guidance.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

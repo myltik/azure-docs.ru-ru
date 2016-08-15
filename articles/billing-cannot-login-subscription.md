@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Не удается выполнить вход для управления подпиской Azure | Microsoft Azure"
 	description="Описывает устранение неполадок для некоторых распространенных проблем со входом в подписку Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -54,4 +54,4 @@
 
 В Internet Explorer попробуйте удалить кэш и файлы cookie в режиме просмотра InPrivate или воспользоваться другим браузером.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

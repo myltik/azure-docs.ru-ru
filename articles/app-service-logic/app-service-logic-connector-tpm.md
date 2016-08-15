@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Использование соединителя BizTalk Trading Partner Management в приложениях логики | Служба приложений Microsoft Azure" 
    description="Как создать и настроить соединитель BizTalk Trading Partner Management или приложение API и использовать его в приложении логики в службе приложений Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -43,4 +43,4 @@
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

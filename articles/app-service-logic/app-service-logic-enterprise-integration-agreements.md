@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Обзор партнеров и пакета интеграции Enterprise | Служба приложений Microsoft Azure" 
 	description="Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -65,4 +65,4 @@
 ## Дальнейшие действия
 - [Создание соглашения AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

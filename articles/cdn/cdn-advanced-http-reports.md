@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Сеть CDN — расширенные HTTP-отчеты"
+	pageTitle="Расширенные HTTP-отчеты CDN Azure | Microsoft Azure"
 	description="Расширенные HTTP-отчеты в сети CDN Microsoft Azure. Эти отчеты предоставляют подробные сведения об активности в сети CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Расширенные HTTP-отчеты в сети CDN Microsoft Azure
@@ -28,11 +28,13 @@
 
 1. В колонке профиля CDN нажмите кнопку **Управление**.
 
-	![Кнопка «Управление» в колонке профиля CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
+	![Кнопка управления в колонке профиля CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
 
 	Откроется портал управления CDN.
 
 2. Наведите указатель на вкладку **Аналитика**, а затем выберите всплывающее окно **Расширенные HTTP-отчеты**. Выберите **Большая HTTP-платформа**.
+
+	![Портал управления CDN — меню дополнительных отчетов](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
 
 	Отобразятся параметры отчета.
 
@@ -196,4 +198,4 @@
 * [Переопределение стандартного поведения через HTTP с помощью обработчика правил](cdn-rules-engine.md)
 * [Анализ производительности Edge](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

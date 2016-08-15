@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/27/2016"
+   ms.date="08/01/2016"
    ms.author="larryfr"/>
 
 #Разработка топологий на основе Java для базовых приложений подсчета слов с помощью Apache Storm и Maven в HDInsight
@@ -169,13 +169,13 @@
 
 ###Создание «воронки»
 
-Чтобы снизить требования к настройке внешних источников данных, следующая воронка просто выдает случайные предложения. Это измененная версия воронки, предоставленной в <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">примере Storm-Starter</a>.
+Чтобы снизить требования к настройке внешних источников данных, следующая воронка просто выдает случайные предложения. Это измененная версия воронки (предоставлено в [примере Storm-Starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)).
 
 > [AZURE.NOTE] Пример воронки, которая считывает информацию из внешнего источника данных, см. в одном из следующих примеров.
 >
-> * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a> — пример воронки, считывающей информацию из Twitter.
+> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java) — пример воронки, считывающей информацию из Twitter.
 >
-> * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm-Kafka</a> — воронка, считывающая информацию из Kafka.
+> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka) — воронка, считывающая информацию из Kafka.
 
 Создайте для воронки новый файл с именем **RandomSentenceSpout.java** в каталоге **src\\main\\java\\com\\microsoft\\example** и используйте следующий код в качестве содержимого.
 
@@ -526,4 +526,4 @@ Trident — это высокоуровневая абстракция, пре�
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

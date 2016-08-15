@@ -77,7 +77,7 @@ while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, secon
 
 Если приложение по каким-либо причинам не может обработать сообщение, оно может вызвать для полученного сообщения метод [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) (вместо метода [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). После этого служебная шина разблокирует сообщение в очереди, сделав его доступным для приема тем же или другим конкурирующим потребителем. Кроме того, блокирование связано с определенным временем ожидания. Если приложение не сможет обработать сообщение до истечения времени ожидания (например, при сбое приложения), служебная шина автоматически разблокирует сообщение, сделав его снова доступным для получения (фактически выполняя операцию [прерывания](https://msdn.microsoft.com/library/azure/hh181837.aspx) по умолчанию).
 
-Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), такое сообщение будет повторно доставлено в приложение после перезапуска. Такой подход предполагает концепцию обработки сообщения *хотя бы один раз*. Тем не менее в некоторых случаях это же сообщение может быть доставлено повторно. Если сценарий не допускает повторную обработку, для обнаружения дубликатов требуется дополнительная логика в приложении. Это реализуется с помощью свойства сообщения **MessageId**, которое остается постоянным в ходе разных попыток доставки. Такой подход предполагает концепцию обработки *только один раз*.
+Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), такое сообщение будет повторно доставлено в приложение после перезапуска. Такой подход предполагает принцип обработки сообщения *хотя бы один раз*. Тем не менее в некоторых случаях это же сообщение может быть доставлено повторно. Если сценарий не допускает повторную обработку, для обнаружения дубликатов требуется дополнительная логика в приложении. Это реализуется с помощью свойства сообщения **MessageId**, которое остается постоянным в ходе разных попыток доставки. Такой подход предполагает концепцию обработки *только один раз*.
 
 Дополнительные сведения и рабочий пример создания и отправки сообщений в очередь и из нее см. в статье [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине](service-bus-brokered-tutorial-dotnet.md).
 
@@ -154,7 +154,7 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 
 Благодаря этому фильтру подписки в виртуальную очередь для подписки `Dashboard` копируются только сообщения со свойством `StoreName`, которому присвоено значение `Store1`.
 
-Дополнительные сведения о возможных значениях фильтров см. в документации по классам [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) и [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Также см. примеры [Brokered Messaging : Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Обмен сообщениями через брокер: расширенные фильтры) и [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Фильтры разделов).
+Дополнительные сведения о возможных значениях фильтров см. в документации по классам [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) и [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Ознакомьтесь также с примерами [Brokered Messaging : Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Обмен сообщениями через брокер: расширенные фильтры) и [Topic Filters](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters) (Фильтры разделов).
 
 ## Концентраторы событий
 
@@ -174,4 +174,4 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 - [Пример "Topic Filters" (Фильтры разделов)](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 - [Пример "Brokered Messaging: Advanced Filters ("Обмен сообщениями через брокер: расширенные фильтры)](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

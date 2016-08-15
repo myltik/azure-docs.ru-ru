@@ -15,7 +15,7 @@
   ms.devlang="na"
   ms.topic="article"
   ms.date="05/10/2016"
-  ms.author="jimpark;trinadhk;pullabhk"/>
+  ms.author="jimpark;trinadhk;pullabhk; markgal"/>
 
 # Подготовка к резервному копированию рабочих нагрузок с использованием сервера службы архивации Azure
 
@@ -214,4 +214,4 @@
 - [Резервное копирование сервера SharePoint](backup-azure-backup-sharepoint.md)
 - [Резервное копирование альтернативного сервера](backup-azure-alternate-dpm-server.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

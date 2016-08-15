@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование соединителя Office 365 в приложениях логики | Служба приложений Microsoft Azure"
    description="Как создать и настроить соединитель Office 365 или приложение API и использовать его в приложении логики в службе приложений Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -131,4 +131,4 @@
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

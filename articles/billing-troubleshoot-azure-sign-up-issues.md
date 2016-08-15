@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Устранение неполадок при регистрации в Azure | Microsoft Azure"
 	description="Устранение причин основных проблем, которые могут возникнуть при регистрации в Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -81,4 +81,4 @@
 Предложения
 - Если в прошлом вы уже активировали подписку Azure и из-за этого не можете активировать бесплатную пробную версию, рассмотрите вариант подписки с оплатой по мере использования. Вы также можете иметь право на льготное предложение. Дополнительные сведения о планах, которые вы можете использовать вместо бесплатной пробной версии Azure, см. на [странице предложений Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Обратите внимание, что льготные планы предусматривают соблюдение определенных условий.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

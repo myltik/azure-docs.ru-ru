@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование соединителя QuickBooks в приложениях логики | Служба приложений Microsoft Azure"
    description="Из этой статьи вы узнаете, как создать и настроить соединитель QuickBooks или приложение API и использовать его в приложении логики в службе приложений Azure."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -144,4 +144,4 @@
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

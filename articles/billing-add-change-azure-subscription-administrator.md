@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing"/>
 
 <tags
@@ -114,4 +114,4 @@
 
 * Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в разделе [Назначение ролей администратора в Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

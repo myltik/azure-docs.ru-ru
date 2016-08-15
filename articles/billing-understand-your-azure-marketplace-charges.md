@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Основная информация о расходах на заказы Azure Marketplace | Microsoft Azure"
 	description="Здесь содержатся сведения о расходах, связанных с заказами Marketplace."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="felixwu"
@@ -98,4 +98,4 @@
 
     ![Сведения о заказах](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

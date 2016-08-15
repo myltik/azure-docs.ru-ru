@@ -4,7 +4,7 @@
 	authors="rajeshramabathiran"
 	manager="erikre"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
@@ -87,4 +87,4 @@
 [File Connector]: https://msdn.microsoft.com/library/dn936296.aspx
 [Использование диспетчера гибридных соединений]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
