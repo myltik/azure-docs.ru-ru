@@ -138,8 +138,8 @@ FROM dbo.DimProduct;
 
 [Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
 [Обзор интеграции хранилища данных SQL]: ./sql-data-warehouse-overview-integration.md
-[Создание эксперимента]: https://azure.microsoft.com/ru-RU/documentation/articles/machine-learning-create-experiment/
-[Основные сведения о машинном обучении Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/machine-learning-what-is-machine-learning/
+[Создание эксперимента]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[Основные сведения о машинном обучении Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Студии машинного обучения Microsoft Azure]: https://studio.azureml.net/Home
 [портале Azure]: https://portal.azure.com/
 

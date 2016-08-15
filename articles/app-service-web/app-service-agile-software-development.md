@@ -37,7 +37,7 @@
 
 ## Выполняемая задача ##
 
-Здесь пошагово описывается типичный рабочий процесс (разработка, тестирование, промежуточное хранение и производство) публикации новых изменений в примере приложения [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), которое состоит из двух [веб-приложений](/services/app-service/web/). Первое является внешним интерфейсом, а второе — серверной частью веб-API и [базой данных SQL](/services/sql-database/). Вы будете работать с архитектурой развертывания, которая изображена ниже:
+Здесь пошагово описывается типичный рабочий процесс (разработка, тестирование, промежуточное хранение и производство) публикации новых изменений в примере приложения [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), которое состоит из двух [веб-приложений](/services/app-service/web/). Первое является внешним интерфейсом, а второе – серверной частью веб-API и [базой данных SQL](/services/sql-database/). Вы будете работать с архитектурой развертывания, которая изображена ниже:
 
 ![](./media/app-service-agile-software-development/what-1-architecture.png)
 
@@ -52,7 +52,7 @@
 
 Среда разработки и среда тестирования определяются шаблоном в файле [*&lt;repository\_root>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json).
 
-Вы будет использовать обычную стратегию ветвления, перемещая код из ветви разработки в ветвь тестирования, а затем — в главную ветвь (перемещая по мере повышения качества кода).
+Вы будет использовать обычную стратегию ветвления, перемещая код из ветви разработки в ветвь тестирования, а затем – в главную ветвь (перемещая по мере повышения качества кода).
 
 ![](./media/app-service-agile-software-development/what-2-branches.png)
 
@@ -60,7 +60,7 @@
 
 -	Учетная запись Azure.
 -	Учетная запись [GitHub](https://github.com/).
--	Оболочка Git Shell (устанавливается вместе с [GitHub для Windows](https://windows.github.com/)) — она позволяет запускать команды PowerShell и Git в одном сеансе.
+-	Оболочка Git Shell (устанавливается вместе с [GitHub для Windows](https://windows.github.com/)) – она позволяет запускать команды PowerShell и Git в одном сеансе.
 -	Последняя версия [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi).
 -	Базовые знания таких компонентов.
 	-	Развертывание шаблона [диспетчера ресурсов Azure](../resource-group-overview.md) (см. также [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)).
@@ -273,9 +273,9 @@
 -	[Практика гибкой разработки: советы и рекомендации для модернизированного цикла разработки](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 -	[Стратегии расширенного развертывания для веб-приложений Azure с помощью шаблонов диспетчера ресурсов](http://channel9.msdn.com/Events/Build/2015/2-620)
 -	[Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
--	[JSONLint — проверяющий элемент управления JSON](http://jsonlint.com/)
--	[ARMClient — настройка публикации GitHub на веб-сайте](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
--	[Ветвление Git — основные ветвления и слияния](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+-	[JSONLint – проверяющий элемент управления JSON](http://jsonlint.com/)
+-	[ARMClient – настройка публикации GitHub на веб-сайте](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
+-	[Ветвление Git – основные ветвления и слияния](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Блог Дэвида Эббо (David Ebbo)](http://blog.davidebbo.com/)
 -	[Azure PowerShell](../powershell-install-configure.md)
 -	[Кроссплатформенные программы командной строки Azure.](../xplat-cli-install.md)

@@ -441,7 +441,7 @@ ___
 После завершения работы мастера виртуальная машина будет развернута в выбранной группе ресурсов.
 
 #### Создание виртуальной машины с помощью шаблона
-Развертывание можно также создать с помощью одного из шаблонов SAP, опубликованных в [каталоге azure-quickstart-templates на сайте GitHub][azure-quickstart-templates-github]. Кроме того, можно создать виртуальную машину вручную с помощью [портала][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] или [интерфейса командной строки Azure][virtual-machines-linux-tutorial] (Azure CLI).
+Развертывание можно также создать с помощью одного из шаблонов SAP, опубликованных в [каталоге azure-quickstart-templates на сайте GitHub][azure-quickstart-templates-github]. Кроме того, можно создать виртуальную машину вручную с помощью [портала][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] или [интерфейса командной строки Azure][virtual-machines-linux-tutorial] \(Azure CLI).
 
 * [Шаблон двухуровневой конфигурации (только одна виртуальная машина)][sap-templates-2-tier-marketplace-image]. Этот шаблон используется, если нужно создать двухуровневую систему с использованием только одной виртуальной машины.
 * [Шаблон трехуровневой конфигурации (несколько виртуальных машин)][sap-templates-3-tier-marketplace-image]. Этот шаблон используется, если нужно создать трехуровневую систему с использованием нескольких виртуальных машин.
@@ -835,7 +835,7 @@ sudo service waagent restart
 
 * Откройте командную строку Windows и перейдите в папку установки расширения мониторинга Azure для SAP: C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\`<version`>\\drop.
 
-Часть версии в приведенном выше пути к расширению мониторинга может отличаться. Если в папке установки отображается несколько папок версий расширения мониторинга, проверьте конфигурацию службы Windows AzureEnhancedMonitoring и перейдите в папку, указанную в поле "Путь к исполняемому объекту".
+Часть версии в приведенном выше пути к расширению мониторинга может отличаться. Если в папке установки отображается несколько папок версий расширения мониторинга, проверьте конфигурацию службы Microsoft AzureEnhancedMonitoring и перейдите в папку, указанную в поле "Путь к исполняемому объекту".
  
 ![Свойства службы, в которой выполняется расширение для расширенного мониторинга Azure для SAP][deployment-guide-figure-1000]
 

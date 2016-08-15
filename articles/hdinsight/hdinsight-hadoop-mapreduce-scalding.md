@@ -18,14 +18,14 @@
 
 # Разработка заданий Scalding MapReduce с помощью Apache Hadoop в HDInsight
 
-Scalding — это библиотека Scala, которая позволяет легко создавать задания Hadoop MapReduce. Она предлагает сокращенный синтаксис, а также тесную интеграцию со Scala.
+Scalding – это библиотека Scala, которая позволяет легко создавать задания Hadoop MapReduce. Она предлагает сокращенный синтаксис, а также тесную интеграцию со Scala.
 
 В этом документе рассматривается использование Maven для создания задания MapReduce по базовому подсчету слов, написанного на Scalding. Затем вы узнаете, как развернуть и выполнить это задание в кластере HDInsight.
 
 ## Предварительные требования
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Hadoop на основе Windows или Linux в кластере HDInsight **. Дополнительные сведения см. в разделе [Подготовка Hadoop на основе Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md) или [Подготовка Hadoop на основе Windows в HDInsight](hdinsight-provision-clusters.md).
+* **Hadoop на основе Windows или Linux в кластере HDInsight**. Дополнительные сведения см. в разделе [Подготовка Hadoop на основе Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md) или [Подготовка Hadoop на основе Windows в HDInsight](hdinsight-provision-clusters.md).
 
 * **[Maven](http://maven.apache.org/)**
 

@@ -33,7 +33,7 @@
 
 Перед выполнением инструкций в этом учебнике убедитесь в наличии следующих ресурсов.
 
-- Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения](https://azure.microsoft.com/pricing/purchase-options/), [Предложения для участников](https://azure.microsoft.com/pricing/member-offers/) или [Бесплатное пробное использование](https://azure.microsoft.com/pricing/free-trial/).
+- Подписка Azure. Azure – это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения](https://azure.microsoft.com/pricing/purchase-options/), [Предложения для участников](https://azure.microsoft.com/pricing/member-offers/) или [Бесплатное пробное использование](https://azure.microsoft.com/pricing/free-trial/).
 
 ##<a id="CreateDB"></a>Шаг 1. Загрузка файлов шаблонов ##
 Давайте начнем с загрузки файлов шаблонов, которые будут использоваться в этом учебнике.

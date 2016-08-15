@@ -24,7 +24,7 @@
 
  -	[Пример панели мониторинга веб-приложения](http://go.microsoft.com/fwlink/?LinkId=761493)
  -	[Справочник по API Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
- -	[Пакет SDK Power BI Embedded для .NET](http://go.microsoft.com/fwlink/?LinkId=746472) (доступен в NuGet)
+ -	[Пакет SDK Power BI Embedded для .NET](http://go.microsoft.com/fwlink/?LinkId=746472) \(доступен в NuGet)
 
 
 

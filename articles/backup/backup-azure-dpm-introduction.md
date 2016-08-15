@@ -139,7 +139,7 @@
 
 	![Открытие колонки хранилища](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 
-3. На странице параметров под надписью **Агент службы архивации Windows Azure** щелкните **Скачать**.
+3. На странице параметров под надписью **Агент службы архивации Microsoft Azure** щелкните **Скачать**.
 
     ![Загрузить](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 

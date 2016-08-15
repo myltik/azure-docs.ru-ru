@@ -35,7 +35,7 @@
 
 ##<a id="powershell"></a>Выполнение задания MapReduce с помощью Azure PowerShell
 
-Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название — Templeton) на кластере HDInsight.
+Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название – Templeton) на кластере HDInsight.
 
 При выполнении заданий MapReduce в удаленном кластере HDInsight используются следующие командлеты:
 

@@ -150,7 +150,7 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 
 
 <!--Other Web references-->
-[хранилища класса Premium, обеспечивающего более предсказуемую производительность]: https://azure.microsoft.com/ru-RU/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[хранилища класса Premium, обеспечивающего более предсказуемую производительность]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [портале Azure]: https://portal.azure.com
 
 <!---HONumber=AcomDC_0803_2016-->

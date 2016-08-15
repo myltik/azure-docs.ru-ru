@@ -42,7 +42,7 @@
 
 Перед выполнением основных операций на сайте необходимо [создать резервную копию мобильной службы] и базы данных SQL.
 
-Если вы хотите протестировать процесс переноса перед переносом рабочего сайта, продублируйте свою рабочую мобильную службу Azure в новом [регионе Azure] (заполните ее копией источника данных) и протестируйте перенос на новом URL-адресе. Чтобы правильно протестировать перенесенный сайт, вам также нужно протестировать реализацию клиента, которая указывает на тестовый сайт.
+Если вы хотите протестировать процесс переноса перед переносом рабочего сайта, продублируйте свою рабочую мобильную службу Azure в новом [регионе Azure] \(заполните ее копией источника данных) и протестируйте перенос на новом URL-адресе. Чтобы правильно протестировать перенесенный сайт, вам также нужно протестировать реализацию клиента, которая указывает на тестовый сайт.
 
 ## <a name="migrating-site"></a> Перенос сайтов
 
@@ -104,7 +104,7 @@
 
 ### <a name="configure-cors"></a>Настройка CORS при необходимости
 
-Общий доступ к ресурсам независимо от источника — это способ предоставления веб-сайту доступа к веб-API на другом домене. Если вы используете мобильные службы Azure со связанным веб-сайтом, вам понадобится настроить CORS как часть переноса. Если вы обращаетесь к мобильным службам Azure только с мобильных устройств, вам не нужно настраивать CORS (за исключением редких случаев).
+Общий доступ к ресурсам независимо от источника – это способ предоставления веб-сайту доступа к веб-API на другом домене. Если вы используете мобильные службы Azure со связанным веб-сайтом, вам понадобится настроить CORS как часть переноса. Если вы обращаетесь к мобильным службам Azure только с мобильных устройств, вам не нужно настраивать CORS (за исключением редких случаев).
 
 Перенесенные параметры CORS доступны в параметре приложения **MS\_CrossDomainWhitelist**. Чтобы перенести сайт в средство CORS службы приложений, выполните следующие действия:
 
@@ -381,7 +381,7 @@
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[Цены службы приложений]: https://azure.microsoft.com/ru-RU/pricing/details/app-service/
+[Цены службы приложений]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Автоматическое масштабирование]: ../app-service-web/web-sites-scale.md
 [службы приложений Azure]: ../app-service/app-service-value-prop-what-is.md
@@ -391,10 +391,10 @@
 [портал Azure]: https://portal.azure.com
 [портала Azure]: https://portal.azure.com
 [портале Azure]: https://portal.azure.com
-[регионе Azure]: https://azure.microsoft.com/ru-RU/regions/
+[регионе Azure]: https://azure.microsoft.com/regions/
 [планы планировщика Azure]: ../scheduler/scheduler-plans-billing.md
 [непрерывно развертывать]: ../app-service-web/app-service-continuous-deployment.md
-[преобразовать смешанные пространства имен]: https://azure.microsoft.com/ru-RU/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[преобразовать смешанные пространства имен]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [пользовательские доменные имена]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler

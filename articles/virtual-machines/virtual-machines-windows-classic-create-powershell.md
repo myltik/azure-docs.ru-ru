@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Классический портал Azure — Windows](virtual-machines-windows-classic-tutorial.md)
-- [PowerShell — Windows](virtual-machines-windows-classic-create-powershell.md)
+- [PowerShell – Windows](virtual-machines-windows-classic-create-powershell.md)
 
 <br>
 
