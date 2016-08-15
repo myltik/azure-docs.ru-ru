@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Использование сертификатов с помощью пакета интеграции Enterprise | Служба приложений Microsoft Azure" 
 	description="Узнайте, как использовать сертификаты с пакетом интеграции Enterprise и приложениями логики." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -73,4 +73,4 @@
 - [Создание приложения логики, использующего возможности "бизнес-бизнес"](./app-service-logic-enterprise-integration-b2b.md)
 - [Узнайте больше о хранилище ключей Azure](../key-vault/key-vault-get-started.md "Сведения о хранилище ключей")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

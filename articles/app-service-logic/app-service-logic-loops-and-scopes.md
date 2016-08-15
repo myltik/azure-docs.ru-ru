@@ -1,7 +1,7 @@
 <properties
    pageTitle="Циклы, области действия и индивидуальная обработка приложений логики | Microsoft Azure"
    description="Основные понятия циклов, областей действия и индивидуальной обработки приложений логики"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -141,4 +141,4 @@
 }
 ```
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

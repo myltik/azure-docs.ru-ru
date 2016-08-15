@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="05/11/2016"
+ ms.date="07/28/2016"
  ms.author="casoper"/>
 
 # Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure
@@ -25,15 +25,17 @@
 
 В следующем XML-коде показан пример использования параметра **clientCache** для указания максимального возраста в 3 дня:
 
-	<configuration>
-	  <system.webServer>
-	        <staticContent>
-	            <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
-	        </staticContent>
-	  </system.webServer>
-	</configuration>
+```xml
+<configuration>
+	<system.webServer>
+		<staticContent>
+			<clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00" />
+		</staticContent>
+	</system.webServer>
+</configuration>
+```
 
-При указании **UseMaxAge** в ответ добавляется Cache-Control: max-age=<nnn> на основе значения, указанного в атрибуте **CacheControlMaxAge**. Формат временного диапазона для атрибута **cacheControlMaxAge** имеет вид <days>.<hours>:<min>:<sec>. Дополнительные сведения об узле **clientCache** см. в разделе [Кэш клиента<clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).
+При использовании **UseMaxAge** в ответ добавляется заголовок Cache-Control: max-age=<nnn> на основе значения, указанного в атрибуте **CacheControlMaxAge**. Временной диапазон для атрибута **cacheControlMaxAge** имеет вид <дни>.<часы>:<мин>:<сек>. Дополнительные сведения об узле **clientCache** см. в разделе [Кэш клиента <кэш\_клиента>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).
 
 Для получения содержимого, возвращенного из приложения, такого как ASPX-страницы, можно настроить режим кэша CDN программно, задав свойство **HttpResponse.Cache**. Дополнительные сведения о свойстве **HttpResponse.Cache**, см. в разделах [Свойство HttpResponse.Cache](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) и [Класс HttpCachePolicy](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).
 
@@ -41,13 +43,15 @@
 
 Например, для кэширования содержимого на срок в один час добавьте следующие строки:
 
-            // Set the caching parameters.
-            Response.Cache.SetExpires(DateTime.Now.AddHours(1));
-            Response.Cache.SetCacheability(HttpCacheability.Public);
-            Response.Cache.SetLastModified(DateTime.Now);
+```csharp
+// Set the caching parameters.
+Response.Cache.SetExpires(DateTime.Now.AddHours(1));
+Response.Cache.SetCacheability(HttpCacheability.Public);
+Response.Cache.SetLastModified(DateTime.Now);
+```
 
 ##См. также
 
 [Управление сроком действия содержимого BLOB-объекта в сети доставки содержимого (CDN) Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

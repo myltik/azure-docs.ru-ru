@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование соединителя SAP в приложениях логики | Служба приложений Microsoft Azure"
    description="Из этой статьи вы узнаете, как создать и настроить соединитель SAP или приложение API и использовать его в приложении логики в службе приложений Azure."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="harishkragarwal"
    manager="erikre"
@@ -99,4 +99,4 @@
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

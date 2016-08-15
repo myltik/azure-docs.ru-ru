@@ -1,7 +1,7 @@
 <properties
 pageTitle="Использование соединителя FTP в приложениях логики | Microsoft Azure"
 description="Создание приложений логики с помощью службы приложений Azure. Подключение к FTP-серверу для управления файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов на FTP-сервере."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -375,7 +375,7 @@ BlobMetadata
 |MediaType|строка|
 |IsFolder|Логическое|
 |ETag|string|
-|FileLocator|строка|
+|FileLocator|string|
 
 
 
@@ -438,4 +438,4 @@ BlobMetadata
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

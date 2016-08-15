@@ -117,4 +117,8 @@
     3. Введите сохраненный **персональный маркер доступа** в хранилище артефактов.
     4. Щелкните **Сохранить**.
 
-<!---HONumber=AcomDC_0608_2016-->
+## Связанные записи в блогах
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Способы устранения сбоя артефактов в лабораториях для разработки и тестирования Azure)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Присоединение виртуальной машины к существующему домену AD с помощью шаблона ARM в лаборатории для разработки и тестирования Azure)
+
+<!---HONumber=AcomDC_0803_2016-->

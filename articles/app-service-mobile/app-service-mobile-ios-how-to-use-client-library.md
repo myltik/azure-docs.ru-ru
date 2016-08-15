@@ -390,7 +390,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 Чтобы вызвать настраиваемый интерфейс API, вызовите `MSClient.invokeAPI`, как показано ниже. Содержимое запроса и ответа содержимого рассматривается как JSON. Чтобы использовать другие типы носителей, [воспользуйтесь другой перегрузкой `invokeAPI`](http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:).
 
-Чтобы вместо запроса `POST` выполнить запрос `GET`, задайте параметру `HTTPMethod` значение `"GET"`, а параметру `body` — значение `nil` (поскольку запросы GET не имеют текста сообщений). Если настраиваемый API поддерживает другие команды HTTP, измените `HTTPMethod` соответствующим образом.
+Чтобы вместо запроса `POST` выполнить запрос `GET`, задайте параметру `HTTPMethod` значение `"GET"`, а параметру `body` – значение `nil` (поскольку запросы GET не имеют текста сообщений). Если настраиваемый API поддерживает другие команды HTTP, измените `HTTPMethod` соответствующим образом.
 
 **Objective-C**:
 ```
@@ -540,7 +540,7 @@ if (error.code == MSErrorPreconditionFailed) {
 	    NSString *clientId = @"INSERT-CLIENT-ID-HERE";
 	    NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
 	    ADAuthenticationError *error;
-	    ADAuthenticationContext authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+	    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
 	    authContext.parentController = parent;
 	    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
 	    [authContext acquireTokenWithResource:resourceId
@@ -792,4 +792,4 @@ if (error.code == MSErrorPreconditionFailed) {
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

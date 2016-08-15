@@ -1,40 +1,40 @@
-## How to create VNet Peering in Azure portal
+## Создание пиринга виртуальных сетей на портале Azure
 
-To create a VNet peering based on the scenario above by using the Azure portal, follow the steps below.
+Чтобы создать пиринг виртуальных сетей по описанному выше сценарию с помощью портала Azure, выполните описанные ниже действия.
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. To establish VNET peering, you need to create two links, one for each direction, between two VNets. You can create VNET peering link for VNET1 to VNET2 first. On the portal, 
-Click **Browse** > **choose Virtual Networks** 
+1. В браузере откройте страницу http://portal.azure.com и при необходимости войдите в свою учетную запись Azure.
+2. Чтобы настроить пиринг между двумя виртуальными сетями, необходимо создать два соединения — по одному для каждого направления. Сначала мы создадим пиринговое соединение от виртуальной сети VNET1 к сети VNET2. На портале щелкните **Обзор** > **выберите "Виртуальные сети"**.
 
-	![Create VNet peering in Azure portal](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure01.png)
+	![Создание пиринга виртуальных сетей на портале Azure](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure01.png)
 
-3. In Virtual Networks blade, choose VNET1, click Peerings, then click Add
+3. В колонке виртуальных сетей выберите VNET1, щелкните "Пиринги", а затем — "Добавить".
 
-	![Choose peering](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure02.png)
+	![Выбор пиринга](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure02.png)
 
-4. In the Add Peering blade, give a peering link name LinkToVnet2, choose the subscription and the peer Virtual Network VNET2, click OK.
+4. В колонке "Добавить пиринг" присвойте пиринговому соединению имя LinkToVnet2, выберите нужную подписку, укажите виртуальную сеть VNET2 и нажмите кнопку "ОК".
 
-	![Link to VNet](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure03.png)
+	![Соединение к виртуальной сети](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure03.png)
 
-5. Once this VNET peering link is created. You can see the link state as following:
+5. После создания связи между виртуальными сетями состояние соединения будет таким:
 
-	![Link State](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure04.png)
+	![Состояние соединения](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure04.png)
 
-6. Next create the VNET peering link for VNET2 to VNET1. In Virtual Networks blade, choose VNET2, click Peerings, then click Add 
+6. Теперь мы создадим пиринговое соединение от виртуальной сети VNET2 к сети VNET1. В колонке виртуальных сетей выберите VNET2, щелкните "Пиринги", а затем — "Добавить".
 
-	![Peer from other VNet](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure05.png)
+	![Соединение от другой виртуальной сети](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure05.png)
 
-7. In the Add Peering blade, give a peering link name LinkToVnet1, choose the subscription and the peer Virtual Network, Click OK.
+7. В колонке "Добавить пиринг" присвойте пиринговому соединению имя LinkToVnet1, выберите нужную подписку, укажите виртуальную сеть VNET1 и нажмите кнопку "ОК".
 
-	![Creating virtual network tile](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure06.png)
+	![Плитка создания виртуальной сети](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure06.png)
 
-8. Once this VNET peering link is created. You can see the link state as following:
+8. После создания связи между виртуальными сетями состояние соединения будет таким:
 
-	![Final link state](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure07.png)
+	![Состояние результирующего соединения](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure07.png)
 
-9. Check the state for LinkToVnet2 and it now changes to Connected as well.  
+9. Состояние соединения LinkToVnet2 теперь также примет значение "Подключено".
 
-	![Final link state 2](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure08.png)
+	![Состояние результирующего соединения 2](./media/virtual-networks-create-vnetpeering-arm-pportal-include/figure08.png)
 
-10. NOTE: VNET peering is only established if both links are connected. 
+10. ПРИМЕЧАНИЕ. Пиринг виртуальных сетей создается, только если оба соединения имеют состояние "Подключено".
 
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
    description="Узнайте, как приступить к работе с временными таблицами в базе данных SQL Azure."
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -199,4 +199,4 @@ ALTER TABLE dbo.WebsiteUserInfo
 
 Дополнительные сведения о временных таблицах см. в [документации MSDN](https://msdn.microsoft.com/library/dn935015.aspx). Посетите сайт Channel 9, чтобы услышать [историю успешного внедрения временных решений реальным клиентом](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) и посмотреть [наглядную демонстрацию временных решений](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

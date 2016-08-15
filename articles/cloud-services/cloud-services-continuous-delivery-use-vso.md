@@ -22,7 +22,8 @@
 
 В данном учебнике предполагается, что у вас установлены решения Visual Studio 2013 и пакет SDK Azure. Чтобы загрузить Visual Studio 2013, щелкните ссылку **Начните работу бесплатно** на сайте [www.visualstudio.com](http://www.visualstudio.com). Пакет SDK Azure можно установить по [этой ссылке](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-> [AZURE.NOTE] Для работы с этим учебником необходима учетная запись Visual Studio Team Services. Вы можете [бесплатно зарегистрировать учетную запись Visual Studio Team Services](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE] Для работы с этим учебником необходима учетная запись Visual Studio Team Services. 
+> Вы можете [бесплатно зарегистрировать учетную запись Visual Studio Team Services](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Чтобы настроить автоматическое выполнение сборки и развертывания облачной службы в Azure с использованием Visual Studio Team Services, выполните следующие действия.
 
@@ -268,7 +269,7 @@
 	![][50]
 
 ## Дальнейшие действия
-Дополнительную информацию о модульном тестировании в Visual Studio Team Services см. в разделе [Выполнение тестов в процессе сборки](http://go.microsoft.com/fwlink/p/?LinkId=510474). При использовании Git, см. разделы [Совместное использование кода в Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) и [Непрерывное развертывание с использованием GIT в службе приложений Azure](../app-service-web/web-sites-publish-source-control.md). Дополнительную информацию о Visual Studio Team Services см. в разделе [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Дополнительную информацию о модульном тестировании в Visual Studio Team Services см. в разделе [Выполнение тестов в процессе сборки](http://go.microsoft.com/fwlink/p/?LinkId=510474). При использовании Git, см. статьи с описанием [совместного использования кода в Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) и [непрерывного развертывания в службе приложений Azure](../app-service-web/app-service-continuous-deployment.md). Дополнительную информацию о Visual Studio Team Services см. в разделе [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -321,4 +322,4 @@
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

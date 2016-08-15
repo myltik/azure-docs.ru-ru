@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Использование соединителя BizTalk Edifact в приложениях логики | Служба приложений Microsoft Azure" 
    description="Как создать и настроить соединитель BizTalk Edifact или приложение API и использовать его в приложении логики в службе приложений Azure " 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -53,8 +53,8 @@
 - Соединитель возвращает в качестве выходных данных полезные данные Edifact, идентификатор соглашения, а также указатель, является ли сообщение пакетированным.
 
 ### Действие
-- Щелкните соединитель Edifact в области справа:  
-![Настройки действия][7]
+- Щелкните соединитель Edifact в области справа: ! 
+[Настройки действия][7]
 - Щелкните ->:  
 ![Список действий][8]
 - Соединитель Edifact поддерживает множество действий. Выберите *Кодирование*.  
@@ -100,4 +100,4 @@ Escape-символ|строка|Escape-символ
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

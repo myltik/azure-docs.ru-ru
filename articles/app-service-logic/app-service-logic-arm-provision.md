@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Создание приложения логики с помощью шаблонов диспетчера ресурсов Azure в службе приложений Azure | Microsoft Azure" 
 	description="Использование шаблона диспетчера ресурсов Azure для развертывания пустого приложения логики для определения рабочих процессов." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter="" 
 	authors="MSFTMan" 
 	manager="erikre" 
@@ -116,4 +116,4 @@
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

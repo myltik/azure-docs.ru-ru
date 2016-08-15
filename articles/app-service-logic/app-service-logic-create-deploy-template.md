@@ -1,7 +1,7 @@
 <properties
    pageTitle="Создание шаблона развертывания приложения логики | Microsoft Azure"
    description="Узнайте, как создать шаблон развертывания приложения логики и использовать его для управления выпусками."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -85,4 +85,4 @@
 <!-- Image References -->
 [1]: ./media/app-service-logic-create-deploy-template/emptyReleaseDefinition.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

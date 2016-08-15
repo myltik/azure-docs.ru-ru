@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Как проверить метод оплаты и платить за подписку Azure | Microsoft Azure"
 	description="Описывается, как проверить метод оплаты и платить за подписку Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
+	tags="billing"
 	/>
 
 <tags
@@ -44,4 +45,4 @@
 
 Если вы оплачиваете услугу по выставляемым счетам, отправьте платеж в местоположение, указанное внизу счета. Чтобы получить дополнительную поддержку, обратитесь в [Службу поддержки Майкрософт](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

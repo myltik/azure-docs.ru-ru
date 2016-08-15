@@ -18,7 +18,7 @@
     
 # Непрерывное развертывание в службе приложений Azure
 
-В этом учебнике показано, как настраивать рабочий процесс непрерывного развертывания для приложения [службы приложений Azure]. Служба приложений Azure интегрируется с BitBucket, GitHub и Visual Studio Team Services (VSTS), что обеспечивает непрерывное развертывание, когда Azure извлекает последние обновления из проекта, опубликованные в одной из этих служб. Непрерывное развертывание очень удобно для проектов, которые часто обновляются несколькими участниками.
+В этом руководстве описано, как настроить рабочий процесс непрерывного развертывания для приложения [службы приложений Azure]. Служба приложений Azure интегрируется с BitBucket, GitHub и Visual Studio Team Services (VSTS), что обеспечивает непрерывное развертывание, когда Azure извлекает последние обновления из проекта, опубликованные в одной из этих служб. Непрерывное развертывание очень удобно для проектов, которые часто обновляются несколькими участниками.
 
 ## <a name="overview"></a>Включение непрерывного развертывания
 
@@ -28,7 +28,7 @@
 
 2. В колонке приложения на [портале Azure] выберите **Параметры > Источник развертывания**. Щелкните **Выбор источника** и выберите, например, источник **GitHub**.
 
-	![](./media/app-service-continous-deployment/cd_options.png)
+	![](./media/app-service-continuous-deployment/cd_options.png)
 	
     > [AZURE.NOTE] Чтобы настроить учетную запись VSTS для развертывания службы приложений, см. этот [учебник](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
     
@@ -36,7 +36,7 @@
 
 4. В колонке **Источник развертывания** выберите проект и филиал, откуда будет проводиться развертывание. Закончив, нажмите кнопку **OK**.
   
-	![](./media/app-service-continous-deployment/github_option.png)
+	![](./media/app-service-continuous-deployment/github_option.png)
 
 	> [AZURE.NOTE] При включении непрерывного развертывания с использованием GitHub или BitBucket будут отображаться и открытые, и закрытые проекты.
 
@@ -54,7 +54,7 @@
 
 -	С помощью управления версиями в Visual Studio создайте файл `.gitignore`, как на рисунке ниже, или вручную добавьте в корневую папку репозитория файл `.gitignore` с содержимым, аналогичным [примеру GITIGNORE](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
 
-    ![](./media/app-service-continous-deployment/VS_source_control.png)
+    ![](./media/app-service-continuous-deployment/VS_source_control.png)
  
 -	Добавьте в репозиторий все дерево каталогов решения с файлом .sln в корневой папке репозитория.
 
@@ -66,7 +66,7 @@
 
 1. В колонке приложения на [портале Azure] выберите **Параметры > Источник развертывания**. В колонке **Развертывания** щелкните **Отключить**.
 
-    ![](./media/app-service-continous-deployment/cd_disconnect.png)
+    ![](./media/app-service-continuous-deployment/cd_disconnect.png)
 
 2. Ответив **Да** на сообщение о подтверждении, можно вернуться к колонке приложения и выбрать **Параметры > Источник развертывания**, если требуется настроить публикацию из другого источника.
 
@@ -80,7 +80,7 @@
 
 >[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
-[службы приложений Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-changes-existing-services/
+[службы приложений Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
 [портале Azure]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/ru-RU/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
@@ -93,4 +93,4 @@
 [Приступая к работе с VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
 [Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

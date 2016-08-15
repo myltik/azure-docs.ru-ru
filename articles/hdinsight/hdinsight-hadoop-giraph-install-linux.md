@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/02/2016"
 	ms.author="larryfr"/>
 
 # Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов
@@ -105,15 +105,11 @@ Giraph можно установить в кластер Hadoop любого т�
 
 3. Чтобы сохранить данные в основном хранилище в кластере HDInsight, используйте следующую команду:
 
-		hadoop fs -copyFromLocal tiny_graph.txt /example/data/tiny_graph.txt
+		hdfs dfs -put tiny_graph.txt /example/data/tiny_graph.txt
 
-3. Выполните следующие действия, чтобы получить полный доменный путь (FQDN) для головного узла кластера.
+4. Запустите пример SimpleShortestPathsComputation, используя следующую команду:
 
-        hostname -f
-        
-4. Запустите пример SimpleShortestPathsComputation, используя следующую команду: Замените __HEADNODE__ на полное доменное имя, возвращенное на предыдущем шаге.
-
-		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=HEADNODE:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
+		 yarn jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnodehost:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
 
 	В следующей таблице описаны параметры, используемые в этой команде.
 
@@ -122,18 +118,18 @@ Giraph можно установить в кластер Hadoop любого т�
 	| `jar /usr/hdp/current/giraph/giraph-examples.jar` | JAR-файл, содержащий примеры. |
 	| `org.apache.giraph.GiraphRunner` | Класс, используемый для запуска примеров. |
 	| `org.apache.giraph.examples.SimpleShortestPathsCoputation` | Пример, который будет выполнен. В данном случае будет вычислен кратчайший путь между ИД 1 и всеми другими ИД в графе. |
-	| `-ca mapred.job.tracker=HEADNODE:9010` | Головной узел кластера. |
+	| `-ca mapred.job.tracker=headnodehost:9010` | Головной узел кластера. |
 	| `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | Формат входных данных. |
 	| `-vip /example/data/tiny_graph.txt` | Файл входных данных. |
-	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | Формат выходных данных. В данном случае — ИД и значение в виде обычного текста. |
+	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | Формат выходных данных. В данном случае – ИД и значение в виде обычного текста. |
 	| `-op /example/output/shortestpaths` | Расположение выходных данных. |
-	| `-w 2` | Количество используемых рабочих ролей. В данном случае — две роли. |
+	| `-w 2` | Количество используемых рабочих ролей. В данном случае – две роли. |
 
 	Дополнительные сведения об этих и других параметрах, которые используются в примерах Giraph, см. в [кратком руководстве по Giraph](http://giraph.apache.org/quick_start.html).
 
 5. После завершения задания результаты будут сохранены в каталоге __wasbs:///example/out/shotestpaths__. Созданные файлы будут начинаться с __part-m-\_\_ и заканчиваться числом, указывающим номер файла (первый, второй и т. д.). Для просмотра выходных данных используйте следующую команду:
 
-		hadoop fs -text /example/output/shortestpaths/*
+		hdfs dfs -text /example/output/shortestpaths/*
 
 	Результат должен выглядеть аналогично следующему:
 
@@ -158,4 +154,4 @@ Giraph можно установить в кластер Hadoop любого т�
 
 - [Установка Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md). Используйте настройки кластера для установки Solr в кластерах HDInsight Hadoop. Solr позволяет вести расширенный поиск по хранимым данным.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="07/28/2016"
 	ms.author="cynthn"/>
 
 
@@ -24,8 +24,9 @@
 
 Хотите подключиться к виртуальной машине Linux? См. статью [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-classic-log-on.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-machines-windows-connect-logon.md).
+Узнайте, как [выполнить эти действия с помощью нового портала Azure](virtual-machines-windows-connect-logon.md).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Видеоруководство
 
@@ -44,7 +45,7 @@
 
 	![Вход на виртуальную машину](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
 	
-> [AZURE.TIP] Если кнопка «Подключиться» недоступна, см. советы по устранению неполадок в конце этой статьи.
+> [AZURE.TIP] Если кнопка **Подключиться** недоступна, ознакомьтесь с советами по устранению неполадок в конце этой статьи.
 
 ## Вход на виртуальную машину
 
@@ -57,4 +58,4 @@
 
 Если эти рекомендации не помогли устранить проблему или они вам не подходят, см. статью [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). В ней описывается процесс диагностики и решения распространенных проблем.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

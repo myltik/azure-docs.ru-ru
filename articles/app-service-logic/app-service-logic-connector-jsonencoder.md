@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование кодировщика JSON BizTalk в приложениях логики | Служба приложений Microsoft Azure "
    description="Как создать и настроить кодировщик JSON BizTalk или приложение API и использовать его в приложении логики в службе приложений Azure "
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajeshramabathiran"
    manager="erikre"
@@ -72,4 +72,4 @@
 <!--Links -->
 [Создание приложения логики]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

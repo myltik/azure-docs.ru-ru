@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -398,4 +398,4 @@
 
 В [документации по интерфейсу API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx) описаны все параметры для создания приложений логики и управления ими.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,39 +1,38 @@
 <properties
-	pageTitle="Собственное приложение .NET для Azure AD версии 2.0 | Microsoft Azure"
-	description="Как создать собственное приложение .NET, которое поддерживает вход пользователей с помощью личной учетной записи Майкрософт, а также рабочей или учебной учетных записей."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+pageTitle="Собственное приложение .NET версии 2.0 для Azure Active Directory | Microsoft Azure"
+description="Как создать собственное приложение .NET, которое поддерживает вход пользователей с помощью личной учетной записи Майкрософт, а также рабочей или учебной учетных записей."
+services="active-directory"
+documentationCenter=""
+authors="dstrockis"
+manager="mbaldwin"
+editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-  ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="dastrock"/>
+ms.service="active-directory"
+ms.workload="identity"
+ms.tgt_pltfrm="na"
+ms.devlang="dotnet"
+ms.topic="article"
+ms.date="07/30/2016"
+ms.author="dastrock; vittorib"/>
 
 # Добавление функции входа в классическое приложение для Windows
 
 Точка доступа версии 2.0 позволяет быстро реализовать в классических приложениях аутентификацию с поддержкой личных учетных записей Майкрософт, а также рабочих или учебных учетных записей. Она также позволяет приложению безопасно обмениваться данными с серверным веб-API, а также [Microsoft Graph](https://graph.microsoft.io) и несколькими [унифицированными API Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
-> [AZURE.NOTE]
-	Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
+> [AZURE.NOTE] Не все сценарии и компоненты Azure Active Directory (AD) поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
 
 Для [собственных приложений .NET, запущенных на устройстве](active-directory-v2-flows.md#mobile-and-native-apps), в Azure AD предлагается использовать библиотеку проверки подлинности Майкрософт (MSAL). MSAL помогает приложению быстро получать маркеры доступа и вызывать веб-службы. Чтобы показать, насколько это просто, создадим приложение To Do List (ведение списка дел) для .NET WPF, которое:
 
--	выполняет вход пользователя и получает маркеры доступа с помощью [протокола проверки подлинности OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow);
--	безопасно вызывает серверную веб-службу списка дел, которая также защищена OAuth 2.0.
--	выполняет выход пользователя из приложения.
+- выполняет вход пользователя и получает маркеры доступа с помощью [протокола проверки подлинности OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow);
+- безопасно вызывает серверную веб-службу списка дел, которая также защищена OAuth 2.0.
+- обеспечивает выход пользователя из приложения.
 
 ## Скачивание примера кода
 
 Код в этом учебнике размещен на портале [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) или клонировать ее:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
+    git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
 
 Готовое приложение также приводится в конце этого руководства.
 
@@ -41,7 +40,7 @@
 Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните [эти подробные указания](active-directory-v2-app-registration.md). Не забудьте:
 
 - запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
-- Добавьте для приложения **мобильную** платформу.
+- Добавьте для приложения **мобильную** платформу.
 
 ## Установка и настройка MSAL
 Ваше приложение зарегистрировано в Майкрософт. Теперь вы можете установить MSAL и написать собственный код для работы с удостоверением. Чтобы библиотека MSAL могла обмениваться информацией с конечной точкой версии 2.0, вам нужно предоставить определенную информацию о регистрации приложения.
@@ -250,6 +249,7 @@ MSAL позволяет легко включать в приложение об
 - [Защита веб-API TodoListService с помощью конечной точки версии 2.0](active-directory-v2-devquickstarts-dotnet-api.md)
 
 Дополнительные ресурсы:
+
 - [Руководство разработчика версии 2.0 >>](active-directory-appmodel-v2-overview.md)
 - [Тег msal на сайте StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
 
@@ -257,4 +257,4 @@ MSAL позволяет легко включать в приложение об
 
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -4,7 +4,7 @@
    keywords="непрерывность бизнес-процессов, непрерывность облачных бизнес-процессов, аварийное восстановление базы данных, восстановление базы данных"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -135,4 +135,4 @@
 
 Вопросы разработки приложений для автономных баз данных и пулов эластичных БД рассматриваются в разделах [Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md) и [Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -4,7 +4,7 @@
 	authors="jeffhollan" 
 	manager="erikre" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
@@ -105,4 +105,4 @@
 - [Вы можете автоматизировать бизнес-процессы с помощью приложений логики](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Узнайте, как интегрировать системы с приложениями логики](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

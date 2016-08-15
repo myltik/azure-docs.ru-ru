@@ -21,7 +21,7 @@
 
 Из этого учебника вы узнаете, как создавать крупномасштабные сложные приложения с помощью [службы приложений Azure](/services/app-service/) и [гибкой разработки программного обеспечения](https://en.wikipedia.org/wiki/Agile_software_development). Предполагается, что вы уже знаете, как [предсказуемо развертывать сложные приложения в Azure](app-service-deploy-complex-application-predictably.md).
 
-Ограничения в технических процессах часто могут препятствовать успешной реализации гибких методологий. Служба приложений Azure с такими компонентами, как[непрерывная публикация](web-sites-publish-source-control.md), [промежуточные среды](web-sites-staged-publishing.md) (слоты) и [мониторинг](web-sites-monitor.md) в сочетании с оркестрацией и управлением развертывания в [диспетчере ресурсов Azure](../resource-group-overview.md), может входить в состав идеального решения для разработчиков, которые используют гибкую разработку программного обеспечения.
+Ограничения в технических процессах часто могут препятствовать успешной реализации гибких методологий. Служба приложений Azure с такими компонентами, как[непрерывная публикация](app-service-continuous-deployment.md), [промежуточные среды](web-sites-staged-publishing.md) (слоты) и [мониторинг](web-sites-monitor.md) в сочетании с оркестрацией и управлением развертывания в [диспетчере ресурсов Azure](../resource-group-overview.md), может входить в состав идеального решения для разработчиков, которые используют гибкую разработку программного обеспечения.
 
 Следующая таблица содержит краткий список требований, связанных с гибкой разработкой, и способы включения каждого из них в службе Azure.
 
@@ -37,7 +37,7 @@
 
 ## Выполняемая задача ##
 
-Здесь пошагово описывается типичный рабочий процесс (разработка, тестирование, промежуточное хранение и производство) публикации новых изменений в примере приложения [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), которое состоит из двух [веб-приложений](/services/app-service/web/). Первое является внешним интерфейсом, а второе — серверной частью веб-API и [базой данных SQL](/services/sql-database/). Вы будете работать с архитектурой развертывания, которая изображена ниже:
+Здесь пошагово описывается типичный рабочий процесс (разработка, тестирование, промежуточное хранение и производство) публикации новых изменений в примере приложения [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), которое состоит из двух [веб-приложений](/services/app-service/web/). Первое является внешним интерфейсом, а второе – серверной частью веб-API и [базой данных SQL](/services/sql-database/). Вы будете работать с архитектурой развертывания, которая изображена ниже:
 
 ![](./media/app-service-agile-software-development/what-1-architecture.png)
 
@@ -52,7 +52,7 @@
 
 Среда разработки и среда тестирования определяются шаблоном в файле [*&lt;repository\_root>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json).
 
-Вы будет использовать обычную стратегию ветвления, перемещая код из ветви разработки в ветвь тестирования, а затем — в главную ветвь (перемещая по мере повышения качества кода).
+Вы будет использовать обычную стратегию ветвления, перемещая код из ветви разработки в ветвь тестирования, а затем – в главную ветвь (перемещая по мере повышения качества кода).
 
 ![](./media/app-service-agile-software-development/what-2-branches.png)
 
@@ -60,7 +60,7 @@
 
 -	Учетная запись Azure.
 -	Учетная запись [GitHub](https://github.com/).
--	Оболочка Git Shell (устанавливается вместе с [GitHub для Windows](https://windows.github.com/)) — она позволяет запускать команды PowerShell и Git в одном сеансе.
+-	Оболочка Git Shell (устанавливается вместе с [GitHub для Windows](https://windows.github.com/)) – она позволяет запускать команды PowerShell и Git в одном сеансе.
 -	Последняя версия [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi).
 -	Базовые знания таких компонентов.
 	-	Развертывание шаблона [диспетчера ресурсов Azure](../resource-group-overview.md) (см. также [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md)).
@@ -77,7 +77,7 @@
 
 >[AZURE.NOTE] Сценарий, используемый в этом учебнике, автоматически настроит непрерывную публикацию из репозитория GitHub. Для этого необходимо, чтобы учетные данные GitHub уже хранились в Azure. Иначе при попытке настроить параметры системы управления версиями для веб-приложений произойдет сбой развертывания, заложенного в сценарий.
 >
->Чтобы сохранить учетные данные GitHub в Azure, создайте веб-приложение на [портале Azure](https://portal.azure.com/) и [настройте развертывание GitHub](web-sites-publish-source-control.md#Step7). Это нужно сделать только один раз.
+>Чтобы сохранить учетные данные GitHub в Azure, создайте веб-приложение на [портале Azure](https://portal.azure.com/) и [настройте развертывание GitHub](app-service-continuous-deployment.md). Это нужно сделать только один раз.
 
 В типичном сценарии DevOps у вас есть приложение, которое работает в Azure, и вам нужно внести в него изменения с помощью непрерывной публикации. В этом сценарии у вас есть шаблон, который вы разработали, протестировали и использовали для развертывания в рабочей среде. Он будет настроен в этом разделе.
 
@@ -273,13 +273,13 @@
 -	[Практика гибкой разработки: советы и рекомендации для модернизированного цикла разработки](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 -	[Стратегии расширенного развертывания для веб-приложений Azure с помощью шаблонов диспетчера ресурсов](http://channel9.msdn.com/Events/Build/2015/2-620)
 -	[Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
--	[JSONLint — проверяющий элемент управления JSON](http://jsonlint.com/)
--	[ARMClient — настройка публикации GitHub на веб-сайте](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
--	[Ветвление Git — основные ветвления и слияния](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+-	[JSONLint – проверяющий элемент управления JSON](http://jsonlint.com/)
+-	[ARMClient – настройка публикации GitHub на веб-сайте](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
+-	[Ветвление Git – основные ветвления и слияния](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Блог Дэвида Эббо (David Ebbo)](http://blog.davidebbo.com/)
 -	[Azure PowerShell](../powershell-install-configure.md)
 -	[Кроссплатформенные программы командной строки Azure.](../xplat-cli-install.md)
 -	[Создание и изменение пользователей в Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Вики-сайт проекта Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

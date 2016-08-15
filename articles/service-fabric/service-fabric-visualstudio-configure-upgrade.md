@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/14/2016"
+   ms.date="07/29/2016"
    ms.author="cawa" />
 
 # Настройка обновления приложения Service Fabric в Visual Studio
@@ -94,4 +94,4 @@
 ## Дальнейшие действия
 Дополнительные сведения о развертывании приложений см. в разделе [Развертывание существующего приложения в Azure Service Fabric](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

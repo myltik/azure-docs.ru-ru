@@ -3,7 +3,7 @@
    description="Восстановление до точки во времени, база данных SQL Microsoft Azure, восстановление базы данных, восстановление базы данных, классический портал Azure, классический портал Azure"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -56,4 +56,4 @@
 Если для доступа к базе данных требуется аудит, то после восстановления базы данных необходимо включить аудит. Индикатором того, что необходим аудит, служит использование в клиентских приложениях строк безопасного подключения вида *. database.secure.windows.net. Дополнительные сведения см. в статье [Приступая к работе с аудитом базы данных SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

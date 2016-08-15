@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/11/2016"
+   ms.date="08/01/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Распределение таблиц в хранилище данных SQL
@@ -187,7 +187,7 @@ from dbo.vTableSizes
 where two_part_name in 
     (
     select two_part_name
-    from dbo.vDistributionSkew 
+    from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
     having min(row_count * 1.000)/max(row_count * 1.000) > .10
@@ -286,7 +286,9 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Дальнейшие действия
 
-Дополнительные сведения о разработке таблиц см. в статьях, посвященных [распределению][], [индексированию][] и [секционированию таблиц][], а также [типам данных][], [управлению статистикой][] и [временным таблицам][Temporary]. Рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL Azure][].
+Дополнительные сведения о разработке таблиц см. в статьях, посвященных [распределению][], [индексированию][] и [секционированию таблиц][], а также [типам данных][], [управлению статистикой][] и [временным таблицам][Temporary].
+
+Рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL Azure][].
 
 
 <!--Image references-->
@@ -315,4 +317,4 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

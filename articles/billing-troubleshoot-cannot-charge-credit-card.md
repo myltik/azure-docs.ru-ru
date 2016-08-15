@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Получено электронное сообщение о том, что использование мною служб может быть прервано | Microsoft Azure"
 	description="Описывается, как устранить проблему, когда с вашей кредитной карты не удается оплатить подписку."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -30,4 +30,4 @@
 
 Если вам нужна помощь с обращением в службу поддержки, см. статью [How to create a support ticket for Azure billing and subscription issues](billing-how-to-create-billing-support-ticket.md).
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

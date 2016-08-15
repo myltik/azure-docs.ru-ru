@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование соединителя POP3 в приложениях логики | Служба приложений Microsoft Azure"
    description="Из этой статьи вы узнаете, как создать и настроить соединитель POP3 или приложение API и использовать его в приложении логики в службе приложений Azure."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -86,4 +86,4 @@
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

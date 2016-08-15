@@ -3,7 +3,7 @@
     description="Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью Transact-SQL" 
     services="sql-database" 
     documentationCenter="" 
-    authors="carlrabeler" 
+    authors="CarlRabeler" 
     manager="jhubbard" 
     editor=""/>
 
@@ -102,4 +102,4 @@
 - Сведения об использовании активной георепликации с пулами эластичных баз данных см. в разделе [Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 - Общие сведения об обеспечении непрерывности бизнес-процессов можно узнать в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing"/>
 
 <tags
@@ -69,7 +69,7 @@
 Следующий адрес электронной почты можно добавить в качестве соадминистратора.
 
 * **Учетная запись Майкрософт** (ранее Windows Live ID) </br> Вы можете использовать учетную запись Майкрософт для входа во все клиентские продукты Microsoft и облачные службы, включая Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone и Xbox LIVE.
-* **Учетная запись организации**</br> Учетная запись организации — это учетная запись, созданная в каталоге Azure Active Directory. Адрес учетной записи организации выглядит приблизительно так: пользователь@&lt;домен&gt;.onmicrosoft.com.
+* **Учетная запись организации**</br> Учетная запись организации – это учетная запись, созданная в каталоге Azure Active Directory. Адрес учетной записи организации выглядит приблизительно так: пользователь@&lt;домен&gt;.onmicrosoft.com.
 
 ### Ограничения
 
@@ -114,4 +114,4 @@
 
 * Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в разделе [Назначение ролей администратора в Azure Active Directory](./active-directory/active-directory-assign-admin-roles.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

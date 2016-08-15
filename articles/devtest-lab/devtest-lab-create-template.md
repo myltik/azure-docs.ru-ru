@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/02/2016"
 	ms.author="tarcher"/>
 
 # Создание пользовательского образа DevTest Labs из VHD-файла
@@ -74,8 +74,13 @@
 
 1. В следующей колонке будут отображены инструкции по изменению и запуску сценария PowerShell, который отправляет VHD-файл в вашу подписку Azure. **Примечание.** В зависимости от размера VHD-файла и скорости подключения этот процесс может занять длительное время.
 
+## Связанные записи в блогах
+
+- [Custom images or formulas? (Пользовательские изображения или формулы?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Copying Custom Images between Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs) (Копирование пользовательских образов между лабораториями для разработки и тестирования Azure)
+
 ##Дальнейшие действия
 
-После добавления пользовательского образа для виртуальной машины необходимо [добавить виртуальную машину в лабораторию](./devtest-lab-add-vm-with-artifacts.md).
+Когда вы добавите пользовательский образ для виртуальной машины, вам нужно будет [добавить виртуальную машину в лабораторию](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

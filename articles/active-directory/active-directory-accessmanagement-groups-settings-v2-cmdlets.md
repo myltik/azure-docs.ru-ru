@@ -219,10 +219,8 @@
 
 Дополнительную документацию по PowerShell Azure Active Directory см. в разделе [Azure Active Directory Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=808260) (Командлеты Azure Active Directory).
 
-Дополнительные инструкции от руководителя программы Майкрософт Роба де Йонга (Rob de Jong) см. в [групповом блоге Роба](http://robsgroupsblog.com/blog/configuring-settings-for-office-365-groups-in-azure-ad).
-
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

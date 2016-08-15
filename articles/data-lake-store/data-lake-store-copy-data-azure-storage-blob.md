@@ -18,7 +18,11 @@
 
 # Копирование данных из больших двоичных объектов хранилища Azure в хранилище озера данных
 
-Azure Data Lake Store предоставляет программу командной строки [AdlCopy](http://aka.ms/downloadadlcopy) для копирования данных из указанных ниже источников.
+> [AZURE.SELECTOR]
+- [С помощью DistCp](data-lake-store-copy-data-wasb-distcp.md)
+- [С помощью AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+
+В Azure Data Lake Store доступно средство командной строки [AdlCopy](http://aka.ms/downloadadlcopy) для копирования данных из следующих источников.
 
 * Из больших двоичных объектов службы хранилища Azure в Data Lake Store. AdlCopy нельзя использовать для копирования данных из хранилища озера данных в большие двоичные объекты хранилища Azure.
 
@@ -169,4 +173,4 @@ Azure Data Lake Store предоставляет программу команд
 - [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -59,4 +59,4 @@
  
 Вы можете ознакомиться с [техническим обзором Базы данных SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Совместное использование одного клиента Azure AD подписками Office 365 и Azure | Microsoft Azure"
 	description="Узнайте, как совместно использовать клиент Azure AD Office 365 и его пользователей с подпиской Azure, или наоборот"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="jiangchen79"
 	manager="mbaldwin"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"/>
 
 <tags
 	ms.service="billing"
@@ -147,4 +147,4 @@ Office 365 и Azure используют службу Azure Active Directory (AA
 ##Дальнейшие действия
 Существует связанный сценарий: в прошлом вы приобрели по отдельности подписку Azure и подписку Office 365 и сейчас хотите иметь доступ к клиенту Office 365 из подписки Azure. Сведения о том, как это сделать, см. в разделе о [связывании клиента Office 365 с подпиской Azure](billing-add-office-365-tenant-to-azure-subscription.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->
