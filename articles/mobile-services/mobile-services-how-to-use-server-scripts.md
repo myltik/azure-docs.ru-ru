@@ -1017,6 +1017,7 @@
 [wns object]: http://msdn.microsoft.com/library/windowsazure/jj860484.aspx
 [table]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
 [объект таблицы]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
+[Объект таблицы]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
 [объекта таблицы]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
 [объектом таблицы]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
 [объект таблиц]: http://msdn.microsoft.com/library/windowsazure/jj614364.aspx
