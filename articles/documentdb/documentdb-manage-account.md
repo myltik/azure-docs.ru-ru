@@ -152,4 +152,4 @@
 [azureregions]: https://azure.microsoft.com/regions/#services
 [offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
-<!------HONumber=AcomDC_0727_2016-->
+<!-------HONumber=AcomDC_0727_2016-->
