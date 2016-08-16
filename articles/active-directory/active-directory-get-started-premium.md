@@ -23,7 +23,7 @@
 
 **Azure или Office 365** — каждый подписчик Azure или Office 365 может приобрести Active Directory Premium через Интернет. Подробные инструкции см. в видео [How to Purchase Azure Active Directory Premium - Existing Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) (Как существующие клиенты могут приобрести Azure Active Directory Premium) и [How to Purchase Azure Active Directory Premium - New Customers](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers) (Как новые клиенты могут приобрести Azure Active Directory Premium).
 
-**Enterprise Mobility Suite** — это экономичный способ, с помощью которого организации могут совместно использовать службы Active Directory Premium, Azure Rights Management и Microsoft Intune в рамках одного плана лицензирования. Дополнительные сведения см. на веб-сайте [Набор корпоративных служб мобильности](https://www.microsoft.com/ru-RU/server-cloud/enterprise-mobility/overview.aspx). Чтобы получить бесплатную 30-дневную пробную версию, щелкните [здесь](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
+**Enterprise Mobility + Security** (предыдущее название — Enterprise Mobility Suite) — это экономичный способ, с помощью которого организации могут совместно использовать службы Active Directory Premium, Azure Rights Management и Microsoft Intune в рамках одного плана лицензирования. Дополнительные сведения см. на веб-сайте [Enterprise Mobility + Security](https://www.microsoft.com/ru-RU/server-cloud/enterprise-mobility/overview.aspx). Чтобы получить бесплатную 30-дневную пробную версию, щелкните [здесь](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0).
 
 
 **Корпоративное лицензирование Microsoft** — служба Azure Active Directory Premium доступна по программам [Microsoft Enterprise](https://www.microsoft.com/ru-RU/licensing/licensing-programs/enterprise.aspx) (250 и более лицензий) и [Open Volume](https://www.microsoft.com/ru-RU/licensing/licensing-programs/open-license.aspx) (5–250 лицензий).
@@ -76,7 +76,7 @@
 
 При подготовке лицензий для своего каталога вы получите **приветственное сообщение электронной почты**. Это сообщение подтвердит, что вы можете приступать к управлению лицензиями и функциями Azure Active Directory Premium или Enterprise Mobility Suite.
 
-Если вы попытаетесь активировать доступ к Azure Active Directory до получения приветственного сообщения, может появиться следующее сообщение об ошибке.
+Если вы попытаетесь активировать доступ к Azure Active Directory до получения приветственного сообщения, может появиться следующее сообщение об ошибке:
 
 ![Доступ не предоставляется][9]
 
@@ -91,7 +91,7 @@
 
 **Чтобы активировать доступ к Azure Active Directory, выполните следующие действия:**
 
-1. В **приветственном сообщении** щелкните **Вход**. 
+1. В **приветственном сообщении** щелкните **Вход**.
     
     ![Приветственное сообщение электронной почты][4]
 
@@ -160,4 +160,4 @@
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

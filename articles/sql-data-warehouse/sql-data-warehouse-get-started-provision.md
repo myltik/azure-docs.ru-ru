@@ -24,17 +24,17 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-При работе с этим руководством вы будете использовать портал Azure, чтобы создать хранилище данных SQL, содержащее пример базы данных AdventureWorksDW.
+При работе с этим руководством мы создадим хранилище данных SQL, содержащее пример базы данных AdventureWorksDW. Для создания хранилища будет использоваться портал Azure.
 
 
 ## Предварительные требования
 
-Для начала работы вам потребуются перечисленные ниже компоненты и данные.
+Для начала работы необходимы перечисленные ниже компоненты и данные.
 
 - **Учетная запись Azure**. Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][] или [кредитов Azure MSDN][].
-- **Сервер SQL Azure**. Cм. сведения в статье о [создании логического сервера базы данных SQL с помощью портала Azure][].
+- **Сервер SQL Azure**. Дополнительные сведения см. в статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure][].
 
-> [AZURE.NOTE] Создание хранилища данных SQL может привести к дополнительным расходам. Дополнительные сведения о ценах см. на странице [Цены на хранилище данных SQL][].
+> [AZURE.NOTE] Создание хранилища данных SQL может привести к дополнительным расходам. Дополнительные сведения см. на странице [с ценами на хранилище данных SQL][].
 
 ## Создание хранилища данных SQL
 
@@ -48,55 +48,55 @@
 
     ![Создание базы данных](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-	- **Сервер**. Рекомендуется сначала выбрать сервер. Можно выбрать имеющийся сервер или [создать сервер](./sql-data-warehouse-get-started-new-server.md).
+	- **Сервер**. Рекомендуется сначала выбрать сервер.
 
-	- **Имя базы данных**. Имя, которое будет использоваться для обращения к хранилищу данных SQL. Это должно быть уникальное имя на сервере.
+	- **Имя базы данных**. Имя, которое будет использоваться при обращении к хранилищу данных SQL. Это должно быть уникальное имя на сервере.
 	
-    - **Производительность**. Рекомендуем начать с 400 [DWU][DWU]. Можно переместить ползунок влево или вправо, чтобы настроить производительность хранилища данных, а также увеличить или уменьшить масштаб после создания. Дополнительные сведения о DWU см. в статье о [масштабировании](./sql-data-warehouse-manage-compute-overview.md) или на [странице цен][SQL Data Warehouse pricing].
+    - **Производительность**. Рекомендуем начать с 400 [DWU][DWU]. Можно переместить ползунок влево или вправо, чтобы настроить производительность хранилища данных, а также увеличить или уменьшить масштаб после создания. Дополнительные сведения о DWU см. в статье о [масштабировании](./sql-data-warehouse-manage-compute-overview.md) и на [странице цен][SQL Data Warehouse pricing].
 
-    - **Подписка**. Выберите [подписку], на которую хранилище данных SQL будет выставлять счета.
+    - **Подписка**. Выберите [подписку], для которой будут выставляться счета за работу с хранилищем данных SQL.
 
     - **Группа ресурсов**. [Группы ресурсов][Resource group] — это контейнеры, которые помогают управлять коллекцией ресурсов Azure. Дополнительная информация о [группах ресурсов](../resource-group-overview.md).
 
-    - **Выбрать источник**. Последовательно выберите **Выбрать источник** > **Пример**. Так как сейчас есть только один пример базы данных, когда вы выбираете элемент «Образец», Azure автоматически устанавливает значение AdventureWorksDW для параметра **Выберите пример**.
+    - **Выбрать источник**. Последовательно выберите **Выбрать источник** > **Пример**. Azure автоматически подставляет в поле **Выберите пример** вариант AdventureWorksDW.
 
 4. Щелкните **Создать**, чтобы создать хранилище данных SQL.
 
-5. Подождите несколько минут, пока создается хранилище данных SQL. Когда база данных будет готова, вы вернетесь на [портал Azure](https://portal.azure.com). Хранилище данных SQL можно найти на панели мониторинга в списке баз данных SQL или в группе ресурсов, в которой оно было создано.
+5. Подождите несколько минут. Когда хранилище данных будет готово, вы будете перенаправлены на [портал Azure](https://portal.azure.com). Хранилище данных SQL можно найти на панели мониторинга в списке баз данных SQL или в группе ресурсов, в которой оно было создано.
 
-    ![Предварительная версия портала](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
+    ![Портал](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
 [AZURE.INCLUDE [Создание сервера базы данных SQL](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
 ## Дальнейшие действия
 
-Теперь, когда создано хранилище данных SQL, вы можете [подключиться](./sql-data-warehouse-connect-overview.md) и приступить к выполнению запросов.
+Создав хранилище данных SQL, вы можете [подключиться](./sql-data-warehouse-connect-overview.md) к нему и выполнять различные запросы.
 
 Общие сведения о загрузке см. в статье [Загрузка данных в хранилище данных SQL](./sql-data-warehouse-overview-load.md).
 
 Если вы пытаетесь перенести существующую базу данных в хранилище данных SQL, см. статью [Общие сведения о миграции](./sql-data-warehouse-overview-migrate.md) или используйте [служебную программу миграции](./sql-data-warehouse-migrate-migration-utility.md).
 
-Можно также настроить правила брандмауэра с помощью Transact-SQL. Дополнительные сведения см. в разделе [sp\_set\_firewall\_rule][] и [sp\_set\_database\_firewall\_rule][].
+Можно также настроить правила брандмауэра с помощью Transact-SQL. Дополнительные сведения см. в статьях [sp\_set\_firewall\_rule (база данных SQL Azure)][] и [sp\_set\_database\_firewall\_rule (база данных SQL Azure)][].
 
-Рекомендуем ознакомиться со статьей [Рекомендации по использованию хранилища данных SQL Azure][].
+Рекомендуем также ознакомиться со статьей [Рекомендации по использованию хранилища данных SQL Azure][].
 
 <!--Article references-->
-[создании логического сервера базы данных SQL с помощью портала Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [resource groups]: ../resource-group-template-deploy-portal.md
-[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[Рекомендации по использованию хранилища данных SQL Azure]: sql-data-warehouse-best-practices.md
+[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [подписку]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 
 <!--MSDN references-->
-[sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
-[sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
+[sp\_set\_firewall\_rule (база данных SQL Azure)]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp\_set\_database\_firewall\_rule (база данных SQL Azure)]: https://msdn.microsoft.com/library/dn270010.aspx
 
 <!--Other Web references-->
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Цены на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[с ценами на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

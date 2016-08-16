@@ -32,7 +32,7 @@
 Имя | Описание
 --- | ---
 [Служебная шина Azure](app-service-logic-connector-azureservicebus.md) | Может отправлять сообщения из очередей и разделов служебной шины, а также получать сообщения из очередей и подписок служебной шины.
-[Переводчик Bing](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Перевод текста на другой язык с помощью службы Bing.
+[Переводчик Bing](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Перевод текста на другой язык с помощью службы Bing.
 [HTTP](app-service-logic-connector-http.md) | Прослушиватель HTTP открывает конечную точку, которая действует как HTTP-сервер и прослушивает входящий HTTP-трафик или HTTP-запросы. Для действия HTTP не требуется приложение API, и его поддержка встроена в приложения логики.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Соединитель Office 365 может отправлять и получать сообщения электронной почты, управлять календарем, а также управлять контактами с помощью учетной записи Office 365.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Вы можете выполнять разные задачи, включая создание, обновление и отправку запросов на разные сущности из Intuit QuickBooks, включая клиенты, элементы, счета и пр.
@@ -80,4 +80,4 @@
 ## Дополнительные сведения о соединителях и приложениях API
 [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md) [Подключение к локальным соединителям, размещенным в службе приложений Azure, с помощью диспетчера гибридных подключений](app-service-logic-hybrid-connection-manager.md) [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->
