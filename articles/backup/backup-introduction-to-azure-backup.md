@@ -3,8 +3,8 @@
 	description="С помощью службы архивации и служб восстановления Azure можно создавать резервные копии и восстанавливать данные и приложения на серверах Windows, клиентских компьютерах Windows, серверах System Center DPM и виртуальных машинах Azure."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor="tysonn"
 	keywords="резервное копирование и восстановление; службы восстановления; решения для резервного копирования"/>
 
@@ -69,8 +69,7 @@
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
 | Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
 | Microsoft Exchange | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md) (и агент службы архивации Azure),</p> <p>[сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md) (включает в себя агент службы архивации Azure)</p> |
-| Виртуальные машины IaaS Azure (Windows)| — | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) | 
-| Виртуальные машины Azure IaaS (Linux) | — | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины IaaS Azure (Windows)| — | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) | | Виртуальные машины Azure IaaS (Linux) | — | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
 
 ## Поддержка ARM и Linux
 
@@ -228,4 +227,4 @@
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

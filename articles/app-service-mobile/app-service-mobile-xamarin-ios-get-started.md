@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/28/2016"
+	ms.date="08/04/2016"
 	ms.author="normesta"/>
 
 
@@ -52,15 +52,6 @@
 Выполните следующие действия, чтобы настроить серверный проект для использования серверной части .NET или Node.js.
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
-
-
-## Локальное тестирование серверного проекта (необязательно)
-
-Если выбрана приведенная выше конфигурация серверной части .NET, при необходимости вы можете выполнить локальное тестирование серверной части.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-
 
 ## Скачивание и запуск приложения Xamarin.iOS
 
@@ -108,4 +99,4 @@
 <!-- URLs. -->
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->
