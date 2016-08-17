@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Приступая к разработке для Azure CDN
@@ -367,4 +367,4 @@ function cdnDelete() {
 
 Чтобы получить дополнительную документацию о пакете SDK Azure для Node.js, откройте [полный справочник](http://azure.github.io/azure-sdk-for-node/).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

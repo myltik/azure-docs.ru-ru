@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание и передача образа Windows Server с помощью Powershell | Microsoft Azure"
+	pageTitle="Создание и передача образа виртуальной машины с помощью Powershell | Microsoft Azure"
 	description="Узнайте, как создать и передать универсальный образ Windows Server (VHD) с помощью классической модели развертывания и Azure Powershell."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -104,4 +104,4 @@
 
 Теперь вы можете [создать пользовательскую виртуальную машину](virtual-machines-windows-classic-createportal.md) с помощью переданного образа.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

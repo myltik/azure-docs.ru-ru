@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="08/01/2016"
    ms.author="sonyama;barbkess"/>
 
 
@@ -25,14 +25,7 @@
 - [Драйверы](sql-data-warehouse-connection-strings.md)
 
 
-Для подключения к хранилищу данных SQL можно использовать любой из следующих протоколов приложений.
-
-- [ADO.NET][]
-- [ODBC][]
-- [PHP][]
-- [JDBC][]
-
-Ниже приведены некоторые примеры строк подключения для каждого протокола. Кроме того, для настройки строки подключения можно использовать портал Azure. Для этого просто перейдите к базе данных на портале Azure. В разделе *Основные компоненты* щелкните *Показать строки подключения к базе данных*.
+Подключиться к хранилищу данных SQL можно с помощью нескольких различных протоколов приложений, таких как [ADO.NET][], [ODBC][], [PHP][] и [JDBC][]. Ниже приведены некоторые примеры строк подключения для каждого протокола. Кроме того, для формирования строки подключения можно использовать портал Azure. Чтобы создать строку подключения с помощью портала Azure, перейдите к колонке своей базы данных и в разделе *Основное* щелкните *Показать строки подключения к базам данных*.
 
 ## Пример строки подключения по протоколу ADO.NET
 
@@ -58,6 +51,8 @@ Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
+> [AZURE.NOTE] Рассмотрите возможность задания времени ожидания подключения, равного 300 секундам, чтобы подключение могло выдерживать короткие периоды недоступности.
+
 ## Дальнейшие действия
 
 Чтобы приступить к отправке запросов к хранилищу данных с помощью Visual Studio и других приложений, ознакомьтесь с разделом [Запросы к хранилищу данных SQL Azure (Visual Studio)][].
@@ -75,4 +70,4 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

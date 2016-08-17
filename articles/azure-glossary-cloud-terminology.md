@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/04/2016"
+    ms.date="08/03/2016"
     ms.author="monicar"/>
 
 
@@ -146,8 +146,8 @@ JSON-файл, который декларативно определяет од
 
 ###**См. также**  
 - [Приступая к работе с Azure](https://azure.microsoft.com/get-started/)
-- [Центр облачных ресурсов](https://azure.microsoft.com/resources/)  
+- [Центр облачных ресурсов](https://azure.microsoft.com/resources/)
 - [Azure для бизнес-приложений](https://azure.microsoft.com/overview/business-apps-on-azure/)
-- [Azure в вашем центре обработки данных](https://azure.microsoft.com/overview/business-apps-on-azure/) 
+- [Azure в вашем центре обработки данных](https://azure.microsoft.com/overview/business-apps-on-azure/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0803_2016-->

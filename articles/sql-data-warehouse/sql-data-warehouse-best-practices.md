@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="07/29/2016"
    ms.author="sonyama;barbkess"/>
 
 # Рекомендации по использованию хранилища данных SQL Azure
@@ -80,7 +80,7 @@
 
 Если выбрать только необходимые столбцы, запросы к таблице ColumnStore будут выполняться быстрее.
 
-Дополнительные сведения см. в статье об [индексировании таблиц][] и [руководстве по индексам Columnstore][].
+Ознакомьтесь также с [индексированием таблиц][], [руководством по индексам Columnstore][] и [перестроением индексов columnstore][].
 
 ## Использование класса ресурсов большого размера для повышения производительности запросов
 Чтобы выделить память для выполнения запросов, в хранилище данных SQL используются группы ресурсов. По умолчанию для всех пользователей настроен класс ресурсов небольшого размера, предусматривающий 100 МБ памяти для каждого распределения. В хранилище данных SQL содержится 60 распределений, на каждое из которых выделяется как минимум 100 МБ памяти. Поэтому в целом для системы выделяется 6000 МБ памяти (около 6 ГБ). На выполнение некоторых запросов (например, на объединение таблиц с кластеризованными индексами Columnstore или добавления в них данных) требуется больше памяти. На выполнение некоторых запросов, таких как запросы на обычное сканирование, память не требуется. В тоже время перед перемещением всех пользователей в класс ресурсов большего размера следует учитывать, что использование такого класса влияет на параллелизм.
@@ -100,7 +100,7 @@
 ## Другие ресурсы:
 Дополнительные сведения о распространенных проблемах и решениях см. в статье [Устранение неполадок хранилища данных SQL Azure][].
 
-Если вы не нашли нужных сведений в этой статье, попробуйте использовать поиск по документации в левой части страницы, чтобы найти все документы, связанные с хранилищем данных SQL Azure. На [форуме хранилища данных SQL Azure на портале MSDN][] можно задать вопросы другим пользователям и разработчикам хранилища данных SQL. Мы регулярно просматриваем этот форум и следим за тем, чтобы другие пользователи или наши специалисты ответили на интересующий вас вопрос. Вопросы также можно задавать на [форуме хранилища данных SQL Azure на сайте Stack Overflow][].
+Если вы не нашли нужных сведений в этой статье, попробуйте использовать поиск по документации в левой части страницы, чтобы найти все документы, связанные с хранилищем данных SQL Azure. На [форуме по хранилищу данных SQL Azure на портале MSDN][] можно задать вопросы другим пользователям и разработчикам хранилища данных SQL. Мы регулярно просматриваем этот форум и следим за тем, чтобы другие пользователи или наши специалисты ответили на интересующий вас вопрос. Вопросы также можно задавать на [форуме по хранилищу данных SQL Azure на сайте Stack Overflow][].
 
 Наконец, используйте страницу [отзывов о хранилище данных SQL Azure][], чтобы оставить запросы на функции. Ваши отзывы и голоса за отзывы, оставленные другими пользователями, помогут нам определить, какие улучшения функций наиболее приоритетные.
 
@@ -115,8 +115,10 @@
 [общим сведениям о таблицах]: ./sql-data-warehouse-tables-overview.md
 [типам данных таблиц]: ./sql-data-warehouse-tables-data-types.md
 [распределении таблиц]: ./sql-data-warehouse-tables-distribute.md
+[индексированием таблиц]: ./sql-data-warehouse-tables-index.md
 [индексировании таблиц]: ./sql-data-warehouse-tables-index.md
 [Причины низкого качества индекса Columnstore]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[перестроением индексов columnstore]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [секционировании таблиц]: ./sql-data-warehouse-tables-partition.md
 [Manage table statistics]: ./sql-data-warehouse-tables-statistics.md
 [временных таблицах]: ./sql-data-warehouse-tables-temporary.md
@@ -153,13 +155,13 @@
 [sys.dm\_pdw\_sql\_requests (Transact-SQL)]: https://msdn.microsoft.com/library/mt203889.aspx
 [sys.dm\_pdw\_dms\_workers (Transact-SQL)]: https://msdn.microsoft.com/library/mt203878.aspx
 [sys.dm\_pdw\_waits (Transact-SQL)]: https://msdn.microsoft.com/library/mt203893.aspx
-[руководстве по индексам Columnstore]: https://msdn.microsoft.com/library/gg492088.aspx
+[руководством по индексам Columnstore]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
 [выборе распределения таблиц]: https://blogs.msdn.microsoft.com/sqlcat/2015/08/11/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/
 [отзывов о хранилище данных SQL Azure]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[форуме хранилища данных SQL Azure на портале MSDN]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
-[форуме хранилища данных SQL Azure на сайте Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[форуме по хранилищу данных SQL Azure на портале MSDN]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
+[форуме по хранилищу данных SQL Azure на сайте Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

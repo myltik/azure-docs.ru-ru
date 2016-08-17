@@ -23,7 +23,8 @@
 В данном учебнике требуются установленные Visual Studio 2013 и пакет SDK Azure. Чтобы загрузить Visual Studio 2013, щелкните ссылку **Начните работу бесплатно** на сайте [www.visualstudio.com](http://www.visualstudio.com). Пакет SDK Azure можно установить по [этой ссылке](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE] Для работы с этим учебником необходима учетная запись Visual Studio Team Services. Вы можете [бесплатно зарегистрировать учетную запись Visual Studio Team Services](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE] Для работы с этим учебником необходима учетная запись Visual Studio Team Services. 
+Вы можете [бесплатно зарегистрировать учетную запись Visual Studio Team Services](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Чтобы настроить автоматическое выполнение сборки и развертывания облачной службы в Azure с использованием Visual Studio Team Services, выполните следующие действия.
 
@@ -43,7 +44,7 @@
 
 	![][4]
 
-2. В этом пошаговом руководстве представлены инструкции по развертыванию веб-приложения или облачной службы (приложение Azure). Создайте новый проект облачной службы Azure или новый проект MVC ASP.NET. Убедитесь в том, что проект предназначен для платформы .NET Framework 4 или более поздней версии. Если вы создаете проект облачной службы, добавьте рабочую роль и веб-роль MVC ASP.NET. Если вы хотите создать веб-приложение, выберите шаблон проекта **Веб-приложение ASP.NET**, а затем — **MVC**. Дополнительные сведения см. в статье [Создание веб-приложения ASP.NET в службе приложений Azure](../app-service-web/web-sites-dotnet-get-started.md).
+2. В этом пошаговом руководстве представлены инструкции по развертыванию веб-приложения или облачной службы (приложение Azure). Создайте новый проект облачной службы Azure или новый проект MVC ASP.NET. Убедитесь в том, что проект предназначен для платформы .NET Framework 4 или более поздней версии. Если вы создаете проект облачной службы, добавьте рабочую роль и веб-роль MVC ASP.NET. Если вы хотите создать веб-приложение, выберите шаблон проекта **Веб-приложение ASP.NET**, а затем – **MVC**. Дополнительные сведения см. в статье [Создание веб-приложения ASP.NET в службе приложений Azure](../app-service-web/web-sites-dotnet-get-started.md).
 
 3. Откройте контекстное меню для этого решения и выберите пункт **Зафиксировать**.
 
@@ -186,7 +187,7 @@
 
 При использовании Git изменения обычно вносятся в рабочей ветви и интегрируются в главную ветвь, когда развертывание достигает завершенного состояния. На этапе развертывания проекта можно выполнить построение и развертывание рабочей ветви в Azure.
 
-1. В **Team Explorer** нажмите кнопку **Главная**, а затем — **Ветви**.
+1. В **Team Explorer** нажмите кнопку **Главная**, а затем – **Ветви**.
 
 	![][40]
 
@@ -224,7 +225,7 @@
 
 ## Дальнейшие действия
 
-Дополнительные советы по использованию Git в Visual Studio Team Services см. в статье [Написание и публикация кода в Git с помощью Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx), а информацию об использовании для публикации в Azure репозитория Git, не управляемого с помощью Visual Studio Team Services, — в статье [Непрерывное развертывание с использованием GIT в службе приложений Azure](../app-service-web/web-sites-publish-source-control.md). Дополнительную информацию о Visual Studio Team Services см. в разделе [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+Дополнительные советы по использованию Git в Visual Studio Team Services см. в статье с описанием [совместного использования кода в Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx), а информацию об использовании для публикации в Azure репозитория Git, не управляемого с помощью Visual Studio Team Services, — в статье [Непрерывное развертывание в службе приложений Azure](../app-service-web/app-service-continuous-deployment.md). Дополнительную информацию о Visual Studio Team Services см. в разделе [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -272,4 +273,4 @@
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

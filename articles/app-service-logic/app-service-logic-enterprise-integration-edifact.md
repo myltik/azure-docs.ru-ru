@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Интеграция Enterprise с EDIFACT | Microsoft Azure" 
 	description="Сведения об использовании соглашений EDIFACT для создания приложений логики" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="jeffhollan" 
 	manager="erikre" 
@@ -178,4 +178,4 @@
 ## Подробнее
 - [Узнайте больше о пакете интеграции Enterprise.](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

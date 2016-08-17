@@ -1,9 +1,9 @@
 <properties
    pageTitle="Сценарии и примеры использования приложений логики | Microsoft Azure"
    description="Примеры распространенных сценариев использования приложений логики, а также способы их реализации."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
-   authors="msftman"
+   authors="jeffhollan"
    manager="erikre"
    editor=""/>
 
@@ -13,43 +13,48 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="04/25/2016"
-   ms.author="deonhe"/>
+   ms.date="08/01/2016"
+   ms.author="jehollan"/>
 
 # Примеры приложений логики и распространенные сценарии
 
 В этом документе описаны распространенные сценарии и примеры с разъяснениями того, как можно использовать приложения логики для автоматизации бизнес-процессов.
 
-## Активация приложения логики
+## Триггеры и действия
 
 Есть несколько способов активации приложений логики из другого приложения. Вот некоторые из них:
 
-- [HTTP-запрос (POST)](app-service-logic-http-endpoint.md):
-- [Получение Webhook](app-service-logic-create-api-app.md)
-- [Опрос конечной точки](app-service-logic-create-api-app.md)
+- [создание пользовательского триггера или действия](app-service-logic-create-api-app.md);
+- [использование продолжительного действия](app-service-logic-create-api-app.md);
+- [использование триггера HTTP-запросов (POST)](app-service-logic-http-endpoint.md);
+- [использование триггеров и действий](app-service-logic-create-api-app.md);
+- [Опрос триггеров](app-service-logic-create-api-app.md)
 
 ### Сценарии
 
-- [Синхронный ответ на запрос приложений логики](app-service-logic-http-endpoint.md)
+- [Приложения логики как вызываемые конечные точки](app-service-logic-http-endpoint.md)
 
-## Продолжительные действия
+## Обработка ошибок и ведение журнала
 
-- [Создание настраиваемого действия](app-service-logic-create-api-app.md)
+- [Мониторинг приложений логики](app-service-logic-monitor-your-logic-apps.md)
 
-## Развертывание приложения логики и управление им
+### Сценарии
 
-- [Создание шаблона для развертывания приложения логики](app-service-logic-create-deploy-template.md)
-- [Диагностика неполадок с приложением логики](app-service-logic-diagnosing-failures.md)
-- [Развертывание приложения логики из Visual Studio](app-service-logic-deploy-from-vs.md)
-- [Отслеживание приложений логики](app-service-logic-monitor-your-logic-apps.md)
+- [Logging and Error Handling in Logic Apps](app-service-logic-scenario-error-and-exception-handling.md) (Ведение журналов и обработка ошибок в Logic Apps)
+
+## Развертывание и управление
+
+- [Создание шаблона развертывания приложения логики](app-service-logic-create-deploy-template.md)
+- [Развертывание из Visual Studio](app-service-logic-deploy-from-vs.md)
+- [Мониторинг приложений логики](app-service-logic-monitor-your-logic-apps.md)
 
 ## Типы содержимого, конверсии и преобразования
 
-[Язык определения рабочего процесса](http://aka.ms/logicappsdocs) для приложений логики содержит множество функций, позволяющих преобразовывать различные типы содержимого и работать с ними. Кроме того, модуль делает все возможное для того, чтобы в ходе рабочего процесса сохранить типы содержимого как потоки данных.
+[Язык определения рабочего процесса](http://aka.ms/logicappsdocs) для Logic Apps содержит множество функций для преобразования разных типов содержимого и работы с ними. Кроме того, модуль делает все возможное для того, чтобы в ходе рабочего процесса сохранить типы содержимого как потоки данных.
 
-- [Обработка типов содержимого](app-service-logic-content-type.md), таких как application/json, application/xml и plain/text
-- [Создание определений рабочих процессов](app-service-logic-author-definitions.md)
-- [Язык определения рабочего процесса](http://aka.ms/logicappsdocs)
+- [Обработка типов содержимого в приложениях логики](app-service-logic-content-type.md) (application/json, application/xml, plain/text)
+- [Создание определений приложений логики](app-service-logic-author-definitions.md)
+- [Workflow definition language reference](http://aka.ms/logicappsdocs) (Язык определения рабочего процесса)
 
 ## Пакеты и циклы
 
@@ -59,11 +64,11 @@
 
 ## Интеграция с функциями Azure
 
-- [Интеграция функций Azure](app-service-logic-azure-functions.md)
+- [Использование функций Azure с приложениями логики](app-service-logic-azure-functions.md)
 
 ### Сценарии
 
-- [Функция Azure как триггер служебной шины](app-service-logic-scenario-function-sb-trigger.md)
+- [Сценарий приложения логики: создание триггера служебной шины Azure с помощью функций Azure](app-service-logic-scenario-function-sb-trigger.md)
 
 ## HTTP, REST и SOAP
 
@@ -72,4 +77,4 @@
 
 Мы будем и дальше добавлять сценарии и примеры в этот документ. Сообщите нам в комментариях, какие примеры и сценарии вы хотите увидеть здесь.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/22/2016"
+ ms.date="08/02/2016"
  ms.author="yurid"/>
 
 [AZURE.INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
@@ -26,7 +26,7 @@
 - [Архитектура безопасности IoT][lnk-security-architecture]
 - [Защита развертывания IoT][lnk-security-deployment]
 
-Вы также можете ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
+Вы можете также ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
 
 - [Обзор предварительно настроенного решения прогнозного обслуживания][lnk-predictive-overview]
 - [Часто задаваемые вопросы об IoT Suite][lnk-faq]
@@ -37,4 +37,4 @@
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

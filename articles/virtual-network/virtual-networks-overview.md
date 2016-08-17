@@ -3,7 +3,7 @@
    description="Узнайте, что такое виртуальные сети в Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Обзор виртуальной сети
 
@@ -95,4 +95,4 @@
 - Дополнительные сведения о [группах безопасности сети](virtual-networks-nsg.md).
 - Дополнительные сведения об [определяемых пользователем маршрутах и IP-пересылке](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Создание процесса B2B в службе приложений Azure | Microsoft Azure" 
    description="Общие сведения по созданию процесса ";бизнес-бизнес";" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -70,4 +70,4 @@
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.png
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

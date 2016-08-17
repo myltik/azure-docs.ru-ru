@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Отмена подписки Azure | Microsoft Azure"
 	description="Содержит сведения об отмене подписки Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -30,4 +30,4 @@
 4. Выберите **Да, отменить мою подписку**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Щелкните ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png), чтобы закрыть диалоговое окно и вернуться к странице подписки.
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,8 +3,8 @@
 	description="В этой статье описывается защита фермы SharePoint в Azure с помощью DPM или сервера службы архивации Azure"
 	services="backup"
 	documentationCenter=""
-	authors="nkolli1"
-	manager="shreeshd"
+	authors="adigan"
+	manager="Nkolli1"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/04/2016"
-	ms.author="giridham;jimpark"/>
+	ms.author="giridham;jimpark;trinadhk;markgal"/>
 
 
 # Архивация фермы SharePoint в Azure
@@ -233,4 +233,4 @@ DPM выполняется как учетная запись LocalSystem. Чт�
 - См. статью [Заметки о выпуске System Center 2012 — Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx).
 - См. статью [Заметки о выпуске Data Protection Manager в System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -183,5 +183,6 @@
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)
 - [Начало работы с хранилищем озера данных с помощью пакета SDK .NET](data-lake-store-get-started-net-sdk.md)
+- [Журналы диагностики доступа для Data Lake Store](data-lake-store-diagnostic-logs.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

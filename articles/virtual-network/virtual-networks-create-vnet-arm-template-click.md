@@ -3,7 +3,7 @@
    description="Узнайте, как создать виртуальную сеть с помощью шаблона ARM | Диспетчер ресурсов."
    services="virtual-network"
    documentationCenter=""
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.author="jdial"/>
 
 # Создание виртуальной сети с помощью шаблона ARM
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этом документе описывается создание виртуальной сети с помощью модели развертывания диспетчера ресурсов. Вы также можете [создать виртуальную сеть на основе классической модели развертывания](virtual-networks-create-vnet-classic-pportal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этом документе описывается создание виртуальной сети с помощью модели развертывания диспетчера ресурсов. Вы также можете [создать виртуальную сеть на основе классической модели развертывания](virtual-networks-create-vnet-classic-pportal.md).
 
 Вы узнаете, как загружать и изменять существующий шаблон ARM из GitHub, а также как развернуть шаблон из GitHub, PowerShell и интерфейса командной строки Azure.
 
@@ -39,4 +39,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="08/02/2016"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с помощью PowerShell с использованием Hadoop в HDInsight
@@ -35,7 +35,7 @@
 
 ##<a id="powershell"></a>Выполнение задания MapReduce с помощью Azure PowerShell
 
-Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название — Templeton) на кластере HDInsight.
+Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название – Templeton) на кластере HDInsight.
 
 При выполнении заданий MapReduce в удаленном кластере HDInsight используются следующие командлеты:
 
@@ -142,11 +142,11 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 	> [AZURE.NOTE] Если значение **ExitCode** не равно 0, см. раздел [Устранение неполадок](#troubleshooting).
 
-    В этом примере скачанные файлы будут храниться в папке **example/data/WordCountOutput** в каталоге, из которого запускается сценарий.
+    В этом примере скачанные файлы будут храниться в файле **output.txt** в каталоге, из которого запускается сценарий.
 
-##Просмотр выходных данных
+###Просмотр выходных данных
 
-Выходные данные задания MapReduce сохраняются в файлах с именем *part-r-№№№№№*. Откройте файл **example/data/WordCountOutput/part-r-00000** в текстовом редакторе, чтобы просмотреть слова и статистику, полученные в результате выполнения задания.
+Откройте файл **output.txt** в текстовом редакторе, чтобы просмотреть слова и статистику, полученные при выполнении задания.
 
 > [AZURE.NOTE] Выходные файлы задания MapReduce являются неизменяемыми. Поэтому при повторном выполнении этого примера потребуется изменить имя выходного файла.
 
@@ -183,4 +183,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

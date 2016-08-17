@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Azure Insights: использование журналов аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights | Microsoft Azure"
-	description="Узнайте, как использовать записи журнала аудита для вызова URL-адресов веб-сайтов или отправки уведомлений по электронной почте в Azure Insights."
+	description="Узнайте, как использовать записи журнала аудита для вызова URL-адресов веб-сайтов или отправки уведомлений по электронной почте в Azure Insights. "
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring"
+	documentationCenter="monitoring"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -102,7 +102,7 @@
 |Timestamp|	Метка времени для момента создания события службой Azure, обработавшей соответствующий событию запрос|
 |resourceId |Уникальный универсальный код ресурса (URI) идентификатора ресурса|
 |имя\_группы\_ресурсов|Имя группы ресурсов для затронутого ресурса|
-|properties |Набор пар <Key  Value> (например словарь<String  String>), содержащий сведения о событии|
+|properties |Набор пар <ключ, значение> (например, Dictionary<String, String>), содержащий сведения о событии|
 |event|Элемент с метаданными о событии|
 |authorization|Захватывает свойства RBAC события. Обычно к ним относятся "action", "role" и "scope".|
 |категория | Категория события. Поддерживаются следующие значения: "Administrative", "Alert", "Security", "ServiceHealth", "Recommendation".|
@@ -119,4 +119,4 @@
 |status|Строка, описывающая состояние операции. Обычные значения: "Started", "In Progress", "Succeeded", "Failed", "Active", "Resolved".|
 |subStatus|	Обычно содержит код состояния HTTP для соответствующего вызова REST. Может также включать другие строки, описывающие подсостояние. Обычные значения подсостояния: "OK" (код состояния HTTP: 200), "Created" (код состояния HTTP: 201), "Accepted" (код состояния HTTP: 202), "No Content" (код состояния HTTP: 204), "Bad Request" (код состояния HTTP: 400), "Not Found" (код состояния HTTP: 404), "Conflict" (код состояния HTTP: 409), "Internal Server Error" (код состояния HTTP: 500), "Service Unavailable" (код состояния HTTP: 503), "Gateway Timeout" (код состояния HTTP: 504)|
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0803_2016-->

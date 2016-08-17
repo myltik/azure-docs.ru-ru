@@ -66,8 +66,8 @@ Log Analytics будет собирать события только из те�
 |:--|:--|
 | Type=Event | Все события Windows. |
 | Type=Event EventLevelName=error | Все события Windows с указанием серьезности ошибки. |
-| Type=Event | Measure count() by Source | Число событий Windows по источникам. |
-| Type=Event EventLevelName=error | Measure count() by Source | Число событий ошибок Windows по источникам. |
+| Type=Event &#124; Measure count() by Source | Число событий Windows по источникам. |
+| Type=Event EventLevelName=error &#124; Measure count() by Source | Число событий ошибок Windows по источникам. |
 
 ## Дальнейшие действия
 

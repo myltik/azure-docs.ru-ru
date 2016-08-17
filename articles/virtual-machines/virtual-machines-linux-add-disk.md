@@ -240,11 +240,13 @@ boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 		# sudo yum install util-linux
 		# sudo fstrim /datadrive
 
+## Устранение неполадок
+[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Дальнейшие действия
 
 - Помните, для того чтобы после перезапуска виртуальная машина получила доступ к вашему новому диску, информацию о нем необходимо прописать в файле [fstab](http://en.wikipedia.org/wiki/Fstab).
 - Ознакомьтесь с рекомендациями по [оптимизации производительности виртуальной машины Linux](virtual-machines-linux-optimization.md), чтобы правильно настроить виртуальную машину Linux.
-- Увеличьте емкость хранилища, добавив дополнительные диски, и [настройте массив RAID](virtual-machines-linux-configure-raid.md) для повышения производительности.
+- Увеличьте емкость хранилища, добавив дополнительные диски, и [настройте RAID](virtual-machines-linux-configure-raid.md) для повышения производительности.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

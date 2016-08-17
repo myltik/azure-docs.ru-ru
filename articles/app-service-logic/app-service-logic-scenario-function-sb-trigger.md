@@ -1,7 +1,7 @@
 <properties
    pageTitle="Сценарий приложения логики: создание триггера служебной шины с помощью функций Azure | Microsoft Azure"
    description="Использование функций Azure для создания триггера служебной шины для приложения логики"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
@@ -66,4 +66,4 @@
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

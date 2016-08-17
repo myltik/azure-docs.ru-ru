@@ -24,7 +24,7 @@
 
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
-- Git. Двоичный файл установки можно скачать [отсюда](http://www.git-scm.com/downloads).  
+- Git. Двоичный файл установки можно скачать [отсюда](http://www.git-scm.com/downloads).
 - Базовые знания о Git.
 - Учетная запись Microsoft Azure. Если у вас нет учетной записи, можно [подписаться на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial) или [активировать преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
@@ -46,7 +46,7 @@
 
 Служба приложений поддерживает приложения, созданные с использованием различных языков программирования.
 
-1. Если в репозитории уже имеется содержимое, пропустите этот пункт и перейдите к пункту 2 ниже. Если репозиторий пуст, заполните его статическим HTML-файлом, как показано ниже. 
+1. Если в репозитории уже имеется содержимое, пропустите этот пункт и перейдите к пункту 2 ниже. Если репозиторий пуст, заполните его статическим HTML-файлом, как показано ниже.
 
     - С помощью текстового редактора создайте файл с именем **index.html** в корневой папке репозитория Git.
     - Добавьте следующий текст в качестве содержимого файла index.html и сохраните его: *Hello Git!*
@@ -166,7 +166,7 @@
 
 * [Документация по Git](http://git-scm.com/documentation)
 * [Документация по проекту Kudu](https://github.com/projectkudu/kudu/wiki)
-* [Непрерывное развертывание в службе приложений Azure](app-service-continous-deployment.md)
+* [Непрерывное развертывание в службе приложений Azure](app-service-continuous-deployment.md)
 * [Использование PowerShell для Azure](../powershell-install-configure.md)
 * [Использование интерфейса командной строки Azure](../xplat-cli-install.md)
 
@@ -181,4 +181,4 @@
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

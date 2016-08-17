@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Устранение неполадок со сжатием файлов CDN"
-	description="Узнайте, как устранить неполадки со сжатием файлов CDN."
+	pageTitle="Устранение неполадок со сжатием файлов в Azure CDN | Microsoft Azure"
+	description="Узнайте, как устранить неполадки со сжатием файлов Azure CDN."
 	services="cdn"
 	documentationCenter=""
 	authors="camsoper"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
     
 # Устранение неполадок со сжатием файлов CDN
@@ -99,4 +99,4 @@
 - **IIS 6**: [задайте HcNoCompressionForProxies="FALSE" в свойствах метабазы IIS](https://msdn.microsoft.com/library/ms525390.aspx).
 - **IIS 7 и выше**: [задайте для **noCompressionForHttp10** и **noCompressionForProxies** значение False в конфигурации сервера](http://www.iis.net/configreference/system.webserver/httpcompression).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

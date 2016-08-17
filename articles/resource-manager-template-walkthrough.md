@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
 # Пошаговое руководство по созданию шаблона Resource Manager
@@ -579,4 +579,4 @@ azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n Exa
 - Дополнительные сведения о структуре шаблона см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 - Инструкции по развертыванию шаблона см. в статье [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

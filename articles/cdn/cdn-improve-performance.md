@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN — увеличьте производительность путем сжатия файлов"
-	description="Вы можете увеличить скорость передачи файлов и увеличить производительность загрузки страницы с помощью сжатия файлов."
+	pageTitle="Повышение производительности за счет сжатия файлов в CDN Azure | Microsoft Azure"
+	description="В этом разделе описано, как ускорить передачу файла и повысить производительности загрузки страниц с помощью сжатия файлов в CDN Azure."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Увеличьте производительность путем сжатия файлов
@@ -126,4 +126,4 @@
 ## См. также
 - [Устранение неполадок со сжатием файлов CDN](cdn-troubleshoot-compression.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

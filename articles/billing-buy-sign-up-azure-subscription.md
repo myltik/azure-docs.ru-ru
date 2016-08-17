@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Как зарегистрировать, приобрести, обновить или активировать подписку Azure | Microsoft Azure"
 	description="В этом разделе описано, как купить или оформить подписку на Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing,top-support-issue"
 	/>
 
@@ -119,4 +119,4 @@
 
 3. Введите ключ продукта и затем установите флажок соглашения.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

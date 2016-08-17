@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование соединителя Yammer в приложениях логики | Служба приложений Microsoft Azure"
    description="Как создать и настроить соединитель Yammer или приложение API и использовать его в приложении логики в службе приложений Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
@@ -27,4 +27,4 @@
 - [Узнайте больше о новом соединителе.](../connectors/connectors-create-api-yammer.md)
 - Ознакомьтесь с [полным списком](../connectors/apis-list.md) соединителей, работающих с новой схемой приложений логики версии 2015-08-01-preview.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

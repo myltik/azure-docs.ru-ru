@@ -1,7 +1,7 @@
 <properties
 pageTitle="Dropbox | Microsoft Azure"
 description="Создание приложений логики с помощью службы приложений Azure. Подключитесь к Dropbox, чтобы управлять файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов в Dropbox."
-services="app-servicelogic"	
+services="logic-apps"	
 documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
@@ -433,4 +433,4 @@ BlobMetadata
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

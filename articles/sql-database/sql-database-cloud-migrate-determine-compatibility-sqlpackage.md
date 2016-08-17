@@ -3,7 +3,7 @@
    description="База данных SQL Microsoft Azure, миграция базы данных, совместимость базы данных SQL, SqlPackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -32,17 +32,17 @@
 1. Откройте окно командной строки и измените каталог, содержащий самую последнюю версию sqlpackage.exe. Эта служебная программа поставляется вместе с Visual Studio и SQL Server. Загрузите [последнюю версию SQL Server Data Tools для Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), чтобы получить последнюю версию служебной программы SqlPackage.
 2. Выполните следующую команду SqlPackage со следующими аргументами для вашей среды:
 
-	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
+	'sqlpackage.exe /Action:Export /ssn:<имя\_сервера> /sdn:<имя\_БД> /tf:<целевой\_файл> /p:TableData=<имя\_схемы.имя\_таблицы> > <выходной\_файл> 2>&1'
 
 	| Аргумент | Описание |
 	|---|---|
-	| < server_name > | имя исходного сервера |
-	| < database_name > | имя исходной базы данных |
-	| < target_file > | имя файла и расположение для файла BACPAC |
-	| < schema_name.table_name > | таблицы, для которых данные будут выведены в конечный файл |
-	| < output_file > | имя и расположение для выходного файла с ошибками, если таковые имеются |
+	| <имя\_сервера> | имя исходного сервера |
+	| <имя\_БД> | имя исходной базы данных |
+	| <целевой\_файл> | имя файла и расположение для файла BACPAC |
+	| <имя\_схемы.имя\_таблицы> | таблицы, для которых данные будут выведены в конечный файл |
+	| <выходной\_файл> | имя и расположение для выходного файла с ошибками, если таковые имеются |
 
-	Аргумент /p:TableName используется потому, что нужно проверить только совместимость базы данных для экспорта в базу данных SQL Azure версии 12, а не экспортировать данные из всех таблиц. К сожалению, аргумент экспорта для sqlpackage.exe не поддерживает извлечение без таблицы, поэтому нужно указать одну небольшую таблицу. Аргумент < output_file > будет содержать отчет об ошибках. Строка «> 2>&1» выводит как стандартные выходные данные, так и стандартные ошибки, полученные в результате выполнения команды в указанный выходной файл.
+	Аргумент /p:TableName используется потому, что нужно проверить только совместимость базы данных для экспорта в базу данных SQL Azure версии 12, а не экспортировать данные из всех таблиц. К сожалению, аргумент экспорта для sqlpackage.exe не поддерживает извлечение без таблицы, поэтому нужно указать одну небольшую таблицу. Указанный <выходной\_файл> будет содержать отчет об ошибках. Строка «> 2>&1» выводит как стандартные выходные данные, так и стандартные ошибки, полученные в результате выполнения команды в указанный выходной файл.
 
 	![Экспорт приложения уровня данных из меню "Задачи"](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
 
@@ -52,14 +52,14 @@
 
 ## Дальнейшие действия
 
-- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx) [последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx) [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 - [Устранение проблем совместимости при миграции базы данных](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
 - [Перенос совместимой базы данных SQL Server в Базу данных SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
 ## Дополнительные ресурсы
 
 - [База данных SQL версии 12.](sql-database-v12-whats-new.md)
-- [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
+- [Частично или полностью неподдерживаемые функции Transact-SQL.](sql-database-transact-sql-information.md)
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

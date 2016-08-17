@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Обзор схем и пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Узнайте, как использовать схемы с пакетом интеграции Enterprise и приложениями логики." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="07/29/2016" 
 	ms.author="deonhe"/>
 
 # Сведения о схемах и пакете интеграции Enterprise  
@@ -30,7 +30,7 @@
 5. В открывшейся колонке "Schemas" (Схемы) нажмите кнопку **Добавить**. ![](./media/app-service-logic-enterprise-integration-schemas/schema-2.png)
 6. Введите **имя** для схемы. Чтобы передать файл схемы, щелкните значок папки в правой части текстового поля **Схема**. После завершения передачи нажмите кнопку **ОК**. ![](./media/app-service-logic-enterprise-integration-schemas/schema-3.png)
 7. Щелкните значок уведомления (*колокольчик*), чтобы просмотреть ход передачи схемы. ![](./media/app-service-logic-enterprise-integration-schemas/schema-4.png)
-8. Выберите элемент **Schemas** (Схемы). Элемент обновится, и вы увидите, что количество схем возросло, отражая успешное добавление новой схемы. Выбрав элемент **Schemas** (Схемы), в колонке "Schemas" (Схемы) справа вы также увидите только что добавленную схему. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
+8. Выберите элемент **Schemas** (Схемы). Элемент обновится, и вы увидите, что количество схем возросло, отражая успешное добавление новой схемы. Когда вы щелкнете плитку **Схемы**, в колонке схем справа отобразится только что добавленная схема. ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)
 
 
 ## Как использовать схемы
@@ -57,4 +57,4 @@
 
       
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

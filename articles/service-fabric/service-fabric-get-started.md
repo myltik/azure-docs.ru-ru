@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/15/2016"
+   ms.date="06/16/2016"
    ms.author="ryanwi"/>
 
 # Подготовка среды разработки
- Чтобы создавать и запускать [приложения Service Fabric][1] на компьютере для разработки, вам нужно установить среду выполнения, пакет SDK и инструменты. Вам также нужно включить выполнение сценариев Windows PowerShell, включенных в пакет SDK.
+ Чтобы создавать и запускать [приложения Service Fabric][1] на компьютере для разработки, установите среду выполнения, пакет SDK и инструменты. Вам также нужно включить выполнение сценариев Windows PowerShell, включенных в пакет SDK.
 
 ## Предварительные требования
 ### Поддерживаемые версии операционных систем
@@ -28,7 +28,7 @@
 - Windows Server 2012 R2
 - Windows 10
 
->[AZURE.NOTE] Windows 7 по умолчанию поставляется с Windows PowerShell версии 2.0. Для работы с командлетами PowerShell для Service Fabric вам необходимо установить PowerShell 3.0 или более позднюю версию. В центре загрузки Майкрософт можно [скачать Windows PowerShell 5.0][powershell5-download].
+>[AZURE.NOTE] Windows 7 по умолчанию поставляется с Windows PowerShell версии 2.0. Для выполнения командлетов PowerShell для Service Fabric требуется PowerShell начиная с версии 3.0. В центре загрузки Майкрософт можно [скачать Windows PowerShell 5.0][powershell5-download].
 
 ## Установка среды выполнения, пакета SDK и инструментов
 
@@ -41,7 +41,7 @@
 
 ## Включение сценариев PowerShell
 
-Для создания локального кластера разработки и развертывания приложений из Visual Studio в Service Fabric используются сценарии Windows PowerShell. По умолчанию Windows блокирует выполнение этих сценариев. Чтобы включить их, необходимо изменить политику выполнения PowerShell. Для этого запустите PowerShell с правами администратора и введите следующую команду:
+Для создания локального кластера разработки и развертывания приложений из Visual Studio в Service Fabric используются сценарии Windows PowerShell. По умолчанию ОС Windows блокирует выполнение этих сценариев. Чтобы включить их, необходимо изменить политику выполнения PowerShell. Для этого запустите PowerShell с правами администратора и введите следующую команду:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
@@ -64,4 +64,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "Ссылка Core SDK WebPI"
 [powershell5-download]: https://www.microsoft.com/ru-RU/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

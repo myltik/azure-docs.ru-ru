@@ -76,7 +76,7 @@
 
     ![добавление переменных](./media/resource-manager-vs-code/add-variables.png)
 
-5. Механизм IntelliSense также может предложить доступные значения и функции. Чтобы задать для свойства значение параметра, создайте выражение, вставив пару двойных кавычек **""** и нажав внутри клавиши **CTRL+ПРОБЕЛ**. После этого можно начать вводить имя функции. Увидев необходимую функцию, нажмите **клавишу табуляции**.
+5. Механизм IntelliSense также может предлагать доступные значения или функции. Чтобы задать для свойства значение параметра, создайте выражение, вставив пару двойных кавычек **""** и нажав внутри клавиши **CTRL+ПРОБЕЛ**. После этого можно начать вводить имя функции. Увидев необходимую функцию, нажмите **клавишу табуляции**.
 
     ![добавление параметра](./media/resource-manager-vs-code/select-parameters.png)
 
@@ -136,4 +136,4 @@
 - Дополнительные сведения о функциях шаблонов см. в статье [Функции шаблонов Azure Resource Manager](resource-group-template-functions.md).
 - Дополнительные примеры по работе с Visual Studio Code см. в статье [Build cloud apps with Visual Studio Code](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) (Создание облачных приложений с помощью Visual Studio Code) из [демонстрационного проекта](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect. Дополнительные инструкции по быстрому началу работы с помощью средств разработчика Azure из демонстрационного проекта HealthClinic.biz см. на [этой странице](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

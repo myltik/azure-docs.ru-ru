@@ -1,23 +1,25 @@
-1. To add tags to existing resources and resource groups, select the tag icon. 
+1. Чтобы добавить теги к существующим ресурсам и группам ресурсов, выберите значок "Теги".
 
-     ![Tags part on resource and resource group blades](./media/resource-manager-tag-resources/select-tag-icon.png)
+     ![м](./media/resource-manager-tag-resources/select-tag-icon.png)
 
-1. You see a list of tags that your organization has already applied to resources. If you have not previously applied tags, the list is empty. To add a tag, simply specify a name and value and press Enter. After you've added a few tags, you'll notice autocomplete options based on pre-existing tag names and values. These autocomplete options ensure a consistent taxonomy across your resources and avoid common mistakes, like misspellings.
+1. Отобразится список тегов, которые уже применялись к ресурсам в вашей организации. Если теги ранее не применялись, то список будет пустым. Для добавления тега укажите имя и значение, а затем нажмите клавишу ВВОД. Добавив несколько тегов, вы увидите варианты автозаполнения на основании уже существующих имен и значений тегов. Эти варианты автозаполнения помогают обеспечить согласованность таксономии в ваших ресурсах и избежать распространенных ошибок, например опечаток.
 
-     ![Tag resources with name/value pairs](./media/resource-manager-tag-resources/tag-resources.png)
+     ![Маркировка ресурсов тегами с парами "имя – значение"](./media/resource-manager-tag-resources/tag-resources.png)
 
-1. To view your taxonomy of tags in the portal, select **Browse** and **Tags**.
+1. Для просмотра таксономии тегов на портале последовательно выберите пункты **Обзор** и **Теги**.
 
-     ![Find tags via the Browse hub](./media/resource-manager-tag-resources/browse-tags.png)
+     ![Поиск тегов с помощью узла "Обзор"](./media/resource-manager-tag-resources/browse-tags.png)
 
-1. You see a summary of the tags in your subscription.
+1. Отобразится сводка тегов в подписке.
 
-     ![Show all tags](./media/resource-manager-tag-resources/tag-taxonomy.png)
+     ![Отображение всех тегов](./media/resource-manager-tag-resources/tag-taxonomy.png)
 
-1. Select any of the tags to display the resources and resource groups with that tag.
+1. Выберите любой из тегов, чтобы отобразились ресурсы и группы ресурсов с этим тегом.
 
-     ![Show tagged resources](./media/resource-manager-tag-resources/show-tagged-resources.png)
+     ![Отображение ресурсов с тегами](./media/resource-manager-tag-resources/show-tagged-resources.png)
 
-1. Pin the most important tags to your Dashboard for quick access.
+1. Закрепите наиболее важные теги на панели мониторинга для быстрого доступа к ним.
 
-     ![Pin tags to the Startboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Закрепление тегов на начальной панели](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+<!---HONumber=AcomDC_0803_2016-->

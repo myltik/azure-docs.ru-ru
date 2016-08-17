@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Обзор интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Используйте функции интеграции Enterprise, чтобы реализовать сценарии бизнес-процессов и интеграции с помощью приложений логики." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -61,4 +61,4 @@
 - [Проверка сообщений XML](./app-service-logic-enterprise-integration-xml.md "Узнайте, как проверять сообщения XML с помощью приложений логики.")
 - [Преобразование XML-файла](./app-service-logic-enterprise-integration-transform.md "Узнайте о картах интеграции Enterprise.")
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

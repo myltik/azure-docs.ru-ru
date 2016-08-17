@@ -19,7 +19,7 @@
 
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
-> [AZURE.NOTE] [Test drive Analytics on our simulated data]https://analytics.applicationinsights.io/demo, если ваше приложение еще не отправляет данные в Application Insights.
+> [AZURE.NOTE] [Протестируйте аналитику на смоделированных данных](https://analytics.applicationinsights.io/demo) если ваше приложение еще не отправляет данные в Application Insights.
 
 ## Индекс
 
@@ -1684,7 +1684,17 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 || |
 |---|-------------|
 | + | Добавить |
-| — | Вычитание | | * | Умножение | | / | Деление | | % | Остаток от деления | || |`<` |Меньше |`<=`|Меньше или равно |`>` |Больше |`>=`|Больше или равно |`<>`|Не равно |`!=`|Не равно
+| — | Вычитание |
+| * | Умножение |
+| / | Деление |
+| % | Остаток от деления |
+||
+|`<` |Меньше
+|`<=`|Меньше или равно
+|`>` |Больше
+|`>=`|Больше или равно
+|`<>`|Не равно
+|`!=`|Не равно
 
 
 ### abs
@@ -2713,3 +2723,4 @@ range(1, 8, 3)
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
 <!---HONumber=AcomDC_0727_2016-->
+

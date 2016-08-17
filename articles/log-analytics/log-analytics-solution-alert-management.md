@@ -119,11 +119,11 @@
 |:--|:--|
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR | Критические оповещения, созданные за последние 24 часа. |
 | Type=Alert AlertSeverity=warning TimeRaised>NOW-24HOUR | Предупредительные оповещения, созданные за последние 24 часа. |
-| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR | measure count() as Count by SourceDisplayName | Источники с активными оповещениями, возникшие за последние 24 часа. |
+| Type=Alert SourceSystem=OpsManager AlertState!=Closed TimeRaised>NOW-24HOUR &#124; measure count() as Count by SourceDisplayName | Источники с активными оповещениями, возникшие за последние 24 часа. |
 | Type=Alert SourceSystem=OpsManager AlertSeverity=error TimeRaised>NOW-24HOUR AlertState!=Closed | Все еще активные критические оповещения, созданные за последние 24 часа. |
 | Type=Alert SourceSystem=OpsManager TimeRaised>NOW-24HOUR AlertState=Closed | Закрытые оповещения, созданные за последние 24 часа. |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY | measure count() as Count by AlertSeverity | Оповещения, созданные за последние 1 день и сгруппированные по уровню серьезности. |
-| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY | sort RepeatCount desc | Оповещения, созданные за последние 1 день и сгруппированные по числу повторений. |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; measure count() as Count by AlertSeverity | Оповещения, созданные за последние 1 день и сгруппированные по уровню серьезности. |
+| Type=Alert SourceSystem=OpsManager TimeRaised>NOW-1DAY &#124; sort RepeatCount desc | Оповещения, созданные за последние 1 день и сгруппированные по числу повторений. |
 
 ## Дальнейшие действия
 

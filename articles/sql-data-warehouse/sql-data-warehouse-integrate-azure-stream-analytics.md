@@ -3,7 +3,7 @@
    description="Советы по использованию службы Azure Stream Analytics и хранилища данных SQL для разработки решений."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="shivaniguptamsft"
+   authors="kevinvngo"
    manager="barbkess"
    editor=""/>
 
@@ -96,4 +96,4 @@ Azure Stream Analytics является полностью управляемо�
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0803_2016-->

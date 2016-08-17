@@ -33,8 +33,8 @@
 
 - Во время подготовки можно указать количество рабочих узлов с использованием портала Azure, Azure PowerShell или межплатформенного интерфейса командной строки. Дополнительную информацию см. в разделе [Подготовка кластеров HDInsight](hdinsight-provision-clusters.md). На следующем экране показана рабочая конфигурация узла на портале Azure:
 
-	![scaleout\_1][image-hdi-optimize-hive-scaleout\_1]
-- Во время выполнения можно масштабировать кластер без необходимости его повторного создания. Такой способ показан ниже. ![scaleout\_1][image-hdi-optimize-hive-scaleout\_2]
+	![scaleout_1][image-hdi-optimize-hive-scaleout_1]
+- Во время выполнения можно масштабировать кластер без необходимости его повторного создания. Такой способ показан ниже. ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
 Дополнительные сведения о разных виртуальных машинах, поддерживаемых HDInsight приведены в разделе [HDInsight цены](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -42,7 +42,7 @@
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/) — это механизм выполнения, альтернативный механизму MapReduce:
 
-![tez\_1][image-hdi-optimize-hive-tez\_1]
+![tez_1][image-hdi-optimize-hive-tez_1]
 
 
 Tez работает быстрее, так как:
@@ -90,7 +90,7 @@ Tez работает быстрее, так как:
 
 Секционирование данных Hive реализуется путем реорганизации необработанных данных в новые каталоги с присвоением каждой секции своего собственного каталога, где секция определяется пользователем. Следующая схема иллюстрирует секционирование таблицы Hive по столбцу *Год*. Для каждого года создается новый каталог.
 
-![partitioning][image-hdi-optimize-hive-partitioning\_1]
+![partitioning][image-hdi-optimize-hive-partitioning_1]
 
 Некоторые рекомендации для выполнения секционирования:
 
@@ -215,6 +215,9 @@ Hive поддерживает различные форматы. Наприме�
 - [Использование Hive в HDInsight для анализа журналов веб-сайтов](hdinsight-hive-analyze-website-log.md)
 
 
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_2.png [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
+[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_1.png 
+[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query-v1/scaleout_2.png 
+[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png 
+[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!-----HONumber=AcomDC_0727_2016-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Безопасность OAUTH в соединителях SaaS и приложениях API | Azure"
 	description="Сведения о безопасности OAUTH в соединителях и приложениях API в службе приложений Azure; архитектура микрослужб; saas"
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""
 	authors="MandiOhlinger"
 	manager="dwrede"
@@ -51,4 +51,4 @@
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

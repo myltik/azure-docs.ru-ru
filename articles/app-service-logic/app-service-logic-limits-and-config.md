@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Ограничения и настройка приложений логики | Microsoft Azure"
 	description="Обзор ограничений службы и значений конфигурации, доступных для приложений логики."
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=".net,nodejs,java"
 	authors="jeffhollan"
 	manager="dwrede"
@@ -134,4 +134,4 @@
 - [Вы можете автоматизировать бизнес-процессы с помощью приложений логики](http://channel9.msdn.com/Events/Build/2016/T694)
 - [Узнайте, как интегрировать системы с приложениями логики](http://channel9.msdn.com/Events/Build/2016/P462)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

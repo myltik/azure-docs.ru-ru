@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/10/2016"
-	ms.author="carlrabeler; ronitr"/>
+	ms.author="CarlRabeler; ronitr"/>
 
 # Приступая к работе с аудитом базы данных SQL
 Аудит базы данных Azure отслеживает события базы данных и записывает их в журнал аудита, расположенный в учетной записи хранения Azure. Функция аудита доступна для уровней Basic, Standard и Premium.
@@ -175,4 +175,4 @@
 [7]: ./media/sql-database-auditing-get-started/7_auditing_get_started_classic_portal_storage.png
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_storage_key_rotation.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

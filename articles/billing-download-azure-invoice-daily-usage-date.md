@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Скачивание счета на оплату и данных о ежедневном использовании в Azure | Microsoft Azure"
 	description="Инструкции по скачиванию счета на оплату и данных о ежедневном использовании в Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -33,4 +33,4 @@
 6. Выберите **Загрузить накладную**, чтобы просмотреть последний выставленный счет. </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
 7. Выберите **Загрузить сведения об использовании** и сохраните CSV-файл с данными о ежедневном использовании.</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->
