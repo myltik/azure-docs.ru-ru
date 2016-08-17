@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/29/2016"
    ms.author="cawa"/>
 
 # Использование команды Azure PowerShell для создания пустого контейнера облачной службы
@@ -48,4 +48,4 @@ Get-help New-AzureService
 
  * Чтобы опубликовать проект облачной службы в Azure, используйте образец кода **PublishCloudService.ps1** из статьи [Непрерывная доставка для облачных служб в Azure](cloud-services-dotnet-continuous-delivery.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

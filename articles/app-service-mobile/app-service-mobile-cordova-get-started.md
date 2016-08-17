@@ -42,6 +42,8 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
+[Видео, демонстрирующее аналогичные действия](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
+
 ## Настройка серверного проекта
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
@@ -54,7 +56,7 @@
 
 Закончив работу с этим кратким учебником, переходите к одному из следующих руководств:
 
-* [Добавление проверки подлинности] в приложение Apache Cordova.
+* [Добавление аутентификации] в приложение Apache Cordova.
 * [Добавление push-уведомлений] в приложение Apache Cordova.
 
 Дополнительные сведения об основных понятиях, связанных со службой приложений Azure.
@@ -74,7 +76,7 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Средства Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
-[Добавление проверки подлинности]: app-service-mobile-cordova-get-started-users.md
+[Добавление аутентификации]: app-service-mobile-cordova-get-started-users.md
 [Добавление push-уведомлений]: app-service-mobile-cordova-get-started-push.md
 [Аутентификация]: app-service-mobile-auth.md
 [Push-уведомления]: ../notification-hubs/notification-hubs-overview.md
@@ -82,4 +84,4 @@
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

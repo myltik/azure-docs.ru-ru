@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Обзор проверки XML и пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Узнайте, как функционирует проверка в пакете интеграции Enterprise и приложениях логики." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -40,4 +40,4 @@
 
 [Узнайте больше о пакете интеграции Enterprise](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.").
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

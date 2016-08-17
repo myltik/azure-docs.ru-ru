@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Предварительная загрузка ресурсов на конечной точке CDN Azure"
+	pageTitle="Предварительная загрузка ресурсов на конечной точке CDN Azure | Microsoft Azure"
 	description="Узнайте, как предварительно загружать кэшированное содержимое в конечной точке CDN."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Предварительная загрузка ресурсов на конечной точке CDN Azure
@@ -60,4 +60,4 @@
 - [Очистка конечной точки сети CDN Azure](cdn-purge-endpoint.md)
 - [Справочник по API REST CDN. Очистка и предварительная загрузка конечной точки](https://msdn.microsoft.com/library/mt634451.aspx)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

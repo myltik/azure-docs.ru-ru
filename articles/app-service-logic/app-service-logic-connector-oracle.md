@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование соединителя баз данных Oracle в приложениях логики | Служба приложений Microsoft Azure"
    description="Из этой статьи вы узнаете, как создать и настроить соединитель баз данных Oracle или приложение API и использовать его в приложении логики в службе приложений Azure."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
@@ -120,4 +120,4 @@
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

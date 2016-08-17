@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Добавление соединителя OneDrive в приложения логики | Microsoft Azure"
 	description="Обзор соединителя OneDrive с параметрами интерфейса API REST"
-	services="app-servicelogic"    
+	services="logic-apps"    
 	documentationCenter=""     
 	authors="MandiOhlinger"    
 	manager="erikre"    
@@ -414,4 +414,4 @@ BlobMetadata
 
 См. статью о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, см. [список API-интерфейсов](apis-list.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Приступая к работе со службой Azure Multi-Factor Authentication и службами федерации Active Directory
@@ -23,8 +23,8 @@
 
 Если в организации создана федерация локальной службы Active Directory со службой Azure Active Directory с помощью AD FS, доступны следующие два варианта использования Azure Multi-Factor Authentication.
 
-- Защита облачных ресурсов с помощью службы Azure Multi-Factor Authentication и служб федерации Active Directory 
-- Защита облачных и локальных ресурсов с помощью сервера Azure Multi-Factor Authentication 
+- Защита облачных ресурсов с помощью службы Azure Multi-Factor Authentication и служб федерации Active Directory
+- Защита облачных и локальных ресурсов с помощью сервера Azure Multi-Factor Authentication
 
 В следующей таблице перечислены возможности проверки подлинности для защиты ресурсов с помощью Azure Multi-Factor Authentication и AD FS.
 
@@ -54,4 +54,4 @@
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

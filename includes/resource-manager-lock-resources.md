@@ -1,15 +1,17 @@
-1. In the Settings blade for the resource, resource group, or subscription that you wish to lock, select **Locks**.
+1. В колонке параметров для ресурса, группы ресурсов или подписки, которые необходимо заблокировать, выберите **Блокировки**.
 
-      ![select lock](./media/resource-manager-lock-resources/select-lock.png)
+      ![выбор блокировки](./media/resource-manager-lock-resources/select-lock.png)
 
-2. To add a lock, select **Add**. If you want to create a lock at a parent level, select the parent. The currently selected resource inherits the lock from the parent. For example, you could lock the resource group to apply a lock to all its resources.
+2. Чтобы добавить блокировку, выберите **Добавить**. Если вы хотите создать блокировку на родительском уровне, выберите родительский ресурс. Выбранный ресурс наследует блокировку от родительского ресурса. Например, можно заблокировать группу ресурсов, чтобы применить блокировку ко всем ее ресурсам.
 
-      ![add lock](./media/resource-manager-lock-resources/add-lock.png) 
+      ![добавление блокировки](./media/resource-manager-lock-resources/add-lock.png)
 
-3. Give the lock a name and lock level. Optionally, you can add notes that describe the lock.
+3. Присвойте блокировке имя и уровень блокировки. При необходимости можно добавить примечания, описывающие блокировку.
 
-      ![set lock](./media/resource-manager-lock-resources/set-lock.png) 
+      ![установка блокировки](./media/resource-manager-lock-resources/set-lock.png)
 
-4. To delete the lock, select the ellipsis and **Delete** from the available options.
+4. Чтобы удалить блокировку, нажмите кнопку с многоточием (...) и из списка доступных вариантов выберите **Удалить**.
 
-      ![delete lock](./media/resource-manager-lock-resources/delete-lock.png) 
+      ![удаление блокировки](./media/resource-manager-lock-resources/delete-lock.png)
+
+<!---HONumber=AcomDC_0803_2016-->

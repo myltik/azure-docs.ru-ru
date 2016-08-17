@@ -24,7 +24,7 @@
 
  -	[Пример панели мониторинга веб-приложения](http://go.microsoft.com/fwlink/?LinkId=761493)
  -	[Справочник по API Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
- -	[Пакет SDK Power BI Embedded для .NET](http://go.microsoft.com/fwlink/?LinkId=746472) (доступен в NuGet)
+ -	[Пакет SDK Power BI Embedded для .NET](http://go.microsoft.com/fwlink/?LinkId=746472) \(доступен в NuGet)
 
 
 
@@ -100,7 +100,7 @@ Checking import state... Succeeded
 
 Пример кода **Microsoft Power BI Embedded** разбивается следующим образом. Каждая часть включает имя файла для решения PowerBI-embedded.sln, поэтому вы легко найдете соответствующий код в примере.
 
-> [AZURE.NOTE] В этом разделе приведены общие сведения о примере кода, которые показывают, как был написан этот код. По мере приближения к выпуску общедоступной версии мы будем дополнять описание примера. Чтобы просмотреть полный пример, загрузите решение PowerBI-embedded.sln в Visual Studio.
+> [AZURE.NOTE] В этом разделе приведены общие сведения о примере кода, которые показывают, как был написан этот код. Чтобы просмотреть полный пример, загрузите решение PowerBI-embedded.sln в Visual Studio.
 
 ### Модель
 Образец содержит следующие модели: **ReportsViewModel** и **ReportViewModel**.
@@ -120,6 +120,15 @@ Checking import state... Succeeded
 
         public string AccessToken { get; set; }
     }
+
+### Строка подключения
+Строка подключения должна быть в следующем формате:
+
+```
+Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
+```
+
+Попытка использования общих атрибутов сервера и базы данных завершится ошибкой. Например: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### Просмотр
 **Представление** управляет отображением **отчетов** и **отчета** Power BI.
@@ -158,7 +167,7 @@ Report.cshtml: устанавливает **Model.AccessToken** и лямбда-
 
 ### Controller
 
-**DashboardController.cs**: создает PowerBIClient, передающий **маркер приложения**. Для получения **учетных данных** создается веб-маркер JSON (JWT) на основе **ключа подписи**. **Учетные данные** используются для создания экземпляра **PowerBIClient**. После создания экземпляра **PowerBIClient** можно вызвать методы GetReports() и GetReportsAsync().
+**DashboardController.cs**: создает PowerBIClient, передающий **маркер приложения**. Для получения **учетных данных** создается JSON Web Token (JWT) на основе **ключа подписывания**. **Учетные данные** используются для создания экземпляра **PowerBIClient**. После создания экземпляра **PowerBIClient** можно вызвать методы GetReports() и GetReportsAsync().
 
 CreatePowerBIClient()
 
@@ -236,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="06/22/2016"
+	ms.date="08/07/2016"
 	ms.author="juliako;anilmur"/>
 
 #Общие сведения о службах мультимедиа Azure и распространенные сценарии
@@ -60,7 +60,7 @@
 
 Основные понятия служб мультимедиа Azure см. в статье [Основные понятия служб мультимедиа Azure](media-services-concepts.md).
 
-Инструкции по работе с основными компонентами служб мультимедиа Azure см. в соответствующих [пошаговых руководствах](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Они содержат отличный обзор основных понятий и демонстрируют выполнение задач AME с помощью средства AMSE. Обратите внимание, что средство AMSE разработано для Windows. Оно поддерживает большинство задач, которые можно решать программным путем, используя [пакет SDK AMS для .NET](https://github.com/Azure/azure-sdk-for-media-services), [пакет SDK Azure для Java](https://github.com/Azure/azure-sdk-for-java) или [пакет SDK Azure для PHP](https://github.com/Azure/azure-sdk-for-php).
+Инструкции по работе с основными компонентами служб мультимедиа Azure см. в соответствующих [пошаговых руководствах](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). В них не только приводятся основные сведения о концепциях, но и с помощью инструмента AMSE демонстрируется выполнение задач AMS. Обратите внимание, что средство AMSE разработано для Windows. Оно поддерживает большинство задач, которые можно решать программным путем, используя [пакет SDK AMS для .NET](https://github.com/Azure/azure-sdk-for-media-services), [пакет SDK Azure для Java](https://github.com/Azure/azure-sdk-for-java) или [пакет SDK Azure для PHP](https://github.com/Azure/azure-sdk-for-php).
 
 ##<a id="vod_scenarios"></a>Доставка мультимедиа по запросу с помощью служб мультимедиа Azure: распространенные сценарии и задачи
 
@@ -220,4 +220,4 @@
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

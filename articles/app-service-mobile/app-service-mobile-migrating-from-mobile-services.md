@@ -50,7 +50,7 @@
 
 Чтобы перенести сайт, выполните следующие действия:
 
-  1.  Войдите на [Классический портал Azure].
+  1.  Войдите на [классический портал Azure].
   2.  В регионе выберите мобильную службу для переноса.
   3.  Нажмите кнопку **Перенести в службу приложений**.
 
@@ -104,7 +104,7 @@
 
 ### <a name="configure-cors"></a>Настройка CORS при необходимости
 
-Общий доступ к ресурсам независимо от источника — это способ предоставления веб-сайту доступа к веб-API на другом домене. Если вы используете мобильные службы Azure со связанным веб-сайтом, вам понадобится настроить CORS как часть переноса. Если вы обращаетесь к мобильным службам Azure только с мобильных устройств, вам не нужно настраивать CORS (за исключением редких случаев).
+Общий доступ к ресурсам независимо от источника – это способ предоставления веб-сайту доступа к веб-API на другом домене. Если вы используете мобильные службы Azure со связанным веб-сайтом, вам понадобится настроить CORS как часть переноса. Если вы обращаетесь к мобильным службам Azure только с мобильных устройств, вам не нужно настраивать CORS (за исключением редких случаев).
 
 Перенесенные параметры CORS доступны в параметре приложения **MS\_CrossDomainWhitelist**. Чтобы перенести сайт в средство CORS службы приложений, выполните следующие действия:
 
@@ -265,7 +265,7 @@
 
 ### <a name="app-settings"></a>Другие параметры приложения
 
-Из мобильной службы перенесены приведенные ниже дополнительные параметры приложения. Они доступны в разделе *Параметры* > *Параметры приложения*.
+Из мобильной службы перенесены приведенные ниже дополнительные параметры приложения. Они доступны в разделе *Параметры* > *Параметры приложения*.
 
 | Параметр приложения | Описание |
 | :------------------------------- | :-------------------------------------- |
@@ -287,17 +287,17 @@
 | mobile show _name_ | site show _name_ |
 | mobile restart _name_ | site restart _name_ |
 | mobile redeploy _name_ | site deployment redeploy _commitId_ _name_ |
-| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
 | mobile config list _name_ | site appsetting list _name_ |
 | mobile config get _name_ _key_ | site appsetting show _key_ _name_ |
-| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=\_value\_ _name_ |
+| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
 | mobile domain list _name_ | site domain list _name_ |
 | mobile domain add _name_ _domain_ | site domain add _domain_ _name_ |
 | mobile domain delete _name_ | site domain delete _domain_ _name_ |
 | mobile scale show _name_ | site show _name_ |
 | mobile scale change _name_ | site scale mode _mode_ _name_ <br /> site scale instances _instances_ _name_ |
 | mobile appsetting list _name_ | site appsetting list _name_ |
-| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=\_value\_ _name_ |
+| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=_value_ _name_ |
 | mobile appsetting delete _name_ _key_ | site appsetting delete _key_ _name_ |
 | mobile appsetting show _name_ _key_ | site appsetting delete _key_ _name_ |
 
@@ -324,7 +324,7 @@
 
 По мере создания журналы будут передаваться в указанное окно. Кроме того, вы можете скачать журналы для последующего анализа с помощью учетных данных развертывания. Дополнительные сведения по [ведению журналов].
 
-## <a name="known-issues"></a> Известные проблемы
+## <a name="known-issues"></a>Известные проблемы
 
 ### Удаление перенесенного клона мобильного приложения приведет к недоступности сайта
 
@@ -334,7 +334,7 @@
 
 ### Изменение web.config не поддерживается
 
-При наличии сайта ASP.NET изменения в файл `Web.config` не поддерживаются. Во время запуска служба приложений Azure создает подходящий файл `Web.config` для поддержки среды выполнения мобильных служб. Некоторые параметры (например, пользовательские заголовки) можно переопределить с помощью файла преобразования XML. Создайте файл с именем `applicationHost.xdt` — этот файл должен оказаться в каталоге `D:\home\site` службы Azure. Этого можно добиться, используя пользовательский сценарий развертывания или непосредственно с помощью Kudu. Ниже показан пример документа.
+При наличии сайта ASP.NET изменения в файл `Web.config` не поддерживаются. Во время запуска служба приложений Azure создает подходящий файл `Web.config` для поддержки среды выполнения мобильных служб. Некоторые параметры (например, пользовательские заголовки) можно переопределить с помощью файла преобразования XML. Создайте файл с именем `applicationHost.xdt`; он должен располагаться в каталоге `D:\home\site` службы Azure. Этого можно добиться, используя пользовательский сценарий развертывания или непосредственно с помощью Kudu. Ниже показан пример документа.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -353,11 +353,11 @@
 </configuration>
 ```
 
-Дополнительные сведения см. в документе [XDT Transform Samples] \(примеры преобразования XDT) на сайте GitHub.
+Дополнительные сведения см. в документе с [примерами преобразования XDT] на сайте GitHub.
 
 ### Перенесенные мобильные службы нельзя добавить в диспетчер трафика
 
-При создании профиля диспетчера трафика нельзя напрямую выбрать перенесенную мобильную службу для профиля. Необходимо использовать "внешнюю конечную точку". Внешнюю конечную точку можно добавить только через PowerShell. Дополнительные сведения см. в [учебнике по диспетчеру трафика](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
+При создании профиля диспетчера трафика нельзя напрямую выбрать перенесенную мобильную службу для профиля. Необходимо использовать "внешнюю конечную точку". Внешнюю конечную точку можно добавить только через PowerShell. Дополнительные сведения см. в [руководстве по диспетчеру трафика](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
@@ -386,14 +386,14 @@
 [Автоматическое масштабирование]: ../app-service-web/web-sites-scale.md
 [службы приложений Azure]: ../app-service/app-service-value-prop-what-is.md
 [документации по развертыванию службы приложений Azure]: ../app-service-web/web-sites-deploy.md
-[Классический портал Azure]: https://manage.windowsazure.com
+[классический портал Azure]: https://manage.windowsazure.com
 [классическом портале Azure]: https://manage.windowsazure.com
 [портал Azure]: https://portal.azure.com
 [портала Azure]: https://portal.azure.com
 [портале Azure]: https://portal.azure.com
 [регионе Azure]: https://azure.microsoft.com/regions/
 [планы планировщика Azure]: ../scheduler/scheduler-plans-billing.md
-[непрерывно развертывать]: ../app-service-web/web-sites-publish-source-control.md
+[непрерывно развертывать]: ../app-service-web/app-service-continuous-deployment.md
 [преобразовать смешанные пространства имен]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
 [пользовательские доменные имена]: ../app-service-web/web-sites-custom-domain-name.md
@@ -411,6 +411,6 @@
 [промежуточных слотов]: ../app-service-web/web-sites-staged-publishing.md
 [виртуальной сети]: ../app-service-web/web-sites-integrate-with-vnet.md
 [веб-задания]: ../app-service-web/websites-webjobs-resources.md
-[XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
+[примерами преобразования XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

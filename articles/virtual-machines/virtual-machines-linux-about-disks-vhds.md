@@ -25,10 +25,13 @@
 
 [AZURE.INCLUDE [virtual-machines-common-about-disks-vhds](../../includes/virtual-machines-common-about-disks-vhds.md)]
 
+## Устранение неполадок
+[AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
+
 ## Дальнейшие действия
 
 -  [Подключите диск](virtual-machines-linux-attach-disk-portal.md), чтобы увеличить емкость хранилища для виртуальной машины.
--  [Настройте программный RAID-массив](virtual-machines-linux-configure-raid.md), чтобы обеспечить избыточность.
+-  [Настройте программный RAID](virtual-machines-linux-configure-raid.md), чтобы обеспечить избыточность.
 -  [Запишите образ виртуальной машины Linux](virtual-machines-linux-classic-capture-image.md), чтобы иметь возможность быстро развернуть дополнительные виртуальные машины.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0803_2016-->

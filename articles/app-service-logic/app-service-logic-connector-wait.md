@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Использование соединителя Wait в приложениях логики | Служба приложений Microsoft Azure" 
    description="Как создать и настроить соединитель Wait или приложение API и использовать его в приложении логики в службе приложений Azure" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
@@ -56,4 +56,4 @@
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

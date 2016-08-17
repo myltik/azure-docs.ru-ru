@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Управление базой данных SQL Azure с помощью PowerShell" 
-	description="Управление базой данных SQL Azure с помощью PowerShell." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Управление базой данных SQL Azure с помощью PowerShell | Microsoft Azure"
+	description="Управление базой данных SQL Azure с помощью PowerShell."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2016"
 	ms.author="sstein"/>
 
 # Управление базой данных SQL Azure с помощью PowerShell
@@ -33,27 +33,27 @@
 
 Создайте группу ресурсов, которая будет содержать сервер. Следующую команду можно изменить, указав любое допустимое расположение.
 
-Список допустимых расположений серверов баз данных SQL Azure можно получить, выполнив следующий командлет:
+Список допустимых расположений серверов базы данных SQL можно получить, выполнив следующий командлет.
 
 	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
-Если у вас уже есть группа ресурсов, вы можете перейти к следующему шагу или выполнить команду ниже, чтобы создать новую группу ресурсов:
+Если у вас уже есть группа ресурсов, вы можете перейти к следующему шагу ("Создание сервера") или изменить и выполнить команду ниже, чтобы создать новую группу ресурсов.
 
 	New-AzureRmResourceGroup -Name "resourcegroupJapanWest" -Location "Japan West"
 
-## Создание сервера 
+## Создание сервера
 
-Чтобы создать новый сервер версии 12, воспользуйтесь командлетом [New-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx). Замените server12 на имя вашего сервера. Это имя должно быть уникальным для серверов Azure SQL Server, и, если оно уже занято, появится сообщение об ошибке. Кроме того, выполнение этой команды может занять несколько минут. После успешного создания сервера будут запрошены сведения о сервере и PowerShell. Команду можно изменить, указав любое допустимое расположение.
+Чтобы создать новый сервер версии 12, воспользуйтесь командлетом [New-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx). Замените *server12* именем своего сервера. Если имя сервера уже используется, отобразится сообщение об ошибке. Кроме того, выполнение этой команды может занять несколько минут. После успешного создания сервера будут отображены сведения о сервере и командная строка PowerShell. Команду можно изменить, указав любое допустимое расположение.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
-При выполнении этой команды появится окно, запрашивающее **Имя пользователя** и **Пароль**. Это не учетные данные Azure; введите имя пользователя и пароль, которые станут учетными данными администратора нового сервера.
+При выполнении этой команды отображается запрос на ввод имени пользователя и пароля. Не указывайте здесь свои учетные данные Azure. Вместо этого введите имя пользователя и пароль, которые станут учетными данными администратора нового сервера.
 
 ## Создание правила брандмауэра для сервера
 
 Чтобы создать правило брандмауэра для доступа к серверу, воспользуйтесь командой [New-AzureRMSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx). Выполните следующую команду, заменив начальный и конечный IP-адреса значениями для своего клиента.
 
-Если ваш сервер должен предоставлять доступ к другим службам Azure, примените параметр **-AllowAllAzureIPs**. Он добавит специальное правило брандмауэра и предоставит всему трафику Azure доступ к серверу.
+Если сервер должен предоставлять доступ к другим службам Azure, добавьте параметр **- AllowAllAzureIPs**. Он добавит специальное правило брандмауэра и разрешит всему трафику Azure доступ к серверу.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
@@ -84,7 +84,7 @@
 Сервер также можно удалить командой [Remove-AzureRMSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx). В следующем примере удаляется сервер с именем server12.
 
 
->[AZURE.NOTE]  Так как операция удаления является асинхронной и может занимать некоторое время, ее следует завершить до выполнения любых дополнительных операций, связанных с сервером, который полностью удаляется (например, создания сервера с тем же именем).
+>[AZURE.NOTE]  Операция удаления является асинхронной и может занять некоторое время. Убедитесь, что эта операция завершена, прежде чем выполнять любые дополнительные операции, связанные с сервером, который полностью удаляется (например, создание сервера с тем же именем).
 
 
 	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
@@ -94,7 +94,7 @@
 
 ## Дальнейшие действия
 
-Объедините и автоматизируйте команды. Например, замените все содержимое внутри кавычек, включая символы < и > соответствующими значениями для создания сервера, правила брандмауэра и базы данных:
+Объедините и автоматизируйте команды. Например, чтобы создать сервер, правило брандмауэра и базу данных, замените все содержимое внутри кавычек, включая знаки < и >, соответствующими значениями.
 
 
     New-AzureRmResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -102,8 +102,8 @@
     New-AzureRmSqlServerFirewallRule -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -FirewallRuleName "<firewallRuleName>" -StartIpAddress "<192.168.0.198>" -EndIpAddress "<192.168.0.199>"
     New-AzureRmSqlDatabase -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -DatabaseName "<databaseName>" -Edition <Standard> -RequestedServiceObjectiveName "<S1>"
 
-## Сопутствующая информация
+## Связанные сведения
 
 - [Командлеты Базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

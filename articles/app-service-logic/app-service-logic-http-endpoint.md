@@ -1,7 +1,7 @@
 <properties
    pageTitle="Приложения логики как вызываемые конечные точки"
    description="Как создать и настроить конечные точки триггера и использовать их в приложении логики в службе приложений Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -151,4 +151,4 @@ POST https://management.azure.com/{resourceID of your logic app}/triggers/myendp
 [2]: ./media/app-service-logic-http-endpoint/manualtrigger.png
 [3]: ./media/app-service-logic-http-endpoint/response.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/06/2016"
+   ms.date="07/29/2016"
    ms.author="vturecek"/>
 
 # Приступая к работе со службами веб-API Service Fabric с саморазмещением OWIN
@@ -23,14 +23,14 @@
 
 ## Общие сведения о веб-API в Service Fabric
 
-Веб-API ASP.NET — это популярная и мощная платформа для построения интерфейсов HTTP API поверх .NET Framework. Если вы еще не знакомы с тем, как работает эта платформа, см. сведения в статье [Getting started with ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) (Приступая к работе с веб-API ASP.NET 2).
+Веб-API ASP.NET – это популярная и мощная платформа для построения интерфейсов HTTP API поверх .NET Framework. Если вы еще не знакомы с тем, как работает эта платформа, см. сведения в статье [Getting started with ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) (Приступая к работе с веб-API ASP.NET 2).
 
-Веб-API в Service Fabric — это тот же веб-API ASP.NET, который вы знаете и любите. Различие состоит в том, как *размещается* приложение веб-API. Этот процесс не предусматривает использование Microsoft IIS. Чтобы лучше понять разницу, разобьем систему на две части.
+Веб-API в Service Fabric – это тот же веб-API ASP.NET, который вы знаете и любите. Различие состоит в том, как *размещается* приложение веб-API. Этот процесс не предусматривает использование Microsoft IIS. Чтобы лучше понять разницу, разобьем систему на две части.
 
  1. Приложение веб-API (в том числе контроллеры и модели).
  2. Хост (веб-сервер, обычно IIS).
 
-Само приложение веб-API не меняется. Оно не отличается от приложений веб-API, которые вы писали ранее. Кроме того, можно просто переместить сюда большую часть кода приложения. Если раньше вы использовали IIS, процесс размещения приложения может немного отличаться от привычного. Прежде чем мы перейдем к размещению, начнем с более привычного действия — создания приложения веб-API.
+Само приложение веб-API не меняется. Оно не отличается от приложений веб-API, которые вы писали ранее. Кроме того, можно просто переместить сюда большую часть кода приложения. Если раньше вы использовали IIS, процесс размещения приложения может немного отличаться от привычного. Прежде чем мы перейдем к размещению, начнем с более привычного действия – создания приложения веб-API.
 
 
 ## Создание приложения
@@ -45,7 +45,7 @@
 
 ![Создание единой службы без отслеживания состояния](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
-На первом шаге потребуется задействовать некоторые пакеты NuGet для веб-API. Нужный нам пакет — Microsoft.AspNet.WebApi.OwinSelfHost. В нем содержатся все необходимые пакеты веб-API и пакеты *размещения*. Это будет важно в дальнейшем.
+На первом шаге потребуется задействовать некоторые пакеты NuGet для веб-API. Нужный нам пакет – Microsoft.AspNet.WebApi.OwinSelfHost. В нем содержатся все необходимые пакеты веб-API и пакеты *размещения*. Это будет важно в дальнейшем.
 
 ![Создание веб-API с помощью диспетчера пакетов NuGet](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
@@ -92,7 +92,7 @@ namespace WebService.Controllers
 
 ```
 
-Затем добавьте класс Startup в корень проекта для регистрации маршрутизации, модулей форматирования и настройки других параметров конфигурации. Это также точка подключения веб-API к *узлу* (мы еще раз рассмотрим это дальше).
+Затем добавьте класс Startup в корень проекта для регистрации маршрутизации, модулей форматирования и настройки других параметров конфигурации. Это также точка подключения веб-API к *хосту*, что мы еще раз рассмотрим позднее.
 
 **Startup.cs.**
 
@@ -165,7 +165,7 @@ internal static class Program
 
 ## Саморазмещение веб-API с использованием хоста OWIN
 
-Если код приложения веб-API размещается с помощью отдельного процесса, как связать его с веб-сервером? Для этого есть [OWIN](http://owin.org/). OWIN — это просто контракт между веб-приложениями .NET и веб-серверами. Обычно в ASP.NET (до MVC 5) веб-приложение тесно связано с IIS через System.Web. Но интерфейс веб-API реализует OWIN, который позволяет написать веб-приложение, не связанное с веб-сервером, на котором оно размещается. Таким образом вы можете использовать веб-сервер OWIN с *саморазмещением*, который можно запускать отдельным процессом, что идеально подходит для описанной выше модели размещения Service Fabric.
+Если код приложения веб-API размещается с помощью отдельного процесса, как связать его с веб-сервером? Для этого есть [OWIN](http://owin.org/). OWIN – это просто контракт между веб-приложениями .NET и веб-серверами. Обычно в ASP.NET (до MVC 5) веб-приложение тесно связано с IIS через System.Web. Тем не менее веб-API реализует OWIN, который позволяет создать веб-приложение, не связанное с веб-сервером, на котором оно размещается. Таким образом вы можете использовать веб-сервер OWIN с *саморазмещением*, который можно запускать отдельным процессом, что идеально подходит для описанной выше модели размещения Service Fabric.
 
 В этой статье мы будем использовать Katana в качестве хоста OWIN для приложения веб-API. Katana — это реализация хоста OWIN с открытым исходным кодом на основе [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx) и [API сервера HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) Windows.
 
@@ -362,17 +362,17 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
     try
     {
-        this.eventSource.ServiceMessage(this.serviceContext, "Starting web server on " + this.listeningAddress);
+        this.eventSource.Message("Starting web server on " + this.listeningAddress);
 
         this.webApp = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Invoke(appBuilder));
 
-        this.eventSource.ServiceMessage(this.serviceContext, "Listening on " + this.publishAddress);
+        this.eventSource.Message("Listening on " + this.publishAddress);
 
         return Task.FromResult(this.publishAddress);
     }
     catch (Exception ex)
     {
-        this.eventSource.ServiceMessage(this.serviceContext, "Web server failed to open endpoint {0}. {1}", this.endpointName, ex.ToString());
+        this.eventSource.Message("Web server failed to open endpoint {0}. {1}", this.endpointName, ex.ToString());
 
         this.StopWebServer();
 
@@ -384,7 +384,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
 Обратите внимание, что при этом выполняется обращение к классу Startup, переданному в OwinCommunicationListener в конструкторе. Этот экземпляр Startup веб-сервер использует для начальной загрузки приложения веб-API.
 
-Позже при запуске приложения в окне "События диагностики" появится строка `ServiceEventSource.Current.ServiceMessage()` в подтверждение успешного запуска веб-сервера.
+Позже при запуске приложения в окне "События диагностики" появится строка `ServiceEventSource.Current.Message()` в подтверждение успешного запуска веб-сервера.
 
 ## Реализация CloseAsync и Abort
 
@@ -393,7 +393,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 ```csharp
 public Task CloseAsync(CancellationToken cancellationToken)
 {
-    this.eventSource.ServiceMessage(this.serviceContext, "Closing web server on endpoint {0}", this.endpointName);
+    this.eventSource.Message("Closing web server on endpoint {0}", this.endpointName);
             
     this.StopWebServer();
 
@@ -402,7 +402,7 @@ public Task CloseAsync(CancellationToken cancellationToken)
 
 public void Abort()
 {
-    this.eventSource.ServiceMessage(this.serviceContext, "Aborting web server on endpoint {0}", this.endpointName);
+    this.eventSource.Message("Aborting web server on endpoint {0}", this.endpointName);
     
     this.StopWebServer();
 }
@@ -441,7 +441,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-Здесь наконец встречаются *приложение* веб-API и *узел* OWIN. У узла (OwinCommunicationListener) теперь есть экземпляр *приложения* (веб-API, полученный с использованием Startup). Его жизненным циклом управляет Service Fabric. Такого же шаблона можно придерживаться при использовании любого стека связи.
+Здесь наконец встречаются *приложение* веб-API и *узел* OWIN. У узла (OwinCommunicationListener) теперь есть экземпляр *приложения* (веб-API), полученный с помощью класса Startup. Его жизненным циклом управляет Service Fabric. Такого же шаблона можно придерживаться при использовании любого стека связи.
 
 ## Сборка
 
@@ -496,51 +496,49 @@ namespace WebService
 {
     internal class OwinCommunicationListener : ICommunicationListener
     {
-    private readonly ServiceEventSource eventSource;
-    private readonly Action<IAppBuilder> startup;
-    private readonly ServiceContext serviceContext;
-    private readonly string endpointName;
-    private readonly string appRoot;
+        private readonly ServiceEventSource eventSource;
+        private readonly Action<IAppBuilder> startup;
+        private readonly ServiceContext serviceContext;
+        private readonly string endpointName;
+        private readonly string appRoot;
 
-    private IDisposable webApp;
-    private string publishAddress;
-    private string listeningAddress;
+        private IDisposable webApp;
+        private string publishAddress;
+        private string listeningAddress;
 
-    public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, ServiceEventSource eventSource, string endpointName)
-        : this(startup, serviceContext, eventSource, endpointName, null)
-    {
-    }
-
-    public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, ServiceEventSource eventSource, string endpointName, string appRoot)
-    {
-        if (startup == null)
+        public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, ServiceEventSource eventSource, string endpointName)
+            : this(startup, serviceContext, eventSource, endpointName, null)
         {
-            throw new ArgumentNullException(nameof(startup));
         }
 
-        if (serviceContext == null)
+        public OwinCommunicationListener(Action<IAppBuilder> startup, ServiceContext serviceContext, ServiceEventSource eventSource, string endpointName, string appRoot)
         {
-            throw new ArgumentNullException(nameof(serviceContext));
+            if (startup == null)
+            {
+                throw new ArgumentNullException(nameof(startup));
+            }
+
+            if (serviceContext == null)
+            {
+                throw new ArgumentNullException(nameof(serviceContext));
+            }
+
+            if (endpointName == null)
+            {
+                throw new ArgumentNullException(nameof(endpointName));
+            }
+
+            if (eventSource == null)
+            {
+                throw new ArgumentNullException(nameof(eventSource));
+            }
+
+            this.startup = startup;
+            this.serviceContext = serviceContext;
+            this.endpointName = endpointName;
+            this.eventSource = eventSource;
+            this.appRoot = appRoot;
         }
-
-        if (endpointName == null)
-        {
-            throw new ArgumentNullException(nameof(endpointName));
-        }
-
-        if (eventSource == null)
-        {
-            throw new ArgumentNullException(nameof(eventSource));
-        }
-
-        this.startup = startup;
-        this.serviceContext = serviceContext;
-        this.endpointName = endpointName;
-        this.eventSource = eventSource;
-        this.appRoot = appRoot;
-    }
-
-        public bool ListenOnSecondary { get; set; }
 
         public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
@@ -580,31 +578,31 @@ namespace WebService
                 throw new InvalidOperationException();
             }
 
-    this.publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+            this.publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-    try
-    {
-        this.eventSource.ServiceMessage(this.serviceContext, "Starting web server on " + this.listeningAddress);
+            try
+            {
+                this.eventSource.Message("Starting web server on " + this.listeningAddress);
 
-        this.webApp = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Invoke(appBuilder));
+                this.webApp = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Invoke(appBuilder));
 
-        this.eventSource.ServiceMessage(this.serviceContext, "Listening on " + this.publishAddress);
+                this.eventSource.Message("Listening on " + this.publishAddress);
 
-        return Task.FromResult(this.publishAddress);
-    }
-    catch (Exception ex)
-    {
-        this.eventSource.ServiceMessage(this.serviceContext, "Web server failed to open endpoint {0}. {1}", this.endpointName, ex.ToString());
+                return Task.FromResult(this.publishAddress);
+            }
+            catch (Exception ex)
+            {
+                this.eventSource.Message("Web server failed to open endpoint {0}. {1}", this.endpointName, ex.ToString());
 
-        this.StopWebServer();
+                this.StopWebServer();
 
-        throw;
-    }
-}
+                throw;
+            }
+        }
 
         public Task CloseAsync(CancellationToken cancellationToken)
         {
-            this.eventSource.ServiceMessage(this.serviceContext, "Closing web server on endpoint {0}", this.endpointName);
+            this.eventSource.Message("Closing web server on endpoint {0}", this.endpointName);
 
             this.StopWebServer();
 
@@ -613,7 +611,7 @@ namespace WebService
 
         public void Abort()
         {
-            this.eventSource.ServiceMessage(this.serviceContext, "Aborting web server on endpoint {0}", this.endpointName);
+            this.eventSource.Message("Aborting web server on endpoint {0}", this.endpointName);
 
             this.StopWebServer();
         }
@@ -634,7 +632,6 @@ namespace WebService
         }
     }
 }
-
 ```
 
 Теперь все элементы на своих местах и приложение веб-API должно выглядеть аналогично обычному приложению веб-API с точками входа интерфейса API Reliable Services и хостом OWIN.
@@ -687,4 +684,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 [Отладка приложения Service Fabric с помощью Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

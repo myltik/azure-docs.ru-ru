@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Изменение кредитной карты, используемой для оплаты подписки Azure | Microsoft Azure"
 	description="Описание процедуры изменения кредитной карты, используемой для оплаты подписки Azure"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="jarrettr"
-	editor="meerak"
+	editor=""
 	tags="billing"
 	/>
 
@@ -51,4 +51,4 @@
 3. В правой части страницы выберите **Изменить способ оплаты**.
 4. На странице **Выбор способа оплаты** щелкните стрелку раскрывающегося списка рядом с кредитной картой, выберите необходимую кредитную карту и щелкните ![checkbutton](./media/billing-how-to-change-credit-card/checkbutton.png), чтобы закрыть окно.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

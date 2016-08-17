@@ -207,7 +207,7 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 | string *оператор* string | <, <=, ==, >=, >, != | double | 
 | timestamp *оператор* timestamp | <, <=, ==, >=, >, != | double | 
 | timeinterval *оператор* timeinterval | <, <=, ==, >=, >, != | double | 
-| double *оператор* double | &&, || | double |
+| double *оператор* double | &&, &#124;&#124; | double |
 
 При тестировании double с тернарным оператором (`double ? statement1 : statement2`) ненулевое значение равно **true**, а нулевое — **false**.
 

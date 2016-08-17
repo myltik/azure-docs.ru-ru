@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование соединителя машинного обучения Azure в приложениях логики | Служба приложений Microsoft Azure"
    description="Как создать и настроить соединитель машинного обучения Azure, чтобы использовать его в приложениях логики в службе приложений Azure"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
@@ -88,4 +88,4 @@
 [6]: ./media/app-service-logic-connector-azureml/img6.png
 [7]: ./media/app-service-logic-connector-azureml/img7.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

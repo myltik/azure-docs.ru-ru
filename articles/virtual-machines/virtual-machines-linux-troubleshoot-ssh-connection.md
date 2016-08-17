@@ -70,7 +70,7 @@ azure vm reset-access -g <resource group> <vm name> -u <username> -p <new passwo
 При использовании аутентификацию с помощью ключа SSH можно сбросить ключ SSH для отдельного пользователя:
 
 ```bash
-azure vm reset-access -g <resource group> -n <vm name> -u <usernamer> -M <~/.ssh/azure_id_rsa.pub>
+azure vm reset-access -g <resource group> -n <vm name> -u <username> -M <~/.ssh/azure_id_rsa.pub>
 ```
 
 #### Расширение для доступа к виртуальной машине
@@ -134,4 +134,4 @@ azure vm extension set <resource group> <vmname> VMAccessForLinux Microsoft.OSTC
 
 - Дополнительные сведения об устранении неполадок на виртуальных машинах, созданных с помощью классической модели развертывания, см. в статье о [сбросе пароля или ключа SSH в виртуальных машинах Linux](virtual-machines-linux-classic-reset-access.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->

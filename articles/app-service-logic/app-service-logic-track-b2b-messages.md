@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Отслеживание сообщений B2B в приложениях логики службы приложений Azure | Microsoft Azure" 
    description="В этом разделе рассматривается отслеживание обработки B2B." 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
@@ -47,4 +47,4 @@
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.png
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

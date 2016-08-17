@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
 
 
@@ -86,4 +86,4 @@
 * [Активация подключения к удаленному рабочему столу для роли в облачных службах Azure](cloud-services-role-enable-remote-desktop.md)
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,7 +3,7 @@
    description="База данных SQL Microsoft Azure, миграция базы данных, совместимость базы данных SQL, мастер экспорта приложений на уровне данных "
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -46,7 +46,7 @@
 
 	![Параметры экспорта](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
 
-6. Нажмите кнопку **Далее**, а затем — кнопку **Готово**. При наличии проблем совместимости базы данных они отобразятся, после того как мастер проверит схему.
+6. Нажмите кнопку **Далее**, а затем – кнопку **Готово**. При наличии проблем совместимости базы данных они отобразятся, после того как мастер проверит схему.
 
 	![Параметры экспорта](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
 
@@ -67,4 +67,4 @@
 - [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

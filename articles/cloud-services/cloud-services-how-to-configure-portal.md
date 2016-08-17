@@ -13,11 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
-
-
-
 
 # Настройка облачных служб
 
@@ -56,7 +53,7 @@
 - Скорость записи на диск
 - Входящая скорость сети
 - Исходящая скорость сети
-- Процент использования ЦП 
+- Процент использования ЦП
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
@@ -113,4 +110,4 @@
 * [Управление облачной службой](cloud-services-how-to-manage-portal.md).
 * Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0803_2016-->

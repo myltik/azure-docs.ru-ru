@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Обзор пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Используйте функции пакета интеграции Enterprise, чтобы реализовать сценарии бизнес-процессов и интеграции с помощью службы приложений Microsoft Azure." 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
@@ -74,4 +74,4 @@
 - [Узнайте больше о картах](./app-service-logic-enterprise-integration-maps.md "Узнайте о картах интеграции Enterprise.").
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -86,7 +86,7 @@
 | Type=Perf | Все данные о производительности. |
 | Type=Perf Computer="MyComputer" | Все данные о производительности с определенного компьютера |
 | Type=Perf CounterName="Current Disk Queue Length" | Все данные о производительности с определенного счетчика |
-| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=\_Total | measure Avg(Average) as AVGCPU by Computer | Средний объем использования ЦП на всех компьютерах |
+| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=\_Total &#124; measure Avg(Average) as AVGCPU by Computer | Средний объем использования ЦП на всех компьютерах |
 | Type=Perf (CounterName="% Processor Time") &#124; measure max(Max) by Computer | Максимальный объем использования ЦП на всех компьютерах |
 | Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName | Средняя длина текущей дисковой очереди по всем экземплярам заданного компьютера |
 | Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer | 95-й процентиль для обращений к диску/с на всех компьютерах |

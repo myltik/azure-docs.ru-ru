@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Обращение в службу поддержки при возникновении проблем с оплатой или подпиской на Azure | Microsoft Azure"
 	description="Описывает, как обратиться в службу поддержки при возникновении проблем с оплатой или подпиской на Azure."
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="mbaldwin"
-	editor="na"
+	editor=""
 	tags="billing"
 	/>
 
@@ -44,4 +44,4 @@
 
  >[AZURE.NOTE]Доступ к центру учетных записей предоставляется только учетной записи администратора учетных записей Azure. Дополнительные сведения о том, как узнать, кто является администратором учетной записи для подписки, см. в разделе [Часто задаваемые вопросы](billing-subscription-transfer.md#faq).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0803_2016-->

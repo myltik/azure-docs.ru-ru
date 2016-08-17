@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="04/29/2016"
+      ms.date="07/27/2016"
       ms.author="hascipio; v-divte" />
 
 # Руководство по созданию шаблона решения для Azure Marketplace
@@ -32,6 +32,7 @@
 
 ### 3\. Начните с топологий
 Шаблон решения служит родительским элементом для всех своих топологий. В одном шаблоне предложений или решения можно определить сразу несколько топологий. Когда предложение переходит к стадии промежуточного развертывания, вместе с ним отправляются все его топологии. Выполните следующее, чтобы определить предложение:
+
 - Создайте топологию (как правило, в качестве имени топологии для шаблона решения используется "идентификатор топологии"). Идентификатор топологии включается в URL-адрес, как показано ниже.
 
   Azure Marketplace: http://azure.microsoft.com/marketplace/partners/{PublisherNamespace}/{OfferIdentifier}{TopologyIdentifier}
@@ -42,24 +43,20 @@
 
 ### 4\. Сертифицируйте версии топологии
 Передайте ZIP-файл, содержащий все файлы, необходимые для подготовки соответствующей версии топологии. Этот ZIP-файл должен содержать следующее:
+
 - файлы *mainTemplate.json* и *createUiDefinition.json* в корневом каталоге;
 - связанные шаблоны и все необходимые сценарии.
-
-Отправив ZIP-файл, нажмите кнопку **Сертификация запроса**. Команда сертификации Майкрософт проверит файлы и выполнит сертификацию топологии.
 
   > [AZURE.TIP] Создание и сертификацию топологий шаблонов решений осуществляют ваши разработчики, а разработкой маркетинговых и юридических материалов может заняться коммерческий, маркетинговый или юридический отдел вашей компании.
 
 ## Дальнейшие действия
-После создания шаблона решения и отправки ZIP-файла с необходимыми файлами для сертификации выполните инструкции в [руководстве по маркетинговому содержимому Marketplace](marketplace-publishing-push-to-staging.md), прежде чем подготавливать предложение для тестирования в промежуточной среде. Полный список статей, опубликованных в Marketplace, см. в статье [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md).
+После создания шаблона решения и отправки ZIP-файла выполните инструкции в статье [Завершение создания предложения с маркетинговыми материалами](marketplace-publishing-push-to-staging.md), прежде чем перемещать предложение в промежуточную среду. Полный список статей о публикации в Marketplace см. в статье [Как опубликовать предложение и управлять им в Azure Marketplace](marketplace-publishing-getting-started.md).
 
 Вас также могут заинтересовать следующие связанные статьи:
 
 - Образы виртуальных машин: [Об образах виртуальных машин в Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-
 - Расширения виртуальных машин: [Общие сведения об агенте и расширениях виртуальных машин Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) и [Расширения и компоненты виртуальных машин Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
-
 - Диспетчер ресурсов Azure: [Создание шаблонов Azure ARM](../resource-group-authoring-templates.md) и [Простые примеры шаблонов ARM](https://github.com/rjmax/ArmExamples)
-
 - Регулирование учетной записи хранения: [Отслеживание регулирования учетной записи хранения](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) и [Хранилище класса Premium](../storage/storage-premium-storage.md#scalability-and-performance-targets-whru-RUing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
@@ -67,4 +64,4 @@
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -5,7 +5,7 @@
 	keywords="защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/02/2016"
 	ms.author="markvi"/>
 
 #Уведомления защиты идентификации Azure Active Directory 
@@ -57,6 +57,6 @@
 
 ## См. также
 
-- [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md) 
+- [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0803_2016-->

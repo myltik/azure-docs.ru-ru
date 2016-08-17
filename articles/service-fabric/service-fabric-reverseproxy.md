@@ -56,7 +56,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
  - **http(s)**: обратный прокси-сервер можно настроить для приема трафика HTTP или HTTPS. В случае трафика HTTPS функцию моста SSL выполняет обратный прокси-сервер. Запросы, которые пересылаются обратным прокси-сервером к службам в кластере, передаются по протоколу HTTP.
- - **Gateway FQDN (Полное доменное имя шлюза)| internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
+ - **Gateway FQDN | internal IP**. Для внутренних клиентов обратный прокси-сервер можно настроить так, чтобы он был доступен через домен кластера (например, mycluster.eastus.cloudapp.azure.com). По умолчанию обратный прокси-сервер выполняется на каждом узле, поэтому для внутреннего трафика он может быть доступен на узле localhost или по IP-адресу любого внутреннего узла (например, 10.0.0.1).
  - **Port** (Порт): порт, который был указан для обратного прокси-сервера. Пример: 19008.
  - **ServiceInstanceName**: полное имя развернутого экземпляра службы, к которому вы пытаетесь получить доступ, используя схему "fabric:/". Например, чтобы обратиться к службе *fabric:/myapp/myservice/*, необходимо использовать *myapp/myservice*.
  - **Suffix path** (Суффикс пути): фактический URL-адрес службы, к которой требуется подключиться. Пример: *myapi/values/add/3*.

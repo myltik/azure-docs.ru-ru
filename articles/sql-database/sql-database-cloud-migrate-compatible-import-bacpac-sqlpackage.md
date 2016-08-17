@@ -3,7 +3,7 @@
    description="База данных SQL Microsoft Azure, миграция базы данных, импорт базы данных, импорт BACPAC-файла, sqlpackage"
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -37,15 +37,15 @@
 1. Откройте окно командной строки и измените каталог, содержащий служебную программу командной строки sqlpackage.exe. Эта служебная программа поставляется в комплекте с Visual Studio и SQL Server.
 2. Выполните следующую команду sqlpackage.exe со следующими аргументами для вашей среды:
 
-	'sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >
+	'sqlpackage.exe /Action:Import /tsn:<имя\_сервера> /tdn:<имя\_БД> /tu:<имя\_пользователя> /tp:<пароль> /sf:<исходный\_файл>
 
 	| Аргумент | Описание |
 	|---|---|
-	| < server_name > | имя конечного сервера |
-	| < database_name > | имя конечной базы данных |
-	| < user_name > | имя пользователя на конечном сервере |
-	| < password > | пароль пользователя |
-	| < source_file > | имя файла и расположение импортируемого файла BACPAC |
+	| <имя\_сервера> | имя конечного сервера |
+	| <имя\_БД> | имя конечной базы данных |
+	| <имя\_пользователя> | имя пользователя на конечном сервере |
+	| <пароль> | пароль пользователя |
+	| <исходный\_файл> | имя файла и расположение импортируемого файла BACPAC |
 
 	![Экспорт приложения уровня данных из меню "Задачи"](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01c.png)
 
@@ -57,7 +57,7 @@
 ## Дополнительные ресурсы
 
 - [База данных SQL версии 12.](sql-database-v12-whats-new.md)
-- [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/) (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).
+- [Частично или полностью неподдерживаемые функции Transact-SQL.](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0803_2016-->

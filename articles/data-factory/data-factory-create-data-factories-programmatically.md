@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/20/2016" 
+	ms.date="07/28/2016" 
 	ms.author="spelluru"/>
 
 # Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета .NET SDK фабрики данных
@@ -24,7 +24,7 @@
 
 ## Предварительные требования
 
-- Visual Studio 2012 или 2013
+- Visual Studio 2012, 2013 или 2015
 - Скачайте и установите пакет [Azure .NET SDK][azure-developer-center].
 - Загрузите и установите пакеты NuGet для фабрик данных Azure. Инструкции приведены в этом пошаговом руководстве.
 
@@ -43,19 +43,23 @@
 3.	В окне <b>Консоль диспетчера пакетов</b> последовательно выполните следующие команды.</b>.
 
 		Install-Package Microsoft.Azure.Management.DataFactories
-		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Добавьте следующий раздел **appSetttings** в файл **App.config**. Они используются вспомогательным методом **GetAuthorizationHeader**.
 
-	Замените значения **SubscriptionId** и **ActiveDirectoryTenantId** на идентификаторы подписки Azure и клиента. Эти значения можно получить, выполнив **Get-AzureAccount** из Azure PowerShell (может потребоваться сначала войти в систему с помощью Add-AzureAccount).
+	Замените значения **AdfClientId**, **RedirectUri**, **SubscriptionId** и **ActiveDirectoryTenantId** собственными значениями.
+
+	Чтобы получить идентификатор подписки и идентификатор клиента, после входа с помощью командлета Login-AzureRmAccount выполните командлет **Get-AzureAccount -Format-List** в Azure PowerShell (может потребоваться сначала войти в систему с помощью Add-AzureAccount).
+
+	Вы можете получить идентификатор клиента и универсальный код ресурса (URI) перенаправления для приложения AD на портале Azure.
  
 		<appSettings>
-		    <!--CSM Prod related values-->
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
 		    <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
 		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
-		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		    <!--Make sure to write your own tenenat id and subscription ID here-->
+
+		    <!-- Replace the following values with your own -->
+		    <add key="AdfClientId" value="Your AD application ID" />
+		    <add key="RedirectUri" value="Your AD application's redirect URI" />
 		    <add key="SubscriptionId" value="your subscription ID" />
     		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
@@ -205,7 +209,7 @@
 
 11. Добавьте следующий код, который **создает и активирует конвейер**, в метод **Main**. В этом конвейер есть действие **CopyActivity**, принимающие **BlobSource** как источник и **BlobSink** как приемник.
 
-Действие копирования означает перемещение данных в фабрику данных Azure. Это действие выполняется глобально доступной службой, обеспечивающей безопасное, надежное и масштабируемое копирование данных из одного хранилища в другое. Дополнительные сведения о действии копирования см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
+Действие копирования означает перемещение данных в фабрику данных Azure. Это действие выполняется глобально доступной службой, обеспечивающей безопасное, надежное и масштабируемое копирование данных из одного хранилища в другое. Дополнительные сведения о действии копирования см. в статье [Перемещение данных и действие копирования. Перенос данных в облако и между облачными хранилищами](data-factory-data-movement-activities.md).
 
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
@@ -380,9 +384,52 @@
 18. Убедитесь, что выходной файл создан в папке **apifactoryoutput** в контейнере **adftutorial**.
 
 
+## Вход без всплывающего диалогового окна 
+Приведенный выше образец кода запускает диалоговое окно для ввода учетных данных Azure. Если требуется выполнить вход программным образом без применения диалогового окна, см. раздел [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
 
-> [AZURE.NOTE] Приведенный выше образец кода запускает диалоговое окно для ввода учетных данных Azure. Если требуется выполнить вход программным образом без применения диалогового окна, см. раздел [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
+### Пример
 
+Создайте метод GetAuthorizationHeaderNoPopup, как показано ниже.
+
+    public static string GetAuthorizationHeaderNoPopup()
+    {
+        var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        var context = new AuthenticationContext(authority.AbsoluteUri);
+        var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], ConfigurationManager.AppSettings["AdfClientSecret"]);
+        AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential).Result;
+        if (result != null)
+            return result.AccessToken;
+
+        throw new InvalidOperationException("Failed to acquire token");
+    }
+
+Замените вызов **GetAuthorizationHeader** вызовом **GetAuthorizationHeaderNoPopup** в функции **Main**.
+
+        TokenCloudCredentials aadTokenCredentials =
+            new TokenCloudCredentials(
+            ConfigurationManager.AppSettings["SubscriptionId"],
+            GetAuthorizationHeaderNoPopup());
+
+Ниже объясняется, как создать приложение Active Directory и субъект-службу и назначить ее роли "Участник фабрики данных".
+
+1. Создайте приложение AD.
+
+		$azureAdApplication = New-AzureRmADApplication -DisplayName "MyADAppForADF" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.myadappforadf.org/example" -Password "Pass@word1"
+
+2. Создайте субъект-службу AD.
+
+		New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+
+3. Добавьте субъект-службу в роль "Участник фабрики данных".
+
+		New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+
+4. Получите идентификатор приложения.
+
+		$azureAdApplication
+
+
+Запишите идентификатор приложения и пароль (секрет клиента) и используйте их в приведенном выше коде.
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
@@ -393,4 +440,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0803_2016-->

@@ -3,8 +3,8 @@
    description="Узнайте, каким образом служба архивации Azure обрабатывает данные, зашифрованные с помощью BitLocker или dmcrypt, во время резервного копирования виртуальных машин IaaS. В этой статье рассматриваются различия в процессах резервного копирования и восстановления при работе с зашифрованным дисками."
    services="backup"
    documentationCenter=""
-   authors="markgalioto"
-   manager="cfreeman"
+   authors="pallavijoshi"
+   manager="vijayts"
    editor=""/>
 <tags
    ms.service="backup"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
    ms.date="07/01/2016"
-   ms.author="markgal; jimpark"/>
+   ms.author="markgal; jimpark; trinadhk"/>
 
 # Работа с зашифрованными дисками в ходе процесса резервного копирования виртуальных машин
 
@@ -71,4 +71,4 @@
 - [Руководство по развертыванию (PDF)](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Развертывание и использование SecureVM (видеоролик)](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

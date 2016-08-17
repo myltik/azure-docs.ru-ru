@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание развернутых баз данных SQL Azure и управление ими | Micosoft Azure"
+	pageTitle="Создание развернутых баз данных SQL Azure и управление ими с помощью заданий обработки эластичных БД | Micosoft Azure"
 	description="Пошаговая инструкция по созданию задания эластичной базы данных и управлению им."
 	services="sql-database"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="07/27/2016"
 	ms.author="ddove"/>
 
-# Создание развернутых баз данных SQL Azure и управление ими (предварительная версия)
+# Создание развернутых баз данных SQL Azure и управление ими с помощью заданий обработки эластичных БД (предварительная версия)
 
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-database-elastic-jobs-create-and-manage.md)
@@ -115,4 +115,4 @@
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0803_2016-->

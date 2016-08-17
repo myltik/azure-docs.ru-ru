@@ -3,8 +3,8 @@
 	description="Здесь описывается, как настроить непрерывную интеграцию в Visual Studio Team Services с использованием проектов развертывания группы ресурсов Azure в Visual Studio."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="tfitzmac"
-	manager="timlt"
+	authors="mlearned"
+	manager="erickson-doug"
 	editor="" />
 
  <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="04/19/2016"
-	ms.author="tomfitz" />
+	ms.date="08/01/2016"
+	ms.author="mlearned" />
 
 # Непрерывная интеграция в Visual Studio Team Services с использованием проектов развертывания группы ресурсов Azure
 
@@ -121,7 +121,7 @@
 
     | Параметр | Описание|
     |---|---|
-    | -ResourceGroupLocation | Значение географического расположения, в котором находится группа ресурсов, например **eastus** или **East US**. (Добавьте одинарные кавычки, если в имени есть пробел.) Дополнительные сведения см. в разделе [Регионы Azure](https://azure.microsoft.com/ru-RU/regions/).| |
+    | -ResourceGroupLocation | Значение географического расположения, в котором находится группа ресурсов, например **eastus** или **East US**. (Добавьте одинарные кавычки, если в имени есть пробел.) Дополнительные сведения см. в разделе [Регионы Azure](https://azure.microsoft.com/regions/).| |
     | -ResourceGroupName | Имя группы ресурсов, используемой для этого развертывания.| |
     | -UploadArtifacts | Этот параметр (если он присутствует) указывает, что артефакты следует отправлять в Azure из локальной системы. Этот параметр нужно задать, только если шаблон развертывания требует дополнительных артефактов, которые нужно разместить с помощью сценария PowerShell (например, сценарии настройки или вложенные шаблоны). |
     | -StorageAccountName | Имя учетной записи хранения, используемой для размещения артефактов при этом развертывании. Этот параметр является обязательным только при копировании артефактов в Azure. Эта учетная запись хранения не создается автоматически при развертывании. Ее нужно создать заранее.| |
@@ -130,7 +130,7 @@
     | -TemplateParametersFile | Путь к файлу параметров в проекте развертывания группы ресурсов Azure. Для большей гибкости укажите для этого параметра путь, который соотносится с расположением сценария PowerShell, а не абсолютный путь.|
     | -ArtifactStagingDirectory | Этот параметр позволяет сценарию PowerShell определить папку, из которой нужно скопировать двоичные файлы проекта. Это значение переопределяет значение по умолчанию, используемое сценарием PowerShell. Для VSTS задайте значение ArtifactStagingDirectory $(Build.StagingDirectory). |
 
-    Ниже приведен пример аргументов сценария (разрывы строк — для удобства чтения):
+    Ниже приведен пример аргументов сценария (разрывы строк – для удобства чтения):
 
     ```	
     -ResourceGroupName 'MyGroup' -ResourceGroupLocation 'eastus' -TemplateFile '..\templates\azuredeploy.json' 
@@ -160,4 +160,4 @@
 [10]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough11b.png
 [11]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough12.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0803_2016-->
