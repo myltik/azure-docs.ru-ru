@@ -189,4 +189,4 @@ ServiceBusMessage. Этот объект имеет содержимое и св
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!----HONumber=AcomDC_0803_2016-->
