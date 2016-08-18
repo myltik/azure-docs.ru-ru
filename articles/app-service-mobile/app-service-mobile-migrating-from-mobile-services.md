@@ -411,6 +411,8 @@
 [промежуточных слотов]: ../app-service-web/web-sites-staged-publishing.md
 [виртуальной сети]: ../app-service-web/web-sites-integrate-with-vnet.md
 [веб-задания]: ../app-service-web/websites-webjobs-resources.md
+[Веб-задания]: ../app-service-web/websites-webjobs-resources.md
 [примерами преобразования XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
 <!---HONumber=AcomDC_0803_2016-->
+

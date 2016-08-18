@@ -44,7 +44,7 @@
 
 Для Git рекомендуется использовать [Git для Windows] или [GitHub для Windows]. При использовании Visual Studio можно использовать интегрированную поддержку Git.
 
-Мы также рекомендуем установить [Инструменты Python 2.2 для Visual Studio]. Это необязательно, но, если у вас есть [Visual Studio], например бесплатная версия Visual Studio Community 2013 или Visual Studio Express 2013 для Web, вы получите отличную интегрированную среду разработки Python.
+Мы также рекомендуем установить [инструменты Python 2.2 для Visual Studio]. Это необязательно, но, если у вас есть [Visual Studio], например бесплатная версия Visual Studio Community 2013 или Visual Studio Express 2013 для Web, вы получите отличную интегрированную среду разработки Python.
 
 ### Mac/Linux
 
@@ -391,6 +391,7 @@
 [GitHub для Windows]: https://windows.github.com/
 [средствами Python для Visual Studio]: http://aka.ms/ptvs
 [Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
 [Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [документации по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
