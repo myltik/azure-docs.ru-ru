@@ -255,7 +255,7 @@
 
 Дополнительную информацию см. в документации по [центрам уведомлений].
 
-> [AZURE.TIP] Компоненты управления центрами уведомлений на [портале Azure] находятся на стадии предварительной версии. [Классический портал Azure] остается доступным для управления всеми центрами уведомлений.
+> [AZURE.TIP] Компоненты управления центрами уведомлений на [портале Azure] находятся на стадии предварительной версии. [классический портал Azure] остается доступным для управления всеми центрами уведомлений.
 
 ### <a name="legacy-push"></a> Параметры отправки push-уведомлений устаревшего типа
 
@@ -411,6 +411,8 @@
 [промежуточных слотов]: ../app-service-web/web-sites-staged-publishing.md
 [виртуальной сети]: ../app-service-web/web-sites-integrate-with-vnet.md
 [веб-задания]: ../app-service-web/websites-webjobs-resources.md
+[Веб-задания]: ../app-service-web/websites-webjobs-resources.md
 [примерами преобразования XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
 <!---HONumber=AcomDC_0803_2016-->
+
