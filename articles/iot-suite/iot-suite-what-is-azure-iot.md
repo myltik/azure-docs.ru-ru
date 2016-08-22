@@ -39,6 +39,7 @@
 
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
 [центр IoT Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
+[Центр IoT Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
 [центра IoT Azure]: https://azure.microsoft.com/documentation/services/iot-hub/
 [концентраторы событий Azure]: https://azure.microsoft.com/documentation/services/event-hubs/
 [Azure Stream Analytics]: https://azure.microsoft.com/documentation/services/stream-analytics/
