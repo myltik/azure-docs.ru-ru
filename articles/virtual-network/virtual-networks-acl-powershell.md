@@ -3,7 +3,7 @@
    description="Узнайте, как управлять списками ACL с помощью PowerShell."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Управление списками управления доступом для конечных точек с помощью PowerShell
 
-Вы можете создавать сетевые списки управления доступом \(ACL\) для конечных точек, а также управлять ими с помощью модуля Azure PowerShell или портала управления. В этом разделе мы расскажем о том, как выполнять наиболее распространенные действия со списками ACL с помощью PowerShell. Список командлетов Azure PowerShell см. в статье [Командлеты управления Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Дополнительные сведения о списках ACL см. в статье [Сетевой список управления доступом](virtual-networks-acl.md). Сведения об управлении списками ACL с помощью портала управления см. в статье [Настройка конечных точек виртуальной машины](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
+Вы можете создавать сетевые списки управления доступом (ACL) для конечных точек, а также управлять ими с помощью модуля Azure PowerShell или портала управления. В этом разделе мы расскажем о том, как выполнять наиболее распространенные действия со списками ACL с помощью PowerShell. Список командлетов Azure PowerShell см. в статье [Командлеты управления Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Дополнительные сведения о списках ACL см. в статье [Сетевой список управления доступом](virtual-networks-acl.md). Сведения об управлении списками ACL с помощью портала управления см. в статье [Настройка конечных точек виртуальной машины](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 
 ## Управление сетевыми списками ACL с помощью Azure PowerShell
 
@@ -48,7 +48,7 @@
 			–Action permit –RemoteSubnet "157.0.0.0/8" `
 			–Description "web frontend ACL config"
 
-1. Теперь вы можете создать \(Add\) новую конечную точку или задать \(Set\) список ACL для существующей конечной точки. В этом примере мы добавим новую конечную точку виртуальной машины с именем web и добавим в нее настройки ACL.
+1. Теперь вы можете создать (Add) новую конечную точку или задать (Set) список ACL для существующей конечной точки. В этом примере мы добавим новую конечную точку виртуальной машины с именем web и добавим в нее настройки ACL.
 
 		Get-AzureVM –ServiceName $serviceName –Name $vmName `
 		| Add-AzureEndpoint –Name "web" –Protocol tcp –Localport 80 - PublicPort 80 –ACL $acl1 `
@@ -95,4 +95,4 @@
 
 [Сетевой список управления доступом](virtual-networks-acl.md)
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

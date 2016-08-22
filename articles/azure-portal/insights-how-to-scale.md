@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Масштабирование числа экземпляров вручную или автоматически | Microsoft Azure"
 	description="Узнайте, как масштабировать службы Azure."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Масштабирование числа экземпляров вручную или автоматически
 
@@ -136,4 +136,4 @@
 * [Просматривайте журналы событий и аудита](insights-debugging-with-events.md), чтобы знать обо всем, что произошло в службе.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory — следующие шаги | Microsoft Azure"
+	pageTitle="Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory — следующие шаги | Microsoft Azure"
 	description="Краткий обзор и дальнейшие шаги после прочтения руководства по разработке архитектуры гибридной идентификации"
 	documentationCenter=""
 	services="active-directory"
@@ -13,10 +13,10 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="07/18/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
-#Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory — следующие шаги
+#Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory — следующие шаги
 После завершения определения требований и проверки всех вариантов решения управления мобильными устройствами вы готовы к дальнейшим действиям по развертыванию инфраструктуры поддержки, которая идеально подходит вам и вашей организации.
 
 ##Решения для гибридной идентификации
@@ -42,7 +42,7 @@
 - [Блог Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
 - [Блог команды разработчиков Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
 
-## См. также
+## Дополнительные материалы
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

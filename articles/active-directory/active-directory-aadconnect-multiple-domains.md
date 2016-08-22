@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Поддержка нескольких доменов для федерации с Azure AD
@@ -90,10 +90,10 @@
 
 Выполните следующие действия для удаления доверия Microsoft Online и обновления исходного домена.
 
-2.  На сервере федерации AD FS откройте **Управление AD FS**. 
+2.  На сервере федерации AD FS откройте **Управление AD FS**.
 2.  Разверните **Отношения доверия** и **Отношения доверия проверяющей стороны** слева.
 3.  Удалите запись **Платформа идентификации Microsoft Office 365** справа. ![Удалить Microsoft Online](./media/active-directory-multiple-domains/trust4.png)
-1.  На компьютере, на котором установлен [модуль Azure Active Directory для Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), выполните следующую команду: `$cred=Get-Credential`.  
+1.  На компьютере, на котором установлен [модуль Azure Active Directory для Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), выполните следующую команду: `$cred=Get-Credential`.
 2.  Введите имя пользователя и пароль глобального администратора домена Azure AD, для которого настраивается федерация.
 2.  В PowerShell введите `Connect-MsolService -Credential $cred`.
 4.  В PowerShell введите `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`. Это исходный домен. С приведенными выше доменами мы получим следующее: `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`.
@@ -101,7 +101,7 @@
 
 Выполните следующие действия для добавления нового домена верхнего уровня с помощью PowerShell.
 
-1.  На компьютере, на котором установлен [модуль Azure Active Directory для Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), выполните следующую команду: `$cred=Get-Credential`.  
+1.  На компьютере, на котором установлен [модуль Azure Active Directory для Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx), выполните следующую команду: `$cred=Get-Credential`.
 2.  Введите имя пользователя и пароль глобального администратора домена Azure AD, для которого настраивается федерация.
 2.  В PowerShell введите `Connect-MsolService -Credential $cred`.
 3.  В PowerShell введите `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`.
@@ -128,7 +128,7 @@
 ##Поддержка поддоменов
 При добавлении поддомена он унаследует параметры родительского домена из-за особенностей обработки доменов Azure AD. Это означает, что IssuerUri будет совпадать со значением аналогичного параметра у родительского элемента.
 
-Давайте предположим, что у меня был домен bmcontoso.com, а затем я добавил поддомен corp.bmcontoso.com. Это означает, что IssuerUri для пользователя поддомена corp.bmcontoso.com должен быть таким: **http://bmcontoso.com/adfs/services/trust.** Однако стандартное правило, которые было реализовано выше для Azure AD, создаст маркер с издателем **http://corp.bmcontoso.com/adfs/services/trust.**, который не будет соответствовать необходимому значению для домена, и проверка подлинности завершится неудачно.
+Давайте предположим, что у меня был домен bmcontoso.com, а затем я добавил поддомен corp.bmcontoso.com. Это означает, что IssuerUri для пользователя поддомена corp.bmcontoso.com должен быть таким: **http://bmcontoso.com/adfs/services/trust.** Однако стандартное правило, которые было реализовано выше для Azure AD, создаст маркер с издателем **http://corp.bmcontoso.com/adfs/services/trust.**, который не будет соответствовать необходимому значению для домена, и аутентификация завершится неудачно.
 
 ### Включение поддержки для поддоменов
 Чтобы обойти эту проблему, необходимо обновить отношение доверия проверяющей стороны AD FS для Microsoft Online. Для этого необходимо настроить пользовательское правило утверждения так, чтобы оно удаляло поддомены из суффикса UPN пользователя при создании настраиваемого значения элемента Issuer.
@@ -150,7 +150,7 @@
     
 	    `c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));`
 	
-![Заменить утверждение](./media/active-directory-multiple-domains/sub2.png)
+.![Заменить утверждение](./media/active-directory-multiple-domains/sub2.png)
 5.	Нажмите кнопку "ОК". Нажмите кнопку "Применить". Нажмите кнопку "ОК". Откройте оснастку управления AD FS.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

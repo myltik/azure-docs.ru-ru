@@ -45,4 +45,4 @@
 
 > [AZURE.NOTE] Если ваша подписка Azure отключена, можно включить ее повторно, выполнив приведенные в этой статье действия: [Что делать в случае отмены подписки Azure?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

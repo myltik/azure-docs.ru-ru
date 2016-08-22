@@ -3,7 +3,7 @@
    description="Узнайте, как создавать и развертывать сетевые группы безопасности в режиме ARM с помощью шаблона"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Как создать сетевые группы безопасности с помощью шаблона
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [создавать группы безопасности сети с помощью классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [создавать группы безопасности сети с помощью классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -90,7 +90,7 @@
 
 ## Развертывание шаблона ARM с помощью кнопки развертывания
 
-Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), нажмите **Deploy to Azure** \(Развернуть в Azure\), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
+Образец шаблона, который находится в общедоступном репозитории, использует файл параметров, содержащий значения по умолчанию для создания описанного выше сценария. Чтобы развернуть этот шаблон, перейдите по [данной ссылке](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), нажмите **Deploy to Azure** (Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале.
 
 ## Развертывание шаблона ARM с помощью PowerShell
 
@@ -176,9 +176,9 @@
 		data:    
 		info:    group create command OK
 
-	- **-n \(или --name\)**. Имя создаваемой группы ресурсов.
-	- **-l \(или --location\)**. Регион Azure, в котором будет создана группа ресурсов.
-	- **-f \(или --template-file\)**. Путь к файлу шаблона ARM.
-	- **-e \(или --parameters-file\)**. Путь к файлу параметров ARM.
+	- **-n (или --name)**. Имя создаваемой группы ресурсов.
+	- **-l (или --location)**. Регион Azure, в котором будет создана группа ресурсов.
+	- **-f (или --template-file)**. Путь к файлу шаблона ARM.
+	- **-e (или --parameters-file)**. Путь к файлу параметров ARM.
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

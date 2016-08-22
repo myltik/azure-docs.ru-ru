@@ -43,7 +43,7 @@
 
 Для добавления тегов с помощью PowerShell можно использовать команду `Set-AzureRmResource`. Обратите внимание, что при изменении тегов с помощью PowerShell обновляются все теги. Поэтому, если вы добавляете один тег к ресурсу, который уже содержит теги, вам потребуется включить все теги, которые нужно добавить к ресурсу. Ниже представлен пример добавления тегов к ресурсу с помощью командлетов PowerShell.
 
-Первый командлет определяет переменную *tags* для всех тегов в виртуальной машине *MyTestVM* с помощью функций `Get-AzureRmResource` и `Tags`.
+Первый командлет определяет переменную *$tags* для всех тегов в виртуальной машине *MyTestVM* с помощью свойств `Get-AzureRmResource` и `Tags`.
 
         PS C:\> $tags = (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
@@ -62,11 +62,11 @@
         Value		Production
         Name		Environment
 
-Третья команда добавляет тег к переменной *tags*. Обратите внимание, что оператор **+=** используется для присоединения пары "ключ-значение" к списку *tags*.
+Третья команда добавляет дополнительный тег к переменной *$tags*. Обратите внимание, что оператор **+=** используется для присоединения пары "ключ — значение" к списку *$tags*.
 
-        PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 
-Четвертая команда устанавливает все теги, определенные в переменной *tags*, на данном ресурсе. В нашем примере это MyTestVM.
+Четвертая команда устанавливает все теги, определенные в переменной *$tags*, на данном ресурсе. В нашем примере это MyTestVM.
 
         PS C:\> Set-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
@@ -103,4 +103,4 @@
 [Расшифровка счета за использование Microsoft Azure]: ../billing-understand-your-bill.md
 [Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

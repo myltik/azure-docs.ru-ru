@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
-	ms.date="06/01/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram" />
 
 # Примеры для службы хранилища Azure
@@ -68,7 +68,7 @@
 * [Начало работы с таблицами](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Начало работы с очередями](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
-## См. также
+## Дополнительные материалы
 
 ### Ресурсы для .NET
 
@@ -90,4 +90,4 @@
 - [Исходный код для клиентской библиотеки хранилища C++](https://github.com/Azure/azure-storage-cpp)
 - [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

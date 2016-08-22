@@ -3,7 +3,7 @@
    description="Узнайте, как создать пользовательскую проверку для шлюза приложений с помощью PowerShell в диспетчере ресурсов."
    services="application-gateway"
    documentationCenter="na"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -14,10 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
-   ms.author="joaoma" />
+   ms.date="08/09/2016"
+   ms.author="gwallace" />
 
 # Создание пользовательской проверки для шлюза приложений с помощью PowerShell для диспетчера ресурсов Azure
+
+> [AZURE.SELECTOR]
+- [Портал Azure](application-gateway-create-probe-portal.md)
+- [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
+- [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
+
+.<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -40,7 +47,7 @@
 
 		get-AzureRmSubscription
 
-Вам будет предложено указать свои учетные данные для проверки подлинности.<BR>
+Вам будет предложено указать свои учетные данные для аутентификации.<BR>
 
 ### Шаг 3.
 
@@ -58,7 +65,7 @@
 
 В диспетчере ресурсов Azure для всех групп ресурсов должно быть указано расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Убедитесь, что во всех командах для создания шлюза приложений используется одна группа ресурсов.
 
-В приведенном выше примере мы создали группу ресурсов под названием "appgw-RG" с расположением "West US" (запад США).
+В приведенном выше примере мы создали группу ресурсов с именем appgw-RG и расположением West US (западная часть США).
 
 ## Создание виртуальной сети и подсети для шлюза приложения
 
@@ -87,7 +94,7 @@
 ## Создание общедоступного IP-адреса для конфигурации интерфейсной части
 
 
-Создайте ресурс общедоступного IP-адреса "publicIP01" в группе ресурсов "appgw-rg" для западного региона США.
+Создайте ресурс общедоступного IP-адреса с именем publicIP01 в группе ресурсов appgw-rg для региона West US.
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
@@ -99,7 +106,7 @@
 
 ### Шаг 1
 
-Создайте конфигурацию IP шлюза приложений с именем "gatewayIP01". При запуске шлюз приложений получает IP-адрес из настроенной подсети. Затем шлюз маршрутизирует сетевой трафик на IP-адреса из пула внутренних IP-адресов. Помните, что для каждого экземпляра требуется отдельный IP-адрес.
+Создайте конфигурацию IP шлюза приложений с именем "gatewayIP01". При запуске шлюз приложений получает IP-адрес из настроенной подсети. Затем шлюз маршрутизирует сетевой трафик на IP-адреса из внутреннего пула IP-адресов. Помните, что для каждого экземпляра требуется отдельный IP-адрес.
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
@@ -107,7 +114,7 @@
 ### Шаг 2
 
 
-Настройте серверную часть пула IP-адресов под именем "pool01" с IP-адресами 134.170.185.46, 134.170.188.221, 134.170.185.50. Эти адреса будут использоваться для получения сетевого трафика от конечной точки с внешним IP-адресом. Вы замените приведенные выше IP-адреса и добавите конечные точки IP-адресов своего приложения.
+Настройте серверную часть пула IP-адресов под именем "pool01" с IP-адресами 134.170.185.46, 134.170.188.221, 134.170.185.50. Эти адреса будут использоваться для получения сетевого трафика от конечной точки с интерфейсным IP-адресом. Вам нужно заменить приведенные выше IP-адреса и добавить конечные точки IP-адресов своего приложения.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -119,19 +126,19 @@
 
 Используемые параметры:
 
-- **-Interval** — задает интервал проверки работоспособности в секундах.
-- **-Timeout** — определяет время ожидания для проверки ответа HTTP.
-- **-Hostname и -path** — полный путь URL, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас веб-сайт http://contoso.com/, то пользовательскую проверку работоспособности для получения успешного ответа HTTP можно настроить как "http://contoso.com/path/custompath.htm".
-- **-UnhealthyThreshold** — количество неудачных ответов HTTP, по достижении которого экземпляр внутреннего сервера считается *неработоспособным*.
+- **Interval** — задает интервал между пробами в секундах.
+- **Timeout** — определяет время ожидания для проверки ответа HTTP.
+- **-Hostname и -path** — полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт http://contoso.com/, то пользовательскую пробу работоспособности для получения успешного ответа HTTP можно настроить в формате http://contoso.com/path/custompath.htm.
+- **UnhealthyThreshold** — количество неудачных ответов HTTP, по достижении которого экземпляр внутреннего сервера считается *неработоспособным*.
 
-<BR>
+.<BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
 
 ### Шаг 4.
 
-Настройте параметры шлюза приложений "poolsetting01" для трафика в пуле внутренних серверов. На этом шаге также настраивается время ожидания ответа пула внутренних серверов на запрос шлюза приложений. При достижении этого времени ожидания шлюз приложений отменит запрос. Это отличается от времени ожидания проверки, которое относится только к ответу пула внутренних серверов на проверку работоспособности.
+Настройте параметры шлюза приложений "poolsetting01" для трафика в пуле внутренних серверов. На этом шаге также настраивается время ожидания ответа пула внутренних серверов на запрос шлюза приложений. При достижении этого времени ожидания шлюз приложений отменяет запрос. Это отличается от времени ожидания проверки, которое относится только к ответу пула внутренних серверов на проверку работоспособности.
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
 
@@ -182,7 +189,7 @@
 
 ### Шаг 1
 
-Загрузка ресурса шлюза приложений в переменную PowerShell с помощью командлета **Get-AzureRmApplicationGateway**.
+Загрузите ресурс шлюза приложений в переменную PowerShell с помощью командлета **Get-AzureRmApplicationGateway**.
 
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
@@ -197,14 +204,14 @@
 
 ### Шаг 3.
 
-Добавление проверки к конфигурации параметра пула серверной части и времени ожидания с помощью командлета **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
+Добавьте пробу в конфигурацию внутреннего пула и настройте время ожидания с помощью командлета **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
 	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
 
 ### Шаг 4.
 
-Сохранение конфигурации в шлюз приложений с помощью командлета **Set-AzureRmApplicationGateway**.
+Сохраните конфигурацию в шлюзе приложений с помощью командлета **Set-AzureRmApplicationGateway**.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
@@ -214,28 +221,28 @@
 
 ### Шаг 1
 
-Загрузка ресурса шлюза приложений в переменную PowerShell с помощью командлета **Get-AzureRmApplicationGateway**.
+Загрузите ресурс шлюза приложений в переменную PowerShell с помощью командлета **Get-AzureRmApplicationGateway**.
 
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
 ### Шаг 2
 
-Удаление конфигурации проверки из шлюза приложений с помощью командлета **Remove-AzureRmApplicationGatewayProbeConfig**.
+Удалите конфигурацию пробы из шлюза приложений с помощью командлета **Remove-AzureRmApplicationGatewayProbeConfig**.
 
 	$getgw = Remove-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
 
 ### Шаг 3.
 
-Обновление параметра серверной части для удаления параметра проверки и времени ожидания с помощью командлета **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
+Обновите параметр внутреннего пула для удаления параметра пробы и времени ожидания с помощью командлета **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
 	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
 ### Шаг 4.
 
-Сохранение конфигурации в шлюз приложений с помощью командлета **Set-AzureRmApplicationGateway**.
+Сохраните конфигурацию в шлюзе приложений с помощью командлета **Set-AzureRmApplicationGateway**.
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

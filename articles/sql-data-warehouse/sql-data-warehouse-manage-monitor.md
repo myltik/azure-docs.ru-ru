@@ -149,7 +149,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 ## Дальнейшие действия
 Дополнительные сведения о динамических административных представлениях см. в разделе [Системные представления][]. Советы по управлению хранилищем данных SQL см. в разделе [Общие сведения об управлении][]. Рекомендации см. в разделе [Рекомендации по использованию хранилища данных SQL][].
 
-<!--Image references-->
+.<!--Image references-->
 
 <!--Article references-->
 [Общие сведения об управлении]: ./sql-data-warehouse-overview-manage.md
@@ -167,4 +167,4 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 [DBCC PDW\_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
 [DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

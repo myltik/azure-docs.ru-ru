@@ -3,7 +3,7 @@
    description="Эта страница содержит общие сведения о маршрутизации содержимого шлюза приложений на основе URL-адресов, настройки UrlPathMap и правила PathBasedRouting."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/21/2016"
-   ms.author="joaoma"/>
+   ms.date="04/05/2016"
+   ms.author="gwallace"/>
 
 # Общие сведения о маршрутизации на основе URL-путей
 
@@ -86,4 +86,4 @@
 
 Ознакомившись с маршрутизацией на основе URL-адресов, создайте шлюз приложений с соответствующим правилами маршрутизации, как указано в статье [Создание шлюза приложений с помощью маршрутизации на основе URL-адресов](application-gateway-create-url-route-arm-ps.md).
 
-<!---HONumber=AcomDC_0224_2016-->
+<!---HONumber=AcomDC_0810_2016-->

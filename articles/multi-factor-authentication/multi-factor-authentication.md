@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/16/2016"
+	ms.date="08/04/2016"
 	ms.author="billmath"/>
 
 # Что такое Azure Multi-factor Authentication?
@@ -43,7 +43,7 @@ Azure Multi-Factor Authentication помогает защитить доступ
 
 Azure Multi-Factor Authentication — это простое в использовании, масштабируемое и надежное решение, которое предоставляет дополнительный способ проверки подлинности, обеспечивая постоянную защиту пользователей.
 
-![Простота в использовании](./media/multi-factor-authentication/simple.png)| ![Масштабируемость](./media/multi-factor-authentication/scalable.png)| ![Постоянная защита](./media/multi-factor-authentication/protected.png)|![Надежность](./media/multi-factor-authentication/reliable.png)
+![Простота в использовании](./media/multi-factor-authentication/simple.png)| ![масштабируемость,](./media/multi-factor-authentication/scalable.png)| ![Постоянная защита](./media/multi-factor-authentication/protected.png)|![Надежность](./media/multi-factor-authentication/reliable.png)
 :-------------: | :-------------: | :-------------: | :-------------: |
 **Простота в использовании**|**Масштабируемость**|**Постоянная защита**|**Надежность**
 
@@ -91,7 +91,7 @@ Azure Multi-Factor Authentication помогает защитить доступ
 ## Доступные версии службы Azure Multi-Factor Authentication
 Доступны три различные версии службы Azure Multi-Factor Authentication. В таблице ниже приводится более подробное описание каждой из них.
 
-Версия | Описание
+Version (версия) | Описание
 ------------- | ------------- |
 Многофакторная проверка подлинности для Office 365 | Эта версия работает исключительно с приложениями Office 365, и ей можно управлять с портала Office 365. В связи с этим администраторы теперь могут защитить свои ресурсы Office 365 с помощью многофакторной проверки подлинности. Эта версия поставляется с подпиской Office 365.
 Многофакторная проверка подлинности для администраторов Azure | Все возможности многофакторной проверки подлинности для Office 365 будут предоставляться администраторам Azure на бесплатной основе. Теперь каждая учетная запись администратора подписки Azure может получить дополнительную защиту, включив эту базовую функцию многофакторной проверки подлинности. Добавив функции многофакторной проверки подлинности к своей учетной записи, администратор может получить доступ к порталу Azure для создания виртуальной машины, веб-сайта, управления хранилищем и работы с мобильными или любыми другими службами Azure.
@@ -209,4 +209,4 @@ Azure AD и локальная служба AD с использованием D
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!----HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

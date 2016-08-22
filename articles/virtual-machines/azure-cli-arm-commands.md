@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/05/2016"
 	ms.author="danlep"/>
 
 # Команды Azure CLI в режиме Resource Manager
 
-В этой статье приводится синтаксис и параметры команд интерфейса командной строки (CLI) Azure, которые обычно используется для создания ресурсов Azure и управления ими в модели развертывания Azure Resource Manager. Для доступа к этим командам следует запустить CLI в режиме Resource Manager (ARM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры.
+В этой статье приводится синтаксис и параметры команд интерфейса командной строки (CLI) Azure, которые обычно используется для создания ресурсов Azure и управления ими в модели развертывания Azure Resource Manager. Для доступа к этим командам следует запустить CLI в режиме Resource Manager (ARM). Это не полный справочник, и ваша версия CLI может отображать немного иные команды или параметры. Общие сведения о ресурсах и группах ресурсов Azure см. в статье [Общие сведения об Azure Resource Manager](../resource-group-overview.md).
 
-Чтобы приступить к работе, сначала [установите Azure CLI](../xplat-cli-install.md) и [подключитесь к своей подписке Azure](../xplat-cli-connect.md) с помощью рабочей или учебной учетной записи или удостоверения учетной записи Майкрософт.
+Для начала [установите Azure CLI](../xplat-cli-install.md) и [подключитесь к своей подписке Azure](../xplat-cli-connect.md) с помощью рабочей или учебной учетной записи либо учетной записи Майкрософт.
 
 Чтобы просмотреть текущий синтаксис и параметры команд в командной строке в режиме диспетчера ресурсов, введите `azure help`. Для получения справки по определенной команде введите `azure help [command]`. Вы также найдете примеры для CLI в документации по созданию отдельных служб Azure и управлению ими.
 
 Необязательные параметры заключены в квадратные скобки (например, `[parameter]`). Все остальные параметры являются обязательными.
 
-Помимо описанных здесь необязательных параметров для конкретных команд существуют три необязательных параметра, которые можно использовать для отображения подробных выходных данных, например параметров запроса и кодов состояния. Параметр `-v` предоставляет подробные выходные данные, а параметр `-vv` — еще более подробные выходные данные. Параметр `--json` будет выводить результат в необработанном формате JSON.
+Помимо описанных здесь необязательных параметров для конкретных команд существуют три необязательных параметра, которые можно использовать для отображения подробных выходных данных, например параметров запроса и кодов состояния. Параметр `-v` задает вывод подробных данных, а параметр `-vv` — вывод более подробных данных. Параметр `--json` задает вывод результатов в необработанном формате JSON.
 
 ## Настройка режима Resource Manager
 
@@ -36,12 +36,6 @@
 	azure config mode arm
 
 >[AZURE.NOTE] Режим диспетчера ресурсов Azure и режим управления службами Azure являются взаимоисключающими. То есть ресурсами, созданными в одном из режимов, нельзя управлять из другого режима.
-
-## Принудительный и декларативный подходы
-
-Как и в [режиме управления службами Azure](../virtual-machines-command-line-tools.md), в режиме диспетчера ресурсов Azure CLI представлены команды, которые создают ресурсы принудительно с помощью командной строки. Например, команда `azure group create <groupname> <location>` используется, чтобы создать группу ресурсов, а команда `azure group deployment create <resourcegroup> <deploymentname>` — для подготовки развертывания любого количества элементов и для того, чтобы поместить их в группу. Каждый тип ресурса имеет принудительные команды, поэтому их можно соединить в цепочку, создавая очень сложные развертывания.
-
-Однако при использовании группы ресурсов _шаблоны_ (которые описывают группу ресурсов) — это декларативный подход, который отличается большей мощностью и позволяет автоматизировать сложные развертывания (практически) любого количества ресурсов для (практически) любых целей. При использовании шаблонов единственной принудительной командой является развертывание. Общие сведения о шаблонах, ресурсах и группах ресурсов см. в разделе [Обзор группы ресурсов Azure](../resource-group-overview.md).
 
 
 ## Учетная запись Azure. Управление сведениями об учетной записи
@@ -326,7 +320,7 @@
 **Команды для управления виртуальными сетями**
 
 	network vnet create [options] <resource-group> <name> <location>
-Позволяет создать новую виртуальную сеть. В следующем примере мы создаем виртуальную сеть newvnet для группы ресурсов myresourcegroup в регионе West US.
+Создает новую виртуальную сеть. В следующем примере мы создаем виртуальную сеть newvnet для группы ресурсов myresourcegroup в регионе West US.
 
 
 	azure network vnet create myresourcegroup newvnet "west us"
@@ -442,7 +436,7 @@
       -g, --resource-group <resource-group>  the name of the resource group
       -s, --subscription <subscription>      the subscription identifier
 
-<BR>
+.<BR>
 
 	network vnet show [options] <resource-group> <name>
 Команда показывает свойства виртуальной сети в группе ресурсов.
@@ -463,7 +457,7 @@
 	data:    Subnets:
 	data:
 	info:    network vnet show command OK
-<BR>
+.<BR>
 
 	network vnet delete [options] <resource-group> <name>
 Команда удаляет виртуальную сеть.
@@ -519,7 +513,7 @@
      -o, --network-security-group-name <network-security-group-name>  the network security group name
      -s, --subscription <subscription>                                the subscription identifier
 
-<BR>
+.<BR>
 
 	network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
@@ -556,7 +550,7 @@
 	data:    Provisioning state:        Succeeded
 	data:    Address prefix:            10.0.1.0/24
 	info:    network vnet subnet set command OK
-<BR>
+.<BR>
 
 	network vnet subnet show [options] <resource-group> <vnet-name> <name>
 Отображает свойства подсети виртуальной сети.
@@ -636,7 +630,7 @@
      Can be multiple. In the format of "name=value".
      Name is required and value is optional. For example, -t tag1=value1;tag2
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+.<BR>
 
 	network lb list [options] <resource-group>
 Выводит ресурсы подсистемы балансировки нагрузки в группе ресурсов.
@@ -657,7 +651,7 @@
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+.<BR>
 
 	network lb show [options] <resource-group> <name>
 
@@ -683,7 +677,7 @@
 	-n, --name <name>                      the name of the load balancer
 	-s, --subscription <subscription>      the subscription identifier
 
-<BR>
+.<BR>
 
 	network lb delete [options] <resource-group> <name>
 
@@ -735,7 +729,7 @@
 	-c, --count <count>                    the number of probes
 	-s, --subscription <subscription>      the subscription identifier
 
-<BR>
+.<BR>
 
 	network lb probe set [options] <resource-group> <lb-name> <name>
 
@@ -876,7 +870,7 @@
 	Please use subnet-id if that is not the case.
 	-s, --subscription <subscription>                                  the subscription identifier
 
-<BR>
+.<BR>
 
 	network lb frontend-ip list [options] <resource-group> <lb-name>
 
@@ -899,7 +893,7 @@
 	-g, --resource-group <resource-group>  the name of the resource group
 	-l, --lb-name <lb-name>                the name of the load balancer
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+.<BR>
 
 	network lb frontend-ip delete [options] <resource-group> <lb-name> <name>
 Удаляет объект IP-интерфейса, связанный с подсистемой балансировки нагрузки.
@@ -995,7 +989,7 @@
 	-a, --nic-name <nic-name>              the name of the network interface
 	-s, --subscription <subscription>      the subscription identifier
 
-<BR>
+.<BR>
 
 	network lb address-pool remove [options] <resource-group> <lb-name> <name>
 
@@ -1056,7 +1050,7 @@
  	-l, --lb-name <lb-name>                the name of the load balancer
  	-s, --subscription <subscription>      the subscription identifier
 
-<BR> network lb address-pool delete [параметры] <resource-group> <lb-name> <name>
+<BR> network lb address-pool delete [параметры] <группа\_ресурсов> <имя\_балансировщика\_нагрузки> <имя>
 
 Удаляет ресурс диапазона пула IP-адресов из подсистемы балансировки нагрузки.
 
@@ -1110,7 +1104,7 @@
 	data:
 	info:    network lb rule create command OK
 
-<BR>
+.<BR>
 
 	network lb rule set [options] <resource-group> <lb-name> <name>
 
@@ -1247,7 +1241,7 @@
 	Please use vm-id if that is not the case.
 	this parameter will be ignored if --vm-id is specified
 	-s, --subscription <subscription>              the subscription identifier
-<BR>
+.<BR>
 
 	network lb inbound-nat-rule set [options] <resource-group> <lb-name> <name>
 Обновляет существующее правило входящих NAT. В следующем примере входящий порт прослушивания изменен с 80 на 81.
@@ -1289,7 +1283,7 @@
 	This virtual machine must exist in the same resource group as the lb.
 	Please use vm-id if that is not the case
 	-s, --subscription <subscription>              the subscription identifier
-<BR>
+.<BR>
 
 	network lb inbound-nat-rule list [options] <resource-group> <lb-name>
 
@@ -1314,7 +1308,7 @@
 	-g, --resource-group <resource-group>  the name of the resource group
 	-l, --lb-name <lb-name>                the name of the load balancer
 	-s, --subscription <subscription>      the subscription identifier
-<BR>
+.<BR>
 
 	network lb inbound-nat-rule delete [options] <resource-group> <lb-name> <name>
 
@@ -1379,7 +1373,7 @@
 	Name is required and value is optional.
 	For example, -t tag1=value1;tag2
 	-s, --subscription <subscription>            the subscription identifier
-<br>
+.<br>
 
 	network public-ip set [options] <resource-group> <name>
 Обновляет свойства существующего ресурса с общедоступным IP-адресом. В следующем примере изменен общедоступный IP-адрес с динамического на статический.
@@ -1420,7 +1414,7 @@
 	--no-tags                                    remove all existing tags
 	-s, --subscription <subscription>            the subscription identifier
 
-<br> network public-ip list [параметры] <resource-group> Вывод списка всех общедоступных IP-ресурсов в группе ресурсов.
+<br> network public-ip list [параметры] <группа\_ресурсов> Вывод списка всех общедоступных IP-ресурсов в группе ресурсов.
 
 	azure network public-ip list -g myresourcegroup
 
@@ -1440,7 +1434,7 @@
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR> network public-ip show [параметры] <resource-group> <name> Отображение свойств общедоступного IP-адреса для общедоступного IP-ресурса в группе ресурсов.
+<BR> network public-ip show [параметры] <группа\_ресурсов> <имя> Вывод свойств общедоступного IP-адреса для общедоступного IP-ресурса в группе ресурсов.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1590,7 +1584,7 @@
 
 ## Поставщик Azure. Команды для управления регистрациями поставщика ресурсов
 
-**Список зарегистрированных поставщиков в ARM**
+**Список зарегистрированных поставщиков в Resource Manager**
 
 	provider list [options]
 
@@ -1796,7 +1790,7 @@
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
     
->[AZURE.TIP]Начиная с версии CLI 0.10 для некоторых популярных образов из Marketplace в качестве `image-urn` можно использовать короткий псевдоним, например UbuntuLTS или Win2012R2Datacenter. Чтобы просмотреть доступные параметры, выполните команду `azure help vm quick-create`. Кроме того, начиная с версии 0.10 команда `azure vm quick-create` по умолчанию использует хранилище уровня "Премиум", если оно доступно для выбранного региона.
+>[AZURE.TIP]Начиная с версии CLI 0.10 для некоторых популярных образов из Marketplace в качестве `image-urn` можно использовать короткий псевдоним, например UbuntuLTS или Win2012R2Datacenter. Чтобы просмотреть доступные параметры, выполните команду `azure help vm quick-create`. Кроме того, начиная с версии 0.10 команда `azure vm quick-create` по умолчанию использует хранилище класса "Премиум", если оно доступно для выбранного региона.
 
 **Список виртуальных машин в учетной записи**
 
@@ -1872,4 +1866,4 @@
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

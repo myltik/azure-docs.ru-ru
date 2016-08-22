@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Создание пространства имен служебной шины с концентратором событий и группой потребителей с помощью шаблона диспетчера ресурсов Azure | Microsoft Azure"
-    description="Создание пространства имен служебной шины с концентратором событий и группой потребителей с помощью шаблона диспетчера ресурсов Azure"
+    pageTitle="Создание пространства имен концентратора событий, самого концентратора событий и группы потребителей с помощью шаблона Azure Resource Manage | Microsoft Azure"
+    description="Создание пространства имен концентратора событий, самого концентратора событий и группы потребителей с помощью шаблона Azure Resource Manage"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -16,9 +16,9 @@
     ms.date="07/11/2016"
     ms.author="sethm;shvija"/>
 
-# Создание пространства имен служебной шины с концентратором событий и группой потребителей с помощью шаблона диспетчера ресурсов Azure
+# Создание пространства имен концентратора событий, самого концентратора событий и группы потребителей с помощью шаблона Azure Resource Manage
 
-В этой статье показывается, как использовать шаблон диспетчера ресурсов Azure, создающий пространство имен служебной шины с концентратором событий и группой потребителей. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
+Из этой статьи вы узнаете, как использовать шаблон Azure Resource Manage, создающий пространство имен концентратора событий, сам концентратор событий и группу потребителей. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][].
 
@@ -35,7 +35,7 @@
 
 ## Что вы развернете?
 
-С помощью этого шаблона вы развернете пространство имен служебной шины с концентратором событий и группой потребителей.
+С помощью этого шаблона вы развернете пространство имен концентратора событий, сам концентратор событий и группу потребителей.
 
 [Концентраторы событий](../event-hubs/event-hubs-what-is-event-hubs.md) — это служба обработки событий, используемая для крупномасштабной передачи входящих событий и данных телеметрии в Azure. Работа службы характеризуется низкой задержкой и высокой надежностью.
 
@@ -47,34 +47,34 @@
 
 С помощью диспетчера ресурсов Azure можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел `Parameters`, содержащий все значения параметров. Для этих значений необходимо определить параметры, которые будут зависеть от развертываемого проекта либо от среды, в которой выполняется развертывание. Не задавайте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
 
-Шаблон определяет следующие параметры.
+Ниже описаны параметры, которые определяет шаблон.
 
-### serviceBusNamespaceName
+### eventHubNamespaceName
 
-Имя создаваемого пространства имен служебной шины.
+Имя создаваемого пространства имен концентратора событий.
 
 ```
-"serviceBusNamespaceName": {
+"eventHubNamespaceName": {
 "type": "string"
 }
 ```
 
-### serviceBusEventHubName
+### eventHubName
 
-Имя концентратора событий, создаваемого в пространстве имен служебной шины.
+Имя концентратора событий, создаваемого в пространстве имен концентратора событий.
 
 ```
-"serviceBusEventHubName": {
+"eventHubName": {
 "type": "string"
 }
 ```
 
-### serviceBusConsumerGroupName
+### eventHubConsumerGroupName
 
 Имя группы потребителей, создаваемой для концентратора событий в пространстве имен служебной шины.
 
 ```
-"serviceBusConsumerGroupName": {
+"eventHubConsumerGroupName": {
 "type": "string"
 }
 ```
@@ -97,8 +97,8 @@
 "resources": [
         {
             "apiVersion": "[variables('ehVersion')]",
-            "name": "[parameters('serviceBusNamespaceName')]",
-            "type": "Microsoft.ServiceBus/Namespaces",
+            "name": "[parameters('eventHubNamespaceName')]",
+            "type": "Microsoft.EventHub/Namespaces",
             "location": "[variables('location')]",
             "kind": "EventHub",
             "sku": {
@@ -108,21 +108,21 @@
             "resources": [
                 {
                     "apiVersion": "[variables('ehVersion')]",
-                    "name": "[parameters('serviceBusEventHubName')]",
+                    "name": "[parameters('eventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
-                        "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
+                        "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
                     ],
                     "properties": {
-                        "path": "[parameters('serviceBusEventHubName')]"
+                        "path": "[parameters('eventHubName')]"
                     },
                     "resources": [
                         {
                             "apiVersion": "[variables('ehVersion')]",
-                            "name": "[parameters('serviceBusConsumerGroupName')]",
+                            "name": "[parameters('eventHubConsumerGroupName')]",
                             "type": "ConsumerGroups",
                             "dependsOn": [
-                                "[parameters('serviceBusEventHubName')]"
+                                "[parameters('eventHubName')]"
                             ],
                             "properties": {
                             }
@@ -166,4 +166,4 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Шаблон группы потребителей и концентратора событий служебной шины]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

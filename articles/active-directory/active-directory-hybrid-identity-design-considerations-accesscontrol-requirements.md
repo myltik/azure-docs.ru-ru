@@ -4,7 +4,7 @@
 	description="Описание ключевых компонентов идентификации и определение требований доступа к ресурсам для пользователей в гибридной среде."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Определение требований к контролю доступа для решения гибридной идентификации
 При проектировании решения для гибридной идентификации организация может пересмотреть требования доступа к ресурсам, которые планируется сделать доступными для пользователей. Доступ к данным объединяет все четыре ключевых компонента идентификации, к которым относятся:
@@ -73,4 +73,4 @@
 ## См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2016" 
+	ms.date="08/10/2016" 
 	ms.author="sdanie"/>
 
 # Управление кэшем Redis для Azure с использованием Azure PowerShell
@@ -34,7 +34,7 @@
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
-Сначала необходимо войти в систему Azure с помощью следующей команды.
+Сначала необходимо войти в Azure с помощью следующей команды.
 
 	Login-AzureRmAccount
 
@@ -50,7 +50,7 @@
 
 Чтобы использовать Windows PowerShell с диспетчером ресурсов Azure, необходимо следующее:
 
-- Windows PowerShell версии 3.0 или 4.0. Чтобы найти версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что для `PSVersion` указано значение 3.0 или 4.0. Чтобы установить совместимую версию, см. статью [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+- Windows PowerShell версии 3.0 или 4.0. Чтобы найти версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что для `PSVersion` указано значение 3.0 или 4.0. Сведения об установке совместимой версии см. в разделе [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 Чтобы получить подробную справку для любого командлета, встречающегося в этом учебнике, используйте командлет Get-Help.
 
@@ -62,7 +62,7 @@
 
 ### Подключение к облаку Azure Government или Azure China
 
-Среда Azure по умолчанию — это `AzureCloud`, представляющий экземпляр глобального облака Azure. Чтобы подключиться к другому экземпляру, используйте команду `Add-AzureRmAccount`, заменив параметр `-Environment` или -`EnvironmentName` на нужную вам среду или имя среды.
+Среда Azure по умолчанию — это `AzureCloud`, представляющая экземпляр глобального облака Azure. Чтобы подключиться к другому экземпляру, используйте команду `Add-AzureRmAccount`, заменив параметр `-Environment` или -`EnvironmentName` на нужную вам среду или имя среды.
 
 Чтобы просмотреть список доступных сред, выполните командлет `Get-AzureRmEnvironment`.
 
@@ -109,9 +109,9 @@
 | Имя | Имя кэша | |
 | Расположение | Расположение кэша | |
 | ResourceGroupName | Имя группы ресурсов, в которой необходимо создать кэш | |
-| Размер | Размер кэша. Допустимые значения: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 МБ, 1 ГБ, 2,5 ГБ, 6 ГБ, 13 ГБ, 26 ГБ, 53 ГБ | 1 ГБ |
+| Размер | Размер кэша. Допустимые значения: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 МБ, 1 ГБ, 2,5 ГБ, 6 ГБ, 13 ГБ, 26 ГБ, 53 ГБ | 1 ГБ |
 | ShardCount | Число сегментов, которые будут созданы при создании кэша уровня Premium с включенной кластеризацией. Допустимые значения: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU | Определяет SKU кэша. Допустимые значения: Basic, Standard, Premium | Standard |
+| SKU | Определяет SKU кэша. Допустимые значения: Basic, Standard, Premium | Стандарт |
 | RedisConfiguration | Задает параметры конфигурации кластера Redis. Подробные сведения о каждом параметре представлены в таблице [Свойства RedisConfiguration](#redisconfiguration-properties). | |
 | EnableNonSslPort | Определяет, включен ли порт без SSL. | Ложь |
 | MaxMemoryPolicy | Этот параметр устарел, вместо него используется параметр RedisConfiguration. | |
@@ -224,13 +224,13 @@
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
 
-`ResourceGroupName`, `Name` и `Location` — обязательные параметры; остальные указываются по желанию и имеют значения по умолчанию. При выполнении предыдущей команды создается экземпляр кэша Redis для Azure SKU Standard с заданным именем, расположением и группой ресурсов; размер экземпляра — 1 ГБ, порт без SSL отключен.
+`ResourceGroupName`, `Name` и `Location` — обязательные параметры; остальные указываются по желанию и имеют значения по умолчанию. При выполнении предыдущей команды создается экземпляр кэша Redis для Azure SKU Standard с заданным именем, расположением и группой ресурсов; размер экземпляра — 1 ГБ, порт без SSL отключен.
 
-Для создания кэша уровня Premium укажите размер P1 (6-60 ГБ), P2 (13-130 ГБ), (26-260 ГБ), P3 и P4 (53-530 ГБ). Чтобы включить кластеризацию, укажите количество сегментов с помощью параметра `ShardCount`. В следующем примере создается кэш P1 уровня Premium с 3 сегментами. Размер кэша P1 уровня Premium — 6 ГБ, и, поскольку мы указали три сегмента, общий размер составляет 18 ГБ (3 x 6 ГБ).
+Для создания кэша уровня Premium укажите размер P1 (6-60 ГБ), P2 (13-130 ГБ), (26-260 ГБ), P3 и P4 (53-530 ГБ). Чтобы включить кластеризацию, укажите количество сегментов с помощью параметра `ShardCount`. В следующем примере создается кэш P1 уровня Premium с 3 сегментами. Размер кэша P1 уровня Premium — 6 ГБ, и, поскольку мы указали три сегмента, общий размер составляет 18 ГБ (3 x 6 ГБ).
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-Чтобы указать значения для параметра `RedisConfiguration`, включите их в фигурные скобки (`{}`) как пары "ключ-значение" типа `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. В следующем примере создается кэш уровня Standard размером 1 ГБ с политикой максимальной памяти `allkeys-random` и уведомлениями пространства ключей, настроенными с помощью `KEA`. Дополнительные сведения см. в разделах [Уведомления пространства ключей (дополнительные параметры)](cache-configure.md#keyspace-notifications-advanced-settings) и [Политика максимальной памяти и зарезервированная максимальная память](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
+Чтобы указать значения для параметра `RedisConfiguration`, включите их в фигурные скобки (`{}`) как пары "ключ-значение" типа `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. В следующем примере создается кэш уровня Standard размером 1 ГБ с политикой максимальной памяти `allkeys-random` и уведомлениями пространства ключей, настроенными с помощью `KEA`. Дополнительные сведения см. в разделах [Уведомления пространства ключей (дополнительные параметры)](cache-configure.md#keyspace-notifications-advanced-settings) и [Политика максимальной памяти и зарезервированная максимальная память](cache-configure.md#maxmemory-policy-and-maxmemory-reserved).
 
 	New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
@@ -301,7 +301,7 @@
 	        OutBuffer, PipelineVariable, and OutVariable. For more information, see
 	        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-`Set-AzureRmRedisCache` можно использовать для обновления таких свойств, как значения `Size`, `Sku`, `EnableNonSslPort` и `RedisConfiguration`.
+Командлет `Set-AzureRmRedisCache` можно использовать для обновления таких свойств, как значения `Size`, `Sku`, `EnableNonSslPort` и `RedisConfiguration`.
 
 Следующая команда обновляет политику максимальной памяти кэша Redis с именем myCache.
 
@@ -319,11 +319,11 @@
 >    -    Ценовую категорию кэша **Стандартный** нельзя изменить на категорию **Базовый**.
 >-	Вы можете выполнить масштабирование кэша с уровня **Базовый** до уровня **Стандартный**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
 >-	Ценовую категорию кэша **Базовый** нельзя изменить сразу на уровень **Премиум**. Необходимо сначала перейти с категории **Базовый** на категорию **Стандартный**, а затем — с категории **Стандартный** на категорию **Премиум**.
->-	Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)**.
+>-	Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)**.
 >
 >Дополнительные сведения см. в статье [Масштабирование кэша Redis для Azure](cache-how-to-scale.md).
 
-В следующем примере демонстрируется масштабирование кэша с именем `myCache` в кэш размером 2,5 ГБ. Обратите внимание на, что команда будет работать в кэше уровня Basic или Standard.
+В следующем примере демонстрируется масштабирование кэша с именем `myCache` в кэш размером 2,5 ГБ. Обратите внимание, что команда будет работать в кэше уровня "Базовый" или "Стандартный".
 
 	Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -356,7 +356,7 @@
 	TenantSettings     : {}
 	ShardCount         :
 
-По завершении операции масштабирования значение параметра `ProvisioningState` изменится на `Succeeded`. Если масштабирование необходимо повторить, например изменить уровень кэша с Basic на Standard, а затем скорректировать его размер, нужно дождаться завершения предыдущей операции; в противном случае возникнет ошибка следующего вида:
+По завершении операции масштабирования значение параметра `ProvisioningState` изменяется на `Succeeded`. Если масштабирование необходимо повторить, например изменить уровень кэша с уровня "Базовый" на уровень "Стандартный", а затем скорректировать его размер, нужно дождаться завершения предыдущей операции. В противном случае возникнет ошибка следующего вида:
 
 	Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
@@ -757,65 +757,15 @@
 	    -Force
 	
 
-
-<a name="classic"></a>
-### Управление экземплярами кэша Redis для Azure с использованием классической модели развертывания PowerShell
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](cache-howto-manage-redis-cache-powershell.md), описанной в начале этой статьи.
-
-Следующий скрипт демонстрирует создание, обновление и удаление кэша Redis для Azure с использованием классической модели развертывания.
-		
-		$VerbosePreference = "Continue"
-
-    	# Create a new cache with date string to make name unique.
-		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm'))
-		$location = "West US"
-		$resourceGroupName = "Default-Web-WestUS"
-		
-		$movieCache = New-AzureRedisCache -Location $location -Name $cacheName  -ResourceGroupName $resourceGroupName -Size 250MB -Sku Basic
-		
-		# Wait until the Cache service is provisioned.
-		
-		for ($i = 0; $i -le 60; $i++)
-		{
-		    Start-Sleep -s 30
-		    $cacheGet = Get-AzureRedisCache -ResourceGroupName $resourceGroupName -Name $cacheName
-		    if ([string]::Compare("succeeded", $cacheGet[0].ProvisioningState, $True) -eq 0)
-		    {
-		        break
-		    }
-		    If($i -eq 60)
-		    {
-		        exit
-		    }
-		}
-		
-		# Update the access keys.
-		
-		Write-Verbose "PrimaryKey: $($movieCache.PrimaryKey)"
-		New-AzureRedisCacheKey -KeyType "Primary" -Name $cacheName  -ResourceGroupName $resourceGroupName -Force
-		$cacheKeys = Get-AzureRedisCacheKey -ResourceGroupName $resourceGroupName  -Name $cacheName
-		Write-Verbose "PrimaryKey: $($cacheKeys.PrimaryKey)"
-		
-		# Use Set-AzureRedisCache to set Redis cache updatable parameters.
-		# Set the memory policy to Least Recently Used.
-		
-		Set-AzureRedisCache -Name $cacheName -ResourceGroupName $resourceGroupName -RedisConfiguration @{"maxmemory-policy" = "AllKeys-LRU"}
-		
-		# Delete the cache.
-		
-		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force
-
 ## Дальнейшие действия
 
 Дополнительные сведения об использовании Windows PowerShell с Azure см. в следующих ресурсах:
 
 - [Документация по командлету кэша Redis для Azure на MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Командлеты диспетчера ресурсов Azure](http://go.microsoft.com/fwlink/?LinkID=394765): узнайте, как использовать командлеты в модуле диспетчера ресурсов Azure.
-- [Использование групп ресурсов для управления ресурсами Azure](../resource-group-template-deploy-portal.md): узнайте, как создавать группы ресурсов и управлять ими на портале Azure.
+- [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md): узнайте, как создавать группы ресурсов и управлять ими на портале Azure.
 - [Блог Azure](http://blogs.msdn.com/windowsazure): узнайте о новых возможностях в Azure.
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!-----HONumber=AcomDC_0720_2016-->
-
+<!---HONumber=AcomDC_0810_2016-->

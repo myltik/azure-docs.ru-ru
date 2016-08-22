@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Создание паролей приложений на портале Myapps в службе Office 365 для Azure Multi-Factor Authentication
@@ -31,7 +31,7 @@
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/myapp.png)</center>
 
 <li>Щелкните правой кнопкой мыши свое имя пользователя и выберите элемент «Дополнительная проверка безопасности».</li>
-<li>В верхней части страницы подтверждения выберите пароли приложений.</li>
+<li>На странице подтверждения вверху выберите пароли приложений</li>
 <li>Нажмите кнопку **Создать**.</li>
 
 ![Облако](./media/multi-factor-authentication-end-user-app-passwords-create-myapps/apppassword.png)
@@ -42,4 +42,4 @@
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

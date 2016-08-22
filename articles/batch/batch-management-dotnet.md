@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="05/02/2016"
+	ms.date="08/03/2016"
 	ms.author="marsma"/>
 
 # Управление квотами и учетными записями пакетной службы Azure с помощью библиотеки .NET для управления пакетной службой
@@ -34,22 +34,23 @@
 
 ## Создание и удаление учетных записей пакетной службы
 
-Как было сказано выше, одной из основных функций API управления пакетной службой является возможность создания и удаления учетных записей пакетной службы в определенном регионе Azure. Для этого предназначены методы [BatchManagementClient.Accounts.CreateAsync][net_create] и [DeleteAsync][net_delete], а также их синхронные аналоги.
+Как было сказано выше, одной из основных функций API управления пакетной службой является возможность создания и удаления учетных записей пакетной службы в определенном регионе Azure. Для этого предназначены методы [BatchManagementClient.Account.CreateAsync][net_create] и [DeleteAsync][net_delete], а также их синхронные аналоги.
 
 В следующем фрагменте кода создается учетная запись, выполняется получение созданной учетной записи из пакетной службы, а затем она удаляется. В этом и других фрагментах кода, приведенных в этой статье, `batchManagementClient` представляет собой полностью инициализированный экземпляр [BatchManagementClient][net_mgmt_client].
 
 ```csharp
 // Create a new Batch account
-await batchManagementClient.Accounts.CreateAsync("MyResourceGroup",
+await batchManagementClient.Account.CreateAsync("MyResourceGroup",
 	"mynewaccount",
 	new BatchAccountCreateParameters() { Location = "West US" });
 
 // Get the new account from the Batch service
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mynewaccount");
-AccountResource account = getResponse.Resource;
+AccountResource account = await batchManagementClient.Account.GetAsync(
+	"MyResourceGroup",
+	"mynewaccount");
 
 // Delete the account
-await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name);
+await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name);
 ```
 
 > [AZURE.NOTE] Приложениям, использующим библиотеку .NET для управления пакетной службой и класс BatchManagementClient, необходимы права **администратора службы** или **соадминистратора** для доступа к подписке, которой принадлежит управляемая учетная запись пакетной службы. Дополнительные сведения см. в разделе [Azure Active Directory](#azure-active-directory) ниже и примере кода [AccountManagement][acct_mgmt_sample].
@@ -60,15 +61,21 @@ await batchManagementClient.Accounts.DeleteAsync("MyResourceGroup", account.Name
 
 ```csharp
 // Get and print the primary and secondary keys
-BatchAccountListKeyResponse accountKeys = await batchManagementClient.Accounts.ListKeysAsync("MyResourceGroup", "mybatchaccount");
-Console.WriteLine("Primary key:   {0}", accountKeys.PrimaryKey);
-Console.WriteLine("Secondary key: {0}", accountKeys.SecondaryKey);
+BatchAccountListKeyResult accountKeys =
+	await batchManagementClient.Account.ListKeysAsync(
+		"MyResourceGroup",
+		"mybatchaccount");
+Console.WriteLine("Primary key:   {0}", accountKeys.Primary);
+Console.WriteLine("Secondary key: {0}", accountKeys.Secondary);
 
 // Regenerate the primary key
-BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts.RegenerateKeyAsync(
-	"MyResourceGroup",
-	"mybatchaccount",
-	new BatchAccountRegenerateKeyParameters() { KeyName = AccountKeyType.Primary });
+BatchAccountRegenerateKeyResponse newKeys =
+	await batchManagementClient.Account.RegenerateKeyAsync(
+		"MyResourceGroup",
+		"mybatchaccount",
+		new BatchAccountRegenerateKeyParameters() {
+			KeyName = AccountKeyType.Primary
+			});
 ```
 
 > [AZURE.TIP] Вы можете упростить процедуру подключения в своем приложении для управления. Во-первых, получите ключ учетной записи пакетной службы, которой вы хотите управлять, с помощью метода [ListKeysAsync][net_list_keys]. Затем используйте этот ключ при инициализации класса [BatchSharedKeyCredentials][net_sharedkeycred] библиотеки .NET пакетной службы, который применяется при инициализации [BatchClient][net_batch_client].
@@ -81,13 +88,16 @@ BatchAccountRegenerateKeyResponse newKeys = await batchManagementClient.Accounts
 
 Прежде чем создавать учетную запись пакетной службы в определенном регионе, вы можете проверить данные подписки Azure, чтобы узнать о возможности создания учетной записи в этом регионе.
 
-В следующем фрагменте кода мы сначала используем метод [BatchManagementClient.Accounts.ListAsync][net_mgmt_listaccounts], чтобы получить коллекцию всех учетных записей пакетной службы в подписке. После получения этой коллекции мы определяем количество учетных записей в целевом регионе. Затем мы используем метод [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] для получения квоты учетной записи пакетной службы и определения количества учетных записей, которые могут создаваться в этом регионе (если таковые имеются).
+В следующем фрагменте кода мы сначала используем метод [BatchManagementClient.Account.ListAsync][net_mgmt_listaccounts], чтобы получить коллекцию всех учетных записей пакетной службы в подписке. После получения этой коллекции мы определяем количество учетных записей в целевом регионе. Затем мы используем метод [BatchManagementClient.Subscriptions][net_mgmt_subscriptions] для получения квоты учетной записи пакетной службы и определения количества учетных записей, которые могут создаваться в этом регионе (если таковые имеются).
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
-BatchAccountListResponse listResponse = await batchManagementClient.Accounts.ListAsync(new AccountListParameters());
+BatchAccountListResponse listResponse =
+		await batchManagementClient.Account.ListAsync(new AccountListParameters());
 IList<AccountResource> accounts = listResponse.Accounts;
-Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}", creds.SubscriptionId, accounts.Count);
+Console.WriteLine("Total number of Batch accounts under subscription id {0}:  {1}",
+	creds.SubscriptionId,
+	accounts.Count);
 
 // Get a count of all accounts within the target region
 string region = "westus";
@@ -110,7 +120,8 @@ Console.WriteLine("You can create {0} accounts in the {1} region.", quotaRespons
 
 ```csharp
 // First obtain the Batch account
-BatchAccountGetResponse getResponse = await batchManagementClient.Accounts.GetAsync("MyResourceGroup", "mybatchaccount");
+BatchAccountGetResponse getResponse =
+	await batchManagementClient.Account.GetAsync("MyResourceGroup", "mybatchaccount");
 AccountResource account = getResponse.Resource;
 
 // Now print the compute resource quotas for the account
@@ -123,13 +134,13 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## Библиотека .NET для управления пакетной службой, Azure AD и диспетчер ресурсов
 
-При работе с библиотекой .NET для управления пакетной службой обычно используются возможности [Azure Active Directory][aad_about] \(Azure AD) и [Azure Resource Manager][resman_overview]. В рассматриваемом далее примере показано, как можно использовать Azure Active Directory и диспетчер ресурсов в сочетании с библиотекой .NET для управления пакетной службой.
+При работе с библиотекой .NET для управления пакетной службой обычно используются возможности [Azure Active Directory][aad_about] (Azure AD) и [Azure Resource Manager][resman_overview]. В рассматриваемом далее примере показано, как можно использовать Azure Active Directory и диспетчер ресурсов в сочетании с библиотекой .NET для управления пакетной службой.
 
 ### Azure Active Directory
 
 Инфраструктура Azure уже использует Azure AD для проверки подлинности клиентов, администраторов служб и пользователей организации. В контексте библиотеки .NET для управления пакетной службой она будет использоваться для проверки подлинности администратора подписки или соадминистратора. Это позволит вам использовать библиотеку управления пакетной службой для опроса пакетной службы и выполнения операций, описанных в этой статье.
 
-В описываемом далее примере проекта для авторизации пользователей с помощью учетных данных Майкрософт будет использоваться [библиотека проверки подлинности Azure Active Directory][aad_adal] \(ADAL). Приложение, получив учетные данные от администратора или соадминистратора службы, сможет отправлять запросы в Azure для получения списка подписок, а также создавать и удалять группы ресурсов и учетных записей пакетной службы.
+В описываемом далее примере проекта для авторизации пользователей с помощью учетных данных Майкрософт будет использоваться [библиотека проверки подлинности Azure Active Directory][aad_adal] (ADAL). Приложение, получив учетные данные от администратора или соадминистратора службы, сможет отправлять запросы в Azure для получения списка подписок, а также создавать и удалять группы ресурсов и учетных записей пакетной службы.
 
 ### Диспетчер ресурсов
 
@@ -137,7 +148,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 ## Пример проекта на сайте GitHub
 
-Работу библиотеки .NET для управления пакетной службой можно посмотреть на примере проекта [AccountManagment][acct_mgmt_sample] на сайте GitHub. Это консольное приложение демонстрирует создание и использование [BatchManagementClient][net_mgmt_client] и [ResourceManagementClient][resman_client]. Оно также демонстрирует использование [библиотеки проверки подлинности Azure Active Directory][aad_adal] \(ADAL), которая необходима для обоих клиентов.
+Работу библиотеки .NET для управления пакетной службой можно посмотреть на примере проекта [AccountManagment][acct_mgmt_sample] на сайте GitHub. Это консольное приложение демонстрирует создание и использование [BatchManagementClient][net_mgmt_client] и [ResourceManagementClient][resman_client]. Оно также демонстрирует использование [библиотеки проверки подлинности Azure Active Directory][aad_adal] (ADAL), которая необходима для обоих клиентов.
 
 Для успешного запуска примера приложения вам потребуется зарегистрировать его в Azure AD с помощью портала Azure. Обратитесь к разделу [Добавление приложения](../active-directory/active-directory-integrating-applications.md#adding-an-application) статьи [Интеграция приложений в Azure Active Directory][aad_integrate] и следуйте указаниям, чтобы зарегистрировать пример приложения в каталоге по умолчанию для собственной учетной записи. Выберите в качестве типа приложения **Собственное клиентское приложение**. Вы также можете указать любой допустимый URI-адрес (например, `http://myaccountmanagementsample`) в параметре **URI-адрес перенаправления**. Реальную конечную точку указывать не обязательно.
 
@@ -202,4 +213,4 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

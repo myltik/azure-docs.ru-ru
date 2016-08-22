@@ -11,7 +11,7 @@
 
 	![Колонка адресного пространства](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
 
-4. Выберите параметр **Группы ресурсов** и укажите группу ресурсов, которую нужно добавить в виртуальную сеть, или щелкните **Создать новую группу ресурсов**, чтобы добавить виртуальную сеть в новую группу ресурсов. На приведенном ниже рисунке показаны параметры новой группы ресурсов с именем **TestRG**. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](../articles/virtual-network/resource-group-overview.md/#resource-groups).
+4. Выберите параметр **Группы ресурсов** и укажите группу ресурсов, которую нужно добавить в виртуальную сеть, или щелкните **Создать новую группу ресурсов**, чтобы добавить виртуальную сеть в новую группу ресурсов. На приведенном ниже рисунке показаны параметры новой группы ресурсов с именем **TestRG**. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](../articles/virtual-network/resource-group-overview.md#resource-groups).
 
 	![Колонка создания группы ресурсов](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
 
@@ -35,4 +35,4 @@
 
 	![Создание виртуальной сети на портале Azure](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

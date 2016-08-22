@@ -3,7 +3,7 @@
    description="Узнайте, как развернуть виртуальную машину со статическим общедоступным IP-адресом с помощью шаблона в диспетчере ресурсов"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Развертывание виртуальной машины со статическим общедоступным IP-адресом с помощью шаблона
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -163,7 +163,7 @@
 
 3. Откройте [файл параметров](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.parameters.json), выберите его содержимое и сохраните его в файл на своем компьютере. Для этого примера параметры сохраняются в файл с именем *parameters.json*. Измените значения параметров в файле по мере необходимости (как минимум, рекомендуется заменить значение параметра adminPassword уникальным сложным паролем).
 
-4. Выполните командлет **azure group deployment create**, чтобы развернуть новую виртуальную сеть с помощью файлов шаблона и параметров, которые вы скачали и изменили раньше. В приведенной ниже команде замените <path> путем к папке, где сохранен файл.
+4. Выполните командлет **azure group deployment create**, чтобы развернуть новую виртуальную сеть с помощью файлов шаблона и параметров, которые вы скачали и изменили раньше. В приведенной ниже команде замените <path> значением пути к папке, в которой сохранен файл.
 
 		azure group create -n PIPTEST2 -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/azuredeploy.json -e <path>\parameters.json
 
@@ -184,4 +184,4 @@
 		data:
 		info:    group create command OK
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

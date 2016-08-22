@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Пакет SDK для DocumentDB для Java | Microsoft Azure" 
-	description="Сведения о пакете SDK для Java, включая даты выхода, даты вывода из эксплуатации и изменения, внесенные в каждую версию пакета SDK для DocumentDB Java." 
+	pageTitle="Пакет SDK и интерфейсы API для DocumentDB на Java | Microsoft Azure" 
+	description="Сведения о пакете SDK и интерфейсах API для Java, включая даты выхода и снятия с учета, изменения, внесенные в каждую версию пакета SDK для DocumentDB на Java." 
 	services="documentdb" 
 	documentationCenter="java" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,24 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
-	ms.author="andrl"/>
+	ms.date="08/09/2016" 
+	ms.author="rnagpal"/>
 
-# Пакет SDK для DocumentDB
+# Интерфейсы API и пакеты SDK для DocumentDB
 
 > [AZURE.SELECTOR]
-- [Пакет SDK для .NET](documentdb-sdk-dotnet.md)
-- [Пакет SDK для Node.js](documentdb-sdk-node.md)
-- [Пакет SDK для Java](documentdb-sdk-java.md)
-- [Пакет SDK для Python](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.js](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##Пакет SDK Java для DocumentDB
+## Интерфейсы API и пакеты SDK для DocumentDB на Java
 
-<table>
-<tr><td>**Скачивание**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
-<tr><td>**Участие**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
-<tr><td>**Приступая к работе**</td><td>[Начало работы с пакетом SDK для Java](documentdb-java-application.md)</td></tr>
+.<table>
+<tr><td>**Скачать пакет SDK**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**Документация по интерфейсам API**</td><td>[Справочная документация по пакету SDK для Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Участие в разработке пакета SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Начало работы**</td><td>[Начало работы с пакетом SDK для Java](documentdb-java-application.md)</td></tr>
 <tr><td>**Текущая поддерживаемая среда выполнения**</td><td>[JDK&#160;7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
@@ -52,7 +54,7 @@
 - Добавлена поддержка срока жизни для документов.
 
 ### <a name="1.6.0"/>[1\.6.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.6.0)
-- Реализованы [секционированные коллекции](documentdb-partition-data.md) и [определяемые пользователем уровни производительности](documentdb-performance-levels.md).
+- Реализованы [секционированные коллекции](documentdb-partition-data.md) и [пользовательские уровни производительности](documentdb-performance-levels.md).
 
 ### <a name="1.5.1"/>[1\.5.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.1)
 - Исправлена ошибка в HashPartitionResolver, чтобы значения создавались с прямым порядком байтов для согласования с другими пакетами SDK.
@@ -76,9 +78,9 @@
 - Реализована политика индексации версии 2.
 
 ### <a name="1.0.0"/>[1\.0.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.0.0)
-- Пакет SDK общей доступности
+- Пакет SDK общей доступности.
 
-## Даты выпуска и вывода
+## Даты выпуска и выбытия
 Корпорация Майкрософт отправит уведомление минимум за **12 месяцев** до вывода пакета SDK из эксплуатации, чтобы обеспечить более плавный переход на новую или поддерживаемую версию.
 
 Новые функции, возможности и оптимизации добавляются только в текущую версию пакета SDK, поэтому рекомендуется как можно раньше обновлять пакет SDK до последней версии.
@@ -88,7 +90,7 @@
 > [AZURE.WARNING]
 Поддержка всех версий пакета SDK для Azure DocumentDB для Java версии ниже **1.0.0** будет отменена **29 февраля 2016 года**.
 
-<br/>
+.<br/>
 
 | Version (версия) | Дата выпуска | Дата вывода 
 | ---	  | ---	         | ---
@@ -119,4 +121,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

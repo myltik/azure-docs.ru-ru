@@ -183,7 +183,7 @@
             "[variables('sqlserverName')]"
           ],
           "location": "[resourceGroup().location]",
-          "name": "AllowAllWindowsAzureIps",
+          "name": "AllowAllAzureIps",
           "properties": {
             "endIpAddress": "0.0.0.0",
             "startIpAddress": "0.0.0.0"
@@ -475,4 +475,4 @@
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

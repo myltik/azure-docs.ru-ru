@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Как регистрировать события в концентраторах событий Azure в службе управления Azure API
@@ -92,7 +92,7 @@
 
 В меню управления API слева щелкните **Политики**, выберите желаемый продукт и интерфейс API и щелкните **Добавить политику**. В этом примере мы добавляем политику **Echo API** (API вывода на экран) в продукт **Unlimited**.
 
-![Добавление политики][add-policy]
+![добавление политики;][add-policy]
 
 Наведите указатель мыши на раздел политики `inbound` и щелкните политику **Регистрация в концентраторе событий**, чтобы вставить шаблон инструкции политики `log-to-eventhub`.
 
@@ -117,7 +117,7 @@
 -	Дополнительные сведения об интеграции службы управления API и концентраторов событий
 	-	[Справочник по сущности "Средство ведения журнала"](https://msdn.microsoft.com/library/azure/mt592020.aspx)
 	-	[Справочник по политике регистрации в концентраторе событий](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-	-	[Мониторинг API-интерфейсов с помощью службы управления API Azure, концентраторов событий и Runscope](api-management-log-to-eventhub-sample.md)	
+	-	[Мониторинг API-интерфейсов с помощью службы управления API Azure, концентраторов событий и Runscope](api-management-log-to-eventhub-sample.md)
 
 ## Просмотрите видеоруководство
 
@@ -133,4 +133,4 @@
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

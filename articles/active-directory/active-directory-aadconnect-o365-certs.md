@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -58,7 +58,7 @@ Azure AD пытается отслеживать метаданные федер
 
 	Get-Adfsproperties
 
-![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
+.![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
 [AZURE.NOTE] При использовании AD FS 2.0 необходимо сначала выполнить команду Add-Pssnapin Microsoft.Adfs.Powershell.
 
@@ -163,4 +163,4 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 Дополнительные сведения см. в разделе [Восстановление доверия](./active-directory-aadconnect-federation-management.md#repairing-the-trust).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->
