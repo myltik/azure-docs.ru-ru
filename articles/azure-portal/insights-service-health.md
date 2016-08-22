@@ -1,20 +1,20 @@
-<properties
+.<properties
 	pageTitle="Отслеживание работоспособности служб с помощью Azure Insights | Microsoft Azure"
 	description="Информация о снижении производительности Azure или нарушении работы службы. "
-	authors="stepsic-microsoft-com"
-	manager="kamrani"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
-<tags
-	ms.service="monitoring"
+.<tags
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Получение информации о работоспособности службы
 
@@ -24,9 +24,9 @@ Azure сообщает каждый раз, когда происходит пр
 
 1. Войдите на [портал Azure](https://portal.azure.com/).
 
-2. На **Домашней странице** вы увидите плитку которая называется **Работоспособность службы** ![HOME](./media/insights-service-health/Insights_Home.png)
+2. На **Домашней странице** вы увидите плитку которая называется **Работоспособность службы** ![Домашняя страница](./media/insights-service-health/Insights_Home.png)
 
-3. Щелкнув этот элемент, вы получите список всех регионов в Azure. Можно щелкнуть любой регион, чтобы просмотреть журнал работоспособности службы для этого региона. ![HOME](./media/insights-service-health/Insights_Regions.png)
+3. Щелкнув этот элемент, вы получите список всех регионов в Azure. Можно щелкнуть любой регион, чтобы просмотреть журнал работоспособности службы для этого региона. ![Домашняя страница](./media/insights-service-health/Insights_Regions.png)
 
 4. Также можно просмотреть информацию об отдельных инцидентах, щелкнув кнопку в таблице.
 
@@ -52,4 +52,4 @@ Azure сообщает каждый раз, когда происходит пр
 * [Отслеживайте метрики службы](insights-how-to-customize-monitoring.md), чтобы убедиться, что служба доступна и отвечает на запросы.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

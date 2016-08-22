@@ -7,13 +7,13 @@
 	manager="erikre" 
 	editor=""/>
 
-<tags 
+.<tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Как создавать API, операции и продукты в Azure API Management
@@ -62,4 +62,4 @@ API и операции можно импортировать за один ша
 [Как импортировать определение API с операциями]: api-management-howto-import-api.md
 [Как создать и настроить расширенные настройки продукта]: api-management-howto-product-with-rules.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

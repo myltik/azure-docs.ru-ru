@@ -1,9 +1,9 @@
-<properties 
+.<properties 
    pageTitle="Развертывание виртуальной машины с общедоступным IP-адресом с помощью портала Azure в диспетчере ресурсов | Microsoft Azure"
    description="Дополнительные сведения о развертывании виртуальных машин со статическим общедоступным IP-адресом в диспетчере ресурсов на портале Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/04/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Развертывание виртуальной машины со статическим общедоступным IP-адресом с использованием портала Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
@@ -57,6 +57,6 @@
 
 10. После создания виртуальной машины колонка **Параметры** будет отображаться, как показано ниже
 
-	![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
+	.![Портал Azure — создание общедоступного IP-адреса](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0810_2016-->

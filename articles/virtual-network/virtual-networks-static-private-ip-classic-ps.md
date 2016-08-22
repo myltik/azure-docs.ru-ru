@@ -1,21 +1,21 @@
-<properties 
+.<properties 
    pageTitle="Установка статического частного IP-адреса в классическом режиме с помощью PowerShell| Microsoft Azure"
    description="Основные сведения о статических частных IP-адресах (DIP) и об управлении ими в классическом режиме, а также в PowerShell"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
 />
-<tags 
+.<tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Задание статического частного IP-адреса (классического) в PowerShell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Кроме того, вы можете [управлять статическим частным IP-адресом в модели развертывания для диспетчера ресурсов](virtual-networks-static-private-ip-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье рассматривается классическая модель развертывания. Кроме того, вы можете [управлять статическим частным IP-адресом в модели развертывания для диспетчера ресурсов](virtual-networks-static-private-ip-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -108,7 +108,7 @@
 	-------------------- -----------                          ---------------
 	Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
-## Как добавить статический частный IP-адрес для существующей виртуальной машины
+## Добавление статического частного IP-адреса для существующей виртуальной машины
 Чтобы добавить статический внутренний IP-адрес для виртуальной машины, созданной с помощью приведенного выше сценария, выполните следующую команду:
 
 	Get-AzureVM -ServiceName TestService -Name DNS01 `
@@ -123,8 +123,8 @@
 
 ## Дальнейшие действия
 
-- Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](../virtual-networks-reserved-public-ip).
-- Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](../virtual-networks-instance-level-public-ip).
+- Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md).
+- Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md).
 - Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0810_2016-->

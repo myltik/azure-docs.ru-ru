@@ -86,7 +86,7 @@
 	$Connection12  = "VNet1toVNet2"
 	$Connection15  = "VNet1toSite5"
 
-#### 2\. Подключение к подписке Azure и создание группы ресурсов
+#### 2) Подключение к подписке Azure и создание группы ресурсов
 
 Для работы с командлетами диспетчера ресурсов необходимо перейти в режим PowerShell. Дополнительную информацию см. в разделе [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
 
@@ -118,7 +118,7 @@
 	$subnet1   = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
 	$gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $subnet1 -PublicIpAddress $gwpip1
 
-#### 2\. Создание VPN-шлюза с номером AS
+#### 2) Создание VPN-шлюза с номером AS
 
 Создайте шлюз для виртуальной сети TestVNet1. Обратите внимание, что для использования BGP обязательно нужен VPN-шлюз на основе маршрутов, а также дополнительный параметр -Asn, который задает номер ASN для TestVNet1. Создание шлюза может занять некоторое время (30 минут или более).
 
@@ -174,7 +174,7 @@
 	
 Прежде чем продолжить, убедитесь, что вы все еще подключены к подписке 1.
 
-#### 2\. Создание локального сетевого шлюза для сети Site5
+#### 2) Создание локального сетевого шлюза для сети Site5
 
 Прежде чем создавать локальный сетевой шлюз, не забудьте создать группу ресурсов, если она не была создана ранее. Обратите внимание на два дополнительных параметра локального сетевого шлюза: Asn и BgpPeerAddress.
 
@@ -189,11 +189,11 @@
 		$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 		$lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG5
 
-#### 2\. Создание подключения между TestVNet1 и Site5
+#### 2) Создание подключения между TestVNet1 и Site5
 
 На этом шаге вы создадите подключение между TestVNet1 и Site5. Чтобы активировать BGP для этого подключения, укажите параметр -EnableBGP True. Как обсуждалось ранее, на одном VPN-шлюзе можно одновременно создавать подключения с использованием BGP и без него. Если BGP не указано в свойствах подключения явным образом, Azure не будет использовать BGP для этого подключения, даже если параметры BGP настроены для обоих шлюзов.
 
-	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
+	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 
 
 В приведенном ниже примере перечислены параметры, которые следует ввести в разделе конфигурации BGP на локальном VPN-устройстве для нашего тестового задания.
@@ -245,7 +245,7 @@
 	$Connection21  = "VNet2toVNet1"
 	$Connection12  = "VNet1toVNet2"
 
-#### 2\. Создание сети TestVNet2 в новой группе ресурсов
+#### 2) Создание сети TestVNet2 в новой группе ресурсов
 
 	New-AzureRmResourceGroup -Name $RG2 -Location $Location2
 	
@@ -280,13 +280,13 @@
 	$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 	$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 	
-#### 2\. Создание двух подключений
+#### 2) Создание двух подключений
 
 На этом шаге вы создадите подключение от TestVNet1 к TestVNet2, а также подключение от TestVNet2 к TestVNet1.
 
-	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet2gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp True
+	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet2gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp $True
 
-	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG2 -VirtualNetworkGateway1 $vnet2gw -VirtualNetworkGateway2 $vnet1gw -Location $Location2 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp True
+	New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG2 -VirtualNetworkGateway1 $vnet2gw -VirtualNetworkGateway2 $vnet1gw -Location $Location2 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp $True
 
 >[AZURE.IMPORTANT] Не забудьте включить BGP для ОБОИХ подключений.
 
@@ -300,4 +300,4 @@
 
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Инструкции см. в статье [Создание виртуальной машины под управлением Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

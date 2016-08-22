@@ -7,13 +7,13 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags 
+.<tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 
@@ -77,7 +77,7 @@
 
 ![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- Просканируйте штрихкод. 
+- Просканируйте штрихкод.
 
 ![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
@@ -147,7 +147,7 @@
 
 ![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/msaccount.png)
 
-- Завершите процедуру: введите код, указанный под учетной записью (в данном случае это 875 756), в поле на странице, где вы получили секретный ключ, и нажмите кнопку «Далее».  
+- Завершите процедуру: введите код, указанный под учетной записью (в данном случае это 875 756), в поле на странице, где вы получили секретный ключ, и нажмите кнопку «Далее».
 
 ![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/verify.png)
 
@@ -168,4 +168,4 @@
 
 ![Удаление учетной записи](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

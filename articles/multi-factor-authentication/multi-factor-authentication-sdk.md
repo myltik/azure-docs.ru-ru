@@ -7,13 +7,13 @@
 	manager="stevenpo" 
 	editor="curtand"/>
 
-<tags 
+.<tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Построение Multi-Factor Authentication в пользовательских приложениях (SDK)
@@ -60,7 +60,7 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 3. Дважды щелкните свой экземпляр Azure AD.
 4. В верхней части экрана щелкните ссылку **Настроить**.
 5. В разделе многофакторной проверки подлинности выберите **Управление параметрами службы**. ![Загрузить](./media/multi-factor-authentication-sdk/download2.png)
-6. На странице параметров службы в нижней части экрана щелкните ссылку **Перейти на портал**.![Загрузить](./media/multi-factor-authentication-sdk/download3a.png)
+6. На странице параметров службы в нижней части экрана щелкните ссылку **Перейти на портал**. ![Загрузить](./media/multi-factor-authentication-sdk/download3a.png)
 7. Откроется новая страница. Слева внизу нажмите SDK.
 8. Выберите необходимый язык и щелкните одну из связанных ссылок для загрузки.
 9. Сохраните загружаемый файл.
@@ -193,4 +193,4 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 	    }
 	}
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

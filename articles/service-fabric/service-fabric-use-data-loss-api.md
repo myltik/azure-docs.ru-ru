@@ -39,7 +39,7 @@
 
 1.	Она полностью выполнена. При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Completed.
 2.	При выполнении возникла неустранимая ошибка. При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Faulted.
-3.	Она отменена пользователем с помощью API [CancelTestCommandAsync][cancel] или командлета PowerShell [Stop ServiceFabricTestCommand][cancelps]. При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Cancelled или ForceCancelled, в зависимости от аргумента данного API. Обратитесь к документации по [CancelTestCommandAsync][cancel] для получения дополнительных сведений.
+3.	Вы отменили команд с помощью API [CancelTestCommandAsync][cancel] или командлета PowerShell [Stop ServiceFabricTestCommand][cancelps]. При вызове GetProgress в этом случае свойство State объекта хода выполнения будет иметь значение Cancelled или ForceCancelled, в зависимости от аргумента данного API. Обратитесь к документации по [CancelTestCommandAsync][cancel] для получения дополнительных сведений.
 
 
 ## Подробное описание выполнения команды
@@ -48,7 +48,7 @@
 
 После успешного вызова API Start вызов API GetProgress должен осуществляться циклически, пока свойство State возвращаемого объекта хода выполнения не примет значение Completed. Все исключения [FabricTransientException][fte] и OperationCanceledException должны быть обработаны путем повтора операции. Когда команда достигнет конечного состояния (Completed, Faulted или Cancelled), свойство Result возвращаемого объекта хода выполнения будет содержать дополнительные сведения. Если состояние — Completed, то Result.SelectedPartition.PartitionId будет содержать идентификатор секции, которая была выбрана. Result.Exception будет иметь значение NULL. Если состояние — Faulted, то Result.Exception будет содержать причину, по которой служба внесения ошибок и анализа присвоила это состояние выполнения команды. Result.SelectedPartition.PartitionId будет содержать идентификатор секции, которая была выбрана. В некоторых ситуациях команда может быть выполнена недостаточно, чтобы можно было выбрать секцию. В этом случае значение PartitionId будет равно 0. Если состояние — Cancelled, то Result.Exception будет иметь значение NULL. Как и в случае состояния Faulted, Result.SelectedPartition.PartitionId будет содержать идентификатор секции, которая была выбрана, но если команда была выполнена недостаточно для этого, этот идентификатор будет равен 0. Ознакомьтесь также с примером ниже.
 
-В этом примере кода показано, как начать, а затем проверять выполнение команды для перезапуска определенной секции.
+В этом примере кода показано, как начать, а затем проверять выполнение команды, которая приводит к потере данных в определенном разделе.
 
 ```csharp
     static async Task PerformDataLossSample()
@@ -222,14 +222,14 @@
 
 После достижения командой конечного состояния ее метаданные на какое-то время остаются в службе внесения ошибок и анализа, прежде чем будут удалены для экономии места. Если после их удаления вызвать GetProgress с operationId этой команды, то будет возвращено исключение FabricException с кодом ErrorCode, равным KeyNotFound.
 
-[dl]: https://msdn.microsoft.com/ru-RU/library/azure/mt693569.aspx
-[ql]: https://msdn.microsoft.com/ru-RU/library/azure/mt693558.aspx
-[rp]: https://msdn.microsoft.com/ru-RU/library/azure/mt645056.aspx
-[psdl]: https://msdn.microsoft.com/ru-RU/library/mt697573.aspx
-[psql]: https://msdn.microsoft.com/ru-RU/library/mt697557.aspx
-[psrp]: https://msdn.microsoft.com/ru-RU/library/mt697560.aspx
-[cancel]: https://msdn.microsoft.com/ru-RU/library/azure/mt668910.aspx
-[cancelps]: https://msdn.microsoft.com/ru-RU/library/mt697566.aspx
-[fte]: https://msdn.microsoft.com/ru-RU/library/azure/system.fabric.fabrictransientexception.aspx
+[dl]: https://msdn.microsoft.com/library/azure/mt693569.aspx
+[ql]: https://msdn.microsoft.com/library/azure/mt693558.aspx
+[rp]: https://msdn.microsoft.com/library/azure/mt645056.aspx
+[psdl]: https://msdn.microsoft.com/library/mt697573.aspx
+[psql]: https://msdn.microsoft.com/library/mt697557.aspx
+[psrp]: https://msdn.microsoft.com/library/mt697560.aspx
+[cancel]: https://msdn.microsoft.com/library/azure/mt668910.aspx
+[cancelps]: https://msdn.microsoft.com/library/mt697566.aspx
+[fte]: https://msdn.microsoft.com/library/azure/system.fabric.fabrictransientexception.aspx
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0810_2016-->

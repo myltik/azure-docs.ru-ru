@@ -1,19 +1,19 @@
-<properties
+.<properties
 	pageTitle="Руководство. Интеграция Azure Active Directory с TargetProcess | Microsoft Azure"
 	description="Узнайте, как настроить единый вход между Azure Active Directory и TargetProcess."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="femila"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/05/2016"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,7 @@
 
 Интеграция TargetProcess с Azure AD дает приведенные далее преимущества:
 
-- С помощью Azure AD вы можете контролировать доступ к TargetProcess. 
+- С помощью Azure AD вы можете контролировать доступ к TargetProcess.
 - Вы можете включить автоматический вход пользователей в TargetProcess (единый вход) с использованием учетной записи Azure AD.
 - Вы можете управлять учетными записями централизованно — через классический портал Azure Active Directory.
 
@@ -43,15 +43,15 @@
 При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
 - Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/). 
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
  
 ## Описание сценария
 Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
 
-Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
+Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. Добавление приложения TargetProcess из коллекции 
+1. Добавление приложения TargetProcess из коллекции
 2. Настройка и проверка единого входа в Azure AD
 
 
@@ -60,7 +60,7 @@
 
 **Чтобы добавить TargetProcess из коллекции, выполните следующие действия.**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
 	![Active Directory][1]
 
@@ -124,7 +124,7 @@
 	![Настройка единого входа](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_03.png)
 
 
-    а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение TargetProcess (например, **https://fabrikam.TargetProcess.com/*).
+    а. В текстовом поле **URL-адрес для входа** введите URL-адрес, используемый для входа в приложение TargetProcess (например, *https://fabrikam.TargetProcess.com/*).
 
     b. Нажмите кнопку **Далее**.
  
@@ -218,7 +218,7 @@
 
     c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
 
-    d. В списке **Роль** выберите **Пользователь**. e. Нажмите кнопку **Далее**.
+    г) В списке **Роль** выберите **Пользователь**. e. Нажмите кнопку **Далее**.
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
@@ -273,18 +273,18 @@
 
 ### Проверка единого входа
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
 
 Щелкнув элемент TargetProcess на панели доступа, вы автоматически войдете в приложение TargetProcess.
 
 
-## Дополнительные ресурсы
+## дополнительные ресурсы.
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-<!--Image references-->
+.<!--Image references-->
 
 [1]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_02.png
@@ -302,4 +302,4 @@
 [204]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-target-process-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

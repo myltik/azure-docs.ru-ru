@@ -7,13 +7,13 @@
 	manager="wpickett"
     editor="" />
 
-<tags
+.<tags
 	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/10/2016"
 	ms.author="nicking"/>
 # Использование PowerShell для резервного копирования и восстановления приложений службы приложений
 
@@ -24,12 +24,26 @@
 Узнайте, как использовать Azure PowerShell для резервного копирования и восстановления [приложений службы приложений](https://azure.microsoft.com/services/app-service/web/). Дополнительные сведения о резервных копиях веб-приложений, включая требования и ограничения, см. в статье [Резервное копирование веб-приложений в службе приложений Azure](../app-service-web/web-sites-backup.md).
 
 ## Предварительные требования
-Чтобы использовать PowerShell для управления резервными копиями приложения, вам потребуется следующее.
+Чтобы использовать PowerShell для управления резервными копиями приложения, требуется следующее.
 
-- **URL-адрес SAS**, предоставляющий разрешения на чтение и запись в контейнер службы хранилища Azure. Дополнительные сведения о подписанных URL-адресах см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../storage/storage-dotnet-shared-access-signature-part-1.md).
+- **URL-адрес SAS**, предоставляющий разрешения на чтение и запись в контейнер службы хранилища Azure. Описание URL-адресов SAS см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../storage/storage-dotnet-shared-access-signature-part-1.md). С примерами управления службой хранилища Azure с помощью PowerShell можно ознакомиться в разделе [Использование Azure PowerShell со службой хранилища Azure](../storage/storage-powershell-guide-full.md).
 - **Строка подключения к базе данных**, если вместе с веб-приложением вы хотите создать резервную копию базы данных.
 
-##Установка Azure PowerShell 1.3.2 или более поздней версии
+### Как создать подписанный URL-адрес SAS для использования с командлетами архивации веб-приложений
+Подписанный URL-адрес можно создать с помощью PowerShell. Ниже приведен пример того, как создать подписанный URL-адрес, который может использоваться с командлетами, рассмотренными в этой статье.
+
+		$storageAccountName = "<your storage account's name>"
+		$storageAccountRg = "<your storage account's resource group>"
+
+		# This returns an array of keys for your storage account. Be sure to select the appropriate key. Here we select the first key as a default.
+		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccountRg -Name $storageAccountName
+		$context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey[0].Value
+
+		$blobContainerName = "<name of blob container for app backups>"
+		$token = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1)
+		$sasUrl = $context.BlobEndPoint + $blobContainerName + $token
+
+## Установка Azure PowerShell 1.3.2 или более поздней версии
 
 Инструкции по установке и использованию Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
@@ -43,11 +57,11 @@
 
 		$backup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -StorageAccountUrl $sasUrl
 
-Имя резервной копии будет создано и присвоено автоматически. Если вы хотите самостоятельно указать имя резервной копии, используйте дополнительный параметр BackupName.
+Он создает резервную копию, имя которой присваивается автоматически. Если вы хотите самостоятельно указать имя резервной копии, используйте дополнительный параметр BackupName.
 
 		$backup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -StorageAccountUrl $sasUrl -BackupName MyBackup
 
-Если вы хотите включить базу данных в резервную копию, сначала создайте настройки для резервного копирования базы данных. Для этого выполните командлет New-AzureRmWebAppDatabaseBackupSetting, а затем укажите полученное значение в параметре Database командлета New-AzureRmWebAppBackup. Параметр Database принимает массив настроек базы данных, то есть позволяет архивировать сразу несколько баз данных.
+Чтобы включить базу данных в резервную копию, сначала создайте настройки для архивации базы данных. Для этого выполните командлет New-AzureRmWebAppDatabaseBackupSetting, а затем укажите полученное значение в параметре Database командлета New-AzureRmWebAppBackup. Параметр Database принимает массив настроек базы данных, то есть позволяет архивировать сразу несколько баз данных.
 
 		$dbSetting1 = New-AzureRmWebAppDatabaseBackupSetting -Name DB1 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
 		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
@@ -78,13 +92,13 @@
 - **Name** — имя веб-приложения.
 - **ResourceGroupName** — имя группы ресурсов, которая содержит веб-приложение.
 - **Slot** — необязательный параметр. Имя слота веб-приложения.
-- **StorageAccountUrl** — URL-адрес SAS контейнера хранилища Azure, в котором будет храниться резервная копия.
+- **StorageAccountUrl** — подписанный URL-адрес SAS контейнера службы хранилища Azure, в котором будет храниться резервная копия.
 - **FrequencyInterval** — числовое значение, которое определяет частоту создания резервных копий. Принимаются только положительные целые числа.
-- **FrequencyUnit** — задает единицы времени, в которых выражена частота резервного копирования. Допустимые варианты: Hour (часы) и Day (дни).
-- **RetentionPeriodInDays** — количество дней хранения резервных копий, создаваемых автоматически. По завершении этого периода резервные копии автоматически удаляются.
-- **StartTime** — необязательный параметр. Время начала автоматической архивации. Если это поле имеет значение null, резервное копирование начнется немедленно. Принимаются значения в формате DateTime.
-- **Database** — необязательный параметр. Массив настроек в формате DatabaseBackupSettings, которые описывают базы данных для резервного копирования.
-- **KeepAtLeastOneBackup** — необязательный параметр-переключатель. Его следует указать, если вы хотите всегда хранить в учетной записи хранения одну резервную копию независимо от срока ее создания.
+- **FrequencyUnit** — задает единицы времени, в которых выражена частота архивации. Допустимые варианты: Hour (часы) и Day (дни).
+- **RetentionPeriodInDays** — количество дней хранения создаваемых автоматически резервных копий. По завершении этого периода резервные копии автоматически удаляются.
+- **StartTime** — необязательный параметр. Время начала автоматической архивации. Если это поле имеет значение NULL, то архивация начинается немедленно. Принимаются значения в формате DateTime.
+- **Databases** — необязательный параметр. Массив настроек в формате DatabaseBackupSettings, которые описывают базы данных для резервного копирования.
+- **KeepAtLeastOneBackup** — необязательный параметр. Его следует указать, если вы хотите всегда хранить в учетной записи хранения одну резервную копию независимо от срока ее создания.
 
 Ниже приведен пример использования этого командлета.
 
@@ -112,7 +126,7 @@
 
 Чтобы восстановить веб-приложение из резервной копии, используйте командлет Restore-AzureRmWebAppBackup. Для упрощения процесса вы можете передать этому командлету объект резервной копии, полученный из командлета Get-AzureRmWebAppBackup или Get-AzureRmWebAppBackupList.
 
-Созданный объект резервной копии можно передать в командлет Restore-AzureRmWebAppBackup с использованием конвейера. Следует добавить параметр-переключатель Overwrite, который обозначает, что вы хотите заменить содержимое веб-приложения содержимым резервной копии. Если резервная копия содержит базы данных, эти базы данных также будут восстановлены.
+Созданный объект резервной копии можно передать в командлет Restore-AzureRmWebAppBackup с использованием конвейера. Добавьте параметр Overwrite, который указывает, что вы хотите заменить содержимое веб-приложения содержимым резервной копии. Если резервная копия содержит базы данных, то эти они также будут восстановлены.
 
 		$backup | Restore-AzureRmWebAppBackup -Overwrite
 
@@ -126,9 +140,9 @@
 		$dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
 		Restore-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -Slot $slotName -StorageAccountUrl "<your SAS URL>" -BlobName $blobName -Databases $dbSetting1,$dbSetting2 -Overwrite
 
-## Удаление резервной копии
+## удаление резервной копии;
 
-Чтобы удалить резервную копию, используйте командлет Remove-AzureRmWebAppBackup. Резервная копия будет удалена из вашей учетной записи хранения. Командлету следует передать имя приложения, его группу ресурсов и идентификатор резервной копии, которую требуется удалить.
+Чтобы удалить резервную копию, используйте командлет Remove-AzureRmWebAppBackup. Резервная копия будет удалена из вашей учетной записи хранения. Укажите имя приложения, его группу ресурсов и идентификатор резервной копии, которую требуется удалить.
 
 		$resourceGroupName = "Default-Web-WestUS"
 		$appName = "ContosoApp"
@@ -139,4 +153,4 @@
 		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
 		$backup | Remove-AzureRmWebAppBackup -Overwrite
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0810_2016-->

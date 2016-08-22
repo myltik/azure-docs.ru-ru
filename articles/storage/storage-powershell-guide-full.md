@@ -6,13 +6,13 @@
 	authors="robinsh"
 	manager="carmonm"/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Использование Azure PowerShell со службой хранилища Azure
@@ -752,4 +752,4 @@ Azure позволяет создать моментальный снимок BL
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,6 +1,15 @@
-<properties pageTitle="Низкая производительность веб-приложения в службе приложений | Microsoft Azure" description="Эта статья поможет устранить причины низкой производительности веб-приложения в службе приложений Azure." services="app-service\\web" documentationCenter="" authors="cephalin" manager="wpickett" editor="" tags="top-support-issue keywords="производтельность веб-приложения, медленное приложение, приложение медленно работает"/>
+.<properties
+	pageTitle="Низкая производительность веб-приложения в службе приложений | Microsoft Azure"
+	description="Эта статья поможет устранить причины снижения производительности веб-приложения, размещенного в службе приложений Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor=""
+	tags="top-support-issue"
+	keywords="Производительность веб-приложения, медленное приложение, приложение работает медленно"/>
 
-<tags
+.<tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
@@ -51,10 +60,10 @@ Microsoft Azure информирует о каждом случае прерыв
 Некоторые из этих метрик помогут вам отслеживать работу веб-приложения, например:
 
 -	средний размер рабочего набора памяти;
--	Average response time (Среднее время ответа)
+-	Среднее время ответа
 -	время ЦП;
 -	рабочий набор памяти;
--	Requests (Запросы)
+-	Запросы
 
 ![Мониторинг производительности веб-приложения](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
@@ -87,8 +96,8 @@ Microsoft Azure информирует о каждом случае прерыв
 
 Использование New Relic описано в статье [Инструмент управления производительностью приложений New Relic для Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
 
-<a name="collect" />
-### 2\. Сбор данных
+.<a name="collect" />
+### 2) Сбор данных
 
 ####	Включите ведение журнала диагностики для своего веб-приложения
 
@@ -174,8 +183,8 @@ Microsoft Azure информирует о каждом случае прерыв
 
 Обычно это самый простой способ восстановления после проблемы, которая возникла один раз. Остановить или перезапустить приложение можно при помощи колонки веб-приложения на [портале Azure](https://portal.azure.com/).
 
- ![Перезапуск веб-приложение для устранения проблем с производительностью](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
+ .![Перезапуск веб-приложение для устранения проблем с производительностью](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -47,7 +47,6 @@
 | 10 | get-started-create-support-ticket | [Создание запроса в службу поддержки для хранилища данных SQL](sql-data-warehouse-get-started-create-support-ticket.md) | Порядок создания запроса в службу поддержки для хранилища данных SQL Azure |
 | 11 | get-started-load-with-azure-data-factory | [Загрузка данных с помощью фабрики данных Azure](sql-data-warehouse-get-started-load-with-azure-data-factory.md) | Сведения о том, как загружать данные с помощью фабрики данных Azure. |
 | 12 | get-started-load-with-polybase | [Загрузка данных в хранилище данных SQL с помощью PolyBase](sql-data-warehouse-get-started-load-with-polybase.md) | Узнайте, что такое средство PolyBase и как его использовать в сценариях работы с хранилищем данных. |
-| 13\. | get-started-new-server | [Создание нового логического сервера](sql-data-warehouse-get-started-new-server.md) | Узнайте, как создать хранилище данных SQL на портале Azure. |
 | 14 | get-started-provision | [Создание хранилища данных SQL Azure](sql-data-warehouse-get-started-provision.md) | Узнайте, как создать хранилище данных SQL на портале Azure. |
 | 15 | get-started-provision-powershell | [Создание хранилища данных SQL с помощью Powershell](sql-data-warehouse-get-started-provision-powershell.md) | Создание хранилища данных SQL с помощью Powershell |
 | 16 | get-started-visualize-with-power-bi | [Визуализация данных с помощью Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) | Визуализация данных хранилища данных SQL с помощью Power BI |
@@ -120,7 +119,7 @@
 
 
 
-## Загрузка
+## загрузить
 
 | &nbsp; | Идентификатор в URL-адресе | Название | Описание |
 | --: | :-- | :-- | :-- |
@@ -193,4 +192,4 @@
 | 86 | service-capacity-limits | [Ограничения емкости хранилища данных SQL](sql-data-warehouse-service-capacity-limits.md) | Максимальные значения для подключений, баз данных, таблиц и запросов для хранилища данных SQL. |
 | 87 | troubleshoot | [Устранение неполадок хранилища данных SQL Azure](sql-data-warehouse-troubleshoot.md) | Диагностика и устранение неполадок хранилища данных SQL Azure. |
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

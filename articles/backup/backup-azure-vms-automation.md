@@ -7,13 +7,13 @@
    manager="cfreeman"
    editor=""/>
 
-<tags
+.<tags
    ms.service="backup"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="06/03/2016"
+   ms.date="08/03/2016"
    ms.author="markgal; trinadhk"/>
 
 # Развертывание архивации виртуальных машин, развернутых посредством Resource Manager, и управление ею с помощью PowerShell
@@ -34,7 +34,7 @@
 
 Чтобы эффективно использовать PowerShell, необходимо понимать иерархию объектов и знать, откуда следует начинать резервное копирование.
 
-![Иерархия объектов служб восстановления](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+.![Иерархия объектов служб восстановления](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 Справку по командлету PowerShell AzureRmRecoveryServicesBackup см. в статье [Командлеты служб архивации и восстановления Azure](https://msdn.microsoft.com/library/mt723320.aspx) в библиотеке Azure. Справку по командлету PowerShell AzureRmRecoveryServicesVault см. в статье [Командлеты службы восстановления Azure](https://msdn.microsoft.com/library/mt643905.aspx).
 
@@ -179,9 +179,17 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 Защита включается для двух объектов: элемента и политики. Для включения защиты в хранилище требуются оба эти объекта. После того как политика сопоставится с хранилищем, рабочий процесс архивации будет активироваться по времени, определенному в политике расписания.
 
-Включение политики защиты
+Включение защиты на виртуальных машинах ARM без шифрования
 
 ```
+PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
+```
+
+Чтобы включить защиту на зашифрованных виртуальных машинах [зашифрованных с помощью BEK и KEK], необходимо предоставить службе архивации Azure разрешения на доступ для чтения ключей и секретов из хранилища ключей.
+
+```
+PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'KeyVaultName' -ResourceGroupName 'RGNameOfKeyVault' -PermissionsToKeys backup,get,list -PermissionsToSecrets get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
 PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
@@ -252,7 +260,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 
 На представленной ниже схеме показана иерархия объектов от RecoveryServicesVault до BackupRecoveryPoint.
 
-![Иерархия объектов служб восстановления с BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
+.![Иерархия объектов служб восстановления с BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
 Чтобы восстановить данные резервной копии, определите архивный элемент и точку восстановления, которая содержит данные на определенный момент времени. Затем примените **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)**, чтобы восстановить данные из хранилища в учетную запись клиента.
 
@@ -269,7 +277,7 @@ PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedC
 
 Выполните командлет **[Get-AzureRMRecoveryServicesBackupRecoveryPoint](https://msdn.microsoft.com/library/mt723308.aspx)**, чтобы получить полный список точек восстановления. Выберите нужную точку восстановления. Если вы не знаете, какую точку восстановления выбрать, используйте последнюю точку RecoveryPointType = AppConsistent в списке.
 
-В следующем сценарии переменная **$rp** представляет собой массив точек восстановления для выбранного элемента резервной копии. Массив сортируется по времени в обратном порядке, так что последняя точка восстановления получает индекс 0. Используйте стандартное индексирование массива PowerShell для выбора точки восстановления. Например, $rp[0] выбирает последнюю точку восстановления.
+В следующем сценарии переменная **$rp** представляет собой массив точек восстановления для выбранного архивного элемента. Массив сортируется по времени в обратном порядке, так что последняя точка восстановления получает индекс 0. Используйте стандартное индексирование массива PowerShell для выбора точки восстановления. Например, $rp[0] выбирает последнюю точку восстановления.
 
 ```
 PS C:\> $startDate = (Get-Date).AddDays(-7)
@@ -294,7 +302,7 @@ BackupManagementType        : AzureVM
 
 ### Восстановление дисков
 
-Выполните командлет **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)**, чтобы восстановить данные и конфигурацию элемента резервной копии до точки восстановления. Используйте выбранную точку восстановления как значение для параметра **-RecoveryPoint**. В предыдущем примере кода была выбрана точка восстановления **$rp [0]**. В следующем примере кода для восстановления на диск выбрана точка восстановления **$rp [0]**.
+Выполните командлет **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)**, чтобы восстановить данные и конфигурацию архивного элемента до точки восстановления. Используйте выбранную точку восстановления как значение для параметра **-RecoveryPoint**. В предыдущем примере кода была выбрана точка восстановления **$rp [0]**. В следующем примере кода для восстановления на диск выбрана точка восстановления **$rp [0]**.
 
 Восстановление дисков и сведений о конфигурации
 
@@ -346,14 +354,25 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 
 4. Подключите диск операционной системы и диски данных.
 
-    ```
-    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri
-    PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType foreach($dd in $obj.StorageProfile.DataDisks)
-    {
-    $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
-    }
-    ```
+      Для виртуальных машин без шифрования
 
+       ```
+       PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -CreateOption “Attach”
+       PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType foreach($dd in $obj.StorageProfile.DataDisks)
+       {
+       $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
+       }
+       ```
+      Для зашифрованных виртуальных машин необходимо указать [сведения о ключе хранилища](https://msdn.microsoft.com/library/dn868052.aspx), прежде чем можно будет подключить к ним диски.
+      
+      ```
+      PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.StorageProfile.OSDisk.VirtualHardDisk.Uri -DiskEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007" -DiskEncryptionKeyVaultId "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -KeyEncryptionKeyUrl "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007" -KeyEncryptionKeyVaultId "subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault" -CreateOption "Attach" -Windows
+      PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.StorageProfile.OSDisk.OperatingSystemType foreach($dd in $obj.StorageProfile.DataDisks)
+       {
+       $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.VirtualHardDisk.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption Attach
+       }
+      ```
+      
 5. Задайте параметры сети.
 
     ```
@@ -373,6 +392,6 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 
 ## Дальнейшие действия
 
-Если вы предпочитаете использовать PowerShell для взаимодействия с ресурсами Azure, см. статью о защите Windows Server с помощью PowerShell: [Развертывание службы архивации для Windows Server и управление ею](./backup-client-automation.md). Есть другая статья, посвященная тому, как использовать PowerShell для управления службой архивации DPM: [Развертывание службы архивации для DPM и управление ею](./backup-dpm-automation.md). Обе эти статьи имеют две версии — для развертывания с помощью Resource Manager и для классической модели развертывания.
+Если вы предпочитаете использовать PowerShell для взаимодействия с ресурсами Azure, ознакомьтесь со статьей о защите Windows Server с помощью PowerShell: [Развертывание службы архивации для Windows Server и управление ею](./backup-client-automation.md). Доступна и другая статья, посвященная тому, как использовать PowerShell для управления службой архивации DPM: [Развертывание службы архивации для DPM и управление ею](./backup-dpm-automation.md). Обе эти статьи имеют две версии — для развертывания с помощью Resource Manager и для классической модели развертывания.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

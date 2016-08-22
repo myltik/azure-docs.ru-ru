@@ -103,7 +103,7 @@
 
 2. Чтобы создать группу ресурсов, используйте следующую команду.
 
-		New-AzureRmResourceGroup -Name <resourceGroupName> -Location "West US"
+		New-AzureRmResourceGroup -Name <resourceGroupName> -Location <location>
 
 3. Создайте учетную запись хранения в этой группе ресурсов с помощью командлета [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx).
 
@@ -170,7 +170,7 @@
 2. Замените значение **$vnetName** именем виртуальной сети. Укажите префикс адреса для виртуальной сети в формате CIDR. Создайте переменную и виртуальную сеть с подсетью.
 
         $vnetName = "<vnetName>"
-        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
         
             
 ## Создание общедоступного IP-адреса и сетевого интерфейса
@@ -180,12 +180,12 @@
 1. Замените значение **$ipName** именем общедоступного IP-адреса. Создайте переменную и общедоступный IP-адрес.
 
         $ipName = "<ipName>"
-        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
         
 2. Замените значение **$nicName** именем сетевого интерфейса. Создайте переменную и сетевой интерфейс.
 
         $nicName = "<nicName>"
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 		
 
@@ -252,4 +252,4 @@
 
 Сведения об управлении виртуальной машиной с помощью Azure PowerShell см. в статье [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

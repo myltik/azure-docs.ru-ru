@@ -7,13 +7,13 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-<tags 
+.<tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2016" 
+	ms.date="08/08/2016" 
 	ms.author="spelluru"/>
 
 # Фабрика данных Azure — примеры
@@ -117,4 +117,4 @@
 
 Подробные сведения об использовании Visual Studio для создания сущностей фабрики данных и их публикации в Azure см. в статье [Создание первой фабрики данных Azure с помощью Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

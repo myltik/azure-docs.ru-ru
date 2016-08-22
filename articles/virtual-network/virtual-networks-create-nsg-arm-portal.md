@@ -1,21 +1,21 @@
-<properties 
-   pageTitle="Создание групп безопасности сети в режиме ARM с помощью портала Azure | Microsoft Azure"
+.<properties 
+   pageTitle="Создание групп безопасности сети в режиме ARM с помощью портала Azure | Microsoft Azure"
    description="Узнайте, как создавать и развертывать группы безопасности сети в режиме ARM с помощью портала Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
-<tags 
+.<tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/04/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Как управлять сетевыми группами безопасности с помощью портала предварительной версии
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [создавать группы безопасности сети с помощью классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [создавать группы безопасности сети с помощью классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -103,4 +103,4 @@
 - Узнайте, как [управлять существующими группами безопасности сети](virtual-network-manage-nsg-arm-portal.md).
 - [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0810_2016-->

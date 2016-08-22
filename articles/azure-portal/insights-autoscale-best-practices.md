@@ -1,14 +1,14 @@
-<properties
+.<properties
 	pageTitle="Azure Insights. Рекомендации по автомасштабированию Azure Insights | Microsoft Azure"
 	description="Изучите принципы эффективного использования автомасштабирования в Azure Insights."
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
-<tags
-	ms.service="monitoring"
+.<tags
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -126,4 +126,4 @@
 - Службе автомасштабирования не доступны метрики для принятия решения по масштабированию.
 - Метрики для принятия решения по масштабированию стали доступны (восстановились). Помимо приведенных условий можно настроить уведомления по электронной почте или через веб-перехватчики, чтобы узнавать об успешных действиях масштабирования.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

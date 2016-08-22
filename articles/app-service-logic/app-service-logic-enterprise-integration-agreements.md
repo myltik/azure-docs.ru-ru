@@ -7,7 +7,7 @@
 	manager="erikre" 
 	editor="cgronlun"/>
 
-<tags 
+.<tags 
 	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
@@ -30,7 +30,7 @@
 
 - [AS2](./app-service-logic-enterprise-integration-as2.md)
 - [X12](./app-service-logic-enterprise-integration-x12.md)
-- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) (ожидается в ближайшее время).
+- [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
 ## Для чего используются соглашения
 Ниже приведено несколько общих преимуществ использования соглашений:
@@ -65,4 +65,4 @@
 ## Дальнейшие действия
 - [Создание соглашения AS2](./app-service-logic-enterprise-integration-as2.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

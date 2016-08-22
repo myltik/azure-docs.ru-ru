@@ -7,13 +7,13 @@
 	manager="erikre" 
 	editor=""/>
 
-<tags 
+.<tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Как настраивать уведомления и почтовые шаблоны в Azure API Management
@@ -26,7 +26,7 @@
 
 ![Портал издателя][api-management-management-console]
 
->Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][] в руководстве [Начинаем работу с API Management][].
+>Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра службы управления API][] в руководстве [Начинаем работу со службой управления API][].
 
 Щелкните **Уведомления** в расположенном слева меню **API Management** для просмотра доступных уведомлений.
 
@@ -111,7 +111,7 @@ API Management предоставляет почтовые шаблоны для
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Начинаем работу с API Management]: api-management-get-started.md
-[Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
+[Начинаем работу со службой управления API]: api-management-get-started.md
+[Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

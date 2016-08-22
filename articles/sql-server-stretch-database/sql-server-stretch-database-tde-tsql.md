@@ -7,7 +7,7 @@
    manager=""
    editor=""/>
 
-<tags
+.<tags
    ms.service="sql-server-stretch-database"
    ms.workload="data-management"
    ms.tgt_pltfrm="na"
@@ -19,7 +19,7 @@
 # Включение прозрачного шифрования данных (TDE) для базы данных Stretch в Azure (Transact-SQL)
 > [AZURE.SELECTOR]
 - [Портал Azure](sql-server-stretch-database-encryption-tde.md)
-- [TSQL](sql-server-stretch-database-encryption-tde-tsql.md)
+- [TSQL](sql-server-stretch-database-tde-tsql.md)
 
 Прозрачное шифрование данных (TDE) помогает защититься от угрозы вредоносных атак за счет шифрования и расшифровки базы данных, связанных резервных копий и файлов журналов транзакций при хранении в реальном времени, не внося изменения в само приложение.
 
@@ -69,8 +69,8 @@ FROM
 [Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
-<!--Image references-->
+.<!--Image references-->
 
-<!--Link references-->
+.<!--Link references-->
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

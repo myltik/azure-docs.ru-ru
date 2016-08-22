@@ -7,13 +7,13 @@
 	manager="erikre"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="api-management"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # Развертывание экземпляра службы управления Azure API в различных регионах Azure
@@ -30,7 +30,7 @@
 
 ![Портал издателя][api-management-management-console]
 
->Если экземпляр службы управления API еще не создан, см. раздел [Создание экземпляра API Management][] в руководстве [Начало работы с Azure API Management][].
+>Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][] в руководстве [Начинаем работу с API Management][].
 
 Перейдите на вкладку **Масштаб** на классическом портале Azure для вашего экземпляра службы управления API.
 
@@ -66,8 +66,8 @@
 [api-management-select-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
-[Создание экземпляра API Management]: api-management-get-started.md#create-service-instance
-[Начало работы с Azure API Management]: api-management-get-started.md
+[Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
+[Начинаем работу с API Management]: api-management-get-started.md
 
 [Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region
@@ -75,4 +75,4 @@
 [единицу]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

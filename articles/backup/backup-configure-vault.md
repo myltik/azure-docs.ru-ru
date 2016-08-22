@@ -1,10 +1,10 @@
-<properties
+.<properties
 	pageTitle="Архивация сервера Windows Server или клиентского компьютера Windows в Azure с помощью службы архивации Azure с использованием модели развертывания Resource Manager | Microsoft Azure"
 	description="Архивация серверов или клиентов Windows в Azure путем создания хранилища архивации, скачивания учетных данных, установки агента архивации и выполнения начальной архивации файлов и папок."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor=""
 	keywords="хранилище архивации; архивация сервера Windows; архивация Windows;"/>
 
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="08/10/2016"
 	ms.author="jimpark; trinadhk; markgal"/>
 
-# Архивация сервера Windows Server или клиентского компьютера Windows в Azure с помощью службы архивации Azure с использованием модели развертывания Resource Manager
+# Архивация сервера Windows Server или клиента Windows в Azure с использованием модели развертывания с помощью Resource Manager
 
 > [AZURE.SELECTOR]
 - [Портал Azure](backup-configure-vault.md)
@@ -25,9 +25,10 @@
 
 В этой статье описывается, как выполнить архивацию файлов и папок Windows Server или клиентского компьютера Windows в Azure с помощью службы архивации Azure, используя модель развертывания Resource Manager.
 
-![Шаги архивации](./media/backup-configure-vault/initial-backup-process.png)
-
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
+
+.![Шаги архивации](./media/backup-configure-vault/initial-backup-process.png)
+
 
 ## Перед началом работы
 Для архивации сервера или клиента в Azure вам потребуется учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись](https://azure.microsoft.com/free/) всего за несколько минут.
@@ -54,7 +55,7 @@
 
     ![Создание хранилища служб восстановления — шаг 5](./media/backup-configure-vault/rs-vault-attributes.png)
 
-4. В поле **Имя** введите понятное имя хранилища. Имя должно быть уникальным в пределах подписки Azure. Введите имя длиной от 2 до 50 знаков. Имя должно начинаться с буквы, оно может содержать только буквы, цифры и дефисы.
+4. В поле **Имя** введите понятное имя хранилища. Имя должно быть уникальным в пределах подписки Azure. Введите имя длиной от 2 до 50 знаков. Имя должно начинаться с буквы, оно может содержать только буквы, цифры и дефисы.
 
 5. Щелкните **Подписка**, чтобы просмотреть список доступных подписок. Если неизвестно, какую подписку нужно использовать, оставьте подписку по умолчанию (или предлагаемую подписку). Вариантов будет несколько только в том случае, если учетная запись вашей организации связана с несколькими подписками Azure.
 
@@ -225,4 +226,4 @@
 - Теперь, когда вы выполнили архивацию файлов и папок, вы можете [управлять хранилищами и серверами](backup-azure-manage-windows-server.md).
 - Если необходимо восстановить резервную копию, см. статью о [восстановлении файлов на компьютере с ОС Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

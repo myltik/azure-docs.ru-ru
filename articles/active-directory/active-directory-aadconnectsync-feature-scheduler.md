@@ -7,13 +7,13 @@
    manager="StevenPo"
    editor=""/>
 
-<tags
+.<tags
    ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="08/04/2016"
    ms.author="andkjell"/>
 
 # Синхронизация Azure AD Connect: планировщик
@@ -36,7 +36,7 @@
 ## Конфигурация планировщика
 Чтобы увидеть текущие параметры конфигурации, откройте PowerShell и выполните командлет `Get-ADSyncScheduler`. Отобразятся данные примерно следующего вида:
 
-![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
+.![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
 
 Если при запуске этого командлета отображается сообщение **The sync command or cmdlet is not available** (Команда синхронизации или командлет недоступны), то модуль PowerShell не загружается. Это может произойти при запуске Azure AD Connect на контроллере домена или на сервере с более высокими уровнями ограничений PowerShell, чем предусмотрено параметрами по умолчанию. Если отображается это сообщение об ошибке, выполните команду `Import-Module ADSync`, чтобы сделать командлет доступным.
 
@@ -60,6 +60,13 @@
 
 Конфигурация планировщика хранится в Azure AD. Если используется промежуточный сервер, любые изменения на основном сервере отражаются на промежуточном сервере (за исключением IsStagingModeEnabled).
 
+### CustomizedSyncCycleInterval
+Синтаксис: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss` d — дни, HH — часы, mm — минуты, ss — секунды.
+
+Пример: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00` планировщик будет запускаться каждые 3 часа.
+
+Пример: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0` планировщик будет запускаться один раз в день.
+
 ## Запуск планировщика
 По умолчанию планировщик запускается каждые 30 минут. В некоторых случаях может потребоваться внеплановое выполнение цикла синхронизации или синхронизация другого типа.
 
@@ -75,7 +82,7 @@
 
 - Добавление объектов или атрибутов для импорта из исходного каталога
 - Изменения в правилах синхронизации
-- Изменение [фильтрации](active-directory-aadconnectsync-configure-filtering.md), в результате которого изменяется число включаемых объектов
+- Изменение [фильтрации](active-directory-aadconnectsync-configure-filtering.md), в результате которого изменяется число включаемых объектов.
 
 Если вы внесли одно из таких изменений, выполните цикл полной синхронизации, чтобы модуль синхронизации смог заново согласовать пространства соединителей. Цикл полной синхронизации включает следующие этапы:
 
@@ -88,7 +95,7 @@
 ## Остановка планировщика
 Бывает, что планировщик необходимо остановить в процессе выполнения цикла синхронизации. Это может потребоваться, например, если вы запустили мастер установки и получили следующую ошибку:
 
-![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
+.![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
 
 Пока выполняется цикл синхронизации, вносить изменения в конфигурацию нельзя. Вы можете дождаться, пока планировщик завершит синхронизацию, или остановить его и внести изменения незамедлительно. Остановка текущего цикла не вредит системе, а внесенные изменения будут обработаны только во время следующей синхронизации.
 
@@ -112,7 +119,7 @@ Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name
 
 [Имена соединителей](active-directory-aadconnectsync-service-manager-ui-connectors.md) и [имена профилей выполнения](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) можно найти в [пользовательском интерфейсе Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
 
-![Вызов профиля выполнения](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
+.![Вызов профиля выполнения](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
 
 Командлет `Invoke-ADSyncRunProfile` является синхронным, т. е. он не возвращает управление до тех пор, пока соединитель не завершит операцию, успешно или с ошибкой.
 
@@ -144,4 +151,4 @@ Get-ADSyncConnectorRunStatus
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

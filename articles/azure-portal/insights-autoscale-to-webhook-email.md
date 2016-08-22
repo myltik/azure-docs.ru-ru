@@ -1,14 +1,14 @@
-<properties
+.<properties
 	pageTitle="Azure Insights. Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика | Microsoft Azure"
 	description="Узнайте, как использовать действия автомасштабирования для вызова URL-адресов веб-сайтов или отправки уведомлений по электронной почте в Azure Insights. "
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -127,4 +127,4 @@
 |newCapacity|	Да |Новое число экземпляров, до которого автомасштабирование масштабирует ресурс|
 |Свойства|	Нет|	необязательный параметр. Набор пар <ключ, значение> (например, Dictionary <String, String>). Поле свойства не является обязательным. В настраиваемом пользовательском интерфейсе или рабочем процессе на основе приложения логики вы можете вводить ключи и значения для передачи в виде полезных данных. Еще один способ передачи пользовательских свойств обратно в исходящий вызов веб-перехватчика — использование самого универсального кода ресурса (URI) веб-перехватчика (в виде параметров запроса).|
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

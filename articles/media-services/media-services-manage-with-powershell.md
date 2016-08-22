@@ -7,13 +7,13 @@
 	services="media-services" 
 	documentationCenter=""/>
 
-<tags 
+.<tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/09/2016"
 	ms.author="juliako"/>
 
 
@@ -28,91 +28,473 @@
 
 ##Обзор 
 
-В этой статье показано, как использовать командлеты PowerShell для управления учетными записями служб мультимедиа Azure.
+В этой статье перечислены командлеты Azure PowerShell для служб мультимедиа Azure (AMS), доступные в инфраструктуре Azure Resource Manager. Командлеты существуют в пространстве имен **Microsoft.Azure.Commands.Media**.
 
->[AZURE.NOTE]
-Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Бесплатная пробная версия Azure</a>.
+## Версии
 
-##Установка командлетов Microsoft Azure PowerShell
+**Версия API**: от 01.10.2015.
+               
 
-Сведения об установке новейших командлетов Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
+## New-AzureRmMediaService
 
-##Выбор подписки Azure
+Создает службу мультимедиа.
 
-После установки и настройки командлетов PowerShell следует указать, в какой подписке вы будете работать.
+### Синтаксис
 
-Чтобы получить список доступных подписок, выполните следующий командлет:
+Набор параметров: StorageAccountIdParamSet.
 
-	PS C:\> Get-AzureSubscription
+	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
 
-Выберите подписку, выполнив командлет:
+Набор параметров: StorageAccountsParamSet.
 
-	PS C:\> Select-AzureSubscription "TestSubscription"
+	New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 
- 
-##Получение имени учетной записи хранения
+### Параметры
 
-Службы мультимедиа Azure используют хранилище Azure для хранения мультимедиа. При создании новой учетной записи служб мультимедиа необходимо связать ее с учетной записью хранения. Учетная запись хранения должна принадлежать к подписке, которую планируется использовать для учетной записи служб мультимедиа.
+**-ResourceGroupName &lt;Строка&gt;**
 
-В этом примере применяется существующая учетная запись хранения. Командлет [Get-AzureStorageAccount](https://msdn.microsoft.com/library/azure/dn495134.aspx) получает учетные записи хранения в текущей подписке. Получите имя учетной записи хранения (StorageAccountName), с которой требуется связать учетную запись служб мультимедиа.
+Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
 
-	StorageAccountDescription : 
-	AffinityGroup             :
-	Location                  : East US
-	GeoReplicationEnabled     : True
-	GeoPrimaryLocation        : East US
-	GeoSecondaryLocation      : West US
-	Label                     : storagetest001
-	StorageAccountStatus      : Created
-	StatusOfPrimary           : Available
-	StatusOfSecondary         : Available
-	Endpoints                 : {https://storagetest001.blob.core.windows.net/,
-	                            https://storagetest001.queue.core.windows.net/,
-	                            https://storagetest001.table.core.windows.net/}
-	AccountType               : Standard_GRS
-	StorageAccountName        : storatetest001
-	OperationDescription      : Get-AzureStorageAccount
-	OperationId               : e919dd56-7691-96db-8b3c-2ceee891ae5d
-	OperationStatus           : Succeeded
+Псевдонимы | Нет
+---|---
+Обязательный? | Да
+Позиция? | 0
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
 
-##Создание учетной записи служб мультимедиа
+**-AccountName &lt;Строка&gt;**
 
-Чтобы создать учетную запись служб мультимедиа, используйте командлет [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx). При этом укажите имя учетной записи служб мультимедиа, местоположение центра обработки данных, где она будет создана, и имя учетной записи хранения.
+Указывает имя этой службы мультимедиа.
 
+Псевдонимы |Имя
+---|---
+Обязательный? |Да
+Позиция? |1
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |нет
+Принимает подстановочные знаки? |нет
 
-	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
+**-Location &lt;Строка&gt;**
 
-##Получение учетных записей служб мультимедиа
+Указывает расположение ресурсов для этой службы мультимедиа.
 
-После создания одной или нескольких учетных записей служб мультимедиа можно отобразить сведения с помощью командлета [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx)
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |2
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
 
-	
-	PS C:\> Get-AzureMediaServicesAccount
-	
-	AccountId		Name				State
-	---------       ----       			 -----
-	xxxxxxxxxx      amstestaccount001   Active
+**-StorageAccountId &lt;Строка&gt;**
 
-Передав параметр Name, вы получите более подробные сведения, включая ключи учетной записи.
+Указывает основную учетную запись хранения, связанную с этой службой мультимедиа.
 
-	PS C:\> Get-AzureMediaServicesAccount -Name amstestaccount001
+- Поддерживаются только новые учетные записи хранения (созданные с помощью API Resource Manager).
 
-##Повторное создание ключей доступа служб мультимедиа
+- Учетная запись хранения должна существовать и находиться в том же расположении, что и служба мультимедиа.
 
-Чтобы обновить первичный или вторичный ключ доступа служб мультимедиа, используйте командлет [New-AzureMediaServicesKey](https://msdn.microsoft.com/library/azure/dn495215.aspx). Необходимо указать имя учетной записи и ключ, который следует создать повторно (первичный или вторичный).
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |3
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Имя набора параметров |StorageAccountIdParamSet
+Принимает подстановочные знаки?|нет
 
-Добавьте параметр -Force, чтобы не отображать запросы подтверждения PowerShell.
+**-StorageAccounts &lt;PSStorageAccount[]&gt;**
 
-	PS C:\> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
+Указывает учетные записи хранения, связанные с этой службой мультимедиа.
 
-##Удаление учетной записи служб мультимедиа
+- Поддерживаются только новые учетные записи хранения (созданные с помощью API Resource Manager).
 
-Когда все готово для удаления учетной записи служб мультимедиа Azure, выполните командлет [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx).
+- Учетная запись хранения должна существовать и находиться в том же расположении, что и служба мультимедиа.
 
-	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
+- Можно указать только одну основную учетную запись хранения.
 
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |3
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Имя набора параметров |StorageAccountsParamSet
+Принимает подстановочные знаки? |нет
 
-##Схемы обучения работе со службами мультимедиа
+**-Tags &lt;хэш-таблица&gt;**
+
+Указывает хэш-таблицу тегов, которые связаны с этой службой мультимедиа.
+
+- Пример: @{"тег1"="значение1";"тег2"="значение2"}
+
+Псевдонимы |Нет
+---|---
+Обязательный? |нет
+Позиция? |именованная
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |нет
+Принимает подстановочные знаки? |нет
+
+**&lt;Параметры команды&gt;**
+
+Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+
+### Входные данные
+
+Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+
+### Выходные данные
+
+Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+
+## Set-AzureRmMediaService
+
+Обновляет службу мультимедиа.
+
+### Синтаксис
+
+	Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
+
+### Параметры
+
+**-ResourceGroupName &lt;Строка&gt;**
+
+Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |0
+Значение по умолчанию |Нет
+Принимает конвейерный ввод? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
+
+**-AccountName &lt;Строка&gt;**
+
+Указывает имя этой службы мультимедиа.
+
+Псевдонимы |Name (Имя)
+---|---
+Обязательный? |Истина
+Позиция? |1
+Значение по умолчанию |None
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |Ложь
+
+**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+
+Указывает учетные записи хранения, связанные с этой службой мультимедиа.
+
+- Поддерживаются только новые учетные записи хранения (созданные с помощью API Resource Manager).
+
+- Учетная запись хранения должна существовать и находиться в том же расположении, что и служба мультимедиа.
+
+- Можно указать только одну основную учетную запись хранения.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |нет
+Позиция? |Именованная
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Имя набора параметров |StorageAccountsParamSet
+Принимает подстановочные знаки? |нет
+
+**-Tags &lt;хэш-таблица&gt;**
+
+Указывает хэш-таблицу тегов, которые связаны с этой службой мультимедиа.
+
+- Теги, которые связаны со службой мультимедиа, заменяются значением, указанным пользователем.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Ложь
+Позиция? |Именованная
+Значение по умолчанию |None
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
+
+**&lt;Параметры команды&gt;**
+
+Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+
+### Входные данные
+
+Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+
+### Выходные данные
+
+Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+
+## Remove-AzureRmMediaService
+
+Удаляет службу мультимедиа.
+
+### Синтаксис
+
+	Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Параметры
+
+**-ResourceGroupName &lt;Строка&gt;**
+
+Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |0
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
+
+**-AccountName &lt;Строка&gt;**
+
+Указывает имя этой службы мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |2
+Значение по умолчанию |None
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |Ложь
+
+**&lt;Параметры команды&gt;**
+
+Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+
+### Входные данные
+
+Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+
+### Выходные данные
+
+Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+
+## Get-AzureRmMediaService
+
+Получает все службы мультимедиа в группе ресурсов или службу мультимедиа с заданным именем.
+
+### Синтаксис
+
+Набор параметров: ResourceGroupParameterSet
+
+	Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]	
+
+Набор параметров: AccountNameParameterSet
+
+	Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Параметры
+
+**-ResourceGroupName &lt;Строка&gt;**
+
+Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |0
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Имя набора параметров |ResourceGroupParameterSet, AccountNameParameterSet
+Принимает подстановочные знаки? Нет
+
+**-AccountName &lt;Строка&gt;**
+
+Указывает имя этой службы мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |1
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Имя набора параметров |AccountNameParameterSet
+Принимает подстановочные знаки? |нет
+
+**&lt;Параметры команды&gt;**
+
+Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+
+### Входные данные
+
+Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+
+### Выходные данные
+
+Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+
+## Get-AzureRmMediaServiceKeys
+
+Возвращает ключи службы мультимедиа.
+
+### Синтаксис
+
+	Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
+
+### Параметры
+
+**-ResourceGroupName &lt;Строка&gt;**
+
+Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |0
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
+
+**-AccountName &lt;Строка&gt;**
+
+Указывает имя этой службы мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |1
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
+
+**&lt;Параметры команды&gt;**
+
+Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+
+### Входные данные
+
+Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+
+### Выходные данные
+
+Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+
+## Set-AzureRmMediaServiceKey
+
+Повторно создает первичный или вторичный ключ службы мультимедиа.
+
+### Синтаксис
+
+	Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
+
+### Параметры
+
+**-ResourceGroupName &lt;Строка&gt;**
+
+Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |0
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
+
+**-AccountName &lt;Строка&gt;**
+
+Указывает имя этой службы мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |1
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
+
+**-KeyType &lt;тип ключа&gt;**
+
+Указывает тип ключа этой службы мультимедиа.
+
+- Первичный или вторичный
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |2
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |нет
+Принимает подстановочные знаки? |нет
+
+**&lt;Параметры команды&gt;**
+
+Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+
+### Входные данные
+
+Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+
+### Выходные данные
+
+Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+
+## Sync-AzureRmMediaServiceStorageKeys
+
+Синхронизирует ключи учетной записи хранения, которая связана с этой службой мультимедиа.
+
+### Синтаксис
+
+	Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountName] <string>  [<CommonParameters>]
+
+### Параметры
+
+**-ResourceGroupName &lt;Строка&gt;**
+
+Указывает имя группы ресурсов, к которой принадлежит эта служба мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |0
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
+
+**-AccountName &lt;Строка&gt;**
+
+Указывает имя этой службы мультимедиа.
+
+Псевдонимы |Нет
+---|---
+Обязательный? |Да
+Позиция? |1
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? |true(ByPropertyName)
+Принимает подстановочные знаки? |нет
+
+**-StorageAccountId &lt;Строка&gt;**
+
+Указывает учетную запись хранения, связанную с этой службой мультимедиа.
+
+Псевдонимы |Идентификатор
+---|---
+Обязательный? |Да
+Позиция? |2
+Значение по умолчанию |Нет
+Принимает входные данные конвейера? | true(ByPropertyName)
+Принимает подстановочные знаки? |нет
+
+**&lt;Параметры команды&gt;**
+
+Этот командлет поддерживает общие параметры: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction и -WarningVariable.
+
+### Входные данные
+
+Тип входных данных определяет тип объектов, которые можно передавать в командлет.
+
+### Выходные данные
+
+Тип выходных данных определяет тип объектов, которые будет выдавать командлет.
+
+## Дальнейшие действия 
+
+Изучите схемы обучения для служб мультимедиа.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -122,4 +504,4 @@
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -8,13 +8,13 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-<tags 
+.<tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Вход в мобильное приложение с помощью кода подтверждения службы Azure Multi-Factor Authentication
@@ -42,4 +42,4 @@
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

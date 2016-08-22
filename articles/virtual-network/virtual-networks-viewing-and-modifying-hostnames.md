@@ -1,19 +1,19 @@
-<properties 
+.<properties 
    pageTitle="Просмотр и изменение имен узлов | Microsoft Azure"
    description="Просмотр и изменение имен узлов для виртуальных машин Azure, веб- и рабочих ролей для разрешения имен"
    services="virtual-network"
    documentationCenter="na"
-   authors="joaoma"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+.<tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="joaoma" />
+   ms.author="jdial" />
 
 # Просмотр и изменение имен узлов
 
@@ -47,7 +47,7 @@
 
 В клиенте REST выполните следующие действия:
 
-1. Убедитесь, что у вас есть сертификат клиента для подключения к порталу Azure. Чтобы получить сертификат клиента, выполните действия, описанные в разделе [Пошаговое руководство. Скачивание и импорт параметров публикации и информации о подписке](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Убедитесь, что у вас есть сертификат клиента для подключения к порталу Azure. Чтобы получить сертификат клиента, выполните действия, описанные в разделе [Пошаговое руководство. Скачивание и импорт параметров публикации и информации о подписке](https://msdn.microsoft.com/library/dn385850.aspx).
 
 1. Задайте запись заголовка с именем x-ms-version и значением 2013-11-01.
 
@@ -71,4 +71,4 @@
 
 [Укажите параметры DNS с помощью файлов конфигурации сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

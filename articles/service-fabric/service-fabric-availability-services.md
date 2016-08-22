@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
 # Доступность служб структуры служб
@@ -50,4 +50,4 @@
 
 - [Определение состояния и управление им](service-fabric-concepts-state.md)
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

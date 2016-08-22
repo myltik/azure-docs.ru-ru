@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Мониторинг метрик службы в Microsoft Azure | Microsoft Azure"
 	description="Узнайте, как настроить диаграммы мониторинга в Azure."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-    documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Отслеживание метрик службы
 
@@ -50,7 +50,7 @@
 С помощью мощных возможностей настройки на портале можно добавить столько диаграмм, сколько требуется.
 
 1. В меню **...** в верхней части выноски нажмите **Добавить плитки**: ![Меню "Добавить"](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. Затем можно выбрать диаграмму в **коллекции** в правой части экрана: ![Галерея](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
+2. Затем можно выбрать диаграмму в **коллекции** в правой части экрана: ![Коллекция](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. Если вы не видите нужные метрики, вы всегда можете добавить одну из предустановленных метрик и **изменить** диаграмму, чтобы отобразить их.
 
 ## Мониторинг квот использования
@@ -72,4 +72,4 @@
 * Используйте [приложения Application Insights для JavaScript и веб-страниц](../application-insights/app-insights-web-track-usage.md) для анализа браузеров, которые посещают веб-страницу.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

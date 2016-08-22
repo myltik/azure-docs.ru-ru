@@ -26,7 +26,7 @@ ms.author="garye;haining"/>
 
 Возможно, это и лучший подход, но вы не захотите создавать 1000 экспериментов по машинному обучению Azure, каждый из которых представляет отдельную точку. Кроме перегруженности, такой подход довольно неэффективен, так как каждый эксперимент будет иметь одинаковые компоненты, за исключением набора данных для обучения.
 
-К счастью, этой цели можно достичь, используя [API переобучения машинного обучения Azure](machine-learning-retrain-models-programmatically.md) и автоматизировав задачу с помощью [PowerShell для машинного обучения Microsoft Azure](https://blogs.technet.microsoft.com/machinelearning/2016/05/04/announcing-the-powershell-module-for-azure-ml/).
+К счастью, этой цели можно достичь, используя [API переобучения машинного обучения Azure](machine-learning-retrain-models-programmatically.md) и автоматизировав задачу с помощью [PowerShell для машинного обучения Microsoft Azure](machine-learning-powershell-module.md).
 
 > [AZURE.NOTE] Чтобы ускорить выполнение , мы уменьшаем количество расположений с 1000 до 10. Однако в случае с 1000 расположений применяются все те же принципы и процедуры. Единственное отличие заключается в том, что при обучении по 1000 наборам данных следует рассмотреть возможность параллельного выполнения приведенных ниже сценариев PowerShell. Этот вопрос выходит за рамки данной статьи, но примеры многопоточности PowerShell можно найти в Интернете.
 
@@ -161,4 +161,4 @@ ms.author="garye;haining"/>
 	    Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
 	}
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

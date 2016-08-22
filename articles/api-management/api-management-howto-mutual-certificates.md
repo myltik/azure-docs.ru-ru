@@ -7,13 +7,13 @@
 	manager="erikre" 
 	editor=""/>
 
-<tags 
+.<tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 # Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management
@@ -129,7 +129,7 @@
 
 [Объект сертификата REST API службы управления API Azure ]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью]: https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -141,4 +141,4 @@
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

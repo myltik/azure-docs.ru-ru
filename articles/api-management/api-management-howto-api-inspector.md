@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как с помощью инспектора API отслеживать вызовы в управлении Azure API" 
+	pageTitle="Как использовать инспектор API для трассировки вызовов в Azure API Management" 
 	description="Сведения о трассировке вызовов с помощью инспектора API в службе управления API Azure." 
 	services="api-management" 
 	documentationCenter="" 
@@ -7,16 +7,16 @@
 	manager="erikre" 
 	editor=""/>
 
-<tags 
+.<tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
-# Как с помощью инспектора API отслеживать вызовы в управлении Azure API
+# Как использовать инспектор API для трассировки вызовов в Azure API Management
 
 Служба управления содержит инспектор API, которое позволяет выполнять отладку и устранять неполадки интерфейсов API. Инспектор API может использоваться на программном уровне, а также напрямую из портала разработчика.
 
@@ -261,4 +261,4 @@
 
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

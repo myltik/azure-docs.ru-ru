@@ -3,27 +3,27 @@
    description="Узнайте, как создать и развернуть группы безопасности сети в классическом режиме, используя PowerShell."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
 />
-<tags
+.<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
-# Как создать группы безопасности сети \(классические\) в PowerShell
+# Как создать группы безопасности сети (классические) в PowerShell
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Вы также можете [создавать группы безопасности сети с использованием модели развертывания на основе диспетчера ресурсов](virtual-networks-create-nsg-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье рассматривается классическая модель развертывания. Вы также можете [создавать группы безопасности сети с использованием модели развертывания на основе диспетчера ресурсов](virtual-networks-create-nsg-arm-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
@@ -135,7 +135,7 @@
 		NSG-BackEnd West US    Back end subnet NSG
 
 
-4. Создайте правило безопасности, которое разрешает доступ из подсети переднего плана к порту 1433 \(используемому по умолчанию в SQL Server\).
+4. Создайте правило безопасности, которое разрешает доступ из подсети переднего плана к порту 1433 (используемому по умолчанию в SQL Server).
 
 		Get-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" `
 		| Set-AzureNetworkSecurityRule -Name rdp-rule `
@@ -210,4 +210,4 @@
 		           OUTBOUND                                                                                                      
 		           DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

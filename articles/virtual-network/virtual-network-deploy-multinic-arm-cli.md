@@ -1,21 +1,21 @@
-<properties
+.<properties
    pageTitle="Развертывание виртуальных машин с несколькими сетевыми адаптерами с помощью интерфейса командной строки Azure в диспетчере ресурсов | Microsoft Azure"
    description="Дополнительные сведения о развертывании виртуальных машин с несколькими сетевыми адаптерами с помощью интерфейса командной строки Azure в диспетчере ресурсов"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
-<tags  
+.<tags  
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Развертывание виртуальных машин с несколькими сетевыми адаптерами с помощью интерфейса командной строки Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model]\(virtual-network-deploy-multinic-classic-cli.md\).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-deploy-multinic-classic-cli.md).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -45,7 +45,7 @@
 
 Внутренние виртуальные машины зависят от создания ресурсов, перечисленных ниже.
 
-- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя \(SSD\), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
+- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя (SSD), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
 - **Сетевые карты**. У каждой виртуальной машины будет две сетевые карты: одна для доступа к базе данных, другая — для управления.
 - **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания.
 
@@ -88,7 +88,7 @@
 		                --name $backendSubnetName|grep Id)"
 		subnetId=${subnetId#*/}
 
->[AZURE.TIP] Первая команда выше использует [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) и [манипуляции со строками](http://tldp.org/LDP/abs/html/string-manipulation.html) \(в частности, удаление подстроки\).
+>[AZURE.TIP] Первая команда выше использует [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) и [манипуляции со строками](http://tldp.org/LDP/abs/html/string-manipulation.html) (в частности, удаление подстроки).
 
 4. Получить идентификатор для группы безопасности сети `NSG-RemoteAccess`. Это необходимо сделать, поскольку сетевые адаптеры, которые будут связаны с этой группой безопасности сети, находятся в различных группах ресурсов.
 
@@ -330,4 +330,4 @@
 		info:    Updating VM "DB2"
 		info:    vm disk attach-new command OK
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0810_2016-->

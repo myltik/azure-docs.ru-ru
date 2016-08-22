@@ -1,13 +1,13 @@
 <properties services="virtual-machines" title="Setting up PowerShell" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
 
-<tags
+.<tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm=""
    ms.workload="infrastructure"
    ms.date="05/12/2015"
-   ms.author="josephd" />
+   ms.author="rasquill" />
 
 ## Настройка PowerShell
 
@@ -71,11 +71,11 @@
 	CurrentStorageAccountName : 
 	TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
 
-Укажите текущую подписку Azure, выполнив в командной строке Azure PowerShell такие команды: Замените все содержимое внутри кавычек, включая символы < and >, правильным именем.
+Укажите текущую подписку Azure, выполнив в командной строке Azure PowerShell такие команды: Замените все содержимое внутри кавычек, включая знаки < и >, правильным именем.
 
 	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
 	Select-AzureSubscription -SubscriptionName $subscr -Current	
 
 Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Подключение к подписке](powershell-install-configure.md#Connect).
 
-<!---HONumber=AcomDC_0128_2016-->
+<!---HONumber=AcomDC_0810_2016-->

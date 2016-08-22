@@ -7,13 +7,13 @@
 	manager="stevenpo" 
 	editor="curtand"/>
 
-<tags 
+.<tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Состояние пользователей в службе Azure Multi-Factor Authentication
@@ -63,4 +63,4 @@
 8.  Вам будет предложено подтвердить действие. Щелкните **Да**. ![Отключение пользователя](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
 9.  Вы должны увидеть, что изменение успешно применено. Нажмите кнопку **Закрыть**. ![Отключение пользователя](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

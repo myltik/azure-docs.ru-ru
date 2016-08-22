@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # Управление вычислительными ресурсами в хранилище данных SQL (T-SQL)
@@ -35,7 +35,7 @@
 
 Чтобы приостановить или возобновить базу данных, выберите один из других параметров платформы в верхней части этой статьи.
 
-Дополнительные сведения об этом см. в разделе [Manage compute power in Azure SQL Data Warehouse (Overview)][] \(Обзор управления вычислительной мощностью в хранилище данных SQL Azure).
+Дополнительные сведения об этом см. в разделе [Manage compute power in Azure SQL Data Warehouse (Overview)][] (Обзор управления вычислительной мощностью в хранилище данных SQL Azure).
 
 <a name="current-dwu-bk"></a>
 
@@ -45,7 +45,7 @@
 
 1. Откройте обозреватель объектов SQL Server в Visual Studio 2015.
 2. Подключитесь к базе данных master, связанной с логическим сервером базы данных SQL.
-2. Выберите в sys.database\_service\_objectives динамическое административное представление. Пример: 
+2. Выберите в sys.database\_service\_objectives динамическое административное представление. Пример:
 
 ```
 SELECT
@@ -67,7 +67,7 @@ FROM
 
 
 1. Подключитесь к базе данных master, связанной с логическим сервером базы данных SQL.
-2. Используйте инструкцию T-SQL [ALTER DATABASE][]. В приведенном ниже примере для базы данных MySQLDW устанавливается цель уровня обслуживания DW1000. 
+2. Используйте инструкцию T-SQL [ALTER DATABASE][]. В приведенном ниже примере для базы данных MySQLDW устанавливается цель уровня обслуживания DW1000.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -81,7 +81,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 Сведения о других задачах управления см. в статье [Средства управления][].
 
-<!--Image references-->
+.<!--Image references-->
 
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
@@ -97,4 +97,4 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

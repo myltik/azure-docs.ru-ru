@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags
+.<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 
@@ -58,7 +58,7 @@ Azure AD пытается отслеживать метаданные федер
 
 	Get-Adfsproperties
 
-![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
+.![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
 [AZURE.NOTE] При использовании AD FS 2.0 необходимо сначала выполнить команду Add-Pssnapin Microsoft.Adfs.Powershell.
 
@@ -84,9 +84,7 @@ Azure AD пытается отслеживать метаданные федер
 
 | AutoCertificateRollover | Сертификаты синхронизированы с Azure AD | Метаданные федерации общедоступны | Срок действия | Действие |
 |:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|:-----------------------:|
-| Да | Да | Да | — | Никакие действия не требуются. См. раздел [Автоматическое возобновление действия сертификата для подписи маркера](#autorenew) | 
-| Да | Нет | — | Менее 15 дней | Обновите немедленно. См. раздел [Возобновление действия сертификата для подписи маркера вручную](#manualrenew) | 
-| Нет | — | — | Менее 30 дней | Обновите немедленно. См. раздел [Возобновление действия сертификата для подписи маркера вручную](#manualrenew) |
+| Да | Да | Да | — | Никакие действия не требуются. См. раздел [Автоматическое возобновление действия сертификата для подписи маркера](#autorenew) | | Да | Нет | — | Менее 15 дней | Обновите немедленно. См. раздел [Возобновление действия сертификата для подписи маркера вручную](#manualrenew) | | Нет | — | — | Менее 30 дней | Обновите немедленно. См. раздел [Возобновление действия сертификата для подписи маркера вручную](#manualrenew) |
 
 [-] — не имеет значения
 
@@ -163,4 +161,4 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 Дополнительные сведения см. в разделе [Восстановление доверия](./active-directory-aadconnect-federation-management.md#repairing-the-trust).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

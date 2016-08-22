@@ -1,14 +1,14 @@
-<properties
+.<properties
 	pageTitle="Azure Insights. Примеры для быстрого запуска Azure Insights с помощью PowerShell | Microsoft Azure"
 	description="Примеры команд PowerShell, которые помогут быстро обращаться к функциям мониторинга Azure Insights."
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
-<tags
-	ms.service="monitoring"
+.<tags
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -384,4 +384,4 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

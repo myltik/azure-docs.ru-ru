@@ -8,13 +8,13 @@
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags
+.<tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="08/08/2016"
 	ms.author="josephd"/>
 
 # Создание ферм серверов SharePoint
@@ -23,7 +23,7 @@
 
 ## Фермы SharePoint 2013
 
-С помощью Marketplace на портале Microsoft Azure можно быстро создавать предварительно настроенные фермы SharePoint Server 2013. Это позволяет сэкономить много времени при необходимости использовать базовую или высокодоступную ферму SharePoint в среде разработки и тестирования или в ходе оценки SharePoint Server 2013 в качестве решения для совместной работы в рамках организации.
+С помощью Marketplace на портале Microsoft Azure можно быстро создавать предварительно настроенные фермы SharePoint Server 2013. Такой подход может сэкономить много времени, когда в среде разработки и тестирования нужна базовая или высокодоступная ферма SharePoint или когда SharePoint Server 2013 рассматривается в качестве решения для совместной работы в рамках организации.
 
 > [AZURE.NOTE] Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure. Он был заменен на **SharePoint 2013 non-HA Farm** (Ферма SharePoint 2013 без высокой доступности) и **SharePoint 2013 HA Farm** (Высокодоступная ферма SharePoint 2013).
 
@@ -38,13 +38,13 @@
 1. Щелкните [здесь](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/).
 2. Щелкните **Развернуть**.
 3. На панели **Ферма без высокой доступности SharePoint 2013** нажмите кнопку **Создать**.
-4. Укажите параметры в семи разделах в области **Create SharePoint 2013 non-HA Farm** (Создание фермы SharePoint 2013 без высокой доступности) и нажмите кнопку **Создать**.
+4. На панели **Create SharePoint 2013 non-HA Farm** (Создание фермы SharePoint 2013 без высокой доступности) укажите параметры и нажмите кнопку **Создать**.
 
 Ферма SharePoint с высоким уровнем доступности в этой конфигурации состоит из девяти виртуальных машин.
 
-![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
+.![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/HAFarm.png)
 
-Ферму такой конфигурации можно использовать для тестирования более высоких клиентских нагрузок, высокой доступности внешнего сайта SharePoint и функции SQL Server AlwaysOn для фермы SharePoint. Кроме того, такая конфигурация подходит для разработки приложений SharePoint в высокодоступной среде.
+Ферму такой конфигурации можно использовать для тестирования более высоких клиентских нагрузок, высокой доступности внешнего сайта SharePoint и групп доступности SQL Server AlwaysOn для фермы SharePoint. Кроме того, такая конфигурация подходит для разработки приложений SharePoint в высокодоступной среде.
 
 Создание фермы высокой доступности SharePoint (9 серверов):
 
@@ -59,7 +59,7 @@
 
 ## Фермы SharePoint 2016
 
-Ознакомьтесь [в этом разделе](https://technet.microsoft.com/library/mt723354.aspx) с инструкциями о том, как создать приведенную ниже ферму SharePoint 2016 с одним сервером.
+Инструкции по созданию описанной ниже фермы SharePoint 2016 с одним сервером см. в [этой статье](https://technet.microsoft.com/library/mt723354.aspx).
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
@@ -67,10 +67,10 @@
 
 Для администрирования серверов этих ферм можно использовать подключения к удаленному рабочему столу. Дополнительные сведения см. в статье [Вход на виртуальную машину](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
 
-На сайте Центра администрирования SharePoint можно настраивать "Мои сайты", приложения SharePoint и другие функции. Более подробную информацию см. в разделе [Настройка SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
+На сайте Центра администрирования SharePoint можно настраивать "Мои сайты", приложения SharePoint и другие функции. Дополнительные сведения см. в статье [Настройка SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
 ## Дальнейшие действия
 
-- Ознакомьтесь с дополнительными конфигурациями [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) в службах инфраструктуры Azure.
+- Ознакомьтесь с дополнительными [конфигурациями SharePoint](https://technet.microsoft.com/library/dn635309.aspx) в службах инфраструктуры Azure.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

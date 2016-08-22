@@ -1,19 +1,19 @@
-<properties 
+.<properties 
    pageTitle="Настройка статического внутреннего частного IP-адреса"
    description="Основные сведения о статических внутренних IP-адресах (DIP) и управлении ими"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+.<tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/22/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Настройка статического внутреннего частного IP-адреса
 В большинстве случаев для виртуальной машины не нужно указывать статический внутренний IP-адрес. Виртуальные машины в виртуальной сети будут автоматически получать внутренний IP-адрес из указанного вами диапазона. Однако в некоторых случаях указание статического IP-адреса для конкретной виртуальной машины имеет смысл. Например, если на виртуальной машине планируется запускать DNS или она будет контроллером домена.
@@ -99,4 +99,4 @@
 [API REST зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

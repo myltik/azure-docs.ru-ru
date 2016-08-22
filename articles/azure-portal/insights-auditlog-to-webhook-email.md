@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
-<tags
-	ms.service="monitoring"
+.<tags
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -105,7 +105,7 @@
 |properties |Набор пар <ключ, значение> (например, Dictionary<String, String>), содержащий сведения о событии|
 |event|Элемент с метаданными о событии|
 |authorization|Захватывает свойства RBAC события. Обычно к ним относятся "action", "role" и "scope".|
-|категория | Категория события. Поддерживаются следующие значения: "Administrative", "Alert", "Security", "ServiceHealth", "Recommendation".|
+|category | Категория события. Поддерживаются следующие значения: "Administrative", "Alert", "Security", "ServiceHealth", "Recommendation".|
 |caller|Адрес электронной почты пользователя, который выполнил операцию, утверждение ими субъекта-службы или имени участника-пользователя в зависимости от доступности. Может иметь значение NULL для определенных системных вызовов.|
 |correlationId|	Обычно GUID в строковом формате. События с correlationId относятся к одному крупному действию и обычно совместно используют один correlationId.|
 |eventDescription |Статический текст, описывающий событие|
@@ -119,4 +119,4 @@
 |status|Строка, описывающая состояние операции. Обычные значения: "Started", "In Progress", "Succeeded", "Failed", "Active", "Resolved".|
 |subStatus|	Обычно содержит код состояния HTTP для соответствующего вызова REST. Может также включать другие строки, описывающие подсостояние. Обычные значения подсостояния: "OK" (код состояния HTTP: 200), "Created" (код состояния HTTP: 201), "Accepted" (код состояния HTTP: 202), "No Content" (код состояния HTTP: 204), "Bad Request" (код состояния HTTP: 400), "Not Found" (код состояния HTTP: 404), "Conflict" (код состояния HTTP: 409), "Internal Server Error" (код состояния HTTP: 500), "Service Unavailable" (код состояния HTTP: 503), "Gateway Timeout" (код состояния HTTP: 504)|
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

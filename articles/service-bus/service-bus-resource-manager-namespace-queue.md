@@ -7,7 +7,7 @@
     manager="timlt"
     editor=""/>
 
-<tags
+.<tags
     ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="article"
@@ -27,9 +27,9 @@
 >[AZURE.NOTE] Для скачивания и развертывания можно использовать указанные ниже шаблоны диспетчера ресурсов Azure.
 >
 >-    [Создание пространства имен служебной шины с очередью и правилом авторизации](service-bus-resource-manager-namespace-auth-rule.md)
->-    [Создание пространства имен служебной шины с концентратором событий и группой потребителей](service-bus-resource-manager-namespace-event-hub.md)
 >-    [Создание пространства имен служебной шины с разделом и подпиской](service-bus-resource-manager-namespace-topic.md)
 >-    [Создайте пространство имен служебной шины](service-bus-resource-manager-namespace.md)
+>-    [Создание пространства имен концентратора событий с концентратором событий и группой потребителей](service-bus-resource-manager-namespace-event-hub.md)
 >
 >Чтобы узнать о новых шаблонах, в коллекции [шаблонов быстрого запуска Azure][] выполните поиск по запросу "служебная шина".
 
@@ -145,4 +145,4 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

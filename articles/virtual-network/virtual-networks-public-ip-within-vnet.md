@@ -1,19 +1,19 @@
-<properties 
+.<properties 
    pageTitle="Использование общедоступных IP-адресов в виртуальной сети"
    description="Узнайте, как настроить виртуальную сеть для использования общедоступных IP-адресов"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+.<tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/27/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Общедоступное пространство IP-адресов в виртуальной сети (VNet)
 
@@ -45,6 +45,6 @@
 
 ## Дальнейшие действия
 
-[Управление DNS-серверами, используемыми виртуальной сетью (VNet)](../virtual-networks-manage-dns-in-vnet)
+[Управление DNS-серверами, используемыми виртуальной сетью (VNet)](virtual-networks-manage-dns-in-vnet.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -7,13 +7,13 @@
    manager="timlt"
    editor=""/>
 
-<tags
+.<tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="05/24/2016"
+   ms.date="08/08/2016"
    ms.author="iainfou"/>
 
 # Разрешение внешнего доступа к виртуальной машине с помощью PowerShell
@@ -34,7 +34,7 @@ $httprule = New-AzureRmNetworkSecurityRuleConfig -Name http-rule -Description "A
 Затем создайте группу безопасности сети и назначьте только что созданное правило HTTP, как показано ниже, введя имя группы ресурсов и расположение.
 
 ```
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus 
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
     -Name "TestNSG" -SecurityRules $httprule
 ```
 
@@ -59,9 +59,9 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 
 ## Дополнительная информация о группах безопасности сети
-Приведенные здесь быстрые команды позволят настроить трафик, поступающий в виртуальную машину. Группы безопасности сети предоставляют множество полезных функций и степеней детализации для управления доступом к ресурсам. [Здесь](../virtual-network/virtual-networks-create-nsg-arm-ps.md) вы можете больше прочитать о создании группы безопасности сети и правил ACL.
+Приведенные здесь быстрые команды позволят настроить трафик, поступающий в виртуальную машину. Группы безопасности сети предоставляют множество полезных функций и всевозможные настройки для управления доступом к ресурсам. [Здесь](../virtual-network/virtual-networks-create-nsg-arm-ps.md) вы можете больше прочитать о создании группы безопасности сети и правил ACL.
 
-Группы безопасности сети и правила ACL можно также определить в шаблонах Azure Resource Manager. Узнайте больше о [создании групп безопасности сети с помощью шаблонов](../virtual-network/virtual-networks-create-nsg-arm-template.md).
+Группы безопасности сети и правила ACL можно также определять в шаблонах Azure Resource Manager. Узнайте больше о [создании групп безопасности сети с помощью шаблонов](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
 Если необходимо использовать перенаправление портов, чтобы сопоставить уникальный внешний порт с внутренним портом на своей виртуальной машине, нужно воспользоваться балансировщиком нагрузки и правилами преобразования сетевых адресов (NAT). Например, может потребоваться открыть TCP-порт 8080 для доступа извне и направить трафик на TCP-порт 80 виртуальной машины. Вы можете узнать о [создании балансировщика нагрузки с выходом в Интернет](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
@@ -72,4 +72,4 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 - [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
 - [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

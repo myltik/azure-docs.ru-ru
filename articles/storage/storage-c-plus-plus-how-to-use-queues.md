@@ -7,18 +7,18 @@
     manager="carmonm"
     editor="tysonn"/>
 
-<tags
+.<tags
     ms.service="storage"
     ms.workload="storage"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/26/2016"
+    ms.date="08/03/2016"
     ms.author="dineshm"/>
 
 # Использование хранилища очередей из C++  
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] .<br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Обзор
 В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранения очередей Azure. Примеры написаны на C++ и используют [клиентскую библиотеку хранилища Azure для C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Здесь описаны такие сценарии, как **вставка**, **просмотр**, **получение** и **удаление** сообщений очереди, а также **создание и удаление очередей**.
@@ -58,7 +58,7 @@
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 
-Чтобы запустить эмулятор хранения Azure, нажмите кнопку **Запуск** или клавишу **Windows**. Начните вводить **эмулятор хранения Azure** и выберите **эмулятор хранения Microsoft Azure** из списка приложений.
+Чтобы запустить эмулятор службы хранилища Azure, нажмите кнопку **Пуск** или клавишу **Windows**. Начните вводить **эмулятор хранения Azure** и выберите **эмулятор хранения Microsoft Azure** из списка приложений.
 
 В приведенных ниже примерах предполагается, что вы использовали одно из этих двух определений для получения строки подключения к хранилищу.
 
@@ -236,4 +236,4 @@
 -	[Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
 -	[Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->
