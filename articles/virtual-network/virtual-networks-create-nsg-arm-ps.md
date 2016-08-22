@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Как создавать группы безопасности сети в диспетчере ресурсов Azure с помощью PowerShell | Microsoft Azure"
    description="Узнайте, как создавать и развертывать группы безопасности сети в диспетчере ресурсов Azure с помощью PowerShell."
    services="virtual-network"

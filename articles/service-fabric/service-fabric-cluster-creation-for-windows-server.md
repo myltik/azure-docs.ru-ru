@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание автономного кластера Azure Service Fabric и управление им | Microsoft Azure"
    description="Узнайте, как создать кластер Azure Service Fabric и управлять им на любом компьютере (физическом или виртуальном) под управлением Windows Server, расположенном в локальной системе или в любом облаке."
    services="service-fabric"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Мониторинг операций, событий и счетчиков для групп безопасности сети | Microsoft Azure"
    description="Включение ведения журналов счетчиков, событий и операций для групп безопасности сети"
    services="virtual-network"

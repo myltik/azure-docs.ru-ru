@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление доступом на основе ролей | Microsoft Azure"
 	description="Начало работы с управлением доступом с помощью RBAC Azure на портале Azure. Использование назначений ролей для назначения разрешений в вашем каталоге."
 	services="active-directory"

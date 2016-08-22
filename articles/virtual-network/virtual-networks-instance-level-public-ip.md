@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Общедоступный IP-адрес уровня экземпляра | Microsoft Azure"
    description="Общие сведения об ILPIP-адресах и работе с ними"
    services="virtual-network"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство по интеграции Azure Active Directory с Kiteworks | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в Kiteworks."
 	services="active-directory"

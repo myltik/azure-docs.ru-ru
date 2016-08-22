@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Как создавать сетевые группы безопасности в режиме ARM с помощью шаблона | Microsoft Azure"
    description="Узнайте, как создавать и развертывать сетевые группы безопасности в режиме ARM с помощью шаблона"
    services="virtual-network"

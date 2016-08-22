@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общедоступные и частные IP-адреса в диспетчере ресурсов Azure | Microsoft Azure"
    description="В этой статье вы найдете информацию об использовании частных и общедоступных IP-адресов в диспетчере ресурсов Azure."
    services="virtual-network"

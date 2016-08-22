@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Руководство по планированию и проектированию виртуальной сети Azure | Microsoft Azure"
    description="Узнайте, как планировать и проектировать виртуальные сети в Azure на основе требований к изоляции, подключению и расположению."
    services="virtual-network"

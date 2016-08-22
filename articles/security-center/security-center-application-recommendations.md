@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Защита приложений в центре безопасности Azure | Microsoft Azure"
    description="В этом документе рассматриваются рекомендации в центре безопасности Azure, которые помогают защитить приложения Azure и обеспечить соответствие политикам безопасности."
    services="security-center"

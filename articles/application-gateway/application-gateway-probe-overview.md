@@ -1,6 +1,6 @@
 
 
-.<properties
+<properties
    pageTitle="Обзор мониторинга работоспособности для шлюза приложений Azure | Microsoft Azure"
    description="Дополнительные сведения о возможностях мониторинга для шлюза приложений Azure"
    services="application-gateway"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Управление DNS-серверами, используемыми виртуальной сетью"
    description="Узнайте, как добавлять и удалять DNS-серверы в виртуальной сети (VNet)."
    services="virtual-network"

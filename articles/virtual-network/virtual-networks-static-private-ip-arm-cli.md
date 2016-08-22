@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Настройка статического частного IP-адреса в режиме ARM с помощью интерфейса командной строки | Microsoft Azure"
    description="Основные сведения о статических IP-адресах (DIP) и управлении ими в режиме ARM с помощью интерфейса командной строки."
    services="virtual-network"

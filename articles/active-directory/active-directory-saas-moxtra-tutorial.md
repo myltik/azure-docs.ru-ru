@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Учебник. Интеграция Azure Active Directory с Moxtra | Microsoft Azure"
 	description="Сведения о настройке единого входа Azure Active Directory в Moxtra."
 	services="active-directory"

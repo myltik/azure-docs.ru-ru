@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Microsoft Virtual Academy: курсы по безопасности в Azure | Microsoft Azure"
    description="Эта статья содержит проверенный список курсов Microsoft Virtual Academy, связанных с безопасностью Azure. Microsoft Virtual Academy предлагает бесплатное интерактивное обучение, помогающее разработчикам, ИТ-специалистам, специалистам по обработке данных и студентам узнать о новейших технологиях, усовершенствовать навыки и подняться по карьерной лестнице."
    services="security"

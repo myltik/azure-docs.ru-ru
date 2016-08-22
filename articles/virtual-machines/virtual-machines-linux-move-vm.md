@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Перемещение виртуальной машины Linux | Microsoft Azure"
 	description="Из этой статьи вы узнаете, как перенести виртуальную машину Linux в другую подписку или группу ресурсов Azure в рамках модели развертывания Resource Manager."
 	services="virtual-machines-linux"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство. Интеграция Azure Active Directory с Certify | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в Certify."
 	services="active-directory"

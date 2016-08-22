@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка хранилища для виртуальных машин SQL Server | Microsoft Azure"
 	description="В этой статье описывается процесс настройки хранилища для виртуальных машин SQL Server на портале Azure во время подготовки (модель развертывания с помощью Resource Manager). Здесь также описывается настройка хранилища для имеющихся виртуальных машин SQL Server."
 	services="virtual-machines-windows"

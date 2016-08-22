@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="API и пакет SDK для DocumentDB Node.js | Microsoft Azure" 
 	description="Сведения об API и пакете SDK для Node.js, включая даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB Node.js." 
 	services="documentdb" 

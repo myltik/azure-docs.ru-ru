@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения об обеспечении безопасности в хранилище озера данных | Microsoft Azure"
    description="Узнайте, почему Azure Data Lake Store более безопасно для хранения больших данных"
    services="data-lake-store"

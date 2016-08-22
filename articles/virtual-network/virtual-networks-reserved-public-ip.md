@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Зарезервированный IP-адрес | Microsoft Azure"
    description="Общие сведения о зарезервированных IP-адресах и о том, как ими управлять"
    services="virtual-network"

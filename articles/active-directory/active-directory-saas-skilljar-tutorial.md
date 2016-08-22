@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Учебник. Интеграция Azure Active Directory с Skilljar | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в Skilljar."
 	services="active-directory"

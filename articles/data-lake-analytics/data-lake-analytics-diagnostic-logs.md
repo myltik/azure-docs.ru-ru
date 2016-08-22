@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Просмотр журналов диагностики Azure Data Lake Analytics | Microsoft Azure" 
    description="Из этой статьи вы узнаете, как настроить журналы диагностики для Azure Data Lake Analytics и просмотреть их. " 
    services="data-lake-analytics" 

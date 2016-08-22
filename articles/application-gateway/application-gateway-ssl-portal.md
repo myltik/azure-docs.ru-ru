@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка шлюза приложений для разгрузки SSL с помощью портала | Microsoft Azure"
    description="На этой странице приводятся инструкции по созданию шлюза приложений с разгрузкой SSL с помощью портала."
    documentationCenter="na"

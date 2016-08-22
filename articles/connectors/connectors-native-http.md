@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление действия HTTP в приложения логики | Microsoft Azure"
 	description="Обзор действий HTTP и их свойств"
 	services=""

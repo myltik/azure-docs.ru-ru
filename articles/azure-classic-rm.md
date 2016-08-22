@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Модели развертывания: Resource Manager и управление службами (классическая модель) | Microsoft Azure"
    description="Ознакомьтесь с основными различиями между классической моделью развертывания и моделью развертывания с помощью диспетчера ресурсов."
    services="virtual-network"

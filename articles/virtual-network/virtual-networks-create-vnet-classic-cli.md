@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание виртуальной сети с помощью интерфейса командной строки Azure | Microsoft Azure"
    description="Узнайте, как создать виртуальную сеть с помощью интерфейса командной строки Azure в ARM | Диспетчер ресурсов."
    services="virtual-network"

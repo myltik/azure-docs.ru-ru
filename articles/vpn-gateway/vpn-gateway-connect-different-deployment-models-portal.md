@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Подключение классических виртуальных сетей к виртуальным сетям Resource Manager на портале | Microsoft Azure"
    description="Узнайте, как создать VPN-подключение между классическими виртуальными сетями и виртуальными сетями Resource Manager с помощью VPN-шлюза и портала"
    services="vpn-gateway"

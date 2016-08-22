@@ -1,5 +1,5 @@
 
-.<properties
+<properties
 	pageTitle="Добавление действия ";HTTP + Swagger"; в приложения логики | Microsoft Azure"
 	description="Обзор действия ";HTTP + Swagger"; и операций"
 	services=""

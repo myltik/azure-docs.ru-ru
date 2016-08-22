@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Мониторинг кластера службы контейнеров Azure с помощью Datadog | Microsoft Azure"
    description="Мониторинг кластера службы контейнеров Azure с помощью Datadog. Использование веб-интерфейса DC/OS для развертывания агентов Datadog в кластере."
    services="container-service"

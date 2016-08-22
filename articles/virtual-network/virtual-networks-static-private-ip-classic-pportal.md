@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Настройка статического частного IP-адреса в классическом режиме с помощью портала Azure | Microsoft Azure"
    description="Основные сведения о статических частных IP-адресах и управлении ими в классическом режиме с помощью портала Azure"
    services="virtual-network"

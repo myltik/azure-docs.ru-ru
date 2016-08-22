@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Защита службы SQL Azure в центре безопасности Azure | Microsoft Azure"
    description="В этом документе рассматриваются рекомендации из центра безопасности Azure, которые помогают защитить вашу службу SQL Azure и обеспечить соответствие политикам безопасности."
    services="security-center"

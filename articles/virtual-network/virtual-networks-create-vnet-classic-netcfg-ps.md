@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание виртуальной сети с помощью файла конфигурации сети на портале Azure | Microsoft Azure"
    description="Узнайте, как создать виртуальную сеть с помощью файла конфигурации сети на портале Azure."
    services="virtual-network"

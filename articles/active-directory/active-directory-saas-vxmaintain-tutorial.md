@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Учебник. Интеграция Azure Active Directory с vxMaintain | Microsoft Azure"
 	description="Узнайте, как настроить единый вход между Azure Active Directory и vxMaintain."
 	services="active-directory"

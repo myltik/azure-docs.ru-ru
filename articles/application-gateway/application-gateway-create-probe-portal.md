@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание пользовательской пробы для шлюза приложений с помощью портала | Microsoft Azure"
    description="Узнайте, как создать пользовательскую пробу для шлюза приложений с помощью портала."
    services="application-gateway"

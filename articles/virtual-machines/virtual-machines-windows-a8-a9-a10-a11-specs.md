@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Основные сведения о виртуальных машинах Windows размеров A8, A9, A10, A11 | Microsoft Azure"
  description="Ознакомьтесь с основными сведениями об использовании размеров A8, A9, A10 и A11 Azure для ресурсоемких вычислений для виртуальных машин Windows и облачных служб."
  services="virtual-machines-windows, cloud-services"

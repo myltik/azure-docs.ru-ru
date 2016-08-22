@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Проверка подключения шлюза | Microsoft Azure"
    description="Из этой статьи вы узнаете, как проверить подключение шлюза в модели развертывания Resource Manager."
    services="vpn-gateway"

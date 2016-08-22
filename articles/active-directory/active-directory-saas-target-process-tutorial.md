@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство. Интеграция Azure Active Directory с TargetProcess | Microsoft Azure"
 	description="Узнайте, как настроить единый вход между Azure Active Directory и TargetProcess."
 	services="active-directory"

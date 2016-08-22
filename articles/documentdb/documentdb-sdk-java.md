@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Пакет SDK и интерфейсы API для DocumentDB на Java | Microsoft Azure" 
 	description="Сведения о пакете SDK и интерфейсах API для Java, включая даты выхода и снятия с учета, изменения, внесенные в каждую версию пакета SDK для DocumentDB на Java." 
 	services="documentdb" 

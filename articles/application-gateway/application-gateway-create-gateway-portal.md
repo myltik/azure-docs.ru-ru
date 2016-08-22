@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание шлюза приложений с помощью портала | Microsoft Azure"
    description="Узнайте, как создать шлюз приложений с помощью портала."
    services="application-gateway"

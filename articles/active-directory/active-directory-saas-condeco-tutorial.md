@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Учебник. Интеграция Azure Active Directory с Condeco | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в Condeco."
 	services="active-directory"

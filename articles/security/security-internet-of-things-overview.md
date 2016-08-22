@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения по обеспечению безопасности в ";Интернете вещей"; | Microsoft Azure"
    description=" Службы ";Интернета вещей"; (IoT) Azure предлагают широкий спектр возможностей. Эта статья поможет вам понять, как защитить свои решения IoT в Azure. "
    services="security"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Учебник. Интеграция Azure Active Directory с Igloo Software | Microsoft Azure" 
     description="Узнайте, как использовать Igloo Software вместе с Azure Active Directory для реализации единого входа, автоматической подготовки и выполнения других задач." 
     services="active-directory" 

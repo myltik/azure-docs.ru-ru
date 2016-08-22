@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Управление группами безопасности сети с помощью интерфейса командной строки Azure в Resource Manager | Microsoft Azure"
    description="Дополнительные сведения об управлении существующими группами безопасности сети с помощью интерфейса командной строки Azure в Resource Manager"
    services="virtual-network"

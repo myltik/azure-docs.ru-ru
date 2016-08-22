@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Использование общедоступных IP-адресов в виртуальной сети"
    description="Узнайте, как настроить виртуальную сеть для использования общедоступных IP-адресов"
    services="virtual-network"

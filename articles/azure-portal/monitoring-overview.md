@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обзор мониторинга в Microsoft Azure | Microsoft Azure"
 	description="Общий обзор мониторинга и диагностики в Azure, а также описание пересылки оповещений в другие системы, не относящиеся к Azure."
 	authors="rboucher"

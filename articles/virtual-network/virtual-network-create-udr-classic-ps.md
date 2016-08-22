@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Управление маршрутизацией и использование виртуальных модулей с помощью PowerShell в классической модели развертывания | Microsoft Azure"
    description="Сведения об управлении маршрутизацией и виртуальными сетями с помощью PowerShell в классической модели развертывания"
    services="virtual-network"

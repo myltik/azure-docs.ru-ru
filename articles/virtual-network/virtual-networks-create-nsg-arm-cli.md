@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Создание групп безопасности сети с помощью интерфейса командной строки Azure | Microsoft Azure"
    description="Узнайте, как создавать и развертывать группы безопасности сети в режиме ARM с помощью интерфейса командной строки Azure."
    services="virtual-network"

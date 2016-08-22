@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Архитектура приложений в Microsoft Azure | Microsoft Azure" 
 	description="Общие сведения об архитектуре, охватывающей общие шаблоны разработки" 
 	services="" 

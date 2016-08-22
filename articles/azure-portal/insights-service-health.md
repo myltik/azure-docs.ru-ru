@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Отслеживание работоспособности служб с помощью Azure Insights | Microsoft Azure"
 	description="Информация о снижении производительности Azure или нарушении работы службы. "
 	authors="rboucher"

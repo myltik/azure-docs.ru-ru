@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Архивация сервера Windows Server или клиентского компьютера Windows в Azure с помощью службы архивации Azure с использованием модели развертывания Resource Manager | Microsoft Azure"
 	description="Архивация серверов или клиентов Windows в Azure путем создания хранилища архивации, скачивания учетных данных, установки агента архивации и выполнения начальной архивации файлов и папок."
 	services="backup"

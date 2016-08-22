@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Размещение нескольких сайтов в шлюзе приложений | Microsoft Azure"
    description="На этой странице предоставлен обзор поддержки нескольких сайтов в шлюзе приложений."
    documentationCenter="na"

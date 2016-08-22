@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание автономного кластера из виртуальных машин Azure под управлением Windows | Microsoft Azure"
    description="Узнайте, как создать кластер Azure Service Fabric на основе виртуальных машин Azure под управлением Windows Server и как управлять этим кластером."
    services="service-fabric"

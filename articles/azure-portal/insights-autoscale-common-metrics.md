@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Общие метрики автомасштабирования Azure Insights | Microsoft Azure"
 	description="Узнайте, какие метрики обычно используются для автоматического масштабирования облачных служб, виртуальных машин и веб-приложений."
 	authors="kamathashwin"

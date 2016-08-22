@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Управление маршрутизацией и использование виртуальных модулей в диспетчере ресурсов с помощью PowerShell | Microsoft Azure"
    description="Узнайте, как управлять маршрутизацией и использовать виртуальные модули в диспетчере ресурсов с помощью PowerShell."
    services="virtual-network"

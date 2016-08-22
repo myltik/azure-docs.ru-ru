@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Пересылка состояния задания и потоков заданий из службы автоматизации в Log Analytics (OMS) | Microsoft Azure"
     description="В этой статье показано, как отправлять состояние задания Runbook и потоки заданий в Log Analytics (Microsoft Operations Management Suite) для получения дополнительных сведений и возможностей управления."
     services="automation"

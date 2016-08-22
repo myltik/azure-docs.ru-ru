@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Пример NoSQL .NET для DocumentDB | Microsoft Azure" 
 	description="Примеры NoSQL .NET на языке C#, позволяющие выполнять общие задачи в DocumentDB, включая операции CRUD для документов JSON в базах данных NoSQL, можно найти на сайте GitHub." 
 	keywords="Пример NoSQL"

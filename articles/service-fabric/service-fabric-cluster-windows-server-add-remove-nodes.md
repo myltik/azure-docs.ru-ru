@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Добавление узлов к автономному кластеру Service Fabric или удаление узлов из него | Microsoft Azure"
    description="Узнайте, как добавлять узлы в кластер Azure Service Fabric или удалять их из него на физическом или виртуальном компьютере под управлением Windows Server, расположенном в локальной системе или в любом облаке."
    services="service-fabric"

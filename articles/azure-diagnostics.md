@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обзор системы диагностики Azure | Microsoft Azure"
 	description="Диагностику Azure можно использовать для отладки, оценки производительности, мониторинга, а также анализа трафика в облачных службах, на виртуальных машинах и в Service Fabric."
 	services="multiple"

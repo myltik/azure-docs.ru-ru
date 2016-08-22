@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Развертывание виртуальных машин с несколькими сетевыми картами с использованием PowerShell в диспетчере ресурсов | Microsoft Azure"
    description="Сведения о развертывании виртуальных машин с несколькими сетевыми картами с использованием PowerShell в диспетчере ресурсов"
    services="virtual-network"

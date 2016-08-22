@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Размеры виртуальных машин Linux: A8, A9, A10, A11 | Microsoft Azure"
  description="Ознакомьтесь с обзорной информацией и рекомендациями по использованию экземпляров A8, A9, A10 и A11 Azure для ресурсоемких вычислений для виртуальных машин Linux."
  services="virtual-machines-linux"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Часто задаваемые вопросы о DevTest Labs | Microsoft Azure"
 	description="Ответы на часто задаваемые вопросы о DevTest Labs."
 	services="devtest-lab,virtual-machines"

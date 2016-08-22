@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Все статьи о службе баз данных SQL Server Stretch | Microsoft Azure"
 	description="Таблица всех статей о службе Azure, которая называется базой данных SQL Server Stretch. Статьи находятся по адресу http://azure.microsoft.com/documentation/articles/. Заголовок и описание."
 	services="sql-server-stretch-database"

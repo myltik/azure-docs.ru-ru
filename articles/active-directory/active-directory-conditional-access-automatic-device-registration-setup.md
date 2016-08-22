@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка автоматической регистрации в Azure Active Directory присоединенных к домену устройств Windows| Microsoft Azure"
 	description="ИТ-администраторы могут автоматически и без предупреждений регистрировать устройства Windows, присоединенные к домену, с помощью Azure AD."
 	services="active-directory"

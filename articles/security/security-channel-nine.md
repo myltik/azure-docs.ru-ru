@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Видеоматериалы по безопасности в Azure на Channel 9 | Microsoft Azure"
    description="Эта статья содержит проверенный список презентаций по безопасности Azure в Channel 9. Channel 9 — это сообщество, помогающее разработчикам взаимодействовать с пользователями их продуктов."
    services="security"

@@ -1,5 +1,5 @@
 
-.<properties
+<properties
 	pageTitle="Восстановление виртуальных машин из резервной копии с помощью портала Azure | Microsoft Azure"
 	description="Восстановление виртуальной машины Azure из точки восстановления с помощью портала Azure."
 	services="backup"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure Insights. Рекомендации по автомасштабированию Azure Insights | Microsoft Azure"
 	description="Изучите принципы эффективного использования автомасштабирования в Azure Insights."
 	authors="kamathashwin"

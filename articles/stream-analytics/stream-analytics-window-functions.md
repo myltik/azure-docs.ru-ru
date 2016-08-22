@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Введение в функции окна Stream Analytics | Microsoft Azure"
 	description="Узнайте о трех функциях окна в Stream Analytics (";переворачивающееся";, ";прыгающее"; и ";скользящее"; окно)."
 	keywords="";переворачивающееся"; окно, ";скользящее"; окно, ";прыгающее"; окно"

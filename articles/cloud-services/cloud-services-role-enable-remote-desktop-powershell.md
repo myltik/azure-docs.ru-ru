@@ -1,4 +1,4 @@
-.<properties
+<properties
 pageTitle="Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell"
 description="Как настроить приложение облачной службы Azure для подключений к удаленному рабочему столу с помощью PowerShell"
 services="cloud-services"

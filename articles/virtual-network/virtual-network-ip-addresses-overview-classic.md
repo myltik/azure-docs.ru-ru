@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общедоступные и частные IP-адреса в Azure (классическая модель развертывания) | Microsoft Azure"
    description="В этой статье вы найдете информацию об использовании частных и общедоступных IP-адресов в Azure."
    services="virtual-network"

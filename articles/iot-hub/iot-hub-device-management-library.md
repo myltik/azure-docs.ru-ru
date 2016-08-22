@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Знакомство с библиотекой управления устройствами | Microsoft Azure"
  description="Клиентская библиотека управления устройствами для центра Azure IoT"
  services="iot-hub"

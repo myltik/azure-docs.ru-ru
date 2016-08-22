@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление триггера повторения в приложениях логики | Microsoft Azure"
 	description="Обзор триггера повторения и его использования с приложением логики Azure."
 	services=""

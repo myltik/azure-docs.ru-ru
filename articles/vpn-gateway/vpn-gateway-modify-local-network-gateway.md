@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Изменение префиксов IP-адресов шлюза локальной сети и IP-адреса шлюза | Microsoft Azure"
    description="Из этой статьи вы узнаете, как изменять префиксы IP-адресов для шлюза локальной сети."
    services="vpn-gateway"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о поставщике сетевых ресурсов | Microsoft Azure"
    description="Узнайте о новом поставщике сетевых ресурсов в диспетчере ресурсов Azure"
    services="virtual-network"

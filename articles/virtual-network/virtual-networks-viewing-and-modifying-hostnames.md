@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Просмотр и изменение имен узлов | Microsoft Azure"
    description="Просмотр и изменение имен узлов для виртуальных машин Azure, веб- и рабочих ролей для разрешения имен"
    services="virtual-network"

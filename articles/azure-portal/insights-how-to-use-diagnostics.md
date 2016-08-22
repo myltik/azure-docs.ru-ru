@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Включение мониторинга и диагностики в Microsoft Azure | Microsoft Azure "
 	description="Узнайте, как настроить диагностику ресурсов в Azure."
 	authors="rboucher"

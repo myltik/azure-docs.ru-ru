@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Перемещение виртуальной машины Windows | Microsoft Azure"
 	description="Из этой статьи вы узнаете, как перенести виртуальную машину Windows в другую подписку или группу ресурсов Azure в модели развертывания Resource Manager."
 	services="virtual-machines-windows"

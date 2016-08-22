@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление доступом на основе ролей с помощью интерфейса REST API"
 	description="Управление доступом на основе ролей с помощью интерфейса REST API"
 	services="active-directory"

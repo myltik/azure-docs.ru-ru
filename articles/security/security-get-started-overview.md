@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о безопасности в Azure | Microsoft Azure"
    description="Сайт со сведениями о безопасности Microsoft Azure по адресу Azure.com содержит ответы на вопросы технического характера о безопасности Azure."
    services="security"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обзор рекомендаций по проектированию решений для гибридной идентификации Azure Active Directory | Microsoft Azure"
 	description="Обзор и карта содержимого руководства по разработке архитектуры гибридной идентификации"
 	documentationCenter=""

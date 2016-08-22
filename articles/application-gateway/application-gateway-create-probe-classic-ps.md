@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание пользовательской проверки для шлюза приложений с помощью PowerShell в классической модели развертывания | Microsoft Azure"
    description="Узнайте, как создавать пользовательские проверки для шлюза приложений с помощью PowerShell в классической модели развертывания."
    services="application-gateway"

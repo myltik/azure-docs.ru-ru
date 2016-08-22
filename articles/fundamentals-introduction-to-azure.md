@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Введение в Microsoft Azure | Microsoft Azure"
 	description="Не знакомы с Microsoft Azure? Ознакомьтесь с общей информацией о службах Microsoft Azure и примерами их использования."
 	services=" "

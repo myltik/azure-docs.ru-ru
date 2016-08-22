@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Планирование запуска модуля Runbook в службе автоматизации Azure | Microsoft Azure"
    description="Рассматривается создание расписания в службе автоматизации Azure, которое позволяет запускать модуль Runbook однократно или несколько раз в определенное время."
    services="automation"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Управление группами безопасности сети с помощью портала предварительной версии в Resource Manager | Microsoft Azure"
    description="Дополнительные сведения об управлении существующими группами безопасности сети с помощью портала предварительной версии в Resource Manager"
    services="virtual-network"

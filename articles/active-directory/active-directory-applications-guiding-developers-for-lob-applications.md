@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure AD и приложения: руководство для разработчиков | Microsoft Azure"
 	description="Эта статья, предназначенная для ИТ-специалистов, содержит рекомендации по интеграции приложений Azure с Active Directory."
 	services="active-directory"
