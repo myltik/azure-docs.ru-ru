@@ -6,7 +6,7 @@
    authors="mgoedtel"
    manager="jwhit"
    editor="tysonn" />
-.<tags 
+<tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"

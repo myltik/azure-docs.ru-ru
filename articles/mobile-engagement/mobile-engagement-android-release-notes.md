@@ -7,7 +7,7 @@
 	manager="dwrede"
 	editor="" />
 
-.<tags
+<tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"

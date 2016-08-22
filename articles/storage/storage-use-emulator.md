@@ -6,7 +6,7 @@
 	authors="tamram" 
 	manager="carmonm" 
 	editor="tysonn"/>
-.<tags 
+<tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 

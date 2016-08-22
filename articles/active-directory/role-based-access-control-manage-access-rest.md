@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="rest-api"

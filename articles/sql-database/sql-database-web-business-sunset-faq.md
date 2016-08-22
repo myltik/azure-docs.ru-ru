@@ -6,7 +6,7 @@
    authors="stevestein"
    manager="jhubbard"
    editor="monicar" />
-.<tags
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"

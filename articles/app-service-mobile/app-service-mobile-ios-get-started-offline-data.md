@@ -7,7 +7,7 @@
 	editor=""
 	services="app-service\mobile"/>
 
-.<tags
+<tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"

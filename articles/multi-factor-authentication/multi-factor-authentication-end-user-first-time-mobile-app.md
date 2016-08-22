@@ -7,7 +7,7 @@
 	manager="stevenp" 
 	editor="curtland"/>
 
-.<tags 
+<tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 

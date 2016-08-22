@@ -7,7 +7,7 @@ authors="chaosrealm"
 manager="pablocas"
 editor="" />
 
-.<tags
+<tags
 ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  

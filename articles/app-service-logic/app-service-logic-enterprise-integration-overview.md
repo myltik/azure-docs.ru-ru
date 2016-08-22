@@ -7,7 +7,7 @@
 	manager="erikre" 
 	editor="cgronlun"/>
 
-.<tags 
+<tags 
 	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 

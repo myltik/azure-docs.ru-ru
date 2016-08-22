@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-service-management"
 />
-.<tags
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"

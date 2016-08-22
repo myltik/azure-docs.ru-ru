@@ -7,7 +7,7 @@
 	manager="carmonm" 
 	editor="tysonn"/>
 
-.<tags
+<tags
 	ms.service="virtual-network"
 	ms.devlang="na"
 	ms.topic="article"

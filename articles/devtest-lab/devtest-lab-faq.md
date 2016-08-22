@@ -7,7 +7,7 @@
 	manager="douge"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="devtest-lab"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

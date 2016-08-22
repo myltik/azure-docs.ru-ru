@@ -7,7 +7,7 @@
    manager="barbkess"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"

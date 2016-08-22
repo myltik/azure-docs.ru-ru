@@ -9,7 +9,7 @@
    tags="acs, azure-container-service"
    keywords="Контейнеры, DC/OS, Docker Swarm, Azure"/>
 
-.<tags
+<tags
    ms.service="container-service"
    ms.devlang="na"
    ms.topic="article"

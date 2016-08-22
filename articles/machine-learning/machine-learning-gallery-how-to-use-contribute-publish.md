@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-.<tags
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"

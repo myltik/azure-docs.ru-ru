@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""/>
 
-.<tags
+<tags
    ms.service="virtual-machines-linux"
    ms.devlang="na"
    ms.topic="article"

@@ -7,7 +7,7 @@
 	manager="erickson-doug" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 

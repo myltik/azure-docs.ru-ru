@@ -7,7 +7,7 @@
    manager=""
    editor=""/>
 
-.<tags
+<tags
    ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"

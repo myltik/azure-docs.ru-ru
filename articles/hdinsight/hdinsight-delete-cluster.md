@@ -7,7 +7,7 @@ authors="Blackmist"
 manager="paulettm"
 editor="cgronlun"/>
 
-.<tags
+<tags
 ms.service="hdinsight"
 ms.devlang="na"
 ms.topic="article"

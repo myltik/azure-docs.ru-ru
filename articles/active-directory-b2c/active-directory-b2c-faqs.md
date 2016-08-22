@@ -7,7 +7,7 @@
 	manager="msmbaldwin"
 	editor="bryanla"/>
 
-.<tags
+<tags
 	ms.service="active-directory-b2c"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

@@ -7,7 +7,7 @@
 	manager="douge" 
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="cache" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="cache-redis" 

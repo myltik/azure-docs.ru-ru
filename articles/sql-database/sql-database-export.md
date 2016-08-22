@@ -7,7 +7,7 @@
 	manager="jhubbard"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="07/19/2016"

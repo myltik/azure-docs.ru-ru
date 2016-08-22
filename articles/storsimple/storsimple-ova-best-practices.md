@@ -6,7 +6,7 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-.<tags 
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"

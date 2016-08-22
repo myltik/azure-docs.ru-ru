@@ -7,7 +7,7 @@
    manager="paulettm" 
    editor="cgronlun"/>
  
-.<tags
+<tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
    ms.topic="article"

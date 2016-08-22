@@ -8,7 +8,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-.<tags 
+<tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 

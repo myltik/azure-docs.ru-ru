@@ -7,7 +7,7 @@
 	manager=""
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="sql-server-stretch-database"
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"

@@ -7,7 +7,7 @@
    manager="MBaldwin"
    editor=""/>
 
-.<tags
+<tags
    ms.service="security-center"
    ms.devlang="na"
    ms.topic="article"

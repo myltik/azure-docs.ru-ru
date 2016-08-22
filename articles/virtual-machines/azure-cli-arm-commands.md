@@ -8,7 +8,7 @@
 	editor=""
 	tags="azure-resource-manager"/>
 
-.<tags
+<tags
 	ms.service="multiple"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="command-line-interface"

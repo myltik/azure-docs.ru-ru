@@ -7,7 +7,7 @@
 	manager="jwhit" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="site-recovery" 
 	ms.workload="backup-recovery" 
 	ms.tgt_pltfrm="na" 

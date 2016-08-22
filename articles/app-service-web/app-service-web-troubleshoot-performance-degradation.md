@@ -9,7 +9,7 @@
 	tags="top-support-issue"
 	keywords="Производительность веб-приложения, медленное приложение, приложение работает медленно"/>
 
-.<tags
+<tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"

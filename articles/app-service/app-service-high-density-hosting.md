@@ -7,7 +7,7 @@
 	services="app-service\web" 
 	documentationCenter=""/>
 
-.<tags 
+<tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 

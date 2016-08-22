@@ -9,7 +9,7 @@
 	editor=""
 	tags="connectors"/>
 
-.<tags
+<tags
    ms.service="logic-apps"
    ms.devlang="na"
    ms.topic="article"

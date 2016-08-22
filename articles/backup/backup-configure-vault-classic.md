@@ -8,7 +8,7 @@
 	editor=""
 	keywords="хранилище архивации; архивация сервера Windows; архивация Windows;"/>
 
-.<tags
+<tags
 	ms.service="backup"
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"

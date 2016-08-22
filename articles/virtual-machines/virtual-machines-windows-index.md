@@ -8,7 +8,7 @@
    tags="azure-service-management"
    editor=""/>
 
-.<tags
+<tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"

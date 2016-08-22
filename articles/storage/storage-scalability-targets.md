@@ -6,7 +6,7 @@
    authors="robinsh"
    manager="carmonm"
    editor="tysonn" />
-.<tags
+<tags
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"

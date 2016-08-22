@@ -7,7 +7,7 @@
 	manager="jhubbard"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="sql-server-stretch-database"
 	ms.workload="sql-server-stretch-database"
 	ms.tgt_pltfrm="na"

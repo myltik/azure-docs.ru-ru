@@ -7,7 +7,7 @@
    manager="timlt"
    editor="masnider"/>
 
-.<tags
+<tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"

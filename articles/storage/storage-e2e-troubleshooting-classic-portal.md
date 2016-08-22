@@ -6,7 +6,7 @@
 	authors="robinsh" 
 	manager="carmonm"/>
 
-.<tags 
+<tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 

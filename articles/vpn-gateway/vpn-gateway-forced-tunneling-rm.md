@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
-.<tags 
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"

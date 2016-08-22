@@ -9,7 +9,7 @@
 	editor=""
 	keywords="восстановление резервной копии; восстановление; точка восстановления;"/>
 
-.<tags
+<tags
 	ms.service="backup"
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"

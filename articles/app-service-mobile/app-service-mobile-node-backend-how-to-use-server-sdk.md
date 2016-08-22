@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"

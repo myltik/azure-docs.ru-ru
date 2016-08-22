@@ -6,7 +6,7 @@
    authors="amsriva"
    manager="rossort"
    editor="amsriva"/>
-.<tags
+<tags
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"

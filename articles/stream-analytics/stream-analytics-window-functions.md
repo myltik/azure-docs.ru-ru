@@ -9,7 +9,7 @@
 	editor="cgronlun"
 />
 
-.<tags
+<tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
 	ms.topic="article"

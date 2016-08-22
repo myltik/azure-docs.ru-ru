@@ -8,7 +8,7 @@
 	editor=""/>
 
 
-.<tags
+<tags
 	ms.service="sql-database"
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"

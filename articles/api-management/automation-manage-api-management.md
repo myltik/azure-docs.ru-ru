@@ -7,7 +7,7 @@
 	manager="eamono"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="api-management"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"

@@ -7,7 +7,7 @@
    manager="cfreeman"
    editor=""/>
 
-.<tags
+<tags
    ms.service="backup"
    ms.devlang="na"
    ms.topic="article"

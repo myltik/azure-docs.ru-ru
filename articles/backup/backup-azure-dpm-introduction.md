@@ -8,7 +8,7 @@
 	editor=""
 	keywords="System Center Data Protection Manager, диспетчер защиты данных, диспетчер защиты данных резервного копирования"/>
 
-.<tags
+<tags
 	ms.service="backup"
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"

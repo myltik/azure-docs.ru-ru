@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""/>
 
-.<tags
+<tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
    ms.topic="article"

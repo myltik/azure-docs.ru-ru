@@ -8,7 +8,7 @@
  editor=""
  tags="azure-resource-manager,azure-service-management"/>
 
-.<tags
+<tags
 ms.service="virtual-machines-linux"
  ms.devlang="na"
  ms.topic="article"

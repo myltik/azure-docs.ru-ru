@@ -7,7 +7,7 @@
 	manager=""
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="api-management"
 	ms.devlang="dotnet"
 	ms.topic="article"

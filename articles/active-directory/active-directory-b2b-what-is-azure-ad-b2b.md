@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 
-.<tags
+<tags
    ms.service="active-directory"
    ms.devlang="NA"
    ms.topic="article"

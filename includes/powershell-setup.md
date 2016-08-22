@@ -1,6 +1,6 @@
 <properties services="virtual-machines" title="Setting up PowerShell" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
 
-.<tags
+<tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"

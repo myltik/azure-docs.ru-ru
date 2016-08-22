@@ -8,7 +8,7 @@
 	editor="monicar" 
 	documentationCenter="nodejs"/>
 
-.<tags 
+<tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 

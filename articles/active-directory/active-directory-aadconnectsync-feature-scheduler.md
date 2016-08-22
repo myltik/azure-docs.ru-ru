@@ -7,7 +7,7 @@
    manager="StevenPo"
    editor=""/>
 
-.<tags
+<tags
    ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"

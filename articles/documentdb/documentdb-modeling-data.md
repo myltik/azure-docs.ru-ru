@@ -8,7 +8,7 @@
 	editor="mimig1" 
 	documentationCenter=""/>
 
-.<tags 
+<tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 

@@ -8,7 +8,7 @@
 	editor="jimbe"
 	tags="top-support-issue"/>
 
-.<tags
+<tags
 	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
