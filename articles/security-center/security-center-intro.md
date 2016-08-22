@@ -150,7 +150,7 @@
 - [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/). Последние новости и информация об обеспечении безопасности в Azure.
 
 <!--Image references-->
-[1]: ./media/security-center-intro/security-tile.png
+[1]: ./media/security-center-intro/security-tile.PNG
 [2]: ./media/security-center-intro/security-center.png
 [3]: ./media/security-center-intro/security-policy.png
 [4]: ./media/security-center-intro/security-policy-blade.png
@@ -160,4 +160,4 @@
 [8]: ./media/security-center-intro/security-alert-detail.png
 [9]: ./media/security-center-intro/partner-solutions.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0810_2016--->

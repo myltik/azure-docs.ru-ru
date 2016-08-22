@@ -151,7 +151,8 @@ _Рисунок 2. Использование общего кэша_
 
 Этот подход требует внимательной настройки, чтобы предотвратить устаревание локального кэша по отношению к общему кэшу. Однако локальный кэш будет служить буфером, если общий кэш недоступен. Эта структура показана на рис. 3.
 
-![Использование локального частного кэша с общим кэшем](media/best-practices-caching/Caching3.png) _Рисунок 3. Использование локального частного кэша с общим кэшем_
+![Использование локального частного кэша с общим кэшем](media/best-practices-caching/Caching3.png)
+_Рисунок 3. Использование локального частного кэша с общим кэшем_
 
 Для поддержки крупных кэшей, содержащих данные с относительно большим временем выполнения, некоторые службы кэша предоставляют параметр высокого уровня доступности, который реализует автоматический переход на другой ресурс, если кэш становится недоступным. Этот подход обычно подразумевает репликацию кэшированных данных, хранящихся на сервере основного кэша, на сервер вторичного кэша и переключение на работу со вторичным сервером в случае сбоя основного сервера или при потере связи.
 
@@ -928,8 +929,8 @@ ISubscriber subscriber = redisHostConnection.GetSubscriber();
 - Страница [Безопасность Redis](http://redis.io/topics/security) на веб-сайте Redis
 - Страница [Краткая информация о кэше Redis для Azure](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) в блоге Azure
 - Страница [Запуск Redis на виртуальной машине CentOS Linux](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) на веб-сайте Майкрософт
-- Страница [ASP.NET session state provider for Azure Redis Cache](redis-cache/cache-aspnet-session-state-provider.md) на веб-сайте Майкрософт
-- Страница [ASP.NET output cache provider for Azure Redis Cache](redis-cache/cache-aspnet-output-cache-provider.md) на веб-сайте Майкрософт
+- Страница [Поставщик состояний сеансов ASP.NET для кэша Redis для Azure](redis-cache/cache-asp.net-session-state-provider.md) на веб-сайте Майкрософт.
+- Страница [Поставщик кэша вывода ASP.NET для кэша Redis для Azure](redis-cache/cache-asp.net-output-cache-provider.md) на веб-сайте Майкрософт.
 - Страница [Введение в типы данных Redis и абстракции](http://redis.io/topics/data-types-intro) на веб-сайте Redis
 - Страница [Основное использование](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) на веб-сайте StackExchange.Redis
 - Страница [Транзакции в Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) в репозитории StackExchange.Redis
