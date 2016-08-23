@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание зоны DNS с помощью интерфейса командной строки | Microsoft Azure"
    description="Поэтапно узнайте, как создать зоны DNS для Azure DNS, чтобы разместить домен DNS, используя интерфейс командной строки (CLI)."
    services="dns"

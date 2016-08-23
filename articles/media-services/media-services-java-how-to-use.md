@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Практическое руководство. Использование служб мультимедиа Azure с Java" 
 	description="Описание использования служб мультимедиа Azure для выполнения стандартных задач, включая кодирование, шифрование и потоковую передачу ресурсов." 
 	services="media-services" 
@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor="jimbe"/>
 
-.<tags 
+<tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 

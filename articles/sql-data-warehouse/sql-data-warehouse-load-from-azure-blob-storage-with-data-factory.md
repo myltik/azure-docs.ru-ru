@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL Azure (фабрика данных Azure) | Microsoft Azure"
    description="Сведения о том, как загружать данные с помощью фабрики данных Azure."
    services="sql-data-warehouse"

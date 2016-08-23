@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Наблюдение за доступностью и скоростью реагирования веб-сайта | Microsoft Azure"
 	description="Настройка веб-тестов в Application Insights. Получение оповещений, когда веб-сайт становится недоступным или медленно реагирует на запросы."
 	services="application-insights"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание первой фабрики данных (Visual Studio) | Microsoft Azure"
 	description="В этом руководстве вы создадите образец конвейера фабрики данных Azure с помощью Visual Studio."
 	services="data-factory"

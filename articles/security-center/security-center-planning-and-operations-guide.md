@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Руководство по планированию использования центра безопасности Azure и работе в нем | Microsoft Azure"
    description="Этот документ поможет вам спланировать работу перед переходом на использование центра безопасности Azure. Кроме того, здесь содержатся рекомендации по ежедневно выполняемым операциям."
    services="security-center"
@@ -7,7 +7,7 @@
    manager="swadhwa"
    editor=""/>
 
-.<tags
+<tags
    ms.service="security-center"
    ms.topic="hero-article"
    ms.devlang="na"

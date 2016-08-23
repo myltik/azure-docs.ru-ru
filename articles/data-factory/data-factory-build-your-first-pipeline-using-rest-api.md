@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание первой фабрики данных (REST) | Microsoft Azure"
 	description="В этом руководстве вы создадите образец конвейера фабрики данных Azure с помощью REST API фабрики данных."
 	services="data-factory"
@@ -8,7 +8,7 @@
 	editor="monicar"
 />
 
-.<tags
+<tags
 	ms.service="data-factory"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"

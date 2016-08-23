@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка VPN-подключения типа ";точка — сеть"; к виртуальной сети Azure с помощью классического портала | Microsoft Azure"
    description="Безопасно подключайтесь к своей виртуальной сети Azure, создав VPN-подключение ";точка — сеть";."
    services="vpn-gateway"
@@ -8,7 +8,7 @@
    editor=""
    tags="azure-service-management"/>
 
-.<tags
+<tags
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="hero-article"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка маршрутизации для канала ExpressRoute | Microsoft Azure"
    description="В этой статье описана процедура создания и подготовки частного пиринга, общедоступного пиринга и пиринга Microsoft для канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить пиринги для канала."
    documentationCenter="na"

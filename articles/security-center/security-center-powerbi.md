@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Анализ данных центра безопасности Azure с помощью Power BI | Microsoft Azure"
    description="Пакет содержимого центра безопасности Azure для Power BI позволяет легко обнаруживать предупреждения и рекомендации системы безопасности, а также информацию об атакуемых ресурсах и тенденциях на основе набора данных, созданного для ваших отчетов."
    services="security-center"
@@ -7,7 +7,7 @@
    manager="swadhwa"
    editor=""/>
 
-.<tags
+<tags
    ms.service="security-center"
    ms.devlang="na"
    ms.topic="hero-article"

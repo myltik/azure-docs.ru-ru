@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Настройка в Azure учетной записи запуска от имени | Microsoft Azure"
     description="В этом руководстве приводятся пошаговые инструкции по созданию и тестированию, а также пример проверки подлинности с помощью субъекта безопасности в службе автоматизации Azure."
     services="automation"
@@ -7,7 +7,7 @@
     manager="jwhit"
     editor=""
 	keywords="имя субъекта-службы, SetSPN, проверка подлинности Azure"/>
-.<tags
+<tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"

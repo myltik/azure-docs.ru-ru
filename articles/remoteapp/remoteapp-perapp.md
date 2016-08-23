@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Публикация приложений для отдельных пользователей в коллекции Azure RemoteApp (предварительная версия) | Microsoft Azure"
    description="Узнайте, как публиковать приложения для отдельных пользователей, а не групп в Azure RemoteApp."
    services="remoteapp-preview"
@@ -7,7 +7,7 @@
    manager="mbaldwin"
    editor=""/>
 
-.<tags
+<tags
    ms.service="remoteapp"
    ms.devlang="na"
    ms.topic="hero-article"

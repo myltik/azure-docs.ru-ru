@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Шлюз удаленных рабочих столов и сервер Azure Multi-Factor Authentication, использующие проверку подлинности RADIUS" 
 	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании шлюза удаленных рабочих столов (RD) и сервера Azure Multi-Factor Authentication с помощью RADIUS." 
 	services="multi-factor-authentication" 
@@ -7,7 +7,7 @@
 	manager="femila" 
 	editor="curtand"/>
 
-.<tags 
+<tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 

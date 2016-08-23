@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Требования к маршрутизации для ExpressRoute | Microsoft Azure"
    description="На этой странице подробно описаны требования по настройке маршрутизации для каналов ExpressRoute и управлению этой маршрутизацией."
    documentationCenter="na"

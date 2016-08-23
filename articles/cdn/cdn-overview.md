@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обзор Azure CDN | Microsoft Azure"
 	description="Узнайте, что собой представляет сеть доставки содержимого (CDN) Azure и как ее использовать для доставки больших объемов содержимого посредством кэширования BLOB-объектов и статического содержимого."
 	services="cdn"

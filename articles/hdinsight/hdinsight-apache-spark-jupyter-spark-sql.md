@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание кластера Spark в HDInsight на платформе Linux и использование запросов Spark SQL из Jupyter для интерактивного анализа | Microsoft Azure"
 	description="Пошаговые инструкции по быстрому созданию кластера Apache Spark в HDInsight и последующему использованию запросов Spark SQL из записных книжек Jupyter для выполнения интерактивных запросов."
 	services="hdinsight"

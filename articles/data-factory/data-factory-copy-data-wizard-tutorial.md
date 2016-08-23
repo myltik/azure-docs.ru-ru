@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных" 
 	description="С помощью этого учебника вы создадите конвейер фабрики данных Azure с действием копирования при помощи мастера копирования, поддерживаемого фабрикой данных." 
 	services="data-factory" 
@@ -7,7 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-.<tags 
+<tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 

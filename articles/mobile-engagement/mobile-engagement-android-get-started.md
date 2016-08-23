@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с Azure Mobile Engagement для приложений Android"
 	description="Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для приложений Android."
 	services="mobile-engagement"
@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor="" />
 
-.<tags
+<tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"

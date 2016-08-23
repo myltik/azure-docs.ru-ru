@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Предварительно настроенное решение прогнозируемого обслуживания | Microsoft Azure"
  description="Описание предварительно настроенного решения прогнозируемого обслуживания IoT Azure | Microsoft Azure"
  services=""

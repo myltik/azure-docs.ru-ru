@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание веб-приложения WordPress в службе приложений Azure | Microsoft Azure"
 	description="Узнайте, как создать новое веб-приложение Azure для блога WordPress с помощью портала Azure."
 	services="app-service\web"
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service-web"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

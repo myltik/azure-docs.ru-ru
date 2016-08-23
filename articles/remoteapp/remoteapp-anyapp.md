@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Запуск любых приложений Windows на любом устройстве с помощью Azure RemoteApp | Microsoft Azure"
    description="Узнайте, как предоставить приложение Windows для общего доступа своим пользователям с помощью Azure RemoteApp."
    services="remoteapp"
@@ -7,7 +7,7 @@
    manager="mbaldwin"
    editor=""/>
 
-.<tags
+<tags
    ms.service="remoteapp"
    ms.devlang="na"
    ms.topic="hero-article"

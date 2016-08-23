@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство по началу работы с Node.js | Microsoft Azure"
 	description="Сведения о создании простого веб-приложения Node.js и его развертывании в облачной службе Azure."
 	services="cloud-services"
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 

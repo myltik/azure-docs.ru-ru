@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Начало работы с центром IoT Azure. Язык Java | Microsoft Azure"
 	description="Начальное руководство по работе с центром IoT Azure для языка Java. Используя центр IoT Azure, язык Java и пакеты SDK для ";Интернета вещей"; Microsoft Azure, создайте собственное решение IoT."
 	services="iot-hub"
@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
      ms.service="iot-hub"
      ms.devlang="java"
      ms.topic="hero-article"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Загрузка данных с помощью фабрики данных Azure | Microsoft Azure"
    description="Сведения о том, как загружать данные с помощью фабрики данных Azure."
    services="sql-data-warehouse"
@@ -7,7 +7,7 @@
    manager="barbkess"
    editor=""
    tags="azure-sql-data-warehouse"/>
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"

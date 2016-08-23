@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование SQL Azure с Azure RemoteApp | Microsoft Azure"
    description="Узнайте, как использовать SQL Azure с Azure RemoteApp"
    services="remoteapp"
@@ -7,7 +7,7 @@
    manager="mbaldwin"
    editor=""/>
 
-.<tags
+<tags
    ms.service="remoteapp"
    ms.devlang="na"
    ms.topic="hero-article"

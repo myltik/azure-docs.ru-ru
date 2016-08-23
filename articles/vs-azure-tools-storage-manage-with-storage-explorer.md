@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с обозревателем службы хранилища (предварительная версия) | Microsoft Azure"
 	description="Управление ресурсами хранилища Azure с помощью обозревателя хранилищ (предварительная версия)"
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="douge"
 	editor="" />
 
- .<tags
+ <tags
 	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"

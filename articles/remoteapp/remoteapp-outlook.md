@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Использование Outlook в Azure RemoteApp | Microsoft Azure" 
     description="Сведения о настройке и использовании Outlook для работы в Azure RemoteApp | Microsoft Azure"
     services="remoteapp"
@@ -6,7 +6,7 @@
     authors="pavithir"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

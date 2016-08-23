@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Связь между подписками Azure и службой Azure Active Directory | Microsoft Azure"
 	description="Вход в Microsoft Azure и другие связанные темы, такие как связь между подпиской Azure и службой Azure Active Directory."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

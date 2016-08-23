@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Единый интерфейс Office 365 на всех устройствах c Azure RemoteApp | Microsoft Azure"
    description="Узнайте, как опубликовать приложение Office 365 для своих пользователей с помощью Azure RemoteApp."
    services="remoteapp"
@@ -7,7 +7,7 @@
    manager="mbaldwin"
    editor=""/>
 
-.<tags
+<tags
    ms.service="remoteapp"
    ms.devlang="na"
    ms.topic="hero-article"

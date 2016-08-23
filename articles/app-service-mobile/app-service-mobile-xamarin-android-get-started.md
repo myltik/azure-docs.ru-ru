@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с мобильными приложениями Azure для приложений Xamarin.Android | Microsoft Azure"
 	description="Этот учебник поможет приступить к использованию мобильных приложений Azure для разработки приложений Xamarin Android"
 	services="app-service\mobile"
@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor="" />
 
-.<tags
+<tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"

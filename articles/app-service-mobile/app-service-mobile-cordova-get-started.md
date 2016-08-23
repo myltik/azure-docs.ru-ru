@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание мобильного приложения Apache Cordova в службе мобильных приложений Azure | Microsoft Azure"
     description="Изучите этот учебник, чтобы начать работу с серверными частями мобильных приложений Azure для разработки программ Apache Cordova."
     services="app-service\mobile"

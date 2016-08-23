@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Приступая к работе с Microsoft Azure Multi-Factor Authentication в облаке" 
 	description="Эта страница посвящена службе Microsoft Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure MFA в облаке." 
 	services="multi-factor-authentication" 
@@ -7,7 +7,7 @@
 	manager="femila" 
 	editor="curtand"/>
 
-.<tags 
+<tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 

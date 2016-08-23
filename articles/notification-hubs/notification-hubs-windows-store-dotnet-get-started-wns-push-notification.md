@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Начало работы с Центрами уведомлений Azure для приложений универсальной платформы Windows | Microsoft Azure"
 	description="При работе с этим руководством вы узнаете, как отправлять push-уведомления в приложение универсальной платформы Windows с помощью Центров уведомлений Azure."
 	services="notification-hubs"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Дополнительные сведения о возможностях выпусков служб BizTalk | Microsoft Azure"
 	description="Сравните возможности выпусков служб BizTalk: Free, Developer, Basic, Standard и Premium. MABS, WABS."
 	services="biztalk-services"

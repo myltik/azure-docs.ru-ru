@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Анализ данных с помощью машинного обучения Azure | Microsoft Azure"
    description="Создание прогнозной модели машинного обучения с помощью машинного обучения Azure и данных из хранилища данных SQL Azure."
    services="sql-data-warehouse"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Узнайте, как использовать инструменты Hadoop для Visual Studio для HDInsight | Microsoft Azure"
 	description="Узнайте, как установить и использовать инструменты Hadoop для Visual Studio для HDInsight, чтобы подключиться к кластеру Hadoop и выполнить запрос Hive."
 	keywords="средства hadoop, запрос hive, visual studio"
@@ -9,7 +9,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-.<tags
+<tags
 	ms.service="hdinsight"
 	ms.devlang="na"
 	ms.topic="get-started-article"

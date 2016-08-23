@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure Active Directory: вопросы и ответы | Microsoft Azure"
 	description="В этой статье приводятся ответы на часто задаваемые вопросы, связанные с доступом к Azure и Azure Active Directory, управлением паролями и доступом к приложениям."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Application Insights: языки, платформы, интеграция | Microsoft Azure"
 	description="Языки, платформы и варианты интеграции для Application Insights."
 	services="application-insights"
@@ -6,7 +6,7 @@
 	authors="OlegAnaniev-MSFT"
 	manager="douge"/>
 
-.<tags
+<tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"

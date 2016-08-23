@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Лицензирование Azure RemoteApp | Microsoft Azure"
     description="Узнайте о лицензировании в Azure RemoteApp."
     services="remoteapp"

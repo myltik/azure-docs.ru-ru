@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что такое концентраторы событий Azure? | Microsoft Azure"
 	description="Обзор и описание концентраторов событий Azure"
 	services="event-hubs"
@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="event-hubs"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

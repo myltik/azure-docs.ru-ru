@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка Azure Active Directory для управления самостоятельным доступом к приложениям | Microsoft Azure"
 	description="Самостоятельное управление группами позволяет пользователям создавать группы безопасности или группы Office 365 и управлять ими в Azure Active Directory, а также предоставляет возможность запрашивать членство в группах безопасности или группах Office 365."
 	services="active-directory"
@@ -8,7 +8,7 @@
 	editor=""
 	/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание первой фабрики данных (портал Azure) | Microsoft Azure"
 	description="В этом руководстве вы создадите образец конвейера фабрики данных Azure с помощью редактора фабрики данных на портале Azure."
 	services="data-factory"
@@ -7,7 +7,7 @@
 	manager="jhubbard"
 	editor="monicar"/>
 
-.<tags
+<tags
 	ms.service="data-factory"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
@@ -79,12 +79,13 @@
 	![Связанная служба хранения Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	В редакторе отобразится сценарий JSON для создания связанной службы хранилища Azure.
-4. Замените **account name** именем вашей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+4. Замените **account name** именем вашей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 5. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
 
 	.![Кнопка "Развернуть"](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   После развертывания связанной службы окно **Draft-1** должно исчезнуть, а в представлении в виде дерева слева отобразится служба **AzureStorageLinkedService**. ![Связанная служба хранилища в меню](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   После развертывания связанной службы окно **Draft-1** должно исчезнуть, а в представлении в виде дерева слева отобразится служба **AzureStorageLinkedService**. 
+   	![Связанная служба хранилища в меню](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Создание связанной службы Azure HDInsight

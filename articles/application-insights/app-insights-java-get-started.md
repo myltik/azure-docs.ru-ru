@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Анализ веб-приложений Java с помощью Application Insights | Microsoft Azure"
 	description="Мониторинг производительности и использования веб-сайта Java с помощью Application Insights. "
 	services="application-insights"
@@ -6,7 +6,7 @@
 	authors="alancameronwills"
 	manager="douge"/>
 
-.<tags
+<tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
@@ -95,7 +95,7 @@
       // or applicationinsights-core for bare API
     }
 
-* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `version:'1.0.n'`. *Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например* `version:'1.0.n'`. *Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Обновление пакета SDK до новой версии*
  * Обновите зависимости проекта.
 

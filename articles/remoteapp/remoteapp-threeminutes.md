@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Испытайте Azure RemoteApp на своем устройстве за 3 минуты или меньше | Microsoft Azure"
     description="Протестируйте функции Azure RemoteApp, не устанавливая службу."
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка политик безопасности в центре безопасности Azure | Microsoft Azure"
    description="В этом документе вы ознакомились с процедурой настройки политик безопасности в Центре безопасности Azure."
    services="security-center"

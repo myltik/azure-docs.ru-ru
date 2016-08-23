@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Руководство по программированию для концентраторов событий Azure | Microsoft Azure"
     description="Сведения о программировании с использованием концентраторов событий Azure с помощью пакета SDK Azure .NET."
     services="event-hubs"
@@ -6,7 +6,7 @@
     authors="sethmanheim"
     manager="timlt"
     editor="" />
-.<tags 
+<tags 
     ms.service="event-hubs"
     ms.devlang="na"
     ms.topic="get-started-article"

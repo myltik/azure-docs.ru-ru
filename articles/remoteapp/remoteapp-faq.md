@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Часто задаваемые вопросы об Azure RemoteApp | Microsoft Azure" 
 	description="Получите ответы на часто задаваемые вопросы об Azure RemoteApp." 
 	services="remoteapp" 
@@ -7,7 +7,7 @@
 	manager="swadhwa" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="remoteapp" 
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 

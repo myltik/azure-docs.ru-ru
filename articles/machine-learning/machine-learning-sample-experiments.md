@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Использование образцов экспериментов машинного обучения | Microsoft Azure"
     description="Узнайте, как использовать образцы экспериментов машинного обучения из коллекции Cortana Intelligence для создания экспериментов с использованием Машинного обучения Microsoft Azure."
     services="machine-learning"
@@ -7,7 +7,7 @@
     manager="paulettm"
     editor="cgronlun"/>
 
-.<tags
+<tags
     ms.service="machine-learning"
     ms.workload="data-services"
     ms.tgt_pltfrm="na"

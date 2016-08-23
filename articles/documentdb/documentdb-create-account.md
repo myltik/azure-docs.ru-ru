@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание учетной записи DocumentDB | Microsoft Azure"
 	description="Создайте базу данных NoSQL в Azure DocumentDB. Узнайте, как создать учетную записи DocumentDB, которая позволит создавать высокопроизводительные глобально масштабируемые базы данных NoSQL." 
 	keywords="создание базы данных"
@@ -8,7 +8,7 @@
 	manager="jhubbard"
 	editor="monicar"/>
 
-.<tags
+<tags
 	ms.service="documentdb"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"

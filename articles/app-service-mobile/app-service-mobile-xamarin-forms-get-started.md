@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с мобильными приложениями с помощью Xamarin.Forms"
 	description="Этот учебник поможет приступить к использованию мобильных приложений Azure в разработке для Xamarin.Forms."
 	services="app-service\mobile"

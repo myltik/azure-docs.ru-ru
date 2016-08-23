@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Пошаговое руководство по предварительно настроенному решению удаленного мониторинга | Microsoft Azure"
  description="Описание предварительно настроенного решения удаленного мониторинга Azure IoT и его архитектура."
  services=""
@@ -8,7 +8,7 @@
  manager="timlt"
  editor=""/>
 
-.<tags
+<tags
  ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="get-started-article"

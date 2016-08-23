@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование кэша Redis для Azure с Python | Microsoft Azure"
 	description="Приступая к работе с кэшем Redis для Azure с использованием Python"
 	services="redis-cache"

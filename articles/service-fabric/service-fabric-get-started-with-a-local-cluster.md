@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Начало развертывания и обновления приложений в локальном кластере | Microsoft Azure"
    description="Установка локального кластера Service Fabric, развертывание в нем существующего приложения и обновление этого приложения."
    services="service-fabric"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""/>
 
-.<tags
+<tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
    ms.topic="get-started-article"

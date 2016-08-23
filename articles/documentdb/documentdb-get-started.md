@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство по NoSQL: пакет SDK для .NET в DocumentDB | Microsoft Azure"
 	description="Руководство по NoSQL, в котором создается оперативная база данных и консольное приложение C# с помощью пакета SDK для .NET в DocumentDB. DocumentDB — это база данных NoSQL для JSON."
 	keywords="руководство nosql, оперативная база данных, консольное приложение c#"

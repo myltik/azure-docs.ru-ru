@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Начало работы с Azure Stream Analytics для обработки данных, полученных с устройств IoT |Stream Analytics"
 	description="Теги и потоки данных датчиков IoT: обработка данных с использованием Stream Analytics в режиме реального времени"
     keywords="решение IoT, начало работы с IoT"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с Azure Active Directory Premium"
 	description="Раздел, где объясняется, как подписаться на выпуск Azure Active Directory Premium на веб-сайте корпоративного лицензирования."
 	services="active-directory"

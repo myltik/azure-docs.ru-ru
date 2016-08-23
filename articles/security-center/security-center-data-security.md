@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Защита данных в центре безопасности Azure | Microsoft Azure"
    description="В этой статье объясняется, каким образом обеспечивается управление данными и их защита в центре безопасности Azure."
    services="security-center"
@@ -7,7 +7,7 @@
    manager="swadhwa"
    editor=""/>
 
-.<tags
+<tags
    ms.service="security-center"
    ms.devlang="na"
    ms.topic="hero-article"

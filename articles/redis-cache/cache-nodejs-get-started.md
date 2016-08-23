@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование кэша Redis для Azure с Node.js | Microsoft Azure"
 	description="Начните работу с кэшем Redis для Azure с использованием Node.js и node_redis."
 	services="redis-cache"
@@ -7,7 +7,7 @@
 	manager="douge"
 	editor="v-lincan"/>
 
-.<tags
+<tags
 	ms.service="cache"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"

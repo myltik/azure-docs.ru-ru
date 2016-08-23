@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание набора записей и записей зоны DNS с помощью интерфейса командной строки | Microsoft Azure"
    description="Как создать записи узла для Azure DNS. Настройка наборов записей и записей с помощью интерфейса командной строки."
    services="dns"
@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="get-started-article"

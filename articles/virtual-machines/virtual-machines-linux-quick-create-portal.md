@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание виртуальной машины Linux с помощью портала Azure | Microsoft Azure"
     description="Создание виртуальной машины Linux с помощью портала Azure."
     services="virtual-machines-linux"

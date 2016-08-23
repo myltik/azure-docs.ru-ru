@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Обзор концентраторов событий Azure | Microsoft Azure"
     description="Введение и обзор концентраторов событий Azure."
     services="event-hubs"
@@ -6,7 +6,7 @@
     authors="sethmanheim"
     manager="timlt"
     editor="" />
-.<tags 
+<tags 
     ms.service="event-hubs"
     ms.devlang="na"
     ms.topic="get-started-article"

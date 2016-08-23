@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление пакета SDK Application Insights для отслеживания работы приложения Node.js | Microsoft Azure"
 	description="Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights."
 	services="application-insights"

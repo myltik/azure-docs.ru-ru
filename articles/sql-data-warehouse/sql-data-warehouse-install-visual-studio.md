@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Установка Visual Studio и SSDT для хранилища данных SQL | Microsoft Azure"
    description="Установка Visual Studio и SQL Server Data Tools (SSDT) для хранилища данных SQL Azure."
    services="sql-data-warehouse"

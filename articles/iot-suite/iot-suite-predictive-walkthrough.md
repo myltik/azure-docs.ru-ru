@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Пошаговое руководство по решению для диагностического обслуживания | Microsoft Azure"
  description="Пошаговое руководство по предварительно настроенному решению для диагностического обслуживания IoT Azure."
  services=""
@@ -8,7 +8,7 @@
  manager="timlt"
  editor=""/>
 
-.<tags
+<tags
  ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="get-started-article"

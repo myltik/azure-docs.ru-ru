@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Обработка инцидентов в центре безопасности Azure | Microsoft Azure"
    description="В документе описываются возможности центра безопасности Azure, используемые при управлении инцидентами."
    services="security-center"

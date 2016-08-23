@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Получение доступа к защищенным приложениям, в которых используется условный доступ на основе устройств Azure AD | Microsoft Azure"
 	description="В этой статье приведены действия для получения доступа к необходимому приложению."
 	services="active-directory"
@@ -8,7 +8,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

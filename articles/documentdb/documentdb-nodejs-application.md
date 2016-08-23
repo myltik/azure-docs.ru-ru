@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Изучение Node.js — учебник по использованию DocumentDB с Node.js | Microsoft Azure" 
 	description="Учите Node.js! В этом учебнике описывается использование Microsoft Azure DocumentDB для хранения данных и доступа к ним из веб-приложения Node.js Express, размещенного на веб-сайтах Azure." 
 	keywords="Разработка приложений, учебник по базе данных, изучение node.js, учебник по node.js, documentdb, azure, Microsoft azure"
@@ -8,7 +8,7 @@
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
-.<tags 
+<tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
@@ -458,7 +458,7 @@
 
 	Он позволяет эффективно сообщить подсистеме **Jade** о том, что необходимо выполнить прорисовку HTML-кода для нашего приложения, и создает **block** с именем **content**, где можно указать разметку для страниц содержимого. Сохраните и закройте файл **layout.jade**.
 
-4. Теперь откройте файл **index.jade** — представление, которое будет использоваться нашим приложением, — и замените содержимое файла следующим:
+4. Теперь откройте файл **index.jade** — представление, которое будет использоваться нашим приложением, — и замените содержимое файла следующим:
 
 		extends layout
 		

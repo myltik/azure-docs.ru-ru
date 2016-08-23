@@ -1,4 +1,4 @@
-.<properties
+<properties
   pageTitle="Руководство по NoSQL Node.js для DocumentDB | Microsoft Azure"
   description="Руководство по NoSQL Node.js, в котором создается база данных Node и консольное приложение с помощью пакета SDK для Node.js DocumentDB. DocumentDB — это база данных NoSQL для JSON."
     keywords="node.js, руководство, база данных node"
@@ -8,7 +8,7 @@
   manager="jhubbard"
   editor="monicar"/>
 
-.<tags
+<tags
   ms.service="documentdb"
   ms.workload="data-services"
   ms.tgt_pltfrm="na"

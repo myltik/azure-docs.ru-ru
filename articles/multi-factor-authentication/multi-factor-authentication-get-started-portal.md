@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Развертывание пользовательского портала для сервера Azure Multi-Factor Authentication" 
 	description="Эта страница посвящена службе Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure Multi-Factor Authentication и пользовательским порталом." 
 	services="multi-factor-authentication" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание веб-приложения на Java в службе приложений Azure | Microsoft Azure"
 	description="В этом учебнике показано, как развернуть веб-приложение Java для службы приложений Azure."
 	services="app-service\web"
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"

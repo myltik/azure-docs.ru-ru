@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка проверки подлинности с помощью Amazon Web Services | Microsoft Azure"
    description="В этой статье описывается создание и проверка учетных данных AWS для модулей Runbook в службе автоматизации Azure, управляющей ресурсами AWS."
    services="automation"
@@ -7,7 +7,7 @@
    manager="jwhit"
    editor="tysonn"
    keywords="проверка подлинности aws, настройка aws"/>
-.<tags
+<tags
    ms.service="automation"
    ms.workload="tbd"
    ms.tgt_pltfrm="na"

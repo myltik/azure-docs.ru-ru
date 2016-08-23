@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Что такое машинное обучение в Azure? | Microsoft Azure"
     description="В этой статье объясняются основные понятия машинного обучения в облаке, цели его использования, а также приведены определения терминов, используемых в машинном обучении."
 	keywords="что такое машинное обучение, термины машинного обучения, прогнозирование, что такое прогнозная аналитика, ввод в эксплуатацию"
@@ -8,7 +8,7 @@
     manager="paulettm"
     editor="cgronlun"/>
 
-.<tags
+<tags
     ms.service="machine-learning"
     ms.workload="data-services"
     ms.tgt_pltfrm="na"

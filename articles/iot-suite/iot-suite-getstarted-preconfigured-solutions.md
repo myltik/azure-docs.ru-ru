@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с решениями с предварительно заданными параметрами | Microsoft Azure"
 	description="Следуйте инструкциям этого учебника, чтобы научиться развертывать предварительно настроенные решения набора IoT Microsoft Azure"
 	services=""
@@ -8,7 +8,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
      ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="hero-article"

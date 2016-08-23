@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Что входит в образы шаблонов Azure RemoteApp | Microsoft Azure"
     description="Узнайте об образах шаблона, которые поставляются с Azure RemoteApp."
     services="remoteapp"
@@ -6,7 +6,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

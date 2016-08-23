@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Проверка подлинности RADIUS и сервер Azure Multi-Factor Authentication" 
 	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности RADIUS для сервера Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 

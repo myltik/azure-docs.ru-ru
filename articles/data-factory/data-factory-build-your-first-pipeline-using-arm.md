@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание первой фабрики данных (шаблон Resource Manager) | Microsoft Azure"
 	description="Работая с этим руководством, вы создадите образец конвейера фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure."
 	services="data-factory"
