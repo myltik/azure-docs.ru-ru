@@ -44,6 +44,8 @@
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
+[Видео, демонстрирующее аналогичные действия](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub)
+
 ##Обновление серверного проекта для отправки push-уведомлений
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
@@ -60,7 +62,7 @@
 
 #### Установка подключаемого модуля push-уведомлений
 
-Приложения Apache Cordova не обрабатывают возможностей устройства или сети изначально. Эти возможности обеспечиваются подключаемыми модулями, которые публикуются в [npm](https://www.npmjs.com/) или на GitHub. Подключаемый модуль `phonegap-plugin-push` используется для обработки push-уведомлений сети.
+Приложения Apache Cordova не обрабатывают возможностей устройства или сети изначально. Эти возможности обеспечиваются подключаемыми модулями, которые публикуются в [npm](https://www.npmjs.com/) или на сайте GitHub. Подключаемый модуль `phonegap-plugin-push` используется для обработки push-уведомлений сети.
 
 Подключаемый модуль push-уведомлений можно установить одним из следующих способов:
 
@@ -74,7 +76,7 @@
 
 1.  В обозревателе решений откройте файл `config.xml`, щелкните **Подключаемые модули** > **Настраиваемые**, выберите **Git** как источник установки, а затем в качестве источника введите `https://github.com/phonegap/phonegap-plugin-push`.
 
-	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	.![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
 
 2.  Щелкните стрелку рядом с источником установки.
 
@@ -92,7 +94,7 @@
 
 Сначала мы добавим минимальный требуемый код для Android. Позднее мы внесем в него небольшие изменения для запуска на iOS или Windows 10.
 
-1. Добавьте вызов метода **registerForPushNotifications** в обратный вызов при входе в систему или в конец метода **onDeviceReady**:
+1. Добавьте вызов метода **registerForPushNotifications** в обратный вызов при входе в систему или в конец метода **onDeviceReady**.
 
 		// Login to the service.
 		client.login('google')
@@ -112,7 +114,7 @@
 
 		    }, handleError);
 
-	В этом примере показан вызов **registerForPushNotifications** после успешного прохождения проверки подлинности, что рекомендуется при использовании в приложении push-уведомлений и проверки подлинности.
+	В этом примере показан вызов **registerForPushNotifications** после успешной аутентификации, что рекомендуется при использовании в приложении push-уведомлений и аутентификации.
 
 2. Добавьте новый метод **registerForPushNotifications**, как показано ниже.
 
@@ -124,7 +126,7 @@
 		      ios: { alert: 'true', badge: 'true', sound: 'true' },
 		      wns: {}
 		  });
-		
+
 		// Handle the registration event.
 		pushRegistration.on('registration', function (data) {
 		  // Get the native platform of the device.
@@ -151,15 +153,15 @@
 		      });
 		  }
 		});
-		
+
 		pushRegistration.on('notification', function (data, d2) {
 		  alert('Push Received: ' + data.message);
 		});
-		
+
 		pushRegistration.on('error', handleError);
 		}
 
-3. В приведенном выше коде замените значение `Your_Project_ID` числовым идентификатором проекта своего приложения, полученным на сайте [Google Developer Console] \(для Android).
+3. В приведенном выше коде замените значение `Your_Project_ID` числовым идентификатором проекта своего приложения, полученным на сайте [Google Developer Console] (для Android).
 
 ## Настройка и запуск приложения в Android (необязательно)
 
@@ -170,6 +172,8 @@
 Так как изначально проект предназначен для платформы Google Android, необходимо включить Google Cloud Messaging. Если проект предназначен для устройств Microsoft Windows, включите поддержку WNS.
 
 [AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+
+[Видео, демонстрирующее аналогичные действия](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-4-Set-up-gcm-for-push)
 
 ####<a name="configure-backend"></a>Настройка серверной части мобильного приложения для отправки push-запросов с использованием GCM
 
@@ -191,13 +195,13 @@
 			wns: {}
 		});
 
-####<a name="configure-device"></a>Настройка устройства Android для отладки USB
+####<a name="configure-device"></a>Настройка устройства Android для отладочного режима USB
 
 Перед развертыванием приложения на устройстве Android необходимо включить отладку USB. На телефоне Android выполните следующие действия:
 
 1. Последовательно выберите пункты **Параметры** > **О телефоне**, коснитесь пункта **Номер сборки** и дождитесь включения режима разработчика (примерно 7 секунд).
 
-2. Вернитесь в раздел **Параметры** > **Параметры разработчика**, включите **отладку USB**, а затем подключите телефон Android к компьютеру разработки с помощью USB-кабеля.
+2. Вернитесь в раздел **Параметры** > **Параметры разработчика**, включите **отладочный режим USB**, а затем подключите телефон Android к компьютеру разработки с помощью кабеля USB.
 
 Мы проверили этот способ, используя устройство Google Nexus 5X с Android 6.0 (Marshmallow). Все описанные приемы подходят для любой современной версии платформы Android.
 
@@ -205,7 +209,7 @@
 
 Подключаемый модуль push-уведомлений передает push-уведомления через службы Google Play Android.
 
-1.  В **Visual Studio** щелкните **Инструменты** > **Android** > **Android SDK Manager**, разверните папку **Дополнения** и убедитесь, что задана установка всех следующих пакетов SDK.
+1.  В **Visual Studio** щелкните **Инструменты** > **Android** > **Android SDK Manager** (Диспетчер пакетов SDK для Android), разверните папку **Дополнения** и установите соответствующие флажки, чтобы обеспечить установку всех следующих пакетов SDK.
     * Репозиторий поддержки Android версии 20 или более поздней
     * Службы Google Play версии 27 или более поздней
     * Репозиторий Google версии 22 или более поздней
@@ -226,15 +230,15 @@
 
 	![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-	Если вы хотите более быстрый эмулятор x86, [установите драйвер HAXM](https://taco.visualstudio.com/ru-RU/docs/run-app-apache/#HAXM) и настройте его использование в эмуляторе.
+	Если вы хотите использовать более быстрый эмулятор x86, [установите драйвер HAXM](https://taco.visualstudio.com/ru-RU/docs/run-app-apache/#HAXM) и настройте его использование в эмуляторе.
 
 	Добавьте учетную запись Google на устройство Android, щелкнув **Приложения** > **Параметры** > **Добавить учетную запись**. Следуйте указаниям, чтобы использовать на устройстве имеющуюся учетную запись Google (рекомендуется) или создать новую.
 
-	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
+	.![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
 	Запустите приложение todolist, как ранее, и вставьте новый элемент списка дел. На этот раз в области уведомлений отображается значок уведомления. Вы можете открыть панель уведомлений, чтобы просмотреть полный текст уведомления.
 
-	![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
+	.![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
 
 ##Настройка и запуск проекта в iOS (необязательно)
 
@@ -260,9 +264,11 @@
 
 [AZURE.INCLUDE [Включение push-уведомлений Apple через концентраторы уведомлений Xamarin](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
+[Видео, демонстрирующее аналогичные действия](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-5-Set-up-apns-for-push)
+
 ####Настройка Azure для отправки push-уведомлений
 
-1. Войдите на [портал Azure](https://portal.azure.com/). Щелкните **Обзор** > **Мобильные приложения** > ваше мобильное приложение > **Параметры** > **Push-уведомления** > **Apple (APNS)** > **Отправка сертификата**. Отправьте экспортированный ранее P12-файл сертификата push-уведомлений. Если вы создали сертификат push-уведомлений для разработки и тестирования, не забудьте выбрать параметр **Песочница**. В противном случае выберите параметр **Рабочая среда**. Теперь ваша служба настроена для работы с push-уведомлениями в iOS.
+1. Войдите на [портал Azure](https://portal.azure.com/). Щелкните **Обзор** > **Мобильные приложения** > ваше мобильное приложение > **Параметры** > **Push-уведомления** > **Apple (APNS)** > **Отправка сертификата**. Отправьте экспортированный ранее P12-файл сертификата push-уведомлений. Если вы создали сертификат push-уведомлений для разработки и тестирования, не забудьте выбрать параметр **Песочница**. В противном случае выберите параметр **Рабочая среда**. Теперь ваша служба настроена для работы с push-уведомлениями в iOS.
 
 	![](./media/app-service-mobile-cordova-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -300,9 +306,11 @@
 
 ####Регистрация приложения Windows для получения push-уведомлений с помощью WNS
 
-Чтобы использовать возможности Магазина в Visual Studio, выберите версию платформы Windows в списке платформ решения, например **Windows x64** или **Windows x86** (не используйте **Windows-AnyCPU** для push-уведомлений).
+Чтобы использовать возможности Магазина в Visual Studio, выберите версию платформы Windows из списка платформ решения, например **Windows-x64** или **Windows-x86** (не используйте **Windows-AnyCPU** для push-уведомлений).
 
 [AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
+
+[Видео, демонстрирующее аналогичные действия](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-6-Set-up-wns-for-push)
 
 ####Настройка концентратора уведомлений для WNS
 
@@ -310,7 +318,7 @@
 
 ####Настройка поддержки push-уведомлений Windows в приложении Cordova
 
-Откройте конструктор конфигурации (щелкните файл config.xml правой кнопкой мыши и выберите **Конструктор представлений**), перейдите на вкладку **Windows** и выберите для параметра **Целевая версия Windows** вариант **Windows 10**.
+Откройте конструктор конфигурации (щелкните файл config.xml правой кнопкой мыши и выберите **Конструктор представлений**), перейдите на вкладку **Windows** и выберите для параметра **Целевая версия Windows** значение **Windows 10**.
 
 	>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
 
@@ -340,7 +348,7 @@
 
 ####Тестирование push-уведомлений в приложении Windows
 
-В Visual Studio выберите платформу Windows, например **Windows x64** или **Windows x86**, в качестве целевого объекта развертывания. Чтобы запустить приложение на компьютере Windows 10, где размещена Visual Studio, выберите **Локальный компьютер**.
+В Visual Studio выберите платформу Windows, например **Windows-x64** или **Windows-x86**, в качестве целевого объекта развертывания. Чтобы запустить приложение на компьютере Windows 10, где размещено приложение Visual Studio, выберите **Локальный компьютер**.
 
 Нажмите кнопку Запуск для построения проекта, после чего запустите приложение.
 
@@ -351,7 +359,7 @@
 ##<a name="next-steps"></a>Дальнейшие действия
 
 * Дополнительные сведения о push-уведомлениях см. в статье о [центрах уведомлений].
-* Продолжите работу с руководством [Добавление проверки подлинности в приложение Apache Cordova], если вы этого еще не сделали.
+* Продолжите работу с учебником и [добавьте аутентификацию в приложение Apache Cordova], если вы этого еще не сделали.
 
 Подробнее об использовании пакетов SDK.
 
@@ -359,8 +367,8 @@
 * [Серверный пакет SDK для ASP.NET]
 * [Серверный пакет SDK для Node.js]
 
-<!-- URLs -->
-[Добавление проверки подлинности в приложение Apache Cordova]: app-service-mobile-cordova-get-started-users.md
+.<!-- URLs -->
+[добавьте аутентификацию в приложение Apache Cordova]: app-service-mobile-cordova-get-started-users.md
 [ознакомительного проекта Apache Cordova]: app-service-mobile-cordova-get-started.md
 [ознакомительный проект Apache Cordova]: app-service-mobile-cordova-get-started.md
 [проверке подлинности]: app-service-mobile-cordova-get-started-users.md
@@ -376,4 +384,4 @@
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

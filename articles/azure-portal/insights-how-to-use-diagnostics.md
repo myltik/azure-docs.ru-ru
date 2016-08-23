@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Включение мониторинга и диагностики в Microsoft Azure | Microsoft Azure "
 	description="Узнайте, как настроить диагностику ресурсов в Azure."
-	authors="stepsic-microsoft-com"
-	manager="ronmart"
+	authors="rboucher"
+	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/08/2015"
-	ms.author="stepsic"/>
+	ms.author="robb"/>
 
 # Включение мониторинга и диагностики
 
@@ -70,4 +70,4 @@
 * [Просматривайте журналы событий и аудита](insights-debugging-with-events.md), чтобы знать обо всем, что произошло в службе.
 * [Отслеживайте работоспособность службы](insights-service-health.md), чтобы знать, когда производительность Azure снизилась или работа службы нарушилась.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

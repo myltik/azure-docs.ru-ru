@@ -90,6 +90,7 @@
 | Содержит | "contains" : "&lt;value&gt;"|
 | В | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
 | ContainsKey | "containsKey" : "&lt;keyName&gt;" |
+| Exists | "exists" : "&lt;bool&gt;" |
 
 ### Поля
 
@@ -468,4 +469,4 @@
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
     
 
-<!----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

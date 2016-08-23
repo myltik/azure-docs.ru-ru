@@ -3,7 +3,7 @@
    description="Сведения об управлении маршрутизацией и виртуальными сетями с помощью интерфейса командной строки Azure в классической модели развертывания"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Управление маршрутизацией и использование виртуальных модулей (классический режим) с помощью интерфейса командной строки Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Вы также можете [управлять маршрутизацией и использовать виртуальные модули с помощью модели развертывания диспетчера ресурсов](virtual-network-create-udr-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье рассматривается классическая модель развертывания. Вы также можете [управлять маршрутизацией и использовать виртуальные модули с помощью модели развертывания диспетчера ресурсов](virtual-network-create-udr-arm-cli.md).
 
 [AZURE.INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -56,8 +56,8 @@
 		info:    network route-table create command OK
 
 	Параметры
-	- **-l (или --location)**. Регион Azure, в котором будет создана сетевая группа безопасности. В нашем случае это *westus*.
-	- **-n (или --name)**. Имя для новой сетевой группы безопасности. В данном сценарии это *NSG-FrontEnd*.
+	- **-l (или --location)**. Регион Azure, в котором будет создана группа безопасности сети. В нашем случае это *westus*.
+	- **-n (или --name)**. Имя новой группы безопасности сети. В данном сценарии это *NSG-FrontEnd*.
 
 4. Выполните команду **`azure network route-table route set`**, чтобы создать маршрут в созданной ранее таблице маршрутов для отправки всего трафика, предназначенного для серверной подсети (192.168.2.0/24), в виртуальную машину **FW1** (192.168.0.4).
 
@@ -112,4 +112,4 @@
 
 		azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

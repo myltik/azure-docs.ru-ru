@@ -34,12 +34,12 @@
 
 - [Установка нового леса Active Directory в виртуальной сети Azure](active-directory-new-forest-virtual-machine.md)
 - [Установка реплики контроллера домена Active Directory в виртуальных сетях Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md)
-- [Настройка гибридной облачной среды для тестирования](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-base.md)
+- [Настройка гибридной облачной среды для тестирования](../virtual-machines/virtual-machines-windows-ps-hybrid-cloud-test-env-sim.md)
 
 
-## Дополнительные ресурсы
+## дополнительные ресурсы.
 
 - [Регистрация организации в Azure](sign-up-organization.md)
 - [Удостоверение Azure](fundamentals-identity.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/29/2016"
+   ms.date="08/04/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Аутентификация в хранилище данных SQL Azure
@@ -63,7 +63,6 @@
 - при проверке подлинности Azure Active Directory используются данные пользователей автономной базы данных для проверки подлинности удостоверений на уровне базы данных.
 - Azure Active Directory поддерживает проверку подлинности на основе маркеров для приложений, подключающихся к хранилищу данных SQL.
 
-> [AZURE.IMPORTANT] Проверка подлинности Azure Active Directory – это функция, работающая в режиме предварительной версии. Ее использование регулируется условиями предварительной версии, указанными в лицензионном соглашении (например, в соглашении Enterprise, соглашении для Microsoft Azure или соглашении Microsoft Online Subscription), а также любыми применимыми условиями, которые можно найти на странице [Дополнительные условия использования предварительных версий Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Этапы настройки
 
@@ -76,10 +75,10 @@
 5. Создание пользователей автономной базы данных в базе данных, сопоставленной с удостоверениями Azure AD
 6. Подключение к хранилищу данных с помощью удостоверений Azure AD
 
-Сейчас пользователи Azure Active Directory не отображаются в обозревателе объектов SSDT. В качестве обходного пути сведения о пользователях можно просмотреть в файле [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+Сейчас пользователи Azure Active Directory не отображаются в обозревателе объектов SSDT. В качестве решения сведения о пользователях можно просмотреть в файле [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
   
 ### Поиск подробных сведений
-- Выполните подробные инструкции. Процедуры настройки и использования проверки подлинности Azure Active Directory практически идентичны для базы данных SQL Azure и хранилища данных SQL Azure. Выполните действия, описанные в разделе [Подключение к Базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
+- Выполните подробные инструкции. Процедуры настройки и использования проверки подлинности Azure Active Directory практически идентичны для базы данных SQL Azure и хранилища данных SQL Azure. Выполните действия, описанные в статье [Подключение к Базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](../sql-database/sql-database-aad-authentication.md).
 - Создайте пользовательские роли базы данных и назначьте их пользователям. Затем предоставьте ролям управляемые разрешения. Дополнительные сведения см. в разделе [Приступая к работе с разрешениями Database Engine](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## Дальнейшие действия
@@ -91,4 +90,4 @@
 [Запросы к хранилищу данных SQL Azure (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

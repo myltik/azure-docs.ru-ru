@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="sdanie"/>
 
 
@@ -144,7 +144,7 @@
 
 После фиксации и отправки локальных изменений в репозиторий сервера их можно развернуть в экземпляре службы управления API.
 
-![Развертывание][api-management-configuration-deploy]
+![Развернуть][api-management-configuration-deploy]
 
 Дополнительные сведения о выполнении этой операции с помощью REST API см. в статье [Развертывание изменений Git в базе данных конфигурации с помощью REST API](https://msdn.microsoft.com/library/dn781420.aspx#DeployChanges).
 
@@ -297,4 +297,4 @@
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0810_2016-->

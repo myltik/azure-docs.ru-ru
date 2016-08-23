@@ -30,7 +30,7 @@ ExpressRoute поддерживается во всех регионах и ра
 |**Геополитический регион**|**Регионы Azure**|**Расположения ExpressRoute**|
 |---|---|---|
 |**Северная Америка**|Восточная часть США, западная часть США, восточная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, центральная часть Канады, восточная часть Канады|Атланта, Чикаго, Даллас, Лас-Вегас+, Лос-Анджелес, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия), Монреаль+, Квебек+, Торонто|
-|**Северная Америка**|Южная Бразилия|Сан-Паулу|
+|**Северная Америка**|Южная часть Бразилии|Сан-Паулу|
 |**Европа**|Северная Европа, Западная Европа|Амстердам, Дублин, Лондон, Ньюпорт (Уэльс)+, Париж|
 |**Азия**|Восточная Азия, Юго-Восточная Азия|Гонконг, Сингапур|
 |**Япония**|Западная Япония, Восточная Япония|Осака, Токио|
@@ -68,8 +68,8 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Дублин** | Colt |
 | **Гонконг** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Лондон** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
-| **Лас-Вегас** | Level 3 Communications+, Megaport+
-| **Лос-Анджелес** | CoreSite, Equinix, Megaport, Zayo Group |
+| **Лас-Вегас** | Level 3 Communications+, Megaport
+| **Лос-Анджелес** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Мельбурн** | Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **Нью-Йорк** | Equinix, Megaport, Zayo Group |
 | **Монреаль** | Cologix + |
@@ -153,7 +153,7 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!--Image References-->
+.<!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,12 @@
-<properties pageTitle="Ресурсы-контейнеры переменных в службе автоматизации Azure | Microsoft Azure" description="Ресурсы-контейнеры переменных — это значения, которые доступны для всех модулей Runbook и конфигураций DSC в службе автоматизации Azure. В статье подробно рассматриваются переменные и работа с ними как в текстовых, так и в графических модулях." services="automation" documentationCenter="" authors="mgoedtel" manager="jwhit"" editor="tysonn" />
-<tags  
+<properties 
+   pageTitle="Ресурсы-контейнеры переменных в службе автоматизации Azure | Microsoft Azure"
+   description="Ресурсы-контейнеры переменных — это значения, которые доступны для всех модулей Runbook и конфигураций DSC в службе автоматизации Azure. В статье подробно рассматриваются переменные и работа с ними как в текстовых, так и в графических модулях."
+   services="automation"
+   documentationCenter=""
+   authors="mgoedtel"
+   manager="jwhit"
+   editor="tysonn" />
+<tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
@@ -179,6 +186,6 @@
 ## Дальнейшие действия
 
 - Дополнительные сведения о соединении действий в графической разработке см. в разделе [Использование связей при создании графических модулей](automation-graphical-authoring-intro.md#links-and-workflow).
-- Сведения о том, как начать работу с графическими модулями Runbook, см. в статье [Первый графический Runbook](automation-first-runbook-graphical.md). 
+- Сведения о том, как начать работу с графическими модулями Runbook, см. в статье [Первый графический Runbook](automation-first-runbook-graphical.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

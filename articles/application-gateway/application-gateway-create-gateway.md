@@ -80,7 +80,7 @@
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
+ *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
 
 
 Чтобы проверить созданный шлюз, используйте командлет **Get-AzureApplicationGateway**.
@@ -415,4 +415,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!----HONumber=AcomDC_0810_2016-->

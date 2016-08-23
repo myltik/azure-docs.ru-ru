@@ -96,7 +96,7 @@ Microsoft Azure поддерживает различные дистрибути
 - **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
 - **[SLES и openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
 - **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
-- **[Прочее — нерекомендованные дистрибутивы](virtual-machines-linux-create-upload-generic.md)**
+- **[Прочее — нерекомендованные дистрибутивы](virtual-machines-linux-create-upload-generic.md)**
 
 Другие общие советы по подготовке образов Linux для Azure см. в разделе **[Общие замечания по установке Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)**.
 
@@ -201,7 +201,7 @@ azure vm create TestVM -l "WestUS" --resource-group TestRG \
           }
 ```
 
-Можно использовать [этот существующий шаблон для создания виртуальной машины на основе пользовательского образа](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) или прочитать о [создании собственных шаблонов Azure Resource Manager](../resource-group-authoring templates.md).
+Можно использовать [этот существующий шаблон для создания виртуальной машины на основе пользовательского образа](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) или [создать собственные шаблоны Azure Resource Manager](../resource-group-authoring-templates.md).
 
 После настройки шаблона можно создавать виртуальные машины с помощью команды `azure group deployment create`. Укажите универсальный код ресурса (URI) шаблона JSON с параметром `--template-uri`.
 
@@ -221,4 +221,4 @@ azure group deployment create --resource-group TestTemplateRG
 ## Дальнейшие действия
 После подготовки и передачи пользовательского виртуального диска ознакомьтесь с дополнительными сведениями об [использовании Resource Manager и шаблонов](../resource-group-overview.md). Возможно, вам также потребуется [добавить диск данных](virtual-machines-linux-add-disk.md) для новых виртуальных машин. Если на виртуальных машинах запущены приложения, к которым необходим доступ, [откройте порты и конечные точки](virtual-machines-linux-nsg-quickstart.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -48,7 +48,7 @@
 
 Планы службы приложений и ежедневное допустимое количество выполняемых действий
 
-| |"Бесплатный", "Общий", "Базовый"|Standard|Premium|
+| |"Бесплатный", "Общий", "Базовый"|Стандарт|Premium|
 |---|---|---|---|
 |Выполняемых действий в день| 200|10 000|50 000|
 
@@ -71,7 +71,7 @@ $appserviceplan = Get-AzureRmResource -ResourceType "Microsoft.Web/serverFarms" 
 $logicapp = Get-AzureRmResource -ResourceType "Microsoft.Logic/workflows" -ResourceGroupName $LogicApp_RG -ResourceName $LogicApp_Name
 
 $sku = @{
-    "name" = $appservicePlan.Name;
+    "name" = $appservicePlan.Sku.tier;
     "plan" = @{
       "id" = $appserviceplan.ResourceId;
       "type" = "Microsoft.Web/ServerFarms";
@@ -103,4 +103,4 @@ $updatedLA = Set-AzureRmResource -ResourceId $logicapp.ResourceId -Properties $u
 [whatis]: app-service-logic-what-are-logic-apps.md
 [create]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->

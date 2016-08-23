@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="08/08/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Мониторинг запросов пользователей в хранилище данных SQL Azure
@@ -34,18 +34,18 @@
 
 ## Дальнейшие действия
 
-Дополнительные советы по управлению см. в статье [Управление базами данных в хранилище данных SQL Azure][].
+Дополнительные советы по управлению см. в статье [Management overview][] (Обзор управления).
 
-<!--Image references-->
+.<!--Image references-->
 
 <!--Article references-->
-[Поиск долго выполняющихся запросов]: ./sql-data-warehouse-manage-monitor.md
-[Управление параллелизмом и рабочей нагрузкой]: ./sql-data-warehouse-develop-concurrency.md
-[Управление базами данных в хранилище данных SQL Azure]: ./sql-data-warehouse-overview-manage.md
+[Поиск долго выполняющихся запросов]: sql-data-warehouse-manage-monitor.md
+[Управление параллелизмом и рабочей нагрузкой]: sql-data-warehouse-develop-concurrency.md
+[Management overview]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
-<!--Other Web references-->
+.<!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

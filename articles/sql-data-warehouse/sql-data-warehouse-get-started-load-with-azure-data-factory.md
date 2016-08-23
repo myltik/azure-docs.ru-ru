@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Загрузка данных с помощью фабрики данных Azure 
@@ -212,12 +212,11 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 В приведенных ниже статьях содержатся подробные сведения о фабрике данных Azure. В них речь идет о базах данных SQL Azure и HDinsight, но эти сведения также относятся к хранилищу данных SQL Azure.
 
 - [Начало работы с фабрикой данных Azure][]. Это основное руководство по обработке данных с помощью фабрики данных Azure. Из него вы узнаете, как построить конвейер, в котором веб-журналы ежемесячно преобразовываются и анализируются с помощью HDInsight. Обратите внимание, что в этом руководстве копирование не используется.
-- [Руководство по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL Azure][]. В этом руководстве вы создадите конвейер в фабрике данных Azure для копирования данных из BLOB-объекта хранилища Azure в базу данных SQL Azure.
-- [Учебник. Оценка эффективности маркетинговой кампании][]. Это подробное руководство по использованию фабрики данных Azure.
+- [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных][]. В этом руководстве вы создадите конвейер в фабрике данных Azure для копирования данных из BLOB-объекта хранилища Azure в базу данных SQL Azure.
 
-<!--Image references-->
+.<!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [документации AZCopy]: ../storage/storage-use-azcopy.md
 [Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
@@ -229,15 +228,14 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase;]: sql-data-warehouse-get-started-load-with-polybase.md
-[Учебник. Оценка эффективности маркетинговой кампании]: ../data-factory/data-factory-tutorial.md
-[Руководство по копированию данных из хранилища BLOB-объектов Azure в базу данных SQL Azure]: ../data-factory/data-factory-get-started
+[Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [Начало работы с фабрикой данных Azure]: ../data-factory/data-factory-build-your-first-pipeline.md
 
-<!--MSDN references-->
+.<!--MSDN references-->
 
 <!--Other Web references-->
 [Схема обучения по фабрике данных Azure]: https://azure.microsoft.com/documentation/learning-paths/data-factory
 [портал Azure]: https://portal.azure.com
 [Загрузите демонстрационные данные]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

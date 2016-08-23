@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Пакет SDK для DocumentDB Python | Microsoft Azure" 
-	description="Сведения о пакете SDK для Python, включая даты выхода, даты вывода из эксплуатации и изменения, внесенные в каждую версию пакета SDK для DocumentDB Python." 
+	pageTitle="Пакет SDK и интерфейсы API для DocumentDB на Python | Microsoft Azure" 
+	description="Сведения о пакете SDK и интерфейсах API для Python, включая даты выхода и снятия с учета, изменения, внесенные в каждую версию пакета SDK для DocumentDB на Python." 
 	services="documentdb" 
 	documentationCenter="python" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,24 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="08/09/2016" 
 	ms.author="rnagpal"/>
 
-# Пакет SDK для DocumentDB
+# Интерфейсы API и пакеты SDK для DocumentDB
 
 > [AZURE.SELECTOR]
-- [Пакет SDK для .NET](documentdb-sdk-dotnet.md)
-- [Пакет SDK для Node.js](documentdb-sdk-node.md)
-- [Пакет SDK для Java](documentdb-sdk-java.md)
-- [Пакет SDK для Python](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.js](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##Пакет SDK для DocumentDB Python
+## Пакет SDK и API для DocumentDB на Python
 
-<table>
-<tr><td>**Скачивание**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
-<tr><td>**Участие**</td><td>[GitHub] (https://github.com/Azure/azure-documentdb-python)</td></tr>
-<tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Python] (http://azure.github.io/azure-documentdb-python/)</td></tr>
-<tr><td>**Приступая к работе**</td><td>[Начало работы с пакетом SDK для Python](documentdb-python-application.md)</td></tr>
+.<table>
+<tr><td>**Скачать пакет SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Документация по интерфейсам API**</td><td>[Справка по интерфейсам API для Python](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.html)</td></tr>
+<tr><td>**Инструкции по установке пакета SDK**</td><td>[Инструкции по установке пакета SDK для Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Участие в разработке пакета SDK**</td><td>[GitHub] (https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Начало работы**</td><td>[Начало работы с пакетом SDK для Python](documentdb-python-application.md)</td></tr>
 <tr><td>**Текущая поддерживаемая платформа**</td><td>[Python&#160;2.7](https://www.python.org/download/releases/2.7/)</td></tr>
 </table></br>
 
@@ -53,7 +56,7 @@
 - Исправления ошибок, связанных с секционированием на стороне сервера, которые позволяют использовать специальные знаки в пути partitionkey.
 
 ### <a name="1.6.0"/>[1\.6.0](https://pypi.python.org/pypi/pydocumentdb/1.6.0)
-- Реализованы [секционированные коллекции](documentdb-partition-data.md) и [определяемые пользователем уровни производительности](documentdb-performance-levels.md).
+- Реализованы [секционированные коллекции](documentdb-partition-data.md) и [пользовательские уровни производительности](documentdb-performance-levels.md).
 
 ### <a name="1.5.0"/>[1\.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
 - Добавьте сопоставители разделов "Хэш" и "Диапазон" для сегментирования приложений на разделы.
@@ -81,12 +84,12 @@
 
 Новые функции, возможности и оптимизации добавляются только в текущую версию пакета SDK, поэтому рекомендуется как можно раньше обновлять пакет SDK до последней версии.
 
-Любые запросы в DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
+Любые запросы к DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
 
 > [AZURE.WARNING]
 Поддержка всех версий пакета SDK для Azure DocumentDB для Java версии раньше **1.0.0** будет отменена **29 февраля 2016 года**.
 
-<br/>
+.<br/>
 
 | Version (версия) | Дата выпуска | Дата вывода 
 | ---	  | ---	         | ---
@@ -101,18 +104,18 @@
 | [1\.2.0](#1.2.0) | 6 августа 2015 г. |---
 | [1\.1.0](#1.1.0) | 9 июля 2015 г. |---
 | [1\.0.1](#1.0.1) | 25 мая 2015 г. |---
-| [1\.0.0](#1.0.0) | 7 апреля 2015 г. |---|
- 0.9.4-prelease | 14 января 2015 г. | 29 февраля 2016 г. 
- | 0.9.3-prelease | 9 декабря 2014 г. | 29 февраля 2016 г. 
- | 0.9.2-prelease | 25 ноября 2014 г. | 29 февраля 2016 г. 
- | 0.9.1-prelease | 23 сентября 2014 г. | 29 февраля 2016 г. 
- | 0.9.0-prelease | 21 августа 2014 г. | 29 февраля 2016 г.
+| [1\.0.0](#1.0.0) | 7 апреля 2015 г. |---
+| 0.9.4-prelease | 14 января 2015 г. | 29 февраля 2016 г. 
+| 0.9.3-prelease | 9 декабря 2014 г. | 29 февраля 2016 г. 
+| 0.9.2-prelease | 25 ноября 2014 г. | 29 февраля 2016 г. 
+| 0.9.1-prelease | 23 сентября 2014 г. | 29 февраля 2016 г. 
+| 0.9.0-prelease | 21 августа 2014 г. | 29 февраля 2016 г.
 
 ## Часто задаваемые вопросы
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## См. также
+## Дополнительные материалы
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

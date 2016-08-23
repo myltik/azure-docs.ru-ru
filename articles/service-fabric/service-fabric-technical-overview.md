@@ -82,7 +82,7 @@ Service Fabric — это платформа распределенных си�
 
 Дополнительные сведения см. в статье [Выбор модели программирования для службы](service-fabric-choose-framework.md).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+.<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
 Дополнительные сведения о платформе Service Fabric см. в следующих статьях.
 
@@ -90,4 +90,4 @@ Service Fabric — это платформа распределенных си�
 - [Разработка приложений с использованием микрослужб](service-fabric-overview-microservices.md)
 - [Сценарии приложений](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

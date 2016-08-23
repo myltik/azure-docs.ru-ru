@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/20/2016"
+   ms.date="08/09/2016"
    ms.author="larryfr"/>
 
 #Использование представления Hive с Hadoop в HDInsight
@@ -65,7 +65,7 @@ Ambari — это служебная программа для управлен
 		STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
 		SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
 
-	Эти инструкции выполняют следующие действия.
+	Эти операторы выполняют следующие действия.
 
 	- **DROP TABLE** — удаляет таблицу и файл данных, если таблица уже существует.
 	- **CREATE EXTERNAL TABLE** — создает новую внешнюю таблицу в Hive. Внешние таблицы хранят только описание самой таблицы в Hive, в то время как данные остаются в исходном расположении.
@@ -95,7 +95,7 @@ Ambari — это служебная программа для управлен
 		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
 		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-	Эти инструкции выполняют следующие действия.
+	Эти операторы выполняют следующие действия.
 
 	- **CREATE TABLE IF NOT EXISTS**: создание таблицы, если она до этого не существовала. Так как ключевое слово **EXTERNAL** не было использовано, данная таблица будет внутренней. То есть она хранится в хранилище данных Hive, и ею полностью управляет Hive. В отличие от внешних таблиц, удаление внутренних таблиц приводит также к удалению данных.
 	- **STORED AS ORC** — сохраняет данные в формате Optimized Row Columnar (ORC). Это высокооптимизированный и эффективный формат для хранения данных Hive.
@@ -199,4 +199,4 @@ Ambari — это служебная программа для управлен
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

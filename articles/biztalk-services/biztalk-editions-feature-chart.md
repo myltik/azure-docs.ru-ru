@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/16/2016"
+	ms.date="08/15/2016"
 	ms.author="mandia"/>
 
 
@@ -53,8 +53,8 @@
         <th></th>
         <th>Free (предварительный просмотр)</th>
         <th>Developer</th>
-        <th>Basic</th>
-        <th>Standard</th>
+        <th>базовая;</th>
+        <th>Стандарт</th>
         <th>Premium</th>
 </tr>
 
@@ -137,7 +137,7 @@
 <li>SFTP</li>
 <li>WCF</li>
 <li>Шина обслуживания (SB)</li>
-<li>BLOB-объект Azure</li>
+<li>Большой двоичный объект Azure</li>
 <li>Интерфейсы API REST</li>
 </ul>
 </td>
@@ -259,4 +259,4 @@ BizTalk Server на виртуальных машинах Azure предоста
 - [Службы BizTalk: имя и ключ издателя](biztalk-issuer-name-issuer-key.md)<br/>
 - [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

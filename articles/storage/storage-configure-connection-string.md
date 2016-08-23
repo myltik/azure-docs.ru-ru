@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="08/03/2016"
 	ms.author="tamram"/>
 
 # Настройка строк подключения службы хранилища Azure
@@ -163,4 +163,4 @@
 - [Использование эмулятора хранения Azure для разработки и тестирования](storage-use-emulator.md)
 - [Обучающие ресурсы для хранилища Azure](storage-explorers.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0810_2016-->

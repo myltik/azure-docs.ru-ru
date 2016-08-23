@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="03/10/2016"
+	ms.date="08/11/2016"
 	ms.author="anhoh"/>
 
 # Создание веб-приложения Node.js с использованием DocumentDB
@@ -25,7 +25,7 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
-В этом учебнике по разработке веб-приложения Java показано, как использовать службу [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) для хранения данных и обеспечения к ним доступа из приложения Java, размещенного на веб-сайтах Azure. В этом разделе вы узнаете…
+В этом учебнике по разработке веб-приложения Java показано, как использовать службу [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) для хранения данных и обеспечения к ним доступа из приложения Java, размещенного на веб-сайтах Azure. Из этой статьи вы узнаете:
 
 - Как создать основное приложение JSP в Eclipse
 - Как работать со службой Azure DocumentDB с помощью пакета [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
@@ -124,7 +124,7 @@
 
 	В этом проекте мы используем [Проект Lombok](http://projectlombok.org/) для создания конструктора, получателя, задания и построителя. Альтернационным способом можно написать следующий код вручную, либо сгенерировать его в IDE.
 
-2. Чтобы вызвать службу DocumentDB, необходимо создать новый экземпляр ** DocumentClient**. В общем случае рекомендуется повторно использовать **DocumentClient** вместо создания нового клиента для каждого последующего запроса. Мы можем повторно использовать клиент, поместив его в **DocumentClientFactory**: Здесь же необходимо вставить универсальный код ресурса (URI) и ПЕРВИЧНЫЙ КЛЮЧ, сохраненные в буфер обмена в [шаге 1](#CreateDB). Замените [YOUR\_ENDPOINT\_HERE] на URI и замените [YOUR\_KEY\_HERE] на первичный ключ.
+2. Чтобы вызвать службу DocumentDB, необходимо создать новый экземпляр **DocumentClient**. В общем случае рекомендуется повторно использовать **DocumentClient** вместо создания нового клиента для каждого последующего запроса. Мы можем повторно использовать клиент, поместив его в **DocumentClientFactory**: Здесь же необходимо вставить универсальный код ресурса (URI) и ПЕРВИЧНЫЙ КЛЮЧ, сохраненные в буфер обмена в [шаге 1](#CreateDB). Замените [YOUR\_ENDPOINT\_HERE] на URI и замените [YOUR\_KEY\_HERE] на первичный ключ.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -784,4 +784,4 @@
 
 [1]: media/documentdb-java-application/keys.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

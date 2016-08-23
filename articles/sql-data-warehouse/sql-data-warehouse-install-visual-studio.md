@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # Установка Visual Studio 2015 и SSDT для хранилища данных SQL
@@ -46,14 +46,14 @@
 
 <!--Anchors-->
 
-<!--Image references-->
+.<!--Image references-->
 
-<!--Articles-->
-[подключиться]: ./sql-data-warehouse-get-started-connect.md
+.<!--Articles-->
+[подключиться]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
 [Скачайте Visual Studio 2015]: https://www.visualstudio.com/downloads/
 [установке Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [Скачивание последней версии SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

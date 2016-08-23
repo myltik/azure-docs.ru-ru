@@ -92,11 +92,11 @@
 
 
 
-<!--Image references-->
+.<!--Image references-->
 [1]: ./media/sql-database-export/export.png
 [2]: ./media/sql-database-export/export-blade.png
 [3]: ./media/sql-database-export/export-notification.png
 [4]: ./media/sql-database-export/export-history.png
 [5]: ./media/sql-database-export/bacpac-archive.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

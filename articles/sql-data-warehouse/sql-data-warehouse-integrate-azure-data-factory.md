@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="08/08/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Работа с фабрикой данных Azure и хранилищем данных SQL
@@ -37,7 +37,7 @@
 ## Дальнейшие действия
 Общие сведения об интеграции см. в разделе [Обзор интеграции хранилища данных SQL][]. Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
 
-<!--Image references-->
+.<!--Image references-->
 
 <!--Article references-->
 
@@ -47,7 +47,7 @@
 
 <!--MSDN references-->
 
-<!--Other Web references-->
+.<!--Other Web references-->
 [документации к фабрике данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->
