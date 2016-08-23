@@ -1,31 +1,31 @@
-<properties 
+.<properties 
 	pageTitle="Приступая к работе со службой Azure Multi-Factor Authentication" 
 	description="Выберите подходящее решение многофакторной проверки подлинности, выяснив, что является объектом защиты и где находятся пользователи. После этого выберите облако, сервер Multi-Factor Authentication или службы AD FS." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtland"/>
 
-<tags 
+.<tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 #Выбор решения многофакторной безопасности
 
 Так как существует несколько вариантов использования Azure Multi-Factor Authentication, наиболее подходящая версия определяется на основе нескольких факторов. Вот эти факторы:
 
--	<a href="#-1">Что я пытаюсь защитить?</a>
--	<a href="#-2">Где находятся пользователи?</a>
+-	[Что я пытаюсь защитить?](#what-am-i-trying-to-secure)
+-	[Где находятся пользователи?](#where-are-the-users-located)
 
 В разделах этой статьи представлены рекомендации по определению каждого из них.
 
-<h2 id="-1">Что я пытаюсь защитить</h2>
+## Что я пытаюсь защитить
 
 Чтобы выяснить, какое решение многофакторной проверки подлинности вам нужно, сначала определите, что вы пытаетесь защитить с помощью второго метода проверки подлинности. Это приложение в службе Azure? Или это система удаленного доступа, к примеру? Определив объект, который необходимо защитить, мы четко увидим, где именно нужно активировать многофакторную проверку подлинности.
 
@@ -40,7 +40,7 @@
 
 
 
-<h2 id="-2">Где находятся пользователи</h2>
+## Где находятся пользователи
 
 На основе информации о местонахождении пользователей можно определить, какое решение нам нужно: облачная многофакторная проверка подлинности или локальная с использованием сервера Multi-Factor Authentication.
 
@@ -81,4 +81,4 @@ Azure AD и локальная служба AD с использованием D
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

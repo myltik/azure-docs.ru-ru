@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Узнайте, как использовать инструменты Hadoop для Visual Studio для HDInsight | Microsoft Azure"
 	description="Узнайте, как установить и использовать инструменты Hadoop для Visual Studio для HDInsight, чтобы подключиться к кластеру Hadoop и выполнить запрос Hive."
 	keywords="средства hadoop, запрос hive, visual studio"
@@ -9,13 +9,13 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags
+.<tags
 	ms.service="hdinsight"
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/25/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive
@@ -64,7 +64,7 @@
 2.	В меню **Вид** выберите **Обозреватель сервера**, чтобы открыть окно обозревателя сервера.
 3.	Разверните пункт **Azure**, а затем — **HDInsight**.
 
-	>[AZURE.NOTE]Должно открыться окно **Список задач HDInsight**. Если оно не открылось, в меню **Вид** щелкните пункт **Другие окна**, а затем — **Окно списка задач HDInsight**.  
+	>[AZURE.NOTE]Должно открыться окно **Список задач HDInsight**. Если оно не открылось, в меню **Вид** щелкните пункт **Другие окна**, а затем — **Окно списка задач HDInsight**.
 4.	Введите учетные данные подписки Azure и нажмите кнопку **Войти**. Это необходимо, только если подключение к подписке Azure из Visual Studio на данной рабочей станции ранее не выполнялось.
 5.	В обозревателе сервера отобразится список существующих кластеров HDInsight. Если кластеров нет в наличии, их можно подготовить с помощью портала Azure, оболочки Azure PowerShell или пакета SDK для HDInsight. Дополнительную информацию см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision].
 
@@ -85,7 +85,12 @@
 
 В обозревателе сервера отобразятся учетная запись хранения по умолчанию и все связанные учетные записи хранения. Если развернуть учетную запись хранения по умолчанию, отобразятся контейнеры в учетной записи хранения. Учетная запись хранения по умолчанию и контейнер по умолчанию отмечены. Можно просмотреть содержимое любого контейнера, щелкнув его правой кнопкой мыши.
 
-![Список кластеров в обозревателе сервера для инструментов HDInsight для Visual Studio][2]
+.![Список кластеров в обозревателе сервера для инструментов HDInsight для Visual Studio][2]
+
+Когда контейнер откроется, с помощью следующих кнопок вы сможете передавать, удалять и скачивать большие двоичные объекты.
+
+.![Операции с большими двоичными объектами в обозревателе сервера для инструментов HDInsight для Visual Studio](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
+
 
 ## Выполнение запроса Hive
 [Apache Hive][apache.hive] — это инфраструктура хранилища данных, созданная на основе Hadoop и обеспечивающая формирование сводных данных, запросов и анализа. Средства HDInsight для Visual Studio поддерживают выполнение запросов Hive из Visual Studio. Дополнительные сведения о Hive см. в разделе [Использование Hive с HDInsight][hdinsight.hive].
@@ -108,7 +113,7 @@
 
 	Подсчет строк можно настроить.
 
-	![Инструменты Hadoop: запрос схемы Hive в HDInsight для Visual Studio][6]
+	.![Инструменты Hadoop: запрос схемы Hive в HDInsight для Visual Studio][6]
 
 ### Создание таблиц Hive
 
@@ -120,7 +125,7 @@
 2. Настройка таблицы.
 3. Щелкните **Создать таблицу**, чтобы отправить задание для создания новой таблицы Hive.
 
-	![Инструменты Hadoop: создание таблицы Hive с помощью инструментов HDInsight для Visual Studio][7]
+	.![Инструменты Hadoop: создание таблицы Hive с помощью инструментов HDInsight для Visual Studio][7]
 
 ### <a name="run.queries"></a>Проверка и выполнение запросов Hive
 Существует два способа создания и выполнения запросов Hive:
@@ -136,12 +141,12 @@
 
 	![Инструменты Hadoop: Intellisense в инструментах HDInsight для Visual Studio][13]
 
-	![Инструменты Hadoop: Intellisense в инструментах HDInsight для Visual Studio][14]
+	.![Инструменты Hadoop: Intellisense в инструментах HDInsight для Visual Studio][14]
 
 	> [AZURE.NOTE] Предлагаются только метаданные кластеров, выбранных на панели инструментов HDInsight.
 4. (Необязательно.) Щелкните **Проверить сценарий**, чтобы проверить сценарий на синтаксические ошибки.
 
-	![Инструменты Hadoop: локальная проверка в инструментах HDInsight для Visual Studio][10]
+	.![Инструменты Hadoop: локальная проверка в инструментах HDInsight для Visual Studio][10]
 
 4. Щелкните **Отправка** или **Отправка (расширенная)**. С помощью расширенной отправки можно настроить **Имя задания**, **Аргументы**, **Дополнительные конфигурации** и **Каталог состояния** сценария:
 
@@ -149,7 +154,7 @@
 
 	После отправки задания отобразится окно **Сводка для задания Hive**.
 
-	![Сводка запроса Hadoop Hive в HDInsight][8]
+	.![Сводка запроса Hadoop Hive в HDInsight][8]
 5. Используйте кнопку **Обновить**, чтобы обновлять состояние задания, пока оно не сменится на **Завершено**.
 6. Перейдите по ссылкам внизу, чтобы просмотреть **запрос задания**, **выходные данные задания**, **журнал задания** или **журнал YARN**.
 
@@ -176,7 +181,7 @@
 2. Щелкните кластер HDInsight правой кнопкой мыши, а затем выберите пункт **Отобразить задания**. Появится список заданий Hive, запущенных на кластере.
 3. Выберите задание из списка заданий, а затем используйте окно **Сводка по заданию Hive**, чтобы открыть **запрос задания**, **выходные данные задания**, **журнал задания** или **журнал YARN**.
 
-	![Инструменты Hadoop: просмотр заданий Hive с помощью инструментов HDInsight для Visual Studio][12]
+	.![Инструменты Hadoop: просмотр заданий Hive с помощью инструментов HDInsight для Visual Studio][12]
 
 ### Быстрый путь выполнения Hive с помощью HiveServer2
 
@@ -190,7 +195,7 @@
 
 Кроме того, вы можете просматривать журналы, отображаемые в режиме реального времени, а также диаграммы задания при выполнении запроса Hive в Tez.
 
-![hdinsight, средства visual studio, быстрый путь выполнения hive](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
+.![hdinsight, средства visual studio, быстрый путь выполнения hive](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
 
 **Разница между выполнением запросов через HiveServer2 и отправкой запросов через WebHCat**
 
@@ -210,7 +215,7 @@
 
 > [AZURE.NOTE] Эта функция доступна для кластеров HDInsight начиная с версии 3.2.4.593. Она работает только для выполненных заданий (если задание отправлено через WebHCat). Показанная ниже диаграмма будет отображаться, если запрос выполняется через HiveServer2. Она работает для кластеров на основе Windows и на основе Linux.
 
-![Диаграмма производительности Tez для Hadoop Hive](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
+.![Диаграмма производительности Tez для Hadoop Hive](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
 Функция просмотра операторов Hive добавлена в этот выпуск, что позволит упростить понимание запросов Hive. Чтобы увидеть все операторы для вершины графа, просто дважды щелкните вершину графа задания. Чтобы просмотреть подробную информацию о конкретном операторе, наведите на него указатель.
 
@@ -243,14 +248,14 @@
 - [Анализ данных Twitter с помощью Hadoop в HDInsight][hdinsight.analyze.twitter.data]
 
 
-<!--Anchors-->
+.<!--Anchors-->
 [Installation]: #installation
 [Connect to your Azure subscription]: #connect-to-your-azure-subscription
 [Navigate the linked resources]: #navigate-the-linked-resources
 [Run Hive queries]: #run-hive-queries
 [Next steps]: #next-steps
 
-<!--Image references-->
+.<!--Image references-->
 [1]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png
 [2]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.linked.resources.png
 [5]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.server.explorer.png
@@ -265,7 +270,7 @@
 [14]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png
 
 
-<!--Link references-->
+.<!--Link references-->
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight.introduction]: hdinsight-hadoop-introduction.md
 [hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
@@ -277,4 +282,4 @@
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

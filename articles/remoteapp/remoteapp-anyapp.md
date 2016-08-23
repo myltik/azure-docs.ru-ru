@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Запуск любых приложений Windows на любом устройстве с помощью Azure RemoteApp | Microsoft Azure"
    description="Узнайте, как предоставить приложение Windows для общего доступа своим пользователям с помощью Azure RemoteApp."
    services="remoteapp"
@@ -7,16 +7,19 @@
    manager="mbaldwin"
    editor=""/>
 
-<tags
+.<tags
    ms.service="remoteapp"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Запуск любых приложений Windows на любом устройстве с помощью Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
 С помощью Azure RemoteApp вы можете прямо сейчас запустить приложение Windows на любом устройстве. Вашим пользователям больше не придется использовать строго определенную операционную систему (такую как Windows XP) для запуска некоторых приложений, например пользовательского приложения, написанного 10 лет назад, или приложения Office.
 
@@ -45,7 +48,7 @@
 6. Наконец выберите образ "Office профессиональный 2013". Он содержит приложения Office 2013. Обратите внимание, что этот образ подходит только для пробных коллекций и экспериментов. Он не подходит для производственных коллекций.
 7. Затем щелкните **Создать коллекцию RemoteApp**.
 
-![Создание облачной коллекции в RemoteApp](./media/remoteapp-anyapp/ra-anyappcreatecollection.png)
+.![Создание облачной коллекции в RemoteApp](./media/remoteapp-anyapp/ra-anyappcreatecollection.png)
 
 Начнется создание коллекции, которое может занять до часа.
 
@@ -109,7 +112,7 @@
 
 Теперь, когда вы научились создавать коллекции, попробуйте создать [коллекцию, которая использует Office 365](remoteapp-tutorial-o365anywhere.md). Вы также можете создать [гибридную коллекцию](remoteapp-create-hybrid-deployment.md), получающую доступ к локальной сети.
 
-<!--Image references-->
+.<!--Image references-->
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

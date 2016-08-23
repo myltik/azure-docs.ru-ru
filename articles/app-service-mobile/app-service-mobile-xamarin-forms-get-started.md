@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Приступая к работе с мобильными приложениями с помощью Xamarin.Forms"
 	description="Этот учебник поможет приступить к использованию мобильных приложений Azure в разработке для Xamarin.Forms."
 	services="app-service\mobile"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>
 
 #Создание приложения Xamarin.Forms
@@ -166,7 +166,7 @@
 [Next Steps]: #next-steps
 
 
-<!-- Images. -->
+.<!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart.png
 [8]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-vs.png
 [9]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-xs.png
@@ -180,4 +180,4 @@
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Анализ данных с помощью машинного обучения Azure | Microsoft Azure"
    description="Создание прогнозной модели машинного обучения с помощью машинного обучения Azure и данных из хранилища данных SQL Azure."
    services="sql-data-warehouse"
@@ -22,7 +22,7 @@
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 - [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
 В этом руководстве показано, как построить прогнозную модель машинного обучения с помощью машинного обучения Azure и данных из хранилища данных SQL Azure. В частности, мы создадим кампанию целевого маркетинга для Adventure Works (магазин велосипедов). Для этого мы составим прогноз вероятности того, что клиент купит велосипед.
 
@@ -70,7 +70,7 @@ FROM [dbo].[vTargetMail]
 Когда эксперимент будет завершен, щелкните порт вывода в нижней части модуля чтения и выберите **Отобразить**, чтобы просмотреть импортированные данные.![Просмотр импортированных данных][3]
 
 
-## 2\. Очистка данных
+## 2) Очистка данных
 Чтобы очистить данные, мы удалим некоторые столбцы, которые не являются значимыми для этой модели. Для этого:
 
 1. Перетащите на холст модуль **Столбцы проекта**.
@@ -114,7 +114,7 @@ FROM [dbo].[vTargetMail]
 
 Дополнительные сведения о создании прогнозных моделей машинного обучения см. в статье [Введение в машинное обучение в Azure][].
 
-<!--Image references-->
+.<!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
 [2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
 [3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
@@ -129,10 +129,10 @@ FROM [dbo].[vTargetMail]
 [12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
 
 
-<!--Article references-->
+.<!--Article references-->
 [Студию машинного обучения Azure]: https://studio.azureml.net/
 [Введение в машинное обучение в Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[загрузить их вручную]: sql-data-warehouse-get-started-load-sample-databases.md
+[загрузить их вручную]: sql-data-warehouse-load-sample-databases.md
 [Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

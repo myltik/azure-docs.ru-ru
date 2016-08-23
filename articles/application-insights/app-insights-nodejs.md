@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Добавление пакета SDK Application Insights для отслеживания работы приложения Node.js | Microsoft Azure"
 	description="Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights."
 	services="application-insights"
@@ -54,7 +54,7 @@
 ## <a name="sdk"></a>Установка пакета SDK в приложении
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Использование
@@ -215,7 +215,7 @@ server.on("listening", () => {
 
 
 
-<!--Link references-->
+.<!--Link references-->
 
 [knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
@@ -224,4 +224,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

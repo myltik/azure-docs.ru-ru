@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание хранилища данных SQL с помощью TSQL | Microsoft Azure"
    description="Сведения о создании хранилища данных SQL Azure с помощью TSQL"
    services="sql-data-warehouse"
@@ -8,13 +8,13 @@
    editor=""
    tags="azure-sql-data-warehouse"/>
 
-<tags
+.<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание базы данных хранилища данных SQL с помощью Transact-SQL (TSQL)
@@ -61,19 +61,19 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[how to create a SQL Data Warehouse from the Azure portal]: ./sql-data-warehouse-get-started-provision.md
-[Запросы к хранилищу данных SQL Azure (Visual Studio)]: ./sql-data-warehouse-get-started-connect.md
-[переноса]: ./sql-data-warehouse-overview-migrate.md
-[разработки]: ./sql-data-warehouse-overview-develop.md
-[загрузки]: ./sql-data-warehouse-overview-load.md
-[загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[how to create a SQL Data Warehouse from the Azure portal]: sql-data-warehouse-get-started-provision.md
+[Запросы к хранилищу данных SQL Azure (Visual Studio)]: sql-data-warehouse-query-visual-studio.md
+[переноса]: sql-data-warehouse-overview-migrate.md
+[разработки]: sql-data-warehouse-overview-develop.md
+[загрузки]: sql-data-warehouse-overview-load.md
+[загрузить демонстрационные данные]: sql-data-warehouse-load-sample-databases.md
 [созданию логического сервера базы данных SQL с помощью портала Azure]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [с помощью PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [создайте новую группу ресурсов]: ../resource-group-template-deploy-portal.md#create-resource-group
-[Installing Visual Studio and SSDT]: ./sql-data-warehouse-install-visual-studio.md
-[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[Installing Visual Studio and SSDT]: sql-data-warehouse-install-visual-studio.md
+[sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
-<!--MSDN references--> 
+.<!--MSDN references--> 
 [CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
@@ -83,4 +83,4 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

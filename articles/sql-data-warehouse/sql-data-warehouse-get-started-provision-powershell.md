@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание хранилища данных SQL с помощью PowerShell | Microsoft Azure"
    description="Создание хранилища данных SQL с помощью PowerShell"
    services="sql-data-warehouse"
@@ -7,13 +7,13 @@
    manager="barbkess"
    editor=""/>
 
-<tags
+.<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание хранилища данных SQL с помощью PowerShell
@@ -75,12 +75,12 @@
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [миграции]: ./sql-data-warehouse-overview-migrate.md
 [разработки]: ./sql-data-warehouse-overview-develop.md
 [загрузки]: ./sql-data-warehouse-load-with-bcp.md
-[загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[загрузить демонстрационные данные]: ./sql-data-warehouse-load-sample-databases.md
 [Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
@@ -90,15 +90,15 @@
 [с помощью PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [создайте новую группу ресурсов]: ../resource-group-template-deploy-portal.md#create-resource-group
 
-<!--MSDN references--> 
+.<!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [созданию базы данных (хранилище данных SQL Azure)]: https://msdn.microsoft.com/library/mt204021.aspx
 
-<!--Other Web references-->
+.<!--Other Web references-->
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 [цен на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
-<properties
+.<properties
 	pageTitle="Приступая к работе с Azure Active Directory Premium"
-	description="Раздел, где объясняется, как подписаться на выпуск Azure Active Directory Premium на сайте корпоративного лицензирования."
+	description="Раздел, где объясняется, как подписаться на выпуск Azure Active Directory Premium на веб-сайте корпоративного лицензирования."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Приступая к работе с Azure Active Directory Premium
@@ -29,7 +29,7 @@
 **Корпоративное лицензирование Microsoft** — служба Azure Active Directory Premium доступна по программам [Microsoft Enterprise](https://www.microsoft.com/ru-RU/licensing/licensing-programs/enterprise.aspx) (250 и более лицензий) и [Open Volume](https://www.microsoft.com/ru-RU/licensing/licensing-programs/open-license.aspx) (5–250 лицензий).
 
 
-В этом разделе показано, как приступить к работе со службой Azure Active Directory Premium, приобретенной по программе корпоративного лицензирования. Дополнительную информацию о разных выпусках Azure Active Directory см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
+В этой статье показано, как приступить к работе со службой Azure Active Directory Premium, приобретенной по программе корпоративного лицензирования. Дополнительную информацию о разных выпусках Azure Active Directory см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
 
 > [AZURE.NOTE]
 Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
@@ -107,7 +107,7 @@
 
 ![Возможности Azure][7]
 
-Вы уже могли ранее получать доступ к Azure. Кроме того, доступ к Azure Active Directory можно обновить до полного доступа к Azure путем активации дополнительных подписок Azure. В этом случае на классическом портале Azure у вас будет больше возможностей.
+Вы уже могли ранее получать доступ к Azure. Кроме того, доступ к Azure Active Directory можно обновить до полного доступа к Azure, активировав дополнительные подписки Azure. В этом случае на классическом портале Azure у вас будет больше возможностей.
 
 ![Возможности Azure][8]
 
@@ -160,4 +160,4 @@
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

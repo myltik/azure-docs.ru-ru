@@ -1,11 +1,11 @@
-<properties 
+.<properties 
 	pageTitle="Приступая к работе с сервером Azure Multi-Factor Authentication" 
 	description="Эта страница посвящена работе со службой Azure Multi-Factor Authentication. Она содержит информацию о том, как начать работу с сервером Azure MFA." 
 	services="multi-factor-authentication"
 	keywords="сервер проверки подлинности, страница активации приложения многофакторной проверки подлинности azure, загрузка сервера проверки подлинности" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtand"/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 # Приступая к работе с сервером Azure Multi-Factor Authentication
@@ -78,7 +78,7 @@
 На каждом сервере MFA порт 443 должен быть открыт для передачи данных на следующие адреса:
 
 - https://pfd.phonefactor.net
-- https://pfd2.phonefactor.net
+- .https://pfd2.phonefactor.net
 - https://css.phonefactor.net
 
 Если в брандмауэре на порту 443 есть ограничения для исходящего трафика, необходимо открыть следующие диапазоны IP-адресов:
@@ -106,8 +106,7 @@ IP-подсеть|Маска сети|Диапазон IP-адресов
 1. Дважды щелкните исполняемый файл, чтобы начать установку.
 2. На экране "Выбор папки для установки" убедитесь, что выбрана правильная папка, и нажмите кнопку "Далее".
 3. После завершения установки нажмите кнопку "Готово". Запустится мастер настройки.
-4. На экране приветствия мастера настройки установите флажок **Пропустить использование мастера настройки проверки подлинности** и нажмите кнопку **Далее**.  После этого окно мастера закроется и запустится сервер.
-![Облако](./media/multi-factor-authentication-get-started-server/skip2.png)
+4. На экране приветствия мастера настройки установите флажок **Пропустить использование мастера настройки проверки подлинности** и нажмите кнопку **Далее**. После этого окно мастера закроется и запустится сервер. ![Облако](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. На странице, с которой вы загрузили сервер, нажмите кнопку **Создать учетные данные для активации**. Скопируйте эти данные в соответствующие поля на сервере Azure MFA и нажмите кнопку **Activate** (Активировать).
 
@@ -186,4 +185,4 @@ IP-подсеть|Маска сети|Диапазон IP-адресов
 [Синхронизация с Active Directory Windows Server](multi-factor-authentication-get-started-server-dirint.md)|Сведения об установке и настройке синхронизации между Active Directory и сервером Azure Multi-Factor Authentication.
 [Развертывание веб-службы мобильных приложений сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Сведения об установке и настройке веб-службы сервера Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

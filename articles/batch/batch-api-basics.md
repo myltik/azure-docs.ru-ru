@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Обзор функций пакетной службы Azure для разработчиков | Microsoft Azure"
 	description="Ознакомьтесь с функциями пакетной службы и ее API-интерфейсов с точки зрения разработки."
 	services="batch"
@@ -7,13 +7,13 @@
 	manager="timlt"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="08/12/2016"
 	ms.author="marsma"/>
 
 # Обзор функций пакетной службы для разработчиков
@@ -145,7 +145,7 @@
 
 > [AZURE.IMPORTANT] Для всех учетных записей пакетной службы установлена **квота** по умолчанию, которая ограничивает количество **ядер** (и, следовательно, вычислительных узлов) в учетной записи. Дополнительные сведения о квотах по умолчанию и указания по [увеличению квоты](batch-quota-limit.md#increase-a-quota) (например, максимального количества ядер в учетной записи пакетной службы) см. в статье [Квоты и ограничения пакетной службы Azure](batch-quota-limit.md). Если возник вопрос о том, почему пул не использует больше определенного количества узлов, причиной может быть квота на ядра.
 
-## Job
+## Задание
 
 Задание представляет собой набор задач. Оно управляет порядком выполнения вычислений каждой задачей на вычислительных узлах в пуле.
 
@@ -181,7 +181,7 @@
 
 	Следует отметить, что командная строка не выполняется на базе оболочки и поэтому не может автоматически использовать функции оболочки, например расширение [переменных среды](#environment-settings-for-tasks) (в том числе `PATH`). Чтобы воспользоваться этими функциями, необходимо вызвать оболочку в командной строке. Это можно сделать путем запуска `cmd.exe` на узлах Windows или `/bin/sh` на узлах Linux:
 
-	`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
+	.`cmd /c MyTaskApplication.exe %MY_ENV_VAR%`
 
 	`/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
@@ -276,8 +276,8 @@
 
 | Имя переменной среды | Описание |
 |---------------------------------|--------------------------------------------------------------------------|
-| `AZ_BATCH_ACCOUNT_NAME` | Имя учетной записи, к которой относится задача |
-| `AZ_BATCH_JOB_ID` | Идентификатор задания, к которому относится задача |
+| .`AZ_BATCH_ACCOUNT_NAME` | Имя учетной записи, к которой относится задача |
+| .`AZ_BATCH_JOB_ID` | Идентификатор задания, к которому относится задача |
 | `AZ_BATCH_JOB_PREP_DIR` | Полный путь к каталогу задачи подготовки задания на узле. |
 | `AZ_BATCH_JOB_PREP_WORKING_DIR` | Полный путь к рабочему каталогу задачи подготовки задания на узле. |
 | `AZ_BATCH_NODE_ID` | Идентификатор узла, на котором выполняется задача |
@@ -432,6 +432,11 @@
 
 - Ознакомьтесь с пошаговой инструкцией по созданию примера приложения пакетной службы в статье [Начало работы с библиотекой пакетной службы Azure для .NET](batch-dotnet-get-started.md). Существует также [версия Python](batch-python-tutorial.md) этого руководства. В ней рассматривается выполнение рабочих нагрузок на вычислительных узлах Linux.
 
+- Загрузите и соберите пример проекта [обозревателя пакетной службы][github_batchexplorer], который вы сможете использовать при разработке собственных решений пакетной службы. С помощью обозревателя пакетной службы вы можете выполнять множество операций, в частности:
+  - отслеживать и изменять работу пулов, заданий и задач в своей учетной записи пакетной службы;
+  - загружать с узлов файлы `stdout.txt`, `stderr.txt` или любые другие;
+  - создавать на узлах пользователей и загружать RDP-файлы для удаленного входа.
+
 - Узнайте, как [создавать пулы вычислительных узлов Linux](batch-linux-nodes.md).
 
 - Посетите [форум по пакетной службе Azure][batch_forum] на сайте MSDN. Здесь могут задавать вопросы как начинающие, так и опытные пользователи пакетной службы.
@@ -444,7 +449,7 @@
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-
+[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
 [net_cloudjob_priority]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.priority.aspx
@@ -487,4 +492,4 @@
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

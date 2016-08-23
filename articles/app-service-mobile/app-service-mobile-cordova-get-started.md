@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Создание мобильного приложения Apache Cordova в службе мобильных приложений Azure | Microsoft Azure"
     description="Изучите этот учебник, чтобы начать работу с серверными частями мобильных приложений Azure для разработки программ Apache Cordova."
     services="app-service\mobile"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="05/02/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Создание приложения Apache Cordova
@@ -32,8 +32,8 @@
 
 Для работы с этим учебником требуется:
 
-* Компьютер с [Visual Studio Community 2015] или более поздней версии.
-* [Средства Visual Studio для Apache Cordova].
+* компьютер с [Visual Studio Community 2015] или более поздней версии;
+* [набор средств Visual Studio для Apache Cordova];
 * [Активная учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Можно также обойтись без Visual Studio и использовать командную строку Apache Cordova напрямую. Это пригодится, если вы работаете с данным учебником на компьютере Mac. Компиляция клиентских приложений Apache Cordova с помощью командной строки в этом учебнике не рассматривается.
@@ -74,8 +74,8 @@
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: http://www.visualstudio.com/
-[Средства Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
+[Visual Studio Community 2015]: http://www.visualstudio.com/
+[набор средств Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
 [Добавление аутентификации]: app-service-mobile-cordova-get-started-users.md
 [Добавление push-уведомлений]: app-service-mobile-cordova-get-started-push.md
 [Аутентификация]: app-service-mobile-auth.md
@@ -84,4 +84,4 @@
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

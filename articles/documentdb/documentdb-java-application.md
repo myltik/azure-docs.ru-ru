@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Учебник по разработке приложений Java с использованием DocumentDB | Microsoft Azure"
 	description="В этом руководстве показано, как использовать службу Azure DocumentDB для хранения данных и обеспечения доступа к ним из приложения Java, размещенного на веб-сайтах Azure."
 	keywords="Разработка приложений, учебник по базе данных, приложение java, учебник по веб-приложениям java, documentdb, azure, Microsoft azure"
@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="03/10/2016"
+	ms.date="08/11/2016"
 	ms.author="anhoh"/>
 
 # Создание веб-приложения Node.js с использованием DocumentDB
@@ -25,7 +25,7 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
-В этом учебнике по разработке веб-приложения Java показано, как использовать службу [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) для хранения данных и обеспечения к ним доступа из приложения Java, размещенного на веб-сайтах Azure. В этом разделе вы узнаете…
+В этом учебнике по разработке веб-приложения Java показано, как использовать службу [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) для хранения данных и обеспечения к ним доступа из приложения Java, размещенного на веб-сайтах Azure. Из этой статьи вы узнаете:
 
 - Как создать основное приложение JSP в Eclipse
 - Как работать со службой Azure DocumentDB с помощью пакета [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
@@ -784,4 +784,4 @@
 
 [1]: media/documentdb-java-application/keys.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

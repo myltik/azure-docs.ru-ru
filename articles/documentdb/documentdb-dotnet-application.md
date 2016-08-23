@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Руководство по ASP.NET MVC для DocumentDB: разработка веб-приложения | Microsoft Azure" 
 	description="Это руководство по ASP.NET MVC поможет вам создать веб-приложение MVC с использованием DocumentDB. С помощью этого руководства по ASP NET MVC вы сможете сохранить файл JSON и получить доступ к данным из приложения ";Список дел";, размещенного на веб-сайтах Azure." 
 	keywords="руководство по asp.net mvc, разработка веб-приложений, веб-приложение mvc, пошаговое руководство asp net mvc"
@@ -9,16 +9,16 @@
 	editor="cgronlun"/>
 
 
-<tags 
+.<tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="08/01/2016" 
+	ms.date="08/11/2016" 
 	ms.author="anhoh"/>
 
-#<a name="_Toc395809351"></a>Руководство по ASP.NET MVC. Разработка веб-приложения с использованием DocumentDB
+# <a name="_Toc395809351"></a>Руководство по ASP.NET MVC. Разработка веб-приложения с использованием DocumentDB
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -591,4 +591,4 @@
 [Основные операции CRUD в ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

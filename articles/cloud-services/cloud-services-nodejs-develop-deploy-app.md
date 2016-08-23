@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Руководство по началу работы с Node.js | Microsoft Azure"
 	description="Сведения о создании простого веб-приложения Node.js и его развертывании в облачной службе Azure."
 	services="cloud-services"
@@ -7,13 +7,13 @@
 	manager="wpickett"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Построение и развертывание приложения Node.js в облачной службе Azure
@@ -169,7 +169,7 @@
 
 	![Состояние команды Remove-AzureService][The status of the Remove-AzureService command]
 
-	> [AZURE.NOTE] При удалении службы учетная запись хранения, созданная при первоначальной публикации службы, не удаляется. Оплата за использование хранилища будет насчитываться. Дополнительную информацию об удалении учетной записи хранения см. в разделе [Удаление учетной записи хранения из подписки Azure].
+	> [AZURE.NOTE] При удалении службы учетная запись хранения, созданная при первоначальной публикации службы, не удаляется. Оплата за использование хранилища будет насчитываться. См. дополнительную информацию об [удалении учетной записи хранения из подписки Azure].
 
 ## Дальнейшие действия
 
@@ -183,11 +183,11 @@
 [пакет SDK для Azure для .NET 2.7]: http://www.microsoft.com/ru-RU/download/details.aspx?id=48178
 [Подключите PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[Удаление учетной записи хранения из подписки Azure]: ../storage/how-to-manage-a-storage-account.md
+[удалении учетной записи хранения из подписки Azure]: ../storage/how-to-manage-a-storage-account.md
 [Обзор создания размещенной службы для Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Центре разработчика Node.js]: https://azure.microsoft.com/develop/nodejs/
 
-<!-- IMG List -->
+.<!-- IMG List -->
 
 [The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
 [The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
@@ -198,4 +198,4 @@
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->
