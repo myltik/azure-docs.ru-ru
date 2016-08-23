@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Создание записей и наборов записей DNS с помощью интерфейса командной строки
@@ -38,11 +38,11 @@
 
 Чтобы создать набор записей, используйте `azure network dns record-set create`. Укажите группу ресурсов, имя зоны, относительное имя набора записей, тип записей и TTL. Если параметр `--ttl` не определен, используется стандартное значение — 4 (в секундах). По завершении этого шага будет создан пустой набор записей www.
 
-*Использование: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
+*Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>*
 
 	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
-### 2\. Добавление записей
+### 2) Добавление записей
 
 Чтобы использовать созданный набор записей www, в него нужно добавить записи. Это можно сделать с помощью `azure network dns record-set add-record`.
 
@@ -50,7 +50,7 @@
 
 Записи типа *A* (IPv4) можно добавить в набор записей www с помощью следующей команды:
 
-*Использование: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
+*Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>*
 
 	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 
@@ -66,4 +66,4 @@
 
 Дополнительные сведения об Azure DNS см. в статье [Обзор Azure DNS](dns-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

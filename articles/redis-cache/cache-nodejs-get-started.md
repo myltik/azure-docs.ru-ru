@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="05/31/2016"
+	ms.date="08/16/2016"
 	ms.author="sdanie"/>
 
 # Использование кэша Redis для Azure с Node.js
@@ -36,7 +36,7 @@
 
     npm install redis
 
-В этом учебнике используется [node\_redis](https://github.com/mranney/node_redis), но можно использовать любой клиент Node.js из перечисленных на сайте [http://redis.io/clients](http://redis.io/clients).
+В этом руководстве используется [node\_redis](https://github.com/mranney/node_redis). Примеры использования других клиентов Node.js см. в отдельных документах по [клиентам Node.js для Redis](http://redis.io/clients#nodejs).
 
 ## Создание кэша Redis в Azure
 
@@ -46,17 +46,21 @@
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
+## Безопасное подключение к кэшу с помощью SSL
 
-## Включение конечной точки без SSL
+Новейшие сборки [node\_redis](https://github.com/mranney/node_redis) обеспечивают поддержку подключения к кэшу Redis для Azure по протоколу SSL. В приведенном ниже примере показано, как подключиться к кэшу Redis для Azure с помощью конечной точки SSL на порту 6380. Подставьте вместо `<name>` имя своего кэша, а вместо `<key>` — первичный или вторичный ключ, как описано в предыдущем разделе [Получение имени узла и ключей доступа](#retrieve-the-host-name-and-access-keys).
 
-Некоторые клиенты Redis не поддерживают SSL. [Все порты, кроме SSL, отключены для новых экземпляров кэша Redis для Azure](cache-configure.md#access-ports) по умолчанию. На момент написания этой статьи клиент [node\_redis](https://github.com/mranney/node_redis) не поддерживает SSL.
-
-[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+	 var redis = require("redis");
+	
+	  // Add your cache name and access key.
+	var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
 
 ## Добавление данных в кэш и их извлечение
 
-	  var redis = require("redis");
+В следующем примере показано, как подключиться к экземпляру кэша Redis для Azure, а также как сохранить и извлечь элемент из кэша. Дополнительные примеры использования Redis с клиентом [node\_redis](https://github.com/mranney/node_redis) см. на странице [http://redis.js.org/](http://redis.js.org/).
+
+	 var redis = require("redis");
 	
 	  // Add your cache name and access key.
 	var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
@@ -80,4 +84,4 @@
 - [Включите диагностику кэша](cache-how-to-monitor.md#enable-cache-diagnostics), чтобы можно было [наблюдать](cache-how-to-monitor.md) за работоспособностью кэша.
 - Прочитайте официальную [документацию Redis](http://redis.io/documentation).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

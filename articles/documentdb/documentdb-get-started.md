@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/16/2016"
+	ms.date="08/16/2016"
 	ms.author="anhoh"/>
 
 # Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C#
@@ -57,7 +57,7 @@
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> Шаг 2. Настройка решения Visual Studio
+## <a id="SetupVS"></a> Шаг 2. Настройка решения Visual Studio
 
 1. Откройте **Visual Studio 2015** у себя на компьютере.
 2. В меню **Файл** выберите пункт **Создать**, а затем — пункт **Проект**.
@@ -69,7 +69,7 @@
 
 Отлично! Теперь, когда мы завершили настройку, начнем писать код. Вы можете найти проект готового кода для этого руководства в [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
-##<a id="Connect"></a> Этап 3: подключение к учетной записи DocumentDB
+## <a id="Connect"></a> Шаг 3. Подключение к учетной записи DocumentDB
 
 Во-первых, добавьте эти ссылки в начало приложения C# в файле Program.cs:
 
@@ -94,13 +94,13 @@
 		private const string PrimaryKey = "<your key>";
 		private DocumentClient client;
 
-Затем войдите на [портал Azure](https://portal.azure.com), чтобы получить URI и первичный ключ. URI DocumentDB и первичный ключ необходимы, чтобы предоставить приложению данные о расположении, в котором будет устанавливаться подключение, и сделать подключение вашего приложения доверенным для DocumentDB.
+Затем войдите на [портал Azure](https://portal.azure.com), чтобы получить URI и первичный ключ. Универсальный код ресурса (URI) DocumentDB и первичный ключ необходимы, чтобы предоставить приложению данные о расположении, в котором будет устанавливаться подключение, и сделать подключение вашего приложения доверенным для DocumentDB.
 
-На портале Azure перейдите к учетной записи DocumentDB из шага 1.
+На портале Azure перейдите к учетной записи DocumentDB (из шага 1) и щелкните **Ключи**.
 
-Щелкните значок с **ключом** на панели **Основные компоненты**. Скопируйте URI и вставьте скопированное значение в приложение, заменив *<ваше значение URI конечной точки>*. Скопируйте первичный ключ и вставьте скопированное значение в приложение, заменив *<ваше значение ключа>*.
+Скопируйте универсальный код ресурса (URI) и вставьте скопированное значение в приложение, заменив *<ваше значение URI конечной точки>*. Скопируйте первичный ключ и вставьте скопированное значение в приложение, заменив *<ваше значение ключа>*.
 
-![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения C#. Отображена учетная запись DocumentDB со следующими выделенными элементами: активный концентратор, кнопка "Ключи" в колонке учетной записи DocumentDB, а также значения универсального кода ресурса, первичный и вторичный ключи в колонке "Ключи".][keys]
+.![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения C#. Отображена учетная запись DocumentDB со следующими выделенными элементами: активный концентратор, кнопка "Ключи" в колонке учетной записи DocumentDB, а также значения универсального кода ресурса, первичный и вторичный ключи в колонке "Ключи".][keys]
 
 Мы запустим ознакомительное приложение, создав экземпляр **DocumentClient**.
 
@@ -200,9 +200,9 @@
 
 Поздравляем! База данных DocumentDB создана.
 
-##<a id="CreateColl"></a>Этап 5: создание коллекции  
+## <a id="CreateColl"></a>Этап 5: создание коллекции  
 
-> [AZURE.WARNING] Элемент **CreateDocumentCollectionAsync** создаст новую коллекцию с зарезервированной пропускной способностью и связанными ценовыми требованиями. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] Элемент **CreateDocumentCollectionAsync** создаст новую коллекцию с зарезервированной пропускной способностью и соответствующей ценой. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
 
 Вы можете создать [коллекцию](documentdb-resources.md#collections), используя метод [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) класса **DocumentClient**. Коллекция представляет собой контейнер документов JSON и связанную с ними логику в виде приложения JavaScript.
 
@@ -255,10 +255,10 @@
 
 Поздравляем! Коллекция документов DocumentDB создана.
 
-##<a id="CreateDoc"></a>Шаг 6. Создание документов JSON
+## <a id="CreateDoc"></a>Шаг 6. Создание документов JSON
 Вы можете создать [документ](documentdb-resources.md#documents) с помощью метода [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx), который относится к классу **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь мы можем добавить один или несколько документов. Если у вас уже есть данные, которые необходимо хранить в базе данных, можно использовать [средство миграции данных](documentdb-import-data.md) в DocumentDB.
 
-Сначала необходимо создать класс **Family**, который будет представлять объекты, хранящиеся в DocumentDB в этом примере. Мы также создадим подклассы **Parent**, **Child**, **Pet** и **Address**, используемые в классе **Family**. Обратите внимание: документы должны иметь свойство **Id**, сериализуемое как **id** в файле JSON. Для этого после метода **GetStartedDemo** необходимо добавить следующие подклассы.
+Сначала необходимо создать класс **Family**, который будет представлять объекты, хранящиеся в DocumentDB в этом примере. Мы также создадим подклассы **Parent**, **Child**, **Pet** и **Address**, используемые в классе **Family**. Обратите внимание, документы должны иметь свойство **Id**, сериализуемое как **id** в файле JSON. Для этого после метода **GetStartedDemo** необходимо добавить следующие подклассы.
 
 Скопируйте и вставьте классы **Family**, **Parent**, **Child**, **Pet** и **Address** под кодом метода **WriteToConsoleAndPromptToContinue**.
 
@@ -414,7 +414,7 @@
 
 Поздравляем! Созданы два документа DocumentDB.
 
-![На схеме представлены иерархические отношения между учетной записью, оперативной базой данных, коллекцией и документами, используемыми в руководстве по NoSQL при создании консольного приложения C#.](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+.![На схеме представлены иерархические отношения между учетной записью, оперативной базой данных, коллекцией и документами, используемыми в руководстве по NoSQL при создании консольного приложения C#.](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ##<a id="Query"></a>Этап 7: запросы ресурсов DocumentDB
 
@@ -443,7 +443,7 @@
 			// Now execute the same query via direct SQL
 			IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
 					UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-					"SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+					"SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
 					queryOptions);
 
 			Console.WriteLine("Running direct SQL query...");
@@ -594,7 +594,7 @@ DocumentDB поддерживает удаление документов JSON.
 ##<a id="GetSolution"></a> Получение полного решения NoSQL для этого руководства
 Чтобы собрать решение GetStarted, которое содержит все примеры из данной статьи, вам понадобится следующее:
 
-- Активная учетная запись Azure. Если у вас ее нет, зарегистрируйтесь, чтобы [воспользоваться бесплатной пробной версией](https://azure.microsoft.com/free/).
+- Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/).
 -   [Учетная запись DocumentDB][documentdb-create-account].
 -   решение [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started), доступное в GitHub.
 
@@ -612,4 +612,4 @@ DocumentDB поддерживает удаление документов JSON.
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

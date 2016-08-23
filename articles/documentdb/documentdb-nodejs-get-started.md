@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="node"
   ms.topic="hero-article"
-  ms.date="04/26/2016"
+  ms.date="08/11/2016"
   ms.author="anhoh"/>
 
 # Руководство по NoSQL Node.js: консольное приложение Node.js DocumentDB  
@@ -56,7 +56,7 @@
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> Шаг 2. Настройка приложения Node.js
+## <a id="SetupNode"></a> Шаг 2. Настройка приложения Node.js
 
 1. Откройте удобный для вас терминал.
 2. Перейдите в папку или каталог, где вы хотите сохранить приложение Node.js.
@@ -72,7 +72,7 @@
 
 Отлично! Теперь, когда настройка завершена, можно начать писать код.
 
-##<a id="Config"></a> Шаг 3. Настройка конфигурации приложения
+## <a id="Config"></a> Шаг 3. Настройка конфигурации приложения
 
 Откройте файл ```config.js``` в предпочитаемом текстовом редакторе.
 
@@ -598,7 +598,7 @@ DocumentDB поддерживает удаление документов JSON.
 
 Поздравляем! Вы ознакомились с руководством по Node.js и создали первое консольное приложение DocumentDB.
 
-##<a id="GetSolution"></a> Получение полного решения для руководства по Node.js
+## <a id="GetSolution"></a> Получение полного решения для руководства по Node.js
 Чтобы собрать решение GetStarted, которое содержит все примеры из данной статьи, вам понадобится следующее:
 
 -   [учетная запись DocumentDB][documentdb-create-account];
@@ -621,4 +621,4 @@ DocumentDB поддерживает удаление документов JSON.
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

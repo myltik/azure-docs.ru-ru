@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 # Развертывание пользовательского портала для сервера Azure Multi-Factor Authentication
@@ -189,4 +189,4 @@ URL-адрес пользовательского портала| Позволя
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->
