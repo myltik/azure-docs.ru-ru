@@ -3,7 +3,7 @@
    description="Основные сведения о частных IP-адресах (DIP) и управлении ими в режиме ARM с помощью портала Azure"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/04/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Как задать статический частный IP-адрес на портале Azure
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье описывается модель развертывания с использованием менеджера ресурсов. Кроме того, вы можете [управлять статическим частным IP-адресом в классической модели развертывания](virtual-networks-static-private-ip-classic-pportal.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье описывается модель развертывания с использованием менеджера ресурсов. Кроме того, вы можете [управлять статическим частным IP-адресом в классической модели развертывания](virtual-networks-static-private-ip-classic-pportal.md).
 
 [AZURE.INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -54,23 +54,23 @@
 
 6. Убедитесь, что в колонке **Параметры** заданы значения свойств, указанные ниже, и нажмите кнопку **ОК**.
 
-	-**Учетная запись хранения**: *vnetstorage*.
-	- **Сеть**: *TestVNet*.
-	- **Подсеть**: *FrontEnd*.
+	-**Учетная запись**: *vnetstorage*
+	- **Сеть**: *TestVNet*
+	- **Подсеть**: *FrontEnd*
 
-	![Колонка «Выбор размера»](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
+	.![Колонка «Выбор размера»](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 
 7. В колонке **Сводка** нажмите кнопку **ОК**. Ниже обратите внимание на элемент, отображенный в панели мониторинга.
 
-	![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-arm-pportal/figure06.png)
+	.![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-arm-pportal/figure06.png)
 
 ## Как получить информацию о статическом частном IP-адресе виртуальной машины
 
 Чтобы просмотреть информацию о статическом частном IP-адресе виртуальной машины, созданной с помощью описанные выше действий, выполните следующее.
 
-1. На портале Azure щелкните **ПРОСМОТРЕТЬ ВСЕ** > **Виртуальные машины** > **DNS01** > **Все параметры** > **Сетевые интерфейсы**, затем щелкните единственный сетевой интерфейс в списке.
+1. На портале Azure щелкните элементы **ПРОСМОТРЕТЬ ВСЕ** > **Виртуальные машины** > **DNS01** > **Все параметры** > **Сетевые интерфейсы**, затем щелкните единственный сетевой интерфейс в списке.
 
-	![Элемент «Развертывание виртуальной машины»](./media/virtual-networks-static-ip-arm-pportal/figure07.png)
+	.![Элемент «Развертывание виртуальной машины»](./media/virtual-networks-static-ip-arm-pportal/figure07.png)
 
 2. В колонке **Сетевой интерфейс** щелкните **Все параметры** > **IP-адреса** и обратите внимание на значения **Назначение** и **IP-адрес**.
 
@@ -82,7 +82,7 @@
 1. В колонке **IP-адреса**, показанной выше, в разделе **Назначение** щелкните **Статический**.
 2. Введите *192.168.1.101* в поле **IP-адрес**, а затем нажмите кнопку **Сохранить**.
 
-	![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-arm-pportal/figure09.png)
+	.![Создание виртуальной машины на портале Azure](./media/virtual-networks-static-ip-arm-pportal/figure09.png)
 
 >[AZURE.NOTE] Если после нажатия кнопки **Сохранить** вы заметите, что назначение по-прежнему остается **динамическим**, это означает, что введенный IP-адрес уже используется. Попробуйте другой IP-адрес.
 
@@ -93,8 +93,8 @@
 
 ## Дальнейшие действия
 
-- Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](../virtual-networks-reserved-public-ip).
-- Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](../virtual-networks-instance-level-public-ip).
+- Ознакомьтесь с информацией о [зарезервированных общедоступных IP-адресах](virtual-networks-reserved-public-ip.md).
+- Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](virtual-networks-instance-level-public-ip.md).
 - Ознакомьтесь с [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0810_2016-->

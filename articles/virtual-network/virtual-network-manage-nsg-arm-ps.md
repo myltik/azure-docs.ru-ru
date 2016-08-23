@@ -3,7 +3,7 @@
    description="Дополнительные сведения об управлении существующими группами безопасности сети с помощью PowerShell в Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/14/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Управление группами безопасности сети с помощью Powershell
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
@@ -472,7 +472,7 @@
 Группу безопасности сети можно удалить только в том случае, если она не связана с ресурсами. Чтобы удалить группу безопасности сети, выполните следующие действия.
 
 1. Чтобы проверить ресурсы, связанные с группой, выполните команду `azure network nsg show`, как показано в разделе [Просмотр связей для группы безопасности сети](#View-NSGs-associations).
-2. Если группа связана с сетевыми адаптерами, выполните `azure network nic set`, как показано в разделе [Отмена связи с сетевым адаптером для группы безопасности сети](#Dissociate-an-NSG-from-a-NIC), для каждого сетевого адаптера. 
+2. Если группа связана с сетевыми адаптерами, выполните `azure network nic set`, как показано в разделе [Отмена связи с сетевым адаптером для группы безопасности сети](#Dissociate-an-NSG-from-a-NIC), для каждого сетевого адаптера.
 3. Если группа связана с подсетью, выполните `azure network vnet subnet set`, как показано в разделе [Отмена связи с подсетью для группы безопасности сети](#Dissociate-an-NSG-from-a-subnet), для каждой подсети.
 4. Чтобы удалить группу безопасности сети, выполните командлет `Remove-AzureRmNetworkSecurityGroup`, как показано ниже.
 
@@ -484,4 +484,4 @@
 
 - [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

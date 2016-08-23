@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/09/2016"
 	ms.author="sdanie"/>
 
 # Защита внутренней службы веб-API с помощью Azure Active Directory и управления API
@@ -244,7 +244,7 @@ API-интерфейсы настраиваются на портале изда
 
 В поле **URL-адрес идентификатора приложения** введите URL-адрес службы управления API и добавьте несколько уникальных символов. Это могут быть любые символы. В данном примере используется **https://contoso5.portal.azure-api.net/dp**. Настроив нужные **Свойства приложения**, установите флажок для создания приложения.
 
-![Новое приложение][api-management-aad-new-application-devportal-2]
+.![Новое приложение][api-management-aad-new-application-devportal-2]
 
 ## Настройка сервера авторизации OAuth 2.0 в управлении API
 
@@ -416,4 +416,4 @@ API-интерфейсы настраиваются на портале изда
 [Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
 [Начало работы со службой управления Azure API]: api-management-get-started.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

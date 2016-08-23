@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Общие сведения о диагностике Azure"
+	pageTitle="Обзор системы диагностики Azure | Microsoft Azure"
 	description="Диагностику Azure можно использовать для отладки, оценки производительности, мониторинга, а также анализа трафика в облачных службах, на виртуальных машинах и в Service Fabric."
 	services="multiple"
 	documentationCenter=".net"
@@ -81,4 +81,4 @@
 - Узнайте, как [направлять данные диагностики Azure в Application Insights](./azure-diagnostics-configure-applicationinsights.md).
 - Если возникнут проблемы с запуском диагностики или поиском данных в таблицах хранилища Azure, см. статью [Устранение неполадок системы диагностики Azure](./azure-diagnostics-troubleshooting.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/20/2016"
+   ms.date="08/05/2016"
    ms.author="danlep"/>
 
 # Технические статьи по виртуальным машинам Windows в классической модели развертывания
 
 
-В этой статье перечислена вся документация, необходимая для создания виртуальных машин Windows с помощью классической модели развертывания и управления ими.
+В этой статье перечислена вся документация, необходимая для создания виртуальных машин Azure под управлением Windows с помощью классической модели развертывания и управления ими.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -71,11 +71,11 @@
 [How to configure an availability set for virtual machines in the classic deployment model (Создание группы доступности для виртуальных машин в классической модели развертывания)](virtual-machines-windows-classic-configure-availability.md)
 
 
-## Развертывание
+## Развернуть
 
 [Создание настраиваемой виртуальной машины под управлением Windows](virtual-machines-windows-classic-createportal.md)
 
-[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Microsoft Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
+[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Windows Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
 
 [Создание и передача виртуального жесткого диска Windows Server в Azure](virtual-machines-windows-classic-createupload-vhd.md)
 
@@ -89,8 +89,6 @@
 ## Управление
 
 [Управление виртуальными машинами с помощью Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
-
-[Эквивалентные команды диспетчера ресурсов и управления службами для задач виртуальных машин в интерфейсе командной строки Azure](virtual-machines-windows-cli-manage.md)
 	
 [Подключение классических виртуальных сетей к новым виртуальным сетям](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
 	
@@ -103,6 +101,8 @@
 [Автоматическая архивация SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-automated-backup.md)
 
 [Автоматическая установка исправлений для SQL Server на виртуальных машинах Azure](virtual-machines-windows-classic-sql-automated-patching.md)
+
+[Техническое руководство по поддерживаемому платформой переносу из классической модели в модель Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 
 
 
@@ -170,6 +170,7 @@
 
 [Tomcat](virtual-machines-windows-classic-java-run-tomcat-app-server.md)
 
+
 ## Справочные материалы
 [Команды Azure CLI в режиме управления службами Azure (ASM)](../virtual-machines-command-line-tools.md)
 
@@ -178,7 +179,6 @@
 [.NET API управления службами](https://msdn.microsoft.com/library/azure/mt420161.aspx)
 
 [Справочная документация по командлетам PowerShell для управления службами Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
-
 
 ## Устранение неполадок
 
@@ -192,4 +192,4 @@
 
 [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

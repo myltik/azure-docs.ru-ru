@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Создание и удаление паролей приложений на портале Office 365 для службы Azure Multi-Factor Authentication
 
 Если вы пользуетесь многофакторной проверкой подлинности в Office 365, вам необходимо будет создавать и удалять пароли приложений на портале Office 365.
 
-## Создание паролей приложений на портале Office 365
+## Для создания паролей приложений на портале Office 365
 --------------------------------------------------------------------------------
 
 <ol>
@@ -31,7 +31,7 @@
 ![Облако](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)
 
 <li>Справа выберите **Обновить мои телефонные номера, используемые для обеспечения безопасности учетной записи**.</li>
-<li>В верхней части страницы подтверждения выберите пароли приложений.</li>
+<li>На странице подтверждения вверху выберите пароли приложений</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/addsec.png)</center>
 
@@ -56,7 +56,7 @@
 ![Облако](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)
 
 <li>Справа выберите **Обновить мои телефонные номера, используемые для обеспечения безопасности учетной записи**.</li>
-<li>В верхней части страницы подтверждения выберите пароли приложений.</li>
+<li>На странице подтверждения вверху выберите пароли приложений</li>
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/addsec.png)</center>
 
@@ -73,4 +73,4 @@
  
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0810_2016-->

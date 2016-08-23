@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/02/2016"
+   ms.date="08/08/2016"
    ms.author="barbkess;sonyama"/>
 
 # Справочные темы по хранилищу данных SQL
@@ -30,7 +30,7 @@
 ## Дальнейшие действия
 Информацию о разработке см. в обзоре [Общие сведения о разработке][].
 
-<!--Image references-->
+.<!--Image references-->
 
 <!--Article references-->
 [Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
@@ -42,4 +42,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

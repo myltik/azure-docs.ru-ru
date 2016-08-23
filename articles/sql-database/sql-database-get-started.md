@@ -37,6 +37,8 @@
 
 [AZURE.INCLUDE [Вход](../../includes/azure-getting-started-portal-login.md)]
 
+<a name="create-logical-server-bk"></a>
+
 [AZURE.INCLUDE [Создание логического сервера базы данных SQL](../../includes/sql-database-create-new-server-portal.md)]
 
 [AZURE.INCLUDE [Создание базы данных SQL](../../includes/sql-database-create-new-database-portal.md)]
@@ -54,11 +56,11 @@
 
 - Если вы хотите переместить в Azure локальные базы данных SQL Server, изучите этот процесс в статье [Перенос базы данных SQL Server в базу данных SQL Azure](sql-database-cloud-migrate.md).
 
-- Если вы хотите загрузить данные в новую таблицу из CSV-файла с помощью программы BCP, см. статью [Load data from CSV into Azure SQL Data Warehouse (flat files)](sql-database-load-from-csv-with-bcp.md) (Загрузка данных из CSV-файла в хранилище данных SQL Azure (неструктурированные файлы)).
+- Если вы хотите загрузить данные в новую таблицу из CSV-файла с помощью программы BCP, см. статью [Загрузка данных из CSV-файла в хранилище данных SQL Azure (неструктурированные файлы)](sql-database-load-from-csv-with-bcp.md).
 
 
 ## Дополнительные ресурсы
 
 [Что такое база данных SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

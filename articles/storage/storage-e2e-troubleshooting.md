@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 
@@ -145,14 +145,14 @@
 
 1. Установите [Fiddler](http://www.telerik.com/download/fiddler).
 2. Запустите Fiddler.
-2. Выберите **Сервис | Параметры Fiddler**.
+2. Выберите **Cредства| Fiddler Options**.
 3. Убедитесь, что в диалоговом окне "Параметры" активны пункты **Захват подключений HTTPS** и **Расшифровка трафика HTTPS**, как показано ниже.
 
 ![Настройка параметров Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 В учебнике сначала производится сбор и сохранение сетевой трассировки в анализаторе сообщений, а затем создание сеанса анализа для анализа трассировки и журналов. Сбор трассировки сети в анализаторе сообщений:
 
-1. В анализаторе сообщений выберите **Файл | Быстрая трассировка | HTTPS в незашифрованном виде**.
+1. В анализаторе сообщений выберите **File| Quick Trace | Unencrypted HTTPS**.
 2. Немедленно начнется трассировка. Выберите **Остановить**, чтобы остановить трассировку и настроить для трассировки только трафик хранилища.
 3. Выберите **Изменить** для изменения сеанса трассировки.
 4. Выберите ссылку **Настройка** справа от поставщика трассировки событий Windows **Microsoft-Pef-WebProxy**.
@@ -187,9 +187,9 @@
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-AzCopy можно загрузить на странице [Загрузки Azure](https://azure.microsoft.com/downloads/). Дополнительную информацию об использовании AzCopy см. в статье [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md).
+AzCopy можно загрузить на странице [Загрузки Azure](https://azure.microsoft.com/downloads/). Дополнительные сведения об использовании AzCopy см. в статье [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md).
 
-Дополнительные сведения о скачивании журналов на стороне сервера см. в разделе [Загрузка данных журнала хранилища](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Дополнительные сведения о скачивании серверных журналов см. в разделе [Загрузка данных журнала хранилища](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## Использование анализатора сообщений (Майкрософт) для анализа данных журнала
 
@@ -210,7 +210,7 @@ AzCopy можно загрузить на странице [Загрузки Azu
 	- **Макеты представления хранилища Azure.** Макеты представления хранилища Azure — это предопределенные макеты и группировки в сетке анализа.
 4. После установки ресурсов перезапустите анализатор сообщений.
 
-![Диспетчер ресурсов в анализаторе сообщений](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
+.![Диспетчер ресурсов в анализаторе сообщений](./media/storage-e2e-troubleshooting/mma-start-page-1.png)
 
 > [AZURE.NOTE] Для целей данного учебника установите все ресурсы хранилища Azure.
 
@@ -342,18 +342,18 @@ AzCopy можно загрузить на странице [Загрузки Azu
 | Непредвиденные задержки при доставке сообщений в очередь | AzureStorageClientDotNetV4.Description содержит "Повторное выполнение неудавшейся операции". | Клиент |
 | Увеличение HTTP в PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Сеть |
 | Увеличение PercentTimeoutError | HTTP.Response.StatusCode == 500 | Сеть |
-| Увеличение PercentTimeoutError (все) |    *StatusCode == 500 | All |
-| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
-| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
-| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
-| 404 (all) | *StatusCode == 404 | All |
-| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
-| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
-| 409 (all) | *StatusCode == 409 | All |
-| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
-| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
-| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
-| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| Увеличение PercentTimeoutError (все) | *StatusCode == 500 | Все |
+| Увеличение PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Клиент |
+| Сообщения HTTP 403 (запрещено) | HTTP.Response.StatusCode == 403 | Сеть |
+| Сообщения HTTP 404 (не найдено) | HTTP.Response.StatusCode == 404 | Сеть |
+| 404 (все) | *StatusCode == 404 | Все |
+| Общие проблемы авторизации подписи доступа (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Сеть |
+| Сообщения HTTP 409 (конфликт) | HTTP.Response.StatusCode == 409 | Сеть |
+| 409 (все) | *StatusCode == 409 | Все |
+| Низкие значения PercentSuccess, или в записях журналов аналитики присутствуют операции с состоянием транзакции ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | сервер; |
+| Предупреждение Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | сервер; |
+| Диапазон времени в журналах сервера и сети | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Сервер, сеть |
+| Диапазон времени в журналах сервера | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | сервер; |
 
 
 ## Дальнейшие действия
@@ -366,4 +366,4 @@ AzCopy можно загрузить на странице [Загрузки Azu
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 - [Руководство по работе с анализатором сообщений (Майкрософт)](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

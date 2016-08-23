@@ -1,5 +1,5 @@
 <properties
- pageTitle="Сведения об экземплярах A8–A11 и Linux | Microsoft Azure"
+ pageTitle="Размеры виртуальных машин Linux: A8, A9, A10, A11 | Microsoft Azure"
  description="Ознакомьтесь с обзорной информацией и рекомендациями по использованию экземпляров A8, A9, A10 и A11 Azure для ресурсоемких вычислений для виртуальных машин Linux."
  services="virtual-machines-linux"
  documentationCenter=""
@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="05/09/2016"
+ ms.date="08/04/2016"
  ms.author="danlep"/>
 
 # Сведения об экземплярах A8, A9, A10 и A11 с большим объемом вычислений 
@@ -32,7 +32,7 @@ ms.service="virtual-machines-linux"
 
 * **MPI**: Intel MPI Library 5.x
 
-    >[AZURE.NOTE] В образах CentOS HPC, доступных в Marketplace, уже установлена библиотека Intel MPI 5.1.3.181. Чтобы использовать Intel MPI на виртуальных машинах SLES 12 HPC, ее следует установить дополнительно.
+    >[AZURE.NOTE] В образах CentOS HPC, доступных в Marketplace, уже установлена библиотека Intel MPI 5.1. Чтобы использовать Intel MPI на виртуальных машинах SLES 12 HPC, ее следует установить дополнительно.
 
 В настоящее время драйверы Azure Linux RDMA устанавливаются только при развертывании из Azure Marketplace образов SLES 12 HPC с поддержкой RDMA или CentOS HPC. Вы не сможете установить эти драйверы на других версиях виртуальных машин Linux.
 
@@ -114,4 +114,4 @@ done
 
 * Чтобы приступить к развертыванию и использованию экземпляров A8 и A9 с RDMA в Linux, изучите статью [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-classic-rdma-cluster.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0810_2016-->

@@ -64,7 +64,7 @@
 | [Быстрая очистка.](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Предварительная загрузка ресурса.](cdn-preload-endpoint.md) | | **&#x2713;** | **&#x2713;** |
 | [Базовая аналитика.](cdn-analyze-usage-patterns.md) | | **&#x2713;** | **&#x2713;** |
-| [Управление через REST API.](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Управление с помощью [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) или [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Настраиваемый модуль доставки контента на основе правил.](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Расширенные HTTP-отчеты.](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Статистика в режиме реального времени.](cdn-real-time-stats.md) | | | **&#x2713;** |
@@ -75,7 +75,7 @@
 
 Чтобы начать работу с сетью CDN, см. сведения в статье [Использование Azure CDN](./cdn-create-new-endpoint.md).
 
-Если вы являетесь действующим клиентом CDN, то сможете управлять своими конечными точками CDN с помощью [портала Microsoft Azure](https://portal.azure.com).
+Если вы являетесь действующим клиентом CDN, то сможете управлять своими конечными точками CDN с помощью [портала Microsoft Azure](https://portal.azure.com) или [PowerShell](cdn-manage-powershell.md).
 
 Чтобы увидеть сеть CDN в действии, просмотрите [видео с конференции Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
@@ -83,4 +83,4 @@
 
 Сведения о ценах на CDN см. на [этой странице](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

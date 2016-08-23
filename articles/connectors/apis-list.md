@@ -46,7 +46,7 @@
  
 |Соединители EIP ||||
 |-----------|-----------|-----------|-----------|
-|[![Значок API][as2icon]<br/>**Кодирование или декодирование</br>AS2**][as2doc]|[![Значок API][x12icon]<br/>**Кодирование или декодирование</br>X12**][x12Doc]|[![Значок API][xmlvalidateicon]<br/>**Проверка<br/>XML-файла**][xmlvalidatedoc]|[![Значок API][xmltransformicon]<br/>**Преобразование<br/>XML-файла**][xmltransformdoc]|
+|[![Значок API][as2icon]<br/>**Кодирование или декодирование</br>AS2**][as2doc]|[![Значок API][x12icon]<br/>**Кодирование или декодирование</br>X12**][x12Doc]|[![Значок API][xmlvalidateicon]<br/>**Проверка <br/>XML-файла**][xmlvalidatedoc]|[![Значок API][xmltransformicon]<br/>**Преобразование<br/>XML-файла**][xmltransformdoc]|
 |[![Значок API][flatfileicon]<br/>**Кодирование</br>неструктурированного файла**][flatfiledoc]|[![Значок API][flatfiledecodeicon]<br/>**Декодирование</br>неструктурированного файла**][flatfiledecodedoc]|||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
@@ -102,8 +102,8 @@
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Узнайте об AS2 в рамках корпоративной интеграции."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Узнайте о соглашении X12 в рамках корпоративной интеграции."
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Узнайте о неструктурированном файле в рамках корпоративной интеграции."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "Узнайте о неструктурированном файле в рамках корпоративной интеграции."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Узнайте о проверке XML в рамках корпоративной интеграции."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Узнайте о неструктурированном файле в рамках корпоративной интеграции."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Узнайте о проверке XML в рамках корпоративной интеграции."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Узнайте о преобразованиях в рамках корпоративной интеграции."
 [httpdoc]: ./connectors-native-http.md "Соединитель HTTP для выполнения вызовов HTTP."
 [http~requestdoc]: ./connectors-native-reqres.md "Действия "Запрос" и "Ответ"."
@@ -124,7 +124,7 @@
 [youtubedoc]: ./connectors-create-api-youtube.md "Подключается к YouTube и может взаимодействовать с видео и каналами."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Подключается к SparkPost и может использоваться для обмена данными."
 
-<!--Icon references-->
+.<!--Icon references-->
 [Azure-Blobicon]: ./media/apis-list/azureblob.png
 [Boxicon]: ./media/apis-list/box.png
 [FTPicon]: ./media/apis-list/ftp.png
@@ -183,4 +183,4 @@
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -3,7 +3,7 @@
    description="Дополнительные сведения о развертывании виртуальных машин с общедоступным IP-адресом с помощью интерфейса командной строки Azure в диспетчере ресурсов"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Развертывание виртуальной машины со статическим общедоступным IP-адресом с использованием портала Azure CLI
 
@@ -23,13 +23,13 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## Шаг 1. Запуск сценария
+## Шаг 1. Запуск сценария
 
 Полный сценарий Bash можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-cli.sh). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
 
@@ -64,7 +64,7 @@
 		pipName="PIPWEB1"
 		dnsName="iaasstoryws1"
 
-## Шаг 2. Создание необходимых ресурсов для виртуальных машин
+## Шаг 2. Создание необходимых ресурсов для виртуальных машин
 
 Перед созданием виртуальной машины необходимо создать группу ресурсов, виртуальную сеть, общедоступный IP-адрес и сетевой адаптер для использования с виртуальной машиной.
 
@@ -136,7 +136,7 @@
 
 2. Сохраните файл скрипта.
 
-## Шаг 4. Запуск сценария
+## Шаг 4. Запуск сценария
 
 После внесения необходимых изменений и изучения указанного выше скрипта запустите сценарий.
 
@@ -227,4 +227,4 @@
 		info:    Creating VM "WEB1"
 		info:    vm create command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0810_2016-->

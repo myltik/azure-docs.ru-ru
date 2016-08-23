@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Пакет SDK для DocumentDB .NET | Microsoft Azure" 
-	description="Сведения о пакете SDK для .NET, включая даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB .NET." 
+	pageTitle="API и пакеты SDK для DocumentDB .NET | Microsoft Azure" 
+	description="Сведения об API и пакетах SDK для .NET, в том числе даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB .NET." 
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,24 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="08/09/2016" 
 	ms.author="rnagpal"/>
 
-# Пакет SDK для DocumentDB
+# Интерфейсы API и пакеты SDK для DocumentDB 
 
 > [AZURE.SELECTOR]
-- [Пакет SDK для .NET](documentdb-sdk-dotnet.md)
-- [Пакет SDK для Node.js](documentdb-sdk-node.md)
-- [Пакет SDK для Java](documentdb-sdk-java.md)
-- [Пакет SDK для Python](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.js](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-## Пакет SDK для DocumentDB .NET
+## API и пакеты SDK для DocumentDB .NET
 
 <table>
-<tr><td>**Скачивание**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
-<tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
-<tr><td>**Примеры**</td><td>[Образцы кода .NET](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)</td></tr>
-<tr><td>**Приступая к работе**</td><td>[Начало работы с пакетом SDK для DocumentDB .NET](documentdb-get-started.md)</td></tr>
+<tr><td>**Скачать пакет SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
+<tr><td>**Документация по интерфейсам API**</td><td>[Справочная документация по API .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx)</td></tr>
+<tr><td>**Примеры**</td><td>[Примеры DocumentDB .NET](documentdb-dotnet-samples.md)</td></tr>
+<tr><td>**Начало работы**</td><td>[Начало работы с пакетом SDK для DocumentDB .NET](documentdb-get-started.md)</td></tr>
+<tr><td>**Руководство по работе веб-приложений**</td><td>[Руководство по ASP.NET MVC. Разработка веб-приложения с использованием DocumentDB] (documentdb-dotnet-application.md)</td></tr>
 <tr><td>**Текущая поддерживаемая платформа**</td><td>[Microsoft .NET Framework&#160;4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
@@ -65,20 +68,20 @@
   - Добавлена поддержка срока жизни для документов.
 
 ### <a name="1.6.3"/>[1\.6.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.3)
-  - Исправлена ошибка в упаковке Nuget пакета SDK для .NET, связанная с его упаковкой в составе решения облачной службы.
+  - Исправлена ошибка в упаковке Nuget пакета SDK для .NET, связанная с его упаковкой в составе решения облачной службы Azure.
   
 ### <a name="1.6.2"/>[1\.6.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.6.2)
-  - Реализованы [секционированные коллекции](documentdb-partition-data.md) и [определяемые пользователем уровни производительности](documentdb-performance-levels.md).
+  - Реализованы [секционированные коллекции](documentdb-partition-data.md) и [пользовательские уровни производительности](documentdb-performance-levels.md).
 
 ### <a name="1.5.3"/>[1\.5.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.3)
-  - **[Исправлено]**. Запрос к конечной точке DocumentDB порождает исключение "System.Net.Http.HttpRequestException: произошла ошибка при копировании содержимого в поток."
+  - **[Исправлено]**. Запрос к конечной точке DocumentDB приводит к появлению исключения "System.Net.Http.HttpRequestException: произошла ошибка при копировании содержимого в поток".
 
 ### <a name="1.5.2"/>[1\.5.2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.2)
   - Расширенная поддержка LINQ, включая новые операторы разбиения по страницам, условные выражения и сравнение диапазонов.
     - Оператор Take, позволяющий выполнить операцию SELECT TOP в LINQ.
     - Оператор CompareTo, позволяющий сравнивать диапазоны строк.
     - Условный оператор (?) и оператор объединения (??).
-  - **[Исправлено]**. Порождение исключения ArgumentOutOfRangeException при комбинировании проекции Model с Where-In в запросе LINQ. [#81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
+  - **[Исправлено]**. Появление исключения ArgumentOutOfRangeException при комбинировании проекции Model с Where-In в запросе LINQ. [№81](https://github.com/Azure/azure-documentdb-dotnet/issues/81)
 
 ### <a name="1.5.1"/>[1\.5.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.5.1)
  - **[Исправлено]** Если операция Select не является последней, поставщик LINQ не использовал проекции и неверно определял операцию SELECT *. [#58](https://github.com/Azure/azure-documentdb-dotnet/issues/58).
@@ -121,9 +124,9 @@
   - Поставщик LINQ поддерживает OrderBy() или OrderByDescending().
   - IndexingPolicy поддерживает Order By.
   
-		**NB: Possible breaking change** 
+		**Следует учесть: потенциальное изменение, нарушающее функциональность** 
   
-    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
+    	Если имеется существующий код, который предоставляет коллекции с пользовательской политикой индексирования, он должен быть обновлен и должен поддерживать новый класс IndexingPolicy. Если такой политики нет, это изменение на вас не влияет.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Новые классы HashPartitionResolver и RangePartitionResolver и интерфейс IPartitionResolver для поддержки секционирования данных.
@@ -149,9 +152,9 @@
 Любые запросы к DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
 
 > [AZURE.WARNING]
-Все версии пакета SDK для Azure DocumentDB для .NET версии ниже **1.0.0** будут удалены **29 февраля 2016 г.**
+Все версии пакета SDK для Azure DocumentDB для .NET версии ниже **1.0.0** будут удалены **29 февраля 2016 г.**
  
-<br/>
+.<br/>
  
 | Version (версия) | Дата выпуска | Дата вывода 
 | ---	  | ---	         | ---
@@ -175,7 +178,7 @@
 | [1\.0.0](#1.0.0) | 8 апреля 2015 г. |---
 | [0\.9.3-prelease](#0.9.x-preview) | 12 марта 2015 г. | 29 февраля 2016 г. 
 | [0\.9.2-prelease](#0.9.x-preview) | Январь 2015 г. | 29 февраля 2016 г. 
-| [0\.9.1-prelease](#0.9.x-preview) | 13 октября 2014 г. | 29 февраля 2016 г. 
+| [.9.1-prelease](#0.9.x-preview) | 13 октября 2014 г. | 29 февраля 2016 г. 
 | [0\.9.0-prelease](#0.9.x-preview) | 21 августа 2014 г. | 29 февраля 2016 г.
 
 ## Часто задаваемые вопросы
@@ -185,4 +188,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

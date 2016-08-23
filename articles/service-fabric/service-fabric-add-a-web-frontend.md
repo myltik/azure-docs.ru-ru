@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2016"
+   ms.date="08/05/2016"
    ms.author="seanmck"/>
 
 
@@ -167,9 +167,17 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 1. В проекте ASP.NET добавьте ссылку на библиотеку классов, которая содержит интерфейс `ICounter`.
 
-2. Добавьте в проект ASP.NET пакет Microsoft.ServiceFabric.Services (так же, как и для проекта библиотеки классов ранее). Будет добавлен класс `ServiceProxy`.
+2. В меню **Сборка** откройте **диспетчер конфигураций**. Вы увидите нечто вроде этого:
 
-3. В папке **Controllers** откройте класс `ValuesController`. Обратите внимание, что сейчас метод `Get` просто возвращает жестко запрограммированный строковый массив значений value1 и value2, соответствующих тем, которые мы видели ранее в браузере. Замените эту реализацию следующим кодом:
+    .![Диспетчер конфигураций, отображающий библиотеку класса как AnyCPU ("Любой ЦП")][vs-configuration-manager]
+
+    Обратите внимание, что для проекта библиотеки классов, **MyStatefulService.Interface**, выбран вариант Any CPU ("Любой ЦП"). Чтобы нормально работать с Service Fabric, его нужно вручную настроить для работы с 64-разрядной архитектурой. Щелкните раскрывающееся меню "Платформа", выберите элемент **Создать** и создайте конфигурацию 64-разрядной платформы.
+
+    .![Создание платформы для библиотеки класса][vs-create-platform]
+
+3. Добавьте в проект ASP.NET пакет Microsoft.ServiceFabric.Services (так же, как и для проекта библиотеки классов ранее). Будет добавлен класс `ServiceProxy`.
+
+4. В папке **Контроллеры** откройте класс `ValuesController`. Обратите внимание, что сейчас метод `Get` просто возвращает жестко запрограммированный строковый массив значений value1 и value2, соответствующих тем, которые мы видели ранее в браузере. Замените эту реализацию следующим кодом:
 
     ```c#
     using MyStatefulService.Interfaces;
@@ -198,14 +206,14 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
     После создания прокси-сервера мы просто вызываем метод `GetCountAsync`, который возвращает нужный результат.
 
-4. Нажмите клавишу F5 еще раз, чтобы запустить измененное приложение. Visual Studio автоматически откроет в браузере корень веб-проекта. Добавьте путь api/values, и вы увидите возвращаемое текущее значение счетчика.
+5. Нажмите клавишу F5 еще раз, чтобы запустить измененное приложение. Visual Studio автоматически откроет в браузере корень веб-проекта. Добавьте путь api/values, и вы увидите возвращаемое текущее значение счетчика.
 
-    ![Отображаемое в браузере значение счетчика с отслеживанием состояния][browser-aspnet-counter-value]
+    .![Отображаемое в браузере значение счетчика с отслеживанием состояния][browser-aspnet-counter-value]
 
     Периодически обновляйте браузер, чтобы отслеживать актуальные показания счетчика.
 
 
->[AZURE.WARNING] Веб-сервер ASP.NET Core, указанный в шаблоне и известный как Kestrel, [не поддерживается для обработки прямого трафика Интернета](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). Для рабочих сценариев рассмотрите возможность размещения конечных точек ASP.NET Core за [API управления][api-management-landing-page] или другим шлюзом с доступом в Интернет. Обратите внимание, что Service Fabric не поддерживается для развертывания в службах IIS.
+>[AZURE.WARNING] Для веб-сервера ASP.NET Core, указанного в шаблоне и известного как Kestrel, [не поддерживается обработка прямого трафика Интернета](https://docs.asp.net/en/latest/fundamentals/servers.html#kestrel). Для рабочих сценариев рассмотрите возможность размещения конечных точек ASP.NET Core за службой [управления API][api-management-landing-page] или другим шлюзом с доступом в Интернет. Обратите внимание, что Service Fabric не поддерживается для развертывания в службах IIS.
 
 
 ## Обмен данными с субъектами
@@ -230,7 +238,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 - [Дополнительные сведения о взаимодействии со службами](service-fabric-connect-and-communicate-with-services.md)
 - [Дополнительные сведения о секционировании служб с отслеживанием состояния](service-fabric-concepts-partitioning.md)
 
-<!-- Image References -->
+.<!-- Image References -->
 
 [vs-add-new-service]: ./media/service-fabric-add-a-web-frontend/vs-add-new-service.png
 [vs-new-service-dialog]: ./media/service-fabric-add-a-web-frontend/vs-new-service-dialog.png
@@ -240,9 +248,12 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-add-class-library-reference]: ./media/service-fabric-add-a-web-frontend/vs-add-class-library-reference.png
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
+[vs-configuration-manager]: ./media/service-fabric-add-a-web-frontend/vs-configuration-manager.png
+[vs-create-platform]: ./media/service-fabric-add-a-web-frontend/vs-create-platform.png
 
-<!-- external links -->
+
+.<!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
 [api-management-landing-page]: https://azure.microsoft.com/ru-RU/services/api-management/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0810_2016-->

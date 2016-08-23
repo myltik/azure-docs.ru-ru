@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/18/2016"
+   ms.date="08/08/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL
 
 Многими задачами по администрированию хранилища данных SQL можно управлять с помощью командлетов Azure PowerShell или интерфейсов API REST. Ниже представлены некоторые примеры использования команд PowerShell для автоматизации обычных задач в хранилище данных SQL. Хорошие примеры использования REST приведены в разделе [Управление вычислительными ресурсами в хранилище данных SQL Azure (REST)][].
 
-> [AZURE.NOTE]  Чтобы использовать Azure Powershell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или выше. Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с [установщика веб-платформы Майкрософт][]. Дополнительные сведения об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
+> [AZURE.NOTE]  Чтобы использовать Azure PowerShell с хранилищем данных SQL, установите Azure PowerShell 1.0.3 или более поздней версии. Чтобы узнать версию, выполните командлет **Get-Module -ListAvailable -Name Azure**. Последнюю версию можно установить с [установщика веб-платформы Майкрософт][]. Дополнительные сведения об установке последней версии Azure PowerShell см. в статье [Установка и настройка Azure PowerShell][].
 
 ## Приступая к работе с командлетами Azure PowerShell
 
-1. Откройте Windows PowerShell. 
+1. Откройте Windows PowerShell.
 2. В командной строке PowerShell выполните приведенные далее команды, чтобы войти в Azure Resource Manager Azure и выбрать свою подписку.
 
     ```PowerShell
@@ -74,7 +74,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 - [Get-AzureRmSqlDatabaseRestorePoints][]
 - [New-AzureRmSqlDatabase][]
 - [Remove-AzureRmSqlDatabase][]
-- [Restore-AzureRmSqlDatabase][] 
+- [Restore-AzureRmSqlDatabase][]
 - [Resume-AzureRmSqlDatabase][]
 - [Select-AzureRmSubscription][]
 - [Set-AzureRmSqlDatabase][]
@@ -86,9 +86,9 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 - [Создание хранилища данных SQL с помощью Powershell][]
 - [Восстановление базы данных][]
 
-Список всех задач, которые можно автоматизировать с помощью PowerShell, см. в разделе [Azure SQL Database Cmdlets][] \(Командлеты базы данных SQL Azure). Список задач, которые можно автоматизировать с помощью REST, см. в статье [Операции для баз данных SQL Azure][].
+Список всех задач, которые можно автоматизировать с помощью PowerShell, см. в разделе [Azure SQL Database Cmdlets][] (Командлеты базы данных SQL Azure). Список задач, которые можно автоматизировать с помощью REST, см. в статье [Операции для баз данных SQL Azure][].
 
-<!--Image references-->
+.<!--Image references-->
 
 <!--Article references-->
 [Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
@@ -111,7 +111,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 
-<!--Other Web references-->
+.<!--Other Web references-->
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0810_2016-->

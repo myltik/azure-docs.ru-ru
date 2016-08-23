@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="08/01/2016"
 	ms.author="genemi"/>
 
 
@@ -253,7 +253,7 @@
 - [Возможности предварительной версии](https://azure.microsoft.com/services/preview/) Microsoft Azure
 
 
-<!--Anchors-->
+.<!--Anchors-->
 [Subheading 1]: #subheading-1
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0810_2016-->

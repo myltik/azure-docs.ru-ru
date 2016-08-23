@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Пакет SDK для Node.js DocumentDB | Microsoft Azure" 
-	description="Сведения о пакете SDK для Node.js, включая даты выхода, даты выбытия и изменения, внесенные в каждой версии пакета SDK для Node.js DocumentDB." 
+	pageTitle="API и пакет SDK для DocumentDB Node.js | Microsoft Azure" 
+	description="Сведения об API и пакете SDK для Node.js, включая даты выхода, даты выбытия и изменения, внесенные в каждую версию пакета SDK для DocumentDB Node.js." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,25 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
-	ms.author="andrl"/>
+	ms.date="08/09/2016" 
+	ms.author="rnagpal"/>
 
-# Пакет SDK для DocumentDB
+# Интерфейсы API и пакеты SDK для DocumentDB
 
 > [AZURE.SELECTOR]
-- [Пакет SDK для .NET](documentdb-sdk-dotnet.md)
-- [Пакет SDK для Node.js](documentdb-sdk-node.md)
-- [Пакет SDK для Java](documentdb-sdk-java.md)
-- [Пакет SDK для Python](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.js](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##Пакет SDK для Node.js DocumentDB
+##API и пакет SDK для DocumentDB Node.js
 
 <table>
-<tr><td>**Скачивание**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-<tr><td>**Участие**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Node.js](http://azure.github.io/azure-documentdb-node/)</td></tr>
-<tr><td>**Примеры**</td><td>[Примеры кода Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
-<tr><td>**Приступая к работе**</td><td>[Приступая к работе с пакетом SDK для Node.js](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Скачать пакет SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td>**Документация по интерфейсам API**</td><td>[Справочная документация по API Node.js] (http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**Инструкции по установке пакета SDK**</td><td>[Инструкции по установке] (http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Участие в разработке пакета SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Примеры**</td><td>[Примеры кода Node.js] (documentdb-nodejs-samples.md)</td></tr>
+<tr><td>**Руководство по началу работы**</td><td>[Приступая к работе с пакетом SDK для Node.js](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Руководство по работе веб-приложений**</td><td>[Создание веб-приложения Node.js с использованием DocumentDB] (documentdb-nodejs-application.md)</td></tr>
 <tr><td>**Текущая поддерживаемая платформа**</td><td>[Node.js вер. 0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js вер. 0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js вер. 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
@@ -67,19 +71,19 @@
 
 ###<a name="1.5.4"/>1.5.4</a>
 
-- Устранена проблема [№ 100](https://github.com/Azure/azure-documentdb-node/issues/100). Выделенный агент HTTPS: избегайте изменения глобального агента для DocumentDB. Используйте выделенный агент для всех запросов lib.
+- Устранена проблема [№ 100](https://github.com/Azure/azure-documentdb-node/issues/100). Выделенный агент HTTPS: избегайте изменения глобального агента для DocumentDB. Используйте выделенный агент для всех запросов lib.
 
 ###<a name="1.5.3"/>1.5.3</a>
 
-- Устранена проблема [№ 81](https://github.com/Azure/azure-documentdb-node/issues/81). Правильная обработка тире в идентификаторах носителей.
+- Устранена проблема [№ 81](https://github.com/Azure/azure-documentdb-node/issues/81). Правильная обработка тире в идентификаторах носителей.
 
 ###<a name="1.5.2"/>1.5.2</a>
 
-- Устранена проблема [№ 95](https://github.com/Azure/azure-documentdb-node/issues/95). Предупреждение об утечке данных прослушивателя EventEmitter.
+- Устранена проблема [№ 95](https://github.com/Azure/azure-documentdb-node/issues/95). Предупреждение об утечке данных прослушивателя EventEmitter.
 
 ###<a name="1.5.1"/>1.5.1</a>
 
-- Устранена проблема [№ 92](https://github.com/Azure/azure-documentdb-node/issues/90). Переименование папки Hash в hash для систем с учетом регистра.
+- Устранена проблема [№ 92](https://github.com/Azure/azure-documentdb-node/issues/90). Переименование папки Hash в hash для систем с учетом регистра.
 
 ### <a name="1.5.0"/>1.5.0</a>
 
@@ -115,7 +119,7 @@
 
 ### <a name="1.0.3"/>1.0.3</a>
 
-- Устранена проблема [№ 40](https://github.com/Azure/azure-documentdb-node/issues/40). Реализованы конфигурации eslint и grunt в ядре и пакет SDK для обещаний.
+- Устранена проблема [№ 40](https://github.com/Azure/azure-documentdb-node/issues/40). Реализованы конфигурации eslint и grunt в пакете SDK для ядра и обещаний.
 
 ### <a name="1.0.2"/>1.0.2</a>
 
@@ -125,7 +129,7 @@
 
 - Реализована возможность запрашивать конфликты, добавляя методы readConflicts, readConflictAsync и queryConflicts.
 - Обновлена документация по API.
-- Проблема [#41](https://github.com/Azure/azure-documentdb-node/issues/41) — ошибка client.createDocumentAsync.
+- Проблема [№41](https://github.com/Azure/azure-documentdb-node/issues/41) — ошибка client.createDocumentAsync.
 
 ### <a name="1.0.0"/>1.0.0</a>
 
@@ -136,12 +140,12 @@
 
 Новые функции, возможности и оптимизации добавляются только в текущую версию пакета SDK, поэтому рекомендуется как можно раньше обновлять пакет SDK до последней версии.
 
-Любые запросы в DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
+Любые запросы к DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
 
 > [AZURE.WARNING]
 Все версии пакета SDK для Azure DocumentDB для Node.js версии ниже **1.0.0** будут удалены **29 февраля 2016 года**.
 
-<br/>
+.<br/>
 
 | Version (версия) | Дата выпуска | Дата вывода 
 | ---	  | ---	         | ---
@@ -168,7 +172,7 @@
 | [1\.0.0](#1.0.0) | 8 апреля 2015 г. |---
 | 0.9.4-prerelease | 6 апреля 2015 г. | 29 февраля 2016 г. 
 | 0.9.3-prerelease | 14 января 2015 г. | 29 февраля 2016 г. 
-| 0.9.2-prerelease | 18 декабря 2014 г. | 29 февраля 2016 г. 
+| 0.9.2-prerelease | 18 декабря 2014 г. | 29 февраля 2016 г.
 | 0.9.1-prerelease | 22 августа 2014 г. | 29 февраля 2016 г. 
 | 0.9.0-prerelease | 21 августа 2014 г. | 29 февраля 2016 г.
 
@@ -176,8 +180,8 @@
 ## Часто задаваемые вопросы
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## См. также
+## Дополнительные материалы
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0810_2016-->

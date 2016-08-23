@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring"
-	documentationCenter="monitoring"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="monitoring"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -91,7 +91,7 @@
 |metricValue |Для оповещений на основе метрик | |Фактическое значение метрики, которая вызвала оповещение|
 |threshold |Для оповещений на основе метрик | |Пороговое значение, активирующее оповещение|
 |windowSize |Для оповещений на основе метрик | |Период времени, используемый для отслеживания активности оповещения по пороговому значению. Это должен быть период от 5 минут до 1 дня. Формат длительности — ISO 8601.|
-|timeAggregation |Для оповещений на основе метрик |Average, Last, Maximum, Minimum, None, Total |	Порядок объединения данных, собранных за определенный период. Значение по умолчанию – Average (Среднее). Допустимые значения: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
+|timeAggregation |Для оповещений на основе метрик |Average, Last, Maximum, Minimum, None, Total |	Порядок объединения данных, собранных за определенный период. Значение по умолчанию — Average (Среднее). Допустимые значения: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
 |operator |Для оповещений на основе метрик | |Оператор, используемый для сравнения данных с пороговым значением.|
 |subscriptionId |Да | |GUID подписки Azure|
 |имя\_группы\_ресурсов |Да | |Имя группы затронутых ресурсов|
@@ -123,4 +123,4 @@
 
 [Использование приложения логики для отправки сообщений в очередь Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0810_2016-->
