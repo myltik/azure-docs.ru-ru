@@ -506,7 +506,7 @@ Oracle Enterprise Linux 6.4, 6.5 (только 64-разрядная верси�
 
 Кроме того, установку можно выполнить из командной строки:
 
-UnifiedAgent.exe [/Role <агент или главный целевой сервер>] [/InstallLocation <каталог установки>] [/CSIP <IP-адрес сервера конфигурации для регистрации>] [/PassphraseFilePath <путь к файлу с парольной фразой>] [/LogFilePath <путь к файлу журнала>]
+UnifiedAgent.exe [/Role <Agent/MasterTarget>] [/InstallLocation <Installation Directory>] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>] [/LogFilePath <Log File Path>]
 
 Описание
 
