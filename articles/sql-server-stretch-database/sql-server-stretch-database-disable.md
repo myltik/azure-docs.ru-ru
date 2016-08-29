@@ -20,9 +20,9 @@
 
 Для отключения растяжения базы данных для таблицы выберите **Перенос** для таблицы в SQL Server Management Studio. Затем выберите один из следующих вариантов.
 
--   **Отключить| Bring data back from Azure**. Copy the remote data for the table from Azure back to SQL Server, then disable Stretch Database for the table. This operation incurs data transfer costs, and it can't be canceled.
+-   **Отключить| Bring data back from Azure**. Скопируйте удаленные данные для таблицы из Azure обратно на SQL Server, затем отключите растяжение базы данных для таблицы. Эта операция включает расходы, связанные с передачей данных, и не может быть отменена.
 
--   **Отключить| Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
+-   **Отключить| Leave data in Azure**. Отключите растяжение базы данных для таблицы.  Оставьте удаленные данные для таблицы в Azure.
 
 Для отключения растяжения базы данных для таблицы или базы данных также можно использовать Transact-SQL.
 
@@ -40,13 +40,13 @@
 
 2.  Щелкните эту таблицу правой кнопкой мыши, выберите пункт **Перенос**, а затем — один из следующих параметров:
 
-    -   **Отключить| Bring data back from Azure**. Copy the remote data for the table from Azure back to SQL Server, then disable Stretch Database for the table. This command can't be canceled.
+    -   **Отключить| Bring data back from Azure**. Скопируйте удаленные данные для таблицы из Azure обратно на SQL Server, затем отключите растяжение базы данных для таблицы. Эта операция не может быть отменена.
 
-        >   [AZURE.NOTE] Copying the remote data for the table from Azure back to SQL Server incurs data transfer costs. For more info, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
+        >   [AZURE.NOTE] При копировании удаленных данных для таблицы из Azure обратно на сервер SQL Server взимается плата за передачу данных. Дополнительные сведения см. на странице с [ценами на передачу данных](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-        After all the remote data has been copied from Azure back to SQL Server, Stretch is disabled for the table.
+        После копирования всех удаленных данных из Azure обратно на SQL Server растяжение для таблицы отключается.
 
-    -   **Отключить| Leave data in Azure**. Disable Stretch Database for the table.  Abandon the remote data for the table in Azure.
+    -   **Отключить| Leave data in Azure**. Отключите растяжение базы данных для таблицы.  Оставьте удаленные данные для таблицы в Azure.
 
     >   [AZURE.NOTE] Отключение базы данных Stretch для таблицы не приводит к удалению удаленных данных или удаленной таблицы. Если вы хотите удалить удаленную таблицу, ее необходимо удалить с помощью портала управления Azure. За хранение удаленной таблицы в Azure по-прежнему будет взиматься плата, пока вы не удалите ее. Дополнительные сведения см. на странице с [ценами на использование базы данных SQL Server Stretch](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/).
 
