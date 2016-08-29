@@ -3,7 +3,7 @@
    description="Преобразование сегментированных баз данных для использования средств эластичной базы данных путем создания диспетчера сопоставления сегментов"
    services="sql-database"
    documentationCenter=""
-   authors="SilviaDoomra"
+   authors="ddove"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="04/26/2016"
-   ms.author="SilviaDoomra"/>
+   ms.author="ddove"/>
 
 # Перенос существующих баз данных для масштабирования
 
@@ -25,7 +25,7 @@
 
 1. Подготовка [базы данных диспетчера карты сегментов](sql-database-elastic-scale-shard-map-management.md).
 2. Создание карты сегментов.
-3. Подготовка отдельных сегментов.  
+3. Подготовка отдельных сегментов.
 2. Добавление сопоставлений на карту сегментов.
 
 Эти методы можно реализовать с помощью [клиентской библиотеки .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) или скриптов PowerShell, которые можно найти на странице [Azure SQL DB — Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (База данных SQL Azure — скрипты для средств эластичной базы данных). В приведенных здесь примерах используются скрипты PowerShell.
@@ -62,7 +62,7 @@
 
 Следует выбрать тип создаваемой карты сегментов. Этот выбор зависит от архитектуры базы данных.
 
-1. Один клиент на одну базу данных (определения терминов см. в [глоссарии](sql-database-elastic-scale-glossary.md)). 
+1. Один клиент на одну базу данных (определения терминов см. в [глоссарии](sql-database-elastic-scale-glossary.md)).
 2. Несколько клиентов на одну базу данных (два типа):
 	3. Сопоставление по спискам
 	4. Сопоставление по диапазонам
@@ -160,7 +160,7 @@
 	Get-Shards -ShardMap $ShardMap 
 	Get-Mappings -ShardMap $ShardMap 
 
-## Сводка
+## Резюме
 
 После завершения настройки можно начать работу с клиентской библиотекой эластичной базы данных. Кроме того, можно воспользоваться [маршрутизацией, зависящей от данных](sql-database-elastic-scale-data-dependent-routing.md), и [формированием запросов по нескольким сегментам](sql-database-elastic-scale-multishard-querying.md).
 
@@ -181,10 +181,10 @@
 
 Все возникшие вопросы задавайте на [форуме по базам данных SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted), а запросы новых функций оставляйте на [форуме отзывов и предложений по базам данных SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
-<!--Image references-->
+.<!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
 [2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png
 [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

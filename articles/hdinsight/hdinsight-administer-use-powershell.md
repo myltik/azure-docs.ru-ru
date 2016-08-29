@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell
@@ -103,7 +103,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 	В кластере HDInsight доступен веб-интерфейс Storm.
 
-	![hdinsight, storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![HDInsight, storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
 
@@ -150,7 +150,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 >[AZURE.NOTE] Предоставляя или отменяя доступ, вы сбрасываете имя пользователя и пароль кластера.
 
-Это также можно сделать через портал. См. статью [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal].
+Это также можно сделать через портал. См. раздел [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
 
 ##Обновление учетных данных пользователя HTTP
 
@@ -172,7 +172,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 ##Поиск группы ресурсов
 
-В режиме ARM каждый кластер HDInsight относится к группе ресурсов Azure. Поиск группы ресурсов:
+В режиме Resource Manager каждый кластер HDInsight относится к группе ресурсов Azure. Поиск группы ресурсов:
 
 	$clusterName = "<HDInsight Cluster Name>"
 	
@@ -239,4 +239,4 @@ Azure PowerShell — это полнофункциональная среда с
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

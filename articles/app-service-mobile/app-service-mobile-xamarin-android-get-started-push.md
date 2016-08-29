@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="08/12/2016"
 	ms.author="glenga"/>
 
 # Добавление push-уведомлений в приложение Xamarin.Android
@@ -73,10 +73,10 @@
 	![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 
 
-<!-- URLs. -->
+.<!-- URLs. -->
 [Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
 [Создание приложения Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

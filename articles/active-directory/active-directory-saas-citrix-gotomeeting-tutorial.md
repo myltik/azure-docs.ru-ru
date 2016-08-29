@@ -12,7 +12,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/26/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с Citrix GoToMeeting  
@@ -75,7 +75,7 @@
 
 1.  На странице интеграции с приложением **Citrix GoToMeeting** нажмите **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Включить единый вход](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Включение единого входа")
+    ![Включение единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768997.png "Включение единого входа")
 
 2.  На странице **Как пользователи должны входить в Citrix GoToMeeting?** выберите **Единый вход Microsoft Azure AD**.
 
@@ -84,7 +84,7 @@
 
 3. На странице **Настроить параметры приложения** нажмите кнопку **Далее**.
 
-	![Доступ с единым входом](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Включение единого входа")
+	![Включение единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Включение единого входа")
 
 4.  На странице **Настройка единого входа в Citrix GoToMeeting** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата на свой компьютер.
 
@@ -163,7 +163,7 @@
 
 2.  На странице интеграции приложения **Citrix GoToMeeting** щелкните **Назначить пользователей**.
 
-    ![Назначить пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769003.png "Назначить пользователей")
+    ![Назначение пользователей](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769003.png "Назначение пользователей")
 
 3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
@@ -183,4 +183,4 @@
 
 Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

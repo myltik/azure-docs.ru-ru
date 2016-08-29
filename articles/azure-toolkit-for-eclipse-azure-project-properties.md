@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
@@ -48,7 +48,7 @@
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
-<!-- URL List -->
+.<!-- URL List -->
 
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
@@ -57,8 +57,8 @@
 [Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
-<!-- IMG List -->
+.<!-- IMG List -->
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

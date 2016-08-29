@@ -1,14 +1,14 @@
 <properties
-    pageTitle="Создание пространства имен концентратора событий, самого концентратора событий и группы потребителей с помощью шаблона Azure Resource Manage | Microsoft Azure"
-    description="Создание пространства имен концентратора событий, самого концентратора событий и группы потребителей с помощью шаблона Azure Resource Manage"
-    services="service-bus"
+    pageTitle="Создание пространства имен концентратора событий, самого концентратора событий и группы потребителей с помощью шаблона Azure Resource Manager | Microsoft Azure"
+    description="Создание пространства имен концентраторов событий, концентратора событий и группы потребителей с помощью шаблона Azure Resource Manager."
+    services="event-hubs"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus"
+    ms.service="event-hubs"
     ms.devlang="tbd"
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
@@ -18,7 +18,7 @@
 
 # Создание пространства имен концентратора событий, самого концентратора событий и группы потребителей с помощью шаблона Azure Resource Manage
 
-Из этой статьи вы узнаете, как использовать шаблон Azure Resource Manage, создающий пространство имен концентратора событий, сам концентратор событий и группу потребителей. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
+Из этой статьи вы узнаете, как использовать шаблон Azure Resource Manager, создающий пространство имен концентратора событий, сам концентратор событий и группу потребителей. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или изменить его в соответствии с вашими требованиями.
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][].
 
@@ -166,4 +166,4 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Шаблон группы потребителей и концентратора событий служебной шины]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-eventhub-and-consumergroup/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

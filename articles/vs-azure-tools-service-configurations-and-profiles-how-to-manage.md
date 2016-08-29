@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/01/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Управление конфигурациями и профилями службы
@@ -131,4 +131,4 @@
 
 Дополнительные сведения о настройке других частей проекта Azure в Visual Studio см. в статье [Настройка проекта Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

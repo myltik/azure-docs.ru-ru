@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 
@@ -64,7 +64,7 @@
 
 Вы успешно выполнили развертывание в промежуточной среде и обновили развертывание в рабочей среде, выполнив переключение виртуальных IP-адресов в развертывании в промежуточной среде.
 
-## Дополнительные ресурсы
+## дополнительные ресурсы.
 
 - [Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]
 
@@ -75,4 +75,4 @@
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -34,7 +34,7 @@
 
 Чтобы эффективно использовать PowerShell, необходимо понимать иерархию объектов и знать, откуда следует начинать резервное копирование.
 
-.![Иерархия объектов служб восстановления](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+![Иерархия объектов служб восстановления](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 Справку по командлету PowerShell AzureRmRecoveryServicesBackup см. в статье [Командлеты служб архивации и восстановления Azure](https://msdn.microsoft.com/library/mt723320.aspx) в библиотеке Azure. Справку по командлету PowerShell AzureRmRecoveryServicesVault см. в статье [Командлеты службы восстановления Azure](https://msdn.microsoft.com/library/mt643905.aspx).
 
@@ -260,7 +260,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 
 На представленной ниже схеме показана иерархия объектов от RecoveryServicesVault до BackupRecoveryPoint.
 
-.![Иерархия объектов служб восстановления с BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
+![Иерархия объектов служб восстановления с BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
 Чтобы восстановить данные резервной копии, определите архивный элемент и точку восстановления, которая содержит данные на определенный момент времени. Затем примените **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)**, чтобы восстановить данные из хранилища в учетную запись клиента.
 
@@ -339,10 +339,9 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 2. Задайте контекст хранилища Azure и восстановите файл конфигурации JSON.
 
     ```
-    Set -AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName testvault
+    PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName testvault
     PS C:\> $destination_path = "C:\vmconfig.json"
-    Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination
-    PS C:\> $destination_path -Context $storageContext
+    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
 
@@ -394,4 +393,4 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 
 Если вы предпочитаете использовать PowerShell для взаимодействия с ресурсами Azure, ознакомьтесь со статьей о защите Windows Server с помощью PowerShell: [Развертывание службы архивации для Windows Server и управление ею](./backup-client-automation.md). Доступна и другая статья, посвященная тому, как использовать PowerShell для управления службой архивации DPM: [Развертывание службы архивации для DPM и управление ею](./backup-dpm-automation.md). Обе эти статьи имеют две версии — для развертывания с помощью Resource Manager и для классической модели развертывания.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

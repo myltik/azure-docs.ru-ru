@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/12/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Интеграция пакета Android SDK с Azure Mobile Engagement
@@ -36,9 +36,9 @@
 
 Можно добавить такие функции:
 
-1. [дополнительные параметры отчетов](mobile-engagement-android-advanced-reporting.md);
-2. [параметры отчетов о местонахождении](mobile-engagement-android-location-reporting.md);
-3. [дополнительные параметры конфигурации](mobile-engagement-android-advanced-configuration.md).
+1. [дополнительные параметры отчетов;](mobile-engagement-android-advanced-reporting.md)
+2. [параметры отчетов о местонахождении;](mobile-engagement-android-location-reporting.md)
+3. [дополнительные параметры конфигурации.](mobile-engagement-android-advanced-configuration.md)
 
 ### Уведомления:
 [Интеграция модуля Reach (уведомления) в приложение Android](mobile-engagement-android-integrate-engagement-reach.md)
@@ -61,6 +61,6 @@
 
 ## Процедуры обновления
 
-Если вы уже интегрировали более старую версию нашего пакета SDK в свое приложение, обратитесь к разделу [Процедуры обновления](mobile-engagement-android-upgrade-procedure.md).
+Если вы уже интегрировали более старую версию нашего пакета SDK в приложение, ознакомьтесь с разделом [Процедуры обновления](mobile-engagement-android-upgrade-procedure.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

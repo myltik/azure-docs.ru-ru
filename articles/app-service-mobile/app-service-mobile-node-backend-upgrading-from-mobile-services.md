@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile"
 	ms.devlang="node"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="08/11/2016"
 	ms.author="adrianha"/>
 
 # Обновление существующего приложения мобильной службы Azure Node.js до службы приложений
 
 Мобильное приложение службы приложений — это новый способ сборки мобильных приложений с помощью Microsoft Azure. Дополнительные сведения см. в разделе [Что такое мобильные приложения?].
 
-В этой статье приведен процесс обновления существующего серверного приложения Node.js мобильных служб Azure до нового мобильного приложения службы приложений. Во время обновления существующее приложение мобильных служб может продолжать работать. Если необходимо обновить приложение с серверной частью Node.js, см. статью [Обновление существующего приложения мобильной службы Azure .NET до службы приложений](./app-service-mobile-net-upgrading-from-mobile-services.md).
+В этой статье описывается процесс обновления существующего серверного приложения Node.js мобильных служб Azure до нового мобильного приложения службы приложений. Во время обновления существующее приложение мобильных служб может продолжать работать. Если необходимо обновить приложение с серверной частью Node.js, см. статью [Обновление существующего приложения мобильной службы Azure .NET до службы приложений](./app-service-mobile-net-upgrading-from-mobile-services.md).
 
 При обновлении мобильного серверного приложения до службы приложений Azure оно получает доступ ко всем возможностям службы приложений. Тарификация при этом будет осуществляться в соответствии с [ценами службы приложений], а не мобильных служб.
 
@@ -172,7 +172,7 @@
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[ценами службы приложений]: https://azure.microsoft.com/ru-RU/pricing/details/app-service/
+[ценами службы приложений]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [методам]: ../app-service/app-service-authentication-overview.md
 [быстрому запуску проверки подлинности]: app-service-mobile-auth.md
@@ -192,4 +192,4 @@
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
 # Использование машинного обучения Azure с хранилищем данных SQL
@@ -45,7 +45,7 @@
 1. Выберите базу данных SQL Azure в качестве базы данных-источника.
 2. Имя сервера баз данных: введите имя сервера. Эти сведения можно узнать на [портале Azure][].
 
-.![][server_name]
+![][server_name]
 
 3. Имя базы данных: введите имя базы данных на сервере, который только что был указан.
 4. Имя учетной записи пользователя сервера: введите имя пользователя учетной записи, которая имеет разрешения на доступ к базе данных.
@@ -120,8 +120,6 @@ FROM dbo.DimProduct;
 
 ## Дальнейшие действия
 
-Общие сведения об интеграции см. в разделе [Обзор интеграции хранилища данных SQL][].
-
 Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
 
 .<!--Image references-->
@@ -134,19 +132,18 @@ FROM dbo.DimProduct;
 [drag_writer]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-writer.png
 [writer_properties]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-writer-properties.png
 
-<!--Article references-->
+.<!--Article references-->
 
 [Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
-[Обзор интеграции хранилища данных SQL]: ./sql-data-warehouse-overview-integration.md
 [Создание эксперимента]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
 [Основные сведения о машинном обучении Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Студии машинного обучения Microsoft Azure]: https://studio.azureml.net/Home
 [портале Azure]: https://portal.azure.com/
 
-<!--MSDN references-->
+.<!--MSDN references-->
 
 .<!--Other Web references-->
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

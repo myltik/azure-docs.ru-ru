@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690945.aspx -->
@@ -380,7 +380,7 @@
 
 ![][ic719481]
 
-В этом диалоговом окне можно включить разгрузку SSL, что позволяет легко включать поддержку протокола HTTPS в развертывании Java в Azure без необходимости настройки SSL на сервере приложений Java. Дополнительные сведения см. в статьях [разгрузка SSL][] и [Практическое использование разгрузки SSL][].
+В этом диалоговом окне можно включить разгрузку SSL, что позволяет легко включать поддержку протокола HTTPS в развертывании Java в Azure без необходимости настройки SSL на сервере приложений Java. Дополнительные сведения см. в статьях [Разгрузка SSL][] и [Практическое использование разгрузки SSL][].
 
 ## См. также ##
 
@@ -414,7 +414,7 @@
 [Сходство сеанса]: http://go.microsoft.com/fwlink/?LinkID=699548
 [разгрузка SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
 
-<!-- IMG List -->
+.<!-- IMG List -->
 
 [ic789599]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic789599.png
 [ic719499]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719499.png
@@ -439,4 +439,4 @@
 [ic719512]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719512.png
 [ic719481]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719481.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

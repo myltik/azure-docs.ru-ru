@@ -13,12 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/27/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 
 
 # Использование командлетов Windows PowerShell с Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
  Для администрирования и обслуживания коллекций можно использовать командлеты PowerShell для Azure RemoteApp. Используйте следующие сведения, чтобы приступить к работе.
 
@@ -36,7 +39,7 @@
 
 1.	Скачайте и установите [командлеты Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
 2.	Запустите Microsoft Azure PowerShell.
-3.	Выполните команду **Add-AzureAccount**, чтобы пройти проверку подлинности в своей подписке Azure. При появлении запроса введите имя пользователя и пароль, которые используются для входа на портал Azure.
+3.	Выполните команду **Add-AzureAccount** для аутентификации в своей подписке Azure. При появлении запроса введите имя пользователя и пароль, которые используются для входа на портал Azure.
 4.	Выполните команду **Get-AzureSubscription**, чтобы получить список подписок, связанных с вашей учетной записью.
 5.	Выполните команду **Select-AzureSubscription** и укажите имя или идентификатор подписки, которые будут использоваться в консоли PowerShell.
 
@@ -111,4 +114,4 @@
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

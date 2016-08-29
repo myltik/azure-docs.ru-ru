@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ (предварительная версия) | Microsoft Azure"
 	description="Управление контейнерами BLOB-объектов и BLOB-объектами Azure с помощью обозревателя хранилищ (предварительная версия)"
-	services="visual-studio-online"
+	services="storage"
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/14/2016"
+	ms.date="08/17/2016"
 	ms.author="tarcher" />
 
 # Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ (предварительная версия)
@@ -277,4 +277,4 @@
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Использование табличного хранилища из PHP
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] .<br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Обзор
 
@@ -48,7 +48,7 @@
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
 
-> [AZURE.NOTE] В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. Если вы установили эти библиотеки вручную, необходимо добавить ссылку на файл автозагрузчика <code>WindowsAzure.php</code>.
+> [AZURE.NOTE] В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. Если вы установили эти библиотеки вручную, то необходимо добавить ссылку на файл автозагрузчика <code>WindowsAzure.php</code>.
 
 	require_once 'vendor/autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -87,7 +87,7 @@
 
 ## Создание таблицы
 
-Объект **TableRestProxy** позволяет создать таблицу с помощью метода **createTable**. При создании таблицы можно задать время ожидания службы таблиц. (Дополнительные сведения о времени ожидания службы таблиц см. в разделе [Настройка времени ожидания для операций службы таблиц][table-service-timeouts]).
+Объект **TableRestProxy** позволяет создать таблицу с помощью метода **createTable**. При создании таблицы можно задать время ожидания службы таблиц. (Дополнительные сведения о времени ожидания службы таблиц см. в разделе [Настройка времени ожидания для операций службы таблиц][table-service-timeouts].)
 
 	require_once 'vendor\autoload.php';
 
@@ -188,7 +188,7 @@
 	}
 
 
-## Получение отдельной сущности
+## Извлечение одной сущности
 
 Метод **TableRestProxy->getEntity** позволяет получить одну сущность, запрашивая ее значения `PartitionKey` и `RowKey`. В примере ниже ключ раздела `tasksSeattle` и ключ строки `1` передаются в метод **getEntity**.
 
@@ -466,7 +466,7 @@
 
 Вы изучили основные сведения о службе таблиц Azure. Дополнительные сведения о более сложных задачах хранилища можно найти по следующим ссылкам.
 
-- Посетите [блог команды разработчиков хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+- Посетите [блог команды разработчиков службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
 Дополнительные сведения также можно найти в [Центре разработчика PHP](/develop/php/).
 
@@ -478,4 +478,4 @@
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->
