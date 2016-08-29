@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка доступа WinRM для виртуальных машин в Azure Resource Manager | Microsoft Azure"
 	description="Узнайте, как настроить доступ WinRM для использования с виртуальной машиной Azure Resource Manager."
 	services="virtual-machines-windows"

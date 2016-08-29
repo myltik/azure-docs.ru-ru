@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание набора записей и записей зоны DNS с помощью портала Azure | Microsoft Azure"
    description="Сведения о создании записей узла для Azure DNS, а также наборов записей и записей с помощью портала Azure"
    services="dns"
@@ -8,7 +8,7 @@
    editor=""
    tags="azure-resource-manager"/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"

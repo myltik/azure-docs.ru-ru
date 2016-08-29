@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Устранение неполадок хранилища данных SQL Azure | Microsoft Azure"
    description="Диагностика и устранение неполадок хранилища данных SQL Azure."
    services="sql-data-warehouse"

@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Переход с платформы RemoteApp VNET на платформу Azure VNET | Microsoft Azure"
     description="Сведения о переходе с платформы RemoteApp VNET на платформу Azure VNET"
     services="remoteapp"
@@ -6,7 +6,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

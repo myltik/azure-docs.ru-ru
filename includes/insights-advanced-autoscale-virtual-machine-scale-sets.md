@@ -13,7 +13,7 @@
 
 2. После создания набора масштабирования перейдите к его ресурсу из Azure Resource Explorer. Под узлом Microsoft.Insights вы увидите следующую структуру.
 
-	.![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+	![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
 
 	С помощью шаблона была создана конфигурация автомасштабирования по умолчанию **autoscalewad**. Справа можно просмотреть полное определение этой конфигурации автомасштабирования. В данном случае в конфигурации автомасштабирования по умолчанию используется правило масштабирования на основе загрузки ЦП в процентах.
 
@@ -44,7 +44,7 @@
 
 6. Нажмите кнопку «Изменить». **Замените** элемент profiles в конфигурации автомасштабирования следующим текстом.
 
-	.![профили](./media/insights-advanced-autoscale-vmss/profiles.png)
+	![профили](./media/insights-advanced-autoscale-vmss/profiles.png)
 
 	```
 	{

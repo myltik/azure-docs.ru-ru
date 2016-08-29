@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление проверки подлинности в Apache Cordova с помощью мобильных приложений | Служба приложений Azure"
 	description="Узнайте, как использовать мобильные приложения в службе приложений Azure для аутентификации пользователей приложения Apache Cordova с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
 	services="app-service\mobile"

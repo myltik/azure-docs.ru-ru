@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Настройка веб-приложений в службе приложений Azure" 
 	description="Настройка веб-приложения в службе приложений Azure" 
 	services="app-service\web" 
@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="app-service" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 

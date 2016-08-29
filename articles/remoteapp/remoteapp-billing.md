@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Изменение выставления счетов за Azure RemoteApp | Microsoft Azure"
     description="Узнайте, как остановить выставление счетов за Azure RemoteApp."
     services="remoteapp"

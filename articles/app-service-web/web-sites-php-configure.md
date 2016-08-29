@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка PHP в веб-приложениях службы приложений Azure | Microsoft Azure"
 	description="Узнайте, как настроить установку PHP по умолчанию или добавить пользовательскую установку PHP для веб-приложений в службе приложений Azure."
 	services="app-service"
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
@@ -158,7 +158,7 @@
 
 8. Нажмите кнопку **Сохранить** в верхней части колонки **Параметры веб-приложения**.
 
-	.![Сохранение параметров конфигурации][save-button]
+	![Сохранение параметров конфигурации][save-button]
 
 <a name="composer" />
 ## Практическое руководство. Включение автоматизации Composer в Azure

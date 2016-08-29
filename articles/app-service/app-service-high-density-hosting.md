@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Высокая плотность размещения в службе приложений Azure | Microsoft Azure"
 	description="Высокая плотность размещения в службе приложений Azure"
 	authors="btardif"

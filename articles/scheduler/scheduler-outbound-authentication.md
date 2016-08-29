@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Исходящая проверка подлинности планировщика"
  description="Исходящая проверка подлинности планировщика"
  services="scheduler"
@@ -6,7 +6,7 @@
  authors="krisragh"
  manager="dwrede"
  editor=""/>
-.<tags
+<tags
  ms.service="scheduler"
  ms.workload="infrastructure-services"
  ms.tgt_pltfrm="na"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных из источников OData | Фабрика данных Azure" 
 	description="Узнайте, как перемещать данные из источников OData с помощью фабрики данных Azure." 
 	services="data-factory" 

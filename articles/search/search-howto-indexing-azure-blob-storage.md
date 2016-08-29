@@ -1,4 +1,4 @@
-.<properties
+<properties
 pageTitle="Индексирование хранилища BLOB-объектов Azure с помощью службы поиска Azure"
 description="Узнайте, как индексировать хранилище BLOB-объектов Azure и извлекать текст из документов с помощью службы поиска Azure."
 services="search"
@@ -7,7 +7,7 @@ authors="chaosrealm"
 manager="pablocas"
 editor="" />
 
-.<tags
+<tags
 ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  

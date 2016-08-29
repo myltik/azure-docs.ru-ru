@@ -1,5 +1,5 @@
 
-.<properties
+<properties
 	pageTitle="Использование группы для управления доступом к приложениям SaaS | Microsoft Azure"
 	description="Использование групп в Azure Active Directory Premium или Basic для предоставления доступа к приложениям SaaS, интегрированным с Azure Active Directory."
 	services="active-directory"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что представляют собой различные компоненты, доступные в кластере HDInsight | Microsoft Azure"
 	description="HDInsight поддерживает несколько компонентов и версий кластера Hadoop, которые могут быть развернуты в любое время. См. поддерживаемые версии платформы данных HortonWorks Data Platform (HDP) и Hadoop."
 	services="hdinsight"

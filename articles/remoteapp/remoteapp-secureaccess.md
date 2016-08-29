@@ -1,5 +1,5 @@
 
-.<properties 
+<properties 
     pageTitle="Защита доступа к Azure RemoteApp и дополнительные возможности | Microsoft Azure"
 	description="Узнайте, как безопасно осуществлять доступ к Azure RemoteApp с помощью условного доступа в Azure Active Directory"
 	services="remoteapp"
@@ -7,7 +7,7 @@
 	authors="piotrci" 
 	manager="mbaldwin" />
 
-.<tags 
+<tags 
     ms.service="remoteapp" 
     ms.workload="compute" 
     ms.tgt_pltfrm="na" 
@@ -25,7 +25,7 @@
 
 Администратор должен задать себе три вопроса:
 
-.![Рекомендации по условному доступу Azure RemoteApp](./media/remoteapp-secureaccess/ra-conditionalenvironment.png)
+![Рекомендации по условному доступу Azure RemoteApp](./media/remoteapp-secureaccess/ra-conditionalenvironment.png)
 
 Далее приводятся ответы на эти вопросы.
 
@@ -66,7 +66,7 @@
 
 5.	Проверьте конфигурацию, запустив клиент Azure RemoteApp с IP-адреса, который находится за пределами указанного диапазона. После входа в систему с помощью своих учетных данных Azure AD вы увидите примерно следующее сообщение:
 
-.![Отказ в доступе к Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)
+![Отказ в доступе к Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)
  
 
 ### Разрабатываемые функции условного доступа 

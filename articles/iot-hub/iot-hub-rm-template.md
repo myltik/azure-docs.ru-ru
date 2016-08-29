@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание центра IoT с помощью программы C# и шаблона диспетчера ресурсов Azure | Microsoft Azure"
 	description="Следуйте инструкциям этого учебника, чтобы приступить к работе с помощью шаблонов диспетчера ресурсов и создать центр IoT с помощью программы C#."
 	services="iot-hub"
@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
      ms.service="iot-hub"
      ms.devlang="dotnet"
      ms.topic="article"

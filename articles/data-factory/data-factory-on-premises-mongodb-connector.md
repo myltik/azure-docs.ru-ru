@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных из базы данных MongoDB с помощью фабрики данных | Microsoft Azure" 
 	description="Узнайте, как перемещать данные из базы данных MongoDB с использованием фабрики данных Azure." 
 	services="data-factory" 
@@ -7,7 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-.<tags 
+<tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 

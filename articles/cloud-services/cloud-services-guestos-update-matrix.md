@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Дополнительные сведения о последних выпусках гостевой ОС Azure | Microsoft Azure" 
    description="Последние новости о выпусках и совместимости с пакетами SDK для гостевой ОС облачных служб Azure." 
    services="cloud-services" 
@@ -7,7 +7,7 @@
    manager="timlt" 
    editor=""/>
 
-.<tags
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
@@ -199,7 +199,7 @@
 ## Политика поддержки и вывода из эксплуатации гостевой ОС
 Политика поддержки и вывода из эксплуатации гостевой ОС описывается [здесь][retirepolicy].
 
-[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/ru-RU/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
+[Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Параметры обновления гостевой ОС Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Отладка облачной службы или виртуальной машины Azure в Visual Studio | Microsoft Azure"
 	description="Отладка облачной службы или виртуальной машины в Visual Studio"
 	services="visual-studio-online"
@@ -6,7 +6,7 @@
 	authors="TomArcher"
 	manager="douge"
 	editor="" />
-.<tags 
+<tags 
 	ms.service="visual-studio-online"
 	ms.devlang="multiple"
 	ms.topic="article"

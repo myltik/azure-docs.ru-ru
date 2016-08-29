@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных в хранилище данных SQL Azure и из него | Microsoft Azure" 
 	description="Узнайте, как переместить данные в хранилище данных SQL Azure и из него с помощью фабрики данных Azure." 
 	services="data-factory" 
@@ -7,7 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-.<tags 
+<tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 

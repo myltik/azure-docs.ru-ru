@@ -1,5 +1,5 @@
 
-.<properties 
+<properties 
     pageTitle="Использование Azure RemoteApp с учетными записями пользователей Office 365 | Microsoft Azure"
 	description="Узнайте, как использовать Azure RemoteApp с учетными записями пользователей Office 365"
 	services="remoteapp"
@@ -7,7 +7,7 @@
 	authors="piotrci" 
 	manager="mbaldwin" />
 
-.<tags 
+<tags 
     ms.service="remoteapp" 
     ms.workload="compute" 
     ms.tgt_pltfrm="na" 

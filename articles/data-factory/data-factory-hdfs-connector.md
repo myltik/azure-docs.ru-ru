@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных из локальной системы HDFS | Фабрика данных Azure" 
 	description="Узнайте, как перемещать данные из локальной системы HDFS с помощью фабрики данных Azure." 
 	services="data-factory" 
@@ -7,7 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-.<tags 
+<tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 

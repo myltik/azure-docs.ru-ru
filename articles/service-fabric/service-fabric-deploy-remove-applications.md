@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Развертывание приложения Service Fabric | Microsoft Azure"
    description="Развертывание и удаление приложений в Service Fabric"
    services="service-fabric"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""/>
 
-.<tags
+<tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"

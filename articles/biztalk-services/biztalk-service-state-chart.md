@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Допустимые в различных состояниях задания в службах BizTalk | Microsoft Azure" 
 	description="Действия и операции, разрешенные в другом состоянии MABS: остановка, запуск, перезапуск, приостановка, возобновление, удаление, масштабирование, обновление конфигурации и архивация" 
 	services="biztalk-services" 
@@ -7,7 +7,7 @@
 	manager="erikre" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="biztalk-services" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 

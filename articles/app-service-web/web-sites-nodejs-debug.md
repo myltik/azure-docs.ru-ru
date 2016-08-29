@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Отладка веб-приложения Node.js в службе приложений Azure"
 	description="Подробнее об отладке веб-приложения Node.js в службе приложений Azure."
 	tags="azure-portal"
@@ -8,7 +8,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"

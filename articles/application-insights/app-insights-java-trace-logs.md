@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Просмотр журналов трассировки Java в Application Insights" 
 	description="Поиск данных трассировки Log4J или Logback в Application Insights" 
 	services="application-insights" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка нескольких сетевых карт на виртуальной машине Windows | Microsoft Azure"
    description="Узнайте, как создать виртуальную машину с несколькими сетевыми картами с помощью Azure PowerShell или шаблонов Resource Manager."
    services="virtual-machines-windows"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""/>
 
-.<tags
+<tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"

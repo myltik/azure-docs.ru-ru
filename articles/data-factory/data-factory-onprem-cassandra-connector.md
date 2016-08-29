@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных из базы данных Cassandra с помощью фабрики данных | Microsoft Azure" 
 	description="Узнайте, как перемещать данные из локальной базы данных Cassandra с помощью фабрики данных Azure." 
 	services="data-factory" 

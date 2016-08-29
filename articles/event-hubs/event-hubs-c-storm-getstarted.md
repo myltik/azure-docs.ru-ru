@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с концентраторами событий в C и Apache Storm | Microsoft Azure"
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью C, и их получению в кластере Apache Storm."
 	services="event-hubs"
@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="event-hubs"
 	ms.workload="na"
 	ms.tgt_pltfrm="c"

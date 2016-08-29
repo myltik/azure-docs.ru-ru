@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Установка устройства StorSimple 8600 | Microsoft Azure"
    description="Описывается процедура распаковки, установки в стойку и подключения устройства StorSimple 8600 перед развертыванием и настройкой программного обеспечения."
    services="storsimple"

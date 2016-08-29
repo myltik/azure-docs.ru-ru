@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использования реального устройства с пакетом SDK для шлюза | Microsoft Azure"
 	description="Пошаговое руководство по работе с пакетом SDK для шлюза центра Azure IoT с использованием устройства Texas Instruments SensorTag для отправки данных в центр IoT через шлюз, работающий на вычислительном модуле Intel Edison"
 	services="iot-hub"

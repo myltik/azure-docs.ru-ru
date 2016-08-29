@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Прогнозирование ETS + STL | Microsoft Azure" 
 	description="Прогнозирование ETS+STL" 
 	services="machine-learning" 

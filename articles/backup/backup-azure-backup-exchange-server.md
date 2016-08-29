@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Резервное копирование Exchange Server в службу архивации Azure с помощью System Center 2012 R2 DPM | Microsoft Azure"
 	description="Узнайте, как выполнить резервное копирование Exchange Server в службу архивации Azure с помощью System Center 2012 R2 DPM"
 	services="backup"
@@ -7,7 +7,7 @@
 	manager="NKolli1"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="backup"
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"

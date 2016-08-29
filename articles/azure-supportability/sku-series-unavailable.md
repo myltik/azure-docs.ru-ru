@@ -1,4 +1,4 @@
-.<properties
+<properties
 	 pageTitle="Серия SKU недоступна | Microsoft Azure"
 	 description="Некоторые серии SKU могут быть недоступны для выбранной подписки в определенном регионе."
 	 services="Azure Supportability"
@@ -7,7 +7,7 @@
 	 manager="scotthit"
 	 editor=""/>
 
-.<tags
+<tags
 	 ms.service="azure-supportability"
 	 ms.workload="na"
 	 ms.tgt_pltfrm="na"
@@ -26,15 +26,15 @@
 
 - На странице "Основные данные" выберите тип проблемы "Управление подпиской" и нажмите кнопку "Далее".
 
-.![Колонка «Основные»](./media/SKU-series-unavailable/BasicsSubMgmt.png)
+![Колонка «Основные»](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
 - На странице "Проблема" выберите тип проблемы Other General Questions (Другие общие вопросы) и введите точное название региона и номер SKU, который не отображается. Это позволит ускорить предоставление поддержки.
 
-.![Проблема](./media/SKU-series-unavailable/ProblemSubMgmt.png)
+![Проблема](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
 - На странице "Контактные данные" введите свои контактные данные и нажмите кнопку "Создать".
 
-.![Контактные данные](./media/SKU-series-unavailable/ContactInformation.png)
+![Контактные данные](./media/SKU-series-unavailable/ContactInformation.png)
 
 ## Отзыв
 Мы всегда рады вашим отзывам и предложениям! Отправьте нам свои [предложения](https://feedback.azure.com/forums/266794-support-feedback). Кроме того, с нами можно связаться через [Twitter](https://twitter.com/azuresupport) или [форумы MSDN](https://social.msdn.microsoft.com/Forums/azure).

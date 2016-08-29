@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Обновление пакета SDK службы поиска Azure для .NET до версии 1.1 | Microsoft Azure | Размещенная облачная служба поиска"
    description="Обновление пакета SDK службы поиска Azure для .NET до версии 1.1"
    services="search"
@@ -7,7 +7,7 @@
    manager="pablocas"
    editor=""/>
 
-.<tags
+<tags
    ms.service="search"
    ms.devlang="dotnet"
    ms.workload="search"

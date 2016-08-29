@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка безопасности кластера Service Fabric | Microsoft Azure"
    description="Описываются сценарии обеспечения безопасности кластера Service Fabric и различные технологии, используемые для реализации этих сценариев."
    services="service-fabric"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""/>
 
-.<tags
+<tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"

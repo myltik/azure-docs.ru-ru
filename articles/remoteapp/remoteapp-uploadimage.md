@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Отправка пользовательского образа для Azure RemoteApp | Microsoft Azure"
     description="Сведения о процессе отправки пользовательского образа для Azure RemoteApp"
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="ericorman"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

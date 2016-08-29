@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Вопросы и ответы по классическим виртуальным машинам | Microsoft Azure"
 	description="Приведены ответы на некоторые распространенные вопросы о виртуальных машинах Linux в Azure, созданных с помощью классической модели развертывания."
 	services="virtual-machines-linux"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Обработка исключений в Logic Apps | Microsoft Azure"
    description="Узнайте о шаблонах обработки ошибок и исключений с использованием Azure Logic Apps"
    services="logic-apps"
@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""/>
 
-.<tags
+<tags
    ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"

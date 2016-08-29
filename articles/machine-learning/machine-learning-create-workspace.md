@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание рабочей области в службе машинного обучения | Microsoft Azure"
 	description="Создание рабочей области для Студии машинного обучения Azure"
 	services="machine-learning"

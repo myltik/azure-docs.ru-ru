@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Извлечение общедоступных данных в концентраторы событий Azure | Microsoft Azure"
     description="Общие сведения об импорте концентраторов событий из веб-примера"
     services="event-hubs"

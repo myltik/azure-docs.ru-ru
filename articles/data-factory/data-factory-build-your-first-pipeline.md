@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство по фабрике данных: первый конвейер данных | Microsoft Azure"
 	description="В этом руководстве по фабрике данных Azure объясняется, как создать и запланировать фабрику данных, которая обрабатывает данные с помощью сценария Hive в кластере Hadoop."
 	services="data-factory"
@@ -44,7 +44,7 @@
 
 Ваш первый конвейер **MyFirstPipeline** использует действие Hive для преобразования и анализа веб-журнала, который можно передать в папку **inputdata** в контейнере **adfgetstarted** (adfgetstarted/inputdata) хранилища BLOB-объектов Azure.
  
-.![Схема в руководстве по фабрике данных](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
+![Схема в руководстве по фабрике данных](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
 В этом руководстве adfgetstarted (контейнер) = > inputdata (папка) содержит один файл с именем input.log. Этот файл журнала содержит записи за три месяца: январь, февраль и март 2014 г. Вот пример строк за каждый месяц во входном файле.

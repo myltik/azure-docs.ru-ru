@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Краткое руководство: API-интерфейсы текстовой аналитики в машинном обучении | Microsoft Azure"
 	description="Текстовая аналитика в машинном обучении Azure — краткое руководство"
 	services="cognitive-services"

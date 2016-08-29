@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Связанные службы вычислений | Microsoft Azure"
 	description="Сведения о средах вычислений, которые можно использовать в конвейерах фабрики данных Azure для преобразования и обработки данных."
 	services="data-factory"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Отладка облачных служб Azure | Microsoft Azure"
    description="Отладка облачных служб Azure"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags 
+<tags 
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"

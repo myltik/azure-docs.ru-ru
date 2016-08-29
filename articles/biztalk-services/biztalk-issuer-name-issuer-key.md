@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Имя издателя и ключ издателя в службах BizTalk | Microsoft Azure" 
 	description="Узнайте, как извлечь имя и ключ издателя для Service Bus или управления доступом (ACS) в службах BizTalk. MABS, WABS" 
 	services="biztalk-services" 
@@ -7,7 +7,7 @@
 	manager="erikre" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="biztalk-services" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 

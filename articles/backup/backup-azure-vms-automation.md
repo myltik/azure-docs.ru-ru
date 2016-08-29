@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Развертывание архивации виртуальных машин, развернутых посредством Resource Manager, и управление ею с помощью PowerShell | Microsoft Azure"
    description="Использование PowerShell для развертывания архивации виртуальных машин, развернутых посредством Resource Manager, и управления ею"
    services="backup"
@@ -7,7 +7,7 @@
    manager="cfreeman"
    editor=""/>
 
-.<tags
+<tags
    ms.service="backup"
    ms.devlang="na"
    ms.topic="article"
@@ -34,7 +34,7 @@
 
 Чтобы эффективно использовать PowerShell, необходимо понимать иерархию объектов и знать, откуда следует начинать резервное копирование.
 
-.![Иерархия объектов служб восстановления](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
+![Иерархия объектов служб восстановления](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
 Справку по командлету PowerShell AzureRmRecoveryServicesBackup см. в статье [Командлеты служб архивации и восстановления Azure](https://msdn.microsoft.com/library/mt723320.aspx) в библиотеке Azure. Справку по командлету PowerShell AzureRmRecoveryServicesVault см. в статье [Командлеты службы восстановления Azure](https://msdn.microsoft.com/library/mt643905.aspx).
 
@@ -260,7 +260,7 @@ PS C:\> Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 
 На представленной ниже схеме показана иерархия объектов от RecoveryServicesVault до BackupRecoveryPoint.
 
-.![Иерархия объектов служб восстановления с BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
+![Иерархия объектов служб восстановления с BackupContainer](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
 Чтобы восстановить данные резервной копии, определите архивный элемент и точку восстановления, которая содержит данные на определенный момент времени. Затем примените **[Restore-AzureRmRecoveryServicesBackupItem](https://msdn.microsoft.com/library/mt723316.aspx)**, чтобы восстановить данные из хранилища в учетную запись клиента.
 

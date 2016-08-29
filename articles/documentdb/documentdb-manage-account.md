@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление учетной записью DocumentDB на портале Azure | Microsoft Azure"
 	description="Узнайте, как управлять учетной записью DocumentDB на портале Azure. Изучите руководство по использованию портала Azure для просмотра, копирования, удаления учетной записи и доступа к ней."
 	keywords="Портал Azure, DocumentDB, Azure, Microsoft Azure"
@@ -36,7 +36,7 @@
 
 На [портале Microsoft Azure](https://portal.azure.com/) откройте колонку **Ключи** в колонке **Учетная запись DocumentDB**, чтобы получить возможность просмотра, копирования и повторного создания ключей доступа, используемых для доступа к вашей учетной записи DocumentDB.
 
-.![Снимок экрана портала Azure, колонка «Ключи»](./media/documentdb-manage-account/keys.png)
+![Снимок экрана портала Azure, колонка «Ключи»](./media/documentdb-manage-account/keys.png)
 
 > [AZURE.NOTE] Колонка **Ключи** также содержит первичную и вторичную строки подключения, используемые для подключения к учетной записи из [средства переноса данных](documentdb-import-data.md).
 
@@ -70,7 +70,7 @@
 ## <a id="delete"></a> Удаление учетной записи DocumentDB
 Чтобы удалить учетную запись DocumentDB, которая больше не нужна, с портала Azure, воспользуйтесь командой **Удалить учетную запись** в колонке **Учетная запись DocumentDB**.
 
-.![Как удалить учетную запись DocumentDB на портале Azure](./media/documentdb-manage-account/deleteaccount.png)
+![Как удалить учетную запись DocumentDB на портале Azure](./media/documentdb-manage-account/deleteaccount.png)
 
 
 1. На [портале Azure](https://portal.azure.com/) перейдите в учетную запись DocumentDB, которую необходимо удалить.
@@ -78,7 +78,7 @@
 3. на появившейся выноске подтверждения введите имя учетной записи DocumentDB, чтобы подтвердить ее удаление.
 4. Нажмите кнопку **Удалить**.
 
-.![Как удалить учетную запись DocumentDB на портале Azure](./media/documentdb-manage-account/delete-account-confirm.png)
+![Как удалить учетную запись DocumentDB на портале Azure](./media/documentdb-manage-account/delete-account-confirm.png)
 
 ## <a id="next"></a>Дальнейшие действия
 
@@ -98,7 +98,7 @@
 .<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/ru-RU/regions/#services
-[offers]: https://azure.microsoft.com/ru-RU/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase) | Microsoft Azure"
    description="Сведения об использовании технологии PolyBase для загрузки данных из хранилища больших двоичных объектов Azure в хранилище данных SQL. Описание загрузки нескольких таблиц из общедоступных данных в схему хранилища данных Contoso Retail."
    services="sql-data-warehouse"
@@ -7,7 +7,7 @@
    manager="barbkess"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"

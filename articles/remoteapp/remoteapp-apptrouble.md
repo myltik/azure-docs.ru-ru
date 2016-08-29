@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Устранение неполадок Azure RemoteApp — ошибки запуска и подключения приложений | Microsoft Azure" 
     description="Узнайте, как устранять неполадки при запуске и подключении к приложениям в Azure RemoteApp." 
     services="remoteapp" 
@@ -36,7 +36,7 @@
 
 Это сообщение об ошибке часто отображается, если вы использовали Azure RemoteApp, а затем перевели ПК в спящий режим больше чем на 4 часа, и после этого вывели ПК из спящего режима. Клиент Azure RemoteApp пытался автоматически повторно подключиться, но время ожидания было превышено. Попросите пользователей вернуться в приложение и попытаться открыть его из клиента Azure RemoteApp.
 
-.![Не удалось автоматически повторно подключиться к вашим приложениям.](./media/remoteapp-apptrouble/ra-apptrouble2.png)
+![Не удалось автоматически повторно подключиться к вашим приложениям.](./media/remoteapp-apptrouble/ra-apptrouble2.png)
 
 ## Проблемы с временным профилем 
 
@@ -46,12 +46,12 @@
 
 Это сообщение об ошибке означает, что в клиенте Azure RemoteApp возникли неполадки и он должен быть перезапущен. Попросите пользователей нажать кнопку **Закрыть программу**, а затем снова запустить клиент Azure RemoteApp. Если проблема не исчезнет, отправьте запрос в службу поддержки Azure или обратитесь к нам по адресу [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com).
 
-.![Прекращена работа Azure RemoteApp](./media/remoteapp-apptrouble/ra-apptrouble3.png)
+![Прекращена работа Azure RemoteApp](./media/remoteapp-apptrouble/ra-apptrouble3.png)
 
 ## Возникла ошибка при доступе к этому ресурсу через подключение к удаленному рабочему столу. Повторите попытку подключения или обратитесь к системному администратору
 
 Это общее сообщение об ошибке — обратитесь в службу поддержки Azure или отправьте сообщение по адресу [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com), чтобы мы могли разобраться в причинах ошибки.
 
-.![Общее сообщение Azure RemoteApp](./media/remoteapp-apptrouble/ra-apptrouble4.png)
+![Общее сообщение Azure RemoteApp](./media/remoteapp-apptrouble/ra-apptrouble4.png)
 
 <!---HONumber=AcomDC_0817_2016-->

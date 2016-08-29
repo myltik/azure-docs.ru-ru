@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что такое доступ к приложениям и единый вход с помощью Azure Active Directory? | Microsoft Azure"
 	description="Используйте Azure Active Directory для включения единого входа для всех приложений SaaS и веб-приложений, необходимых для бизнеса."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

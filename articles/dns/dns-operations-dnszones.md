@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Управление зонами DNS с помощью PowerShell | Microsoft Azure" 
    description="Зонами DNS можно управлять с помощью Azure Powershell. Как обновлять, удалять и создавать зоны DNS в Azure DNS" 
    services="dns" 

@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Проверка виртуальной сети Azure для использования с Azure RemoteApp | Microsoft Azure"
     description="Узнайте, как проверить готовность виртуальной сети Azure к использованию с Azure RemoteApp"
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

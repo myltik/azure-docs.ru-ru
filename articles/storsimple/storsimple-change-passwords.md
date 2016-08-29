@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Изменение паролей StorSimple | Microsoft Azure" 
    description="В этом разделе показано, как использовать службу диспетчера StorSimple для изменения паролей диспетчера моментальных снимков StorSimple и администратора устройства." 
    services="storsimple" 

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Обзор обработки XML и пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Узнайте, как обрабатывать и проверять сообщения XML с помощью приложений логики и пакета интеграции Enterprise." 
 	services="logic-apps" 

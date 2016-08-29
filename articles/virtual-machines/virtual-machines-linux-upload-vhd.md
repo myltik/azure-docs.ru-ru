@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание и передача пользовательского образа Linux | Microsoft Azure"
 	description="Создание и передача в Azure виртуального жесткого диска (VHD) с пользовательским образом Linux, использующим модель развертывания с помощью Resource Manager."
 	services="virtual-machines-linux"
@@ -8,7 +8,7 @@
 	editor="tysonn"
 	tags="azure-resource-manager"/>
 
-.<tags
+<tags
 	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"

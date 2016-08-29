@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Сериализация данных с помощью библиотеки Microsoft Avro | Microsoft Azure"
 	description="Узнайте, как HDInsight с помощью Avro выполняет сериализацию данных большого размера."
 	services="hdinsight"

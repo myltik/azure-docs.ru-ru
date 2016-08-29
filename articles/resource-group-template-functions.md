@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Функции шаблонов диспетчера ресурсов | Microsoft Azure"
    description="Описывает функции, используемые в шаблоне диспетчера ресурсов Azure для извлечения значений, работы со строками и числовыми значениями и получения сведений о развертывании."
    services="azure-resource-manager"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor="tysonn"/>
 
-.<tags
+<tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"

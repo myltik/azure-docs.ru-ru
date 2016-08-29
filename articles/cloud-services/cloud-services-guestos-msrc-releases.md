@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Список обновлений для гостевой ОС Azure | Microsoft Azure" 
    description="Список обновлений для выпусков гостевой ОС" 
    services="cloud-services" 
@@ -7,7 +7,7 @@
    manager="timlt" 
    editor=""/>
 
-.<tags
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"

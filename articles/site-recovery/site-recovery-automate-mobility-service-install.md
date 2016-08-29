@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Репликация виртуальных машин VMware в Azure с помощью Site Recovery и Azure Automation DSC | Microsoft Azure"
 	description="В этой статье описывается использование Azure Automation DSC для автоматического развертывания службы Mobility Service ASR и агента Azure для виртуальных машин и физических компьютеров в Azure."
 	services="site-recovery"
@@ -7,7 +7,7 @@
 	manager="lorenr"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="site-recovery"
 	ms.workload="backup-recovery"
 	ms.tgt_pltfrm="na"
@@ -78,7 +78,7 @@
 
 Мы поместили сжатую папку и парольную фразу в выделенном контейнере в учетной записи хранения Azure.
 
-.![Расположение папки](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
+![Расположение папки](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
 При необходимости эти файлы можно сохранить в общей папке в сети. Ресурс DSC, который будет использоваться позже, должен иметь доступ к пакету установки и парольной фразе.
 
@@ -204,7 +204,7 @@ configuration ASRMobilityService {
 
 Здесь можно найти модуль и импортировать его в вашу учетную запись.
 
-.![Импорт модуля](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
+![Импорт модуля](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
 После этого перейдите на компьютер, где установлены модули Azure RM, и импортируйте созданную конфигурацию DSC.
 
@@ -240,7 +240,7 @@ $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobi
 
 После завершения можно получить сведения о задании, используя PowerShell (Get-AzureRmAutomationDscCompilationJob) или перейдя на сайт portal.azure.com.
 
-.![Получение задания](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
+![Получение задания](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
 Наша конфигурация DSC успешно опубликована и отправлена в OMS Automation DSC.
 
@@ -251,7 +251,7 @@ $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobi
 
 Эти значения можно найти в колонке "Все параметры" (раздел "Ключи") учетной записи службы автоматизации.
 
-.![Значения ключей](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
+![Значения ключей](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
 В нашей среде есть физический сервер Windows Server 2012 R2, который необходимо защитить с помощью OMS Site Recovery.
 
@@ -311,7 +311,7 @@ Set-DscLocalConfigurationManager .\metaconfig -Force -Verbose
 
 После этого узел начнет регистрацию в Automation DSC.
 
-.![Регистрация узла](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
+![Регистрация узла](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
 Теперь зарегистрированный узел отображается на портале (portal.azure.com).
 
@@ -331,13 +331,13 @@ Get-DscConfigurationStatus
 
 Результат показывает, что сервер успешно извлек конфигурацию.
 
-.![Регистрация узла](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
+![Регистрация узла](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
 
 Кроме того, в программе установки службы Mobility Service есть собственный журнал, расположенный в пути <SystemDrive>\\ProgramData\\ASRSetupLogs.
 
 Это все! Служба Mobility Service успешно развернута и зарегистрирована на компьютере, который необходимо защитить с помощью Site Recovery. Благодаря DSC можно быть уверенными, что необходимые службы всегда будут запущены.
 
-.![Регистрация узла](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
+![Регистрация узла](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
 После того как сервер управления определит это, можно приступить к настройке защиты и включить репликацию на компьютере с помощью Site Recovery.
 

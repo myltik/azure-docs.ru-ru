@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Смена клиента Azure Active Directory в Azure RemoteApp | Microsoft Azure"
     description="Способы смены клиента Azure Active Directory, связанного с Azure RemoteApp"
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

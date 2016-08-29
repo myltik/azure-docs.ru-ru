@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Свойства проекта Azure"
     description="Описываются параметры свойств проекта Azure в наборе средств Azure для Eclipse."
     services=""
@@ -7,7 +7,7 @@
     manager="wpickett"
     editor=""/>
 
-.<tags
+<tags
     ms.service="multiple"
     ms.workload="na"
     ms.tgt_pltfrm="multiple"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление push-уведомлений в приложение Xamarin.Android | Служба приложений Azure"
 	description="Узнайте, как использовать службу приложений и центры уведомлений Azure для отправки push-уведомлений в приложение Xamarin.Android."
 	services="app-service\mobile"
@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"

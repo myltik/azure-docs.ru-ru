@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Дополнительные возможности создания отчетов пакета SDK для Android в Azure Mobile Engagement"
 	description="Описание создания расширенных отчетов для записи данных аналитики для пакета SDK для Android в Azure Mobile Engagement."
 	services="mobile-engagement"
@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor="" />
 
-.<tags
+<tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"

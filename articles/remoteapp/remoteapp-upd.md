@@ -1,5 +1,5 @@
 
-.<properties 
+<properties 
     pageTitle="Как Azure RemoteApp сохраняет данные и параметры пользователя? | Microsoft Azure"
 	description="Узнайте, как Azure RemoteApp сохраняет пользовательские данные с помощью диска профиля пользователя."
 	services="remoteapp"

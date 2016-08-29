@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Установка адаптера StorSimple для SharePoint | Microsoft Azure"
    description="В статье описываются установка, настройка и удаление адаптера StorSimple для SharePoint в ферме серверов SharePoint."
    services="storsimple"
@@ -6,7 +6,7 @@
    authors="SharS"
    manager="carmonm"
    editor="" />
-.<tags 
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"

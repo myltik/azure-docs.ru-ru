@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Создание зон и наборов записей DNS для Azure DNS с помощью пакета SDK для .NET | Microsoft Azure" 
    description="Описывается, как создать зоны и наборы записей DNS для Azure DNS с помощью пакета SDK для .NET." 
    services="dns" 
@@ -7,7 +7,7 @@
    manager="carmonm" 
    editor=""/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"

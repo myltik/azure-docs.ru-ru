@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Добавление сертификата в хранилище ЦС Java | Microsoft Azure" 
 	description="Узнайте, как добавить сертификат центра сертификации (ЦС) в хранилище сертификатов (cacerts) центра сертификации Java для службы Twilio или Azure Service Bus." 
 	services="" 
@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="multiple" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 

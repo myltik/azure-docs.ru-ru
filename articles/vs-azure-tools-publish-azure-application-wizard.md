@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Мастер публикации приложений Azure | Microsoft Azure"
    description="Мастер публикации приложений Azure"
    services="visual-studio-online"

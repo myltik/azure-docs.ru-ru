@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Новые возможности версии 12 базы данных SQL | Microsoft Azure"
 	description="В статье описаны преимущества для облачных бизнес-систем, использующих базу данных SQL Azure, после обновления до версии 12."
 	services="sql-database"

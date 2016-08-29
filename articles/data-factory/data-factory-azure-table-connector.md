@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных в таблицу SQL Azure и из нее | Microsoft Azure" 
 	description="Узнайте, как переместить данные в таблицу SQL Azure и из нее с помощью фабрики данных Azure." 
 	services="data-factory" 

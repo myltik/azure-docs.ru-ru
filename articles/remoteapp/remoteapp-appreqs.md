@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Требования к приложениям для Azure RemoteApp | Microsoft Azure"
     description="Узнайте подробнее о требованиях для приложений, которые вы хотите использовать в Azure RemoteApp"
     services="remoteapp"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование командлетов PowerShell с Azure RemoteApp | Microsoft Azure"
    description="Узнайте, как использовать командлеты Windows PowerShell в Azure RemoteApp."
    services="remoteapp"
@@ -7,7 +7,7 @@
    manager="mbaldwin"
    editor=""/>
 
-.<tags
+<tags
    ms.service="remoteapp"
    ms.devlang="na"
    ms.topic="article"

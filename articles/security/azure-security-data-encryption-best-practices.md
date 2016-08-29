@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Рекомендации по защите и шифрованию данных | Microsoft Azure"
    description="В этой статье представлены рекомендации по обеспечению защиты и шифрования данных с помощью встроенных средств Azure."
    services="security"
@@ -7,7 +7,7 @@
    manager="swadhwa"
    editor="TomSh"/>
 
-.<tags
+<tags
    ms.service="security"
    ms.devlang="na"
    ms.topic="article"

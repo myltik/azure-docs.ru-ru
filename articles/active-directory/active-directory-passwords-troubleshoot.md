@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Устранение неполадок: управление паролями Azure AD| Microsoft Azure"
 	description="Общие рекомендации по устранению неполадок компонентов управления паролями Azure AD, включая сброс, изменение, обратную запись, регистрацию и сведения, включаемые при поиске справки."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="femila"
 	editor="curtand"/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

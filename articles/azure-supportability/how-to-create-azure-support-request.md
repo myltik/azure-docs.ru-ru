@@ -1,4 +1,4 @@
-.<properties
+<properties
 	 pageTitle="Создание запроса на поддержку Azure | Microsoft Azure"
 	 description="Создание запроса на поддержку Azure"
 	 services="Azure Supportability"
@@ -7,7 +7,7 @@
 	 manager="scotthit"
 	 editor=""/>
 
-.<tags
+<tags
 	 ms.service="azure-supportability"
 	 ms.workload="na"
 	 ms.tgt_pltfrm="na"

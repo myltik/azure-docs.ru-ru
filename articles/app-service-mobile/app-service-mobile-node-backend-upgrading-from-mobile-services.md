@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обновление приложения мобильных служб до службы приложений Azure — Node.js"
 	description="Узнайте, как без труда обновить приложение мобильных служб до мобильного приложения службы приложений."
 	services="app-service\mobile"
@@ -7,7 +7,7 @@
 	manager="ggailey"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile"
@@ -172,7 +172,7 @@
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[ценами службы приложений]: https://azure.microsoft.com/ru-RU/pricing/details/app-service/
+[ценами службы приложений]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [методам]: ../app-service/app-service-authentication-overview.md
 [быстрому запуску проверки подлинности]: app-service-mobile-auth.md

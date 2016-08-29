@@ -1,5 +1,5 @@
 
-.<properties 
+<properties 
     pageTitle="Требования Azure AD + Active Directory для Azure RemoteApp | Microsoft Azure" 
     description="Узнайте, как настроить Active Directory для работы с Azure RemoteApp." 
     services="remoteapp" 
@@ -7,7 +7,7 @@
     authors="lizap" 
     manager="mbaldwin" />
 
-.<tags 
+<tags 
     ms.service="remoteapp" 
     ms.workload="compute" 
     ms.tgt_pltfrm="na" 

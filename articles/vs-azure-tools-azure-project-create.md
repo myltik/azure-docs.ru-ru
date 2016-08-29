@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание проекта Azure в Visual Studio | Microsoft Azure"
    description="Создание проекта Azure в Visual Studio"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"

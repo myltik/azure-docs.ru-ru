@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство. Интеграция Azure Active Directory с MOVEit Transfer | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в MOVEit Transfer."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -62,21 +62,21 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Active Directory][1]
+	![Active Directory][1]
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 	
-	.![Приложения][2]
+	![Приложения][2]
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 	
-	.![Приложения][3]
+	![Приложения][3]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-	.![Приложения][4]
+	![Приложения][4]
 
 6. В поле поиска введите **MOVEit Transfer**.
 
@@ -84,7 +84,7 @@
 
 7. В области результатов выберите **MOVEit Transfer** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
-	.![Выбор приложения в коллекции](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_0001.png)
+	![Выбор приложения в коллекции](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_0001.png)
 
 ##  Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в приложение MOVEit Transfer с использованием тестового пользователя Britta Simon.
@@ -113,11 +113,11 @@
 
 2. На странице **Как пользователи должны входить в MOVEit Transfer?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
     
-	.![Настройка единого входа](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_03.png)
+	![Настройка единого входа](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_03.png)
 
 3. На диалоговой странице **Configure App Settings** (Настройка параметров приложения) выполните следующие действия, а затем нажмите кнопку **Далее**.
 
-    .![Настройка единого входа](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_04.png)
+    ![Настройка единого входа](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_04.png)
 
 	а. В текстовое поле **URL-адрес для входа** введите URL-адрес входа с именем вашего домена.
 
@@ -131,7 +131,7 @@
 
 4. На странице **Настройка единого входа в MOVEit Transfer** выполните следующие действия и нажмите кнопку **Далее**.
 
-	.![Настройка единого входа](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_05.png)
+	![Настройка единого входа](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_05.png)
 
     а. Нажмите **Загрузить метаданные** и сохраните файл на свой компьютер.
 
@@ -141,21 +141,21 @@
 
 6. В левой панели навигации щелкните **Settings** (Параметры).
 
-	.![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
+	![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 
 7. Щелкните ссылку **Single Signon** (Единый вход), которая расположена в разделе **Security Policies -> User Auth** (Политики безопасности -> Проверка подлинности пользователя).
 
-	.![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
+	![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 
 8. Щелкните ссылку с URL-адресом метаданных, чтобы скачать документ метаданных.
 
-	.![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)
+	![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_002.png)
 
 	- Убедитесь, что значение **entityID** совпадает с **идентификатором** из шага 3.
 	
 	- Убедитесь, что URL-адрес расположения **AssertionConsumerService** совпадает с **URL-адресом ответа** из шага 3.
 
-	.![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+	![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
 9. Щелкните кнопку **Add Identity Provider** (Добавить поставщик удостоверений), чтобы добавить новый федеративный поставщик удостоверений.
 
@@ -163,11 +163,11 @@
 
 10. Щелкните **Browse** (Обзор), чтобы выбрать файл метаданных, который вы скачали на шаге 4, затем нажмите кнопку **Add Identity Provider** (Добавить поставщик удостоверений) и отправьте скачанный файл.
 
-	.![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
+	![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 
 11. Выберите значение **Yes** (Да) для параметра **Enabled** (Включено) в разделе **Edit Federated Identity Provider Settings** (Изменение параметров федеративного поставщика удостоверений) и нажмите кнопку **Save** (Сохранить).
 
-	 .![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
+	 ![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_005.png)
 
 12. На странице **Edit Federated Identity Provider User Settings** (Изменение параметров федеративного поставщика удостоверений) выполните следующие действия и нажмите кнопку **Save** (Сохранить).
 
@@ -181,34 +181,34 @@
 
 	д. Нажмите кнопку **Сохранить**.
 
-	.![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_006.png)
+	![Настройка единого входа на стороне приложения](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_006.png)
 
 13. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
     
-	.![Единый вход в Azure AD][10]
+	![Единый вход в Azure AD][10]
 
 14. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
     
-	.![Единый вход в Azure AD][11]
+	![Единый вход в Azure AD][11]
 
 
 
 ### Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
 
-.![Создание пользователя Azure AD][20]
+![Создание пользователя Azure AD][20]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-    .![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_09.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_09.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_03.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_03.png)
 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
@@ -216,7 +216,7 @@
 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
 
-    .![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_05.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_05.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -226,7 +226,7 @@
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_06.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_06.png)
 
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -240,11 +240,11 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_07.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_07.png)
 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_08.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-moveittransfer-tutorial/create_aaduser_08.png)
 
     а. Запишите значение поля **Новый пароль**.
 
@@ -265,7 +265,7 @@
 
 Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к MOVEit Transfer.
 	
-.![Назначение пользователя][200]
+![Назначение пользователя][200]
 
 **Чтобы назначить пользователя Britta Simon в MOVEit Transfer, выполните следующие действия.**
 
@@ -275,17 +275,17 @@
 
 2. В списке приложений выберите **MOVEit Transfer**.
     
-	.![Настройка единого входа](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_50.png)
+	![Настройка единого входа](./media/active-directory-saas-moveittransfer-tutorial/tutorial_moveittransfer_50.png)
 
 3. В меню в верхней части страницы щелкните **Пользователи**.
     
-	.![Назначение пользователя][203]
+	![Назначение пользователя][203]
 
 4. В списке пользователей выберите **Britta Simon**.
 
 5. На панели инструментов внизу щелкните **Назначить**.
     
-	.![Назначение пользователя][205]
+	![Назначение пользователя][205]
 
 ### Проверка единого входа
 

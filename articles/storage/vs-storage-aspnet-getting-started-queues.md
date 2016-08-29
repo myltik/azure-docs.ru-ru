@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Начало работы с хранилищем очередей и подключенными службами Visual Studio (ASP.NET) | Microsoft Azure"
 	description="Как приступить к работе, используя хранилище очередей Azure в проекте ASP.NET в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio"
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="douge"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Доступ к частным облакам Azure с помощью Visual Studio | Microsoft Azure"
    description="Узнайте, как получить доступ к ресурсам частного облака с помощью Visual Studio."
    services="visual-studio-online"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Обновление коллекции Azure RemoteApp | Microsoft Azure"
    description="Узнайте, как обновить коллекцию Azure RemoteApp"
    services="remoteapp"
@@ -7,7 +7,7 @@
    manager="mbaldwin"
    editor=""/>
 
-.<tags
+<tags
    ms.service="remoteapp"
    ms.devlang="NA"
    ms.topic="article"

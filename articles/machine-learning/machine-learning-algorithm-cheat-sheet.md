@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Памятка по алгоритмам Машинного обучения Microsoft Azure | Microsoft Azure"
 	description="Памятка по алгоритмам Машинного обучения Microsoft Azure для печати поможет выбрать в Студии машинного обучения Azure правильный алгоритм для модели прогнозирования."
 	keywords="памятка по алгоритмам, памятка, алгоритм машинного обучения"
@@ -8,7 +8,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-.<tags
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
@@ -75,7 +75,7 @@
 
 -->
 
-.<!-- This is how you can add a link to the image in HTML. Don't know how to do this in markdown.
+<!-- This is how you can add a link to the image in HTML. Don't know how to do this in markdown.
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
 <img src="C:\Users\garye\azure-content-pr\articles\media\machine-learning-algorithm-cheat-sheet\cheat-sheet-small.png">
 </a>

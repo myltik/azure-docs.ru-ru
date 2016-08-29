@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Использование Office с Azure RemoteApp | Microsoft Azure" 
     description="Узнайте, как Office и Azure RemoteApp работают вместе"
     services="remoteapp"

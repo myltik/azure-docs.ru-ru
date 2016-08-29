@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование Поиска Azure в приложении .NET | Microsoft Azure | Размещенная облачная служба поиска"
    description="Использование службы поиска Azure в приложении .NET"
    services="search"
@@ -7,7 +7,7 @@
    manager="pablocas"
    editor=""/>
 
-.<tags
+<tags
    ms.service="search"
    ms.devlang="dotnet"
    ms.workload="search"

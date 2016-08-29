@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о неявном потоке предоставления OAuth2 в Azure Active Directory | Microsoft Azure"
    description="Узнайте о процессе неявного потока предоставления OAuth2 в Azure Active Directory и его совместимости с вашим приложением."
    services="active-directory"
@@ -7,7 +7,7 @@
    manager="mbaldwin"
    editor=""/>
 
-.<tags
+<tags
    ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"

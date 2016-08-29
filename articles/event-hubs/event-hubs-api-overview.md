@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Обзор API концентраторов событий Azure | Microsoft Azure"
     description="Сводные сведения о некоторых ключевых клиентских API .NET концентраторов событий."
     services="event-hubs"

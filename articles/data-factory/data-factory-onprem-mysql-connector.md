@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных из базы данных MySQL | Фабрика данных Azure" 
 	description="Узнайте, как перемещать данные из базы данных MySQL с использованием фабрики данных Azure." 
 	services="data-factory" 

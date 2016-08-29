@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Установка набора средств Azure для IntelliJ | Microsoft Azure"
 	description="Узнайте, как установить набор средств Azure для IntelliJ IDEA."
 	services=""
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="multiple"
 	ms.workload="na"
 	ms.tgt_pltfrm="multiple"

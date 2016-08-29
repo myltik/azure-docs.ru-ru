@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование табличного хранилища PHP | Microsoft Azure"
 	description="Вы узнаете, как использовать службу таблиц в PHP для создания и удаления таблиц, вставки, удаления строк и создания запросов для таблиц."
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"

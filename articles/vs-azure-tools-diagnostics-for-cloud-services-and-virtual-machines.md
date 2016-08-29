@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка системы диагностики для облачных служб и виртуальных машин Azure | Microsoft Azure"
    description="Из этой статьи вы узнаете, как в Visual Studio настроить сбор диагностической информации для отладки облачных служб и виртуальных машин Azure."
    services="visual-studio-online"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство по безопасности службы хранилища Azure | Microsoft Azure"
 	description="Подробно описываются различные способы защиты службы хранилища Azure, включая, помимо прочего, управление доступом на основе ролей, шифрование службы хранения, шифрование на стороне клиента, протокол SMB 3.0 и шифрование дисков Azure."
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="carmonm"
 	editor="tysonn"/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"

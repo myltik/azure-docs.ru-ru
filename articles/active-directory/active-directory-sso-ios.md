@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Включение единого входа в нескольких приложениях в iOS с помощью ADAL | Microsoft Azure"
 	description="Использование функций ADAL SDK для включения единого входа в приложениях. "
 	services="active-directory"

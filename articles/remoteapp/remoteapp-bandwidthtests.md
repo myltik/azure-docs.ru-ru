@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Azure RemoteApp — тест использования пропускной способности сети в рамках распространенных сценариев | Microsoft Azure"
 	description="Сведения о наиболее распространенных сценариях использования, помогающих выяснить потребности в пропускной способности сети для Azure RemoteApp."
 	services="remoteapp"
@@ -6,7 +6,7 @@
 	authors="lizap" 
 	manager="mbaldwin" />
 
-.<tags 
+<tags 
     ms.service="remoteapp" 
     ms.workload="compute" 
     ms.tgt_pltfrm="na" 

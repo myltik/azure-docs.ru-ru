@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление соединителя Dynamics CRM Online в приложения логики | Microsoft Azure"
 	description="Создание приложений логики с помощью службы приложений Azure. Поставщик подключений Dynamics CRM Online предоставляет API для работы с сущностями в Dynamics CRM Online."
 	services="logic-apps"    
@@ -8,7 +8,7 @@
 	editor="" 
 	tags="connectors" />
 
-.<tags
+<tags
 ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
@@ -44,7 +44,7 @@ ms.author="mandia"/>
 
 1. Чтобы открыть список триггеров, в текстовом поле приложения логики введите "dynamics".
 
-	.![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
+	![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
 
 2. Выберите **Dynamics CRM Online - When a record is created** (Dynamics CRM Online — при создании записи). Если подключение уже существует, выберите организацию и сущность в раскрывающемся списке.
 
@@ -56,7 +56,7 @@ ms.author="mandia"/>
 
 3. Нажмите кнопку **Изменить** и задайте **частоту** и **интервал**. Например, если требуется, чтобы триггер выполнял опрос каждые 15 минут, задайте для параметра **Частота** значение **Минута**, а для параметра **Интервал** — **15**.
 
-	.![](./media/connectors-create-api-crmonline/edit-properties.png)
+	![](./media/connectors-create-api-crmonline/edit-properties.png)
 
 4. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
 
@@ -67,17 +67,17 @@ ms.author="mandia"/>
 
 1. Щелкните знак "плюс". Отобразятся следующие параметры: **Добавить действие**, **Добавить условие** или **Еще**.
 
-	.![](./media/connectors-create-api-crmonline/add-action.png)
+	![](./media/connectors-create-api-crmonline/add-action.png)
 
 2. Выберите **Добавить действие**.
 
 3. Чтобы открыть список всех доступных действий, в текстовом поле введите "dynamics".
 
-	.![](./media/connectors-create-api-crmonline/dynamics-actions.png)
+	![](./media/connectors-create-api-crmonline/dynamics-actions.png)
 
 4. В нашем примере мы выберем действие **Dynamics CRM Online - Update a record** (Dynamics CRM Online — обновить запись). Если подключение уже существует, задайте **Название организации**, **Имя сущности** и другие свойства:
 
-	.![](./media/connectors-create-api-crmonline/sample-action.png)
+	![](./media/connectors-create-api-crmonline/sample-action.png)
 
 	Если появится запрос на предоставление сведений о подключении, введите их, чтобы создать подключение. Эти свойства описаны в разделе [Создание подключения](connectors-create-api-crmonline.md#create-the-connection) этой статьи.
 

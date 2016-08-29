@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Кэш Redis для Azure. Вопросы и ответы | Microsoft Azure" 
 	description="Ответы на часто задаваемые вопросы, шаблоны и рекомендации для кэша Redis для Azure." 
 	services="redis-cache" 
@@ -7,7 +7,7 @@
 	manager="douge" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="cache" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="cache-redis" 

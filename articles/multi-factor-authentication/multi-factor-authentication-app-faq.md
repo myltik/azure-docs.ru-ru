@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Часто задаваемые вопросы о приложении Microsoft Authenticator"
 	description="Содержит перечень часто задаваемых вопросов и ответов о приложении Microsoft Authentication и Azure Multi-Factor Authentication."
 	services="multi-factor-authentication"
@@ -7,7 +7,7 @@
 	manager="femila"
 	editor="curtand"/>
 
-.<tags
+<tags
 	ms.service="multi-factor-authentication"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

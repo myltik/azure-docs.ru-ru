@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство. Интеграция Azure Active Directory с Tableau Online | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в Tableau Online."
 	services="active-directory"
@@ -60,17 +60,17 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Active Directory][1]
+	![Active Directory][1]
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-	.![Приложения][2]
+	![Приложения][2]
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 
-	.![Приложения][3]
+	![Приложения][3]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -116,7 +116,7 @@
 
 4. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
 
-	.![Настройка единого входа](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_07.png)
+	![Настройка единого входа](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_07.png)
 
 
     а. В текстовом поле "URL-адрес для входа" введите URL-адрес в следующем формате: `https://sso.online.tableau.com`.
@@ -163,19 +163,19 @@
 ### Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
 
-.![Создание пользователя Azure AD][20]
+![Создание пользователя Azure AD][20]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 	
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_09.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_09.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 	
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_03.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_03.png)
 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
@@ -183,7 +183,7 @@
 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
  
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_05.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_05.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -193,7 +193,7 @@
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_06.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_06.png)
 
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -207,11 +207,11 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_07.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_07.png)
 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_08.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-tableauonline-tutorial/create_aaduser_08.png)
 
     а. Запишите значение поля **Новый пароль**.
 
@@ -247,17 +247,17 @@
 
 3. В списке приложений выберите **Tableau Online**.
 
-	.![Настройка единого входа](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_50.png)
+	![Настройка единого входа](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_50.png)
 
 4. В меню в верхней части страницы щелкните **Пользователи**.
 
-	.![Назначение пользователя][203]
+	![Назначение пользователя][203]
 
 5. В списке "Все пользователи" выберите **Britta Simon**.
 
 6. На панели инструментов внизу щелкните **Назначить**.
 
-	.![Назначение пользователя][205]
+	![Назначение пользователя][205]
 
 
 ### Проверка единого входа

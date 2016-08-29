@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi) | Microsoft Azure" 
 	description="Как начать использовать Azure Active Directory в проектах WebApi после подключения или создания Azure AD с помощью подключенных служб Visual Studio" 
   services="active-directory"

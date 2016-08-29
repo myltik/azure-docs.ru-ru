@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление контроллерами устройства StorSimple | Microsoft Azure"
    description="Узнайте, как остановить, перезапустить и выключить контроллеры устройства StorSimple или восстановить их заводские настройки."
    services="storsimple"
@@ -6,7 +6,7 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-.<tags
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"

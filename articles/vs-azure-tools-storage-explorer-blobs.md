@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ (предварительная версия) | Microsoft Azure"
 	description="Управление контейнерами BLOB-объектов и BLOB-объектами Azure с помощью обозревателя хранилищ (предварительная версия)"
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="douge"
 	editor="" />
 
- .<tags
+ <tags
 	ms.service="storage"
 	ms.devlang="multiple"
 	ms.topic="article"

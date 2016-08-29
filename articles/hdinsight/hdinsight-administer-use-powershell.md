@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление кластерами Hadoop в HDInsight с помощью PowerShell | Microsoft Azure"
 	description="Узнайте, как осуществлять управление кластерами Hadoop в HDInsight с использованием Azure PowerShell."
 	services="hdinsight"
@@ -8,7 +8,7 @@
 	authors="mumian"
 	documentationCenter=""/>
 
-.<tags
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"

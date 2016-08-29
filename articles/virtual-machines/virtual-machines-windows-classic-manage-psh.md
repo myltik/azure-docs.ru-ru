@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление виртуальными машинами с помощью Azure PowerShell | Microsoft Azure"
    description="Узнайте о командах, которые можно использовать для автоматизации задач управления виртуальными машинами."
    services="virtual-machines-windows"

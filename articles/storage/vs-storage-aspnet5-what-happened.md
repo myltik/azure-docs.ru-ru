@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что произошло с моим проектом ASP.NET 5 (подключенными службами Visual Studio) | Служба хранилища Microsoft Azure"
 	description="Сведения о том, что происходит после подключения к учетной записи хранения Azure в проекте Visual Studio ASP.NET 5 с помощью подключенных служб Visual Studio"
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="douge"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="web"
 	ms.tgt_pltfrm="vs-what-happened"

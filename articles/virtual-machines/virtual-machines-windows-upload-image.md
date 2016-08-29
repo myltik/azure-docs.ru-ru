@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Отправка Windows VHD для диспетчера ресурсов | Microsoft Azure"
 	description="Узнайте, как отправить образ виртуальной машины Windows для использования в модели развертывания Resource Manager."
 	services="virtual-machines-windows"
@@ -65,7 +65,7 @@
 
 	3. Нажмите кнопку **ОК**.
 
-	.![Запустите Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
+	![Запустите Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
 
 .</br>
 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Выделенные группы в Azure Active Directory | Microsoft Azure"
 	description="Обзор работы выделенных групп в Azure Active Directory и способов их создания."
 	services="active-directory"
@@ -8,7 +8,7 @@
 	editor=""
 	/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

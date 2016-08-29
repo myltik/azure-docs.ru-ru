@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Безопасность службы приложений Azure"
 	description="Узнайте, как защищать веб-приложения, мобильные приложения, приложения API и приложения логики в службе приложений Azure."
 	services="app-service"
@@ -7,7 +7,7 @@
 	manager="yochayk"
 	editor="wpickett"/>
 
-.<tags
+<tags
 	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"

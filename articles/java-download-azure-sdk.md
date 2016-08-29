@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Загрузка пакета Azure SDK для Java" 
 	description="Узнайте, как скачать пакет SDK Azure для Java, ознакомьтесь с примером кода для проектов Maven и общими шагами по установке набора средств Azure для Eclipse." 
 	services="" 
@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="multiple" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="multiple" 

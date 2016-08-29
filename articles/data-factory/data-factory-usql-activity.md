@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Запуск скрипта U-SQL в аналитике озера данных Azure из фабрики данных Azure" 
 	description="Узнайте, как обрабатывать данные с помощью скриптов U-SQL в службе вычислений аналитики озера данных Azure." 
 	services="data-factory" 

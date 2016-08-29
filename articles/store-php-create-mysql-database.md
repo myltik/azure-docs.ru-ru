@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание базы данных MySQL и подключение к ней в Azure"
 	description="Из этой статьи вы узнаете, как с помощью портала Azure создать базу данных MySQL и подключиться к ней из веб-приложения PHP в Azure."
 	documentationCenter="php"

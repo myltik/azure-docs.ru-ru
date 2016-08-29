@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Publish-WebApplicationWebSite (сценарий Windows PowerShell) | Microsoft Azure"
    description="Узнайте, как опубликовать веб-проект на веб-сайте Azure. Этот сценарий создает необходимые ресурсы в подписке Azure, если они еще не созданы."
    services="visual-studio-online"

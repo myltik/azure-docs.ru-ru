@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio | Microsoft Azure"
    description="Узнайте, как перенести и опубликовать веб-приложение в облачную службу Azure из среды Visual Studio."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"

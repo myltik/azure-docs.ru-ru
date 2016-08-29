@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Как включить единый вход для нескольких приложений Android с помощью ADAL | Microsoft Azure"
 	description="Эта статья содержит информацию о том, как с помощью функций пакета SDK ADAL включить единый вход для нескольких приложений. "
 	services="active-directory"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Изменение хэш-алгоритма подписи для отношения доверия с проверяющей стороной Office 365 | Microsoft Azure"
 	description="Эта страница содержит рекомендации по изменению алгоритма SHA для доверия федерации с Office 365"
     keywords="SHA1,SHA256,O365,федерация,aadconnect,adfs,ad fs,изменение sha,доверие федерации,отношение доверия с проверяющей стороной"
@@ -8,7 +8,7 @@
 	manager="samueld"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

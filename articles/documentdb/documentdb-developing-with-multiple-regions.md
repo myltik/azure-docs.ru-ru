@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Разработка с использованием нескольких регионов в DocumentDB | Microsoft Azure"
    description="Узнайте, как обращаться к данным в нескольких регионах из Azure DocumentDB — полностью управляемой службы базы данных NoSQL."
    services="documentdb"
@@ -7,7 +7,7 @@
    manager="jhubbard"
    editor=""/>
 
-.<tags
+<tags
    ms.service="documentdb"
    ms.devlang="multiple"
    ms.topic="article"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных из PostgreSQL | Фабрика данных Azure" 
 	description="Узнайте, как перемещать данные из базы данных PostgreSQL с использованием фабрики данных Azure" 
 	services="data-factory" 

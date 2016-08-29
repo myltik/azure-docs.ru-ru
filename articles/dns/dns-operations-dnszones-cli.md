@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Управление зонами DNS с помощью CLI | Microsoft Azure" 
    description="Зонами DNS можно управлять с помощью Azure CLI. Как обновлять, удалять и создавать зоны DNS в Azure DNS" 
    services="dns" 
@@ -7,7 +7,7 @@
    manager="carmonm" 
    editor=""/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"

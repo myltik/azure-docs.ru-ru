@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Командлеты PowerShell для хранилища данных SQL Azure"
    description="Ознакомьтесь с основными командлетами PowerShell для хранилища данных SQL Azure, а также узнайте, как приостанавливать и возобновлять работу базы данных."
    services="sql-data-warehouse"
@@ -7,7 +7,7 @@
    manager="barbkess"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"

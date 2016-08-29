@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Коллекция образов Azure Government| Microsoft Azure"
    description="В этой статье приводится обзор коллекции образов Azure Government, а также содержатся образы."
    services="Azure-Government"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Веб-приложение с Express (Node.js) | Microsoft Azure" 
 	description="Этот учебник основывается на учебнике по облачным службам и демонстрирует использование модуля Express." 
 	services="cloud-services" 

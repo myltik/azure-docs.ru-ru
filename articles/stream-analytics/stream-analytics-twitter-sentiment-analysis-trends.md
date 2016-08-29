@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Анализ тональности данных Twitter в режиме реального времени с помощью Stream Analytics | Microsoft Azure"
 	description="Информация об использовании Stream Analytics для анализа тональности данных Twitter в режиме реального времени. Пошаговое руководство с шагами от создания событий до отображения данных на динамической панели мониторинга."
 	keywords="анализ тенденций twitter в режиме реального времени, анализ тональности, анализ социальных сетей, пример анализа тенденций"
@@ -8,7 +8,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-.<tags
+<tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
 	ms.topic="article"

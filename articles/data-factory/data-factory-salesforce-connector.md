@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Перемещение данных из Salesforce с помощью фабрики данных | Microsoft Azure"
 	description="Узнайте, как перемещать данные из Salesforce с использованием фабрики данных Azure."
 	services="data-factory"
@@ -101,7 +101,7 @@
 
 > [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.
 
-.![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Выходной набор данных большого двоичного объекта Azure**
 
@@ -179,7 +179,7 @@
 
 > [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.
 
-.![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Свойства связанной службы Salesforce
 
@@ -219,7 +219,7 @@
 
 > [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.<br> Используйте язык SOQL при указании запроса с использованием предложения **WHERE** в столбце даты и времени. Например, $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd). Или запрос SQL, например, $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
 
-.![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Извлечение данных из отчета Salesforce
 Из отчетов Salesforce можно извлекать данные, указывая запросы в формате {call "<имя\_отчета>"}, например: "query": "{call "TestReport"}".

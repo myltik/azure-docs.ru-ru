@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Сохранение постоянного виртуального IP-адреса для облачной службы | Microsoft Azure"
    description="Узнайте, как сохранить постоянный виртуальный IP-адрес (VIP) облачной службы Azure."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"

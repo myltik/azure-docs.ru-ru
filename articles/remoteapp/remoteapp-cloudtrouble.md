@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Устранение неполадок с облачными коллекциями RemoteApp — создание | Microsoft Azure"
     description="Устранение неполадок при сбоях создания облачной коллекции RemoteApp"
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="vkbucha"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"

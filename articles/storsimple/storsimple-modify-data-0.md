@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Изменение параметров сетевого интерфейса DATA 0 на устройстве StorSimple | Microsoft Azure"
    description="Узнайте, как перенастроить сетевой интерфейс DATA 0 на устройстве StorSimple с помощью Windows PowerShell для StorSimple."
    services="storsimple"
@@ -6,7 +6,7 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-.<tags 
+<tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"

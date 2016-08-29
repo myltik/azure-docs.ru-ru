@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Защита базы данных в хранилище данных SQL | Microsoft Azure"
    description="Советы по защите базы данных в хранилище данных SQL для разработки решений."
    services="sql-data-warehouse"

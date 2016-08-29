@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Использование служб мультимедиа Azure для потоковой передачи содержимого HLS, защищенного с помощью Apple FairPlay" 
 	description="В этом разделе приводятся общие сведения и показывается, как использовать службы мультимедиа Azure для динамического шифрования содержимого HTTP Live Streaming (HLS) с использованием Apple FairPlay. Здесь же рассказывается, как использовать службу доставки лицензий для служб мультимедиа для доставки клиентам лицензий FairPlay." 
 	services="media-services" 
@@ -26,7 +26,7 @@
 
 На следующем изображении показан рабочий процесс динамического шифрования FairPlay.
 
-.![Защита с помощью FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Защита с помощью FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
 В этом разделе показано, как использовать службы мультимедиа Azure для динамического шифрования содержимого HLS с помощью Apple FairPlay. Здесь же рассказывается, как использовать службу доставки лицензий для служб мультимедиа для доставки клиентам лицензий FairPlay.
 

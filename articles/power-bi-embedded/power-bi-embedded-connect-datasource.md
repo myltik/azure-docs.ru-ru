@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Microsoft Power BI Embedded — подключение к источнику данных"
    description="Power BI Embedded, подключение к источникам данных"
    services="power-bi-embedded"
@@ -7,7 +7,7 @@
    manager="NA"
    editor=""
    tags=""/>
-.<tags
+<tags
    ms.service="power-bi-embedded"
    ms.devlang="NA"
    ms.topic="article"

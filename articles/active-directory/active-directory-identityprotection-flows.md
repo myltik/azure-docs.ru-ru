@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Процедуры входа с защитой идентификации Azure AD| Microsoft Azure"
 	description="Содержит обзор того, как система взаимодействует с пользователем, когда защита идентификации уменьшает риск или восстанавливает скомпрометированного пользователя либо когда многофакторная проверка подлинности установлена политикой."
 	services="active-directory"
@@ -8,7 +8,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

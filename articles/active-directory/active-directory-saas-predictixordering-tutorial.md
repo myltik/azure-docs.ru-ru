@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство. Интеграция Azure Active Directory с Predictix Ordering | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в Predictix Ordering."
 	services="active-directory"
@@ -62,24 +62,24 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Active Directory][1]
+	![Active Directory][1]
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-	.![Приложения][2]
+	![Приложения][2]
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 
-	.![Приложения][3]
+	![Приложения][3]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-	.![Приложения][4]
+	![Приложения][4]
 
 6. В поле поиска введите **Predictix Ordering**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_01.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_01.png)
 
 7. В области результатов выберите **Predictix Ordering** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
@@ -114,11 +114,11 @@
 
 2. На странице **Как пользователи должны входить в Predictix Ordering?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
 
-	.![Настройка единого входа](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_03.png)
+	![Настройка единого входа](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_03.png)
 
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
 
-	.![Настройка единого входа](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_04.png)
+	![Настройка единого входа](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_04.png)
 
     а. В текстовое поле **URL-адрес входа** введите URL-адрес, применяемый пользователями для входа в приложение Predictix Ordering, в следующем формате: **https://\<имя\_компании-ценовая\_категория>.ordering.predictix.com/sso/request**.
 	
@@ -126,7 +126,7 @@
  
 4. На странице **Настройка единого входа в Predictix Ordering** выполните следующие действия.
 
-	.![Настройка единого входа](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_05.png)
+	![Настройка единого входа](./media/active-directory-saas-predictix-ordering-tutorial/tutorial_predictixordering_05.png)
 
     а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
 
@@ -145,30 +145,30 @@
 
 6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
 	
-	.![Единый вход в Azure AD][10]
+	![Единый вход в Azure AD][10]
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
  
-	.![Единый вход в Azure AD][11]
+	![Единый вход в Azure AD][11]
 
 
 ### Создание тестового пользователя Azure AD
 В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
 
 
-.![Создание пользователя Azure AD][20]
+![Создание пользователя Azure AD][20]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_09.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_09.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_03.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_03.png)
 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
@@ -196,11 +196,11 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_07.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_07.png)
 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_08.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-predictix-ordering-tutorial/create_aaduser_08.png)
 
     а. Запишите значение поля **Новый пароль**.
 
@@ -217,13 +217,13 @@
 
 В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив доступ к Predictix Ordering.
 
-.![Назначение пользователя][200]
+![Назначение пользователя][200]
 
 **Чтобы назначить пользователя Britta Simon приложению Predictix Ordering, выполните указанные ниже действия.**
 
 1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
 
-	.![Назначение пользователя][201]
+	![Назначение пользователя][201]
 
 2. В списке приложений выберите **Predictix Ordering**.
 
@@ -231,13 +231,13 @@
 
 3. В меню в верхней части страницы щелкните **Пользователи**.
 
-	.![Назначение пользователя][203]
+	![Назначение пользователя][203]
 
 4. В списке пользователей выберите **Britta Simon**.
 
 5. На панели инструментов внизу щелкните **Назначить**.
 
-	.![Назначение пользователя][205]
+	![Назначение пользователя][205]
 
 
 ### Проверка единого входа

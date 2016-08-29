@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Получение ценных сведений о потреблении ресурсов Microsoft Azure | Microsoft Azure"
    description="Предоставляет общие сведения о API использования и RateCard для выставления счетов Azure, которые применяются для получения ценных сведений о потреблении ресурсов Azure и соответствующих тенденциях."
    services=""
@@ -8,7 +8,7 @@
    editor=""
    tags="billing"/>
 
-.<tags
+<tags
    ms.service="billing"
    ms.devlang="na"
    ms.topic="article"

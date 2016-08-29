@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Веб-приложение с табличным хранилищем (Node.js) — Microsoft Azure" 
 	description="В этом коротком уроке вы научитесь создавать веб-приложение посредством добавления служб хранилища Azure и модуля Azure." 
 	services="cloud-services, storage" 
@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 

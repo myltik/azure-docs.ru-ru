@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure AD Connect: включение обратной записи устройств | Microsoft Azure"
 	description="В этом документе объясняется, как включить функцию обратной записи устройств с помощью службы Azure AD Connect"
 	services="active-directory"

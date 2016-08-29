@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание сборки для Azure с помощью командной строки | Microsoft Azure"
    description="Создание сборки для Azure с помощью командной строки"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"

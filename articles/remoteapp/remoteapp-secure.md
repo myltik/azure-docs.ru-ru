@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Защита приложений и ресурсов в Azure RemoteApp | Microsoft Azure"
     description="Узнайте, как блокировать приложения и ресурсы в Azure RemoteApp"
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление ролями в проектах облачных служб Azure с помощью Visual Studio | Microsoft Azure"
    description="Узнайте, как добавить роли в проект облачной службы Azure или удалить из него существующие роли с помощью Visual Studio."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"

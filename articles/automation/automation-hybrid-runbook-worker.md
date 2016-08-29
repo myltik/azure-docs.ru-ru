@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Гибридные рабочие роли Runbook в службе автоматизации Azure | Microsoft Azure"
    description="В этой статье содержатся сведения об установке и использовании гибридного компонента Runbook Worker, который является элементом службы автоматизации Azure, позволяющей запускать модули Runbook на компьютерах в локальном центре обработки данных."
    services="automation"
@@ -6,7 +6,7 @@
    authors="mgoedtel"
    manager="jwhit"
    editor="tysonn" />
-.<tags
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
@@ -21,11 +21,11 @@
 
 Эта функция проиллюстрирована на следующем изображении.<br>
 
-.![Обзор гибридного компонента Runbook Worker](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
+![Обзор гибридного компонента Runbook Worker](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-overview.png)
 
 Вы можете назначить один или несколько компьютеров в вашем центре обработки данных в качестве гибридного компонента Runbook Worker и запускать модули Runbook при помощи службы автоматизации Azure. Каждый компонент Worker требует наличия агента управления Майкрософт с подключением к Microsoft Operations Management Suite и средой Runbook службы автоматизации Azure. Operations Management Suite используется только для установки и технического обслуживания агента управления, а также для отслеживания работы функций компонента Worker. Предоставление элементов Runbook и инструкций по их запуску выполняется службой автоматизации Azure.
 
-.![Компоненты гибридного компонента Runbook Worker](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components_b.png)
+![Компоненты гибридного компонента Runbook Worker](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-components_b.png)
 
 >[AZURE.NOTE] В настоящее время идет процесс интеграции Operational Insights с Operations Management Suite, поэтому на портале и в документации вы можете встретить и то, и другое название.
 
@@ -119,7 +119,7 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
 
 Данные, необходимые для этого командлета, можно найти в колонке **Управление ключами** на портале Azure. Откройте эту колонку, щелкнув значок ключа на панели элементов в учетной записи службы автоматизации.
 
-.![Обзор гибридного компонента Runbook Worker](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+![Обзор гибридного компонента Runbook Worker](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 - **Имя** — это имя группы гибридных компонентов Runbook Worker. Если эта группа уже существует в учетной записи автоматизации, то к ней добавляется текущий компьютер. Если она еще не существует, то выполняется ее добавление.
 - **Конечная точка** — это поле **URL-адрес** в колонке **Управление ключами**.

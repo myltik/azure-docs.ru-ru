@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Tomcat на виртуальной машине | Microsoft Azure"
 	description="В этом учебнике используются ресурсы, созданные с помощью классической развертывания модели, а также приведены инструкции по созданию виртуальной машины Windows и ее настройке для работы сервера приложений Apache Tomcat."
 	services="virtual-machines-windows"
@@ -8,7 +8,7 @@
 	editor=""
     tags="azure-service-management" />
 
-.<tags
+<tags
 	ms.service="virtual-machines-windows"
 	ms.workload="web"
 	ms.tgt_pltfrm="vm-windows"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных из DB2 | Фабрика данных Azure" 
 	description="Узнайте, как перемещать данные из базы данных DB2 с использованием фабрики данных Azure" 
 	services="data-factory" 

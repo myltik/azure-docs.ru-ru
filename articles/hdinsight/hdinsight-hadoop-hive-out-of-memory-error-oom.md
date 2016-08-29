@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Ошибка нехватки памяти (OOM) — параметры Hive | Microsoft Azure"
 	description="Устранение ошибки нехватки памяти (OOM) в запросе Hive в HDInsight. Пользовательский сценарий представляет собой запрос ко множеству больших таблиц."
 	keywords="ошибка нехватки памяти, OOM, параметры Hive"
@@ -8,7 +8,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-.<tags
+<tags
 	ms.service="hdinsight"
 	ms.devlang="na"
 	ms.topic="article"

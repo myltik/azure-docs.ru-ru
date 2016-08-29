@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Глоссарий по защите идентификации Azure Active Directory | Microsoft Azure"
 	description="Глоссарий по защите идентификации Azure Active Directory"
 	services="active-directory"

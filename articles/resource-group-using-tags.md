@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование тегов для организации ресурсов Azure | Microsoft Azure"
 	description="Здесь описано, как применить теги, чтобы организовать ресурсы для выставления счетов и управления."
 	services="azure-resource-manager"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление хранилищем запросов в базе данных SQL Azure"
    description="Узнайте, как управлять хранилищем запросов в базе данных SQL Azure"
    keywords=""
@@ -8,7 +8,7 @@
    manager="jhubbard"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"

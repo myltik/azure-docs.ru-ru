@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure | Microsoft Azure"
    description="В этой статье представлены рекомендации по управлению удостоверениями и контролю доступа с помощью встроенных возможностей Azure."
    services="security"
@@ -7,7 +7,7 @@
    manager="swadhwa"
    editor="TomSh"/>
 
-.<tags
+<tags
    ms.service="security"
    ms.devlang="na"
    ms.topic="article"

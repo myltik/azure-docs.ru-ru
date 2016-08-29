@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Применение политик к виртуальным машинам Azure Resource Manager | Microsoft Azure"
 	description="Как применить политику к виртуальной машине Azure Resource Manager на основе Windows"
 	services="virtual-machines-windows"

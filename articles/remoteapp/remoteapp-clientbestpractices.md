@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Советы и рекомендации по работе с клиентами Azure RemoteApp | Microsoft Azure"
     description="Изучите рекомендации по использованию клиентов RemoteApp"
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

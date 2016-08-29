@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Включение удаленной отладки при использовании непрерывной доставки | Microsoft Azure"
 	description="Узнайте, как можно включить удаленную отладку при использовании непрерывной доставки, чтобы выполнять развертывание на Azure"
 	services="cloud-services"
@@ -7,7 +7,7 @@
 	manager="douge"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="cloud-services"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-multiple"

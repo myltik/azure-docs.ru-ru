@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Развертывание ресурсов с помощью Azure CLI и шаблона | Microsoft Azure"
    description="Узнайте, как использовать Azure Resource Manager и Azure CLI для развертывания ресурсов в Azure. Эти ресурсы определяются в шаблоне Resource Manager."
    services="azure-resource-manager"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor="tysonn"/>
 
-.<tags
+<tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"

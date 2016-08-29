@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Изменение кредитной карты, используемой для оплаты подписки Azure | Microsoft Azure"
 	description="Описание процедуры изменения кредитной карты, используемой для оплаты подписки Azure"
 	services=""
@@ -9,7 +9,7 @@
 	tags="billing"
 	/>
 
-.<tags
+<tags
 	ms.service="billing"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

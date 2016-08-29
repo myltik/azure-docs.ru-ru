@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Просмотр операций развертывания с помощью интерфейса командной строки Azure | Microsoft Azure"
    description="Описывается использование интерфейса командной строки Azure для обнаружения и устранения проблем развертывания Resource Manager."
    services="azure-resource-manager,virtual-machines"

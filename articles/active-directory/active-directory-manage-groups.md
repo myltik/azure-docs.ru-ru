@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление доступом к ресурсам с помощью групп Azure Active Directory|Microsoft Azure"
 	description="Как использовать группы в Azure Active Directory для управления доступом пользователей к локальным и облачным приложениям и ресурсам."
 	services="active-directory"
@@ -8,7 +8,7 @@
 	editor=""
 />
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

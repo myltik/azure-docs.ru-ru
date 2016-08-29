@@ -1,11 +1,11 @@
-.<properties 
+<properties 
     pageTitle="Учебник. Интеграция Azure Active Directory с EmpCenter | Microsoft Azure" 
     description="Узнайте, как использовать EmpCenter вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
     manager="femila"/>
-.<tags 
+<tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
@@ -45,11 +45,11 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    .![Приложения](./media/active-directory-saas-empcenter-tutorial/IC700994.png "Приложения")
+    ![Приложения](./media/active-directory-saas-empcenter-tutorial/IC700994.png "Приложения")
 
 4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    .![Добавление приложения](./media/active-directory-saas-empcenter-tutorial/IC749321.png "Добавление приложения")
+    ![Добавление приложения](./media/active-directory-saas-empcenter-tutorial/IC749321.png "Добавление приложения")
 
 5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -70,11 +70,11 @@
 
 1.  На классическом портале Azure на странице интеграции с приложением **EmpCenter** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    .![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802919.png "Настройка единого входа")
 
 2.  На странице **Как пользователи должны входить в EmpCenter?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    .![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802920.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802920.png "Настройка единого входа")
 
 3.  На странице **Настройка параметров приложения** выполните следующие действия.
 
@@ -93,7 +93,7 @@
 
 6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    .![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Настройка единого входа")
 ##Настройка подготовки учетных записей пользователей
   
 Чтобы пользователи Azure AD могли выполнять вход в EmpCenter, они должны быть подготовлены для EmpCenter. В случае EmpCenter учетные записи пользователей должны быть созданы службой поддержки EmpCenter.
@@ -110,7 +110,7 @@
 
 2.  На странице интеграции с приложением **EmpCenter** щелкните **Назначить пользователей**.
 
-    .![Назначить пользователей](./media/active-directory-saas-empcenter-tutorial/IC802924.png "Назначить пользователей")
+    ![Назначить пользователей](./media/active-directory-saas-empcenter-tutorial/IC802924.png "Назначить пользователей")
 
 3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 

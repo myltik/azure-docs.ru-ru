@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Планирование виртуальной сети для коллекции Azure RemoteApp | Microsoft Azure"
     description="Узнайте, как спланировать виртуальную сеть для коллекции Azure RemoteApp | Microsoft Azure"
     services="remoteapp"
@@ -6,7 +6,7 @@
     authors="mghosh1616"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"
@@ -30,13 +30,13 @@
 
 ### Облачная коллекция Azure RemoteApp с виртуальной сетью
 
- .![Azure RemoteApp — облачная коллекция с виртуальной сетью](./media/remoteapp-planvpn/ra-cloudvpn.png)
+ ![Azure RemoteApp — облачная коллекция с виртуальной сетью](./media/remoteapp-planvpn/ra-cloudvpn.png)
 
 Это коллекция Azure RemoteApp, где все ресурсы, к которым требуется доступ хостам сеансов RemoteApp, развертываются в Azure. Они могут находиться в виртуальной сети RemoteApp VNET или другой виртуальной сети в Azure.
 
 ### Гибридная коллекция Azure RemoteApp с виртуальной сетью
 
-.![Azure RemoteApp — гибридная коллекция с виртуальной сетью](./media/remoteapp-planvpn/ra-hybridvpn.png)
+![Azure RemoteApp — гибридная коллекция с виртуальной сетью](./media/remoteapp-planvpn/ra-hybridvpn.png)
 
 Это коллекция Azure RemoteApp, где некоторые ресурсы, к которым требуется доступ хостам сеансов RemoteApp, развертываются локально. Виртуальная сеть RemoteApp связывается с локальной сетью с помощью гибридных технологий Azure, таких как VPN типа «сеть-сеть» или ExpressRoute.
 

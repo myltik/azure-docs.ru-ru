@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Application Insights для уже действующих веб-приложений Java" 
 	description="Начните отслеживать веб-приложение, которое уже выполняется на вашем сервере." 
 	services="application-insights" 
@@ -6,7 +6,7 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-.<tags 
+<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 

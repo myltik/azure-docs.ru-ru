@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Автоматическое включение параметров диагностики с помощью шаблона Resource Manager | Microsoft Azure"
 	description="Узнайте, как использовать шаблон Resource Manager для создания параметров диагностики, которые позволят передавать журналы диагностики в концентраторы событий или сохранять их в учетной записи хранения."
 	authors="johnkemnetz"
@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-.<tags
+<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

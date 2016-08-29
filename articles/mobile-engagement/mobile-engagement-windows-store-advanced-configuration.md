@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Расширенная конфигурация пакета SDK службы Engagement для универсальных приложений для Windows"
 	description="Параметры расширенной конфигурации Azure Mobile Engagement при использовании с универсальными приложениями для Windows" 					
 	services="mobile-engagement"
@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor="" />
 
-.<tags
+<tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-store"

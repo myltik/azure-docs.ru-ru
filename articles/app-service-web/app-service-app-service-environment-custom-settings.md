@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Пользовательские параметры для сред службы приложений"
 	description="Настраиваемые параметры конфигурации для сред службы приложений"
 	services="app-service"
@@ -7,7 +7,7 @@
 	manager="nirma"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

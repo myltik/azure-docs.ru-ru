@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление службой Azure RemoteApp с помощью службы автоматизации Azure | Microsoft Azure"
 	description="Способы использования службы автоматизации Azure для управления удаленными приложениями Azure RemoteApp."
 	services="automation"
@@ -7,7 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="automation"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"

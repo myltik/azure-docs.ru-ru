@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Как создать базу данных в DocumentDB | Microsoft Azure" 
 	description="Узнайте, как с помощью портала веб-служб для Azure DocumentDB создать базу данных — молниеносно быструю глобальную базу данных NoSQL." 
 	keywords="Как создать базу данных" 
@@ -8,7 +8,7 @@
 	editor="monicar" 
 	documentationCenter=""/>
 
-.<tags 
+<tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
@@ -24,7 +24,7 @@
 1.  На панели быстрых переходов в разделе [Портал Azure](https://portal.azure.com/) щелкните **Учетные записи DocumentDB**. Если **учетные записи DocumentDB** не отображаются, нажмите кнопку **Другие службы**, а затем **Учетные записи DocumentDB**.
 
 
-    .![Снимок экрана, на котором показано, как создать базу данных, и отображены элемент "Учетные записи DocumentDB" в колонке "Обзор" и учетная запись DocumentDB в колонке "Учетные записи DocumentDB".](./media/documentdb-create-database/docdb-database-creation-1-2.png)
+    ![Снимок экрана, на котором показано, как создать базу данных, и отображены элемент "Учетные записи DocumentDB" в колонке "Обзор" и учетная запись DocumentDB в колонке "Учетные записи DocumentDB".](./media/documentdb-create-database/docdb-database-creation-1-2.png)
 
 2.  В колонке **Учетные записи DocumentDB** выберите учетную запись, в которую следует добавить базу данных NoSQL DocumentDB. При отсутствии учетных записей необходимо [создать учетную запись DocumentDB](documentdb-create-account.md).
 

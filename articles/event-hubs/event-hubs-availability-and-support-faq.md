@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Доступность и поддержка концентраторов событий | Microsoft Azure"
     description="Доступность и поддержка концентраторов событий: часто задаваемые вопросы."
     services="event-hubs"
@@ -6,7 +6,7 @@
     authors="sethmanheim"
     manager="timlt"
     editor="" />
-.<tags 
+<tags 
     ms.service="event-hubs"
     ms.devlang="na"
     ms.topic="article"

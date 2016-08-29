@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Устранение неполадок при создании гибридных коллекций RemoteApp | Microsoft Azure"
     description="Устранение неполадок при сбоях создания гибридной коллекции RemoteApp"
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="vkbucha"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"
@@ -57,7 +57,7 @@
     </Dns>
 	</VirtualNetworkConfiguration>
 
-.![Определение DNS-сервера](./media/remoteapp-hybridtrouble/dnsvpn.png)
+![Определение DNS-сервера](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
 ## Используется ли в вашей коллекции контроллер домена Active Directory? ##
 В настоящее время с Azure RemoteApp можно связать только один домен Active Directory. Гибридная коллекция поддерживает только те учетные записи Azure Active Directory, которые были синхронизированы с помощью средства DirSync из развертывания Windows Server Active Directory. В частности, они могут быть синхронизированы с помощью параметра "Синхронизация паролей" или служб федерации Active Directory (AD FS). Необходимо создать пользовательский домен, который совпадает с суффиксом домена UPN для локального домена, и настроить интеграцию каталогов.

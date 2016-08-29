@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Бесплатная пробная версия Azure RemoteApp на 30 дней | Microsoft Azure"
     description="Испытайте бесплатную пробную версию Azure RemoteApp на 30 дней."
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

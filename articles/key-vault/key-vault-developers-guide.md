@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Руководство разработчика хранилища ключей | Microsoft Azure"
    description="Разработчики могут использовать хранилище ключей Azure для управления криптографическими ключами в среде Microsoft Azure. "
    services="key-vault"
@@ -6,7 +6,7 @@
    authors="BrucePerlerMS"
    manager="mbaldwin"
    editor="bruceper" />
-.<tags
+<tags
    ms.service="key-vault"
    ms.devlang="na"
    ms.topic="article"

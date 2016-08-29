@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Ошибка при обнаружении проверки подлинности" 
 	description="Мастер подключения к Active Directory обнаружил несовместимый тип проверки подлинности" 
 	services="active-directory" 
@@ -7,7 +7,7 @@
 	manager="douge" 
 	editor=""/>
   
-.<tags 
+<tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="vs-getting-started" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование табличного хранилища Azure в Ruby | Microsoft Azure"
 	description="Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
 	services="storage"

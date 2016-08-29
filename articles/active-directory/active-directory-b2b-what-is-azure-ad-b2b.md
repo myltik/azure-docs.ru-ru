@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Предварительная версия службы совместной работы Azure Active Directory B2B: простая и надежная облачная интеграция партнеров | Microsoft Azure"
    description="Служба совместной работы Azure Active Directory B2B поддерживает взаимодействие между компаниями, позволяя предоставлять бизнес-партнерам выборочный доступ к вашим корпоративным приложениям."
    services="active-directory"
@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 
-.<tags
+<tags
    ms.service="active-directory"
    ms.devlang="NA"
    ms.topic="article"

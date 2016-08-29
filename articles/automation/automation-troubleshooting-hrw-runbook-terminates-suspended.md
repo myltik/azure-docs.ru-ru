@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Гибридная рабочая роль Runbook. Задание Runbook завершается с состоянием ";Приостановлено"; | Microsoft Azure"
    description="Симптомы, причины и способы устранения ошибки завершения задания гибридной рабочей роли Runbook."
    services="automation"

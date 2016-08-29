@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных в базу данных Oracle и обратно с помощью фабрики данных | Microsoft Azure" 
 	description="Узнайте, как переместить данные в локальную базу данных Oracle или из нее с помощью фабрики данных Azure." 
 	services="data-factory" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Интеграция пакета Android SDK с Azure Mobile Engagement"
 	description="Описывает, как интегрировать пакет SDK для Azure Mobile Engagement в приложения Android."
 	services="mobile-engagement"
@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor="" />
 
-.<tags
+<tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"

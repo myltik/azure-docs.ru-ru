@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Использование SSH в Windows для подключения к виртуальным машинам Linux | Microsoft Azure" 
 description="Узнайте, как создавать и использовать ключи SSH на компьютере Windows для подключения к виртуальной машине Linux в Azure." 
 	services="virtual-machines-linux" 
@@ -142,13 +142,13 @@ description="Узнайте, как создавать и использоват
 
 6. Щелкните **Открыть**. Появится запрос, который должен выглядеть следующим образом:
 
-	.![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-linux/linuxgoodforeignkey.png)
+	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-linux/linuxgoodforeignkey.png)
 
 7. Нажмите кнопку **ОК**.
 
 8. Щелкните **Сохранить закрытый ключ**, который выделен на следующем снимке экрана:
 
-	.![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtygenprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtygenprivatekey.png)
 
 9. Сохраните файл как PPK.
 
@@ -159,11 +159,11 @@ description="Узнайте, как создавать и использоват
 2.	Запустите putty.exe
 3.	Заполните имя узла, используя IP с портала управления.
 
-	.![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-linux/linuxputtyconfig.png)
+	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-linux/linuxputtyconfig.png)
 
 4.	Перед выбором **Открыть** щелкните вкладку Подключение > SSH > Проверка подлинности, чтобы указать ключ. Ниже см. снимок экрана поля для заполнения.
 
-	.![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtyprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtyprivatekey.png)
 
 5.	Щелкните **Открыть**, чтобы подключится к виртуальной машине.
  

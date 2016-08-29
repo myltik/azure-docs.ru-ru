@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Azure RemoteApp — как пропускная способность сети и качество взаимодействия связаны друг с другом? | Microsoft Azure"
 	description="Сведения о том, как пропускная способность сети в Azure RemoteApp может влиять на качество взаимодействия с пользователем."
 	services="remoteapp"

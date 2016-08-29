@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных из Teradata | Фабрика данных Azure" 
 	description="Сведения о соединителе Teradata для службы фабрики данных, с помощью которого можно перемещать данные из базы данных Teradata." 
 	services="data-factory" 

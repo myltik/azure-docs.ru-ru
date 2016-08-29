@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL | Microsoft Azure"
    description="Использование Multi-Factor Authentication с SSMS для базы данных SQL и хранилища данных SQL."
    services="sql-database"
@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 
-.<tags
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"

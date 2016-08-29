@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Не храните конфиденциальные данные в пользовательских образах в Azure RemoteApp | Microsoft Azure"
     description="Изучите рекомендации по хранению данных в пользовательских образах в Azure RemoteApp."
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

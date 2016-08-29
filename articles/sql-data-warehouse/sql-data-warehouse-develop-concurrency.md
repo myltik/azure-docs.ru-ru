@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL | Microsoft Azure"
    description="Общие сведения управлении параллелизмом и рабочей нагрузкой в хранилище данных SQL Azure для разработки решений."
    services="sql-data-warehouse"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure"
 	description="В этом учебнике рассматривается использование Socket.io в веб-приложениях Node.js, размещенных в Azure."
 	services="app-service\web"
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"

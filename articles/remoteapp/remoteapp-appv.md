@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Использование приложений App-V в Azure RemoteApp | Microsoft Azure"
     description="Узнайте, как использовать приложения App-V в Azure RemoteApp."
     services="remoteapp"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Клонирование классической виртуальной машины в Azure Resource Manager с помощью сценариев PowerShell"
 	description="В этой статье показано, как клонировать классическую виртуальную машину в модель Azure Resource Manager с помощью сценариев PowerShell"
 	services="virtual-machines-windows"

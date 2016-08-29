@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Установка устройства StorSimple 8100 | Microsoft Azure"
    description="Описывается процедура распаковки, установки в стойку и подключения устройства StorSimple 8100 перед развертыванием и настройкой программного обеспечения."
    services="storsimple"
@@ -6,7 +6,7 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-.<tags
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"

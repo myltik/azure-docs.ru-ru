@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Обновление проектов до текущей версии инструментов Azure | Microsoft Azure"
    description="Сведения об обновлении проекта Azure в Visual Studio до текущей версии инструментов Azure"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"

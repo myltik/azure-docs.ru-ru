@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Требования к образам Azure RemoteApp | Microsoft Azure"
     description="Узнайте требования к созданию образов, используемых с Azure RemoteApp"
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

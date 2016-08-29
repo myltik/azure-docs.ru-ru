@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство по интеграции Azure Active Directory с Novatus | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в LearnUpon."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -59,17 +59,17 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Active Directory][1]
+	![Active Directory][1]
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-	.![Приложения][2]
+	![Приложения][2]
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 
-	.![Приложения][3]
+	![Приложения][3]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -77,11 +77,11 @@
 
 6. В поле поиска введите **LearnUpon**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_01.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_01.png)
 
 7. В области результатов выберите **LearnUpon** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_02.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_02.png)
 
 ##  Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в LearnUpon с использованием тестового пользователя Britta Simon.
@@ -106,15 +106,15 @@
 
 1. На классическом портале Azure откройте страницу интеграции с приложением **LearnUpon** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-	.![Настройка единого входа][6]
+	![Настройка единого входа][6]
 
 2. На странице **Как пользователи должны входить в LearnUpon?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
 
-	.![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_03.png)
+	![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_03.png)
 
 3. На странице диалогового окна **Настройка параметров приложения** выполните следующие действия.
 
-	.![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_04.png)
+	![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_04.png)
 
 
     а. В текстовое поле **URL-адрес ответа** введите URL-адрес службы Assertion Consumer Service в следующем формате: `https://<companyname>.learnupon.com/saml/consumer`.
@@ -124,7 +124,7 @@
 
 4. На странице **Настройка единого входа в LearnUpon** выполните следующие действия.
 
-	.![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_05.png)
+	![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_05.png)
 
     а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер. Этот сертификат и URL-адреса метаданных (идентификатор сущности, URL-адрес единого входа и URL-адрес выхода) понадобятся для настройки единого входа на стороне LearnUpon.
 
@@ -137,7 +137,7 @@
 
 1. Перейдите на вкладку **Settings** (Параметры).
 
-	.![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png)
+	![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_06.png)
 
 
 1. Щелкните **Single Sign On - SAML** (Единый вход — SAML), а затем нажмите кнопку **General Settings** (Общие параметры) для настройки SAML.
@@ -147,7 +147,7 @@
 
 5. В разделе **General Settings** (Общие параметры) выполните следующие действия.
 
-	.![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png)
+	![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_08.png)
 
 	а. Щелкните **Включено**.
 
@@ -168,7 +168,7 @@
 
 1. Перейдите в раздел **User Settings** (Параметры пользователя) и выполните следующее.
 
-	.![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png)
+	![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_11.png)
 
 	а. В текстовое поле **First Name Identifier Format** (Формат идентификатора имени) введите значение, которое обозначает расположение имени пользователя в утверждении SAML, например: **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ имя**.
 
@@ -177,11 +177,11 @@
 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
 
-	.![Единый вход в Azure AD][10]
+	![Единый вход в Azure AD][10]
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
 
-	.![Единый вход в Azure AD][11]
+	![Единый вход в Azure AD][11]
 
 
 
@@ -195,13 +195,13 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_09.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_09.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_03.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_03.png)
 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
@@ -209,7 +209,7 @@
 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_05.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_05.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -219,7 +219,7 @@
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_06.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_06.png)
 
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -233,11 +233,11 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_07.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_07.png)
 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_08.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-learnupon-tutorial/create_aaduser_08.png)
 
     а. Запишите значение поля **Новый пароль**.
 
@@ -258,27 +258,27 @@
 
 Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступа к LearnUpon.
 
-.![Назначение пользователя][200]
+![Назначение пользователя][200]
 
 **Чтобы назначить пользователя Britta Simon в LearnUpon, выполните следующие действия.**
 
 1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
 
-	.![Назначение пользователя][201]
+	![Назначение пользователя][201]
 
 2. В списке приложений выберите **LearnUpon**.
 
-	.![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_50.png)
+	![Настройка единого входа](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_50.png)
 
 1. В меню в верхней части страницы щелкните **Пользователи**.
 
-	.![Назначение пользователя][203]
+	![Назначение пользователя][203]
 
 1. В списке пользователей выберите **Britta Simon**.
 
 2. На панели инструментов внизу щелкните **Назначить**.
 
-	.![Назначение пользователя][205]
+	![Назначение пользователя][205]
 
 
 

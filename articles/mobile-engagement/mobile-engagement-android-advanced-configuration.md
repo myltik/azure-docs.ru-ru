@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Расширенная конфигурация для пакета SDK Android для Azure Mobile Engagement"
 	description="Описание дополнительных параметров конфигурации, включая манифест Android, в пакете SDK для Android в службе Azure Mobile Engagement."
 	services="mobile-engagement"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Классификация данных для Azure | Microsoft Azure"
    description="В этой статье описываются основы классификации данных и подчеркивается ее ценность, особенно в контексте облачных вычислений и использования Microsoft Azure"
    services="security"
@@ -7,7 +7,7 @@
    manager="swadhwa"
    editor="TomSh"/>
 
-.<tags
+<tags
    ms.service="security"
    ms.devlang="na"
    ms.topic="article"
@@ -190,7 +190,7 @@
  
 Как показано на рисунке ниже, эти технологии можно развернуть как локальные или облачные решения, а также как гибридные решения (некоторые развернуты локально, а некоторые — в облаке). (Некоторые технологии, например шифрование и управление правами, также распространяются на устройства пользователей.)
 
-.![Технологии](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
+![Технологии](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
 
 ### Программное обеспечение для управления правами  
 

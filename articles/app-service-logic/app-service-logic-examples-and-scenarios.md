@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Сценарии и примеры использования приложений логики | Microsoft Azure"
    description="Примеры распространенных сценариев использования приложений логики, а также способы их реализации."
    services="logic-apps"
@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""/>
 
-.<tags
+<tags
    ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"

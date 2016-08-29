@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Добавление приложения Java в веб-приложения службы приложений Azure" 
 	description="В этом учебнике показано, как добавить страницу или приложение в экземпляр веб-приложений службы приложений Azure, который уже настроен на использование Java." 
 	services="app-service\web" 
@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 

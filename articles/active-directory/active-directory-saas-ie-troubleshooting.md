@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Устранение неполадок, связанных с расширением панели доступа для Internet Explorer | Microsoft Azure"
     description="Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения»."
     services="active-directory"

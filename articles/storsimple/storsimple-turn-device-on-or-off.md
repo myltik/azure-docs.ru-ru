@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Включение и выключение устройства StorSimple | Microsoft Azure"
    description="В этой статье объясняется, как включить новое устройство StorSimple, как включить устройство после завершения работы или отключения питания, а также как выключить работающее устройство."
    services="storsimple"
@@ -6,7 +6,7 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-.<tags 
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"

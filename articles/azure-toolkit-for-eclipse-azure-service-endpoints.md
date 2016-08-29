@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Конечные точки службы Azure"
     description="Описываются параметры конечных точек службы Azure в наборе средств Azure для Eclipse."
     services=""
@@ -7,7 +7,7 @@
     manager="wpickett"
     editor=""/>
 
-.<tags
+<tags
     ms.service="multiple"
     ms.workload="na"
     ms.tgt_pltfrm="multiple"

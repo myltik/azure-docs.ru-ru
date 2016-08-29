@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Доступ к виртуальным машинам Azure из обозревателя сервера | Microsoft Azure"
    description="Общие сведения о просмотре и создании виртуальных машин Azure, а также об управлении ими в обозревателе сервера в Visual Studio."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"

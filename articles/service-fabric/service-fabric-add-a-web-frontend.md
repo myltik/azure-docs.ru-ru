@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание внешнего веб-интерфейса для приложения с помощью ASP.NET Core | Microsoft Azure"
    description="Предоставление веб-доступа к приложению Service Fabric с помощью проекта веб-API ASP.NET Core и взаимодействие между службами через ServiceProxy."
    services="service-fabric"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""/>
 
-.<tags
+<tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
    ms.topic="article"
@@ -169,11 +169,11 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 2. В меню **Сборка** откройте **диспетчер конфигураций**. Вы увидите нечто вроде этого:
 
-    .![Диспетчер конфигураций, отображающий библиотеку класса как AnyCPU ("Любой ЦП")][vs-configuration-manager]
+    ![Диспетчер конфигураций, отображающий библиотеку класса как AnyCPU ("Любой ЦП")][vs-configuration-manager]
 
     Обратите внимание, что для проекта библиотеки классов, **MyStatefulService.Interface**, выбран вариант Any CPU ("Любой ЦП"). Чтобы нормально работать с Service Fabric, его нужно вручную настроить для работы с 64-разрядной архитектурой. Щелкните раскрывающееся меню "Платформа", выберите элемент **Создать** и создайте конфигурацию 64-разрядной платформы.
 
-    .![Создание платформы для библиотеки класса][vs-create-platform]
+    ![Создание платформы для библиотеки класса][vs-create-platform]
 
 3. Добавьте в проект ASP.NET пакет Microsoft.ServiceFabric.Services (так же, как и для проекта библиотеки классов ранее). Будет добавлен класс `ServiceProxy`.
 
@@ -208,7 +208,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 5. Нажмите клавишу F5 еще раз, чтобы запустить измененное приложение. Visual Studio автоматически откроет в браузере корень веб-проекта. Добавьте путь api/values, и вы увидите возвращаемое текущее значение счетчика.
 
-    .![Отображаемое в браузере значение счетчика с отслеживанием состояния][browser-aspnet-counter-value]
+    ![Отображаемое в браузере значение счетчика с отслеживанием состояния][browser-aspnet-counter-value]
 
     Периодически обновляйте браузер, чтобы отслеживать актуальные показания счетчика.
 
@@ -254,6 +254,6 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 .<!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
-[api-management-landing-page]: https://azure.microsoft.com/ru-RU/services/api-management/
+[api-management-landing-page]: https://azure.microsoft.com/services/api-management/
 
 <!---HONumber=AcomDC_0817_2016-->

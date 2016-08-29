@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Архивация базы данных SQL Azure в BACPAC-файл с помощью портала Azure"
 	description="Архивация базы данных SQL Azure в BACPAC-файл с помощью портала Azure"
 	services="sql-database"
@@ -7,7 +7,7 @@
 	manager="jhubbard"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="08/15/2016"

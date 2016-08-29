@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Список портов и URL-адресов для разрешения доступа к развернутым Azure RemoteApp в виртуальной сети клиента | Microsoft Azure"
     description="Узнайте, какие порты и URL-адреса необходимо настроить для связи через Azure RemoteApp."
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="mghosh1616"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

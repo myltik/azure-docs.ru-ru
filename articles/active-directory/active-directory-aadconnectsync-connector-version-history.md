@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="История выпусков версий соединителей | Microsoft Azure"
    description="В этой статье перечислены все соединители для Forefront Identity Manager (FIM) и Microsoft Identity Manager (MIM)."
    services="active-directory"
@@ -7,7 +7,7 @@
    manager="stevenpo"
    editor=""/>
 
-.<tags
+<tags
    ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"

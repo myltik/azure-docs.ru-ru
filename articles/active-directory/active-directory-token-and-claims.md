@@ -1,4 +1,4 @@
- .<properties
+ <properties
    pageTitle="Справочник по токенам в Azure AD | Microsoft Azure"
    description="Руководство с общими данными и анализом утверждений в токенах SAML 2.0 и веб-токенах JSON (JWT), выдаваемых службой Azure Active Directory (AAD)"
    documentationCenter="na"

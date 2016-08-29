@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC) | Microsoft Azure" 
 	description="Как приступить к использованию Azure Active Directory в проектах MVC после подключения или создания Azure AD с помощью подключенных служб Visual Studio" 
 	services="active-directory" 

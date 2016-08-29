@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Аутентификация в хранилище данных SQL Azure | Microsoft Azure"
    description="Применение аутентификации Azure Active Directory (AAD) и SQL Server для подключения к хранилищу данных SQL Azure."
    services="sql-data-warehouse"
@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="na"
    ms.topic="article"

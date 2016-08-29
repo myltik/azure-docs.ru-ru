@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Импорт и экспорт файла зоны домена с помощью CLI | Microsoft Azure"
    description="Узнайте, как импортировать файл зоны DNS в Azure DNS и экспортировать его оттуда с помощью интерфейса командной строки Azure."
    services="dns"
@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"

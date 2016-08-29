@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Построение строк фильтра для конструктора таблиц | Microsoft Azure"
    description="Построение строк фильтра для конструктора таблиц"
    services="visual-studio-online"

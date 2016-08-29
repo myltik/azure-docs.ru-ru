@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Перенаправление USB-устройств в удаленном приложении Azure RemoteApp | Microsoft Azure" 
     description="Узнайте, как использовать перенаправление для USB-устройств в Azure RemoteApp." 
     services="remoteapp" 
@@ -6,7 +6,7 @@
     authors="lizap" 
     manager="mbaldwin" />
 
-.<tags 
+<tags 
     ms.service="remoteapp" 
     ms.workload="compute" 
     ms.tgt_pltfrm="na" 

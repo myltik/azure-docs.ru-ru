@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Установка Endpoint Protection в центре безопасности Azure | Microsoft Azure"
    description="В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure **Установить Endpoint Protection**."
    services="security-center"
@@ -7,7 +7,7 @@
    manager="MBaldwin"
    editor=""/>
 
-.<tags
+<tags
    ms.service="security-center"
    ms.devlang="na"
    ms.topic="article"

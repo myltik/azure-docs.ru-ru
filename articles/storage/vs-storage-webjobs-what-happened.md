@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что произошло с моим проектом веб-заданий (подключенными к службе хранилища Azure службами Visual Studio)? | Microsoft Azure"
 	description="Сведения о том, что происходит в проекте веб-заданий Azure после подключения к учетной записи хранения с помощью подключенных служб Visual Studio"
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="douge"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="web"
 	ms.tgt_pltfrm="vs-what-happened"

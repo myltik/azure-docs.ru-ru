@@ -1,5 +1,5 @@
 
-.<properties
+<properties
 	pageTitle="Покупка личного доменного имени в веб-приложениях службы приложений Azure"
 	description="Информация о приобретении личного доменного имени для веб-приложения в службе приложение Azure."
 	services="app-service\web"
@@ -8,7 +8,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"

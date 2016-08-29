@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Блокировка ресурсов с помощью диспетчера ресурсов | Microsoft Azure" 
 	description="Запрет на обновление или удаление определенных ресурсов для пользователей путем применения ограничения для всех пользователей и ролей." 
 	services="azure-resource-manager" 
@@ -7,7 +7,7 @@
 	manager="timlt" 
 	editor="tysonn"/>
 
-.<tags 
+<tags 
 	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Прогнозирование: интегрированное скользящее среднее с авторегрессией (ARIMA) | Microsoft Azure" 
 	description="Прогнозирование: авторегрессионная интегрированная модель скользящего среднего (ARIMA)" 
 	services="machine-learning" 
@@ -7,7 +7,7 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
-.<tags 
+<tags 
 	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 

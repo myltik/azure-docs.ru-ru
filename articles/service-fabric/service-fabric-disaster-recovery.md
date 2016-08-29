@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Аварийное восстановление в Azure Service Fabric | Microsoft Azure"
    description="Azure Service Fabric предлагает возможности, необходимые для устранения всех типов сбоев. В этой статье описаны типы сбоев, которые могут возникать, и приведены способы их устранения."
    services="service-fabric"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""/>
 
-.<tags
+<tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
    ms.topic="article"

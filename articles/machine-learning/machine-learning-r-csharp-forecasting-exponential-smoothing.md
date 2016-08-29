@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Экспоненциальное сглаживание прогноза | Microsoft Azure" 
 	description="Веб-служба: прогнозирование на основе метода экспоненциального сглаживания" 
 	services="machine-learning" 
@@ -7,7 +7,7 @@
 	manager="paulettm" 
 	editor="cgronlun"/>
 
-.<tags 
+<tags 
 	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 

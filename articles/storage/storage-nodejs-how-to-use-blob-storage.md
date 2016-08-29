@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование хранилища больших двоичных объектов из Node.js | Microsoft Azure"
 	description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
 	services="storage"

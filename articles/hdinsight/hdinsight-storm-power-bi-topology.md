@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Использование Apache Storm с Power BI | Microsoft Azure"
  description="Создавайте отчеты Power BI на основе данных, собранных из топологии C#, запущенной в кластере Apache Storm в HDInsight."
  services="hdinsight"
@@ -8,7 +8,7 @@
  editor="cgronlun"
 	tags="azure-portal"/>
 
-.<tags
+<tags
  ms.service="hdinsight"
  ms.devlang="dotnet"
  ms.topic="article"
@@ -146,7 +146,7 @@ Power BI позволяет визуально представлять данн
 
 2. Нажмите кнопку **Завершить**, чтобы остановить топологию.
 
-    .![Кнопка "Завершить" в сводке топологии](./media/hdinsight-storm-power-bi-topology/killtopology.png)
+    ![Кнопка "Завершить" в сводке топологии](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
 ## Удаление кластера
 

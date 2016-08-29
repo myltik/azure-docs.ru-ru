@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure AD и приложения: назначение пользователей для приложения | Microsoft Azure"
 	description="Как реализовать назначение пользователей для приложений Azure."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

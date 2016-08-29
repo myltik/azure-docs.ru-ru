@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка оповещений Azure для отправки в другие системы | Microsoft Azure"
 	description="Перенаправление оповещений Azure в другие системы (не Azure)"
 	authors="kamathashwin"
@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-.<tags
+<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

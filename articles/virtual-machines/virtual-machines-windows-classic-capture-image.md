@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Запись образа виртуальной машины Azure Windows | Microsoft Azure"
 	description="Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания."
 	services="virtual-machines-windows"
@@ -55,7 +55,7 @@ Azure хранит образ в папке **Мои образы**. Здесь 
 
 	- Нажмите кнопку **ОК**.
 
-	.![Запуск Sysprep](./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png)
+	![Запуск Sysprep](./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png)
 
 7.	Sysprep завершит работу виртуальной машины, при этом ее состояние на классическом портале Azure изменится на **Остановлена**.
 
@@ -63,7 +63,7 @@ Azure хранит образ в папке **Мои образы**. Здесь 
 
 9.	На панели команд щелкните **Запись**.
 
-	.![Запись виртуальной машины](./media/virtual-machines-windows-classic-capture-image/CaptureVM.png)
+	![Запись виртуальной машины](./media/virtual-machines-windows-classic-capture-image/CaptureVM.png)
 
 	Отображается диалоговое окно **Запись виртуальной машины**.
 
@@ -73,7 +73,7 @@ Azure хранит образ в папке **Мои образы**. Здесь 
 
 12.	Щелкните галочку, чтобы записать образ. Новый образ станет доступным в разделе **Образы**.
 
- 	.![Успешная запись образа](./media/virtual-machines-windows-classic-capture-image/VMCapturedImageAvailable.png)
+ 	![Успешная запись образа](./media/virtual-machines-windows-classic-capture-image/VMCapturedImageAvailable.png)
 
 ##Дальнейшие действия
 

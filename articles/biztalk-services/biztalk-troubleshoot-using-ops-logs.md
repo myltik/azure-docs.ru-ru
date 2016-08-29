@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Устранение неполадок в службах BizTalk с помощью журналов операций | Microsoft Azure" 
 	description="Устранение неполадок в службах BizTalk с помощью журналов операций. MABS, WABS" 
 	services="biztalk-services" 
@@ -7,7 +7,7 @@
 	manager="erikre" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="biztalk-services" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики | Microsoft Azure"
     description="Как с помощью групповой политики развернуть надстройку для Internet Explorer для работы с порталом «Мои приложения»."
     services="active-directory"
@@ -6,7 +6,7 @@
     authors="MarkusVi"
     manager="femila"
     editor=""/>
-.<tags
+<tags
     ms.service="active-directory"
     ms.devlang="na"
     ms.topic="article"

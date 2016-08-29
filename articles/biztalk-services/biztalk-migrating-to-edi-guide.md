@@ -1,4 +1,4 @@
-.<properties   
+<properties   
 	pageTitle="Техническое руководство по переносу решений EDI для BizTalk Server в службы BizTalk | Microsoft Azure"
 	description="Перенос EDI в MABS; Службы BizTalk Microsoft Azure"
 	services="biztalk-services"
@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="biztalk-services"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"

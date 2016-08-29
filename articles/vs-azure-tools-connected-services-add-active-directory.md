@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Добавление Azure Active Directory с помощью подключенных служб в Visual Studio | Microsoft Azure"
    description="Добавление Azure Active Directory с помощью диалогового окна ";Добавление подключенных служб"; в Visual Studio"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags 
+<tags 
    ms.service="active-directory"
    ms.devlang="multiple"
    ms.topic="article"

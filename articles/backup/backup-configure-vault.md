@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Архивация сервера Windows Server или клиентского компьютера Windows в Azure с помощью службы архивации Azure с использованием модели развертывания Resource Manager | Microsoft Azure"
 	description="Архивация серверов или клиентов Windows в Azure путем создания хранилища архивации, скачивания учетных данных, установки агента архивации и выполнения начальной архивации файлов и папок."
 	services="backup"
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
 
-.![Шаги архивации](./media/backup-configure-vault/initial-backup-process.png)
+![Шаги архивации](./media/backup-configure-vault/initial-backup-process.png)
 
 
 ## Перед началом работы
@@ -156,7 +156,7 @@
 
 4. Щелкните **Инфраструктура резервного копирования > Рабочие серверы**.
 
-    .![Рабочие серверы](./media/backup-configure-vault/production-server-verification.png)
+    ![Рабочие серверы](./media/backup-configure-vault/production-server-verification.png)
 
 Если ваши серверы есть в списке, это является подтверждением того, что агент установлен и зарегистрирован правильно.
 

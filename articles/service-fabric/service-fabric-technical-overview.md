@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о терминологии Service Fabric | Microsoft Azure"
    description="Общие сведения о терминологии Service Fabric. Обсуждаются ключевые понятия и термины, используемые в остальной части документации."
    services="service-fabric"

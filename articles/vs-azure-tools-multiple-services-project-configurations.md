@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка проекта Azure с помощью нескольких конфигураций службы | Microsoft Azure"
    description="Узнайте, как настроить проект облачной службы Azure, изменяя файлы ServiceDefinition.csdef и ServiceConfiguration.cscfg."
    services="visual-studio-online"

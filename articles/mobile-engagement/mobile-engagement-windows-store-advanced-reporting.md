@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание расширенных отчетов для универсальных приложений для Windows с помощью MobileApps Engagement"
 	description="Интеграция Azure Mobile Engagement с универсальными приложениями для Windows" 					
 	services="mobile-engagement"

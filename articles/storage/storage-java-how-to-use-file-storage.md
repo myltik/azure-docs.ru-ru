@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование хранилища файлов из Java в Microsoft Azure"
 	description="Узнайте, как использовать службу хранилища файлов Azure для отправки, загрузки, отображения и удаления файлов. Примеры кода написаны на Java."
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor="" />
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"

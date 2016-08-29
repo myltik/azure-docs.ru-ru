@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Загрузка образца данных в хранилище данных SQL | Microsoft Azure"
    description="Загрузка образца данных в хранилище данных SQL"
    services="sql-data-warehouse"
@@ -7,7 +7,7 @@
    manager="barbkess"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"

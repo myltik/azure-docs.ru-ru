@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Публикация облачной службы с помощью инструментов Azure | Microsoft Azure"
    description="Узнайте, как публиковать проекты облачных служб Azure с помощью Visual Studio."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"

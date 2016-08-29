@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Веб-приложение Node.js, использующее службу таблиц Azure"
 	description="В этом учебнике объясняется, как использовать службу таблиц Azure для сохранения данных из приложения Node.js, которое размещено в веб-приложениях службы приложений Azure."
 	tags="azure-portal"
@@ -8,7 +8,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"

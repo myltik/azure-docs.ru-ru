@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Библиотеки подключений для Базы данных SQL и SQL Server"
 	description="Приведен минимальный номер версии каждого драйвера, которым могут воспользоваться клиентские программы для подключения к базе данных SQL Azure или Microsoft SQL Server. Ссылка на сведения о версиях драйверов, выпущенных сообществом разработчиков, а не корпорацией Майкрософт."
 	services="sql-database"
@@ -7,7 +7,7 @@
 	manager="jhubbard"
 	editor="genemi"/>
 
-.<tags
+<tags
 	ms.service="sql-database"
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"

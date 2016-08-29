@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Добавление пользователя в коллекцию Azure RemoteApp | Microsoft Azure"
     description="Узнайте о том, как добавить пользователя в коллекцию Azure RemoteApp"
     services="remoteapp"
@@ -6,7 +6,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Архивация базы данных SQL Azure в BACPAC-файл с помощью PowerShell"
     description="Архивация базы данных SQL Azure в BACPAC-файл с помощью PowerShell"
 	services="sql-database"

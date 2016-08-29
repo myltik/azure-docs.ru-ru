@@ -1,5 +1,5 @@
 
-.<properties
+<properties
 	pageTitle="Устранение неполадок динамического членства в группах | Microsoft Azure"
 	description="Советы по устранению неполадок динамического членства в группах в Azure AD."
 	services="active-directory"
@@ -9,7 +9,7 @@
 	editor=""
 	/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

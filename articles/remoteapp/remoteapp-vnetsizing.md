@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Выбор размера виртуальной сети при работе в среде Azure RemoteApp | Microsoft Azure"
     description="Узнайте о требованиях к IP-адресам для Azure RemoteApp в виртуальной сети"
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

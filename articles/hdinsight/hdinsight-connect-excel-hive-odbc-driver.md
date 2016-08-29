@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Подключение Excel к Hadoop с помощью драйвера Hive ODBC | Microsoft Azure"
    description="Узнайте, как установить и использовать драйвер Microsoft Hive ODBC для Excel, чтобы запрашивать данные из кластера HDInsight."
    services="hdinsight"
@@ -8,7 +8,7 @@
    tags="azure-portal"
    editor="cgronlun"/>
 
-.<tags
+<tags
    ms.service="hdinsight"
    ms.devlang="na"
    ms.topic="article"

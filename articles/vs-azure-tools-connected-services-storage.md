@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Добавление хранилища Azure с использованием подключенных служб в Visual Studio | Microsoft Azure"
    description="Добавление хранилища Azure в приложение с помощью диалогового окна ";Добавление подключенных служб"; в Visual Studio"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags 
+<tags 
    ms.service="storage"
    ms.devlang="na"
    ms.topic="article"

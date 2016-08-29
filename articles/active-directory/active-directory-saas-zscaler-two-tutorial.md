@@ -1,11 +1,11 @@
-.<properties 
+<properties 
     pageTitle="Руководство. Интеграция Azure Active Directory с Zscaler Two | Microsoft Azure" 
     description="Узнайте, как использовать Zscaler Two вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
     manager="femila"/>
-.<tags 
+<tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
@@ -47,11 +47,11 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    .![Приложения](./media/active-directory-saas-zscaler-two-tutorial/IC700994.png "Приложения")
+    ![Приложения](./media/active-directory-saas-zscaler-two-tutorial/IC700994.png "Приложения")
 
 4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    .![Добавление приложения](./media/active-directory-saas-zscaler-two-tutorial/IC749321.png "Добавление приложения")
+    ![Добавление приложения](./media/active-directory-saas-zscaler-two-tutorial/IC749321.png "Добавление приложения")
 
 5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -73,35 +73,35 @@
 
 1.  На классическом портале Azure на странице интеграции **ZScaler Two** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    .![Настройка единого входа](./media/active-directory-saas-zscaler-two-tutorial/IC800202.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-zscaler-two-tutorial/IC800202.png "Настройка единого входа")
 
 2.  На странице **Как пользователи должны входить в ZScaler Two?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    .![Настройка единого входа](./media/active-directory-saas-zscaler-two-tutorial/IC800203.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-zscaler-two-tutorial/IC800203.png "Настройка единого входа")
 
 3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес входа в ZScaler Two** введите URL-адрес, используемый вашими пользователями для входа в приложение ZScaler Two, и нажмите кнопку **Далее**.
 
-    .![Настройка URL-адреса приложения](./media/active-directory-saas-zscaler-two-tutorial/IC800204.png "Настройка URL-адреса приложения")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-zscaler-two-tutorial/IC800204.png "Настройка URL-адреса приложения")
 
     >[AZURE.NOTE] Фактическое значение для вашей среды можно получить от службы поддержки Zscaler Two.
 
 4.  Для скачивания сертификата на странице **Настройка единого входа в ZScaler Two** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
 
-    .![Настройка единого входа](./media/active-directory-saas-zscaler-two-tutorial/IC800205.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-zscaler-two-tutorial/IC800205.png "Настройка единого входа")
 
 5.  В другом окне браузера войдите на свой корпоративный сайт Zscaler Two в качестве администратора.
 
 6.  В верхнем меню щелкните **Администрирование**.
 
-    .![Администрирование](./media/active-directory-saas-zscaler-two-tutorial/IC800206.png "Администрирование")
+    ![Администрирование](./media/active-directory-saas-zscaler-two-tutorial/IC800206.png "Администрирование")
 
 7.  В разделе **Управление администраторами и ролями** щелкните **Управление пользователями и проверкой подлинности**.
 
-    .![Управление пользователями и проверкой подлинности](./media/active-directory-saas-zscaler-two-tutorial/IC800207.png "Управление пользователями и проверкой подлинности")
+    ![Управление пользователями и проверкой подлинности](./media/active-directory-saas-zscaler-two-tutorial/IC800207.png "Управление пользователями и проверкой подлинности")
 
 8.  В разделе **Выбор параметров проверки подлинности для организации** выполните следующие действия.
 
-    .![Аутентификация](./media/active-directory-saas-zscaler-two-tutorial/IC800208.png "Аутентификация")
+    ![Аутентификация](./media/active-directory-saas-zscaler-two-tutorial/IC800208.png "Аутентификация")
 
     1.  Выберите параметр **Проверка подлинности с помощью единого входа SAML**.
     2.  Щелкните **Настроить параметры единого входа SAML**.
@@ -117,7 +117,7 @@
 
 10. На странице **Настройка проверки подлинности пользователей** выполните следующие действия.
 
-    .![Администрирование](./media/active-directory-saas-zscaler-two-tutorial/IC800210.png "Администрирование")
+    ![Администрирование](./media/active-directory-saas-zscaler-two-tutorial/IC800210.png "Администрирование")
 
     1.  Щелкните **Сохранить**.
     2.  Щелкните **Активировать сейчас**.
@@ -144,7 +144,7 @@
 
 5.  В разделе "Прокси-сервер" выполните следующие действия.
 
-    .![Прокси-сервер](./media/active-directory-saas-zscaler-two-tutorial/IC769494.png "Прокси-сервер")
+    ![Прокси-сервер](./media/active-directory-saas-zscaler-two-tutorial/IC769494.png "Прокси-сервер")
 
     1.  Установите флажок "Использовать прокси-сервер для локальных подключений".
     2.  В текстовом поле "Адрес" введите **gateway.zscalerone.net**.
@@ -164,15 +164,15 @@
 
 2.  Щелкните **Администрирование**.
 
-    .![Администрирование](./media/active-directory-saas-zscaler-two-tutorial/IC781035.png "Администрирование")
+    ![Администрирование](./media/active-directory-saas-zscaler-two-tutorial/IC781035.png "Администрирование")
 
 3.  Щелкните **Управление пользователями**.
 
-    .![Добавить](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Добавить")
+    ![Добавить](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Добавить")
 
 4.  На вкладке **Пользователи** нажмите кнопку **Добавить**.
 
-    .![Добавить](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Добавить")
+    ![Добавить](./media/active-directory-saas-zscaler-two-tutorial/IC781037.png "Добавить")
 
 5.  В разделе "Добавить пользователя" выполните следующие действия.
 

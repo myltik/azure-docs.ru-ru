@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Создание маркеров безопасности центра IoT | Microsoft Azure"
  description="Описание различных типов маркеров безопасности (таких, как SAS и X.509), используемых центром IoT, и способы их создания."
  services="iot-hub"

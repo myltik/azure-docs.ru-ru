@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка проекта облачной службы в Visual Studio | Microsoft Azure"
    description="Узнайте, как настроить проект облачной службы Azure в Visual Studio в соответствии с требованиями к этому проекту."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"

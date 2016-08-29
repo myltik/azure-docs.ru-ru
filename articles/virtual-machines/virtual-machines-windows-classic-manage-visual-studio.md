@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание виртуальных машин Windows и управление ими в Visual Studio | Microsoft Azure"
    description="Узнайте, как создавать виртуальные машины Azure на основе Windows и управлять ими в Visual Studio."
    services="visual-studio-online,virtual-machines-windows"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="virtual-machines-windows"
    ms.devlang="multiple"
    ms.topic="article"

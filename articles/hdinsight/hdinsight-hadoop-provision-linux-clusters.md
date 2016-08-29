@@ -1,4 +1,4 @@
-.<properties
+<properties
    	pageTitle="Создание кластеров Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight | Microsoft Azure"
    	description="Узнайте, как создавать кластеры Hadoop, HBase, Storm или Spark на базе Linux для HDInsight с помощью браузера, Azure CLI, Azure PowerShell, REST или пакета SDK."
    	services="hdinsight"

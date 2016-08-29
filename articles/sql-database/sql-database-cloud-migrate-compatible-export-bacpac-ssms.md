@@ -1,5 +1,5 @@
 
-.<properties
+<properties
    pageTitle="Экспорт базы данных SQL Server в BACPAC-файл с помощью SQL Server Management Studio | Microsoft Azure"
    description="База данных SQL Microsoft Azure, миграция базы данных, экспорт базы данных, экспорт BACPAC-файла, мастер экспорта приложений на уровне данных "
    services="sql-database"
@@ -8,7 +8,7 @@
    manager="jhubbard"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"

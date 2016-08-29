@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Преобразование сайта WordPress в мультисайт с помощью службы приложений Azure" 
 	description="Узнайте, как преобразовать существующее веб-приложение WordPress, созданное с помощью коллекции в Azure, в мультисайт WordPress" 
 	services="app-service\web" 

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Установка статического частного IP-адреса в классическом режиме с помощью PowerShell| Microsoft Azure"
    description="Основные сведения о статических частных IP-адресах (DIP) и об управлении ими в классическом режиме, а также в PowerShell"
    services="virtual-network"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-service-management"
 />
-.<tags 
+<tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"

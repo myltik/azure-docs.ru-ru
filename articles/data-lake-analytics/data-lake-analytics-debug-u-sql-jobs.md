@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Отладка заданий U-SQL | Microsoft Azure" 
    description="Узнайте, как выполнять отладку заданий U-SQL, завершившихся сбоем, с помощью Visual Studio. " 
    services="data-lake-analytics" 
@@ -32,7 +32,7 @@
 
 При открытии невыполненного задания в инструменте Visual Studio для Data Lake вы увидите оповещение. Подробные сведения об ошибке отобразятся на вкладке "Ошибка" и в желтой области оповещений в верхней части окна.
 
-.![Azure Data Lake Analytics U-SQL отладка visual studio скачивание вершины](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
+![Azure Data Lake Analytics U-SQL отладка visual studio скачивание вершины](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
 **Скачивание вершин и создание решения отладки**
 

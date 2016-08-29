@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Управление ресурсами Azure с помощью Cloud Explorer | Microsoft Azure"
    description="Узнайте, как использовать Cloud Explorer для просмотра ресурсов Azure и управления ими в Visual Studio."
    services="visual-studio-online"

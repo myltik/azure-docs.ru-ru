@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Просмотр кода SAML, возвращаемого службой контроля доступа (Java)"
     description="Узнайте, как просматривать SAML, возвращенный службой контроля доступа в приложениях Java, размещенных в Azure."
 	services="active-directory" 

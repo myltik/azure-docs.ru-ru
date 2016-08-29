@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Интеграция пакета SDK универсальных приложений для Windows"
 	description="Интеграция универсальных приложений для Windows с пакетом SDK для Azure Mobile Engagement" 									
 	services="mobile-engagement"
@@ -7,7 +7,7 @@
 	manager="dwrede"
 	editor="" />
 
-.<tags
+<tags
 	ms.service="mobile-engagement"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-store"

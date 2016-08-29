@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Оптимизация кода Azure в Visual Studio | Microsoft Azure"
    description="Узнайте, каким образом средства оптимизации кода Azure в Visual Studio помогут сделать код более надежным и производительным."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"

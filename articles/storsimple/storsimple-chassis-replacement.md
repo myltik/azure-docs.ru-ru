@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Замена корпуса устройства StorSimple | Microsoft Azure"
    description="Эта статья описывает снятие и установку основного корпуса или корпуса EBOD устройства StorSimple."
    services="storsimple"
@@ -6,7 +6,7 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-.<tags 
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"

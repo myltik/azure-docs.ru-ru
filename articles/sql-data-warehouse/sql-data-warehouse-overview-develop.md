@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Проектные решения и методики программирования для разработки для хранилища данных SQL | Microsoft Azure"
    description="Основные понятия разработки, проектные решения, рекомендации и методики программирования для хранилища данных SQL."
    services="sql-data-warehouse"
@@ -7,7 +7,7 @@
    manager="barbkess"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"

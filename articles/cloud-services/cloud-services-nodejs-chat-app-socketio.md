@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Приложение node.js с использованием Socket.io | Microsoft Azure" 
 	description="Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure." 
 	services="cloud-services" 
@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="cloud-services" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
@@ -38,7 +38,7 @@ Socket.IO обеспечивает связь в режиме реального
 
 1. В **меню Пуск** или на **начальном экране** найдите **Windows PowerShell**. Щелкните правой кнопкой мыши **Windows PowerShell** и выберите **Запуск от имени администратора**.
 
-	.![Значок Azure PowerShell][powershell-menu]
+	![Значок Azure PowerShell][powershell-menu]
 
 2. Сначала создайте каталог **c:\\node**.
  

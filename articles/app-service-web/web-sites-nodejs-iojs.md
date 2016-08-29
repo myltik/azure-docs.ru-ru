@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Как использовать io.js с веб-приложениями службы приложений Azure" 
 	description="Узнайте, как использовать веб-приложения службы приложений Azure с io.js." 
 	services="app-service\web" 
@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 

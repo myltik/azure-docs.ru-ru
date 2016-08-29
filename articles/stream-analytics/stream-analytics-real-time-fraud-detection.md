@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Stream Analytics: выявление мошенничества в режиме реального времени | Microsoft Azure"
 	description="Информация о том, как с помощью службы Stream Analytics создать решение для выявления мошенничества в режиме реального времени. Используйте концентратор событий для обработки событий в реальном времени."
 	keywords="обнаружение аномалий, обнаружение мошенничества, обнаружение аномалий в реальном времени"
@@ -8,7 +8,7 @@
 	manager="paulettm"
 	editor="cgronlun" />
 
-.<tags
+<tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
 	ms.topic="article"

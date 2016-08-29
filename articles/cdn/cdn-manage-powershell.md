@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление Azure CDN с помощью PowerShell | Microsoft Azure"
 	description="Узнайте, как использовать командлеты Azure PowerShell для управления Azure CDN."
 	services="cdn"

@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание образа Azure RemoteApp | Microsoft Azure"
     description="Узнайте о способах и вариантах создания образов для среды Azure RemoteApp"
     services="remoteapp"
@@ -6,7 +6,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

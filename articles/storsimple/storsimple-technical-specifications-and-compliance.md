@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Технические спецификации StorSimple | Microsoft Azure"
    description="Описание технических характеристик и информация о соответствии нормативным стандартам для аппаратных компонентов устройства StorSimple."
    services="storsimple"
@@ -6,7 +6,7 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
- .<tags 
+ <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"

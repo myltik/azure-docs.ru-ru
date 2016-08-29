@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Создание решения IOT с помощью Stream Analytics | Microsoft Azure" 
 	description="Учебник по началу работы с решением IOT Stream Analytics (сценарий с пунктом сбора платы)"
 	keywords="Решение IOT, функции окна"
@@ -9,7 +9,7 @@
 	editor="cgronlun"
 />
 
-.<tags 
+<tags 
 	ms.service="stream-analytics" 
 	ms.devlang="na" 
 	ms.topic="article" 

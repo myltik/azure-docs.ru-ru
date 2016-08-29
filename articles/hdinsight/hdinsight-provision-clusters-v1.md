@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Настраиваемая подготовка кластеров Hadoop в HDInsight | Microsoft Azure" 
    description="Узнайте, как выполнить настраиваемую подготовку кластеров Azure HDInsight с помощью классического портала Azure, Azure PowerShell, командной строки или пакета SDK для HDInsight для .NET." 
    services="hdinsight" 

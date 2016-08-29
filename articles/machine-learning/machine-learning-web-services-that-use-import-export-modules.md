@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Развертывание веб-служб машинного обучения Azure, использующих модули импорта и экспорта данных | Microsoft Azure"
 	description="Узнайте, как использовать модули импорта и экспорта данных для отправки и получения данных из веб-службы."
 	services="machine-learning"
@@ -30,7 +30,7 @@
  
 При открытии примера "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Образец 5. Обучение, тестирование, оценка для классификации бинарных файлов: набор данных с контентом для взрослых) используется пример набора данных Adult Census Income Binary Classification. На холсте эксперимент должен выглядеть так, как показано на рисунке ниже.
 
-.![Начальная настройка эксперимента.](./media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)
+![Начальная настройка эксперимента.](./media/machine-learning-web-services-that-use-import-export-modules/initial-look-of-experiment.png)
   
 
 Для чтения данных из таблицы Azure SQL выполните следующие действия:
@@ -88,7 +88,7 @@
 
 По завершении эксперимент должен выглядеть так, как показано на рисунке ниже.
  
-.![Окончательный вид эксперимента.](./media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
+![Окончательный вид эксперимента.](./media/machine-learning-web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
 
 Теперь можно развернуть прогнозный эксперимент как веб-службу.
 

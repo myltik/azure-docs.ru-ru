@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Application Insights для приложений Microsoft Azure" 
 	description="Анализ использования и производительности приложения Azure с помощью Application Insights." 
 	services="application-insights" 
@@ -6,7 +6,7 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-.<tags 
+<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 

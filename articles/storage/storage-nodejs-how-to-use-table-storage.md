@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование табличного хранилища Azure из Node.js | Microsoft Azure"
 	description="Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание кластеров Hadoop под управлением Windows в HDInsight с помощью Azure PowerShell | Microsoft Azure"
    	description="Научитесь создавать кластеры для Azure HDInsight с помощью Azure PowerShell."
    services="hdinsight"

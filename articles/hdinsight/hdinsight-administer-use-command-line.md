@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление кластерами Hadoop с помощью CLI Azure | Microsoft Azure"
 	description="Использование CLI Azure для управления кластерами Hadoop в HDInsight."
 	services="hdinsight"
@@ -8,7 +8,7 @@
 	tags="azure-portal"
 	documentationCenter=""/>
 
-.<tags
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"

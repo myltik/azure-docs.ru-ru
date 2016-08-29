@@ -1,5 +1,5 @@
 
-.<properties
+<properties
 	pageTitle="Дополнительные возможности управления доступом с помощью групп | Microsoft Azure"
 	description="Расширенные указания по управлению группами безопасности и использованию этих групп для управления доступом к ресурсу."
 	services="active-directory"
@@ -8,7 +8,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

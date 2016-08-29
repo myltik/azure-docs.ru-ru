@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Планирование загрузки кластера Service Fabric | Microsoft Azure"
    description="Рекомендации по планированию загрузки кластера Service Fabric."
    services="service-fabric"

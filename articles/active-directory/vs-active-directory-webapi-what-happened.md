@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory | Microsoft Azure "
 	description="Описывает, что происходит с проектом WebApi при подключении к приложению Azure AD с помощью Visual Studio"
   services="active-directory"

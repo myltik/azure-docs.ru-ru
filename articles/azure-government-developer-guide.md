@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Руководство для разработчиков Azure Government" 
 	description="Данное руководство включает сравнительный анализ характеристик и рекомендации по разработке приложений для разработчиков Azure." 
 	services="" 
@@ -93,7 +93,7 @@ Azure Goverment в настоящее время имеет следующие �
 Общие сведения|*.windows.net|*.usgovcloudapi.net
 Core|*.core.windows.net|*.core.usgovcloudapi.net
 Среда выполнения приложений|*.cloudapp.net|*.usgovcloudapp.net
-Хранилище BLOB-объектов|*.blob.core.windows.net|	*.blob.core.usgovcloudapi.net
+Хранилище BLOB-объектов|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net
 Хранилище очередей|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Хранилище таблиц|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Service Management|management.core.windows.net|management.core.usgovcloudapi.net

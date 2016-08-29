@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Развертывание крупных систем"
     description="Узнайте о развертывании крупных систем с помощью набора средств Azure для Eclipse."
     services=""
@@ -7,7 +7,7 @@
     manager="wpickett"
     editor=""/>
 
-.<tags
+<tags
     ms.service="multiple"
     ms.workload="na"
     ms.tgt_pltfrm="multiple"

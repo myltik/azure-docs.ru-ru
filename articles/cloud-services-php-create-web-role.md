@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Веб-роли и рабочие роли PHP | Microsoft Azure"
 	description="Руководство по настройке среды выполнения PHP и созданию веб-ролей и рабочих ролей PHP в облачной службе Azure."
 	services=""
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"

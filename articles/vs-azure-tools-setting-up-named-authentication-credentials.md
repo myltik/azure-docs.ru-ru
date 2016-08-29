@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка именованных учетных данных для проверки подлинности | Microsoft Azure"
    description="Узнайте, как указать учетные данные, которые Visual Studio сможет использовать для проверки подлинности запросов к Azure, чтобы опубликовать приложение из Visual Studio в Azure или отслеживать существующую облачную службу. "
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"

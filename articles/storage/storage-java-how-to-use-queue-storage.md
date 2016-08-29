@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование хранилища очередей из Java | Microsoft Azure"
 	description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Java."
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"

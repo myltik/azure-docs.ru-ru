@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Установка набора средств Azure для Eclipse | Microsoft Azure"
 	description="Узнайте, как установить набор средств Azure для Eclipse."
 	services=""
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="multiple"
 	ms.workload="na"
 	ms.tgt_pltfrm="multiple"
@@ -34,7 +34,7 @@
 
 1. Когда откроется Eclipse, щелкните меню **Help** (Справка) и выберите пункт **Install New Software** (Установить новое программное обеспечение), как показано на следующем рисунке.
 
-    .![Установка набора средств Azure для Eclipse][01]
+    ![Установка набора средств Azure для Eclipse][01]
 
 1. В диалоговом окне **Available Software** (Доступное программное обеспечение) в текстовом поле **Work with** (Работа с) введите **http://dl.microsoft.com/eclipse** и нажмите клавишу **ВВОД**.
 

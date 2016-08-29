@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Выборка данных телеметрии в Application Insights" 
 	description="Как управлять объемом данных телеметрии." 
 	services="application-insights" 
@@ -6,7 +6,7 @@
 	authors="vgorbenko" 
 	manager="douge"/>
 
-.<tags 
+<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 

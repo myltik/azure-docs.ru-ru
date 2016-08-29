@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Обзор архитектуры безопасности | Microsoft Azure"
    description="Статья представляет собой обзор архитектуры безопасности Azure и содержит список статей на эту тему."
    services="security"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что такое R в HDInsight? Основные сведения об R Server в HDInsight (предварительная версия) | Microsoft Azure"
 	description="Общие сведения о R Server в кластере HDInsight (предварительная версия) и использовании R Server для создания приложений для анализа больших объемов данных."
 	services="hdinsight"
@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-.<tags
+<tags
    ms.service="hdinsight"
    ms.devlang="na"
    ms.topic="article"

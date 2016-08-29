@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Ведение журнала и обработка ошибок в приложениях логики | Microsoft Azure"
     description="Пример настройки обработки ошибок и ведения журналов с помощью приложений логики для реального сценария."
     keywords=""
@@ -8,7 +8,7 @@
     editor=""
     documentationCenter=""/>
 
-.<tags
+<tags
     ms.service="logic-apps"
     ms.workload="na"
     ms.tgt_pltfrm="na"
@@ -99,14 +99,14 @@
 
 #### Представление конструктора для добавления записи журнала
 
-.![Добавление записи журнала](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
+![Добавление записи журнала](./media/app-service-logic-scenario-error-and-exception-handling/lognewpatient.png)
 
 #### Представление конструктора для добавления записи об ошибке
-.![Добавление записи журнала](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
+![Добавление записи журнала](./media/app-service-logic-scenario-error-and-exception-handling/insertlogentry.png)
 
 #### Проверка на ошибку создания записи
 
-.![Условие](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
+![Условие](./media/app-service-logic-scenario-error-and-exception-handling/condition.png)
 
 
 ## Исходный код приложения логики
@@ -399,7 +399,7 @@
 
 #### Список для управления ошибками
 
-.![Список ошибок](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
+![Список ошибок](./media/app-service-logic-scenario-error-and-exception-handling/errorlist.png)
 
 #### Просмотр подробных сведений об ошибке
 
@@ -411,7 +411,7 @@
 
 #### Просмотр подробных сведений об ошибке из журнала
 
-.![Просмотр сведений о записи журнала](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
+![Просмотр сведений о записи журнала](./media/app-service-logic-scenario-error-and-exception-handling/samplelogdetail.png)
 
 ### Сведения о приложении API
 

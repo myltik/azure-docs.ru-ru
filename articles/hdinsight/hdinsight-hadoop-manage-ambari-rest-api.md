@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Мониторинг кластеров HDInsight и управление ими с помощью интерфейса REST API Ambari | Microsoft Azure"
    description="Узнайте, как использовать Ambari для наблюдения за кластерами HDInsight на платформе Linux и управления их функционированием. В этом документе рассказывается об использовании интерфейса REST API Ambari, предоставляемого с кластерами HDInsight."
    services="hdinsight"

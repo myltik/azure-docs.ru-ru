@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Управление Поиском Azure с помощью сценариев PowerShell | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Управление службой поиска Azure с помощью сценариев PowerShell. Создание или обновление службы Поиска Azure и управление ключами администратора Поиска Azure" 
 	services="search" 
@@ -8,7 +8,7 @@
 	editor=""
 	tags="azure-resource-manager"/>
 
-.<tags 
+<tags 
 	ms.service="search" 
 	ms.devlang="na" 
 	ms.workload="search" 

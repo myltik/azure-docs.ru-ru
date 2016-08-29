@@ -1,5 +1,5 @@
 
-.<properties
+<properties
 	pageTitle="Использование атрибутов для создания расширенных правил | Microsoft Azure"
 	description="Указания по созданию дополнительных правил для группы и использованием поддерживаемых операторов и параметров выражений правила."
 	services="active-directory"
@@ -8,7 +8,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"

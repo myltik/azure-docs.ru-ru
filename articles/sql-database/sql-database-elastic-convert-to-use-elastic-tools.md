@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Перенос существующих баз данных для масштабирования | Microsoft Azure"
    description="Преобразование сегментированных баз данных для использования средств эластичной базы данных путем создания диспетчера сопоставления сегментов"
    services="sql-database"
@@ -7,7 +7,7 @@
    manager="jhubbard"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"

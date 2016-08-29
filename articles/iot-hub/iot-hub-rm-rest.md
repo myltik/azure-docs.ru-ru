@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание центра IoT с помощью API REST | Microsoft Azure"
 	description="Следуйте указаниям этого учебника, чтобы создать центр IoT Azure с помощью API REST."
 	services="iot-hub"
@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
      ms.service="iot-hub"
      ms.devlang="dotnet"
      ms.topic="article"

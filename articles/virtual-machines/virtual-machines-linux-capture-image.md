@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Запись образа виртуальной машины Linux для его использования в качестве шаблона | Microsoft Azure"
 	description="Узнайте, как записать и подготовить образ виртуальной машины Azure под управлением Linux, созданной посредством модели развертывания с помощью Azure Resource Manager."
 	services="virtual-machines-linux"

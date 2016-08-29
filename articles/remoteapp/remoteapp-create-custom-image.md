@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание настраиваемого образа шаблона для Azure RemoteApp | Microsoft Azure"
 	description="Узнайте о том, как создать настраиваемый образ шаблона для Azure RemoteApp. Этот шаблон можно использовать для гибридной или облачной коллекции."
 	services="remoteapp"
@@ -7,7 +7,7 @@
 	manager="mbaldwin"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="remoteapp"
 	ms.workload="compute"
 	ms.tgt_pltfrm="na"

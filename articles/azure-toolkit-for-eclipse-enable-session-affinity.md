@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Включение сходства сеансов с помощью набора средств Azure для Eclipse"
     description="Узнайте, как включить сходство сеансов с помощью набора средств Azure для Eclipse."
     services=""
@@ -7,7 +7,7 @@
     manager="wpickett"
     editor=""/>
 
-.<tags
+<tags
     ms.service="multiple"
     ms.workload="na"
     ms.tgt_pltfrm="multiple"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Список задач администрирования и разработки в службах BizTalk | Microsoft Azure" 
 	description="Планирование и инструкции по развертыванию служб BizTalk Azure"
 	services="biztalk-services"
@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="biztalk-services"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"

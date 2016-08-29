@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Обзор управления безопасностью Azure и мониторинга | Microsoft Azure"
    description=" Azure предоставляет механизмы безопасности, облегчающие управление облачными службами и виртуальными машинами Azure, а также их мониторинг. Эта статья содержит краткое описание основных служб и функций безопасности. "
    services="security"
@@ -7,7 +7,7 @@
    manager="StevenPo"
    editor="TomSh"/>
 
-.<tags
+<tags
    ms.service="security"
    ms.devlang="na"
    ms.topic="article"

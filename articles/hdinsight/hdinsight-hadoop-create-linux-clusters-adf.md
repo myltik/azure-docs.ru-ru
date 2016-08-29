@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure | Microsoft Azure"
    	description="Узнайте, как создавать кластеры HDInsight по запросу с помощью фабрики данных Azure"
    services="hdinsight"
@@ -8,7 +8,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-.<tags
+<tags
    ms.service="hdinsight"
    ms.devlang="na"
    ms.topic="article"
@@ -322,7 +322,7 @@
 
 1. Нажмите следующее изображение, чтобы войти в Azure и открыть шаблон Resource Manager на портале Azure. Шаблон находится по адресу https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Введите значения для **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** и **STORAGEACCOUNTKEY** для учетной записи, созданной в последнем разделе, и нажмите кнопку **ОК**. Имя фабрики данных должно быть глобально уникальным.
 3. В разделе **Группа ресурсов** выберите ту же группу ресурсов, которая использовалась в последнем разделе.
@@ -332,7 +332,7 @@
 7. Щелкните **hdinsight-hive-on-demand**.
 8. Щелкните элемент **Схема**. На схеме отображается одно действие с входным набором данных и выходным набором данных.
 
-    .![Фабрика данных Azure — схема конвейера действия hive в HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
+    ![Фабрика данных Azure — схема конвейера действия hive в HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
     
     Эти имена определяются в шаблоне Resource Manager.
 9. Дважды щелкните **AzureBlobOutput**.

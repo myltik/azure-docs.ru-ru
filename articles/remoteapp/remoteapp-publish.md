@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Публикация приложения в Azure RemoteApp | Microsoft Azure"
     description="Узнайте, как публиковать приложения и ресурсы в Azure RemoteApp."
     services="remoteapp"

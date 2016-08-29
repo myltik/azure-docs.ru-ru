@@ -1,5 +1,5 @@
 
-.<properties
+<properties
     pageTitle="Перенос данных пользователя из Azure RemoteApp | Microsoft Azure"
     description="Узнайте, как переносить данные пользователя в службу Azure RemoteApp и из нее."
     services="remoteapp"
@@ -7,7 +7,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание виртуальной машины с несколькими сетевыми адаптерами"
    description="Узнайте, как создавать и настраивать виртуальные машины с несколькими сетевыми адаптерами."
    services="virtual-network, virtual-machines"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-service-management,azure-resource-manager"
 />
-.<tags
+<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"

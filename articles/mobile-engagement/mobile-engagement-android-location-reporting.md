@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание отчетов о расположении для пакета SDK для Android в Azure Mobile Engagement"
 	description="Сведения о создании отчетов о расположении для пакета SDK для Android в Azure Mobile Engagement."
 	services="mobile-engagement"

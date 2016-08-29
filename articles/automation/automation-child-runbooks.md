@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Дочерние модули Runbook в службе автоматизации Azure | Microsoft Azure"
    description="Описывает различные методы запуска Runbook в службе автоматизации Azure из другого Runbook и обмена информацией между ними."
    services="automation"
@@ -6,7 +6,7 @@
    authors="mgoedtel"
    manager="jwhit"
    editor="tysonn" />
-.<tags 
+<tags 
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"

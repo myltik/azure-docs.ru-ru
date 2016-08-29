@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство. Интеграция Azure Active Directory с ImageRelay | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в ImageRelay."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -65,23 +65,23 @@
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-	.![Приложения][2]
+	![Приложения][2]
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 
-	.![Приложения][3]
+	![Приложения][3]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-	.![Приложения][4]
+	![Приложения][4]
 
 6. В поле поиска введите **ImageRelay**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)
 
 7. В области результатов выберите **ImageRelay** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)
 
 ##  Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в ImageRelay с использованием тестового пользователя Britta Simon.
@@ -105,15 +105,15 @@
 
 1. На классическом портале Azure на странице интеграции с приложением **ImageRelay** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-     .![Настройка единого входа][6]
+     ![Настройка единого входа][6]
 
 2. На странице **Как пользователи должны входить в ImageRelay?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
 
-    .![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_03.png)
+    ![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_03.png)
 
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
 
-     .![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_04.png)
+     ![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_04.png)
 
     а. В текстовое поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение ImageRelay (например, *https://fabrikam.ImageRelay.com/*).
 
@@ -131,7 +131,7 @@
 
 1. На панели инструментов вверху экрана выберите рабочую нагрузку **Users & Permissions** (Пользователи и разрешения).
 
-	.![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png)
+	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png)
 
 1. Щелкните **Создать новое разрешение**.
 
@@ -139,7 +139,7 @@
 
 1. В рабочей нагрузке **Параметры единого входа** установите флажок **This Group can only sign-in via Single Sign On** (Эта группа может входить только через единый вход) и нажмите кнопку **Сохранить**.
 
-	.![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png)
+	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png)
 
 1. Откройте **Параметры учетной записи**.
 
@@ -147,11 +147,11 @@
 
 1. Выберите рабочую нагрузку **Параметры единого входа**.
 
-	.![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)
+	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)
 
 1. В диалоговом окне **SAML Settings** (Параметры SAML) выполните следующие действия.
 
-	.![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)
+	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)
 
 	а. На классическом портале Azure скопируйте **URL-адрес службы единого входа** и вставьте его в текстовое поле **URL-адрес для входа**.
 
@@ -166,29 +166,29 @@
 
 	д. В разделе **509 Certificate** (Сертификат x.509) щелкните **Update Certificate** (Обновить сертификат).
 
-	.![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)
+	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     Е. Откройте скачанный сертификат в блокноте, а затем скопируйте и вставьте его содержимое в текстовое поле X.509 Certificate (Сертификат X.509).
   
-	.![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)
+	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     g. В разделе **Just-In-Time User Provisioning** (JIT-подготовка пользователей) выберите **Enable Just-In-Time User Provisioning** (Включить JIT-подготовку пользователей).
 
-	.![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)
+	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Выберите группу разрешений (например, **SSO Basic** (Базовый единый вход)), которой будет разрешено выполнять вход только через службу единого входа.
 
-	.![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)
+	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Щелкните **Сохранить**.
 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
 
-    .![Единый вход в Azure AD][10]
+    ![Единый вход в Azure AD][10]
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
 
-    .![Единый вход в Azure AD][11]
+    ![Единый вход в Azure AD][11]
 
 
 ### Создание тестового пользователя Azure AD
@@ -200,13 +200,13 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_03.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_03.png)
 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
@@ -214,7 +214,7 @@
 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_05.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_05.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -224,7 +224,7 @@
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_06.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_06.png)
 
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -238,11 +238,11 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_07.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_07.png)
 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_08.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_08.png)
 
     а. Запишите значение поля **Новый пароль**.
 
@@ -260,7 +260,7 @@
 
 1. Откройте раздел **Users & Permissions** (Пользователи и разрешения) и выберите параметр **Create SSO User** (Создать пользователя единого входа).
 
-	.![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png)
+	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png)
 
 1. Введите **адрес электронной почты**, **имя**, **фамилию** и **компанию** пользователя, которого нужно подготовить, и выберите группу разрешений (например, SSO Basic (Базовый единый вход)), т. е. группу, которая сможет выполнять вход только через службу единого входа.
 
@@ -272,13 +272,13 @@
 
 Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к ImageRelay.
 
-.![Назначение пользователя][200]
+![Назначение пользователя][200]
 
 **Чтобы назначить пользователя Britta Simon в ImageRelay, выполните следующие действия.**
 
 1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните пункт **Приложения** в меню вверху.
 
-	.![Назначение пользователя][201]
+	![Назначение пользователя][201]
 
 2. В списке приложений выберите **ImageRelay**.
 
@@ -286,13 +286,13 @@
 
 1. В меню в верхней части страницы щелкните **Пользователи**.
 
-	.![Назначение пользователя][203]
+	![Назначение пользователя][203]
 
 1. В списке пользователей выберите **Britta Simon**.
 
 2. На панели инструментов внизу щелкните **Назначить**.
 
-	.![Назначение пользователя][205]
+	![Назначение пользователя][205]
 
 
 ### Проверка единого входа

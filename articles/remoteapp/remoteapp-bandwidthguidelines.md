@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Пропускная способность сети Azure RemoteApp — общие рекомендации | Microsoft Azure"
 	description="Описание общих рекомендаций по пропускной способности сети для приложений и коллекций Azure RemoteApp."
 	services="remoteapp"

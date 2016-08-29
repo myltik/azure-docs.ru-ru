@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Репликация глобальной базы данных DocumentDB | Microsoft Azure"
 	description="Узнайте, как управлять глобальной репликацией учетной записи DocumentDB на портале Azure."
 	services="documentdb"
@@ -35,7 +35,7 @@
 
 5. В колонке **Добавление и удаление регионов** выберите регионы для добавления или удаления и нажмите кнопку **ОК**. Добавление регионов оплачивается. Для получения дополнительной информации перейдите на [страницу цен](https://azure.microsoft.com/pricing/details/documentdb/) или см. статью [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md).
 
-    .![Можно щелкать регионы на карте, чтобы добавить или удалить их.][2]
+    ![Можно щелкать регионы на карте, чтобы добавить или удалить их.][2]
 
 ### Выбор регионов глобальной базы данных
 
@@ -74,7 +74,7 @@ While all regions associated with your DocumentDB database account can serve rea
 .<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/ru-RU/regions/#services
-[offers]: https://azure.microsoft.com/ru-RU/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Использование аналитики — эффективного инструмента поиска Application Insights | Microsoft Azure" 
 	description="Использование аналитики — эффективного инструмента поиска по журналу диагностики Application Insights. " 
 	services="application-insights" 
@@ -6,7 +6,7 @@
 	authors="danhadari" 
 	manager="douge"/>
 
-.<tags 
+<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
@@ -28,7 +28,7 @@
 
 В домашнем ресурсе вашего приложения в Application Insights щелкните "Аналитика".
 
-.![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics-using/001.png)
+![На сайте portal.azure.com откройте ресурс Application Insights и щелкните "Аналитика".](./media/app-insights-analytics-using/001.png)
 
 Во встроенном руководстве представлены некоторые сведения о доступных возможностях.
 
@@ -38,7 +38,7 @@
 
 ### Напишите запрос
 
-.![Отображение схемы](./media/app-insights-analytics-using/150.png)
+![Отображение схемы](./media/app-insights-analytics-using/150.png)
 
 Начните с имен таблиц, перечисленных в левой части окна (либо с операторов [range](app-insights-analytics-reference.md#range-operator) или [union](app-insights-analytics-reference.md#union-operator)). Используйте `|` для создания конвейера [операторов](app-insights-analytics-reference.md#queries-and-operators). IntelliSense подскажет вам операторы и некоторые элементы выражений, которые можно использовать.
 
@@ -46,7 +46,7 @@
 
 ### Выполнение запроса
 
-.![Выполнение запроса](./media/app-insights-analytics-using/130.png)
+![Выполнение запроса](./media/app-insights-analytics-using/130.png)
 
 1. В запросе можно использовать только однократные разрывы строк.
 2. Поместите курсор внутри или в конце запроса, который необходимо выполнить.
@@ -66,7 +66,7 @@
 
 Чтобы просмотреть полный список свойств какой-либо строки, разверните ее в результатах. Можно также развернуть любое свойство, которое представляет собой структурированное значение, например пользовательские измерения или список стеков в исключении.
 
-.![Развертывание строки](./media/app-insights-analytics-using/070.png)
+![Развертывание строки](./media/app-insights-analytics-using/070.png)
 
  
 
@@ -88,7 +88,7 @@
 
 С помощью значка фильтра можно сузить область поиска.
 
-.![Сортировка и фильтрация столбцов](./media/app-insights-analytics-using/040.png)
+![Сортировка и фильтрация столбцов](./media/app-insights-analytics-using/040.png)
 
 
 
@@ -96,7 +96,7 @@
 
 Чтобы отсортировать по нескольким столбцам, можно использовать группирование. Сначала активируйте эту функцию, а затем перетащите заголовки столбцов в область над таблицей.
 
-.![Группа](./media/app-insights-analytics-using/060.png)
+![Группа](./media/app-insights-analytics-using/060.png)
 
 
 
@@ -117,7 +117,7 @@
 
 Выберите тип схемы, которая вам нужна:
 
-.![Выберите тип диаграммы](./media/app-insights-analytics-using/230.png)
+![Выберите тип диаграммы](./media/app-insights-analytics-using/230.png)
 
 Если у вас несколько столбцов правильных типов, можно выбрать оси X и Y, а также столбец измерений, чтобы разделить по ним результаты.
 
@@ -127,7 +127,7 @@
 
 Вы можете закрепить диаграмму на одной из [общих панелей мониторинга](app-insights-dashboards.md), просто щелкнув значок булавки. (Для включения этой функции может потребоваться [обновить ценовой пакет приложения](app-insights-pricing.md).)
 
-.![Щелкните значок булавки](./media/app-insights-analytics-using/pin-01.png)
+![Щелкните значок булавки](./media/app-insights-analytics-using/pin-01.png)
 
 Это означает, что при сборке панели мониторинга для отслеживания производительности или использования веб-служб наряду с другими метриками можно включить довольно сложный анализ.
 
@@ -146,12 +146,12 @@
 в аналитике выглядит следующим образом:
 
 
-.![Диаграмма с длинным "хвостом"](./media/app-insights-analytics-using/pin-07.png)
+![Диаграмма с длинным "хвостом"](./media/app-insights-analytics-using/pin-07.png)
 
 Но если закрепить его на панели мониторинга, он будет выглядеть так:
 
 
-.![Диаграмма с ограниченным количеством ячеек](./media/app-insights-analytics-using/pin-08.png)
+![Диаграмма с ограниченным количеством ячеек](./media/app-insights-analytics-using/pin-08.png)
 
 
 
@@ -164,7 +164,7 @@
 
 1. Поместите курсор в запрос и выберите **Экспорт в Power BI**.
 
-    .![](./media/app-insights-analytics-using/240.png)
+    ![](./media/app-insights-analytics-using/240.png)
 
     При этом скачивается файл скрипта M.
 
@@ -172,11 +172,11 @@
  * Откройте экспортированный файл.
  * В Power BI Desktop выберите **"Получить данные", "Пустой запрос", "Расширенный редактор"** и вставьте скрипт на языке M.
 
-    .![](./media/app-insights-analytics-using/250.png)
+    ![](./media/app-insights-analytics-using/250.png)
 
 4. При необходимости измените учетные данные. Теперь можно строить отчет.
 
-    .![](./media/app-insights-analytics-using/260.png)
+    ![](./media/app-insights-analytics-using/260.png)
 
 
 

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Учебник. Интеграция Azure Active Directory с Samanage | Microsoft Azure" 
     description="Узнайте, как использовать Samanage с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
@@ -63,15 +63,15 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    .![Приложения](./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png "Приложения")
+    ![Приложения](./media/active-directory-saas-samanage-tutorial/tutorial_general_02.png "Приложения")
 
 4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    .![Добавление приложения](./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png "Добавление приложения")
+    ![Добавление приложения](./media/active-directory-saas-samanage-tutorial/tutorial_general_03.png "Добавление приложения")
 
 5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    .![Добавить приложение из коллекции](./media/active-directory-saas-samanage-tutorial/tutorial_general_04.png "Добавить приложение из коллекции")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-samanage-tutorial/tutorial_general_04.png "Добавить приложение из коллекции")
 
 6.  В **поле поиска** введите **Samanage**.
 
@@ -79,7 +79,7 @@
 
 7.  В области результатов выберите **Samanage** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
-    .![Samanage](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_02.png "Samanage")
+    ![Samanage](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_02.png "Samanage")
 
 ##  Настройка и проверка единого входа в Azure AD.
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в Samanage с использованием тестового пользователя Britta Simon.
@@ -104,15 +104,15 @@
 
 1.  На классическом портале Azure откройте страницу интеграции с приложением **Samanage** и щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    .![Настройка единого входа](./media/active-directory-saas-samanage-tutorial/tutorial_general_05.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-samanage-tutorial/tutorial_general_05.png "Настройка единого входа")
 
 2.  На странице **Как пользователи должны входить в Samanage** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    .![Единый вход Microsoft Azure AD](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_03.png "Единый вход Microsoft Azure AD")
+    ![Единый вход Microsoft Azure AD](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_03.png "Единый вход Microsoft Azure AD")
 
 3.  В диалоговом окне на странице "Настройка параметров приложения" выполните следующие действия.
 
-    .![Настройка URL-адреса приложения](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_04.png "Настройка URL-адреса приложения")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_04.png "Настройка URL-адреса приложения")
 
     а. В текстовое поле **URL-адрес для входа** введите URL-адрес в следующем формате: `https://<Company Name>.samanage.com/saml_login/<Company Name>`.
 	
@@ -122,7 +122,7 @@
 
 4.  На странице **Настройка единого входа в Samanage** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата на компьютере.
 
-    .![Настройка единого входа](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_05.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_05.png "Настройка единого входа")
 
 5.  В другом окне веб-браузера войдите на сайт Samanage компании в качестве администратора.
 
@@ -132,7 +132,7 @@
 
 7.  Щелкните **Единый вход**.
 
-    .![Единый вход](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Единый вход")
+    ![Единый вход](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_002.png "Единый вход")
 
 8.  Перейдите в раздел **Login using SAML** (Вход с помощью SAML) и выполните следующие действия.
     
@@ -156,30 +156,30 @@
 
 9.  На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
 
-    .![Настройка единого входа](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_06.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_06.png "Настройка единого входа")
 
 10. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
 
-	.![Настройка единого входа](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_07.png "Настройка единого входа")
+	![Настройка единого входа](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_07.png "Настройка единого входа")
 
 
 ### Создание тестового пользователя Azure AD
 
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
 
-.![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_00.png)
+![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_00.png)
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-    .![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_01.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_01.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_02.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_02.png)
 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
@@ -187,7 +187,7 @@
 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
 
-    .![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_04.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_04.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -197,7 +197,7 @@
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_05.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_05.png)
 
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -211,11 +211,11 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_06.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_06.png)
 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_07.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-samanage-tutorial/create_aaduser_07.png)
 
     а. Запишите значение поля **Новый пароль**.
 
@@ -231,11 +231,11 @@
 
 2.  Щелкните **Dashboard** (Панель мониторинга) и выберите **Setup** (Настройка) в левой области навигации.
 
-    .![Настройка](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Настройка")
+    ![Настройка](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_001.png "Настройка")
 
 3.  Откройте вкладку **Пользователи**.
 
-    .![Пользователи](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Пользователи")
+    ![Пользователи](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_006.png "Пользователи")
 
 4.  Щелкните **Новый пользователь**.
 
@@ -252,27 +252,27 @@
   
 Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к Samanage.
 	
-.![Назначение пользователей](./media/active-directory-saas-samanage-tutorial/assign_aaduser_00.png "Назначение пользователей")
+![Назначение пользователей](./media/active-directory-saas-samanage-tutorial/assign_aaduser_00.png "Назначение пользователей")
 
 **Чтобы назначить пользователя Britta Simon в Samanage, выполните следующие действия.**
 
 1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
     
-	.![Назначение пользователей](./media/active-directory-saas-samanage-tutorial/assign_aaduser_01.png "Назначение пользователей")
+	![Назначение пользователей](./media/active-directory-saas-samanage-tutorial/assign_aaduser_01.png "Назначение пользователей")
 
 2. В списке приложений выберите **Samanage**.
     
-	.![Настройка единого входа](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_08.png)
+	![Настройка единого входа](./media/active-directory-saas-samanage-tutorial/tutorial_samanage_08.png)
 
 3. В меню в верхней части страницы щелкните **Пользователи**.
     
-	.![Назначение пользователей](./media/active-directory-saas-samanage-tutorial/assign_aaduser_02.png "Назначение пользователей")
+	![Назначение пользователей](./media/active-directory-saas-samanage-tutorial/assign_aaduser_02.png "Назначение пользователей")
 
 4. В списке пользователей выберите **Britta Simon**.
 
 5. На панели инструментов внизу щелкните **Назначить**.
     
-	.![Назначение пользователей](./media/active-directory-saas-samanage-tutorial/assign_aaduser_03.png "Назначение пользователей")
+	![Назначение пользователей](./media/active-directory-saas-samanage-tutorial/assign_aaduser_03.png "Назначение пользователей")
 
 
 ### Проверка единого входа

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Создание облачной коллекции Azure RemoteApp | Microsoft Azure" 
 	description="Узнайте, как создавать развертывания Azure RemoteApp, предназначенные для сохранения данных в облаке Azure." 
 	services="remoteapp" 

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Использование удаленного рабочего стола с ролями Azure | Microsoft Azure"
    description="Использование удаленного рабочего стола с ролями Azure"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags 
+<tags 
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"

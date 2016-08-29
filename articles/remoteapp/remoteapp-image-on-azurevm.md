@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание образа Azure RemoteApp на основе виртуальной машины Azure | Microsoft Azure"
     description="Узнайте о том, как создать образ для Azure RemoteApp с помощью виртуальной машины Azure."
     services="remoteapp"
@@ -6,7 +6,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"

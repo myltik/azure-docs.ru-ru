@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Замена диска на устройстве StorSimple | Microsoft Azure"
    description="В статье объясняется, как заменить диск в основном корпусе StorSimple или в корпусе EBOD."
    services="storsimple"

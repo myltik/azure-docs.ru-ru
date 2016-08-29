@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Подготовка к публикации или развертыванию приложения Azure из Visual Studio | Microsoft Azure"
    description="Узнайте, как создавать облачные службы и учетные записи хранения, а также настраивать приложения Azure."
    services="visual-studio-online"

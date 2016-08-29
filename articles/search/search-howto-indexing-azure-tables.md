@@ -1,4 +1,4 @@
-.<properties
+<properties
 pageTitle="Индексирование хранилища таблиц Azure с помощью поиска Azure"
 description="Узнайте, как индексировать данные в таблицах Azure с помощью поиска Azure"
 services="search"
@@ -7,7 +7,7 @@ authors="chaosrealm"
 manager="pablocas"
 editor="" />
 
-.<tags
+<tags
 ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  

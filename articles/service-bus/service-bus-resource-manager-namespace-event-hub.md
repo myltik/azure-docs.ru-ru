@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание пространства имен концентратора событий, самого концентратора событий и группы потребителей с помощью шаблона Azure Resource Manager | Microsoft Azure"
     description="Создание пространства имен концентраторов событий, концентратора событий и группы потребителей с помощью шаблона Azure Resource Manager."
     services="event-hubs"

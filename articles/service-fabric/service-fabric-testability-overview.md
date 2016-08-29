@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о службе анализа сбоев | Microsoft Azure"
    description="В этой статье описывается служба анализа сбоев в Service Fabric, используемая для вызова ошибок и запуска сценариев тестирования для служб."
    services="service-fabric"

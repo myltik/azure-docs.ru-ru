@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Шифрование на стороне клиента с помощью Python для службы хранилища Microsoft Azure | Microsoft Azure"
 	description="Клиентская библиотека службы хранилища Azure для Python поддерживает шифрование на стороне клиента для обеспечения максимальной защиты ваших приложений службы хранилища Azure."
 	services="storage"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Размещение веб-сайта Ruby on Rails в виртуальной машине Linux | Microsoft Azure"
 	description="Настройка и размещение веб-сайта на основе Ruby on Rails в Azure с помощью виртуальной машины Linux."
 	services="virtual-machines-linux"
@@ -8,7 +8,7 @@
 	editor=""
 	tags="azure-service-management"/>
 
-.<tags
+<tags
 	ms.service="virtual-machines-linux"
 	ms.workload="web"
 	ms.tgt_pltfrm="vm-linux"
@@ -121,7 +121,7 @@
 
 5. Должно появиться сообщение **ВЫПОЛНЯЕТСЯ ОБНОВЛЕНИЕ**. После того как сообщение исчезнет, конечная точка будет активирована. Теперь вы можете протестировать приложение, перейдя к имени DNS виртуальной машины. Веб-сайт должен выглядеть аналогично следующему:
 
-	.![страница Rails по умолчанию][default-rails-cloud]
+	![страница Rails по умолчанию][default-rails-cloud]
 
 ## Дальнейшие действия
 

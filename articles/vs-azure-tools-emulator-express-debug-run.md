@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование Emulator Express для запуска и отладки облачной службы на локальном компьютере | Microsoft Azure"
    description="Использование Emulator Express для запуска и отладки облачной службы на локальном компьютере"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"

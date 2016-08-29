@@ -1,6 +1,6 @@
-.<properties pageTitle="Работа с модулями Node.js" description="Узнайте, как работать с модулями Node.js при использовании службы приложений или облачных служб Azure." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
+<properties pageTitle="Работа с модулями Node.js" description="Узнайте, как работать с модулями Node.js при использовании службы приложений или облачных служб Azure." services="" documentationCenter="nodejs" authors="rmcmurray" manager="wpickett" editor=""/>
 
-.<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/11/2016" ms.author="robmcm"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/11/2016" ms.author="robmcm"/>
 
 
 

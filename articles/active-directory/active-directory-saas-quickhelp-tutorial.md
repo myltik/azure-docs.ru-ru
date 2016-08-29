@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство. Интеграция Azure Active Directory с QuickHelp | Microsoft Azure"
 	description="Узнайте, как настроить единый вход между Azure Active Directory и QuickHelp."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -58,17 +58,17 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Active Directory][1]
+	![Active Directory][1]
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-	.![Приложения][2]
+	![Приложения][2]
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 
-	.![Приложения][3]
+	![Приложения][3]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -112,7 +112,7 @@
 
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
 
-	.![Настройка параметров приложения][8]
+	![Настройка параметров приложения][8]
  
      а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа на сайт QuickHelp (например, * https://quickhelp.com/bsiazure/*).
 
@@ -164,11 +164,11 @@
 
 6. На классическом портале Azure подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
 
-	.![Что такое Azure AD Connect?][10]
+	![Что такое Azure AD Connect?][10]
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
 
-	.![Что такое Azure AD Connect?][11]
+	![Что такое Azure AD Connect?][11]
 
 
 
@@ -182,13 +182,13 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_02.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_02.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_03.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_03.png)
  
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
@@ -196,7 +196,7 @@
 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
  
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_05.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_05.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -206,7 +206,7 @@
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_06.png)
  
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -218,11 +218,11 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
-.![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png)
+![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_07.png)
  
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-quickhelp-tutorial/create_aaduser_08.png)
   
     а. Запишите значение поля **Новый пароль**.
 
@@ -257,13 +257,13 @@ QuickHelp поддерживает JIT-подготовку. Это означа
 
 1. В меню в верхней части страницы щелкните **Пользователи**.
 
-	.![Назначение пользователя][203]
+	![Назначение пользователя][203]
 
 1. В списке пользователей выберите **Britta Simon**.
 
 2. На панели инструментов внизу щелкните **Назначить**.
 
-	.![Назначение пользователя][205]
+	![Назначение пользователя][205]
 
 
 
@@ -278,7 +278,7 @@ QuickHelp поддерживает JIT-подготовку. Это означа
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-.<!--Image references-->
+<!--Image references-->
 
 [1]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-quickhelp-tutorial/tutorial_general_02.png

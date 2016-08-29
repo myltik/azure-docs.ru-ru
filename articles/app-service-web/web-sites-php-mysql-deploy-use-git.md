@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание веб-приложения PHP-MySQL в службе приложений Azure и развертывание с помощью Git"
 	description="В учебнике описывается, как создать веб-приложение PHP, которое хранит данные в MySQL, и развернуть его в Azure с помощью Git."
 	services="app-service\web"

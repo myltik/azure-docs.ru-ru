@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование хранилища BLOB-объектов (хранилища объектов) из PHP | Microsoft Azure"
 	description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
 	documentationCenter="php"

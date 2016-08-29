@@ -1,4 +1,4 @@
-.<properties
+<properties
   pageTitle="Azure IoT Suite и Azure Active Directory | Microsoft Azure"
   description="В этой статье описывается, как набор Azure IoT Suite использует Azure Active Directory для управления разрешениями."
   services=""

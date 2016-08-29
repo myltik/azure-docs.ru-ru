@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Включение удаленного рабочего стола для облачных служб (Node.js)" 
 	description="Узнайте, как обеспечить доступ к удаленному рабочему столу для виртуальных машин, на которых размещается приложение Node.js для Azure." 
 	services="cloud-services" 
@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="cloud-services" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure | Microsoft Azure"
    description="Сравнение Azure Data Lake Store с хранилищем BLOB-объектов Azure"
    services="data-lake-store"
@@ -7,7 +7,7 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-.<tags
+<tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"

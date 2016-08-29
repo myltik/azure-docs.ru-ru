@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Обзор Azure DNS | Microsoft Azure" 
    description="Обзор служб размещения Azure DNS в Microsoft Azure. Размещение домена в Microsoft Azure." 
    services="dns" 
@@ -7,7 +7,7 @@
    manager="carmonm" 
    editor=""/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"

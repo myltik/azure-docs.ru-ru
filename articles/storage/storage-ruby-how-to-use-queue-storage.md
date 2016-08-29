@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Использование хранилища очередей из Ruby | Microsoft Azure" 
 	description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Ruby." 
 	services="storage" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование хранилища BLOB-объектов Azure (хранилища объектов) из Java | Microsoft Azure"
 	description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"

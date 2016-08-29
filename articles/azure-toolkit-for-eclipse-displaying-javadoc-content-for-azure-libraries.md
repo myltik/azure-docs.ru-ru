@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Отображение в Eclipse содержимого Javadoc для пакета библиотек Azure для Java"
     description="Узнайте, как отобразить содержимое Javadoc для библиотек Azure в Eclipse."
     services=""
@@ -7,7 +7,7 @@
     manager="wpickett"
     editor=""/>
 
-.<tags
+<tags
     ms.service="multiple"
     ms.workload="na"
     ms.tgt_pltfrm="multiple"

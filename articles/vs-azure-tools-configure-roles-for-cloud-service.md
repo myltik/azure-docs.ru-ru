@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка ролей для облачной службы Azure в среде Visual Studio | Microsoft Azure"
    description="Узнайте, как настроить роли для облачных служб Azure с помощью Visual Studio."
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags
+<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Потоковая передача журналов диагностики Azure в концентраторы событий | Microsoft Azure"
 	description="Узнайте, как настроить потоковую передачу журналов диагностики Azure в концентраторы событий."
 	authors="johnkemnetz"
@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-.<tags
+<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -44,7 +44,7 @@ CROSS APPLY GetArrayElements(e.records) AS records
 ## Включение потоковой передачи журналов диагностики
 Потоковую передачу журналов диагностики можно включить программно, через портал или с помощью [REST API для аналитики](https://msdn.microsoft.com/library/azure/dn931943.aspx). В каждом из вариантов вам следует выбрать пространство имен служебной шины. Концентраторы событий будут созданы в этом пространстве имен для каждой включенной категории журнала. **Категория журналов диагностики** — это тип журналов, которые может собирать ресурс. Категории журналов, которые нужно собирать для конкретного ресурса, можно выбрать на портале Azure в колонке "Диагностика".
 
-.![Категории журналов на портале](./media/monitoring-stream-diagnostic-logs-to-event-hubs/log-categories.png)
+![Категории журналов на портале](./media/monitoring-stream-diagnostic-logs-to-event-hubs/log-categories.png)
 
 > [AZURE.WARNING] Для включения и потоковой передачи журналов диагностики из вычислительных ресурсов (например, виртуальных машин или Service Fabric) [используется другая последовательность действий](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 

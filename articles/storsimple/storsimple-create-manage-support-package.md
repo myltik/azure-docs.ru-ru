@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание пакетов поддержки StorSimple и управление ими | Microsoft Azure"
    description="Узнайте, как создавать, расшифровывать и изменять содержимое пакетов поддержки для устройства StorSimple."
    services="storsimple"
@@ -6,7 +6,7 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-.<tags
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"

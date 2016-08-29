@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Связанные шаблоны в Resource Manager | Microsoft Azure"
    description="Описывает, как использовать связанные шаблоны в шаблоне диспетчера ресурсов Azure для создания решения модульных шаблонов. Показывает, как передавать значения параметров, указывать файл параметров и динамически создаваемые URL-адреса."
    services="azure-resource-manager"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor="tysonn"/>
 
-.<tags
+<tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"

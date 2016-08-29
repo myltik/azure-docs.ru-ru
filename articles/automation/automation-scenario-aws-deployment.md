@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Автоматизация развертывания виртуальной машины в Amazon Web Services | Microsoft Azure"
    description="В этой статье показано, как автоматизировать создание виртуальной машины Amazon Web Service с помощью службы автоматизации Azure."
    services="automation"
@@ -6,7 +6,7 @@
    authors="mgoedtel"
    manager="jwhit"
    editor="" />
-.<tags
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"

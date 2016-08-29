@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Версии API службы поиска Azure | Microsoft Azure | API поиска"
    description="Политика управления версиями для API REST службы поиска Azure и клиентской библиотеки пакетов SDK для .NET."
    services="search"
@@ -7,7 +7,7 @@
    manager="pablocas"
    editor=""/>
 
-.<tags
+<tags
    ms.service="search"
    ms.devlang="dotnet"
    ms.workload="search"

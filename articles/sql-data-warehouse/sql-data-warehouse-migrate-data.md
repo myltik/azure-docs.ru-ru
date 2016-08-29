@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Перенос данных в хранилище данных SQL | Microsoft Azure"
    description="Советы по переносу данных в хранилище данных SQL Azure для разработки решений."
    services="sql-data-warehouse"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Этап развертывания облачной службы (Node.js) | Microsoft Azure" 
 	description="Узнайте, как можно сначала выполнить развертывание приложения Azure в промежуточной среде, а затем в рабочей среде с помощью переключения виртуальных IP-адресов (VIP)." 
 	services="cloud-services" 

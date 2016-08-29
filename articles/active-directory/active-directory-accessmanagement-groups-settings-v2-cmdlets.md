@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Командлеты предварительной версии Azure Active Directory PowerShell для управления группами в Azure AD | Microsoft Azure"
 	description="На этой странице представлены примеры командлетов PowerShell, которые помогут вам управлять группами в Azure Active Directory."
     keywords="Azure AD, Azure Active Directory, PowerShell, группы, управление группами"

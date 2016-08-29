@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что произошло с моим проектом MVC в подключенной службе Visual Studio Azure Active Directory | Microsoft Azure "
 	description="Описывает, что происходит с проектом MVC при подключении к приложению Azure AD с помощью подключенных служб Visual Studio"
 	services="active-directory"

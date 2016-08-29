@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Обзор проверки подлинности концентраторов событий и модели безопасности | Microsoft Azure"
     description="Обзор проверки подлинности концентраторов событий и модели безопасности."
     services="event-hubs"
@@ -6,7 +6,7 @@
     authors="sethmanheim"
     manager="timlt"
     editor="" />
-.<tags 
+<tags 
     ms.service="event-hubs"
     ms.devlang="na"
     ms.topic="article"

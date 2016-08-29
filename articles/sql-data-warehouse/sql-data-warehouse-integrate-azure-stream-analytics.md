@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Работа со службой Azure Stream Analytics и хранилищем данных SQL | Microsoft Azure"
    description="Советы по использованию службы Azure Stream Analytics и хранилища данных SQL для разработки решений."
    services="sql-data-warehouse"
@@ -7,7 +7,7 @@
    manager="barbkess"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"

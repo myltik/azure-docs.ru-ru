@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Дополнительные сведения о расширении виртуальной машины Docker в Azure | Microsoft Azure"
    description="Сведения об использовании расширения виртуальной машины Docker для быстрого и безопасного развертывания среды Docker в Azure."
    services="virtual-machines-linux"
@@ -99,7 +99,7 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 
 Откройте веб-браузер и введите DNS-имя, указанное во время развертывания, чтобы увидеть контейнер в действии.
 
-.![Запущенный контейнер nginx](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
+![Запущенный контейнер nginx](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
 Возможно, потребуется настроить TCP-порт и параметры безопасности управляющей программы Docker или развернуть контейнеры с помощью Docker Compose. Чтобы узнать больше, ознакомьтесь с [проектом расширения виртуальной машины Azure для Docker на сайте GitHub](https://github.com/Azure/azure-docker-extension/).
 

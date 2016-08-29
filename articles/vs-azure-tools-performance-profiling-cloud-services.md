@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Тестирование производительности облачной службы | Microsoft Azure"
    description="Протестируйте производительность облачной службы с помощью профилировщика Visual Studio"
    services="visual-studio-online"
@@ -6,7 +6,7 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-.<tags 
+<tags 
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"

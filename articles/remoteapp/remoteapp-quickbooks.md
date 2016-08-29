@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Развертывание QuickBooks в Azure RemoteApp | Microsoft Azure" 
     description="Узнайте, как предоставить совместный доступ к QuickBooks с помощью Azure RemoteApp." 
     services="remoteapp" 
@@ -6,7 +6,7 @@
     authors="ericorman" 
     manager="mbaldwin" />
 
-.<tags 
+<tags 
     ms.service="remoteapp" 
     ms.workload="compute" 
     ms.tgt_pltfrm="na" 
@@ -45,6 +45,6 @@
 
 ## Архитектура развертывания
 
-.![Развертывание QuickBooks + Azure RemoteApp](./media/remoteapp-quickbooks/ra-quickbooks.png)
+![Развертывание QuickBooks + Azure RemoteApp](./media/remoteapp-quickbooks/ra-quickbooks.png)
 
 <!---HONumber=AcomDC_0817_2016-->

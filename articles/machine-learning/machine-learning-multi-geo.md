@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Справка по размещению в различных регионах | Microsoft Azure"
    description="Узнайте, как создать рабочую область и опубликовать веб-службу в регионе Azure, отличном от юго-центрального региона США."
    services="machine-learning"

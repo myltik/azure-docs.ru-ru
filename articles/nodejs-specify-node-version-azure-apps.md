@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Указание версии Node.js"
 	description="Узнайте, как указать версию Node.js, используемую веб-сайтами и облачными службами Azure."
 	services=""
@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="multiple"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

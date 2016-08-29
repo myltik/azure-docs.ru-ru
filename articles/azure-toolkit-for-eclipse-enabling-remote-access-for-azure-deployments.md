@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Включение удаленного доступа для развертываний Azure в Eclipse"
     description="Узнайте, как включить удаленный доступ для развертываний Azure с помощью набора средств Azure для Eclipse."
     services=""
@@ -7,7 +7,7 @@
     manager="wpickett"
     editor=""/>
 
-.<tags
+<tags
     ms.service="multiple"
     ms.workload="na"
     ms.tgt_pltfrm="multiple"

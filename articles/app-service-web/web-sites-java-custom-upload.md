@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Отправка пользовательского веб-приложения Java в Azure" 
 	description="В этом учебнике объясняется, как отправить пользовательское веб-приложение Java в веб-приложения службы приложений Azure." 
 	services="app-service\web" 
@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 

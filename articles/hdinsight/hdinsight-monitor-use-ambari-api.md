@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API для платформы Microsoft Azure"
 	description="Набор интерфейсов API для Apache Ambari используется для создания, отслеживания кластеров Apache Hadoop и управления ими. Сложность организации Hadoop компенсируется интуитивным дизайном средств управления пользователя и интерфейсов API."
 	services="hdinsight"

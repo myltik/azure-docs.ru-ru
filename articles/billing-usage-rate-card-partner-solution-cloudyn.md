@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="API использования и RateCard в Microsoft Azure позволяют Cloudyn предоставлять ITFM для клиентов | Microsoft Azure"
    description="В нем описан уникальный опыт Cloudyn — партнера по выставлению счетов Microsoft Azure — по интеграции API выставления счетов Azure в свои продукты. Эти сведения особенно полезны для клиентов Azure и Cloudyn, которые хотели бы использовать Cloudyn для служб Azure или уже рассматривают такой вариант."
    services=""
@@ -8,7 +8,7 @@
    editor=""
    tags="billing"/>
 
-.<tags
+<tags
    ms.service="billing"
    ms.devlang="na"
    ms.topic="article"

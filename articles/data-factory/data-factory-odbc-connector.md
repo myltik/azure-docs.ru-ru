@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение данных из хранилищ данных ODBC | Фабрика данных Azure" 
 	description="Узнайте, как перемещать данные из хранилищ данных ODBC с помощью фабрики данных Azure." 
 	services="data-factory" 
@@ -363,10 +363,10 @@
 
 1. Запустите **диспетчер конфигурации шлюза управления данными**. Можно запустить файл "C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared\\ConfigManager.exe" напрямую или выполнить поиск по слову **шлюз**, чтобы найти ссылку на приложение **Шлюз управления данными Майкрософт**, как показано на следующем рисунке.
 
-	.![Поиск шлюза](./media/data-factory-odbc-connector/search-gateway.png)
+	![Поиск шлюза](./media/data-factory-odbc-connector/search-gateway.png)
 2. Перейдите на вкладку **Диагностика**.
 
-	.![Диагностика шлюза](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
+	![Диагностика шлюза](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
 3. Выберите **тип** хранилища данных (связанная служба).
 4. Укажите тип **аутентификации** и введите **учетные данные** или **строку подключения** для подключения к хранилищу данных.
 5. Щелкните **Проверить подключение**, чтобы проверить подключение к хранилищу данных.

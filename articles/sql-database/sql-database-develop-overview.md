@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Общие сведения о разработке базы данных SQL | Microsoft Azure"
 	description="Сведения о доступных библиотеках подключения и рекомендации для приложений, подключающихся к базе данных SQL."
 	services="sql-database"
@@ -8,7 +8,7 @@
 	editor="genemi"/>
 
 
-.<tags
+<tags
 	ms.service="sql-database"
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Настройка статического внутреннего частного IP-адреса"
    description="Основные сведения о статических внутренних IP-адресах (DIP) и управлении ими"
    services="virtual-network"
@@ -6,7 +6,7 @@
    authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
-.<tags 
+<tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"

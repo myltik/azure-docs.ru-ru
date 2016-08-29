@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание гибридной коллекции для Azure RemoteApp | Microsoft Azure"
 	description="Узнайте, как создать развертывание удаленного приложения RemoteApp, которое подключается к внутренней сети."
 	services="remoteapp"
@@ -7,7 +7,7 @@
 	manager="mbaldwin"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="remoteapp"
 	ms.workload="compute"
 	ms.tgt_pltfrm="na"

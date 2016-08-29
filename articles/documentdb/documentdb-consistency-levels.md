@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Уровни согласованности в DocumentDB | Microsoft Azure"
 	description="В DocumentDB есть четыре уровня согласованности, что позволяет сбалансировать компромиссы между согласованностью в конечном итоге, доступностью и задержками."
 	keywords="окончательная согласованность, documentdb, azure, Microsoft azure"
@@ -8,7 +8,7 @@
 	editor="cgronlun"
 	documentationCenter=""/>
 
-.<tags
+<tags
 	ms.service="documentdb"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
@@ -92,7 +92,7 @@
 
 4. В колонке **Согласованность по умолчанию** выберите новый уровень согласованности и нажмите кнопку **ОК**.
 
-	.![Снимок экрана, на котором показан значок "Параметры" и запись "Согласованность по умолчанию"](./media/documentdb-consistency-levels/database-consistency-level-1.png)
+	![Снимок экрана, на котором показан значок "Параметры" и запись "Согласованность по умолчанию"](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
 ## Уровни согласованности для запросов
 

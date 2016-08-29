@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Создание пользовательских записей DNS для веб-приложения | Microsoft Azure " 
    description="Как создать записи DNS личного домена для веб-приложения с помощью Azure DNS." 
    services="dns" 

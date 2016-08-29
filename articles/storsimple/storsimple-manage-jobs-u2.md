@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Просмотр заданий StorSimple и управление ими | Microsoft Azure"
    description="Описывает страницу заданий службы диспетчера StorSimple и способы ее использования для отслеживания недавних, текущих и запланированных заданий."
    services="storsimple"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Как работать с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure | Служба приложений Azure"
 	description="Узнайте, как работать с пакетом SDK для внутреннего сервера .NET для мобильных приложений службы приложений Azure."
 	keywords="служба приложений, служба приложений azure, мобильное приложение, мобильная служба, масштабировать, масштабируемый, разработка приложений, разработка приложений azure"
@@ -146,11 +146,11 @@
 
 2. Если появится запрос на выбор цели публикации, щелкните **служба приложений Microsoft Azure** > **Далее**, а затем (при необходимости) войдите с учетными данными Azure. Visual Studio загрузит параметры публикации из Azure и безопасно сохранит их.
 
-	.![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
 
 3. Выберите свою **Подписку**, затем выберите **Тип ресурса** в разделе **Представление**, разверните **Мобильное приложение** и щелкните серверную часть мобильного приложения, затем щелкните **ОК**.
 
-	.![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
 
 4. Проверьте сведения в профиле публикации и нажмите кнопку **Опубликовать**.
 

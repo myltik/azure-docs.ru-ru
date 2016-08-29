@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Учебник. Интеграция Azure Active Directory с Citrix GoToMeeting | Microsoft Azure" 
     description="Узнайте, как использовать Citrix GoToMeeting вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
@@ -6,7 +6,7 @@
     documentationCenter="na" 
     manager="femila"/>
 
-.<tags 
+<tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
@@ -50,11 +50,11 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    .![Приложения](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700994.png "Приложения")
+    ![Приложения](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC700994.png "Приложения")
 
 4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    .![Добавление приложения](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749321.png "Добавление приложения")
+    ![Добавление приложения](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749321.png "Добавление приложения")
 
 5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -79,7 +79,7 @@
 
 2.  На странице **Как пользователи должны входить в Citrix GoToMeeting?** выберите **Единый вход Microsoft Azure AD**.
 
-    .![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Настройка единого входа")
 
 
 3. На странице **Настроить параметры приложения** нажмите кнопку **Далее**.
@@ -115,7 +115,7 @@
 
 6.  На классическом портале Azure подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
 
-    .![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Настройка единого входа")
 
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Определение баз данных и таблиц для растяжения с помощью Помощника по растяжению баз данных | Microsoft Azure"
 	description="Узнайте, как определить базы данных и таблицы, которые подходят для растяжения баз данных."
 	services="sql-server-stretch-database"

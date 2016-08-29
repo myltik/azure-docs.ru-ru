@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка нескольких сетевых карт на виртуальной машине Linux | Microsoft Azure"
    description="Узнайте, как создать виртуальную машину с несколькими сетевыми картами с помощью Azure CLI или шаблонов Resource Manager."
    services="virtual-machines-linux"

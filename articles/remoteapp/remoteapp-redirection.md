@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Использование перенаправления в удаленном приложении Azure RemoteApp | Microsoft Azure"
     description="Узнайте, как настроить и использовать перенаправление в удаленном приложении RemoteApp"
     services="remoteapp"
@@ -6,7 +6,7 @@
     authors="lizap"
     manager="mbaldwin" />
 
-.<tags
+<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"
