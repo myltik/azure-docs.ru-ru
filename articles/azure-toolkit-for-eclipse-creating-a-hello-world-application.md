@@ -16,7 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-.<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690944.aspx -->
 
 # Создание облачной службы Hello World для Azure в Eclipse #
 
@@ -187,4 +187,4 @@
 [ic789598]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic789598.png
 [publishDropdownButton]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0817_2016--->
