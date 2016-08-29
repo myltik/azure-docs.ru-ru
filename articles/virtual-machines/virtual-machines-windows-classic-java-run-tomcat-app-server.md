@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Tomcat на виртуальной машине | Microsoft Azure"
 	description="В этом учебнике используются ресурсы, созданные с помощью классической развертывания модели, а также приведены инструкции по созданию виртуальной машины Windows и ее настройке для работы сервера приложений Apache Tomcat."
 	services="virtual-machines-windows"
@@ -8,13 +8,13 @@
 	editor=""
     tags="azure-service-management" />
 
-<tags
+.<tags
 	ms.service="virtual-machines-windows"
 	ms.workload="web"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Использование сервера приложений Java на виртуальной машине, созданной с помощью классической модели развертывания.
@@ -146,4 +146,4 @@
 [NewRuleName]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-windows-classic-java-run-tomcat-app-server/NewRuleProfile.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

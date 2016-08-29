@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Что произошло с моим проектом веб-заданий (подключенными к службе хранилища Azure службами Visual Studio)? | Microsoft Azure"
 	description="Сведения о том, что происходит в проекте веб-заданий Azure после подключения к учетной записи хранения с помощью подключенных служб Visual Studio"
 	services="storage"
@@ -7,13 +7,13 @@
 	manager="douge"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="web"
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Что произошло с моим проектом веб-заданий (подключенными к службе хранилища Azure службами Visual Studio)?
@@ -36,4 +36,4 @@
 
 Дополнительные сведения см. в статье [Документация по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

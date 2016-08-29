@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Общие сведения о службе анализа сбоев | Microsoft Azure"
    description="В этой статье описывается служба анализа сбоев в Service Fabric, используемая для вызова ошибок и запуска сценариев тестирования для служб."
    services="service-fabric"
@@ -117,7 +117,7 @@
 
 Начните тестировать приложения и службы, используя встроенные [сценарии тестирования](service-fabric-testability-scenarios.md) или составьте собственные сценарии, используя [действия по ошибкам](service-fabric-testability-actions.md), предоставляемые службой анализа сбоев.
 
-<!--Image references-->
+.<!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Создание центра IoT с помощью API REST | Microsoft Azure"
 	description="Следуйте указаниям этого учебника, чтобы создать центр IoT Azure с помощью API REST."
 	services="iot-hub"
@@ -7,13 +7,13 @@
 	manager="timlt"
 	editor=""/>
 
-<tags
+.<tags
      ms.service="iot-hub"
      ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/31/2016"
+     ms.date="08/16/2016"
      ms.author="dobett"/>
 
 # Учебник. Создание центра IoT с помощью программы C# и API REST
@@ -26,7 +26,7 @@
 
 > [AZURE.NOTE] В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
 
-Чтобы пройти этот учебник, требуется:
+Для работы с этим учебником требуется:
 
 - Microsoft Visual Studio 2015.
 - Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][lnk-free-trial].
@@ -36,11 +36,11 @@
 
 ## Подготовка проекта Visual Studio
 
-1. Создайте в Visual Studio новый проект Visual C# Windows с помощью шаблона проекта **Консольное приложение**. Дайте проекту имя **CreateIoTHubREST**.
+1. Создайте в Visual Studio проект Visual C# Windows с помощью шаблона проекта **Консольное приложение**. Дайте проекту имя **CreateIoTHubREST**.
 
 2. В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите **Управление пакетами NuGet**.
 
-3. В диспетчере пакетов NuGet выберите **Включить предварительный выпуск** и введите **Microsoft.Azure.Management.ResourceManager** в строке поиска. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
+3. В диспетчере пакетов NuGet выберите **Включить предварительные выпуски** и найдите **Microsoft.Azure.Management.ResourceManager**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
 
 4. В диспетчере пакетов NuGet найдите **Microsoft.IdentityModel.Clients.ActiveDirectory**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензии.
 
@@ -58,14 +58,13 @@
     using Microsoft.Rest;
     using System.Linq;
     using System.Threading;
-    using Newtonsoft.Json;
     ```
     
-7. В Program.cs добавьте следующие статические переменные, заменив значения заполнителей. Вы записали **ApplicationId**, **SubscriptionId**, **TenantId** и **Password** ранее в этом учебнике. **Resource group name** — это имя группы ресурсов, используемых при создании центра IoT. Это может быть существующая группа ресурсов или новая. **IoT Hub name** — это имя создаваемого центра IoT, например **MyIoTHub** (обратите внимание, что это должно быть глобально уникальное имя, поэтому оно должно включать ваше имя или инициалы). **Deployment name** — это имя развертывания, например **Deployment\_01**.
+7. В Program.cs добавьте следующие статические переменные, заменив значения заполнителей. Ранее в этом учебнике вы записали **ApplicationId**, **SubscriptionId**, **TenantId** и **Password**. **Resource group name** — это имя группы ресурсов, используемых при создании центра IoT. Это может быть существующая группа ресурсов или новая. **IoT Hub name** — это имя создаваемого центра IoT, например **MyIoTHub** (это должно быть глобально уникальное имя, поэтому оно должно включать ваше имя или инициалы). **Deployment name** — это имя развертывания, например **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
-    static string subscriptionId = "{Your SubscriptionId";
+    static string subscriptionId = "{Your SubscriptionId}";
     static string tenantId = "{Your TenantId}";
     static string password = "{Your application Password}";
     
@@ -77,7 +76,7 @@
 
 ## Использование API REST для создания центра IoT
 
-Используйте [API REST центра IoT][lnk-rest-api] для создания нового центра IoT в группе ресурсов. API REST также можно использовать для изменения существующего центра IoT.
+Используйте [REST API центра IoT][lnk-rest-api] для создания центра IoT в группе ресурсов. API REST также можно использовать для изменения существующего центра IoT.
 
 1. Добавьте в класс Program.cs следующий метод:
     
@@ -138,7 +137,7 @@
       Thread.Sleep(10000);
       HttpResponseMessage deploymentstatus = client.GetAsync(asyncStatusUri).Result;
       body = deploymentstatus.Content.ReadAsStringAsync().Result;
-    } while (body == "{"Status":"Running"}");
+    } while (body == "{"status":"Running"}");
     ```
 
 6. Добавьте следующий код в конец метода **CreateIoTHub** для получения созданных ключей центра IoT и их вывода на консоль:
@@ -167,7 +166,7 @@
 
 4. Убедитесь, что в приложение добавлен новый центр IoT, посетив [портал][lnk-azure-portal] и просмотрев список ресурсов, или с помощью командлета PowerShell **Get-AzureRmResource**.
 
-> [AZURE.NOTE] В этом примере приложения добавляется стандартный центр S1 IoT, на который вам будет выставлен счет. Когда закончите, центр IoT можно удалить через [портал][lnk-azure-portal] или с помощью командлета PowerShell **Remove-AzureRmResource**.
+> [AZURE.NOTE] В этом примере приложения добавляется стандартный центр IoT S1, который подлежит оплате. По завершении можете удалить центр IoT через [портал][lnk-azure-portal] или с помощью командлета PowerShell **Remove-AzureRmResource**.
 
 ## Дальнейшие действия
 
@@ -188,7 +187,7 @@
 - [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
 - [Управление центрами IoT через портал Azure][lnk-portal]
 
-<!-- Links -->
+.<!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: ../powershell-install-configure.md
@@ -203,4 +202,4 @@
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

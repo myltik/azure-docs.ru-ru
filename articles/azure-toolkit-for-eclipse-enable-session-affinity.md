@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Включение сходства сеансов с помощью набора средств Azure для Eclipse"
     description="Узнайте, как включить сходство сеансов с помощью набора средств Azure для Eclipse."
     services=""
@@ -7,13 +7,13 @@
     manager="wpickett"
     editor=""/>
 
-<tags
+.<tags
     ms.service="multiple"
     ms.workload="na"
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
@@ -57,7 +57,7 @@
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
-<!-- URL List -->
+.<!-- URL List -->
 
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
@@ -65,8 +65,8 @@
 [Сохранение данных сеанса с использованием сходства сеансов]: http://go.microsoft.com/fwlink/?LinkID=699539
 [Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
-<!-- IMG List -->
+.<!-- IMG List -->
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

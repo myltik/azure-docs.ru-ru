@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Использования реального устройства с пакетом SDK для шлюза | Microsoft Azure"
 	description="Пошаговое руководство по работе с пакетом SDK для шлюза центра Azure IoT с использованием устройства Texas Instruments SensorTag для отправки данных в центр IoT через шлюз, работающий на вычислительном модуле Intel Edison"
 	services="iot-hub"
@@ -207,7 +207,7 @@
 
 ### Настройка двух примеров устройств в центре IoT
 
-- [Создайте центр IoT][lnk-create-hub] в подписке Azure. Для работы с этим руководством необходимо знать имя центра. Если у вас еще нет подписки Azure, получите [бесплатную учетную запись][lnk-free-trial].
+- [Создайте центр IoT][lnk-create-hub] в подписке Azure (для выполнения указаний данного пошагового руководства необходимо имя центра). Если у вас еще нет подписки Azure, получите [бесплатную учетную запись][lnk-free-trial].
 - Добавьте в центр IoT одно устройство с именем **SensorTag\_01**, а затем запишите его идентификатор и ключ устройства. Чтобы добавить устройство в центр IoT, созданный на предыдущем шаге, и получить его ключ, можно использовать такие средства, как [обозреватель устройств или iothub-explorer][lnk-explorer-tools]. Сопоставление этого устройства с устройством SensorTag будет выполнено при настройке шлюза.
 
 ### Выполнение сборки пакета SDK для шлюза на устройстве Edison
@@ -368,7 +368,7 @@ pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
 
 ## Отправка сообщений из облака на устройство
 
-Модуль BLE также поддерживает отправку инструкции из центра Azure IoT на устройство. Для отправки сообщений JSON, которые модуль шлюза BLE передает на устройство BLE, можно использовать [обозреватель устройств центра Azure IoT](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) или [IoT Hub Explorer] (https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer). Например, при использовании устройства Texas Instruments SensorTag можно отправлять из центра IoT на устройство следующие сообщения JSON.
+Модуль BLE также поддерживает отправку инструкции из центра Azure IoT на устройство. Для отправки сообщений JSON, которые модуль шлюза BLE передает на устройство BLE, можно использовать [обозреватель устройств центра IoT Azure](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) или [IoT Hub Explorer](https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer). Например, при использовании устройства Texas Instruments SensorTag можно отправлять из центра IoT на устройство следующие сообщения JSON.
 
 - Сбросить все светодиодные индикаторы и звуковые сигналы (отключить их):
 
@@ -438,7 +438,7 @@ pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
 - [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
 - [Управление центрами IoT через портал Azure][lnk-portal]
 
-<!-- Links -->
+.<!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-create-hub]: iot-hub-manage-through-portal.md
@@ -458,4 +458,4 @@ pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

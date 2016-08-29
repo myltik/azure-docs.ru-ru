@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Azure AD Connect: включение обратной записи устройств | Microsoft Azure"
 	description="В этом документе объясняется, как включить функцию обратной записи устройств с помощью службы Azure AD Connect"
 	services="active-directory"
@@ -56,8 +56,8 @@
 
 Описание:
 
-- Если контейнеры и объекты отсутствуют, функция создает и настраивает их в разделах CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
-- Если контейнеры и объекты отсутствуют, функция создает и настраивает их в разделе CN=RegisteredDevices,[domain-dn]. Объекты устройства будут созданы в этом контейнере.
+- Если они больше не существуют, функция создает и настраивает их в разделах CN=Device Registration Configuration,CN=Services,CN=Configuration,[forest-dn].
+- Если они больше не существуют, функция создает и настраивает их в разделе CN=RegisteredDevices,[domain-dn]. Объекты устройства будут созданы в этом контейнере.
 - Задает необходимые разрешения для учетной записи Azure AD Connector для управления устройствами в Active Directory.
 - Предполагает выполнение только в одном лесу, даже если служба Azure AD Connect устанавливается в нескольких лесах.
 
@@ -130,4 +130,4 @@
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

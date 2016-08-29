@@ -1,21 +1,21 @@
 
-<properties
+.<properties
 	pageTitle="Устранение неполадок динамического членства в группах | Microsoft Azure"
 	description="Советы по устранению неполадок динамического членства в группах в Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""
 	/>
 
-<tags
+.<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 
@@ -27,11 +27,11 @@
 
 **Я не вижу мгновенного изменения членства, когда добавляю или изменяю правило. Почему?**<br/>Специальная оценка членства выполняется периодически в асинхронном фоновом процессе. На длительность процесса влияют количество пользователей в каталоге и размер группы, созданной в результате оценки правила. Обычно каталоги с небольшим количеством пользователей выявят изменения членства в группах уже через несколько минут. В случае каталогов с большим числом пользователей заполнение может занять 30 минут или больше.
 
-В следующих статьях содержится дополнительная информация об Azure Active Directory.
+В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

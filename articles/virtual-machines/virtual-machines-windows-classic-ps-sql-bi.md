@@ -1,6 +1,6 @@
-<properties
+.<properties
 	pageTitle="Бизнес-аналитика SQL Server | Microsoft Azure"
-	description="В этой статье используются ресурсы, созданные с помощью классической модели развертывания, и описываются функции бизнес-аналитики, доступные для SQL Server, запущенного на виртуальных машинах Azure."
+	description="В этой статье используются ресурсы, созданные с помощью классической модели развертывания, и описываются функции бизнес-аналитики, доступные для сервера SQL Server, запущенного на виртуальных машинах Azure."
 	services="virtual-machines-windows"
 	documentationCenter="na"
 	authors="guyinacube"
@@ -82,7 +82,7 @@
 |**Собственный режим служб Reporting Services**|Да|Установлен, но требует настройки, включая URL-адрес диспетчера отчетов. См. раздел [Настройка служб Reporting Services](#configure-reporting-services).|
 |**Режим SharePoint служб Reporting Services**|Нет|Образ коллекции виртуальных машин Microsoft Azure не включает в себя SharePoint или файлы установки SharePoint. <sup>1</sup>|
 |**Многомерный и интеллектуальный анализ данных в службах Analysis Services (OLAP)**|Да|Установлен и настроен в качестве экземпляра служб Analysis Services по умолчанию.|
-|**Табличный режим служб Analysis Services**|Нет|Поддерживается в образах SQL Server 2012, 2014 и 2016, но не устанавливается по умолчанию. Установите другой экземпляр служб Analysis Services. См. подраздел "Установка других служб и компонентов SQL Server" этого раздела.|
+|**Табличный режим служб Analysis Services**|Нет|Поддерживается в образах SQL Server 2012, 2014 и 2016, но не устанавливается по умолчанию. Установите другой экземпляр служб Analysis Services. Ознакомьтесь с подразделом "Установка других служб и компонентов SQL Server" этого раздела.|
 |**Power Pivot служб Analysis Services для SharePoint**|Нет|Образ коллекции виртуальных машин Microsoft Azure не включает в себя SharePoint или файлы установки SharePoint. <sup>1</sup>|
 
 <sup>1</sup> Дополнительные сведения о SharePoint и виртуальных машинах Azure см. в статьях [Архитектура Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) и [Развертывание SharePoint на виртуальных машинах Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=34598).
@@ -319,7 +319,7 @@
 
 >[AZURE.NOTE] При первом запуске программы установки SQL Server может потребоваться скачивание большего числа файлов установки, а также перезагрузка виртуальной машины и перезапуск программы установки SQL Server.
 >
->Если необходимо многократно настраивать образ, выбранный из виртуальной машины Microsoft Azure, рекомендуется создать собственный образ SQL Server. Функциональные возможности SysPrep служб Analysis Services были включены в SQL Server 2012 SP1 CU2. Дополнительные сведения см. в статье [Вопросы по установке SQL Server с помощью SysPrep](https://msdn.microsoft.com/library/ee210754.aspx).
+>Если необходимо многократно настраивать образ, выбранный из виртуальной машины Microsoft Azure, рекомендуется создать собственный образ SQL Server. Функциональные возможности SysPrep служб Analysis Services были включены в SQL Server 2012 SP1 CU2. Дополнительные сведения см. в разделах [Вопросы по установке SQL Server с помощью SysPrep](https://msdn.microsoft.com/library/ee210754.aspx) и [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep).
 
 ### Установка табличного режима служб Analysis Services
 
@@ -406,7 +406,7 @@
 
 На следующей схеме показаны порты, которые необходимо открыть в брандмауэре виртуальной машины, чтобы разрешить удаленный доступ к функциям и компонентам на виртуальной машине.
 
-![порты, которые необходимо открыть для приложений бизнес-аналитики в виртуальных машинах Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
+.![порты, которые необходимо открыть для приложений бизнес-аналитики в виртуальных машинах Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## Ресурсы
 
@@ -436,4 +436,4 @@
 
 - [Управление базой данных SQL Azure с помощью PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

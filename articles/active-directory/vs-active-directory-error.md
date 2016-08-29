@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Ошибка при обнаружении проверки подлинности" 
 	description="Мастер подключения к Active Directory обнаружил несовместимый тип проверки подлинности" 
 	services="active-directory" 
@@ -7,13 +7,13 @@
 	manager="douge" 
 	editor=""/>
   
-<tags 
+.<tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="08/15/2016" 
 	ms.author="tarcher"/>
 
 # Ошибка при обнаружении проверки подлинности
@@ -49,9 +49,9 @@
 
 Наконец, мастер пытается обнаружить версии кода проверки подлинности, настроенные в предыдущих версиях Visual Studio. Эта ошибка означает, что проект содержит несовместимый тип проверки подлинности. Мастер определяет следующие типы проверок подлинности предыдущих версий Visual Studio:
 
-* Проверка подлинности Windows 
-* Учетные записи индивидуальных пользователей 
-* Учетные записи организации 
+* Проверка подлинности Windows
+* Учетные записи индивидуальных пользователей
+* Учетные записи организации
  
 
 Чтобы обнаружить аутентификацию Windows в проекте MVC, мастер ищет элемент `authentication` в файле **web.config**.
@@ -96,4 +96,4 @@
 
 Дополнительные сведения см. в разделе [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-<properties 
+.<properties 
    pageTitle="Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio | Microsoft Azure"
    description="Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio"
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-<tags 
+.<tags 
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio
@@ -67,4 +67,4 @@
 
 [Отладка облачных служб](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Командлеты предварительной версии Azure Active Directory PowerShell для управления группами в Azure AD | Microsoft Azure"
 	description="На этой странице представлены примеры командлетов PowerShell, которые помогут вам управлять группами в Azure Active Directory."
     keywords="Azure AD, Azure Active Directory, PowerShell, группы, управление группами"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 # Командлеты предварительной версии Azure Active Directory для управления группами
@@ -223,4 +223,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

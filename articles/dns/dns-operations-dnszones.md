@@ -1,4 +1,4 @@
-<properties 
+.<properties 
    pageTitle="Управление зонами DNS с помощью PowerShell | Microsoft Azure" 
    description="Зонами DNS можно управлять с помощью Azure Powershell. Как обновлять, удалять и создавать зоны DNS в Azure DNS" 
    services="dns" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Как управлять зонами DNS с помощью PowerShell
@@ -94,4 +94,4 @@
 
 Создав зону DNS, создайте [наборы записей и записи](dns-getstarted-create-recordset.md), чтобы начать разрешение имен для домена Интернета.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

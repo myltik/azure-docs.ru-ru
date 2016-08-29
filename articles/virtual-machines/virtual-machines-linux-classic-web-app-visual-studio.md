@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Создание виртуальной машины для веб-приложения | Microsoft Azure"
 	description="Создание виртуальной машины для веб-проекта с помощью Visual Studio и Linux."
 	services="virtual-machines-linux"
@@ -8,13 +8,13 @@
 	editor=""
 	tags="azure-service-management"/>
 
-<tags
+.<tags
 	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Создание виртуальной машины для веб-приложения с помощью Visual Studio
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

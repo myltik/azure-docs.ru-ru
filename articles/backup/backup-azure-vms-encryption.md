@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Служба архивации Azure: резервное копирование виртуальных машин IaaS Azure с помощью зашифрованных дисков | Microsoft Azure"
    description="Узнайте, каким образом служба архивации Azure обрабатывает данные, зашифрованные с помощью BitLocker или dmcrypt, во время резервного копирования виртуальных машин IaaS. В этой статье рассматриваются различия в процессах резервного копирования и восстановления при работе с зашифрованным дисками."
    services="backup"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="07/01/2016"
+   ms.date="08/16/2016"
    ms.author="markgal; jimpark; trinadhk"/>
 
 # Работа с зашифрованными дисками в ходе процесса резервного копирования виртуальных машин
 
-Предприятиям, которым требуется шифровать данные виртуальных машин в Azure, следует обратить внимание на использование [шифрования дисков Azure](../azure-security-disk-encryption.md) или Bitlocker на компьютерах с Windows или dmcrypt на компьютерах Linux.
+Предприятиям, которым требуется шифровать данные виртуальных машин в Azure, следует обратить внимание на использование [шифрования дисков Azure](../security/azure-security-disk-encryption.md) или Bitlocker на компьютерах с Windows или dmcrypt на компьютерах Linux.
 
 > [AZURE.NOTE]  Служба архивации Azure поддерживает архивацию и восстановление виртуальных машин, зашифрованных с помощью шифрования дисков Azure (ADE). <br>
 1. Эта возможность обеспечивается с помощью PowerShell, если виртуальная машина зашифрована с использованием BEK и KEK. <br>
@@ -77,4 +77,4 @@
 - [Руководство по развертыванию (PDF)](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
 - [Развертывание и использование SecureVM (видеоролик)](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

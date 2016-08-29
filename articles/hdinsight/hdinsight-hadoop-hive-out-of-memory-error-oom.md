@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Ошибка нехватки памяти (OOM) — параметры Hive | Microsoft Azure"
 	description="Устранение ошибки нехватки памяти (OOM) в запросе Hive в HDInsight. Пользовательский сценарий представляет собой запрос ко множеству больших таблиц."
 	keywords="ошибка нехватки памяти, OOM, параметры Hive"
@@ -8,14 +8,14 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags
+.<tags
 	ms.service="hdinsight"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
 	ms.date="05/18/2016"
-	ms.author="rashimg;cgronlun"/>
+	ms.author="rashimg;jgao"/>
 
 # Устранение ошибки нехватки памяти (OOM) с помощью параметров памяти Hive в Hadoop в Azure HDInsight
 
@@ -122,4 +122,4 @@
 
 Ошибка нехватки памяти не обязательно означает, что размер контейнера слишком мал. Вместо этого следует настроить параметры памяти, увеличив размер кучи, так чтобы он составлял не менее 80 % от размера памяти контейнера.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

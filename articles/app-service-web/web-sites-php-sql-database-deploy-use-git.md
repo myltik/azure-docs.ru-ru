@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Создание веб-приложения PHP-SQL и развертывание в службе приложений App с помощью Git" 
 	description="В этом учебнике показано, как создать веб-приложение на PHP, которое хранит данные в базе данных SQL, и как использовать развертывание Git в службе приложений Azure." 
 	services="app-service\web, sql-database" 
@@ -7,13 +7,13 @@
 	manager="wpickett" 
 	editor=""/>
 
-<tags 
+.<tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Создание веб-приложения PHP-SQL и развертывание в службе приложений App с помощью Git
@@ -298,4 +298,4 @@
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

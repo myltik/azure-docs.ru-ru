@@ -1,11 +1,11 @@
-<properties
+.<properties
 	pageTitle="Глоссарий по защите идентификации Azure Active Directory | Microsoft Azure"
 	description="Глоссарий по защите идентификации Azure Active Directory"
 	services="active-directory"
 	keywords="защита идентификации Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности, глоссарий"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
 # Глоссарий по защите идентификации Azure Active Directory 
@@ -160,8 +160,8 @@
 Конфигурация или условие в Azure Active Directory, которое делает каталог уязвимым к атакам или угрозам.
 
 
-## См. также
+## Дополнительные материалы
 
 - [Защита идентификации Azure Active Directory](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

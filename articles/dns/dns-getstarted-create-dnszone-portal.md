@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание зоны DNS и управление ею на портале Azure | Microsoft Azure"
    description="Сведения о создании зон DNS для Azure DNS. Это пошаговое руководство описывает создание первой зоны DNS и управление ею, а также размещение домена DNS с помощью портала Azure."
    services="dns"
@@ -8,13 +8,13 @@
    editor=""
    tags="azure-resource-manager"/>
 
-<tags
+.<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Создание зоны DNS на портале Azure
@@ -78,7 +78,7 @@
 
 Просмотреть записи можно на портале Azure.
 
-1. В колонке **Зона DNS** щелкните **Все параметры**, чтобы открыть колонку **Параметры** для зоны DNS. 
+1. В колонке **Зона DNS** щелкните **Все параметры**, чтобы открыть колонку **Параметры** для зоны DNS.
 
 	![зона](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
 
@@ -126,4 +126,4 @@
 
 Создав зону DNS, создайте [наборы записей и записи](dns-getstarted-create-recordset-portal.md), чтобы начать разрешение имен для домена Интернета.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

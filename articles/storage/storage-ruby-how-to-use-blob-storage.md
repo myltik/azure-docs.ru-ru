@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Использование хранилища BLOB-объектов (хранилища объектов) из Ruby | Microsoft Azure"
 	description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
 	services="storage"
@@ -7,19 +7,19 @@
 	manager="wpickett"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-    ms.date="06/24/2016"
+    ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
 # Использование хранилища BLOB-объектов из Ruby
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] .<br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Обзор
 
@@ -63,7 +63,7 @@
 
 1. Войдите на [портал Azure](https://portal.azure.com).
 2. Перейдите к учетной записи хранения, которая будет использоваться.
-3. В колонке "Параметры" справа щелкните **Клавиши доступа**.
+3. В колонке "Параметры" справа щелкните **Ключи доступа**.
 4. В колонке "Ключи доступа" вы увидите ключи доступа 1 и 2. Можно использовать любой из них.
 5. Щелкните значок копирования, чтобы скопировать ключ в буфер обмена.
 
@@ -71,7 +71,7 @@
 
 1. Войдите на [классический портал Azure](https://manage.windowsazure.com).
 2. Перейдите к учетной записи хранения, которая будет использоваться.
-3. Щелкните **УПРАВЛЕНИЕ КЛАВИШАМИ ДОСТУПА** в нижней части области навигации.
+3. Щелкните **УПРАВЛЕНИЕ КЛЮЧАМИ ДОСТУПА** в нижней части области навигации.
 4. В открывшемся диалоговом окне вы увидите имя учетной записи хранения, первичный ключ доступа и вторичный ключ доступа. В качестве ключа доступа можно использовать либо первичный, либо вторичный ключ.
 5. Щелкните значок копирования, чтобы скопировать ключ в буфер обмена.
 
@@ -157,4 +157,4 @@
 - Репозиторий [пакетов SDK Azure для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

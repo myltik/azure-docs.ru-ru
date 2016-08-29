@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Разработка с использованием нескольких регионов в DocumentDB | Microsoft Azure"
    description="Узнайте, как обращаться к данным в нескольких регионах из Azure DocumentDB — полностью управляемой службы базы данных NoSQL."
    services="documentdb"
@@ -7,7 +7,7 @@
    manager="jhubbard"
    editor=""/>
 
-<tags
+.<tags
    ms.service="documentdb"
    ms.devlang="multiple"
    ms.topic="article"
@@ -36,13 +36,13 @@
 
 
 ## ПАКЕТ SDK .NET
-Пакет SDK можно использовать без изменения кода. В этом случае пакет SDK будет автоматически направлять операции чтения и записи в текущий регион записи.
+Пакет SDK можно использовать без изменения кода. В этом случае пакет SDK автоматически направляет операции чтения и записи в текущий регион записи.
 
 В пакете SDK для .NET 1.8 и более поздней версии параметр ConnectionPolicy конструктора DocumentClient имеет свойство Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Это свойство имеет тип коллекции `<string>` и должно содержать список имен регионов. Строковые значения форматируются по столбцу "Имя региона" на странице [Регионы Azure][regions], без пробелов до или после первого и последнего знака, соответственно.
 
 Текущие конечные точки записи и чтения доступны в DocumentClient.WriteEndpoint и DocumentClient.ReadEndpoint, соответственно.
 
-> [AZURE.NOTE] Не следует считать URL-адреса конечных точек долговременными константами. Служба может обновить их в любой момент. Пакет SDK обработает это изменение автоматически.
+> [AZURE.NOTE] Не следует считать URL-адреса конечных точек долговременными константами. Служба может обновить их в любой момент. Пакет SDK обрабатывает это изменение автоматически.
 
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
@@ -141,8 +141,8 @@
 - [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md)
 - [Уровни согласованности](documentdb-consistency-levels.md)
 - [Дополнительные сведения о подготовке хранилища и прогнозируемой производительности в DocumentDB](documentdb-manage.md#how-throughput-works-with-multiple-regions)
-- [Добавление регионов](documentdb-manage-account.md#addregion)
+- [Добавление регионов](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

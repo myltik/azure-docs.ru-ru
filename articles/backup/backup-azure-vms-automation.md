@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Развертывание архивации виртуальных машин, развернутых посредством Resource Manager, и управление ею с помощью PowerShell | Microsoft Azure"
    description="Использование PowerShell для развертывания архивации виртуальных машин, развернутых посредством Resource Manager, и управления ею"
    services="backup"
@@ -7,7 +7,7 @@
    manager="cfreeman"
    editor=""/>
 
-<tags
+.<tags
    ms.service="backup"
    ms.devlang="na"
    ms.topic="article"
@@ -339,10 +339,9 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 2. Задайте контекст хранилища Azure и восстановите файл конфигурации JSON.
 
     ```
-    Set -AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName testvault
+    PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName testvault
     PS C:\> $destination_path = "C:\vmconfig.json"
-    Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination
-    PS C:\> $destination_path -Context $storageContext
+    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
 
@@ -394,4 +393,4 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails
 
 Если вы предпочитаете использовать PowerShell для взаимодействия с ресурсами Azure, ознакомьтесь со статьей о защите Windows Server с помощью PowerShell: [Развертывание службы архивации для Windows Server и управление ею](./backup-client-automation.md). Доступна и другая статья, посвященная тому, как использовать PowerShell для управления службой архивации DPM: [Развертывание службы архивации для DPM и управление ею](./backup-dpm-automation.md). Обе эти статьи имеют две версии — для развертывания с помощью Resource Manager и для классической модели развертывания.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

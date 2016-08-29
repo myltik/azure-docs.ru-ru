@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Application Insights для приложений Microsoft Azure" 
 	description="Анализ использования и производительности приложения Azure с помощью Application Insights." 
 	services="application-insights" 
@@ -6,13 +6,13 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-<tags 
+.<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2016" 
+	ms.date="08/15/2016" 
 	ms.author="awills"/>
 
 #  Application Insights для приложений Microsoft Azure
@@ -27,7 +27,7 @@
 Какого рода у вас приложение?
 
 * [Веб-приложение Azure](app-insights-asp-net.md)
-* [Приложение облачных служб Azure — веб- и рабочие роли](app-insights-cloudservices.md)
+* [Приложение облачных служб Azure — веб- и рабочие роли](app-insights-cloudservices.md)
 * [Веб-приложение в службах IIS на виртуальной машине Azure](app-insights-asp-net.md)
 * [Приложения за пределами Azure](app-insights-overview.md)
 
@@ -39,10 +39,6 @@
 
 
 
-
-
-
-
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0817_2016-->

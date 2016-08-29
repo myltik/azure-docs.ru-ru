@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure | Microsoft Azure"
    	description="Узнайте, как создавать кластеры HDInsight по запросу с помощью фабрики данных Azure"
    services="hdinsight"
@@ -8,13 +8,13 @@
    manager="paulettm"
    editor="cgronlun"/>
 
-<tags
+.<tags
    ms.service="hdinsight"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="08/10/2016"
    ms.author="jgao"/>
 
 # Создание кластеров Hadoop под управлением Linux в HDInsight по запросу с помощью фабрики данных Azure
@@ -97,7 +97,7 @@
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted" 
     azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted" 
 
-Имя контейнера — *adfgetstarted*. Не изменяйте его. В противном случае потребуется обновить шаблон ARM.
+Имя контейнера — *adfgetstarted*. Не изменяйте его. В противном случае потребуется обновить шаблон Resource Manager.
 
 Если вам необходима помощь в работе со сценарием CLI, см. статью [Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure](../storage/storage-azure-cli.md).
 
@@ -189,9 +189,9 @@
  
 ## Создание фабрики данных
 
-При наличии учетной записи хранения, входных данных и подготовленного сценария HiveQL вы можете создать фабрику данных Azure. Существует несколько способов создания фабрики данных. Для вызова настраиваемого шаблона ARM в этом учебнике будет использоваться портал Azure. Шаблон ARM можно также вызвать из [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) и [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Описание других способов создания фабрики данных см. в документе [Учебник. Создание первой фабрики данных](../data-factory/data-factory-build-your-first-pipeline.md).
+При наличии учетной записи хранения, входных данных и подготовленного сценария HiveQL вы можете создать фабрику данных Azure. Существует несколько способов создания фабрики данных. Для вызова настраиваемого шаблона Resource Manager в этом учебнике будет использоваться портал Azure. Шаблон Resource Manager можно также вызвать из [Azure CLI](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) и [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Описание других способов создания фабрики данных см. в документе [Учебник. Создание первой фабрики данных](../data-factory/data-factory-build-your-first-pipeline.md).
 
-Содержимое шаблона ARM верхнего уровня:
+Содержимое шаблона Resource Manager верхнего уровня:
 
     {
         "contentVersion": "1.0.0.0",
@@ -320,9 +320,9 @@
     
 **Создание фабрики данных**
 
-1. Щелкните следующее изображение, чтобы войти в Azure и открыть шаблон ARM на портале Azure. Шаблон находится по адресу https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
+1. Нажмите следующее изображение, чтобы войти в Azure и открыть шаблон Resource Manager на портале Azure. Шаблон находится по адресу https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. Введите значения для **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** и **STORAGEACCOUNTKEY** для учетной записи, созданной в последнем разделе, и нажмите кнопку **ОК**. Имя фабрики данных должно быть глобально уникальным.
 3. В разделе **Группа ресурсов** выберите ту же группу ресурсов, которая использовалась в последнем разделе.
@@ -332,9 +332,9 @@
 7. Щелкните **hdinsight-hive-on-demand**.
 8. Щелкните элемент **Схема**. На схеме отображается одно действие с входным набором данных и выходным набором данных.
 
-    ![Фабрика данных Azure — схема конвейера действия hive в HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
+    .![Фабрика данных Azure — схема конвейера действия hive в HDInsight по запросу](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
     
-    Имена определены в шаблоне ARM.
+    Эти имена определяются в шаблоне Resource Manager.
 9. Дважды щелкните **AzureBlobOutput**.
 10. В разделе **Последние обновленные срезы** вы увидите один срез. Если отображается состояние **Выполняется**, подождите, пока оно не изменится на **Готово**.
 
@@ -345,7 +345,7 @@
     - adfhdinsight-hive-on-demand-hdinsightondemandlinked-xxxxxxxxxxxxx — это контейнер по умолчанию для кластера HDInsight. Имя контейнера по умолчанию соответствует шаблону "adf>yourdatafactoryname>-linkedservicename-datetimestamp".
     - adfjobs — это контейнер для журналов заданий ADF.
     
-    Выходные данные фабрики данных хранятся в afgetstarted, как было настроено в шаблоне ARM.
+    Выходные данные фабрики данных хранятся в afgetstarted, как было настроено в шаблоне Resource Manager.
 2. Щелкните **adfgetstarted**.
 3. Дважды щелкните **partitioneddata**. Вы увидите папку **year=2014**, так как все веб-журналы датированы 2014 годом.
 
@@ -372,7 +372,7 @@
 
 Если вы не хотите удалять учетную запись хранения при удалении группы ресурсов, можно рассмотреть следующую архитектуру, отделив бизнес-данные от учетной записи хранения по умолчанию. В этом случае у вас будет одна группа ресурсов для учетной записи хранения с бизнес-данными, а другая — для учетной записи хранения по умолчанию и фабрики данных. Удаление второй группы ресурсов не затронет учетную запись хранения для бизнес-данных. Для этого выполните следующие действия:
 
-- Вместе с ресурсом Microsoft.DataFactory/datafactories в шаблоне ARM добавьте следующее в группу ресурсов верхнего уровня. Будет создана учетная запись хранения.
+- Вместе с ресурсом Microsoft.DataFactory/datafactories в шаблоне Resource Manager добавьте следующее в группу ресурсов верхнего уровня. Будет создана учетная запись хранения.
 
         {
             "name": "[parameters('defaultStorageAccountName')]",
@@ -438,4 +438,4 @@
 - [Документация по HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Документация по фабрике данных](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

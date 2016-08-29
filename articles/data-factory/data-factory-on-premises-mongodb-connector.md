@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Перемещение данных из базы данных MongoDB с помощью фабрики данных | Microsoft Azure" 
 	description="Узнайте, как перемещать данные из базы данных MongoDB с использованием фабрики данных Azure." 
 	services="data-factory" 
@@ -7,7 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-<tags 
+.<tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
@@ -36,7 +36,7 @@
 ## Мастер копирования данных
 Самый простой способ создать конвейер, копирующий данные из базы данных MongoDB в любое поддерживаемое хранилище-приемник, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
 
-Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные из базы данных MongoDB в хранилище BLOB-объектов Azure. Однако данные можно копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores) приемников. Это делается с помощью действия копирования в фабрике данных Azure.
 
 ## Пример копирования данных из MongoDB в большой двоичный объект Azure
 В этом примере показано, как скопировать данные из локальной базы данных MongoDB в хранилище BLOB-объектов Azure. Однако данные можно **напрямую** копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores) приемников. Это делается с помощью действия копирования в фабрике данных Azure.
@@ -347,4 +347,4 @@
 ## Дальнейшие действия
 См. статью [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md), в которой представлены пошаговые инструкции по созданию конвейера данных, который перемещает данные из локального хранилища в хранилище данных Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

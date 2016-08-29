@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание виртуальной машины с несколькими сетевыми адаптерами"
    description="Узнайте, как создавать и настраивать виртуальные машины с несколькими сетевыми адаптерами."
    services="virtual-network, virtual-machines"
@@ -8,7 +8,7 @@
    editor="tysonn"
    tags="azure-service-management,azure-resource-manager"
 />
-<tags
+.<tags
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
@@ -25,7 +25,7 @@
 
 На иллюстрации выше показана виртуальная машина с тремя сетевыми адаптерами, каждый из которых подключен к отдельной подсети.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
 - Виртуальные IP-адреса с выходом в Интернет (классические развертывания) поддерживаются только на сетевых картах по умолчанию. IP-адресу сетевого интерфейса по умолчанию соответствует только один виртуальный IP-адрес.
 - В настоящее время для виртуальных машин с несколькими сетевыми картами не поддерживаются общедоступные IP-адреса уровня экземпляра (LPIP) (классические развертывания).
@@ -265,4 +265,4 @@
 - Развертывание [виртуальных машин с несколькими сетевыми картами в сценарии 2-уровневого приложения в развертывании диспетчера ресурсов](virtual-network-deploy-multinic-arm-template.md).
 - Развертывание [виртуальных машин с несколькими сетевыми картами в сценарии 2-уровневого приложения в классическом развертывании](virtual-network-deploy-multinic-classic-ps.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Отправка Windows VHD для диспетчера ресурсов | Microsoft Azure"
 	description="Узнайте, как отправить образ виртуальной машины Windows для использования в модели развертывания Resource Manager."
 	services="virtual-machines-windows"
@@ -33,6 +33,8 @@
 
 - Располагаете **виртуальной машиной под управлением ОС Windows** — существует множество средств для создания виртуальных машин в локальной среде. Например, см. документацию по [установке роли Hyper-V и настройке виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx). Сведения о операционных системах Windows, поддерживаемых в Azure, см. в статье [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672) (Поддержка серверного ПО Майкрософт для виртуальных машин Microsoft Azure).
 
+- Убедитесь, что роли сервера, запущенные на виртуальной машине, совместимы с Sysprep. Дополнительные сведения см. в разделе [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep).
+
 
 ## Проверка соответствия формата файла виртуальной машины
 
@@ -40,11 +42,11 @@
 
 - Если у вас есть образ виртуальной Машины Windows в формате VHDX, преобразуйте его в VHD с помощью одного из следующих средств.
 
-	- Hyper-V: откройте Hyper-V и выберите локальный компьютер в левой части окна. Затем в меню, которое располагается над ним, выберите **Действие** > **Изменить диск...**. Перемещайтесь по экранам, нажимая кнопку **Далее** и вводя следующие параметры: *Путь к VHDX-файлу* > **Преобразовать** > **VHD** > **Фиксированный размер** > *Путь к новому VHD-файлу*. Нажмите кнопку **Готово**, чтобы закрыть окно.
+	- Hyper-V: откройте Hyper-V и выберите локальный компьютер в левой части окна. Затем в меню, которое располагается над ним, выберите **Действие** > **Изменить диск...**. Перемещайтесь по экранам, нажимая кнопку **Далее** и вводя следующие параметры: *Path for your VHDX file* (Путь к VHDX-файлу) > **Преобразовать** > **VHD** > **Фиксированный размер** > *Path for the new VHD file* (Путь к новому VHD-файлу). Нажмите кнопку **Готово**, чтобы закрыть окно.
 
-	- [Командлет PowerShell Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx): дополнительные сведения см. в публикации [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/) (Преобразование форматов файлов Hyper-V VHDX в VHD).
+	- [Командлет PowerShell Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx): дополнительные сведения см. в публикации [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/) (Преобразование файлов Hyper-V в формате VHDX в формат VHD).
 
-- Если образ виртуальной машины Windows имеет [ формат VMDK-файла](https://en.wikipedia.org/wiki/VMDK), преобразуйте его в формат VHD с помощью [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Дополнительные сведения см. в публикации [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (Преобразование VMWare VMDK в Hyper-V VHD).
+- Если у вас есть образ виртуальной машины Windows в [формате VMDK](https://en.wikipedia.org/wiki/VMDK), преобразуйте его в VHD с помощью [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Дополнительные сведения см. в публикации [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (Преобразование VMDK VMWare в VHD Hyper-V).
 
 
 ## Подготовка VHD к отправке
@@ -55,17 +57,17 @@
 
 2. Откройте окно командной строки с правами администратора. Измените каталог на **%windir%\\system32\\sysprep** и запустите файл `sysprep.exe`.
 
-3. В диалоговом окне **Программа подготовки системы** выполните указанные далее действия.
+3. В диалоговом окне **Программа подготовки системы** сделайте следующее:
 
-	1. В разделе **Действие по очистке системы** выберите **Запуск при первом включении компьютера (OOBE)** и убедитесь, что установлен флажок **Обобщить**.
+	1. В разделе **Действие по очистке системы** выберите **Переход в окно приветствия системы (OOBE)** и убедитесь, что установлен флажок **Подготовка к использованию**.
 
 	2. В разделе **Параметры завершения работы** выберите **Завершение работы**.
 
 	3. Нажмите кнопку **ОК**.
 
-	![Запустите Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
+	.![Запустите Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
 
-</br>
+.</br>
 
 
 ## Вход в Azure
@@ -111,11 +113,11 @@
 			
 Допустимые значения -SkuName перечислены ниже.
 
-- **Standard\_LRS**. Локально избыточное хранилище.
-- **Standard\_ZRS**. Хранилище, избыточное в пределах зоны.
-- **Standard\_GRS**. Геоизбыточное хранилище.
-- **Standard\_RAGRS**. Геоизбыточное хранилище с доступом только для чтения.
-- **Premium\_LRS**. Локально избыточное хранилище уровня "Премиум".
+- **Standard\_LRS** — локально избыточное хранилище.
+- **Standard\_ZRS** — хранилище, избыточное в пределах зоны.
+- **Standard\_GRS** — геоизбыточное хранилище.
+- **Standard\_RAGRS** — геоизбыточное хранилище с доступом только для чтения.
+- **Premium\_LRS** — локально избыточное хранилище уровня "Премиум".
 
 
 
@@ -133,7 +135,7 @@
 
 - **BlobContainer** — контейнер больших двоичных объектов, где будет храниться образ. Если контейнер больших двоичных объектов с таким именем не будет найден, то он будет создан автоматически.
 
-- **targetVHDName** — имя для переданного VHD-файла.
+- **targetVHDName** — имя, присваиваемое переданному VHD-файлу.
 
 - **localPathOfVHDFile** — это путь и имя VHD-файла на локальном компьютере.
 
@@ -195,7 +197,7 @@
 
 >[AZURE.NOTE] Виртуальная машина должна находиться в той же учетной записи хранения, что и переданный VHD-файл.
 
-</br>
+.</br>
 
 	
 	
@@ -242,7 +244,7 @@
 
 
 
-После завершения создания новая виртуальная машина должна отображаться на [портале Azure](https://portal.azure.com) (выберите **Обзор** > **Виртуальные машины**). Ее можно также отобразить, выполнив следующие команды PowerShell.
+После завершения процесса новая виртуальная машина должна отображаться на [портале Azure](https://portal.azure.com) (выберите **Обзор** > **Виртуальные машины**). Ее можно также отобразить, выполнив следующие команды PowerShell.
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
@@ -252,4 +254,4 @@
 
 Сведения об управлении виртуальной машиной с помощью Azure PowerShell см. в статье [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

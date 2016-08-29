@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Командлеты PowerShell для хранилища данных SQL Azure"
    description="Ознакомьтесь с основными командлетами PowerShell для хранилища данных SQL Azure, а также узнайте, как приостанавливать и возобновлять работу базы данных."
    services="sql-data-warehouse"
@@ -7,13 +7,13 @@
    manager="barbkess"
    editor=""/>
 
-<tags
+.<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/08/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess;mausher"/>
 
 # Использование командлетов PowerShell и интерфейсов REST API при работе с хранилищем данных SQL
@@ -90,13 +90,13 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 
 .<!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
 [Создание хранилища данных SQL с помощью Powershell]: ./sql-data-warehouse-get-started-provision-powershell.md
-[Восстановление базы данных]: ./sql-data-warehouse-manage-database-restore-powershell.md
+[Восстановление базы данных]: ./sql-data-warehouse-restore-database-powershell.md
 [Управление вычислительными ресурсами в хранилище данных SQL Azure (REST)]: ./sql-data-warehouse-manage-compute-rest-api.md
 
-<!--MSDN references-->
+.<!--MSDN references-->
 [Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
 [Операции для баз данных SQL Azure]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
@@ -106,7 +106,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
-<!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
+.<!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
@@ -114,4 +114,4 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 .<!--Other Web references-->
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

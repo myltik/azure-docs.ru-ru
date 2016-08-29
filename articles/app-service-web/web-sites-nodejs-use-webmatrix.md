@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix" 
 	description="В этом учебнике показано, как с помощью WebMatrix разработать приложение Node.js и развернуть его в веб-приложения службы приложений Azure." 
 	services="app-service\web" 
@@ -7,13 +7,13 @@
 	manager="wpickett" 
 	editor=""/>
 
-<tags 
+.<tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 
@@ -125,4 +125,4 @@
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

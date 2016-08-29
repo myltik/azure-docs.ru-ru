@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Подключение Excel к Hadoop с помощью драйвера Hive ODBC | Microsoft Azure"
    description="Узнайте, как установить и использовать драйвер Microsoft Hive ODBC для Excel, чтобы запрашивать данные из кластера HDInsight."
    services="hdinsight"
@@ -8,7 +8,7 @@
    tags="azure-portal"
    editor="cgronlun"/>
 
-<tags
+.<tags
    ms.service="hdinsight"
    ms.devlang="na"
    ms.topic="article"
@@ -55,10 +55,10 @@
 
 5. Введите или выберите следующие значения:
 
-    Свойство|Описание
+    Свойство|Description (Описание)
     ---|---
     Имя источника данных|Присвойте имя источнику данных
-    Узел|Введите <Имя\_вашего\_кластера\_HDInsight>.azurehdinsight.net. Например, myHDICluster.azurehdinsight.net
+    Узел|Введите &lt;имя\_кластера\_HDInsight>.azurehdinsight.net. Например, myHDICluster.azurehdinsight.net
     Порт|Используйте <strong>443</strong>. (Этот порт был изменен с 563 на 443.)
     База данных|Используйте <strong>значение по умолчанию</strong>.
     Тип сервера Hive|Выберите <strong>Hive Server 2</strong>.
@@ -131,4 +131,4 @@
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

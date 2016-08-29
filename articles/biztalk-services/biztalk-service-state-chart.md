@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Допустимые в различных состояниях задания в службах BizTalk | Microsoft Azure" 
 	description="Действия и операции, разрешенные в другом состоянии MABS: остановка, запуск, перезапуск, приостановка, возобновление, удаление, масштабирование, обновление конфигурации и архивация" 
 	services="biztalk-services" 
@@ -7,13 +7,13 @@
 	manager="erikre" 
 	editor=""/>
 
-<tags 
+.<tags 
 	ms.service="biztalk-services" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mandia"/>
 
 
@@ -133,7 +133,8 @@
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>CreatedFailed<br/>
-Сбой восстановления<br/></b></td>
+Сбой восстановления
+<br/>.</b></td>
 <td> </td>
 <td> </td>
 <td> </td>
@@ -236,7 +237,8 @@
 </tr>
 <tr>
 <td bgcolor="FAF9F9"><b>CreatedFailed<br/>
-Сбой восстановления<br/></b></td>
+Сбой восстановления
+<br/></b></td>
 <td> </td>
 <td> </td>
 <td> </td>
@@ -267,4 +269,4 @@
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

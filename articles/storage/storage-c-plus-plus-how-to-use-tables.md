@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Использование табличного хранилища (C++) | Microsoft Azure"
 	description="Хранение структурированных данных в облаке в хранилище таблиц Azure (хранилище данных NoSQL)."
     services="storage"
@@ -18,9 +18,9 @@
 
 # Использование табличного хранилища из C++
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)] .<br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
-## Общие сведения  
+## Обзор  
 В этом руководстве показано, как реализовать типичные сценарии с использованием службы табличного хранилища Azure. Примеры написаны на C++ и используют [клиентскую библиотеку хранилища Azure для C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Здесь описаны такие сценарии, как **создание и удаление таблицы**, а также **работа с сущностями таблиц**.
 
 >[AZURE.NOTE] Данное руководство предназначено для клиентской библиотеки хранилища Azure для С++ версии 1.0.0 и выше. Рекомендуемая версия — клиентская библиотека хранилища 2.2.0, которая доступна на сайте [NuGet](http://www.nuget.org/packages/wastorage) или [GitHub](https://github.com/Azure/azure-storage-cpp/).
@@ -240,8 +240,8 @@
 			<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 	}  
 
-## Получение отдельной сущности
-Можно написать запрос для получения отдельной сущности. Код ниже использует **table\_operation::retrive\_entity** для указания клиента Jeff Smith. Данный метод возвращает только одну сущность, а не множество, и возвращенное значение находится в **table\_result**. Указание ключа раздела и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы таблиц.
+## Извлечение одной сущности
+Можно написать запрос для получения отдельной сущности. Код ниже использует **table\_operation::retrive\_entity** для указания клиента Jeff Smith. Данный метод возвращает только одну сущность, а не множество, и возвращенное значение находится в **table\_result**. Указание ключа раздела и ключа строки в запросе — самый быстрый способ извлечь одну сущность из службы таблиц.
 
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
@@ -414,4 +414,4 @@
 -	[Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
 -	[Документация по службе хранилища Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

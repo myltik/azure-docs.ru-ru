@@ -1,5 +1,5 @@
 
-<properties
+.<properties
     pageTitle="Требования к образам Azure RemoteApp | Microsoft Azure"
     description="Узнайте требования к созданию образов, используемых с Azure RemoteApp"
     services="remoteapp"
@@ -7,21 +7,25 @@
     authors="lizap"
     manager="mbaldwin" />
 
-<tags
+.<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Требования к образам Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
+
 Azure RemoteApp использует образ Windows Server 2012 R2 для размещения всех программ, доступ к которым необходимо предоставить пользователям. Чтобы создать собственный образ, можно начать с имеющегося образа или [создать новый](remoteapp-create-custom-image.md).
 
-> [AZURE.TIP] Знаете ли вы, что ваша подписка на Azure RemoteApp дает вам доступ к образу Windows Server 2012 R2 в коллекции виртуальных машин Azure, который можно использовать для создания собственного шаблона образа? [Узнайте об этом подробнее](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP] Знаете ли вы, что ваша подписка Azure RemoteApp предоставляет доступ к образу Windows Server 2012 R2 в коллекции виртуальных машин Azure, который можно использовать для создания собственного шаблона образа? [Узнайте об этом подробнее](remoteapp-image-on-azurevm.md).
 
 
 К образу, который может быть передан для использования с Azure RemoteApp, предъявляются следующие требования:
@@ -44,4 +48,4 @@ Azure RemoteApp использует образ Windows Server 2012 R2 для р
 
 Сведения о создании образов для Azure RemoteApp см. в разделе [Создание образа Azure RemoteApp](remoteapp-imageoptions.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

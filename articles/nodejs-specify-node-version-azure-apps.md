@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Указание версии Node.js"
 	description="Узнайте, как указать версию Node.js, используемую веб-сайтами и облачными службами Azure."
 	services=""
@@ -7,13 +7,13 @@
 	manager="wpickett"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="multiple"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Указание версии Node.js в приложении Azure
@@ -102,4 +102,4 @@
 [работать с модулями]: nodejs-use-node-modules-azure-apps.md
 [строить и развертывать веб-сайт Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

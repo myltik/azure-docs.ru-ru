@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Веб-приложение с Express (Node.js) | Microsoft Azure" 
 	description="Этот учебник основывается на учебнике по облачным службам и демонстрирует использование модуля Express." 
 	services="cloud-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 
@@ -138,4 +138,4 @@ Node.js включает минимальный набор функционал�
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

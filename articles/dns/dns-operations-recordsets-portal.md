@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Управление наборами записей и записями DNS с помощью портала Azure | Microsoft Azure"
    description="Управление наборами записей и записями DNS при размещении домена в Azure DNS."
    services="dns"
@@ -8,13 +8,13 @@
    editor=""
    tags="azure-resource-manager"/>
 
-<tags
+.<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Управление записями и наборами записей DNS с помощью портала Azure
@@ -61,7 +61,7 @@
 
 3. В углу отображается уведомление о сохранении записи.
 
-	![Сохранение набора записей](./media/dns-operations-recordsets-portal/saving150.png)
+	.![Сохранение набора записей](./media/dns-operations-recordsets-portal/saving150.png)
 
 После сохранения записи значения в колонке **Зона DNS** будут соответствовать новой записи.
 
@@ -134,4 +134,4 @@
 -   Дополнительные сведения об автоматизации DNS см. в статье [Создание зон и наборов записей DNS с помощью пакета SDK для .NET](dns-sdk.md).
 -   Дополнительные сведения об обратных записях DNS см. в разделе [Как управлять обратными записями DNS для служб с помощью PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 Доступ к кэшу можно получить на [портале Azure](https://portal.azure.com) с помощью колонки **Обзор**.
 
-![Колонка обзора кэша Redis для Azure](media/redis-cache-browse/redis-cache-browse.png)
+.![Колонка обзора кэша Redis для Azure](media/redis-cache-browse/redis-cache-browse.png)
 
 Щелкните **Обзор > Кэши Redis**, чтобы просмотреть свои экземпляры кэша. Если вы недавно открывали кэш Redis, можете выбрать **Кэши Redis** прямо из списка, не выбирая **Обзор**.
 
@@ -11,3 +11,5 @@
 Для отображения и настройки кэша щелкните **Параметры** или **Все параметры**.
 
 ![Все параметры кэша Redis](media/redis-cache-browse/redis-cache-blade.png)
+
+<!---HONumber=AcomDC_0817_2016-->

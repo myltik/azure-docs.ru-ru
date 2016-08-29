@@ -1,7 +1,8 @@
-<properties 
+.<properties 
    pageTitle="Обзор Azure для государственных организаций | Microsoft Azure" 
    description="В этой статье содержится обзор возможностей облака Azure Government, а также надежных средств разработки и безопасности, используемых для обеспечения соответствия требованиям, которые предъявляют федеральные, региональные и местные государственные организации и их партнеры. " 
-   services="Azure-Government" 
+   services="Azure-Government"
+   cloud="gov" 
    documentationCenter="" 
    authors="joharve2" 
    manager="chrisnie" 
@@ -117,4 +118,4 @@ Azure Goverment в настоящее время имеет следующие �
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

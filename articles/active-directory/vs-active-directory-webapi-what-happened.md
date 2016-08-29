@@ -1,5 +1,5 @@
-<properties
-	pageTitle="Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory | Microsoft Azure"
+.<properties
+	pageTitle="Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory | Microsoft Azure "
 	description="Описывает, что происходит с проектом WebApi при подключении к приложению Azure AD с помощью Visual Studio"
   services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory
@@ -27,23 +27,23 @@
 ###Ссылки на пакет NuGet
 
 - `Microsoft.Owin`
-- `Microsoft.Owin.Host.SystemWeb`
-- `Microsoft.Owin.Security`
-- `Microsoft.Owin.Security.ActiveDirectory`
-- `Microsoft.Owin.Security.Jwt`
-- `Microsoft.Owin.Security.OAuth`
-- `Owin`
+- .`Microsoft.Owin.Host.SystemWeb`
+- .`Microsoft.Owin.Security`
+- .`Microsoft.Owin.Security.ActiveDirectory`
+- .`Microsoft.Owin.Security.Jwt`
+- .`Microsoft.Owin.Security.OAuth`
+- .`Owin`
 - `System.IdentityModel.Tokens.Jwt`
 
 ###Ссылки на .NET
 
 - `Microsoft.Owin`
-- `Microsoft.Owin.Host.SystemWeb`
-- `Microsoft.Owin.Security`
-- `Microsoft.Owin.Security.ActiveDirectory`
-- `Microsoft.Owin.Security.Jwt`
-- `Microsoft.Owin.Security.OAuth`
-- `Owin`
+- .`Microsoft.Owin.Host.SystemWeb`
+- .`Microsoft.Owin.Security`
+- .`Microsoft.Owin.Security.ActiveDirectory`
+- .`Microsoft.Owin.Security.Jwt`
+- .`Microsoft.Owin.Security.OAuth`
+- .`Owin`
 - `System.IdentityModel.Tokens.Jwt`
 
 ##Изменения в коде
@@ -70,7 +70,7 @@
 
 ###Создано приложение Azure AD
 
-В каталоге, выбранном в мастере, создано приложение Azure AD.
+Было создано приложение Azure AD в указанно в мастере каталоге.
 
 [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
@@ -80,7 +80,7 @@
 ###Ссылки на существующие пакеты NuGet удалены
 
 - `Microsoft.AspNet.Identity.Core`
-- `Microsoft.AspNet.Identity.EntityFramework`
+- .`Microsoft.AspNet.Identity.EntityFramework`
 - `Microsoft.AspNet.Identity.Owin`
 
 ###Для существующих файлов кода созданы резервные копии, а сами файлы удалены.
@@ -88,9 +88,9 @@
 Для каждого из следующих файлов создана резервная копия, а сами файлы удалены из проекта. Резервные копии файлов расположены в папке Backup в корневом каталоге проекта.
 
 - `App_Start\IdentityConfig.cs`
-- `Controllers\AccountController.cs`
-- `Controllers\ManageController.cs`
-- `Models\IdentityModels.cs`
+- .`Controllers\AccountController.cs`
+- .`Controllers\ManageController.cs`
+- .`Models\IdentityModels.cs`
 - `Providers\ApplicationOAuthProvider.cs`
 
 ###Для существующих файлов кода созданы резервные копии
@@ -117,4 +117,4 @@
 
 [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

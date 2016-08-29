@@ -1,5 +1,5 @@
 
-<properties
+.<properties
    pageTitle="Экспорт базы данных SQL Server в BACPAC-файл с помощью SQL Server Management Studio | Microsoft Azure"
    description="База данных SQL Microsoft Azure, миграция базы данных, экспорт базы данных, экспорт BACPAC-файла, мастер экспорта приложений на уровне данных "
    services="sql-database"
@@ -8,13 +8,13 @@
    manager="jhubbard"
    editor=""/>
 
-<tags
+.<tags
    ms.service="sql-database"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="carlrab"/>
 
 # Экспорт базы данных SQL Server в BACPAC-файл с помощью SQL Server Management Studio
@@ -60,4 +60,4 @@
 - [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

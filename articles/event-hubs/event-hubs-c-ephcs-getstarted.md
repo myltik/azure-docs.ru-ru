@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Приступая к работе с концентраторами событий в C и C# | Microsoft Azure"
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события посредством C, и получению событий посредством C# с помощью EventProcessorHost."
 	services="event-hubs"
@@ -7,13 +7,13 @@
 	manager="timlt"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="event-hubs"
 	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="08/16/2016"
 	ms.author="sethm"/>
 
 # Приступая к работе с концентраторами событий
@@ -34,7 +34,7 @@
 
 + Microsoft Visual Studio Express для Windows
 
-+ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Подробнее: <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
++ Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -48,11 +48,11 @@
 
 1.	В Visual Studio запустите проект **Receiver** и подождите, пока он запустит приемники для всех секций.
 
-	![][21]
+	.![][21]
 
 2.	Запустите программу **Sender**, после чего в окне приемника появятся события.
 
-	![][24]
+	.![][24]
 
 ## Дальнейшие действия
 
@@ -63,11 +63,11 @@
 - [Решение для обмена сообщениями в очереди][] при помощи очередей служебной шины.
 - [Обзор концентраторов событий][]
 
-<!-- Images. -->
+.<!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
-<!-- Links -->
+.<!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Обзор концентраторов событий]: event-hubs-overview.md
@@ -76,4 +76,4 @@
 [развертывания обработки событий при помощи концентраторов событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Решение для обмена сообщениями в очереди]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

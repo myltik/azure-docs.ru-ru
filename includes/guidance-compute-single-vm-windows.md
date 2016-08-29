@@ -8,7 +8,7 @@
 
 Для подготовки виртуальной машины в Azure нужно больше подвижных частей, чем просто для ее создания. К таким элементам относятся вычислительные, сетевые ресурсы и ресурсы хранения.
 
-![[0]][0]
+.![[0]][0]
 
 - **Группа ресурсов.** [_Группа ресурсов_][resource-manager-overview] представляет собой контейнер, содержащий связанные ресурсы. Создайте группу ресурсов для хранения ресурсов виртуальной машины.
 
@@ -136,7 +136,7 @@
 
 - Просматривать действия по подготовке и другие события для виртуальной машины можно с помощью [журналов аудита][audit-logs].
 
-- Если нужно зашифровать диски операционной системы и диски данных, рекомендуем использовать [шифрование дисков Azure][disk-encryption].
+- Если нужно шифровать диски ОС и диски данных, рассмотрите возможность применения [шифрования дисков Azure][disk-encryption].
 
 ## Компоненты решения
 
@@ -353,7 +353,7 @@
 [boot-diagnostics]: https://azure.microsoft.com/ru-RU/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
-[disk-encryption]: ../articles/azure-security-disk-encryption.md
+[disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/ru-RU/library/dn595129.aspx
@@ -393,4 +393,4 @@
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Архитектура с одной виртуальной машиной Windows в Azure"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

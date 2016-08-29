@@ -14,7 +14,7 @@
 
 - **Виртуальная машина**. Виртуальную машину можно подготовить на основе списка опубликованных образов или файла виртуального жесткого диска (VHD), передав его в хранилище BLOB-объектов Azure.
 
-- **Диск ОС.** Этот диск представляет собой VHD-файл, хранящийся в [службе хранилища Azure][azure-storage]. Это означает, что он сохранится, даже если хост-компьютер выйдет из строя. Выберите диск операционной системы — `/dev/sda1`.
+- **Диск ОС.** Этот диск представляет собой VHD-файл, сохраненный в [службе хранилища Azure][azure-storage]. Это означает, что он сохранится, даже если хост-компьютер выйдет из строя. Выберите диск операционной системы — `/dev/sda1`.
 
 - **Временный диск.** Виртуальная машина создается с временным диском. Временный диск хранится на физическом диске хост-компьютера. Он _не_ сохраняется в службе хранилища Azure и может быть удален во время перезагрузки и других событий жизненного цикла виртуальной машины. Используйте этот диск только для временных данных, таких как данные страниц или файлы подкачки. Временный диск `/dev/sdb1` подключен к `/mnt/resource` или `/mnt`.
 
@@ -356,7 +356,7 @@
 [boot-diagnostics]: https://azure.microsoft.com/ru-RU/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
-[disk-encryption]: ../articles/azure-security-disk-encryption.md
+[disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-linux-portal-create-fqdn.md
 [iostat]: https://en.wikipedia.org/wiki/Iostat
@@ -394,4 +394,4 @@
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Архитектура с одной виртуальной машиной Linux в Azure"
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

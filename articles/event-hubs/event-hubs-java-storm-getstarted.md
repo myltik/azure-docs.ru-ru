@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Приступая к работе с концентраторами событий в Java и Apache Storm | Microsoft Azure"
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью Java, и их получению в кластере Apache Storm."
 	services="event-hubs"
@@ -7,13 +7,13 @@
 	manager="timlt"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="event-hubs"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/13/2016"
+	ms.date="08/16/2016"
 	ms.author="sethm"/>
 
 # Приступая к работе с концентраторами событий
@@ -32,7 +32,7 @@
 
 + Среда разработки Java, настроенная для запуска [Maven](http://maven.apache.org/). Для этого руководства предполагается использование среды [Eclipse](https://www.eclipse.org/).
 
-+ Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Подробнее: <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
++ Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -60,11 +60,11 @@
 - [Анализ данных датчиков в Storm и HDInsight] — это полный учебник, в котором концентраторы событий, Storm и HBase используются для приема данных датчиков в кластере Hadoop.
 - [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight][] — это учебник по написанию конвейеров Storm на C#.
 
-<!-- Images. -->
+.<!-- Images. -->
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
-<!-- Links -->
-[классический портал Azure]: https://manage.windowsazure.com/
+.<!-- Links -->
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Обзор концентраторов событий]: event-hubs-overview.md
 
@@ -74,4 +74,4 @@
 [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Отладка облачной службы или виртуальной машины Azure в Visual Studio | Microsoft Azure"
 	description="Отладка облачной службы или виртуальной машины в Visual Studio"
 	services="visual-studio-online"
@@ -6,13 +6,13 @@
 	authors="TomArcher"
 	manager="douge"
 	editor="" />
-<tags 
+.<tags 
 	ms.service="visual-studio-online"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher" />
 
 # Отладка облачной службы или виртуальной машины Azure в Visual Studio
@@ -190,4 +190,4 @@ Visual Studio предоставляет разнообразные вариан
 - Используйте **Intellitrace** для сбора журнала вызовов и событий с сервера выпуска. См. статью [Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Используйте **систему диагностики Azure** для регистрации подробных сведений из кода, выполняющегося в ролях, независимо от того, запущены ли эти роли в среде разработки или в Azure. См. статью [Сбор данных журналов с помощью средств диагностики Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

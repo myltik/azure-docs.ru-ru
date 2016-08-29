@@ -1,4 +1,4 @@
-<properties 
+.<properties 
    pageTitle="Просмотр заданий StorSimple и управление ими | Microsoft Azure"
    description="Описывает страницу заданий службы диспетчера StorSimple и способы ее использования для отслеживания недавних, текущих и запланированных заданий."
    services="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Использование службы управления StorSimple для просмотра заданий StorSimple и управления ими (обновление 2)
@@ -93,4 +93,4 @@
 
 - Узнайте об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

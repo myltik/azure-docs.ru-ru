@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Запись образа виртуальной машины Azure Windows | Microsoft Azure"
 	description="Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания."
 	services="virtual-machines-windows"
@@ -32,6 +32,7 @@ Azure хранит образ в папке **Мои образы**. Здесь 
 
 - [Создание виртуальной машины из образа](virtual-machines-windows-classic-createportal.md)
 - [Подключение диска с данными к виртуальной машине](virtual-machines-windows-classic-attach-disk.md)
+- Убедитесь, что роли сервера поддерживаются Sysprep. Дополнительные сведения см. в разделе [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep).
 
 > [AZURE.WARNING] Этот процесс удаляет исходную виртуальную машину, как только она будет зарегистрирована.
 
@@ -54,7 +55,7 @@ Azure хранит образ в папке **Мои образы**. Здесь 
 
 	- Нажмите кнопку **ОК**.
 
-	![Запуск Sysprep](./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png)
+	.![Запуск Sysprep](./media/virtual-machines-windows-classic-capture-image/SysprepGeneral.png)
 
 7.	Sysprep завершит работу виртуальной машины, при этом ее состояние на классическом портале Azure изменится на **Остановлена**.
 
@@ -62,7 +63,7 @@ Azure хранит образ в папке **Мои образы**. Здесь 
 
 9.	На панели команд щелкните **Запись**.
 
-	![Запись виртуальной машины](./media/virtual-machines-windows-classic-capture-image/CaptureVM.png)
+	.![Запись виртуальной машины](./media/virtual-machines-windows-classic-capture-image/CaptureVM.png)
 
 	Отображается диалоговое окно **Запись виртуальной машины**.
 
@@ -72,7 +73,7 @@ Azure хранит образ в папке **Мои образы**. Здесь 
 
 12.	Щелкните галочку, чтобы записать образ. Новый образ станет доступным в разделе **Образы**.
 
- 	![Успешная запись образа](./media/virtual-machines-windows-classic-capture-image/VMCapturedImageAvailable.png)
+ 	.![Успешная запись образа](./media/virtual-machines-windows-classic-capture-image/VMCapturedImageAvailable.png)
 
 ##Дальнейшие действия
 
@@ -90,4 +91,4 @@ Azure хранит образ в папке **Мои образы**. Здесь 
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

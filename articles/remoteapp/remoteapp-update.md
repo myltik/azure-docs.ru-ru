@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Обновление коллекции Azure RemoteApp | Microsoft Azure"
    description="Узнайте, как обновить коллекцию Azure RemoteApp"
    services="remoteapp"
@@ -7,16 +7,19 @@
    manager="mbaldwin"
    editor=""/>
 
-<tags
+.<tags
    ms.service="remoteapp"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="06/05/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Обновление коллекции в Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Когда-нибудь обязательно наступит момент, когда вы захотите обновить приложения или образ в коллекции Azure RemoteApp. При использовании одного из образов, включенных в подписку Azure RemoteApp, в облаке или гибридной коллекции, все обновления обрабатываются платформой Azure RemoteApp, не требуя внимания с вашей стороны.
 
@@ -34,4 +37,4 @@
 
 1. Установите флажок, чтобы начать обновление.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

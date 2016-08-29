@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Безопасность службы приложений Azure"
 	description="Узнайте, как защищать веб-приложения, мобильные приложения, приложения API и приложения логики в службе приложений Azure."
 	services="app-service"
@@ -7,13 +7,13 @@
 	manager="yochayk"
 	editor="wpickett"/>
 
-<tags
+.<tags
 	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="08/16/2015"
 	ms.author="naziml"/>
 
 # Безопасность службы приложений Azure
@@ -22,6 +22,6 @@
 
 [AZURE.INCLUDE [app-service-blueprint-security](../../includes/app-service-blueprint-security.md)]
 
-Служба приложений Azure использует ту же антивредоносную программу, что и облачные службы Azure и виртуальные машины. Дополнительные сведения об этой программе см. в статье [Антивредоносное ПО Майкрософт для облачных служб и виртуальных машин Azure](../azure-security-antimalware.md)
+Служба приложений Azure использует ту же антивредоносную программу, что и облачные службы Azure и виртуальные машины. Дополнительные сведения об этой программе см. в статье [Антивредоносное ПО Майкрософт для облачных служб и виртуальных машин Azure](../security/azure-security-antimalware.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Планирование виртуальной сети для коллекции Azure RemoteApp | Microsoft Azure"
     description="Узнайте, как спланировать виртуальную сеть для коллекции Azure RemoteApp | Microsoft Azure"
     services="remoteapp"
@@ -6,16 +6,19 @@
     authors="mghosh1616"
     manager="mbaldwin" />
 
-<tags
+.<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/12/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Планирование виртуальной сети для Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
 В этом документе описывается настройка виртуальной сети (VNET) и подсети Azure для Azure RemoteApp. Виртуальные сети Azure позволяют виртуализовать сетевую инфраструктуру в облаке и создавать гибридные решения, используя Azure и локальные ресурсы. Подробнее об этом можно прочитать [здесь](../virtual-network/virtual-networks-overview.md).
 
@@ -27,13 +30,13 @@
 
 ### Облачная коллекция Azure RemoteApp с виртуальной сетью
 
- ![Azure RemoteApp — облачная коллекция с виртуальной сетью](./media/remoteapp-planvpn/ra-cloudvpn.png)
+ .![Azure RemoteApp — облачная коллекция с виртуальной сетью](./media/remoteapp-planvpn/ra-cloudvpn.png)
 
 Это коллекция Azure RemoteApp, где все ресурсы, к которым требуется доступ хостам сеансов RemoteApp, развертываются в Azure. Они могут находиться в виртуальной сети RemoteApp VNET или другой виртуальной сети в Azure.
 
 ### Гибридная коллекция Azure RemoteApp с виртуальной сетью
 
-![Azure RemoteApp — гибридная коллекция с виртуальной сетью](./media/remoteapp-planvpn/ra-hybridvpn.png)
+.![Azure RemoteApp — гибридная коллекция с виртуальной сетью](./media/remoteapp-planvpn/ra-hybridvpn.png)
 
 Это коллекция Azure RemoteApp, где некоторые ресурсы, к которым требуется доступ хостам сеансов RemoteApp, развертываются локально. Виртуальная сеть RemoteApp связывается с локальной сетью с помощью гибридных технологий Azure, таких как VPN типа «сеть-сеть» или ExpressRoute.
 
@@ -55,4 +58,4 @@ Azure RemoteApp развертывает виртуальные машины Azu
 
 [Принудительное туннелирование](../vpn-gateway/vpn-gateway-about-forced-tunneling.md) теперь поддерживается во всех новых коллекциях Azure RemoteApp. Миграция существующих коллекций на поддерживающие принудительное туннелирование в настоящее время не предусмотрена. Чтобы получить коллекцию с поддержкой принудительного туннелирования, необходимо удалить все существующие коллекции, использующие виртуальную сеть, привязанную к Azure RemoteApp, а затем создать новую коллекцию.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

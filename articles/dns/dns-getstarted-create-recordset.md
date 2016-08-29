@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание набора записей и записей зоны DNS с помощью PowerShell | Microsoft Azure"
    description="Как создать записи узла для Azure DNS. Настройка наборов записей и записей с помощью PowerShell"
    services="dns"
@@ -7,13 +7,13 @@
    manager="carmonm"
    editor=""/>
 
-<tags
+.<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -32,7 +32,7 @@
 
 ## Убедитесь, что у вас установлена последняя версия PowerShell.
 
-Убедитесь, что у вас установлена последняя версия командлетов PowerShell для Azure Resource Manager. Дополнительную информацию об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Убедитесь, что у вас установлена последняя версия командлетов PowerShell для Azure Resource Manager. Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 ## Создание набора записей и записи
 
@@ -56,7 +56,7 @@
 Дополнительные сведения о работе с PowerShell см. в статье [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
 
 
-### 2\. Создание набора записей
+### 2) Создание набора записей
 
 Для создания наборов записей используется командлет `New-AzureRmDnsRecordSet`. При создании набора записей необходимо указать его имя, зону, срок жизни и тип записей.
 
@@ -145,4 +145,4 @@
 
 [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

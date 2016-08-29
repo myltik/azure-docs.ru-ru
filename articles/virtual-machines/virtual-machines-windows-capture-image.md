@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Создание образа виртуальной машины на основе виртуальной машины Azure | Microsoft Azure"
 	description="Научитесь создавать универсальный образ виртуальной машины на основе существующей виртуальной машины Azure, созданной с помощью модели развертывания Resource Manager"
 	services="virtual-machines-windows"
@@ -28,6 +28,8 @@
 - Предполагается, что у вас уже есть виртуальная машина Azure с моделью развертывания Resource Manager, которую вы хотите использовать для создания образа. Необходимо указать имя виртуальной машины и имя группы ресурсов. Список групп ресурсов в подписке можно получить, выполнив командлет PowerShell `Get-AzureRmResourceGroup`. Список виртуальных машин в подписке можно получить, введя `Get-AzureRMVM`.
 
 - У вас должна быть установлена среда Azure PowerShell версии 1.0 или выше. Если вы еще не установили PowerShell, см. шаги установки в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+
+- Убедитесь, что Sysprep поддерживает роли сервера, запущенные на компьютере. Дополнительные сведения см. в разделе [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep).
 
 ## Подготовка исходной виртуальной машины 
 
@@ -93,7 +95,7 @@
 
 1. С помощью этой команды скопируйте образ виртуальной машины в целевой контейнер хранилища. Образ будет создан в той же учетной записи хранения, что и исходная виртуальная машина. Переменная `-Path` сохраняет локальную копию шаблона JSON. Переменная `-DestinationContainerName` содержит имя контейнера для хранения образов. Если такой контейнер не существует, он будет создан автоматически.
 
-		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -VMName YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
+		Save-AzureRmVMImage -ResourceGroupName YourResourceGroup -Name YourWindowsVM -DestinationContainerName YourImagesContainer -VHDNamePrefix YourTemplatePrefix -Path Yourlocalfilepath\Filename.json
 
 	URL-адрес образа можно получить из шаблона файла JSON. Перейдите к разделу **resources** > **storageProfile** > **osDisk** > **image** > **uri**, чтобы получить полный путь к образу. URL-адрес образа выглядит так: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
@@ -208,4 +210,4 @@
 
 Сведения об управлении созданной виртуальной машиной с помощью Azure PowerShell см. в статье [Управление виртуальными машинами Azure с помощью Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

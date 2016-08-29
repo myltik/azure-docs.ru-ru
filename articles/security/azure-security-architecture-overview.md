@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Обзор архитектуры безопасности | Microsoft Azure"
    description="Статья представляет собой обзор архитектуры безопасности Azure и содержит список статей на эту тему."
    services="security"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Обзор архитектуры безопасности
@@ -26,4 +26,4 @@
 - [Архитектура приложений в Microsoft Azure](security-application-architecture-on-azure.md)
 - [Рекомендации и шаблоны для обеспечения безопасности в Azure](security-best-practices-and-patterns.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

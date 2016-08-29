@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание набора записей и записей зоны DNS с помощью портала Azure | Microsoft Azure"
    description="Сведения о создании записей узла для Azure DNS, а также наборов записей и записей с помощью портала Azure"
    services="dns"
@@ -8,13 +8,13 @@
    editor=""
    tags="azure-resource-manager"/>
 
-<tags
+.<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -64,4 +64,4 @@
 
 Дополнительные сведения об Azure DNS см. в статье [Обзор Azure DNS](dns-overview.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

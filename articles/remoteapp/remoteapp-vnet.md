@@ -1,5 +1,5 @@
 
-<properties
+.<properties
     pageTitle="Проверка виртуальной сети Azure для использования с Azure RemoteApp | Microsoft Azure"
     description="Узнайте, как проверить готовность виртуальной сети Azure к использованию с Azure RemoteApp"
     services="remoteapp"
@@ -7,18 +7,21 @@
     authors="lizap"
     manager="mbaldwin" />
 
-<tags
+.<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/12/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Проверка виртуальной сети Azure для использования с Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Возможно, перед использованием виртуальной сети Azure с Azure RemoteApp ее нужно будет проверить. Это помогает избежать проблем с подключением.
 
@@ -37,4 +40,4 @@
 - [Создание гибридной коллекции](remoteapp-create-hybrid-deployment.md)
 - [Развертывание коллекции Azure RemoteApp для виртуальной сети Azure (с поддержкой ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

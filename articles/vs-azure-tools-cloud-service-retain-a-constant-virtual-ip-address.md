@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Сохранение постоянного виртуального IP-адреса для облачной службы | Microsoft Azure"
    description="Узнайте, как сохранить постоянный виртуальный IP-адрес (VIP) облачной службы Azure."
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-<tags
+.<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Сохранение постоянного виртуального IP-адреса облачной службы
@@ -45,4 +45,4 @@
 
 Дополнительные сведения о публикации в Azure в среде Visual Studio см. в статье [Мастер публикации приложений Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

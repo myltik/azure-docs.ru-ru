@@ -1,5 +1,5 @@
 
-<properties 
+.<properties 
     pageTitle="Требования Azure AD + Active Directory для Azure RemoteApp | Microsoft Azure" 
     description="Узнайте, как настроить Active Directory для работы с Azure RemoteApp." 
     services="remoteapp" 
@@ -7,19 +7,21 @@
     authors="lizap" 
     manager="mbaldwin" />
 
-<tags 
+.<tags 
     ms.service="remoteapp" 
     ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/13/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Требования Azure AD + Active Directory для Azure RemoteApp
 
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
 
 Для гибридной коллекции Azure RemoteApp или для облачной коллекции, которую необходимо включить в федерацию, используя AD Connect, вам потребуется выполнить следующие действия.
@@ -45,4 +47,4 @@
 
 При создании коллекции RemoteApp требуются оба этих объекта, поэтому сначала выполните указанные действия.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

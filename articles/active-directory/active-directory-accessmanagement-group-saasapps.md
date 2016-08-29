@@ -1,11 +1,11 @@
 
-<properties
+.<properties
 	pageTitle="Использование группы для управления доступом к приложениям SaaS | Microsoft Azure"
 	description="Использование групп в Azure Active Directory Premium или Basic для предоставления доступа к приложениям SaaS, интегрированным с Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/10/2016"
 	ms.author="curtand"/>
 
 
@@ -56,4 +56,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

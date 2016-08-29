@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Создание образа Azure RemoteApp на основе виртуальной машины Azure | Microsoft Azure"
     description="Узнайте о том, как создать образ для Azure RemoteApp с помощью виртуальной машины Azure."
     services="remoteapp"
@@ -6,18 +6,21 @@
     authors="lizap"
     manager="mbaldwin" />
 
-<tags
+.<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # Создание образа Azure RemoteApp на основе виртуальной машины Azure
+
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Образы Azure RemoteApp (с приложениями, которые используются в коллекции) можно создать из виртуальной машины Azure. Можно также использовать образ виртуальной машины, который мы добавили в коллекцию образов виртуальных машин Azure, соответствующую всем требованиям к образам Azure RemoteApp. При желании вы можете использовать этот образ виртуальной машины как отправную точку для собственной виртуальной машины. Просто найдите образ "Узел сеансов удаленных рабочих столов Windows Server" в библиотеке.
 
@@ -58,4 +61,4 @@
 
 Теперь вы готовы создать новую коллекцию: [облачную](remoteapp-create-cloud-deployment.md) или [гибридную](remoteapp-create-hybrid-deployment.md) — в зависимости от того, что вам нужно.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

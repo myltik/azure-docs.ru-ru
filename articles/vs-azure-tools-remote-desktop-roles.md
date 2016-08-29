@@ -1,4 +1,4 @@
-<properties 
+.<properties 
    pageTitle="Использование удаленного рабочего стола с ролями Azure | Microsoft Azure"
    description="Использование удаленного рабочего стола с ролями Azure"
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-<tags 
+.<tags 
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Использование удаленного рабочего стола с ролями Azure
@@ -75,4 +75,4 @@
 
 1. Введите имя пользователя и пароль, созданный ранее. Вы вошли в удаленный сеанс.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

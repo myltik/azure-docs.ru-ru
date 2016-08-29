@@ -1,5 +1,5 @@
 
-<properties
+.<properties
     pageTitle="Советы и рекомендации по работе с клиентами Azure RemoteApp | Microsoft Azure"
     description="Изучите рекомендации по использованию клиентов RemoteApp"
     services="remoteapp"
@@ -7,18 +7,21 @@
     authors="lizap"
     manager="mbaldwin" />
 
-<tags
+.<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Советы и рекомендации по работе с клиентами Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Приведенные ниже сведения помогут вам эффективно настроить и использовать клиенты Azure RemoteApp.
 
@@ -26,4 +29,4 @@
 
 - Удаленное приложение RemoteApp автоматически выводит вас из системы, если вы не используете его в течение определенного периода времени. Во избежание потери данных рекомендуется закрыть приложения после завершения использования службы.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

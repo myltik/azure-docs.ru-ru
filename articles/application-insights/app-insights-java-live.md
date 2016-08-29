@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Application Insights для уже действующих веб-приложений Java" 
 	description="Начните отслеживать веб-приложение, которое уже выполняется на вашем сервере." 
 	services="application-insights" 
@@ -6,7 +6,7 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-<tags 
+.<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
@@ -21,7 +21,7 @@
 
 Если у вас уже есть запущенное на сервере J2EE веб-приложение, вы можете начать отслеживать его с помощью [Appliction Insights](app-insights-overview.md). Для этого вам не нужно вносить изменения в код или повторно компилировать проект. Таким образом вы сможете получать информацию о HTTP-запросах, отправляемых на сервер, необработанных исключениях и счетчиках производительности.
 
-Вам потребуется подписка на [Microsoft Azure](https://azure.com).
+Вам понадобится подписка [Microsoft Azure](https://azure.com).
 
 > [AZURE.NOTE] В ходе описанной на этой странице процедуры в веб-приложение во время его выполнения добавляется пакет SDK. Это избавляет от необходимости изменять или повторно компилировать исходный код. Но если есть такая возможность, мы рекомендуем [добавлять пакет SDK непосредственно в исходный код](app-insights-java-get-started.md). Так вы получите дополнительные возможности, например сможете написать код для отслеживания действий пользователей.
 
@@ -38,13 +38,13 @@
 
     ![В обзоре нового ресурса щелкните "Свойства" и скопируйте ключ инструментирования](./media/app-insights-java-live/03-key.png)
 
-## 2\. Скачивание пакета SDK
+## 2) Скачивание пакета SDK
 
-1. Загрузите [пакет SDK Application Insights для Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
+1. Загрузите [пакет SDK Application Insights для Java](https://aka.ms/aijavasdk).
 2. На сервере извлеките содержимое пакета SDK в каталог, из которого загружаются двоичные файлы проекта. В случае с Tomcat обычно это каталог `webapps<your_app_name>\WEB-INF\lib`.
 
 
-## 3\. Добавление XML-файла Application Insights
+## 3) Добавление XML-файла Application Insights
 
 Создайте файл ApplicationInsights.xml в папке, в которую добавили пакет SDK. Вставьте в него следующий код XML.
 
@@ -139,4 +139,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0817_2016-->

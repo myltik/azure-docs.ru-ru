@@ -1,9 +1,9 @@
-<properties
+.<properties
 	pageTitle="Настройка хранилища ключей для виртуальных машин в Azure Resource Manager | Microsoft Azure"
 	description="Узнайте, как настроить хранилище ключей для использования с виртуальной машиной Azure Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="rothja"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -49,4 +49,4 @@
 
 Сведения о других параметрах, которые можно настроить при создании хранилища ключей с помощью шаблонов, см. в разделе [Создание хранилища ключей](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

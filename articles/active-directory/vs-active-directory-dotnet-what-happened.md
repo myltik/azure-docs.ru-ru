@@ -1,5 +1,5 @@
-<properties
-	pageTitle="Что произошло с моим проектом MVC в подключенной службе Visual Studio Azure Active Directory | Microsoft Azure"
+.<properties
+	pageTitle="Что произошло с моим проектом MVC в подключенной службе Visual Studio Azure Active Directory | Microsoft Azure "
 	description="Описывает, что происходит с проектом MVC при подключении к приложению Azure AD с помощью подключенных служб Visual Studio"
 	services="active-directory"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Что произошло с моим проектом MVC в подключенной службе Visual Studio Azure Active Directory?
@@ -73,8 +73,8 @@
 	    <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
 	</appSettings>
 
-### Создано приложение Azure Active Directory (AD)
-В каталоге, выбранном в мастере, создано приложение Azure AD.
+### Было создано приложение Azure Active Directory (AD)
+Было создано приложение Azure AD в указанно в мастере каталоге.
 
 ##Какие дополнительные изменения внесены в мой проект после установки флажка *Отключить проверку подлинности для отдельных учетных записей пользователей*?
 Удалены ссылки на пакет NuGet. Для файлов созданы резервные копии, а сами файлы удалены. В зависимости от состояния проекта вам, возможно, придется вручную удалить дополнительные ссылки или файлы либо изменить код соответствующим образом.
@@ -171,4 +171,4 @@
 
 [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

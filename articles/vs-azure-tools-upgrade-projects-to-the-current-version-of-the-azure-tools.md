@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Обновление проектов до текущей версии инструментов Azure | Microsoft Azure"
    description="Сведения об обновлении проекта Azure в Visual Studio до текущей версии инструментов Azure"
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-<tags
+.<tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Обновление проектов до текущей версии инструментов Azure для Visual Studio
@@ -51,4 +51,4 @@
 
 1. Выполните сборку проекта, а затем исправьте все ошибки, возникающие в результате изменения API. Сведения об изменении кода для новой версии см. в документации к конкретному API.
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

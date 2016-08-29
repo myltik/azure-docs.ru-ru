@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Использование хранилища BLOB-объектов (хранилища объектов) из PHP | Microsoft Azure"
 	description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
 	documentationCenter="php"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-    	ms.date="06/01/2016"
+    	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Использование хранилища больших двоичных объектов из PHP
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] .<br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Обзор
 
@@ -49,7 +49,7 @@
 
 В следующем примере показано, как включить файл автозагрузчика и сослаться на класс **ServicesBuilder**.
 
-> [AZURE.NOTE] В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. Если вы установили эти библиотеки вручную, необходимо добавить ссылку на файл автозагрузчика `WindowsAzure.php`.
+> [AZURE.NOTE] В этом примере (и других примерах в этой статье) предполагается, что установлены клиентские библиотеки PHP для Azure через Composer. Если вы установили эти библиотеки вручную, то необходимо добавить ссылку на файл автозагрузчика `WindowsAzure.php`.
 
 	require_once 'vendor/autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -70,7 +70,7 @@
 	UseDevelopmentStorage=true
 
 
-Чтобы создать клиент службы Azure, необходимо использовать класс **ServicesBuilder**. Вы можете:
+Чтобы создать клиент любой службы Azure, необходимо использовать класс **ServicesBuilder**. Вы можете:
 
 * передать строку подключения напрямую или
 * использовать **CloudConfigurationManager (CCM)** для проверки нескольких внешних источников на наличие строки подключения:
@@ -292,9 +292,9 @@
 
 Вы изучили основную информацию о службе BLOB-объектов Azure. Дополнительную информацию о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-- Посетите [блог команды разработчиков хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-- См. [пример блочного BLOB-объекта РНР](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
-- См. [пример страничного BLOB-объекта PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
+- Посетите [блог команды разработчиков службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+- Ознакомьтесь с [примером блочного BLOB-объекта РНР](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php).
+- Ознакомьтесь с [примером страничного BLOB-объекта PHP](https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php).
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
  
 Дополнительные сведения также можно найти в [Центре разработчика PHP](/develop/php/).
@@ -308,4 +308,4 @@
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

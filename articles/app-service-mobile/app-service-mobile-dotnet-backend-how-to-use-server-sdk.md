@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Как работать с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure | Служба приложений Azure"
 	description="Узнайте, как работать с пакетом SDK для внутреннего сервера .NET для мобильных приложений службы приложений Azure."
 	keywords="служба приложений, служба приложений azure, мобильное приложение, мобильная служба, масштабировать, масштабируемый, разработка приложений, разработка приложений azure"
@@ -49,7 +49,7 @@
 
 Чтобы создать проект мобильных приложений в Visual Studio, необходимо установить [пакет Azure SDK для .NET](https://azure.microsoft.com/downloads/) версии 2.8.1 или более поздней. После установки пакета SDK создайте новое приложение ASP.NET:
 
-1. Откройте диалоговое окно **Новый проект** (последовательно выберите *Файл* > **Создать** > **Проект**).
+1. Откройте диалоговое окно **Новый проект** (последовательно выберите *Файл* > **Создать** > **Проект**).
 
 2. Разверните раздел **Шаблоны** > **Visual C#** и выберите **Интернет**.
 
@@ -465,7 +465,7 @@ SID является производным от идентификатора п
 			SigningKey = ConfigurationManager.AppSettings["authSigningKey"],
 			ValidAudiences = new[] { ConfigurationManager.AppSettings["authAudience"] },
 			ValidIssuers = new[] { ConfigurationManager.AppSettings["authIssuer"] },
-			TokenHandler = config.GetMobileAppTokenHandler()
+			TokenHandler = config.GetAppServiceTokenHandler()
 		});
 
 В приведенном выше примере необходимо настроить параметры приложения _authAudience_ и _authIssuer_ в файле Web.config, задав для каждого из них значение URL-адреса корня приложения в формате HTTPS. Также для параметра _authSigningKey_ нужно указать значение ключа, который подписывает приложение. Это конфиденциальное значение, которое ни в коему случае не следует распространять или включать в клиент. Чтобы получить это значение, перейдите в свое приложение на [портале Azure] и щелкните **Инструменты**. Выберите **Kudu** и щелкните **Перейти**. Вы перейдете к конечной точке управления Kudu для вашего сайта. Щелкните **Среда** и найдите значение в разделе _WEBSITE\_AUTH\_SIGNING\_KEY_. Это значение следует использовать для параметра _authSigningKey_ в файле конфигурации вашего локального приложения.
@@ -482,4 +482,4 @@ SID является производным от идентификатора п
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC) | Microsoft Azure" 
 	description="Как приступить к использованию Azure Active Directory в проектах MVC после подключения или создания Azure AD с помощью подключенных служб Visual Studio" 
 	services="active-directory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2016" 
+	ms.date="08/15/2016" 
 	ms.author="tarcher"/>
 
 # Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC)
@@ -28,7 +28,7 @@
  
 ##Добавление элементов управления SignIn и SignOut 
 
-Чтобы добавить элементы управления SignIn и SignOut, можно использовать частичное представление **\_LoginPartial.cshtml** для добавления функций к одному из представлений. Вот пример функций, добавленных к стандартному представлению **\_Layout.cshtml** (обратите внимание на последний элемент в теге div с классом navbar-collapse):
+Чтобы добавить элементы управления SignIn и SignOut, используйте частичное представление **\_LoginPartial.cshtml** для добавления функций к одному из представлений. Вот пример добавления такой функциональности в стандартное представление **\_Layout.cshtml**. (обратите внимание на последний элемент в теге div с классом navbar-collapse):
 
 <pre>
     &lt;!DOCTYPE html> 
@@ -77,4 +77,4 @@
 
 [Дополнительная информация о службе Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

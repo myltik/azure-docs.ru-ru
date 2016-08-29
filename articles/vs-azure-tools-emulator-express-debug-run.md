@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Использование Emulator Express для запуска и отладки облачной службы на локальном компьютере | Microsoft Azure"
    description="Использование Emulator Express для запуска и отладки облачной службы на локальном компьютере"
    services="visual-studio-online"
@@ -6,13 +6,13 @@
    authors="TomArcher"
    manager="douge"
    editor="" />
-<tags
+.<tags
    ms.service="visual-studio-online"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/19/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 
@@ -54,4 +54,4 @@ Emulator Express позволяет протестировать и отлади
 
 [Отладка облачных служб](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

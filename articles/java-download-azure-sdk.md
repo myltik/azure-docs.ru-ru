@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Загрузка пакета Azure SDK для Java" 
 	description="Узнайте, как скачать пакет SDK Azure для Java, ознакомьтесь с примером кода для проектов Maven и общими шагами по установке набора средств Azure для Eclipse." 
 	services="" 
@@ -7,13 +7,13 @@
 	manager="wpickett" 
 	editor=""/>
 
-<tags 
+.<tags 
 	ms.service="multiple" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Загрузка пакета Azure SDK для Java
@@ -135,4 +135,4 @@
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
 [Новые возможности набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=690333
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

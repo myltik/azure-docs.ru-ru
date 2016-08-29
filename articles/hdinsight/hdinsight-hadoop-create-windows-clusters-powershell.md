@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание кластеров Hadoop под управлением Windows в HDInsight с помощью Azure PowerShell | Microsoft Azure"
    	description="Научитесь создавать кластеры для Azure HDInsight с помощью Azure PowerShell."
    services="hdinsight"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/18/2016"
+   ms.date="08/10/2016"
    ms.author="jgao"/>
 
 # Создание кластеров Hadoop под управлением Windows в HDInsight с помощью Azure PowerShell
@@ -158,4 +158,4 @@ Azure PowerShell можно использовать для развертыва
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

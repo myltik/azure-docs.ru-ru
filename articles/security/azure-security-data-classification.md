@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Классификация данных для Azure | Microsoft Azure"
    description="В этой статье описываются основы классификации данных и подчеркивается ее ценность, особенно в контексте облачных вычислений и использования Microsoft Azure"
    services="security"
@@ -7,13 +7,13 @@
    manager="swadhwa"
    editor="TomSh"/>
 
-<tags
+.<tags
    ms.service="security"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/09/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Классификация данных для Azure
@@ -239,4 +239,4 @@
 - [Блог группы безопасности Azure](http://blogs.msdn.com/b/azuresecurity/)
 - [Центр Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

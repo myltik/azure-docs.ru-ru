@@ -1,11 +1,11 @@
 | | **Классическое развертывание** | **Развертывание диспетчера ресурсов** | **Классическое развертывание и развертывание Resource Manager** |
 |----------------------------------------|-------------|----------------------|---------------------------------|
-| **Классический портал** | [Статья](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Не поддерживается | Не поддерживается |
+| **Классический портал** | [Статья](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Не поддерживается | [Статья*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |
 | **Портал Azure** | Не поддерживается | Поддерживается + | Не поддерживается |
-| **PowerShell** | Поддерживаются | [Статья](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Статья](../articles/virtual-network/virtual-networks-arm-asm-s2s.md)
+| **PowerShell** | Поддерживаются | [Статья](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Статья](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 
-"+" означает, что этот метод развертывания доступен только для виртуальных сетей в одной подписке.
+"+" означает, что этот метод развертывания доступен только для виртуальных сетей в одной подписке.<br> "*" означает частичную поддержку.
 
-Обратите внимание, что пиринг виртуальных сетей, который в настоящее время работает в режиме предварительной версии, доступен для определенных конфигураций и моделей развертывания. Дополнительную информацию см. в статье [VNet peering](../articles/virtual-network/virtual-network-peering-overview.md) (Пиринг виртуальных сетей).
+Функция пиринговых виртуальных сетей, которая в настоящее время находится на этапе предварительной версии, доступна для определенных конфигураций и моделей развертывания. Дополнительную информацию см. в статье [Пиринговая связь между виртуальными сетями](../articles/virtual-network/virtual-network-peering-overview.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

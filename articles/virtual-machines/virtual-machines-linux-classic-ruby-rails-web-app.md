@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Размещение веб-сайта Ruby on Rails в виртуальной машине Linux | Microsoft Azure"
 	description="Настройка и размещение веб-сайта на основе Ruby on Rails в Azure с помощью виртуальной машины Linux."
 	services="virtual-machines-linux"
@@ -8,13 +8,13 @@
 	editor=""
 	tags="azure-service-management"/>
 
-<tags
+.<tags
 	ms.service="virtual-machines-linux"
 	ms.workload="web"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Веб-приложение Ruby on Rails на виртуальной машине Azure
@@ -121,7 +121,7 @@
 
 5. Должно появиться сообщение **ВЫПОЛНЯЕТСЯ ОБНОВЛЕНИЕ**. После того как сообщение исчезнет, конечная точка будет активирована. Теперь вы можете протестировать приложение, перейдя к имени DNS виртуальной машины. Веб-сайт должен выглядеть аналогично следующему:
 
-	![страница Rails по умолчанию][default-rails-cloud]
+	.![страница Rails по умолчанию][default-rails-cloud]
 
 ## Дальнейшие действия
 
@@ -144,7 +144,7 @@
 [tables]: ../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]: virtual-machines-linux-classic-createportal.md
 
-<!-- External Links -->
+.<!-- External Links -->
 [rails-guides]: http://guides.rubyonrails.org/
 [sqlite3]: http://www.sqlite.org/
 
@@ -156,4 +156,4 @@
 [new-endpoint]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint.png
 [new-endpoint1]: ./media/virtual-machines-linux-classic-ruby-rails-web-app/newendpoint1.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

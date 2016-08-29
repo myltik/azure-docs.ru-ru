@@ -1,5 +1,5 @@
-<properties 
-   pageTitle="Создание пользовательских записей DNS для веб-приложения | Microsoft Azure" 
+.<properties 
+   pageTitle="Создание пользовательских записей DNS для веб-приложения | Microsoft Azure " 
    description="Как создать записи DNS личного домена для веб-приложения с помощью Azure DNS." 
    services="dns" 
    documentationCenter="na" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/11/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Создание записей DNS для веб-приложения в пользовательском домене
@@ -31,8 +31,8 @@
 
 Прежде чем начать, нужно создать зону DNS в Azure DNS и делегировать зону у вашего регистратора в Azure DNS.
  
-1. Чтобы создать зону DNS, выполните действия, описанные в разделе [Создание зоны DNS](dns-getstarted-create-dnszone.md). 
-2. Для делегирования DNS в Azure DNS выполните действия, описанные в статье [Делегирование домена в Azure DNS](dns-domain-delegation.md). 
+1. Чтобы создать зону DNS, выполните действия, описанные в разделе [Создание зоны DNS](dns-getstarted-create-dnszone.md).
+2. Для делегирования DNS в Azure DNS выполните действия, описанные в статье [Делегирование домена в Azure DNS](dns-domain-delegation.md).
 
 После создания зоны и ее делегирования в Azure DNS можно создать записи для личного домена.
 
@@ -41,7 +41,7 @@
 
 Запись A используется для сопоставления имени с IP-адресом. В следующем примере мы назначим @ как запись A IPv4-адресу:
 
-### Шаг 1.
+### Шаг 1
  
 Создайте запись A и назначьте ее переменной $rs.
 	
@@ -61,7 +61,7 @@
 
 	Set-AzureRMDnsRecordSet -RecordSet $rs
 
-## 2\. Создание записи CNAME для личного домена
+## 2) Создание записи CNAME для личного домена
 
 Если вашим доменом уже управляет Azure DNS (см. раздел [Делегирование домена в Azure DNS](dns-domain-delegation.md)), можно использовать следующий пример, чтобы создать запись CNAME для contoso.azurewebsites.net.
 
@@ -179,4 +179,4 @@
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

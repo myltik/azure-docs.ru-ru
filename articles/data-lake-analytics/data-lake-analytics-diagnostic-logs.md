@@ -1,4 +1,4 @@
-<properties 
+.<properties 
    pageTitle="Просмотр журналов диагностики Azure Data Lake Analytics | Microsoft Azure" 
    description="Из этой статьи вы узнаете, как настроить журналы диагностики для Azure Data Lake Analytics и просмотреть их. " 
    services="data-lake-analytics" 
@@ -7,13 +7,13 @@
    manager="paulettm" 
    editor="cgronlun"/>
  
-<tags
+.<tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/10/2016"
+   ms.date="08/11/2016"
    ms.author="larryfr"/>
 
 # Доступ к журналам диагностики для Azure Data Lake Analytics
@@ -32,7 +32,7 @@
 - **Включите свою подписку Azure** для общедоступной предварительной версии Data Lake Analytics. См. [инструкции](data-lake-analytics-get-started-portal.md#signup).
 - **Учетная запись Azure Data Lake Analytics**. Следуйте инструкциям, приведенным в [руководстве по началу работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md).
 
-## Включение ведения журнала диагностики для учетной записи Data Lake Analytics
+## Включение ведения журналов
 
 1. Войдите на новый [портал Azure](https://portal.azure.com).
 
@@ -52,7 +52,7 @@
 
 Включив параметры диагностики, вы сможете просматривать журналы на вкладке **Журналы диагностики**.
 
-## Просмотр журналов диагностики для учетной записи Data Lake Analytics
+## Просмотр журналов
 
 Существует два способа просмотра данных журнала для учетной записи Data Lake Analytics:
 
@@ -108,7 +108,7 @@
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## Описание структуры данных журнала
+## Структура журнала
 
 В журналах аудита и запросов используется формат JSON. В этом разделе мы рассмотрим структуру JSON для журналов запросов и аудита.
 
@@ -148,10 +148,10 @@
 
 | Name (Имя) | Тип | Описание |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| Twitter в режиме реального | Строка | Метка времени журнала (в формате UTC). |
-| resourceId | Строковый | Идентификатор ресурса, с которым была выполнена операция. |
+| Twitter в режиме реального | Строковый | Метка времени журнала (в формате UTC). |
+| resourceId | Строка | Идентификатор ресурса, с которым была выполнена операция. |
 | category | Строка | Категория журнала. Например, **Requests**. |
-| operationName | Строка | Имя операции, добавленной в журнал. Например, GetAggregatedJobHistory. |
+| operationName | Строковый | Имя операции, добавленной в журнал. Например, GetAggregatedJobHistory. |
 | resultType | Строка | Состояние операции. Например, 200. |
 | callerIpAddress | Строка | IP-адрес клиента, отправившего запрос. |
 | correlationId | Строковый | Идентификатор журнала. С помощью этого значения можно группировать связанные записи журнала. |
@@ -225,13 +225,13 @@
 
 > [AZURE.NOTE] Свойства __SubmitTime__, __StartTime__, __EndTime__ и __Parallelism__ содержат информацию об операции. У них только в том случае есть значение, если операция началась или уже завершена. К примеру, у свойства __SubmitTime__ появляется значение после того, как свойство __operationName__ получает значение __JobSubmitted__.
 
-## Примеры обработки данных журнала
+## Обработка данных журнала
 
 В Azure Data Lake Analytics есть пример обработки и анализа данных журнала. Этот пример можно найти по адресу [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 
-## Дополнительные материалы
+## Дальнейшие действия
 
 - [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

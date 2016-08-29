@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Управление Поиском Azure с помощью сценариев PowerShell | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Управление службой поиска Azure с помощью сценариев PowerShell. Создание или обновление службы Поиска Azure и управление ключами администратора Поиска Azure" 
 	services="search" 
@@ -8,13 +8,13 @@
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
+.<tags 
 	ms.service="search" 
 	ms.devlang="na" 
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="powershell" 
-	ms.date="05/23/2016" 
+	ms.date="08/15/2016" 
 	ms.author="seasa"/>
 
 # Управление службой поиска Azure с помощью PowerShell
@@ -129,9 +129,9 @@
 	
 После создания службы можно перейти к следующим шагам: создать [индекс](search-what-is-an-index.md), [отправить запросы в индекс](search-query-overview.md) и, наконец, создать приложение поиска, использующее службу поиска Azure, и управлять им.
 
-- [Создание индекса службы поиска Azure на классическом портале Azure](search-create-index-portal.md)
+- [Создание индекса службы "Поиск Azure" на портале Azure](search-create-index-portal.md)
 
-- [Отправка запросов в индекс службы поиска Azure с помощью обозревателя поиска на портале Azure](search-explorer.md)
+- [Отправка запросов в индекс службы поиска Azure с помощью портала Azure](search-explorer.md)
 
 - [Настройка индексатора для загрузки данных из других служб](search-indexer-overview.md)
 
@@ -139,4 +139,4 @@
 
 - [Анализ трафика Поиска Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

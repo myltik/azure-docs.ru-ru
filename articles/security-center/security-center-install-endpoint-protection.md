@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Установка Endpoint Protection в центре безопасности Azure | Microsoft Azure"
    description="В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure **Установить Endpoint Protection**."
    services="security-center"
@@ -7,13 +7,13 @@
    manager="MBaldwin"
    editor=""/>
 
-<tags
+.<tags
    ms.service="security-center"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/29/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Установка Endpoint Protection в центре безопасности Azure
@@ -32,11 +32,11 @@
 
 4. На экран будут выведены дополнительные сведения о решении защиты от вредоносных программ. Нажмите кнопку **Создать**. ![Создание решения для защиты от вредоносных программ][4]
 
-5. В колонке **Добавление расширения** введите необходимые параметры конфигурации и нажмите кнопку **ОК**. Дополнительные сведения о параметрах конфигурации см. в разделе [Стандартная и настраиваемая конфигурации антивредоносного ПО](../azure-security-antimalware.md#default-and-custom-antimalware-configuration).
+5. В колонке **Добавление расширения** введите необходимые параметры конфигурации и нажмите кнопку **ОК**. Дополнительные сведения о параметрах конфигурации см. в разделе [Стандартная и настраиваемая конфигурации антивредоносного ПО](../security/azure-security-antimalware.md#default-and-custom-antimalware-configuration).
 
 Теперь на выбранных виртуальных машинах включено [антивредоносное ПО Майкрософт](../azure-security-antimalware.md).
 
-## См. также
+## Дополнительные материалы
 
 В этой статье объясняется, как выполнить рекомендацию центра безопасности по установке Endpoint Protection. Чтобы больше узнать о включении программы защиты от вредоносных программ в Azure, см. следующие статьи:
 
@@ -52,10 +52,10 @@
 - [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 - [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
 
-<!--Image references-->
+.<!--Image references-->
 [1]: ./media/security-center-install-endpoint-protection/select-install-endpoint-protection.png
 [2]: ./media/security-center-install-endpoint-protection/install-endpoint-protection-blade.png
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png
 [4]: ./media/security-center-install-endpoint-protection/create-antimalware-solution.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

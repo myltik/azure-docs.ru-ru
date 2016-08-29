@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Преобразование сайта WordPress в мультисайт с помощью службы приложений Azure" 
 	description="Узнайте, как преобразовать существующее веб-приложение WordPress, созданное с помощью коллекции в Azure, в мультисайт WordPress" 
 	services="app-service\web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 
@@ -153,4 +153,4 @@
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,5 +1,5 @@
 
-<properties
+.<properties
     pageTitle="Отправка пользовательского образа для Azure RemoteApp | Microsoft Azure"
     description="Сведения о процессе отправки пользовательского образа для Azure RemoteApp"
     services="remoteapp"
@@ -7,18 +7,21 @@
     authors="ericorman"
     manager="mbaldwin" />
 
-<tags
+.<tags
     ms.service="remoteapp"
     ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/12/2016"
+    ms.date="08/15/2016"
     ms.author="ericor" />
 
 
 
 # Отправка пользовательского образа для Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
 После создания пользовательского образа шаблона или внесения в него изменений необходимо отправить этот образ в библиотеку образов Azure RemoteApp. Выполните следующие действия.
 
@@ -51,4 +54,4 @@
 - Никогда не изменяйте скрипт; для вашего удобства существуют проверки.
 - Если VHD-файл будет заблокирован во время отправки, скопируйте файл или переместите его в новое расположение и повторите попытку отправки. Возможно, какой-то процесс Windows препятствует отправке.
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

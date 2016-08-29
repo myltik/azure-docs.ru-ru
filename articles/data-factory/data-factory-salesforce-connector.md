@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Перемещение данных из Salesforce с помощью фабрики данных | Microsoft Azure"
 	description="Узнайте, как перемещать данные из Salesforce с использованием фабрики данных Azure."
 	services="data-factory"
@@ -29,7 +29,7 @@
 ## Мастер копирования данных
 Самый простой способ создать конвейер, копирующий данные из Salesforce в любое поддерживаемое хранилище-приемник, — использовать мастер копирования данных. В статье [Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных](data-factory-copy-data-wizard-tutorial.md) приведены краткие пошаговые указания по созданию конвейера с помощью мастера копирования данных.
 
-Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+Ниже приведены примеры с определениями JSON, которые можно использовать для создания конвейера с помощью [портала Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) или [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Вы узнаете, как копировать данные из Salesforce в хранилище BLOB-объектов Azure. Однако данные можно копировать в любой из указанных [здесь](data-factory-data-movement-activities.md#supported-data-stores) приемников. Это делается с помощью действия копирования в фабрике данных Azure.
 
 ## Пример копирования данных из Salesforce в большой двоичный объект Azure
 В этом примере данные из Salesforce каждый час копируются в большой двоичный объект Azure. Используемые в этих примерах свойства JSON описаны в разделах после примеров. Данные можно напрямую копировать в любые приемники, указанные в статье о [действиях перемещения данных](data-factory-data-movement-activities.md#supported-data-stores). Для этого применяется действие копирования в фабрике данных Azure.
@@ -44,7 +44,7 @@
 
 **Связанная служба SalesForce**
 
-В этом примере используется связанная служба **Salesforce**. Список свойств, поддерживаемых этой связанной службой, приведен в разделе [Связанная служба Salesforce](#salesforce-linked-service-properties). Инструкции по получению и сбросу маркера безопасности см. в разделе [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности).
+В этом примере используется связанная служба **Salesforce**. Список свойств, поддерживаемых этой связанной службой, приведен в разделе [Свойства связанной службы Salesforce](#salesforce-linked-service-properties). Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности).
 
 	{
 		"name": "SalesforceLinkedService",
@@ -97,11 +97,11 @@
 		}
 	}
 
-Если для параметра **external** задать значение **true**, фабрика данных воспримет этот набор данных как внешний, который создан не в результате какого-либо действия в этой службе.
+Если для параметра **external** задать значение **true**, то фабрика данных воспримет этот набор данных как внешний, который создан не в результате какого-либо действия в этой службе.
 
 > [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.
 
-![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+.![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Выходной набор данных большого двоичного объекта Azure**
 
@@ -179,7 +179,7 @@
 
 > [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.
 
-![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+.![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Свойства связанной службы Salesforce
 
@@ -190,7 +190,7 @@
 | type | Для свойства type нужно задать значение **Salesforce**. | Да |
 | username |Укажите имя пользователя для учетной записи пользователя. | Да |
 | password | Укажите пароль для учетной записи пользователя. | Да |
-| securityToken | Укажите маркер безопасности для учетной записи пользователя. Инструкции по получению и сбросу маркера безопасности см. в разделе [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности). Общие сведения о маркере безопасности см. в разделе [Security and the API](https://developer.salesforce.com/docs/atlas.ru-RU.api.meta/api/sforce_api_concepts_security.htm) (Безопасность и API) | Да |
+| securityToken | Укажите маркер безопасности для учетной записи пользователя. Инструкции по получению и сбросу маркера безопасности см. в статье [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Получение маркера безопасности). Общие сведения о маркере безопасности см. в статье [Security and the API](https://developer.salesforce.com/docs/atlas.ru-RU.api.meta/api/sforce_api_concepts_security.htm) (Безопасность и API). | Да |
 
 ## Свойства типа "Набор данных Salesforce"
 
@@ -219,13 +219,13 @@
 
 > [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.<br> Используйте язык SOQL при указании запроса с использованием предложения **WHERE** в столбце даты и времени. Например, $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd). Или запрос SQL, например, $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
 
-![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+.![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Извлечение данных из отчета Salesforce
 Из отчетов Salesforce можно извлекать данные, указывая запросы в формате {call "<имя\_отчета>"}, например: "query": "{call "TestReport"}".
 
 ## Ограничения запросов Salesforce
-Для Salesforce установлены ограничения на общее число запросов API и одновременных запросов API. Дополнительные сведения см. в разделе API Request Limits (Ограничения запросов API) документа об [ограничениях для разработчика Salesforce](http://resources.docs.salesforce.com/200/20/ru-RU/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
+Для Salesforce установлены ограничения на общее число запросов API и одновременных запросов API. Дополнительные сведения см. в разделе "API Request Limits" (Ограничения запросов API) статьи об [ограничениях для разработчика Salesforce](http://resources.docs.salesforce.com/200/20/ru-RU/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
 
 Если количество одновременных запросов превышает ограничение, выполняется регулирование и возникают случайные ошибки. В случае превышения ограничения на общее число запросов учетная запись Salesforce блокируется на 24 часа. Кроме того, в обоих случаях вы можете получить ошибку REQUEST\_LIMIT\_EXCEEDED.
 
@@ -261,4 +261,4 @@ URL-адрес | Строка
 ## Производительность и настройка  
 См. [руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в котором описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

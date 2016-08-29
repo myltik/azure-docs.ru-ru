@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Конечные точки службы Azure"
     description="Описываются параметры конечных точек службы Azure в наборе средств Azure для Eclipse."
     services=""
@@ -7,13 +7,13 @@
     manager="wpickett"
     editor=""/>
 
-<tags
+.<tags
     ms.service="multiple"
     ms.workload="na"
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268600.aspx -->
@@ -58,8 +58,8 @@
 [Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
-<!-- IMG List -->
+.<!-- IMG List -->
 
 [ic719493]: ./media/azure-toolkit-for-eclipse-azure-service-endpoints/ic719493.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

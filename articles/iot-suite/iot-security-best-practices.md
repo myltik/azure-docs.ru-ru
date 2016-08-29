@@ -1,4 +1,4 @@
-<properties
+.<properties
  pageTitle="Рекомендации по обеспечению безопасности IoT | Microsoft Azure"
  description="Рекомендации по обеспечению безопасности инфраструктуры IoT"
  services=""
@@ -26,10 +26,10 @@
 - [Архитектура безопасности IoT][lnk-security-architecture]
 - [Защита развертывания IoT][lnk-security-deployment]
 
-Вы можете также ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
+Вы также можете ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
 
 - [Обзор предварительно настроенного решения прогнозного обслуживания][lnk-predictive-overview]
-- [Часто задаваемые вопросы об IoT Suite][lnk-faq]
+- [Часто задаваемые вопросы об Azure IoT Suite][lnk-faq]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
@@ -37,4 +37,4 @@
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

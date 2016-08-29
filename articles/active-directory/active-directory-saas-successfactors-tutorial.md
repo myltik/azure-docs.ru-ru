@@ -1,4 +1,4 @@
-<properties 
+.<properties 
     pageTitle="Учебник. Интеграция Azure Active Directory с SuccessFactors | Microsoft Azure"
     description="Узнайте, как использовать SuccessFactors с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого." 
     services="active-directory" 
@@ -11,129 +11,358 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
-#Учебник. Интеграция Azure Active Directory с SuccessFactors
+
+#Руководство. Интеграция Azure Active Directory с SuccessFactors
   
-Цель данного руководства — показать интеграцию Azure и SuccessFactors в **режиме единого входа, инициируемого поставщиком услуг**.  
-Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+Цель этого руководства — показать, как интегрировать приложение SuccessFactors с Azure Active Directory (Azure AD).
 
--   Действующая подписка на Azure
--   Подписка SuccessFactors с поддержкой единого входа в режиме инициирования поставщиком услуг.
-  
-После завершения этого руководства пользователи Azure AD, назначенные SuccessFactors, будут иметь возможность единого входа в приложение на сайте компании SuccessFactors \(вход, инициированный поставщиком услуг\) или с помощью указаний из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
-  
-Сценарий, описанный в этом учебнике, состоит из следующих блоков:
+Интеграция SuccessFactors с Azure AD обеспечивает следующие преимущества.
 
-1.  Включение интеграции приложений для SuccessFactors
-2.  Настройка единого входа
-3.  Настройка подготовки учетных записей пользователей
-4.  Назначение пользователей
+- С помощью Azure AD вы можете контролировать доступ к приложению SuccessFactors.
+- Вы можете включить автоматический вход пользователей в SuccessFactors (единый вход) с использованием учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-![Сценарий](./media/active-directory-saas-successfactors-tutorial/IC791135.png "Сценарий")
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-##Включение интеграции приложений для SuccessFactors
-  
-В этом разделе показано, как включить интеграцию приложений для SuccessFactors.
+## Предварительные требования
 
-###Чтобы включить интеграцию приложений для SuccessFactors, выполните следующие действия:
+Чтобы настроить интеграцию Azure AD с SuccessFactors, вам потребуется:
+
+- Действующая подписка на Azure
+- клиент в SuccessFactors.
+
+
+> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
+
+
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
+
+- Не следует использовать рабочую среду при отсутствии необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+
+
+## Описание сценария
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
+
+Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+
+1. Добавление SuccessFactors из коллекции.
+2. Настройка и проверка единого входа в Azure AD
+
+
+## Добавление SuccessFactors из коллекции
+Чтобы настроить интеграцию SuccessFactors с Azure AD, необходимо добавить SuccessFactors из коллекции в список управляемых приложений SaaS.
+
+**Чтобы добавить SuccessFactors из коллекции, выполните следующие действия.**
 
 1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
-    ![Active Directory](./media/active-directory-saas-successfactors-tutorial/IC700993.png "Active Directory")
+	.![Настройка единого входа][1]
 
 2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Приложения](./media/active-directory-saas-successfactors-tutorial/IC700994.png "Приложения")
+    .![Настройка единого входа][2]
 
 4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Добавление приложения](./media/active-directory-saas-successfactors-tutorial/IC749321.png "Добавление приложения")
+    .![Приложения][3]
 
 5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-successfactors-tutorial/IC749322.png "Добавление приложения из коллекции")
+    .![Настройка единого входа][4]
 
 6.  В **поле поиска** введите **SuccessFactors**.
 
-    ![Коллекция приложений](./media/active-directory-saas-successfactors-tutorial/IC791136.png "Коллекция приложений")
+    .![Настройка единого входа][5]
 
 7.  В области результатов выберите **SuccessFactors** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
-    ![SuccessFactors](./media/active-directory-saas-successfactors-tutorial/IC791137.png "SuccessFactors")
+    .![Настройка единого входа][6]
 
-##Настройка единого входа
-  
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в SuccessFactors со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
-  
-Чтобы настроить единый вход, необходимо обратиться к группе поддержки SuccessFactors.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+##  Настройка и проверка единого входа в Azure AD
+Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в приложении SuccessFactors с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в SuccessFactors соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в SuccessFactors.
+
+Чтобы установить эту связь, следует указать **имя пользователя** в Azure AD в качестве значения **имени пользователя** в SuccessFactors.
+
+Чтобы настроить и проверить единый вход Azure AD в SuccessFactors, вам потребуется выполнить действия, описанные в следующих стандартных блоках.
+
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя SuccessFactors](#creating-a-successfactors-test-user)** требуется для создания пользователя Britta Simon в SuccessFactors, связанного с соответствующим представлением в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### Настройка единого входа в Azure AD
+  
+В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении SuccessFactors.
+
+**Чтобы настроить единый вход Azure AD в SuccessFactors, выполните следующие действия.**
 
 1.  На классическом портале Azure на странице интеграции с приложением **SuccessFactors** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Настройка единого входа](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Настройка единого входа")
+    .![Настройка единого входа][7]
 
 2.  На странице **Как пользователи должны входить в SuccessFactors?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Настройка единого входа](./media/active-directory-saas-successfactors-tutorial/IC791139.png "Настройка единого входа")
+    .![Настройка единого входа][8]
 
 3.  На странице **Настройка URL-адреса приложения** выполните следующие действия, а затем нажмите кнопку **Далее**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Настройка URL-адреса приложения")
+    .![Настройка единого входа][9]
 
-    1.  В текстовое поле **URL-адрес для входа в SuccessFactors** введите URL-адрес, используемый пользователями для входа в приложение SuccessFactors (например, "*https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
-    2.  В текстовом поле **URL-адрес ответа SuccessFactors** введите **https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
+    а. В текстовое поле **URL-адрес для входа** введите URL-адрес в любом из следующих форматов:
 
-        >[AZURE.NOTE] Это только временный заполнитель.
-	 Фактическое значение можно получить у группы поддержки SuccessFactors.  
-	 Далее в этом учебнике вы найдете указания по обращению к группе поддержки SuccessFactors.  
-	 В контексте этого диалога вы получите фактический URL-адрес ответа SuccessFactors.
+	| |
+	| ---                                                        |
+	| `https://<company name>.successfactors.com/<company name>` |
+	| .`https://<company name>.sapsf.com/<company name>` |
+	| .`https://<company name>.successfactors.eu/<company name>` |
+	| .`https://<company name>.sapsf.eu` |
 
-4.  Для скачивания сертификата на странице **Настройка единого входа в SuccessFactors** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
+	b. В текстовое поле **URL-адрес ответа** введите URL-адрес в любом из следующих форматов:
+	
+	| |
+	| ---                                                        |
+	| .`https://<company name>.successfactors.com/<company name>` |
+	| .`https://<company name>.sapsf.com/<company name>` |
+	| .`https://<company name>.successfactors.eu/<company name>` |
+	| .`https://<company name>.sapsf.eu` |
+	| .`https://<company name>.sapsf.eu/<company name>` |
 
-    ![Настройка единого входа](./media/active-directory-saas-successfactors-tutorial/IC791141.png "Настройка единого входа")
+	c. Нажмите кнопку **Далее**.
 
-5.  Чтобы настроить единый вход на основе SAML, обратитесь к группе поддержки SuccessFactors и предоставьте следующее:
 
-    1.  скачанный сертификат;
-    2.  URL-адрес удаленного входа;
-    3.  URL-адрес удаленного выхода.
+    > [AZURE.TIP] Обратите внимание, что значения, указанные выше, используются в качестве примера. Необходимо заменить эти значения на фактические URL-адреса для входа и ответа. Чтобы узнать эти адреса, обратитесь в [службу поддержки SuccessFactors](https://www.successfactors.com/en_us/support.html).
 
-    >[AZURE.IMPORTANT] Попросите группу поддержки SuccessFactors задать для формата NameId значение *Не указан*.
+4.  На странице **Настройка единого входа в SuccessFactors** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
 
-    Группа поддержки Successfactors отправит правильный **URL-адрес ответа Successfactors**, необходимый для диалогового окна **Настройка URL-адреса приложения**.
+    ![Настройка единого входа][10]
 
-6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+5.  В другом окне веб-браузера войдите на **портал администрирования SuccessFactors** с правами администратора.
 
-    ![Настройка единого входа](./media/active-directory-saas-successfactors-tutorial/IC791142.png "Настройка единого входа")
+6.  Откройте раздел **Application Security** (Безопасность приложения) и найдите в нем **функцию единого входа**.
 
-##Настройка подготовки учетных записей пользователей
+7. Введите любое значение в поле **Reset Token** (Сброс маркера) и нажмите кнопку **Save Token** (Сохранить маркер), чтобы включить единый вход SAML.
+
+	![Настройка единого входа на стороне приложения][11]
+
+
+	> [AZURE.NOTE] Это значение используется только как признак включения. Если здесь сохранено любое значение, единый вход SAML включен. Если сохранено пустое значение, единый вход SAML отключен.
+
+8. Перейдите на экран, представленный на снимке ниже, и выполните следующие действия.
+
+	.![Настройка единого входа на стороне приложения][12]
+
+	а. Установите переключатель **SAML v2 SSO** (Единый вход SAML версии 2).
+    
+	b. Задайте имя утверждающей стороны SAML (например, "Издатель SAML + название компании").
+
+	c. В текстовое поле **SAML Issuer** (Издатель SAML) вставьте **URL-адреса издателя** из мастера настройки приложения в Azure AD.
+
+	г) Выберите значение **Response(Customer Generated/IdP/AP)** (Ответ (создается клиентом/IdP/AP)) для параметра **Require Mandatory Signature** (Требуется обязательная подпись).
+
+	д. Выберите значение **Enabled** (Включено) для параметра **Enable SAML Flag** (Включить флаг SAML).
+
+	Е. Выберите значение **No** (Нет) для параметра **Login Request Signature (SF Generated/SP/RP)** (Подпись запроса на вход (создается SF/SP/RP)).
+
+	g. Выберите значение **Browser/Post Profile** (Браузер/пост-профилирование) для параметра **SAML Profile** (Профиль SAML).
+
+	h. Выберите значение **No** (Нет) для параметра **Enforce Certificate Valid Period** (Применять период действия сертификата).
+
+	i. Скопируйте содержимое скачанного файла сертификата и вставьте его в текстовое поле **SAML Verifying Certificate** (Сертификат для проверки SAML).
+
+
+	> [AZURE.NOTE] Содержимое сертификата должно включать открывающий и закрывающий теги сертификата.
+
+9. Перейдите в раздел SAML V2 и выполните следующие действия.
+
+	.![Настройка единого входа на стороне приложения][13]
+
+	а. Выберите значение **Yes** (Да) для параметра **Support SP-initiated Global Logout** (Поддержка глобального выхода, инициированного SP).
+
+	b. В текстовое поле **Global Logout Service URL (LogoutRequest destination)** (URL-адрес службы глобального выхода) вставьте значение **URL-адреса удаленного выхода** из мастера настройки приложения в Azure AD.
+
+	c. Выберите значение **No** (Нет) для параметра **Require sp must encrypt all NameID element** (Требуется шифрование всех элементов NameID на стороне SP).
+
+	г) Выберите значение **unspecified** (Не определено) для параметра **NameID Format** (Формат идентификатора имени).
+
+	д. Выберите значение **Yes** (Да) для параметра **Enable sp initiated login (AuthnRequest)** (Включить вход по требованию SP).
+
+	Е. В текстовое поле **Send request as Company-Wide issuer** (Отправлять запрос как издатель в пределах компании) вставьте **URL-адрес удаленного входа** из мастера настройки приложения в Azure AD.
+
+10.  Чтобы в именах для входа не учитывался регистр, выполните следующие действия.
+	
+	а) Найдите в нижней части экран раздел **Company Settings** (Параметры компании).
+	
+	б) Установите флажок **Enable Non-Case-Sensitive Username** (Имя пользователя без учета регистра).
+
+	в) Щелкните **Save** (Сохранить).
+	
+	.![Настройка единого входа][29]
+
+
+	> [AZURE.NOTE] При попытке включить этот параметр система проверит, не возникнут ли повторяющиеся имена для входа SAML. Предположим, что у клиента есть пользователи с именами User1 и user1. Если отменить учет регистра, эти имена будут считаться одинаковыми. В таком случае система выдаст сообщение об ошибке и параметр не будет включен. Клиенту потребуется изменить одно из таких имен пользователя, чтобы они имели различное написание.
+
+11.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
+
+    ![Приложения][14]
+
+12. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+
+	.![Приложения][15]
+
+
+
+### Создание тестового пользователя Azure AD
+Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
+
+.![Создание пользователя Azure AD][16]
+
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+
+    .![Создание тестового пользователя Azure AD][17]
+
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
+3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
+    
+	.![Создание тестового пользователя Azure AD][18]
+
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+
+    ![Создание тестового пользователя Azure AD][19]
+
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+
+    .![Создание тестового пользователя Azure AD][20]
+
+    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+
+    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
+
+    c. Нажмите кнопку **Далее**.
+
+6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
+    
+	.![Создание тестового пользователя Azure AD][21]
+
+    а. В текстовом поле **Имя** введите **Britta**.
+
+    b. В текстовое поле **Фамилия** введите **Simon**.
+
+    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+
+    г) В списке **Роль** выберите **Пользователь**.
+
+    д. Нажмите кнопку **Далее**.
+
+7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
+    
+	.![Создание тестового пользователя Azure AD][22]
+
+8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
+    
+	.![Создание тестового пользователя Azure AD][23]
+
+    а. Запишите значение поля **Новый пароль**.
+
+    b. Нажмите **Завершено**.
+
+
+
+### Создание тестового пользователя SuccessFactors
   
-Чтобы пользователи Azure AD могли выполнять вход в SuccessFactors, они должны быть подготовлены для работы с SuccessFactors.  
-В случае SuccessFactors подготовка пользователей осуществляется вручную.
+Чтобы пользователи Azure AD могли выполнять вход в SuccessFactors, они должны быть подготовлены для работы с SuccessFactors. В случае SuccessFactors подготовка пользователей осуществляется вручную.
   
-Чтобы создать пользователей в SuccessFactors, необходимо обратиться к группе поддержки SuccessFactors.
+Чтобы создать пользователей в SuccessFactors, необходимо обратиться в [службу поддержки SuccessFactors](https://www.successfactors.com/en_us/support.html).
 
-##Назначение пользователей
-  
-Чтобы проверить свою конфигурацию, предоставьте доступ пользователям Azure AD, которым нужно разрешить работу с приложением, назначив их.
 
-###Чтобы назначить пользователей SuccessFactors, выполните следующие действия:
 
-1.  На классическом портале Azure создайте тестовую учетную запись.
+### Назначение тестового пользователя Azure AD
 
-2.  На странице интеграции с приложением **SuccessFactors** нажмите кнопку **Назначить пользователей**.
+Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к SuccessFactors.
+	
+![Назначение пользователя][24]
 
-    ![Назначить пользователей](./media/active-directory-saas-successfactors-tutorial/IC791143.png "Назначить пользователей")
+**Чтобы назначить пользователя Britta Simon в SuccessFactors, выполните следующие действия:**
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
+    
+	![Назначение пользователя][25]
 
-    ![Да](./media/active-directory-saas-successfactors-tutorial/IC767830.png "Да")
-  
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+2. Из списка приложений выберите **SuccessFactors **.
+    
+	![Настройка единого входа][26]
 
-<!---HONumber=AcomDC_0629_2016-->
+3. В меню в верхней части страницы щелкните **Пользователи**.
+    
+	.![Назначение пользователя][27]
+
+4. В списке пользователей выберите **Britta Simon**.
+
+5. На панели инструментов внизу щелкните **Назначить**.
+    
+	.![Назначение пользователя][28]
+
+
+
+### Проверка единого входа
+
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+ 
+Щелкнув плитку SuccessFactors на панели доступа, вы автоматически войдете в приложение SuccessFactors.
+
+
+## Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+
+.<!--Image references-->
+
+[0]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_00.png
+[1]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_04.png
+[5]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_01.png
+[6]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_02.png
+[7]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_03.png
+[8]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_04.png
+[9]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_05.png
+[10]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_06.png
+
+[11]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_07.png
+[12]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_08.png
+[13]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_09.png
+[14]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_05.png
+[15]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_06.png
+
+[16]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_00.png
+[17]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_01.png
+[18]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_02.png
+[19]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_03.png
+[20]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_04.png
+[21]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_05.png
+[22]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_06.png
+[23]: ./media/active-directory-saas-successfactors-tutorial/create_aaduser_07.png
+
+[24]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_07.png
+[25]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_08.png
+[26]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_11.png
+[27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
+[28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
+[29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
+
+<!---HONumber=AcomDC_0817_2016-->

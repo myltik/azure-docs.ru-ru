@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Управление кластерами Hadoop с помощью CLI Azure | Microsoft Azure"
 	description="Использование CLI Azure для управления кластерами Hadoop в HDInsight."
 	services="hdinsight"
@@ -8,13 +8,13 @@
 	tags="azure-portal"
 	documentationCenter=""/>
 
-<tags
+.<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure
@@ -37,7 +37,7 @@
 
 		azure login
 
-	Дополнительную информацию об аутентификации с помощью рабочей или учебной учетной записи см. в разделе [Подключение к подписке Azure через интерфейс командной строки Azure](xplat-cli-connect.md).
+	Дополнительную информацию об аутентификации с помощью рабочей или учебной учетной записи см. в разделе [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](xplat-cli-connect.md).
 	
 - **Переключитесь в режим диспетчера ресурсов Azure** с помощью следующей команды.
 
@@ -113,4 +113,4 @@
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Отображение кластеров"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

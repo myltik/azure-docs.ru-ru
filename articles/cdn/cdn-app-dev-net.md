@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Приступая к работе с библиотекой Azure CDN для .NET | Microsoft Azure"
 	description="Узнайте, как с помощью Visual Studio создавать приложения .NET для управления Azure CDN."
 	services="cdn"
@@ -22,9 +22,9 @@
 - [.NET](cdn-app-dev-net.md)
 - [Node.js](cdn-app-dev-node.md)
 
-С помощью [библиотеки Azure CDN для .NET](https://msdn.microsoft.com/library/mt657769.aspx) можно автоматизировать создание профилей и конечных точек CDN и управление ими. В этом учебнике описывается создание простого консольного приложения .NET, которое демонстрирует некоторые из доступных операций. Данный учебник не содержит подробных сведений о всех аспектах библиотеки Azure CDN для .NET.
+С помощью [библиотеки Azure CDN для .NET](https://msdn.microsoft.com/library/mt657769.aspx) можно автоматизировать создание профилей и конечных точек CDN и управление ими. В этом руководстве описывается создание простого консольного приложения .NET, которое демонстрирует некоторые из доступных операций. Данный учебник не содержит подробных сведений о всех аспектах библиотеки Azure CDN для .NET.
 
-Для работы с этим учебником требуется Visual Studio 2015. Вы можете бесплатно скачать выпуск [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx).
+Для работы с этим руководством требуется Visual Studio 2015. Вы можете бесплатно скачать выпуск [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx).
 
 > [AZURE.TIP] [Завершенный проект из этого учебника](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) доступен для скачивания на сайте MSDN.
 
@@ -287,7 +287,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 }
 ```
 
->[AZURE.NOTE] В приведенном выше примере строка `/*` означает, что я хочу очистить все содержимое в корне конечной точки. Аналогичный результат даст установка флажка **Очистить все** в диалоговом окне "Очистить" на портале Azure. В методе `CreateCdnProfile` я создал профиль **Azure CDN от Verizon** с помощью кода `Sku = new Sku(SkuName.StandardVerizon)`, поэтому операция будет выполнена успешно. Однако профили **Azure CDN от Akamai** не поддерживают функцию **Очистить все**. Если бы я использовал в этом руководстве профиль Akamai, мне пришлось бы указать конкретные расположения, в которых нужно выполнить очистку.
+>[AZURE.NOTE] В приведенном выше примере строка `/*` означает, что я хочу очистить все содержимое в корне конечной точки. Этот тоже самое, что установить флажок **Очистить все** в диалоговом окне "Очистить" на портале Azure. В методе `CreateCdnProfile` я создал профиль **Azure CDN от Verizon** с помощью кода `Sku = new Sku(SkuName.StandardVerizon)`, поэтому операция будет выполнена успешно. Однако профили **Azure CDN от Akamai** не поддерживают функцию **Очистить все**. Если бы я использовал в этом руководстве профиль Akamai, мне пришлось бы указать конкретные расположения, в которых нужно выполнить очистку.
 
 ## Удаление профилей CDN и конечных точек
 
@@ -321,11 +321,11 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 Теперь можно скомпилировать и запустить программу, нажав в Visual Studio кнопку **Запустить**.
 
-![Выполнение программы](./media/cdn-app-dev-net/cdn-program-running-1.png)
+.![Выполнение программы](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
 Когда программа дойдет до упомянутого выше запроса, вы сможете вернуться к группе ресурсов на портале Azure и увидеть, что профиль создан.
 
-![Готово!](./media/cdn-app-dev-net/cdn-success.png)
+.![Готово!](./media/cdn-app-dev-net/cdn-success.png)
 
 Затем мы можем подтвердить запросы, чтобы была выполнена оставшаяся часть программы.
 
@@ -337,4 +337,6 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 Чтобы найти дополнительную документацию по библиотеке управления Azure CDN для .NET, воспользуйтесь [справкой на сайте MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
-<!---HONumber=AcomDC_0803_2016-->
+Управление ресурсами CDN с помощью [PowerShell](./cdn-manage-powershell.md).
+
+<!---HONumber=AcomDC_0817_2016-->

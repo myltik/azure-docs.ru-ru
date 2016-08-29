@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Добавление проверки подлинности в Apache Cordova с помощью мобильных приложений | Служба приложений Azure"
 	description="Узнайте, как использовать мобильные приложения в службе приложений Azure для аутентификации пользователей приложения Apache Cordova с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
 	services="app-service\mobile"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности в приложение Apache Cordova
@@ -112,4 +112,4 @@
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

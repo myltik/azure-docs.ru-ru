@@ -1,4 +1,4 @@
-<properties
+.<properties
  pageTitle="Обеспечение комплексной безопасности в Интернете вещей | Microsoft Azure"
  description="В этой статье описываются встроенные средства обеспечения безопасности Microsoft Azure IoT Suite."
  services=""
@@ -8,13 +8,13 @@
  manager="timlt"
  editor=""/>
 
-<tags
+.<tags
  ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="08/02/2016"
+ ms.date="08/16/2016"
  ms.author="yurid"/>
 
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
@@ -31,7 +31,7 @@
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-Вы можете также ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
+Вы также можете ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
 
 - [Обзор предварительно настроенного решения прогнозного обслуживания][lnk-predictive-overview]
 - [Часто задаваемые вопросы об IoT Suite][lnk-faq]
@@ -39,4 +39,4 @@
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

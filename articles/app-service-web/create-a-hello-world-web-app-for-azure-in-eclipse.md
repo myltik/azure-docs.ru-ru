@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Создание веб-приложения Hello World для Azure в Eclipse" 
 	description="В этом учебнике показано, как с помощью набора средств Azure для Eclipse создать веб-приложение Hello World для Azure." 
 	services="app-service\web" 
@@ -7,13 +7,13 @@
 	manager="wpickett" 
 	editor=""/>
 
-<tags 
+.<tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Создание веб-приложения Hello World для Azure в Eclipse
@@ -75,7 +75,7 @@
     ![][04]
    
     Примечание. При наличии нескольких учетных записей Azure некоторые запросы во время входа в систему могут отображаться несколько раз, даже если они выглядят одинаковыми. Если это происходит, выполните вход.
-1. После успешного входа в учетную запись Azure в диалоговом окне **Manage Subscriptions** (Управление подписками) будет показан список подписок, связанных с вашими учетными данными. Если в списке есть несколько подписок и вы хотите работать только с определенным набором подписок, можете снять флажки с тех, которые не хотите использовать. После выбора подписок щелкните **Close** (Закрыть).
+1. После успешного входа в учетную запись Azure в диалоговом окне **Управление подписками** отобразится список подписок, связанных с вашими учетными данными. Если список содержит несколько подписок и вы будете работать только с некоторыми из них, снимите флажки с подписок, которые не будете использовать. После выбора подписок щелкните **Закрыть**.
 
     ![][05]
    
@@ -203,13 +203,13 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- URL List -->
+.<!-- URL List -->
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
-<!-- IMG List -->
+.<!-- IMG List -->
 
 [01]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/01-Web-Page.png
 [02]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/02-Dynamic-Web-Project.png
@@ -226,4 +226,4 @@
 [13]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/13-Azure-Explorer-Web-App.png
 [14]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/publishDropdownButton.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

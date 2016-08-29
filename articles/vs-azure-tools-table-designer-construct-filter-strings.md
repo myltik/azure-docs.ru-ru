@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Построение строк фильтра для конструктора таблиц | Microsoft Azure"
    description="Построение строк фильтра для конструктора таблиц"
    services="visual-studio-online"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/18/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Построение строк фильтра для конструктора таблиц
@@ -99,4 +99,4 @@
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

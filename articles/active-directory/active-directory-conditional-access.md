@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Условный доступ в Azure Active Directory | Microsoft Azure"  
     description="Используя управление условным доступом при проверке подлинности пользователя и перед предоставлением ему доступа к приложению Azure Active Directory проверяет определенные условия, которые вы можете выбрать. Если эти условия выполняются, пользователь проходит проверку подлинности, и ему дается доступ к приложению."  
     services="active-directory" 
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/08/2016"
+	ms.date="08/17/2016"
 	ms.author="markvi"/>
 
 
@@ -105,11 +105,13 @@
 - [Поддержка условного доступа для приложений](active-directory-conditional-access-supported-apps.md)
 
 
-### Политики устройств
+### Условный доступ на основе устройств
 
 - [Настройка политики условного доступа на основе устройств Azure Active Directory для контроля доступа к подключаемым приложениям Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
 
 - [Настройка автоматической регистрации в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration-setup.md)
+
+- [Получение доступа к защищенным приложениям, в которых используется условный доступ на основе устройств Azure AD](active-directory-conditional-access-device-remediation.md)
 
 - [Защита данных посредством полной или выборочной очистки с помощью Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
@@ -123,4 +125,4 @@
 - [Часто задаваемые вопросы по условному доступу](active-directory-conditional-faqs.md)
 - [Технический справочник: условный доступ к приложениям Azure AD](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

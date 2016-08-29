@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Что произошло с моим проектом ASP.NET? | Microsoft Azure | Подключенные службы Visual Studio"
 	description="Сведения о том, что происходит после добавления службы хранилища Azure в проект ASP.NET с помощью подключенных служб Visual Studio"
 	services="storage"
@@ -7,13 +7,13 @@
 	manager="douge"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="web"
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Что произошло с моим проектом ASP.NET (подключенными к службе хранилища Azure службами Visual Studio)?
@@ -36,4 +36,4 @@
 
 Дополнительные сведения см. в разделе [ASP.NET](http://www.asp.net).
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

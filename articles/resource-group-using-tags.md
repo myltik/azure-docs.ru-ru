@@ -1,11 +1,11 @@
-<properties
+.<properties
 	pageTitle="Использование тегов для организации ресурсов Azure | Microsoft Azure"
 	description="Здесь описано, как применить теги, чтобы организовать ресурсы для выставления счетов и управления."
 	services="azure-resource-manager"
 	documentationCenter=""
 	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/16/2016"
 	ms.author="tomfitz"/>
 
 
@@ -88,104 +88,7 @@
 
 ## PowerShell
 
-Существующие теги находятся непосредственно в ресурсах и группах ресурсов. Чтобы просмотреть существующие теги, просто запросите сведения о ресурсе или группе ресурсов с помощью командлетов **Get-AzureRmResource** и **Get-AzureRmResourceGroup**. Давайте начнем с группы ресурсов.
-
-    Get-AzureRmResourceGroup -Name tag-demo-group
-
-Этот командлет возвращает небольшой объем метаданных о группе ресурсов, включая информацию о примененных тегах, если они есть.
-
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name         Value
-                    ===========  ==========
-                    Dept         Finance
-                    Environment  Production
-
-При получении метаданных для ресурса теги не отображаются напрямую.
-
-    Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
-
-В результатах вы увидите, что теги отображаются только как объект Hashtable.
-
-    Name              : tfsqlserver
-    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
-    ResourceName      : tfsqlserver
-    ResourceType      : Microsoft.Sql/servers
-    Kind              : v12.0
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    SubscriptionId    : {guid}
-    Tags              : {System.Collections.Hashtable}
-
-Чтобы просмотреть реальные теги, нужно извлечь свойство **Tags**.
-
-    (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
-   
-Отобразятся форматированные результаты:
-    
-    Dept: Finance
-    Environment: Production
-
-Вместо просмотра тегов для конкретного ресурса или группы ресурсов часто требуется получить все ресурсы или группы ресурсов с определенным тегом и значением. Чтобы получить ресурсы или группы ресурсов с определенным тегом, используйте командлет **Find-AzureRmResourceGroup** с параметром **-Tag**.
-
-    Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
-    
-Отобразятся имена групп ресурсов с таким значением тега.
-   
-    tag-demo-group
-    web-demo-group
-
-Чтобы получить все ресурсы с определенным тегом и значением, используйте командлет **Find-AzureRmResource**.
-
-    Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
-    
-Отобразятся имена ресурсов с таким значением тега.
-    
-    tfsqlserver
-    tfsqldatabase
-
-Чтобы добавить тег к группе ресурсов, в которой отсутствуют теги, просто воспользуйтесь командой **Set-AzureRmResourceGroup** и укажите объект тега.
-
-    Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
-
-Отобразится группа ресурсов с новыми значениями тегов.
-
-    ResourceGroupName : test-group
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name          Value
-                    =======       =====
-                    Dept          IT
-                    Environment   Test
-                    
-С помощью команды **Set-AzureRmResource** можно добавить теги к ресурсу, который не содержит теги.
-
-    Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
-
-При этом обновляются все теги. Чтобы добавить один тег к ресурсу, который уже содержит теги, используйте массив для сохранения всех необходимых тегов. Сначала выберите существующие теги, добавьте в этот набор новый тег и повторно примените все теги.
-
-    $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
-    $tags += @{Name="status";Value="approved"}
-    Set-AzureRmResourceGroup -Name test-group -Tag $tags
-
-Чтобы удалить тег, достаточно сохранить массив без него.
-
-Для ресурсов этот процесс аналогичен, за исключением того, что используются командлеты **Get-AzureRmResource** и **Set-AzureRmResource**.
-
-Чтобы получить список всех тегов в подписке с помощью PowerShell, используйте командлет **Get-AzureRmTag**.
-
-    Get-AzureRmTag
-    Name                      Count
-    ----                      ------
-    env                       8
-    project                   1
-
-Вы можете увидеть теги, начинающиеся с hidden- и link:. Это внутренние теги, которые вы должны игнорировать. Изменять их не следует.
-
-С помощью командлета **New-AzureRmTag** в таксономию можно добавлять новые теги. Эти теги включаются в автозаполнение, даже если они еще не были применены для ресурсов или групп ресурсов. Чтобы удалить имя или значение тега, сначала необходимо удалить тег из всех ресурсов, в которых он может применяться, а затем воспользоваться командлетом **Remove-AzureRmTag** для удаления тега из таксономии.
+[AZURE.INCLUDE [resource-manager-tag-resources](../includes/resource-manager-tag-resources-powershell.md)]
 
 ## Инфраструктура CLI Azure
 
@@ -281,4 +184,4 @@
 - Основные сведения об использовании Azure CLI для развертывания ресурсов см. в статье [Использование Azure CLI для Mac, Linux и Windows со службой управления ресурсами Azure](./xplat-cli-azure-resource-manager.md).
 - Общие сведения об использовании портала см. в статье [Управление ресурсами Azure с помощью портала Azure](./azure-portal/resource-group-portal.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

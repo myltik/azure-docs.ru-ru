@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Модель приложений Service Fabric | Microsoft Azure"
    description="Описание моделирования и описания приложений и служб в Service Fabric."
    services="service-fabric"
@@ -7,13 +7,13 @@
    manager="timlt"
    editor="mani-ramaswamy"/>
 
-<tags
+.<tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"   
+   ms.date="08/10/2016"   
    ms.author="seanmck"/>
 
 # Моделирование приложения в структуре службы
@@ -243,7 +243,7 @@ PS D:\temp>
 
 [Запуск от имени: запуск приложения Service Fabric с использованием различных разрешений безопасности][12]
 
-<!--Image references-->
+.<!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
@@ -254,4 +254,4 @@ PS D:\temp>
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

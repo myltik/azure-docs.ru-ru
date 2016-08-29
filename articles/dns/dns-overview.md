@@ -1,4 +1,4 @@
-<properties 
+.<properties 
    pageTitle="Обзор Azure DNS | Microsoft Azure" 
    description="Обзор служб размещения Azure DNS в Microsoft Azure. Размещение домена в Microsoft Azure." 
    services="dns" 
@@ -7,13 +7,13 @@
    manager="carmonm" 
    editor=""/>
 
-<tags
+.<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # Обзор Azure DNS
@@ -38,4 +38,4 @@ Azure DNS в настоящее время не поддерживает при�
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->
