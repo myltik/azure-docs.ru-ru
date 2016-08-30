@@ -1,52 +1,42 @@
-1. Войдите на классический портал Azure.
+1. Войдите на [портал Azure][].
 
-2. На портале в области навигации слева щелкните элемент **Служебная шина**.
+2. В левой области навигации на портале щелкните **Создать**, **Интеграция Enterprise**, **Служебная шина**.
 
-3. На портале на панели внизу нажмите кнопку **Создать**.
+4. В диалоговом окне **Создание пространства имен** укажите имя пространства имен. Система немедленно проверяет, доступно ли оно.
 
-    ![Нажмите кнопку "Создать"][select-create]
-   
-4. В диалоговом окне**Добавление нового пространства имен** введите имя пространства имен. Система немедленно проверяет, доступно ли оно.
+5. Убедившись, что пространство имен доступно, выберите ценовую категорию: "Базовый", "Стандартный" или "Премиум".
 
-    ![Имя пространства имен][namespace-name]
-  
-5. Проверив доступность имени пространства имен, выберите страну или регион, где должно размещаться это пространство имен.
+7. Выберите **подписку** Azure, в рамках которой будет создано пространство имен.
 
-6. Оставьте в остальных полях диалогового окна значения по умолчанию (**Обмен сообщениями** и **Уровень Standard**), а затем щелкните значок галочки (кнопка «ОК»). Теперь система создает пространство имен и включает его. Вероятно, придется подождать несколько минут, пока система не выделит ресурсы для вашей учетной записи.
+9. Выберите существующую **группу ресурсов**, в которую будет включено это пространство имен, или создайте новую.
+
+8. Укажите **расположение** — страну или регион для размещения пространства имен.
+
+	![Создание пространства имен][create-namespace]
+
+6. Нажмите кнопку **Создать**. Теперь система создает пространство имен и включает его. Возможно, вам придется подождать несколько минут, пока система выделит ресурсы для вашей учетной записи.
  
-    ![Успешно создано][created-successfully]
+### Получение учетных данных управления
 
-###Получение учетных данных
-1. В левой области навигации щелкните узел **Служебная шина**, чтобы отобразить список доступных пространств имен.
+1. В списке пространств имен щелкните имя только что созданного пространства имен.
  
-    ![Выберите служебную шину][select-service-bus]
-  
-2. Выберите пространство имен, которое вы только что создали из появившегося списка:
- 
-    ![Выберите пространство имен][select-namespace]
- 
-3. Нажмите кнопку **Сведения о подключении**
+3. В колонке **Пространство имен служебной шины** щелкните **Политики общего доступа**.
 
-    ![Сведения о подключении][connection-information]
-  
-4. В области **Сведения о доступе к подключению** найдите строку подключения, которая содержит ключ SAS и имя ключа.
+4. В колонке **Политики общего доступа** щелкните **RootManageSharedAccessKey**.
 
-    ![Сведения о доступе к подключению][access-connection-information]
-  
-5. Запишите ключ или скопируйте его в буфер обмена.
+	![Сведения о подключении][connection-info]
 
-<!--Image references-->
+5. В колонке **Политика: RootManageSharedAccessKey** нажмите кнопку копирования рядом с полем **Строка подключения — первичный ключ**, чтобы скопировать строку подключения в буфер обмена для последующего использования.
 
-[select-create]: ./media/service-bus-create-namespace-portal/select-create.png
-[namespace-name]: ./media/service-bus-create-namespace-portal/namespace-name.png
-[created-successfully]: ./media/service-bus-create-namespace-portal/created-successfully.png
-[select-service-bus]: ./media/service-bus-create-namespace-portal/select-service-bus.png
-[select-namespace]: ./media/service-bus-create-namespace-portal/select-namespace.png
-[connection-information]: ./media/service-bus-create-namespace-portal/connection-information.png
-[access-connection-information]: ./media/service-bus-create-namespace-portal/access-connection-information.png
+	![Строка подключения][connection-string]
 
+.<!--Image references-->
+
+[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
+[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[classic-portal]: https://manage.windowsazure.com
+[портал Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

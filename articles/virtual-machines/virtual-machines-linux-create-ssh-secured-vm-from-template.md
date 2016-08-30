@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание защищенной виртуальной машины Linux с помощью шаблона Azure | Microsoft Azure"
-	description="Создание в Azure защищенной виртуальной машины Linux с помощью шаблона Azure Resource Manager."
+	pageTitle="Создание виртуальной машины Linux с помощью шаблона Azure | Microsoft Azure"
+	description="Создание в Azure виртуальной машины Linux с помощью шаблона Azure Resource Manager."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="vlivech"
@@ -14,44 +14,52 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/27/2016"
+	ms.date="08/17/2016"
 	ms.author="v-livech"/>
 
-# Создание защищенной виртуальной машины Linux с помощью шаблона Azure
+# Создание виртуальной машины Linux с помощью шаблона Azure
 
-Создать виртуальную машину Linux на основе шаблона, можно с помощью [Azure CLI](../xplat-cli-install.md) в режиме диспетчера ресурсов (`azure config mode arm`).
+Из этой статьи вы узнаете, как быстро развернуть в Azure виртуальную машину Linux с помощью шаблона Azure. Для работы с этой статьей вам потребуется учетная запись Azure ([получите бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/)) и [интерфейс командной строки Azure](../xplat-cli-install.md) с выполненным входом (`azure login`) в режиме Resource Manager (`azure config mode arm`). Кроме того, вы можете быстро развернуть виртуальную машину Linux с помощью [портала Azure](virtual-machines-linux-quick-create-portal.md) или [интерфейса командной строки Azure](virtual-machines-linux-quick-create-cli.md).
 
 ## Краткая сводка по командам
 
 ```bash
-chrisl@fedora$ azure group create -n <exampleRGname> -l <exampleAzureRegion> [--template-uri <URL> | --template-file <path> | <template-file> -e <parameters.json file>]
+azure group create \
+-n quicksecuretemplate \
+-l eastus \
+--template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
 ## Подробное пошаговое руководство
 
-Шаблоны позволяют создавать виртуальные машины в Azure с параметрами, которые требуется настроить во время запуска, такими как имена пользователей и имена узлов. В этой статье мы сосредоточимся на запуске виртуальной машины Ubuntu с помощью шаблона Azure, который создает группу безопасности сети (NSG) только с одним открытым портом (порт 22 для SSH) и требует наличия ключей SSH для входа в систему.
+Шаблоны позволяют создавать виртуальные машины в Azure с параметрами, которые можно настроить во время запуска, включая имена пользователей и имена узлов. В этой статье мы запустим шаблон Azure с использованием виртуальной машины Ubuntu и группы безопасности сети (NSG) с портом 22, открытым для SSH.
 
-Шаблоны Azure Resource Manager — это JSON-файлы, которые можно использовать для простых одноразовых задач (таких, как запуск виртуальной машины Ubuntu, как в этой статье) или для создания сложных конфигураций для целых сред, например тестовых развертываний, рабочих развертываний или развертываний для разработки — от сети до ОС и развертывания стека приложений.
+Шаблоны Azure Resource Manager — это JSON-файлы, которые можно использовать для простых задач, таких как однократный запуск виртуальной машины Ubuntu, как в нашем примере. Шаблоны Azure можно также использовать при создании сложных конфигураций Azure на уровне среды (для сред тестирования и разработки, а также для стеков развертывания в рабочих средах).
 
 ## Создание виртуальной машины Linux
 
 В следующем примере кода показано, как вызвать `azure group create`, чтобы одновременно создать группу ресурсов и развернуть виртуальную машину Linux, защищенную с помощью SSH, используя [этот шаблон Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). Помните, что в данном примере необходимо использовать имена, уникальные для вашей среды. В этом примере `quicksecuretemplate` используется как имя группы ресурсов, `securelinux` — как имя виртуальной машины и `quicksecurelinux` — как имя поддомена.
 
 ```bash
-chrisl@fedora$ azure group create -n quicksecuretemplate -l eastus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+azure group create \
+-n quicksecuretemplate \
+-l eastus \
+--template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+```
+
+Выходные данные
+
+```bash
 info:    Executing command group create
 + Getting resource group quicksecuretemplate
 + Creating resource group quicksecuretemplate
 info:    Created resource group quicksecuretemplate
 info:    Supply values for the following parameters
-adminUserName: ops
-sshKeyData: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDRZ/XB8p8uXMqgI8EoN3dWQw... user@contoso.com
-dnsLabelPrefix: quicksecurelinux
-vmName: securelinux
+sshKeyData: ssh-rsa AAAAB3Nza<..ssh public key text..>VQgwjNjQ== vlivech@azure
 + Initializing template configurations and parameters
 + Creating a deployment
 info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/<guid>/resourceGroups/quicksecuretemplate
+data:    Id:                  /subscriptions/<..subid text..>/resourceGroups/quicksecuretemplate
 data:    Name:                quicksecuretemplate
 data:    Location:            eastus
 data:    Provisioning State:  Succeeded
@@ -60,10 +68,10 @@ data:
 info:    group create command OK
 ```
 
-Вы можете создать новую группу ресурсов и развернуть виртуальную машину с помощью параметра `--template-uri` либо скачать или создать шаблон локально и передать его с помощью параметра `--template-file` с путем к файлу шаблона в качестве аргумента. Azure CLI запрашивает параметры, необходимые для шаблона.
+В этом примере виртуальная машина развертывается с помощью параметра `--template-uri`. Вы также можете скачать или создать шаблон локально, а затем передать его с помощью параметра `--template-file`, указав в качестве аргумента путь к файлу шаблона. Azure CLI запрашивает параметры, необходимые для шаблона.
 
 ## Дальнейшие действия
 
-После создания виртуальных машин Linux с помощью шаблонов вы можете узнать, какие другие платформы приложений доступны для использования с шаблонами. В [коллекции шаблонов](https://azure.microsoft.com/documentation/templates/) вы сможете найти платформы приложений для дальнейшего развертывания.
+В [коллекции шаблонов](https://azure.microsoft.com/documentation/templates/) вы сможете найти другие платформы приложений для развертывания.
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

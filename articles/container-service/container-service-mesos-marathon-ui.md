@@ -73,7 +73,7 @@ Host Port (Порт узла) | 80
 
 ![Пользовательский интерфейс главной страницы Marathon: состояние развертывания контейнера](media/dcos/dcos7.png)
 
-При переключении обратно в пользовательский веб-интерфейс DC/OS (http://localhost/)) вы увидите, что задача (в нашем случае это контейнер в формате Docker) выполняется в кластере DC/OS.
+При переключении обратно в пользовательский веб-интерфейс DC/OS (http://localhost/) вы увидите, что задача (в нашем случае это контейнер в формате Docker) выполняется в кластере DC/OS.
 
 ![Пользовательский веб-интерфейс DC/OS: выполнение задачи в кластере](media/dcos/dcos8.png)
 
@@ -97,4 +97,8 @@ Host Port (Порт узла) | 80
 
 - [Работа с API для Marathon и API для DC/OS](container-service-mesos-marathon-rest.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+Подробное изучение службы контейнеров Azure с Mesos
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+
+<!---HONumber=AcomDC_0824_2016-->

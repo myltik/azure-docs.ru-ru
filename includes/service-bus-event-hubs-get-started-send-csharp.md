@@ -1,4 +1,4 @@
-## Отправка сообщений концентраторам событий
+## Отправка сообщений в центры событий
 
 В этом разделе создается консольное приложение Windows для отправки событий в концентратор событий.
 
@@ -12,7 +12,7 @@
 
 	![][8]
 
-	После этого будут выполнены скачивание, установка и добавление ссылки на <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">пакет NuGet библиотеки служебной шины Azure</a>.
+	Visual Studio скачает, установит и добавит ссылку на [пакет NuGet библиотеки служебной шины Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
 4. Добавьте следующие инструкции `using` в начало файла **Program.cs**:
 
@@ -69,3 +69,5 @@
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="06/07/2016"
+    ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
 # Начало работы с очередями служебной шины
@@ -46,7 +46,7 @@
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2\. Создание очереди с помощью портала Azure
+## 2) Создание очереди с помощью портала Azure
 
 Если у вас уже есть очередь служебной шины, приступайте к [отправке сообщений в очередь](#3-send-messages-to-the-queue).
 
@@ -111,13 +111,13 @@
     }
     ```
   
-3. Запустите программу и откройте классический портал Azure. Обратите внимание, что **длина очереди** теперь должна иметь значение 1.
+3. Запустите программу и проверьте портал Azure. Щелкните имя очереди в колонке **Обзор** пространства имен. Обратите внимание, что значение параметра **Количество активных сообщений** должно равняться единице.
     
-      ![Длина очереди][queue-length-send]
+      ![Количество сообщений][queue-message]
     
 ## 4\. Получение сообщений из очереди
 
-1. Создайте консольное приложение и добавьте ссылку на пакет NuGet служебной шины в соответствии с инструкциями для передающего приложения (см. выше).
+1. Создайте консольное приложение и добавьте ссылку на пакет NuGet служебной шины в соответствии с инструкциями для предыдущего приложения-отправителя.
 
 2. Добавьте следующую инструкцию `using` в начало файла Program.cs.
   
@@ -173,7 +173,7 @@
   
 4. Запустите программу и проверьте портал. Обратите внимание, что **длина очереди** теперь должна иметь значение 0.
 
-    ![Длина очереди][queue-length-receive]
+    ![Длина очереди][queue-message-receive]
   
 Поздравляем! Вы создали очередь, а также отправили и получили сообщение.
 
@@ -184,12 +184,12 @@
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

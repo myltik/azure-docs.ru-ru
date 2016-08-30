@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/09/2016"
+	ms.date="08/17/2016"
 	ms.author="sstein;carlrab" />
 
 # Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL
@@ -25,21 +25,18 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-В этой статье описано, как подключиться к базе данных Azure SQL с помощью последней версии SQL Server Management Studio (SSMS) и выполнить простой запрос, используя инструкции Transact-SQL (T-SQL).
-
-[AZURE.INCLUDE [Вход](../../includes/azure-getting-started-portal-login.md)]
+Из этой статьи вы узнаете, как подключиться к базе данных SQL Azure с помощью SQL Server Management Studio (SSMS). После успешного подключения нужно запустить простой запрос Transact-SQL (T-SQL), чтобы проверить соединение с базой данных.
 
 [AZURE.INCLUDE [Установка SSMS](../../includes/sql-server-management-studio-install.md)]
 
 [AZURE.INCLUDE [Подключение SSMS](../../includes/sql-database-sql-server-management-studio-connect-server-principal.md)]
 
-Дополнительные сведения о правилах брандмауэра см. в статье [Практическое руководство. Настройка параметров брандмауэра для базы данных SQL с помощью портала Azure](sql-database-configure-firewall-settings.md).
 
 ## Запуск образцов запросов
 
-Установив подключение к логическому серверу, можно подключиться к базе данных и выполнить образец запроса.
+Установив подключение к серверу, можно подключиться к базе данных и выполнить образец запроса. Если вы новичок и еще не знаете, как писать запросы, см. статью [Tutorial: Writing Transact-SQL Statements](https://msdn.microsoft.com/library/ms365303.aspx) (Учебник. Создание инструкций Transact-SQL).
 
-1. В **обозревателе объектов** перейдите к базе данных на сервере, на доступ к которой у вас есть разрешение (например, к примеру базы данных **AdventureWorks**).
+1. В **обозревателе объектов** перейдите к базе данных на сервере, например к базе данных **AdventureWorks**.
 2. Щелкните правой кнопкой мыши базу данных и выберите **Создать запрос**.
 
 	![Новый запрос Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
@@ -54,7 +51,7 @@
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Нажмите кнопку **Выполнить**. На следующем снимке экрана показан успешный запрос.
+4. Нажмите кнопку **Выполнить**.
 
 	![Успешно. Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
@@ -64,6 +61,8 @@
 
 Если вы не знакомы с T-SQL, см. [Руководство по написанию инструкций Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) и [Справочник по Transact-SQL (ядро СУБД)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-Сведения о том, как создавать пользователей и администраторов базы данных см. в статье [SQL Database tutorial: Create SQL database user accounts to access and manage a database using the Azure portal](sql-database-get-started-security.md) (Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure).
+Сведения о том, как создавать пользователей и администраторов базы данных, см. в статье [Руководство по базам данных SQL: создание учетных записей пользователей базы данных SQL для доступа к базе данных и управления ею с помощью портала Azure](sql-database-get-started-security.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+Дополнительные сведения о решении SSMS см. в статье [Use SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (Использование SQL Server Management Studio).
+
+<!---HONumber=AcomDC_0824_2016-->

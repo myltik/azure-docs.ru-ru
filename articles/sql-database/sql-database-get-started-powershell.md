@@ -1,6 +1,6 @@
 <properties
     pageTitle="Настройка новой базы данных SQL с помощью PowerShell | Microsoft Azure"
-    description="Узнайте, как создать новую базу данных SQL с помощью PowerShell. Стандартные задачи по настройке базы данных можно выполнить с помощью командлетов PowerShell."
+    description="Узнайте, как создать базу данных SQL с помощью PowerShell. Стандартные задачи по настройке базы данных можно выполнить с помощью командлетов PowerShell."
     keywords="создание новой базы данных SQL, настройка базы данных"
 	services="sql-database"
     documentationCenter=""
@@ -14,10 +14,10 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management"
-    ms.date="05/09/2016"
+    ms.date="08/19/2016"
     ms.author="sstein"/>
 
-# Создание новой базы данных SQL и стандартная настройка базы данных с использованием командлетов PowerShell
+# Создание базы данных SQL и стандартная настройка базы данных с использованием командлетов PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -34,39 +34,37 @@
 
 ## Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра
 
-Теперь вы можете запустить командлеты в рамках выбранной подписки Azure. Следующий шаг — установка группы ресурсов с сервером, на котором будет создана база данных. Вы можете отредактировать следующую команду, чтобы использовать любое допустимое расположение. Чтобы получить список допустимых расположений, выполните командлет **(Get-AzureRmLocation | Where-Object { $\_.Providers -eq "Microsoft.Sql" }).Location**.
+Теперь вы можете запустить командлеты в рамках выбранной подписки Azure. Следующий шаг — настройка группы ресурсов с сервером, на котором будет создана база данных. Вы можете отредактировать следующую команду, чтобы использовать любое допустимое расположение. Чтобы получить список допустимых расположений, выполните командлет **(Get-AzureRmLocation | Where-Object { $\_.Providers -eq "Microsoft.Sql" }).Location**.
 
-Выполните следующую команду, чтобы создать новую группу ресурсов:
+Выполните следующую команду, чтобы создать группу ресурсов:
 
-	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
-
-Когда группа ресурсов будет создана, на экране появится следующее сообщение: **ProvisioningState: Succeeded**.
+	New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "westus"
 
 
 ### Создание сервера
 
-Базы данных SQL создаются на серверах баз данных SQL Azure. Чтобы создать новый сервер, выполните командлет **New-AzureRmSqlServer**. Замените строку *ServerName* именем вашего сервера. Это имя должно быть уникальным в пределах всех серверов с базами данных SQL Azure. Если имя сервера уже используется, отобразится сообщение об ошибке. Кроме того, выполнение этой команды может занять несколько минут. Команду можно изменить, указав любое действительное расположение. Но вам нужно использовать то же расположение, в котором была создана группа ресурсов (см.выше).
+Базы данных SQL создаются на серверах баз данных SQL Azure. Чтобы создать сервер, выполните командлет **New-AzureRmSqlServer**. Это имя должно быть уникальным в пределах всех серверов с базами данных SQL Azure. Если имя сервера уже используется, отобразится сообщение об ошибке. Кроме того, выполнение этой команды может занять несколько минут. Команду можно изменить, указав любое действительное расположение. Но вам нужно использовать то же расположение, в котором была создана группа ресурсов (см.выше).
 
-	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
 
-При выполнении этой команды отображается запрос на ввод имени пользователя и пароля. Не указывайте учетные данные Azure. Вместо этого введите имя пользователя и пароль, которые станут учетными данными администратора нового сервера.
+При выполнении этой команды отображается запрос на ввод имени пользователя и пароля. Не указывайте учетные данные Azure. Вместо этого введите имя пользователя и пароль, чтобы создать администратора сервера. В скрипте в конце статьи показано, как указать учетные данные сервера в коде.
 
 После успешного создания сервера на экране появятся сведения о сервере.
 
 ### Настройка серверного правила брандмауэра для доступа к серверу
 
-Установите правило брандмауэра для доступа к серверу. Выполните следующую команду, заменив начальный и конечный IP-адреса значениями, используемыми на вашем компьютере.
+Чтобы получить доступ к серверу, настройте правило брандмауэра. Выполните следующую команду, заменив начальный и конечный IP-адреса значениями, используемыми на вашем компьютере.
 
 	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
 После успешного создания правила на экране появятся сведения о правиле брандмауэра.
 
-Чтобы предоставить другим службам Azure доступ к серверу, добавьте правило брандмауэра и задайте для параметров StartIpAddress и EndIpAddress значение 0.0.0.0. Обратите внимание, что это разрешает доступ к серверу трафику Azure от любой подписки Azure.
+Чтобы предоставить другим службам Azure доступ к серверу, добавьте правило брандмауэра и задайте для параметров StartIpAddress и EndIpAddress значение 0.0.0.0. Это правило включает для сервера трафик Azure от любой подписки Azure.
 
 Дополнительные сведения см. в статье [Брандмауэр Базы данных SQL Azure](sql-database-firewall-configure.md).
 
 
-## Создание новой базы данных SQL
+## Создание базы данных SQL
 
 Сейчас у вас есть группа ресурсов, сервер и правило брандмауэра, настроенные для получения доступа к серверу.
 
@@ -78,48 +76,68 @@
 
 После успешного создания базы данных отображаются сведения о базе данных.
 
-## Создание новой базы данных SQL с помощью сценария PowerShell
+## Создание базы данных SQL с помощью сценария PowerShell
 
-Ниже приведен пример скрипта PowerShell для создания базы данных SQL.
+Следующий скрипт PowerShell создает базу данных SQL и все зависимые ресурсы. Замените все значения `{variables}` значениями, которые относятся к подписке и ресурсам (при вводе удалите **{}**).
 
-    $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    $ResourceGroupName = "resourcegroupname"
-    $Location = "Japan West"
-
-    $ServerName = "uniqueservername"
-
-    $FirewallRuleName = "rule1"
-    $FirewallStartIP = "192.168.0.0"
-    $FirewallEndIp = "192.168.0.0"
-
-    $DatabaseName = "database1"
-    $DatabaseEdition = "Standard"
-    $DatabasePerfomanceLevel = "S1"
-
+    # Sign in to Azure and set the subscription to work with
+    $SubscriptionId = "{subscription-id}"
 
     Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+    Set-AzureRmContext -SubscriptionId $SubscriptionId
 
-    $ResourceGroup = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+    # CREATE A RESOURCE GROUP
+    $resourceGroupName = "{group-name}"
+    $rglocation = "{Azure-region}"
+    
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $rglocation
+    
+    # CREATE A SERVER
+    $serverName = "{server-name}"
+    $serverVersion = "12.0"
+    $serverLocation = "{Azure-region}"
+    
+    $serverAdmin = "{server-admin}"
+    $serverPassword = "{server-password}" 
+    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
+    $serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+    
+    $sqlDbServer = New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $serverLocation -ServerVersion $serverVersion -SqlAdministratorCredentials $serverCreds
+    
+    # CREATE A SERVER FIREWALL RULE
+    $ip = (Test-Connection -ComputerName $env:COMPUTERNAME -Count 1 -Verbose).IPV4Address.IPAddressToString
+    $firewallRuleName = '{rule-name}'
+    $firewallStartIp = $ip
+    $firewallEndIp = $ip
+    
+    $fireWallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName $firewallRuleName -StartIpAddress $firewallStartIp -EndIpAddress $firewallEndIp
+    
+    
+    # CREATE A SQL DATABASE
+    $databaseName = "{database-name}"
+    $databaseEdition = "{Standard}"
+    $databaseSlo = "{S0}"
+    
+    $sqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition $databaseEdition -RequestedServiceObjectiveName $databaseSlo
+    
+   
+    # REMOVE ALL RESOURCES THE SCRIPT JUST CREATED
+    #Remove-AzureRmResourceGroup -Name $resourceGroupName
 
-    $Server = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
 
-    $FirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
 
-    $SqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
-
-    $SqlDatabase
 
 
 
 ## Дальнейшие действия
-Вы создали новую базу данных SQL и выполнили ее базовую настройку. Теперь можете перейти к следующим шагам:
+Вы создали базу данных SQL и выполнили ее базовую настройку. Теперь можно перейти к следующим шагам:
 
-- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md).
+- [Управление базой данных SQL Azure с помощью PowerShell](sql-database-command-line-tools.md)
+- [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
 
 
-## Дополнительные ресурсы
+## дополнительные ресурсы.
 
 - [база данных SQL Azure;](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->
