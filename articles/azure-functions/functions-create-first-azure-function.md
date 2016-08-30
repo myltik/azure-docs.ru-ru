@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание первой функции Azure | Microsoft Azure"
    description="Создайте первую функцию Azure (независимое приложение) менее чем за две минуты."
    services="functions"

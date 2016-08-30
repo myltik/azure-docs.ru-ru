@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Устранение неполадок: развернутые инструкции | Microsoft Azure"
 	description="В этой статье приведены действия для получения доступа к необходимому приложению."
 	services="active-directory"
@@ -43,7 +43,7 @@
 
 Если устройство не зарегистрировано в Azure Active Directory, а для защиты приложения используется политика на основе устройства, отобразится страница со следующим содержимым.
 
-.![Сценарий](./media/active-directory-conditional-access-device-remediation/01.png "Сценарий")
+![Сценарий](./media/active-directory-conditional-access-device-remediation/01.png "Сценарий")
 
  
 
@@ -154,7 +154,7 @@
 2.	Firefox в Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 или Windows Server 2008 R2.
  
 
-.![Сценарий](./media/active-directory-conditional-access-device-remediation/02.png "Сценарий")
+![Сценарий](./media/active-directory-conditional-access-device-remediation/02.png "Сценарий")
 
 
 В этом случае для получения доступа к приложению нужно использовать браузер, поддерживаемый платформой устройства.

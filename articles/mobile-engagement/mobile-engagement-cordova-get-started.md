@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Начало работы с Azure Mobile Engagement для Cordova (Phonegap)"
 	description="Узнайте, как использовать Azure Mobile Engagement для аналитики и отправки push-уведомлений в приложения Cordova (Phonegap)."
 	services="mobile-engagement"

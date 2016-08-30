@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование кэша Redis для Azure с Java | Microsoft Azure"
 	description="Приступая к работе с кэшем Redis для Azure с использованием Java"
 	services="redis-cache"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Расположения ExpressRoute | Microsoft Azure"
    description="В этой статье приведена подробная информация о расположениях, где предлагаются услуги, и способах подключения к регионам Azure."
    services="expressroute"

@@ -1,5 +1,5 @@
 
-.<properties
+<properties
    pageTitle="Пиринговая связь между виртуальными сетями Azure | Microsoft Azure"
    description="Сведения о пиринговой связи между виртуальными сетями в Azure."
    services="virtual-network"

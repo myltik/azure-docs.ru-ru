@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка пиринговой связи между виртуальными сетями с помощью командлетов Powershell | Microsoft Azure"
    description="Сведения о создании виртуальной сети на портале Azure в диспетчере Resource Manager."
    services="virtual-network"

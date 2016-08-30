@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Сброс настроек VPN-шлюза Azure | Microsoft Azure"
    description="В этой статье описывается сброс настроек VPN-шлюза Azure. Сведения в этой статье применимы к VPN-шлюзам, созданным с использованием классической модели развертывания."
    services="vpn-gateway"

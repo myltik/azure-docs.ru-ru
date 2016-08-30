@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Многоуровневое приложение .NET | Microsoft Azure"
 	description="Руководство для .NET, посвященное разработке многоуровневого приложения в Azure, в котором для взаимодействия между уровнями используются очереди служебной шины."
 	services="service-bus"

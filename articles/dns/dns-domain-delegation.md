@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Делегирование домена в Azure DNS | Microsoft Azure"
    description="Узнайте, как изменить делегирование домена и использовать серверы имен Azure DNS для размещения домена."
    services="dns"
@@ -85,8 +85,8 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 С помощью Azure PowerShell полномочные записи NS можно получить следующим образом. Обратите внимание, что имя записи @ используется для указания записей на вершине зоны.
 
-	PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
-	PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.net

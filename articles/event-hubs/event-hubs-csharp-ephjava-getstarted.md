@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с концентраторами событий в C# | Microsoft Azure"
 	description="Следуйте указаниям этого руководства, чтобы приступить к использованию концентраторов событий Azure, отправке событий посредством C# и получению событий посредством Java с помощью EventProcessorHost."
 	services="event-hubs"
@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="event-hubs"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

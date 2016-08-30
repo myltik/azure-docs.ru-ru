@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка пиринга виртуальных сетей с помощью портала Azure | Microsoft Azure"
    description="Сведения о создании виртуальной сети на портале Azure в диспетчере Resource Manager."
    services="virtual-network"

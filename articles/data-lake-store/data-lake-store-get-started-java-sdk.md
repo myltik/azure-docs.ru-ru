@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Разработка приложений с использованием пакета Java SDK для хранилища озера данных | Azure"
    description="Разработка приложений с использованием пакета Java SDK для хранилища озера данных."
    services="data-lake-store"

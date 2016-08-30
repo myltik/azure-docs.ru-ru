@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Основные понятия Mobile Engagement | Microsoft Azure"
 	description="Основные понятия Azure Mobile Engagement"
 	services="mobile-engagement"

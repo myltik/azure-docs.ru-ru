@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание мобильного приложения для iOS в службе мобильных приложений Azure | Microsoft Azure"
 	description="Изучите этот учебник, чтобы начать работу с серверным частями мобильных приложений Azure для разработки приложений iOS на Objective-C или Swift"
 	services="app-service\mobile"

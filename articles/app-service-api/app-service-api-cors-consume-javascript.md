@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Поддержка CORS в службе приложений | Microsoft Azure"
 	description="Узнайте, как использовать поддержку CORS в службе приложений Azure."
 	services="app-service\api"

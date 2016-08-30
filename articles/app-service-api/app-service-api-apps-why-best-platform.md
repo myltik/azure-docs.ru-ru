@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Общие сведения об API приложений | Microsoft Azure" 
 	description="Узнайте, как служба приложений Azure помогает разрабатывать, размещать и использовать интерфейсы RESTful API." 
 	services="app-service\api" 

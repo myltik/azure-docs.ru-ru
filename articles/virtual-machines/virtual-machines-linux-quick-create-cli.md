@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки | Microsoft Azure"
    description="Создание виртуальной машины Linux в Azure с помощью интерфейса командной строки."
    services="virtual-machines-linux"

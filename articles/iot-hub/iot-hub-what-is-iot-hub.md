@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Обзор центра IoT Azure | Microsoft Azure"
  description="Обзор службы центра IoT Azure: центр IoT, подключение устройств, модели обмена данными Интернета вещей, включая обмен данными с использованием службы."
  services="iot-hub"

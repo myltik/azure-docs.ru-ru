@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание мобильного приложения для Android в службе мобильных приложений Azure | Microsoft Azure"
     description="Изучите этот учебник, чтобы начать работу с серверными частями мобильных приложений Azure для разработки программ на платформе Android."
     services="app-service\mobile"

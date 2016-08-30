@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Что такое планировщик Azure? | Microsoft Azure"
  description="Планировщик Azure позволяет описывать действия, которые выполняются в облаке. Затем он планирует и выполняет эти действия автоматически."
  services="scheduler"

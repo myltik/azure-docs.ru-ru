@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Подключение к базе данных SQL с помощью SQL Server Management Studio | Microsoft Azurе"
 	description="Узнайте, как подключиться к базе данных SQL в Azure с помощью SQL Server Management Studio (SSMS). Затем выполните пробный запрос с помощью Transact-SQL (T-SQL)."
 	metaCanonical=""

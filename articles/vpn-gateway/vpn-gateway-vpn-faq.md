@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="VPN-шлюз виртуальной сети: вопросы и ответы | Microsoft Azure"
    description="VPN-шлюз: вопросы и ответы Распределенные подключения в виртуальной сети Microsoft Azure, подключения гибридных конфигураций и VPN-шлюзы: вопросы и ответы"
    services="vpn-gateway"

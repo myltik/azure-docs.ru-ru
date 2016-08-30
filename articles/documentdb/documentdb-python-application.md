@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Разработка веб-приложений Python Flask с использованием DocumentDB | Microsoft Azure"
     description="Изучите учебник по использованию DocumentDB для хранения и применения данных из веб-приложения Python Flask, размещенного в Azure. Найдите решения для разработки приложений." 
 	keywords="Разработка приложений, руководство по базе данных, python flask, веб-приложение python, разработка веб-приложения python, documentdb, azure, Microsoft azure"
@@ -8,7 +8,7 @@
     manager="jhubbard"
     editor="cgronlun"/>
 
-.<tags
+<tags
     ms.service="documentdb"
     ms.workload="data-management"
     ms.tgt_pltfrm="na"

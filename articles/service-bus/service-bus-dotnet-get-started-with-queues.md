@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Начало работы с очередями служебной шины | Microsoft Azure"
     description="Как написать консольное приложение C# для обмена сообщениями служебной шины."
     services="service-bus"

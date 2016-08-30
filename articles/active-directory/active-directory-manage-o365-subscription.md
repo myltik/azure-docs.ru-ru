@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление каталогом для подписки Office 365 в Azure | Microsoft Azure"
    description="Управление каталогом подписки Office 365 с помощью Azure Active Directory и классического портала Azure"
    services="active-directory"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Направление интернет-домена компании на домен диспетчера трафика | Microsoft Azure"
    description="В этой статье вы узнаете, как направить доменное имя вашей компании на доменное имя диспетчера трафика."
    services="traffic-manager"

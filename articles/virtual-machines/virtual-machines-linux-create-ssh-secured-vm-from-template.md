@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание виртуальной машины Linux с помощью шаблона Azure | Microsoft Azure"
 	description="Создание в Azure виртуальной машины Linux с помощью шаблона Azure Resource Manager."
 	services="virtual-machines-linux"

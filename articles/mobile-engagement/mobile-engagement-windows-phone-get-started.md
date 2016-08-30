@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с Azure Mobile Engagement для приложений Windows Phone Silverlight"
 	description="Узнайте, как использовать Azure Mobile Engagement для аналитики и отправки push-уведомлений для приложений Windows Phone Silverlight."
 	services="mobile-engagement"

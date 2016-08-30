@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Azure AD Connect: обновление службы DirSync | Microsoft Azure"
    description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления DirSync до Azure AD Connect"
    services="active-directory"

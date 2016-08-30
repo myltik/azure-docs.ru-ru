@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление конечными точками в диспетчере трафика Azure | Microsoft Azure"
    description="В этой статье вы узнаете, как добавлять, удалять, включать и отключать конечные точки в диспетчере трафика Azure."
    services="traffic-manager"

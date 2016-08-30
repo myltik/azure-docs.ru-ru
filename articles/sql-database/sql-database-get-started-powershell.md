@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Настройка новой базы данных SQL с помощью PowerShell | Microsoft Azure"
     description="Узнайте, как создать базу данных SQL с помощью PowerShell. Стандартные задачи по настройке базы данных можно выполнить с помощью командлетов PowerShell."
     keywords="создание новой базы данных SQL, настройка базы данных"

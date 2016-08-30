@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Основные сведения о VPN-шлюзах Azure| Microsoft Azure"
    description="Сведения о подключениях через VPN-шлюз для виртуальных сетей Azure."
    services="vpn-gateway"

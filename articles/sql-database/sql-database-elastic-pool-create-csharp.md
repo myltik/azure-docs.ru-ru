@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание пула эластичных баз данных с помощью C# | Microsoft Azure"
     description="Используйте методы разработки баз данных на C# для создания пула масштабируемых эластичных баз данных в Базе данных SQL Azure, чтобы совместно использовать ресурсы нескольких баз данных."
     services="sql-database"
@@ -85,7 +85,7 @@
     Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Чтобы получить идентификатор клиента и другие значения, создайте собственное приложение с помощью статьи [Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода](sql-database-client-id-keys.md).
+Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Сведения о том, как получить идентификатор клиента и другие значения, см. в статье [Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.ResourceManager;

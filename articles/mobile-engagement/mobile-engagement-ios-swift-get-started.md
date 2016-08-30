@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Начало работы с Azure Mobile Engagement для iOS в Swift"
 	description="Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для приложений iOS."
 	services="mobile-engagement"

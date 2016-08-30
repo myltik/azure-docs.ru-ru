@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle=" Приступая к работе с доставкой содержимого по запросу с помощью портала Azure | Microsoft Azure"
 	description="В этом руководстве описано, как реализовать простую службу доставки видео по запросу (VOD) с помощью приложения служб мультимедиа Azure (AMS) и портала Azure."
 	services="media-services"

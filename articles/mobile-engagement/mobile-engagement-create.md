@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание приложения Azure Mobile Engagement | Microsoft Azure"
 	description="В этой статье описано, как создать новую коллекцию приложений Mobile Engagement в Azure и приступить к управлению приложениями с помощью портала Mobile Engagement."
 	services="mobile-engagement"

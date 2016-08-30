@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление профилями диспетчера трафика Microsoft Azure | Microsoft Azure"
    description="Эта статья содержит информацию о том, как создавать, отключать, включать, удалять и просматривать журнал профиля диспетчера трафика Azure."
    services="traffic-manager"

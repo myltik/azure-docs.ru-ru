@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с Центрами уведомлений Azure с помощью Baidu | Microsoft Azure"
 	description="Из этого учебника вы узнаете, как использовать Центры уведомлений Azure для отправки push-уведомлений на устройства Android с помощью Baidu."
 	services="notification-hubs"
@@ -264,7 +264,7 @@ Push-облако Baidu — это китайская облачная служ
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Присвойте параметру **API\_KEY** значение, которое вы получили ранее из облачного проекта Baidu, а параметрам **NotificationHubName** и **NotificationHubConnectionString** — имя вашего центра уведомлений и значение DefaultListenSharedAccessSignature соответственно, полученные на классическом портале Azure.
+	Присвойте параметру **API\_KEY** значение, которое вы получили ранее из облачного проекта Baidu, а параметрам **NotificationHubName** и **NotificationHubConnectionString** — имя вашего центра уведомлений и значение DefaultListenSharedAccessSignature соответственно, полученные на классическом портале Azure.
 
 11. Добавьте новый класс с именем **DemoApplication.java**, затем добавьте в него следующий код:
 

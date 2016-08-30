@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание первой фабрики данных (REST) | Microsoft Azure"
 	description="В этом руководстве вы создадите образец конвейера фабрики данных Azure с помощью REST API фабрики данных."
 	services="data-factory"
@@ -8,7 +8,7 @@
 	editor="monicar"
 />
 
-.<tags
+<tags
 	ms.service="data-factory"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
@@ -375,7 +375,7 @@ JSON-файл определяет набор данных с именем **Azu
 
 Запускайте командлет Invoke-Command, пока не увидите срез в состоянии **Готово** или **Сбой**. Когда срез перейдет в состояние «Готово», проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов. Обратите внимание, что создание кластера HDInsight по требованию занимает некоторое время.
 
-.![выходные данные](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
+![выходные данные](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
 
 > [AZURE.IMPORTANT] В случае успешной обработки среза входной файл удаляется. Если вы хотите повторно обработать срез или еще раз выполнить инструкции из руководства, передайте входной файл (input.log) в папку inputdata в контейнере adfgetstarted.
 

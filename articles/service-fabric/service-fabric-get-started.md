@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка среды разработки | Microsoft Azure"
    description="Установите среду выполнения, пакет SDK и инструменты и создайте локальный кластер разработки. После этого вы сможете создавать приложения."
    services="service-fabric"

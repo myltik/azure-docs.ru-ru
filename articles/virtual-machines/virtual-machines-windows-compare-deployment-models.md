@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Поставщики вычислительных и сетевых ресурсов, а также ресурсов службы хранилища | Microsoft Azure"
    description="Концептуальный обзор поставщиков вычислительных и сетевых ресурсов, а также ресурсов хранения (CRP, NRP и SRP) для приложений Windows в модели развертывания Azure Resource Manager"
    services="virtual-machines-windows"

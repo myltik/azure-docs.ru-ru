@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Подключение к базе данных SQL с помощью запроса C# | Microsoft Azure"
 	description="Написание программы на C# для отправки запроса к базе данных SQL и подключения к ней. Сведения об IP адресах, строках подключения, безопасном входе и бесплатной версии Visual Studio."
 	services="sql-database"
@@ -8,7 +8,7 @@
 	manager="jhubbard"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="sql-database"
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
@@ -81,7 +81,7 @@
 
 2. Щелкните правой кнопкой мыши базу данных и выберите **Создать запрос**.
 
-	.![Новый запрос Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
+	![Новый запрос Подключение к базе данных SQL с помощью SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
 3. В окне запроса скопируйте и вставьте следующий код.
 

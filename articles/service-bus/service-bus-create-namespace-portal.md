@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание пространства имен служебной шины с помощью портала Azure | Microsoft Azure"
     description="Чтобы начать работу со служебной шиной, необходимо пространство имен. В этой статье показано, как создать его с помощью портала Azure."
     services="service-bus"

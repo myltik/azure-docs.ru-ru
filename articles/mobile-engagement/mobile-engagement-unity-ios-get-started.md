@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с Azure Mobile Engagement для развертывания Unity в iOS"
 	description="Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для развертывания приложений Unity на устройствах iOS."
 	services="mobile-engagement"

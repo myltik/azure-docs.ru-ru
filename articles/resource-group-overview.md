@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о диспетчере ресурсов Azure | Microsoft Azure"
    description="Описывает, как использовать диспетчер ресурсов Azure для развертывания, контроля ресурсов в Azure и управления доступом к ним."
    services="azure-resource-manager"

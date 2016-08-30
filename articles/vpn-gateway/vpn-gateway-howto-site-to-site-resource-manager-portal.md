@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание виртуальной сети с VPN-подключением типа ";сеть — сеть"; при помощи Azure Resource Manager и портала Azure | Microsoft Azure"
    description="Узнайте, как создать виртуальную сеть с помощью модели Resource Manager, а затем подключить ее к локальной сети с помощью подключения типа ";сеть — сеть"; через VPN-шлюз."
    services="vpn-gateway"
