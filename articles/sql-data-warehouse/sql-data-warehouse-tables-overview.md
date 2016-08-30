@@ -282,7 +282,7 @@ ORDER BY    distribution_id
 
 Дополнительные сведения см. в статьях [Типы данных таблиц в хранилище данных SQL][Data Types], [Распределение таблиц в хранилище данных SQL][Distribute], [Индексирование таблиц в хранилище данных SQL][Index], [Секционирование таблиц в хранилище данных SQL][Partition], [Управление статистикой таблиц в хранилище данных SQL][Statistics] и [Временные таблицы в хранилище данных SQL][Temporary]. Дополнительные рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL Azure][].
 
-.<!--Image references-->
+<!--Image references-->
 
 <!--Article references-->
 [Обзор]: ./sql-data-warehouse-tables-overview.md
@@ -318,6 +318,6 @@ ORDER BY    distribution_id
 [синонимы;]: https://msdn.microsoft.com/library/ms177544.aspx
 [Уникальные индексы]: https://msdn.microsoft.com/library/ms188783.aspx
 
-.<!--Other Web references-->
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0810_2016-->
