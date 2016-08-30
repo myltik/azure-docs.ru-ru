@@ -1,9 +1,9 @@
-<properties
+.<properties
    pageTitle="Настройка пиринга виртуальных сетей с помощью портала Azure | Microsoft Azure"
    description="Сведения о создании виртуальной сети на портале Azure в диспетчере Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -48,7 +48,7 @@
 
 	![Соединение от другой виртуальной сети](./media/virtual-networks-create-vnetpeering-arm-portal/figure05.png)
 
-7. В колонке "Добавить пиринг" присвойте пиринговому соединению имя LinkToVnet1, выберите нужную подписку, укажите виртуальную сеть VNET1 и нажмите кнопку "ОК".
+7. В колонке "Добавить пиринг" присвойте пиринговому соединению имя LinkToVnet1, выберите нужную подписку и виртуальную сеть и нажмите кнопку "ОК".
 
 	![Плитка создания виртуальной сети](./media/virtual-networks-create-vnetpeering-arm-portal/figure06.png)
 
@@ -130,4 +130,4 @@
 
 4. В этом состоянии вы не сможете повторно создать соединение, пока состояние не изменится на "Инициировано". Перед повторным созданием пиринговой связи между виртуальными сетями рекомендуем удалить оба соединения.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

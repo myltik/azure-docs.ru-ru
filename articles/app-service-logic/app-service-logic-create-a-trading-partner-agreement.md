@@ -1,4 +1,4 @@
-<properties 
+.<properties 
    pageTitle="Создание соглашения между торговыми партнерами в службе приложений Azure | Microsoft Azure" 
    description="Создание соглашений между торговыми партнерами" 
    services="logic-apps" 
@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
+   ms.date="08/23/2016"
    ms.author="rajram"/>
 
 # Создание соглашения между торговыми партнерами   
@@ -71,7 +71,7 @@
 
 ![][2]
 
-![][3]
+.![][3]
 
 <!--Image references-->
 [1]: ./media/app-service-logic-create-a-trading-partner-agreement/TPMResourceView.png
@@ -79,4 +79,4 @@
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.png
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

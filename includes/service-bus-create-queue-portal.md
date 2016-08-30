@@ -1,33 +1,28 @@
 Убедитесь, что вы уже создали пространство имен служебной шины, как показано [здесь][namespace-how-to].
 
-1. Перейдите на [классический портал Azure][classic-portal].
+1. Войдите на [портал Azure][azure-portal].
 
 2. На портале в области навигации слева щелкните элемент **Служебная шина**.
 
-3. Выберите пространство имен, в котором вы хотите создать очередь. В нашем примере это mytestns1.
+3. Выберите пространство имен, в котором вы хотите создать очередь. В нашем примере это **nstest1**.
 
-    ![Выбор пространства имен][select-namespace]
+    ![Создание очереди][createqueue1]
 
-4. Выберите **Очереди**.
+4. В колонке **Пространство имен служебной шины** выберите **Очереди**, а затем щелкните **Добавить очередь**.
 
-    ![Выберите "Очереди"][select-queue]
+    ![Выберите "Очереди"][createqueue2]
 
-5. Выберите **Создать** в нижнем левом углу, а затем выберите **Быстрое создание**.
+5. Введите **имя очереди**, а другие значения оставьте в том виде, в котором они заданы по умолчанию.
 
-    ![Нажмите кнопку "Создать"][select-new]
+    ![Нажмите кнопку "Создать"][createqueue3]
 
-6. Введите **имя очереди** и убедитесь, что выбрано правильное пространство имен.
+7. Щелкните кнопку **Создать** в нижней части колонки.
 
-7. Щелкните **Создать очередь**.
-
-    ![Создание очереди][create-queue]
-
-[select-namespace]: ./media/service-bus-create-queue-portal/select-namespace.png
-[select-queue]: ./media/service-bus-create-queue-portal/select-queue.png
-[select-new]: ./media/service-bus-create-queue-portal/select-new.png
-[create-queue]: ./media/service-bus-create-queue-portal/create-queue.png
+[createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
+[createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
+[createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
-[classic-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

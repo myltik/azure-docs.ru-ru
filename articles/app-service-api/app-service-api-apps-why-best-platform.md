@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Общие сведения об API приложений | Microsoft Azure" 
 	description="Узнайте, как служба приложений Azure помогает разрабатывать, размещать и использовать интерфейсы RESTful API." 
 	services="app-service\api" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="rachelap"/>
 
 # Обзор приложений API
@@ -63,4 +63,4 @@
 
 Чтобы задать вопросы о приложениях API, начните беседу на [форуме по приложениям API](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureAPIApps).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

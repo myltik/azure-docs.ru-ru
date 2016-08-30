@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Приступая к работе с Azure Mobile Engagement для развертывания Unity в Android"
 	description="Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для развертывания приложений Unity на устройствах iOS."
 	services="mobile-engagement"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-unity-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="03/25/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 # Приступая к работе с Azure Mobile Engagement для развертывания Unity в Android
@@ -32,13 +32,13 @@
 
 ##<a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения Android
 
-[AZURE.INCLUDE [Создание приложения Mobile Engagement на портале](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Создание приложения Mobile Engagement на портале](../../includes/mobile-engagement-create-app-in-portal.md)]
 
 ##<a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
 
 ###Импорт пакета Unity
 
-1. Загрузите пакет [Mobile Engagement Unity](https://aka.ms/azmeunitysdk) и сохраните его на локальном компьютере. 
+1. Загрузите пакет [Mobile Engagement Unity](https://aka.ms/azmeunitysdk) и сохраните его на локальном компьютере.
 
 2. Последовательно выберите пункты **Ресурсы -> Импорт пакета -> Пользовательский пакет** и выберите пакет, который вы скачали на предыдущем этапе.
 
@@ -54,7 +54,7 @@
 
 ###Обновление конфигурации EngagementConfiguration
 
-1. В папке пакета SDK откройте файл сценария **EngagementConfiguration** и обновите **ANDROID\_CONNECTION\_STRING** с помощью строки подключения, которую вы получили ранее на портале Azure.  
+1. В папке пакета SDK откройте файл сценария **EngagementConfiguration** и обновите **ANDROID\_CONNECTION\_STRING** с помощью строки подключения, которую вы получили ранее на портале Azure.
 
 	![][73]
 
@@ -68,7 +68,7 @@
 
 ###Настройка базового отслеживания в приложении
 
-1. Откройте сценарий **PlayerController**, вложенный для редактирования в объект Player. 
+1. Откройте сценарий **PlayerController**, вложенный для редактирования в объект Player.
 
 2. Добавьте следующую инструкцию using:
 
@@ -82,7 +82,7 @@
 ###Развертывание и запуск приложения
 Прежде чем развертывать это приложение Unity у себя на устройстве, убедитесь, что на компьютере установлен пакет SDK для Android.
 
-1. Подключите устройство Android к компьютеру. 
+1. Подключите устройство Android к компьютеру.
 
 2. Откройте **Файл -> Параметры сборки**.
 
@@ -116,11 +116,11 @@
 
 ###Обновление конфигурации EngagementConfiguration
 
-1. В папке пакета SDK откройте файл сценария **EngagementConfiguration** и обновите **ANDROID\_GOOGLE\_NUMBER** с помощью **номера проекта Google**, который вы получили ранее на портале разработчиков облака Google. Это строковое значение, поэтому обязательно заключите его в двойные кавычки. 
+1. В папке пакета SDK откройте файл сценария **EngagementConfiguration** и обновите **ANDROID\_GOOGLE\_NUMBER** с помощью **номера проекта Google**, который вы получили ранее на портале разработчиков облака Google. Это строковое значение, поэтому обязательно заключите его в двойные кавычки.
 
 	![][75]
 
-2. Сохраните файл .
+2. Сохраните файл.
 
 3. Последовательно щелкните **Файл -> Engagement -> Создание манифеста Android**. Это подключаемый модуль, добавленный в ваш пакет SDK для Mobile Engagement. Если его щелкнуть, параметры проекта будут автоматически обновлены.
 
@@ -128,7 +128,7 @@
 
 ###Настройка в приложении получения уведомлений
 
-1. Откройте сценарий **PlayerController**, вложенный для редактирования в объект Player. 
+1. Откройте сценарий **PlayerController**, вложенный для редактирования в объект Player.
 
 2. Добавьте следующую строку в метод `Start()`.
 
@@ -151,4 +151,4 @@
 [53]: ./media/mobile-engagement-unity-android-get-started/53.png
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

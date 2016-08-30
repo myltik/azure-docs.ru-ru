@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Обзор Azure CDN | Microsoft Azure"
 	description="Узнайте, что собой представляет сеть доставки содержимого (CDN) Azure и как ее использовать для доставки больших объемов содержимого посредством кэширования BLOB-объектов и статического содержимого."
 	services="cdn"
@@ -68,6 +68,7 @@
 | [Настраиваемый модуль доставки контента на основе правил.](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Расширенные HTTP-отчеты.](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Статистика в режиме реального времени.](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Оповещения в реальном времени](cdn-real-time-alerts.md) | | | **&#x2713;** |
 
 >[AZURE.TIP] Хотите добавить в Azure CDN новую функцию? [Расскажите нам о ней](https://feedback.azure.com/forums/169397-cdn).
 
@@ -83,4 +84,4 @@
 
 Сведения о ценах на CDN см. на [этой странице](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

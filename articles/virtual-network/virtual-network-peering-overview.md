@@ -1,10 +1,10 @@
 
-<properties
+.<properties
    pageTitle="Пиринговая связь между виртуальными сетями Azure | Microsoft Azure"
    description="Сведения о пиринговой связи между виртуальными сетями в Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor="tysonn" />
 <tags
@@ -88,4 +88,4 @@
 - Дополнительные сведения о [группах безопасности сети](virtual-networks-nsg.md).
 - Дополнительные сведения об [определяемых пользователем маршрутах и IP-пересылке](virtual-networks-udr-overview.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

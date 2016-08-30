@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Поддержка CORS в службе приложений | Microsoft Azure"
 	description="Узнайте, как использовать поддержку CORS в службе приложений Azure."
 	services="app-service\api"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/27/2016"
+	ms.date="08/27/2016"
 	ms.author="rachelap"/>
 
 # Использование приложения API из JavaScript с помощью CORS
@@ -284,4 +284,4 @@ CORS для приложения API можно также настроить с
 
 В этой статье показано, как включить поддержку CORS в службе приложений, чтобы вызывать приложение API, выполняющееся в другом домене, с помощью клиентского кода JavaScript. Дополнительные сведения о приложениях API см. в руководствах по [введению в проверку подлинности службы приложений](../app-service/app-service-authentication-overview.md) и [проверке подлинности пользователя для приложений API](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

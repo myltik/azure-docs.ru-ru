@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Разработка веб-приложений Python Flask с использованием DocumentDB | Microsoft Azure"
     description="Изучите учебник по использованию DocumentDB для хранения и применения данных из веб-приложения Python Flask, размещенного в Azure. Найдите решения для разработки приложений." 
 	keywords="Разработка приложений, руководство по базе данных, python flask, веб-приложение python, разработка веб-приложения python, documentdb, azure, Microsoft azure"
@@ -8,13 +8,13 @@
     manager="jhubbard"
     editor="cgronlun"/>
 
-<tags
+.<tags
     ms.service="documentdb"
     ms.workload="data-management"
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
+    ms.date="08/18/2016"
     ms.author="anhoh"/>
 
 # Разработка веб-приложений Python Flask с использованием DocumentDB
@@ -181,7 +181,7 @@ def create():
     db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
 
     # Create collection
-    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
+    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
 
     # Create document
     document = client.CreateDocument(collection['_self'],
@@ -433,4 +433,4 @@ def vote():
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

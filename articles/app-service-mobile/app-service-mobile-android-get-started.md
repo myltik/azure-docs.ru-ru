@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Создание мобильного приложения для Android в службе мобильных приложений Azure | Microsoft Azure"
     description="Изучите этот учебник, чтобы начать работу с серверными частями мобильных приложений Azure для разработки программ на платформе Android."
     services="app-service\mobile"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="07/21/2016"
+    ms.date="08/17/2016"
     ms.author="ricksal"/>
 
 #Создание приложения Android
@@ -32,7 +32,6 @@
 
 * [Средства разработчика Android](https://developer.android.com/sdk/index.html), которые включают интегрированную среду разработки Android Studio и новейшую платформу Android.
 * Пакет SDK для мобильных приложений Android в Azure, который автоматически включается как часть скачиваемого вами ознакомительного проекта.
-* ПК с [Visual Studio Community 2013] или более поздней версией не требуется для серверной части Node.js.
 * [Активная учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Создание серверной части мобильного приложения Azure
@@ -54,4 +53,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->
