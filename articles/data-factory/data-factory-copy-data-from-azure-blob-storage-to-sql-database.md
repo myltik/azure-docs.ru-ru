@@ -108,7 +108,7 @@
 Дополнительные сведения о действии копирования в фабрике данных Azure см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
 
 
-.<!--Link references-->
+<!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com/
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2

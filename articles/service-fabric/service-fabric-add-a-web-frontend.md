@@ -238,7 +238,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 - [Дополнительные сведения о взаимодействии со службами](service-fabric-connect-and-communicate-with-services.md)
 - [Дополнительные сведения о секционировании служб с отслеживанием состояния](service-fabric-concepts-partitioning.md)
 
-.<!-- Image References -->
+<!-- Image References -->
 
 [vs-add-new-service]: ./media/service-fabric-add-a-web-frontend/vs-add-new-service.png
 [vs-new-service-dialog]: ./media/service-fabric-add-a-web-frontend/vs-new-service-dialog.png
@@ -252,7 +252,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-create-platform]: ./media/service-fabric-add-a-web-frontend/vs-create-platform.png
 
 
-.<!-- external links -->
+<!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
 [api-management-landing-page]: https://azure.microsoft.com/services/api-management/
 

@@ -1050,7 +1050,8 @@
  	-l, --lb-name <lb-name>                the name of the load balancer
  	-s, --subscription <subscription>      the subscription identifier
 
-<BR> network lb address-pool delete [параметры] <группа\_ресурсов> <имя\_балансировщика\_нагрузки> <имя>
+<BR>
+	network lb address-pool delete [параметры] <resource-group> <lb-name> <name>
 
 Удаляет ресурс диапазона пула IP-адресов из подсистемы балансировки нагрузки.
 
