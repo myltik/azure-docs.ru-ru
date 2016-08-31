@@ -88,7 +88,7 @@
 
 Чтобы узнать об использовании расширения Custom Script с шаблонами диспетчера ресурсов Azure, обратитесь к документации [здесь](virtual-machines-windows-extensions-customscript.md).
 
-.<!--Image references-->
+<!--Image references-->
 [5]: ./media/virtual-machines-windows-classic-extensions-customscript/addcse.png
 
 <!---HONumber=AcomDC_0810_2016-->

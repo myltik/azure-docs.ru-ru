@@ -367,7 +367,7 @@
 * [Серверный пакет SDK для ASP.NET]
 * [Серверный пакет SDK для Node.js]
 
-.<!-- URLs -->
+<!-- URLs -->
 [добавьте аутентификацию в приложение Apache Cordova]: app-service-mobile-cordova-get-started-users.md
 [ознакомительного проекта Apache Cordova]: app-service-mobile-cordova-get-started.md
 [ознакомительный проект Apache Cordova]: app-service-mobile-cordova-get-started.md

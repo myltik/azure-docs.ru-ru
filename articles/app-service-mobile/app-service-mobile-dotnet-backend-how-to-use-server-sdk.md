@@ -482,4 +482,4 @@ SID является производным от идентификатора п
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!----HONumber=AcomDC_0817_2016-->

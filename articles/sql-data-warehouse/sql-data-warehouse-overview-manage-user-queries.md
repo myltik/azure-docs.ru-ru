@@ -36,7 +36,7 @@
 
 Дополнительные советы по управлению см. в статье [Management overview][] (Обзор управления).
 
-.<!--Image references-->
+<!--Image references-->
 
 <!--Article references-->
 [Поиск долго выполняющихся запросов]: sql-data-warehouse-manage-monitor.md
@@ -46,6 +46,6 @@
 <!--MSDN references-->
 
 
-.<!--Other Web references-->
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0810_2016-->
