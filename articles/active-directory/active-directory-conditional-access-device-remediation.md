@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Получение доступа к защищенным приложениям, в которых используется условный доступ на основе устройств Azure AD | Microsoft Azure"
+	pageTitle="Устранение неполадок: развернутые инструкции | Microsoft Azure"
 	description="В этой статье приведены действия для получения доступа к необходимому приложению."
 	services="active-directory"
 	keywords="условный доступ на основе устройств, регистрация устройств, включить регистрацию устройств, регистрация устройств и MDM"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="08/23/2016"
 	ms.author="markvi"/>
 
 
-# Получение доступа к защищенным приложениям, в которых используется условный доступ на основе устройств Azure AD
+# Устранение неполадок: развернутые инструкции
 
 При доступе к приложению (например, Office 365 SharePoint Online) отобразилась страница с отказом в доступе. Что же делать в этом случае?
 
@@ -43,7 +43,7 @@
 
 Если устройство не зарегистрировано в Azure Active Directory, а для защиты приложения используется политика на основе устройства, отобразится страница со следующим содержимым.
 
-.![Сценарий](./media/active-directory-conditional-access-device-remediation/01.png "Сценарий")
+![Сценарий](./media/active-directory-conditional-access-device-remediation/01.png "Сценарий")
 
  
 
@@ -154,7 +154,7 @@
 2.	Firefox в Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 или Windows Server 2008 R2.
  
 
-.![Сценарий](./media/active-directory-conditional-access-device-remediation/02.png "Сценарий")
+![Сценарий](./media/active-directory-conditional-access-device-remediation/02.png "Сценарий")
 
 
 В этом случае для получения доступа к приложению нужно использовать браузер, поддерживаемый платформой устройства.
@@ -172,4 +172,4 @@
 
 [Условный доступ в Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

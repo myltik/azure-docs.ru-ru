@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="04/19/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Оптимизация кода Azure
@@ -29,7 +29,7 @@
 
 AP0000
 
-### Описание
+### Description (Описание)
 
 При использовании режима состояния сеанса по умолчанию (внутрипроцессный) для облачных приложений можно потерять состояние сеанса.
 
@@ -51,7 +51,7 @@ AP0000
 
 AP1000
 
-### Описание
+### Description (Описание)
 
 Создайте асинхронные методы (такие как [await](https://msdn.microsoft.com/library/hh156528.aspx)) вне метода [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), а затем вызовите асинхронные методы из [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx). Объявление метода [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) асинхронным приводит к тому, что рабочая роль входит в цикл перезагрузки.
 
@@ -101,7 +101,7 @@ public async Task RunAsync()
 
 AP2000
 
-### Описание
+### Description (Описание)
 
 Используйте для проверки подлинности подписанный URL-адрес (SAS). Служба управления доступом (ACS) больше не используется для проверки подлинности служебной шины.
 
@@ -121,13 +121,13 @@ SubscriptionClient sc = listenMF.CreateSubscriptionClient(topicPath, subscriptio
 BrokeredMessage receivedMessage = sc.Receive();
 ```
 
-Дополнительные сведения см. в таких статьях:
+Дополнительные сведения см. в следующих статьях.
 
 - Общие сведения см. в статье [Проверка подлинности подписанного URL-адреса с помощью служебной шины](https://msdn.microsoft.com/library/dn170477.aspx)
 
 - [Использование проверки подлинности подписанного URL-адреса с помощью служебной шины](https://msdn.microsoft.com/library/dn205161.aspx)
 
-- Пример проекта см. в разделе [Использование проверки подлинности подписанного URL-адреса (SAS) для доступа к подпискам служебной шины](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)
+- Пример проекта см. на странице [Примеры кода Azure](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c).
 
 ## Рекомендуется использовать метод OnMessage, чтобы избежать "цикла получения"
 
@@ -135,7 +135,7 @@ BrokeredMessage receivedMessage = sc.Receive();
 
 AP2002
 
-### Описание
+### Description (Описание)
 
 Чтобы избежать вхождения в "цикл получения", для получения сообщений лучше использовать вызов метода **OnMessage**, чем вызов метода **Receive**. Но если необходимо использовать метод **Receive** и задать время ожидания сервера, отличное от значения по умолчанию, убедитесь, что время ожидания сервера превышает одну минуту.
 
@@ -243,7 +243,7 @@ while (true)
 
 AP2003
 
-### Описание
+### Description (Описание)
 
 Используйте асинхронные методы служебной шины для повышения производительности обмена сообщениями через посредника.
 
@@ -259,7 +259,7 @@ AP2003
 
 Для повышения производительности инфраструктуры обмена сообщениями Azure см. шаблон разработки [Начало асинхронного обмена сообщениями](https://msdn.microsoft.com/library/dn589781.aspx).
 
-## Рассмотрите возможность секционирования очередей и разделов служебной шины
+## Попробуйте секционировать очереди и разделы служебной шины
 
 ### ИД
 
@@ -267,7 +267,7 @@ AP2004
 
 ### Описание
 
-Выполните секционирование очередей и разделов служебной шины, чтобы повысить производительность обмена сообщениями служебной шины.
+Секционирование очередей и разделов служебной шины для повышения производительности обмена сообщениями служебной шины.
 
 Делитесь своими идеями и предложениями на [странице отзывов об анализе кода Azure](http://go.microsoft.com/fwlink/?LinkId=403771).
 
@@ -287,7 +287,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Дополнительную информацию см. в статье [Секционированные очереди и разделы служебной шины | Блог Microsoft Azure](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/) и в примере [секционированной очереди служебной шины Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
+Дополнительную информацию см. в записи [блога Microsoft Azure, посвященной секционированным очередям и разделам служебной шины](https://azure.microsoft.com/blog/2013/10/29/partitioned-service-bus-queues-and-topics/), и в примере [секционированной очереди служебной шины Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Partitioned-7dfd3f1f).
 
 ## Не задавайте значение SharedAccessStartTime
 
@@ -387,7 +387,7 @@ blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy(
 
 AP4000
 
-### Описание
+### Description (Описание)
 
 Использование класса [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) для таких проектов, как веб-сайт Azure и мобильные службы Azure, не вызовет проблем времени выполнения. Рекомендуется использовать Cloud[ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager(v=vs.110).aspx) как единый способ управления конфигурациями всех приложений облака Azure.
 
@@ -457,7 +457,7 @@ AP4001
 
 AP5000
 
-### Описание
+### Description (Описание)
 
 Вместо настройки параметров диагностики в коде, например с помощью API программирования Microsoft.WindowsAzure.Diagnostics, следует настроить параметры диагностики в файле diagnostics.wadcfg (или в файле diagnostics.wadcfgx, если используется пакет Azure SDK 2.5). Это позволит изменить параметры диагностики без повторной компиляции кода.
 
@@ -532,4 +532,4 @@ public class BlogsController : Controller
 
 Дополнительную информацию об оптимизации и устранении неполадок приложений Azure см. в статье [Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio](./app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0817_2016-->

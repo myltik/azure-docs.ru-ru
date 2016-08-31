@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/16/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -35,7 +35,7 @@
 
 
 ## Перед началом работы
-Для использования этого учебника необходима учетная запись Azure, в которой уже имеется база данных хранилища данных SQL. Если у вас ее нет, см. статью [Создание хранилища данных SQL][].
+Для использования этого учебника необходима учетная запись Azure, в которой уже имеется база данных хранилища данных SQL. Если у вас ее нет, см. раздел [Создание хранилища данных SQL][].
 
 ## 1\. Настройка источника данных
 
@@ -98,7 +98,7 @@ WITH
 
 > [AZURE.IMPORTANT] Если вы решили сделать контейнеры хранилища BLOB-объектов Azure общедоступными, помните, что с вас как с владельца данных будет взиматься плата за передачу данных из центра обработки данных.
 
-## 2\. Настройка формата данных
+## 2) Настройка формата данных
 
 В хранилище BLOB-объектов Azure данные хранятся в текстовых файлах, где каждое поле отделяется разделителем. Выполните команду [CREATE EXTERNAL FILE FORMAT][], чтобы указать формат данных в текстовых файлах. Для примера Contoso используются данные без сжатия с разделением вертикальной чертой.
 
@@ -232,7 +232,7 @@ GO
 
 ### 4\.2. Загрузка данных в новые таблицы
 
-Чтобы загрузить данные из хранилища BLOB-объектов Azure и сохранить их в таблице в базе данных, используйте инструкцию T-SQL [CREATE TABLE AS SELECT][] \(CTAS). При загрузке с помощью CTAS используются строго типизированные внешние таблицы, которые вы только что создали. Чтобы загрузить данные в новые таблицы, используйте одну инструкцию [CTAS][] на таблицу.
+Чтобы загрузить данные из хранилища BLOB-объектов Azure и сохранить их в таблице в базе данных, используйте инструкцию [CREATE TABLE AS SELECT (Transact-SQL)][]. При загрузке с помощью CTAS используются строго типизированные внешние таблицы, которые вы только что создали. Чтобы загрузить данные в новые таблицы, используйте одну инструкцию [CTAS][] на таблицу.
 
 Компонент CTAS создает новую таблицу и заполняет ее результатам инструкции Select. CTAS определяет новую таблицу так, чтобы в ней содержались те же столбцы и типы данных, которые были выведены инструкцией Select. Если выбрать все столбцы из внешней таблицы, новая таблица будет репликой столбцов и типов данных такой внешней таблицы.
 
@@ -264,7 +264,7 @@ WHERE r.label = 'CTAS : Load [cso].[DimProduct]             '
 
 ## 5\. Оптимизация сжатия columnstore
 
-По умолчанию в хранилище данных SQL таблицы хранятся в виде кластеризованных индексов columnstore. После завершения загрузки для некоторых строк данных может не выполняться сжатие в индекс columnstore. Это может происходить по ряду причин. Дополнительные сведения см. в статье посвященной [управлению индексами columnstore][].
+По умолчанию в хранилище данных SQL таблицы хранятся в виде кластеризованных индексов columnstore. После завершения загрузки для некоторых строк данных может не выполняться сжатие в индекс columnstore. Это может происходить по ряду причин. Чтобы узнать больше, ознакомьтесь с [управлением индексами columnstore][].
 
 Чтобы оптимизировать производительность запросов и сжатие columnstore после загрузки, перестройте таблицу, чтобы настроить принудительное сжатие всех строк таблиц индексом columnstore.
 
@@ -350,23 +350,25 @@ GROUP BY p.[BrandName]
 
 <!--Image references-->
 
-<!--Article references-->
-[Создание хранилища данных SQL]: ./sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
-[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
-[управлению индексами columnstore]: ./sql-data-warehouse-tables-index.md
-[статистике]: ./sql-data-warehouse-tables-statistics.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[label]: ./sql-data-warehouse-develop-label.md
+.<!--Article references-->
+[Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
+[Общие сведения о разработке для хранилища данных SQL]: sql-data-warehouse-overview-develop.md
+[управлением индексами columnstore]: sql-data-warehouse-tables-index.md
+[управлению индексами columnstore]: sql-data-warehouse-tables-index.md
+[статистике]: sql-data-warehouse-tables-statistics.md
+[CTAS]: sql-data-warehouse-develop-ctas.md
+[label]: sql-data-warehouse-develop-label.md
 
-<!--MSDN references-->
+.<!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/ru-RU/library/dn935022.aspx
 [CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/ru-RU/library/dn935026.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
-<!--Other Web references-->
+.<!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [загрузки полного хранилища данных Contoso Retail]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

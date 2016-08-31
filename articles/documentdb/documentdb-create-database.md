@@ -14,22 +14,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="08/15/2016" 
 	ms.author="mimig"/>
 
 # Создание базы данных для DocumentDB на портале Azure
 
 Чтобы использовать Microsoft Azure DocumentDB, необходимы [учетная запись DocumentDB](documentdb-create-account.md), база данных, коллекция и документы. В этом разделе описывается создание базы данных для DocumentDB на портале Microsoft Azure. Сведения о том, как создать базу данных с помощью одного из пакетов SDK см. в разделе [Другие способы создания базы данных DocumentDB](#other-ways-to-create-a-documentdb-database).
 
-![Снимок экрана, на котором показано, как создать базу данных, и отображены элемент "Учетные записи DocumentDB" в колонке "Обзор" и учетная запись DocumentDB в колонке "Учетные записи DocumentDB".](./media/documentdb-create-database/docdb-database-creation-1-2.png)
+1.  На панели быстрых переходов в разделе [Портал Azure](https://portal.azure.com/) щелкните **Учетные записи DocumentDB**. Если **учетные записи DocumentDB** не отображаются, нажмите кнопку **Другие службы**, а затем **Учетные записи DocumentDB**.
 
-1.  На панели быстрых переходов в разделе [Портал Azure](https://portal.azure.com/) щелкните **Учетные записи DocumentDB**. Если элемент **Учетные записи DocumentDB** не отображается, нажмите кнопку **Обзор**, а затем щелкните **Учетные записи DocumentDB**.
+
+    ![Снимок экрана, на котором показано, как создать базу данных, и отображены элемент "Учетные записи DocumentDB" в колонке "Обзор" и учетная запись DocumentDB в колонке "Учетные записи DocumentDB".](./media/documentdb-create-database/docdb-database-creation-1-2.png)
 
 2.  В колонке **Учетные записи DocumentDB** выберите учетную запись, в которую следует добавить базу данных NoSQL DocumentDB. При отсутствии учетных записей необходимо [создать учетную запись DocumentDB](documentdb-create-account.md).
 
-    ![Снимок экрана, на котором показано, как создать базу данных, и отображены кнопка "Добавить базу данных", поле "Идентификатор" и кнопка "OK".](./media/documentdb-create-database/docdb-database-creation-3-5.png)
-
 3. В колонке **Учетная запись DocumentDB** щелкните **Добавить базу данных**.
+
+    ![Снимок экрана, на котором показано, как создать базу данных, и отображены кнопка "Добавить базу данных", поле "Идентификатор" и кнопка "OK".](./media/documentdb-create-database/docdb-database-creation-3-5.png)
 
 4. В колонке **Добавление базы данных** введите идентификатор новой базы данных. После проверки имени в поле **идентификатора** отображается зеленая галочка.
 
@@ -51,4 +52,4 @@
 
 После добавления документов в коллекции вы можете использовать [DocumentDB SQL](documentdb-sql-query.md) для [выполнения запросов](documentdb-sql-query.md#executing-sql-queries) для документов с помощью [обозревателя запросов](documentdb-query-collections-query-explorer.md) на портале, интерфейса [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или одного из [пакетов SDK](documentdb-sdk-dotnet.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0817_2016-->

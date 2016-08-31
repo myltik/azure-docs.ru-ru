@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # Устранение неполадок хранилища данных SQL Azure
@@ -89,7 +89,7 @@
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [общими сведениями о безопасности]: ./sql-data-warehouse-overview-manage-security.md
 [Создание запроса в службу поддержки]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [масштабирования хранилища данных SQL]: ./sql-data-warehouse-manage-compute-overview.md
@@ -98,7 +98,7 @@
 [посвященной мониторингу запросов]: ./sql-data-warehouse-manage-monitor.md
 [указания по подготовке]: ./sql-data-warehouse-get-started-provision.md
 [настройке доступа брандмауэра сервера к IP-адресу клиента]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
-[Visual Studio 2013 или Visual Studio 2015]: ./sql-data-warehouse-get-started-connect.md
+[Visual Studio 2013 или Visual Studio 2015]: ./sql-data-warehouse-query-visual-studio.md
 [Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
 [размерах таблиц]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Неподдерживаемые функции таблиц]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -121,18 +121,18 @@
 [Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
 [Обход требования PolyBase UTF-8]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
-<!--MSDN references-->
+.<!--MSDN references-->
 [собственный клиент SQL Server 10 или SQL Server 11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
 
-<!--Other Web references-->
+.<!--Other Web references-->
 [Блоги]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Блоги группы CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Запросы функций]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Форум MSDN]: https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureSQLDataWarehouse
+[Форум MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Форум Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Видеоролики]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -3,7 +3,7 @@
 	description="Как применить политику к виртуальной машине Azure Resource Manager на основе Linux"
 	services="virtual-machines-linux"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -106,4 +106,4 @@
 
 * [Создание политики](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

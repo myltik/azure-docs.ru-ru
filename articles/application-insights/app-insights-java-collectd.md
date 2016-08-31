@@ -40,12 +40,12 @@
 На компьютере с сервером Unix выполните указанные ниже действия.
 
 1. Установите [collectd](http://collectd.org/) 5.4.0 или более поздней версии.
-2. Загрузите [подключаемый модуль записи Application Insights collectd](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Запишите номер версии.
+2. Загрузите [подключаемый модуль записи Application Insights collectd](https://aka.ms/aijavasdk). Запишите номер версии.
 3. Скопируйте подключаемый модуль JAR в `/usr/share/collectd/java`.
 3. Отредактируйте файл `/etc/collectd/collectd.conf`:
  * Убедитесь, что [подключаемый модуль Java](https://collectd.org/wiki/index.php/Plugin:Java) включен.
  * Обновите JVMArg для java.class.path, включив в него указанный ниже файл JAR. Номер версии должен совпадать с номером версии, которую вы загрузили:
-  * `/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar`
+  * .`/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
  * Добавьте следующий фрагмент кода, используя ключ инструментирования из ресурса:
 
 ```
@@ -71,7 +71,7 @@
     # Configure Java Plugin
     <Plugin "java">
       JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar:/usr/share/collectd/java/collectd-api.jar"
+      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
 
       # Enabling Application Insights plugin
       LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
@@ -105,7 +105,7 @@
 
 Чтобы исключить данные из определенных подключаемых модулей или источников данных, выполните указанные ниже действия.
 
-* Измените файл конфигурации. 
+* Измените файл конфигурации.
 * В `<Plugin ApplicationInsightsWriter>` добавьте строки директив следующего вида:
 
 Директива | Результат
@@ -129,7 +129,7 @@
 
 
 
-<!--Link references-->
+.<!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

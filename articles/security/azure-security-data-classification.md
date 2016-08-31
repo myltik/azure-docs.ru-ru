@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/09/2016"
+   ms.date="08/16/2016"
    ms.author="yurid"/>
 
 # Классификация данных для Azure
@@ -190,7 +190,7 @@
  
 Как показано на рисунке ниже, эти технологии можно развернуть как локальные или облачные решения, а также как гибридные решения (некоторые развернуты локально, а некоторые — в облаке). (Некоторые технологии, например шифрование и управление правами, также распространяются на устройства пользователей.)
 
-.![Технологии](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
+![Технологии](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
 
 ### Программное обеспечение для управления правами  
 
@@ -239,4 +239,4 @@
 - [Блог группы безопасности Azure](http://blogs.msdn.com/b/azuresecurity/)
 - [Центр Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

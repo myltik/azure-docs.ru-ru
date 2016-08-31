@@ -34,10 +34,9 @@
 
 Установщик веб-платформы предлагает три конфигурации для разработки в Service Fabric:
 
-- [Установка среды выполнения Service Fabric, пакета SDK и средств для Visual Studio 2015 c обновлением 2][full-bundle-vs2015]
+- [Установка среды выполнения Service Fabric, пакета SDK и средств для Visual Studio 2015 c обновлением 2 или для более поздней версии][full-bundle-vs2015]
 - [Установка среды выполнения Service Fabric, пакета SDK и средств для предварительной версии Visual Studio 2015][full-bundle-dev15]
 - [Установка только среды выполнения Service Fabric и пакета SDK (без средств для Visual Studio)][core-sdk]
-
 
 ## Включение сценариев PowerShell
 
@@ -64,4 +63,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [core-sdk]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "Ссылка Core SDK WebPI"
 [powershell5-download]: https://www.microsoft.com/ru-RU/download/details.aspx?id=50395
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

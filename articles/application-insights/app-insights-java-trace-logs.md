@@ -87,9 +87,9 @@
 
 Средство ведения журнала | Загрузить | Библиотека
 ----|----|----
-Logback|[Пакет SDK с аппендером Logback](https://azuredownloads.blob.core.windows.net/applicationinsights/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J версии 2.0|[Пакет SDK с аппендером Log4J версии 2.0](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4J версии 1.2|[Пакет SDK с аппендером Log4J версии 1.2](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Logback|[Пакет SDK с аппендером Logback](https://aka.ms/xt62a4)|applicationinsights-logging-logback
+Log4J версии 2.0|[Пакет SDK с аппендером Log4J версии 2.0](https://aka.ms/qypznq)|applicationinsights-logging-log4j2 
+Log4J версии 1.2|[Пакет SDK с аппендером Log4J версии 1.2](https://aka.ms/ky9cbo)|applicationinsights-logging-log4j1\_2 
 
 
 
@@ -144,11 +144,11 @@ Log4J версии 1.2|[Пакет SDK с аппендером Log4J верси�
 
 [Поиск по журналу диагностики][diagnostic]
 
-<!--Link references-->
+.<!--Link references-->
 
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0817_2016-->

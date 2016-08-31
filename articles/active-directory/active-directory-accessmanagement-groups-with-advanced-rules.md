@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
 
@@ -72,7 +72,7 @@
 |-----------------------|-------------------|-----------------------------|
 | Ошибка: атрибут не поддерживается. | (user.invalidProperty -eq "Value") | (user.department -eq "value")<br/>Свойство должно соответствовать одному из свойств [в списке поддерживаемых свойств](#supported-properties). |
 | Ошибка: не поддерживается оператор для атрибута. | (user.accountEnabled -contains true) | (user.accountEnabled - eq true)<br/>Свойство имеет логический тип. Используйте поддерживаемые операторы (-eq и - ne) для логического типа из списка выше. |
-| Ошибка: ошибка компиляции запроса. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Логический оператор должен соответствовать одному из приведенного выше списка поддерживаемых свойств. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") — ошибка в регулярном выражении. |
+| Ошибка: ошибка компиляции запроса. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>Логический оператор должен соответствовать одному из поддерживаемых свойств из приведенного выше списка.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Ошибка в регулярном выражении. |
 | Ошибка: неправильный формат двоичного выражения. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
 | Ошибка: неизвестная ошибка при настройке динамического членства. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>Запрос содержит несколько ошибок. Скобки не в нужном месте. |
 
@@ -168,7 +168,7 @@
 
 (user.extensionAttribute15 -eq "Marketing")
 
-Настраиваемые атрибуты синхронизируются из локального каталога Windows Server AD или из подключенного приложения SaaS в формате user.extension\_[GUID]\_\_[Attribute], где [GUID] — уникальный идентификатор в AAD для приложения, создавшего атрибут в AAD, а [Attribute] — имя атрибута, присвоенное при создании. Пример правила, которое использует настраиваемый атрибут:
+Настраиваемые атрибуты синхронизируются из локального каталога Windows Server AD или из подключенного приложения SaaS в формате user.extension_[GUID]\__[Attribute], где [GUID] — уникальный идентификатор в AAD для приложения, создавшего атрибут в AAD, а [Attribute] — имя атрибута, присвоенное при создании. Пример правила, которое использует настраиваемый атрибут:
 
 user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
@@ -181,19 +181,36 @@ user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
 1. На классическом портале Azure щелкните **Active Directory**, а затем выберите имя каталога своей организации.
 
-2. Перейдите на вкладку **Группы**, а затем откройте группу, которую нужно изменить.
+2. Откройте вкладку **Группы**, а затем группу, которую нужно изменить.
 
-3. Перейдите на вкладку **Настройка**, а затем щелкните **РАСШИРЕННОЕ ПРАВИЛО**.
+3. Перейдите на вкладку **Настройка**, а затем щелкните **Расширенное правило**.
 
 4. Введите правило, используя следующий синтаксис:
 
-	Direct Reports для *Direct Reports для {obectID\_of\_manager}*. Пример допустимого правила для Direct Reports:
+	Direct Reports for *Direct Reports for {obectID\_of\_manager}*. Пример допустимого правила для Direct Reports:
 
 					Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863”
 
 	где "62e19b97-8b3d-4d4a-a106-4ce66896a863" — идентификатор объекта руководителя. Идентификатор объекта можно найти в Azure AD на **вкладке профиля** пользователя, который является руководителем.
 
 3. После сохранения этого правила все пользователи, которые отвечают правилу, будут присоединены как члены группы. Процесс первоначального заполнения группы может занять несколько минут.
+
+
+## Создание правил для объектов устройств с помощью атрибутов
+
+Можно также создать правило, которое выбирает объекты устройств для членства в группе. Можно использовать следующие атрибуты устройства:
+
+| Свойства | Допустимые значения | Использование |
+|----------------------|---------------------------------|------------------------------------------------------|
+| displayName | Любое строковое значение | (device.displayName -eq "Rob Iphone”) |
+| deviceOSType | Любое строковое значение | (device.deviceOSType -eq "IOS") |
+| deviceOSVersion | Любое строковое значение | (device.OSVersion -eq "9.1") |
+| isDirSynced | true, false, null | (device.isDirSynced -eq "true") |
+| isManaged | true, false, null | (device.isManaged -eq "false") |
+| isCompliant | true, false, null | (device.isCompliant -eq "true") |
+
+> [AZURE.NOTE]
+Эти правила устройств невозможно создать с помощью раскрывающегося списка "Простое правило" на классическом портале Azure.
 
 
 ## Дополнительная информация
@@ -203,10 +220,10 @@ user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
 
-* [Настройка параметров групп с помощью командлетов Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Azure Active Directory cmdlets for configuring group settings (Настройка параметров групп с помощью командлетов Azure Active Directory)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
 * [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0817_2016-->

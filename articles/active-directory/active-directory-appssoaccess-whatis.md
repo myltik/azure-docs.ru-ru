@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="terrylan"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="08/15/2016"
 	ms.author="asmalser-msft"/>
 
 #Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?
@@ -126,7 +126,7 @@ Azure AD поддерживает единый вход на основе пар
 
 
 *	**Добавление самостоятельно разработанного приложения**. Если вы самостоятельно разработали приложение, то с помощью рекомендаций в документации разработчика для Azure AD можно реализовать федеративный единый вход или выполнить подготовку с использованием API Graph Azure AD. Для получения дополнительных сведений см. следующие ресурсы.
-  * [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md)
+  * Сценарии аутентификации в Azure Active Directory
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
@@ -172,7 +172,7 @@ Azure AD предоставляет несколько настраиваемы�
 
 ![][3]
 
-Панель доступа отделена от портала управления Azure, для нее не требуется подписка Azure или Office 365.
+Панель доступа отделена от портала управления Azure, для нее не требуется подписка Azure или Office 365.
 
 Дополнительные сведения о панели доступа Azure AD см. в статье с [общими сведениями о панели доступа](active-directory-saas-access-panel-introduction.md).
 
@@ -227,4 +227,4 @@ Azure AD также поддерживает ссылки для прямого 
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!-----HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0817_2016-->

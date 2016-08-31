@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/09/2016"
+   ms.date="08/16/2016"
    ms.author="terrylan"/>
 
 # Общие сведения о безопасности при использовании виртуальных машин Azure
@@ -66,7 +66,7 @@ Azure предлагает антивредоносное ПО таких пос
 
 Дополнительные сведения об антивредоносном ПО для защиты виртуальных машин см. в следующих источниках.
 
-- [Антивредоносное ПО Майкрософт для облачных служб и виртуальных машин Azure](../azure-security-antimalware.md)
+- [Антивредоносное ПО Майкрософт для облачных служб и виртуальных машин Azure](../security/azure-security-antimalware.md)
 - [Развертывание решений по защите от вредоносных программ на виртуальных машинах Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 - [Установка и настройка Trend Micro Deep Security как услуги на ВМ Windows](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
 - [Установка и настройка Symantec Endpoint Protection на виртуальной машине Windows](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
@@ -92,7 +92,7 @@ Azure предлагает антивредоносное ПО таких пос
 Подробнее.
 
 - [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
-- [Azure Disk Encryption for Linux and Windows Virtual Machines](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/) (Шифрование дисков Azure для виртуальных машин IaaS под управлением Windows и Linux)
+- [Azure Disk Encryption for Linux and Windows Virtual Machines (Шифрование дисков Azure для виртуальных машин IaaS под управлением Windows и Linux)](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
 - [Шифрование виртуальной машины Azure](../security-center/security-center-disk-encryption.md)
 
 ## Резервное копирование виртуальной машины
@@ -131,7 +131,7 @@ Site Recovery выполняет следующие задачи.
 
 - [Обзор сетевой безопасности Azure](security-network-overview.md)
 - [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md)
-- [Networking features and partnerships for Enterprise scenarios](https://azure.microsoft.com/blog/networking-enterprise/) (Сетевые функции и партнерские решения для корпоративных сценариев)
+- [Networking features and partnerships for Enterprise scenarios (Сетевые функции и партнерские решения для корпоративных сценариев)](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## Управление политикой безопасности и отчеты
 
@@ -154,7 +154,7 @@ Site Recovery выполняет следующие задачи.
 
 Подробнее.
 
-- [Microsoft Trust Center: Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx) (Центр управления безопасностью корпорации Майкрософт: соответствие нормативным требованиям)
+- [Microsoft Trust Center: Compliance (Центр управления безопасностью корпорации Майкрософт: соответствие нормативным требованиям)](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 - [Доверенное облако: безопасность, конфиденциальность и соответствие требованиям в Microsoft Azure](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

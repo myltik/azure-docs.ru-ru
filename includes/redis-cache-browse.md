@@ -11,3 +11,5 @@
 Для отображения и настройки кэша щелкните **Параметры** или **Все параметры**.
 
 ![Все параметры кэша Redis](media/redis-cache-browse/redis-cache-blade.png)
+
+<!---HONumber=AcomDC_0817_2016-->

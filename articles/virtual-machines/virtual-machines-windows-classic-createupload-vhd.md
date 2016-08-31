@@ -28,11 +28,11 @@
 
 В этой статье предполагается, что у вас есть следующие компоненты.
 
-1. **Подписка Azure**. Если подписка отсутствует, можно [создать учетную запись Azure бесплатно](/pricing/free-trial/?WT.mc_id=A261C142F).
+- **Подписка Azure**. Если подписка отсутствует, можно [создать учетную запись Azure бесплатно](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-2. **[Microsoft Azure PowerShell](../powershell-install-configure.md)**. У вас уже установлен и настроен на использование подписки модуль Microsoft Azure PowerShell.
+- **[Microsoft Azure PowerShell](../powershell-install-configure.md)**. У вас уже установлен и настроен для использования подписки модуль Microsoft Azure PowerShell.
 
-3. **VHD-файл**. Поддерживаемая операционная система Windows, сохраненная в VHD-файле и подключенная к виртуальной машине.
+- **VHD-файл**. Поддерживаемая операционная система Windows, сохраненная в VHD-файле и подключенная к виртуальной машине. Следует также проверить, поддерживаются ли программой Sysprep роли сервера, запущенные на этом VHD. Дополнительные сведения см. в разделе [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep).
 
 > [AZURE.IMPORTANT] Формат VHDX не поддерживается в Microsoft Azure. Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Дополнительные сведения см. в [этом блоге](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
@@ -104,4 +104,4 @@
 
 Теперь вы можете [создать пользовательскую виртуальную машину](virtual-machines-windows-classic-createportal.md) с помощью переданного образа.
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

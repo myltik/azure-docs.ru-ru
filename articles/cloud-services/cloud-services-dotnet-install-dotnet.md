@@ -177,7 +177,7 @@
 [Установка платформы .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
 [Устранение неполадок с установкой .NET Framework]: https://msdn.microsoft.com/library/hh925569.aspx
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
 

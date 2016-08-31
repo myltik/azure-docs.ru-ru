@@ -33,7 +33,7 @@
 
 ### Отправка виртуального жесткого диска Windows Server
 
-Чтобы развернуть виртуальную машину Windows Server в Azure, сначала необходимо создать виртуальный жесткий диск, в котором содержится базовая сборка Windows Server. Перед отправкой виртуального жесткого диска в Azure его необходимо соответствующим образом подготовить с помощью программы Sysprep. См. дополнительные сведения о [требованиях к виртуальному жесткому диску и использовании программы Sysprep](./virtual-machines-windows-upload-image.md). Чтобы отправить подготовленный виртуальный жесткий диск в учетную запись службы хранилища Azure, запустите командлет `Add-AzureRmVhd` со следующими параметрами:
+Чтобы развернуть виртуальную машину Windows Server в Azure, сначала необходимо создать виртуальный жесткий диск, в котором содержится базовая сборка Windows Server. Перед отправкой виртуального жесткого диска в Azure его необходимо соответствующим образом подготовить с помощью программы Sysprep. Вы можете [узнать больше требованиях к VHD и использованию Sysprep](./virtual-machines-windows-upload-image.md) и ознакомиться с разделом [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep). Чтобы передать подготовленный виртуальный жесткий диск в учетную запись хранения Azure, выполните командлет `Add-AzureRmVhd` со следующими параметрами.
 
 ```
 Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorageaccount.blob.core.windows.net/vhds/myvhd.vhd" -LocalFilePath 'C:\Path\To\myvhd.vhd'
@@ -41,18 +41,18 @@ Add-AzureRmVhd -ResourceGroupName MyResourceGroup -Destination "https://mystorag
 
 > [AZURE.NOTE] Microsoft SQL Server, SharePoint Server и Dynamics могут использовать также ваше лицензирование Software Assurance. Еще вам нужно подготовить образ Windows Server. Для этого установите компоненты приложения, предоставьте соответствующие лицензионные ключи и выгрузите образ диска в Azure. Ознакомьтесь с соответствующей документацией, содержащей информацию о запуске Sysprep с помощью вашего приложения, например со статьей [Considerations for Installing SQL Server using Sysprep](https://msdn.microsoft.com/library/ee210754.aspx) (Рекомендации по установке сервера SQL Server с помощью Sysprep) или [Build a SharePoint Server 2016 Reference Image (Sysprep)](http://social.technet.microsoft.com/wiki/contents/articles/33789.build-a-sharepoint-server-2016-reference-image-sysprep.aspx) (Создание эталонного образа SharePoint Server 2016 (Sysprep)).
 
-Кроме того, вы можете ознакомиться с дополнительной информацией об [отправке виртуального жесткого диска в Azure](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
+Кроме того, вы можете ознакомиться с дополнительной информацией о [передаче VHD в Azure](./virtual-machines-windows-upload-image.md#upload-the-vm-image-to-your-storage-account).
 
 > [AZURE.TIP] Несмотря на то, что эта статья посвящена развертыванию виртуальных машин Windows Server, действия, описанные в ней, можно использовать для развертывания виртуальных машин клиента Windows. Для этого в следующих примерах необходимо соответствующим образом заменить `Server` на `Client`.
 
 ## Краткое руководство по развертыванию виртуальной машины с помощью PowerShell
-При развертывании виртуальной машины Windows Server с помощью PowerShell вам предоставляется дополнительный параметр для `-LicenseType`. После загрузки виртуального жесткого диска в Azure необходимо создать новую виртуальную машину с помощью командлета `New-AzureRmVM` и указать тип лицензирования следующим образом:
+При развертывании виртуальной машины Windows Server с помощью PowerShell доступен дополнительный параметр для `-LicenseType`. После передачи VHD в Azure необходимо создать новую виртуальную машину с помощью командлета `New-AzureRmVM` и указать тип лицензирования следующим образом.
 
 ```
 New-AzureRmVM -ResourceGroupName MyResourceGroup -Location "West US" -VM $vm -LicenseType Windows_Server
 ```
 
-Вы можете подробнее [прочитать о развертывании виртуальной машины в Azure с помощью PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) ниже или просмотреть описания в руководстве [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](./virtual-machines-windows-ps-create.md).
+Вы можете [прочитать дополнительные сведения о развертывании виртуальной машины в Azure с помощью PowerShell](./virtual-machines-windows-hybrid-use-benefit-licensing.md#deploy-windows-server-vm-via-powershell-detailed-walkthrough) ниже или просмотреть описание в руководстве [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](./virtual-machines-windows-ps-create.md).
 
 ## Развертывание виртуальной машины с помощью Resource Manager
 В шаблонах Resource Manager можно указывать дополнительный параметр для `licenseType`. Дополнительные сведения см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md). После загрузки виртуального жесткого диска в Azure необходимо изменить шаблон Resource Manager, чтобы включить в него тип лицензирования как часть поставщика вычислительных ресурсов и развернуть шаблон в обычном режиме.
@@ -165,4 +165,4 @@ New-AzureRmVM -ResourceGroupName $resourceGroupName -Location $location -VM $vm 
 
 Узнайте больше об [использовании шаблонов Resource Manager](../resource-group-overview.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="tomfitz"/>
 
 # Общие сведения о диспетчере ресурсов Azure
@@ -133,31 +133,50 @@
 
 Диспетчер ресурсов Azure поддерживает общий доступ к ресурсам независимо от источника (CORS). Доступ CORS позволяет вызывать REST API диспетчера ресурсов или REST API служб Azure из веб-приложения, которое расположено в другом домене. Без поддержки CORS веб-браузер запрещает приложению, расположенному в одном домене, обращаться к ресурсам, расположенным в другом домене. Диспетчер ресурсов включает доступ CORS для всех запросов с учетными данными, прошедшими проверку подлинности.
 
-## Пакеты SDK и примеры
+## Пакеты SDK
 
 Пакеты SDK для Azure доступны для нескольких языков и платформ. Каждая из этих языковых реализаций доступна в диспетчере пакетов экосистемы и на сайте GitHub.
 
 Код в каждом из этих пакетов SDK генерируется из спецификаций RESTful API Azure. Эти спецификации с открытым исходным кодом основаны на спецификации Swagger 2.0. Код пакета SDK создается в проекте с открытым исходным кодом под названием AutoRest. AutoRest преобразует эти спецификации RESTful API в клиентские библиотеки на нескольких языках. Если требуется изменить какие-либо аспекты созданного кода в пакетах SDK, можно воспользоваться открытым, бесплатным, поддерживающим распространенный формат спецификации API набором средств для создания пакетов SDK.
 
-**Примеры**: быстро приступите к работе на выбранном языке.
+Вот наши репозитории пакета SDK Open Source. Присылайте отзывы, сообщения о проблемах и запросы на включение внесенных изменений.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
-- [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
-- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
-- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php): *ожидается в ближайшее время*.
-- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
+[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
-**Репозитории пакетов SDK с открытым исходным кодом**: присылайте отзывы, сообщения о проблемах и запросы на включение внесенных изменений.
+> [AZURE.NOTE] Если пакет SDK не обеспечивает требуемую функциональность, можно также напрямую вызвать интерфейс [REST API Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
-- [.NET](https://github.com/Azure/azure-sdk-for-net)
-- [Java](https://github.com/Azure/azure-sdk-for-java)
-- [Node.js](https://github.com/Azure/azure-sdk-for-node)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+## Примеры
 
-> [AZURE.NOTE] Если пакет SDK не обеспечивает требуемую функциональность, можно также напрямую вызвать [REST API Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+### .NET
+
+- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/) (Управление ресурсами и группами ресурсов Azure с помощью .NET)
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/) (Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона c помощью .NET)
+
+### Java
+
+- [Getting Started with Resources - Manage Resource - in Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/) (Приступая к работе с ресурсами: управление ресурсами в Java)
+- [Приступая к работе с ресурсами: управление группой ресурсов на Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/) (Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона c помощью .NET)
+
+### Node.js
+
+- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/) (Управление ресурсами и группами ресурсов Azure с помощью .NET)
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/) (Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона c помощью .NET)
+
+### Python
+
+- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/) (Управление ресурсами и группами ресурсов Azure с помощью .NET)
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/) (Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона c помощью .NET)
+
+### Ruby
+
+- [Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/) (Управление ресурсами и группами ресурсов Azure с помощью .NET)
+- [Deploy an SSH Enabled VM with a Template with .NET](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/) (Развертывание виртуальной машины с включенным протоколом SSH на основе шаблона c помощью .NET)
+
+
+Наряду с этими образцами можно также выполнять поиск по коллекции образцов.
+
+[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## Дальнейшие действия
 
@@ -171,4 +190,4 @@
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

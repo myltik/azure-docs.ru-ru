@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Защита приложений и ресурсов в Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
 Azure RemoteApp обеспечивает пользователям доступ к централизованно управляемым приложениям Windows, которые позволяют контролировать, что пользователи могут делать, а что — нет. Это особенно полезно, когда пользователь подключается с неуправляемого устройства (например, с личного Macbook), а вы хотите контролировать его доступ или интерфейс.
 
@@ -46,4 +49,4 @@ Azure RemoteApp обеспечивает пользователям доступ
 - [Политики Windows Server 2012 R2](https://technet.microsoft.com/library/hh831791.aspx).
 - [Политики Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (включая [настройку панели инструментов Office](https://technet.microsoft.com/library/cc179143.aspx)).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

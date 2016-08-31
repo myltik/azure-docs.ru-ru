@@ -121,7 +121,7 @@
 
 ### Шаг 1.
 
-		Login-AzureRmAccount
+	Login-AzureRmAccount
 
 
 
@@ -129,16 +129,16 @@
 
 Просмотрите подписки учетной записи.
 
-		get-AzureRmSubscription
+	Get-AzureRmSubscription
 
-Вам будет предложено указать свои учетные данные для проверки подлинности.<BR>
+Вам будет предложено указать свои учетные данные для аутентификации.<BR>
 
-### Шаг 3.
+### Шаг 3.
 
 Выберите, какие подписки Azure будут использоваться. <BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Шаг 4.
@@ -146,7 +146,7 @@
 
 При необходимости создайте новую группу ресурсов с помощью командлета **New-AzureResourceGroup**. В примере ниже создается группа ресурсов с именем AppgatewayRG, расположенная в восточной части США.
 
-	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
+	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -163,29 +163,29 @@
 
 Запустите командлет **New-AzureRmResourceGroupDeployment**, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили ранее.
 
-		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
- 		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+	New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+ 		-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 Выходные данные командной строки будут выглядеть так:
 
-		DeploymentName    : testappgatewaydeployment
-		ResourceGroupName : appgatewayRG
-		ProvisioningState : Succeeded
-		Timestamp         : 9/19/2015 1:49:41 AM
-		Mode              : Incremental
-		TemplateLink      :
-		Parameters        :
-                   Name             Type                       Value
-                   ===============  =========================  ==========
-                   location         String                     East US
-                   addressPrefix    String                     10.0.0.0/16
-                   subnetPrefix     String                     10.0.0.0/24
-                   skuName          String                     Standard_Small
-                   capacity         Int                        2
-                   backendIpAddress1  String                     10.0.1.10
-                   backendIpAddress2  String                     10.0.1.11
+	DeploymentName    : testappgatewaydeployment
+	ResourceGroupName : appgatewayRG
+	ProvisioningState : Succeeded
+	Timestamp         : 9/19/2015 1:49:41 AM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+				Name             Type                       Value
+				===============  =========================  ==========
+				location         String                     East US
+				addressPrefix    String                     10.0.0.0/16
+				subnetPrefix     String                     10.0.0.0/24
+				skuName          String                     Standard_Small
+				capacity         Int                        2
+				backendIpAddress1  String                     10.0.1.10
+				backendIpAddress2  String                     10.0.1.11
 
-		Outputs           :
+	Outputs           :
 
 
 ## Развертывание шаблона ARM с помощью интерфейса командной строки Azure
@@ -293,4 +293,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

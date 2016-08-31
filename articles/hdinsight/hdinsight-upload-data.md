@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 
@@ -66,13 +66,13 @@
 
 1. [Установите и настройте интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli-install.md).
 
-2. Откройте командную строку, например bash или другую оболочку, и войдите в свою учетную запись с подпиской Azure с помощью следующей команды.
+2. Откройте командную строку, например bash или другую оболочку, и выполните приведенную далее команду для аутентификации в подписке Azure.
 
 		azure login
 
 	При появлении запроса введите имя пользователя и пароль для своей подписки.
 
-3. Используйте следующую команду для отображения учетных записей хранения, связанных с вашей подпиской.
+3. Используйте следующую команду для отображения учетных записей хранения, связанных с вашей подпиской:
 
 		azure storage account list
 
@@ -175,12 +175,16 @@ AzCopy — это программа командной строки, кото�
 
 | Клиент | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
+| [Microsoft Visual Studio Tools для HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) | ✔ | ✔ | ✔ |
 | [Azure Storage Explorer;](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [Cloud Storage Studio 2;](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer;](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
 | [Azure Explorer;](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
-| [Zudio](https://zudio.co/) | ✔ | ✔ | ✔ |
 | [Cyberduck](https://cyberduck.io/) | | ✔ | ✔ |
+
+###Visual Studio Tools для HDInsight
+
+Дополнительные сведения см. в разделе [Переход на связанные ресурсы](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
 ###<a id="storageexplorer"></a>Обозреватель хранилищ Azure
 
@@ -282,4 +286,4 @@ Sqoop — это средство, предназначенное для пер�
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

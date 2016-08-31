@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268601.aspx -->
@@ -43,7 +43,7 @@
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
-<!-- URL List -->
+.<!-- URL List -->
 
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
@@ -51,8 +51,8 @@
 [Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Свойства локального хранилища]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 
-<!-- IMG List -->
+.<!-- IMG List -->
 
 [ic667943]: ./media/azure-toolkit-for-eclipse-deploying-large-deployments/ic667943.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

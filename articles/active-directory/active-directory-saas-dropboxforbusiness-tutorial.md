@@ -11,12 +11,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/26/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с Dropbox for Business
   
-Цель данного руководства — показать интеграцию Azure и Dropbox for Business.
+Цель данного руководства — показать интеграцию Azure и Dropbox for Business.  
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
@@ -105,7 +105,7 @@
 
 	![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769513.png "Настройка единого входа")
 
-	Е. На классическом портале Azure вставьте URL-адрес в текстовое поле **DropBox for business sign in** (URL-адрес для входа в Dropbox for Business).
+	Е. На классическом портале Azure вставьте URL-адрес в текстовое поле **Dropbox for business sign in** (URL-адрес для входа в Dropbox for Business).
 
 	![Настройка единого входа](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769514.png "Настройка единого входа")
 
@@ -125,7 +125,7 @@
 	b. На странице **Настройка единого входа в Dropbox for Business** классического портала Azure скопируйте значение поля **URL-адрес страницы входа** и вставьте его в текстовое поле **URL-адрес входа**.
 
 
-	c. Создайте файл **в кодировке Base-64** из скачанного сертификата.
+	в) Создайте файл **в кодировке Base-64** из скачанного сертификата.
 
 	> [AZURE.TIP] Дополнительные сведения вы можете узнать в видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 
@@ -151,11 +151,11 @@
 
 1. На странице интеграции приложения **Dropbox for Business** на классическом портале Azure щелкните **Настроить подготовку учетных записей пользователей**, чтобы открыть диалоговое окно **Настройка подготовки учетных записей пользователей**.
 
-2. На странице "Включить подготовку учетных записей пользователей для: Dropbox for Business" нажмите кнопку "Включить подготовку пользователей", чтобы открыть диалоговое окно Sign in to Dropbox to link with Microsoft Azure AD (Вход в Dropbox для установки связи с Microsoft Azure AD).
+2. На странице "Включить подготовку учетных записей пользователей для: Dropbox for Business" нажмите кнопку "Включить подготовку пользователей", чтобы открыть диалоговое окно Sign in to Dropbox to link with Windows Azure AD (Вход в Dropbox для установки связи с Microsoft Azure AD).
 
 	![Подготовка пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769517.png "Подготовка пользователей")
 
-3. В диалоговом окне **Sign in to Dropbox to link with Microsoft Azure AD** (Вход в Dropbox для установки связи с Microsoft Azure AD) войдите в клиент Dropbox for Business.
+3. В диалоговом окне **Sign in to Dropbox to link with Windows Azure AD** (Вход в Dropbox для установки связи с Microsoft Azure AD) войдите в клиент Dropbox for Business.
 
 	![Подготовка пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769518.png "Подготовка пользователей")
 
@@ -184,7 +184,7 @@
 
 2.  На странице интеграции с приложением **Dropbox for Business** нажмите кнопку **Назначить пользователей**.
 
-    ![Назначить пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "Назначить пользователей")
+    ![Назначение пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769521.png "Назначение пользователей")
 
 3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
@@ -196,7 +196,7 @@
 
 Сначала проверьте состояние подготовки, щелкнув **Панель мониторинга** на странице интеграции приложения **Dropbox for Business** на классическом портале Azure.
 
-![Назначить пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769522.png "Назначение пользователей")
+![Назначение пользователей](./media/active-directory-saas-dropboxforbusiness-tutorial/IC769522.png "Назначение пользователей")
 
 
 Об успешном завершении цикла подготовки пользователя говорит соответствующий статус.
@@ -210,9 +210,9 @@
 
 
 
-## Дополнительные ресурсы
+## дополнительные ресурсы.
 
 * [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

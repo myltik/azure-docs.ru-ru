@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Создание веб-приложения PHP-MySQL в службе приложений Azure и развертывание с помощью Git
 
-В этом учебнике описывается, как создать веб-приложение PHP-MySQL и развернуть его в [службе приложений](http://go.microsoft.com/fwlink/?LinkId=529714) с помощью Git. Вы будете использовать [PHP][install-php], средство командной строки MySQL (которое входит в состав [MySQL][install-mysql]) и [Git][install-git], установленный на компьютере. Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, включая Windows, Mac и Linux. По завершении работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-MySQL.
+В этом учебнике описывается, как создать веб-приложение PHP-MySQL и развернуть его в [службе приложений](http://go.microsoft.com/fwlink/?LinkId=529714) с помощью Git. Вы будете использовать [PHP][install-php], средство командной строки MySQL (которое входит в состав [MySQL][install-mysql]) и [Git][install-git], установленный на компьютере. Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, включая Windows, Linux и Mac. По завершении работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-MySQL.
 
 Вы узнаете:
 
@@ -63,7 +63,7 @@
 
 7. В колонке **Параметры** щелкните **Непрерывное развертывание**, а затем _Настроить необходимые параметры_.
 
-	![Настройка публикации Git][setup-publishing]
+	![Настроить публикацию Git][setup-publishing]
 
 8. Выберите для исходного кода **Локальный репозиторий Git**.
 
@@ -282,7 +282,7 @@
 
 Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).
 
-<!-- URL List -->
+.<!-- URL List -->
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
@@ -319,4 +319,4 @@
 [composer-extension-view]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-view.png
 [composer-extension-success]: ./media/web-sites-php-mysql-deploy-use-git/composer-extension-success.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

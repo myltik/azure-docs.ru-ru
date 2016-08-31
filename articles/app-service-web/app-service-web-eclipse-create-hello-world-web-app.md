@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Создание веб-приложения Hello World для Azure в Eclipse
@@ -75,7 +75,7 @@
    ![][04]
    
    Примечание. При наличии нескольких учетных записей Azure некоторые запросы во время входа в систему могут отображаться несколько раз, даже если они выглядят одинаковыми. Если это происходит, выполните вход.
-1. После успешного входа в учетную запись Azure в диалоговом окне **Управление подписками** будет показан список подписок, связанных с вашими учетными данными. Если в списке есть несколько подписок и вы хотите работать только с определенным набором подписок, можете снять флажки с тех, которые не хотите использовать. После выбора подписок щелкните **Закрыть**.
+1. После успешного входа в учетную запись Azure в диалоговом окне **Управление подписками** отобразится список подписок, связанных с вашими учетными данными. Если список содержит несколько подписок и вы будете работать только с некоторыми из них, снимите флажки с подписок, которые не будете использовать. После выбора подписок щелкните **Закрыть**.
 
    ![][05]
    
@@ -210,7 +210,7 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- URL List -->
+.<!-- URL List -->
 
 [Набор средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
 [средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
@@ -225,7 +225,7 @@
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 [Обзор веб-приложений]: ./app-service-web-overview.md
 
-<!-- IMG List -->
+.<!-- IMG List -->
 
 [01]: ./media/app-service-web-eclipse-create-hello-world-web-app/01-Web-Page.png
 [02]: ./media/app-service-web-eclipse-create-hello-world-web-app/02-Dynamic-Web-Project.png
@@ -243,4 +243,4 @@
 [14]: ./media/app-service-web-eclipse-create-hello-world-web-app/14-publishDropdownButton.png
 [15]: ./media/app-service-web-eclipse-create-hello-world-web-app/15-New-Azure-Web-Container.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

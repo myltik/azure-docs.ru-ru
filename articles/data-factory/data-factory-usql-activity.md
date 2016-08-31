@@ -93,7 +93,7 @@ sessionid | Идентификатор сеанса из сеанса автор
         }
     }
 
-Подробные сведения о классах фабрики данных, используемых в коде, см. в разделах [Класс AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Класс AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) и [Класс AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Для использования класса WindowsFormsWebAuthenticationDialog необходимо добавить ссылку на Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll.
+Подробные сведения о классах фабрики данных, используемых в коде, см. в статьях [AzureDataLakeStoreLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) и [AuthorizationSessionGetResponse — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Для использования класса WindowsFormsWebAuthenticationDialog необходимо добавить ссылку на Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll.
  
  
 ## Действие U-SQL в аналитике озера данных 
@@ -158,16 +158,16 @@ sessionid | Идентификатор сеанса из сеанса автор
 type | Для свойства type нужно задать значение **DataLakeAnalyticsU-SQL**. | Да
 scriptPath | Путь к папке, содержащей скрипт U-SQL Обратите внимание, что в имени файла учитывается регистр знаков. | Нет (если используется скрипт)
 scriptLinkedService | Связанная служба, которая связывает хранилище, содержащее скрипт, с фабрикой данных | Нет (если используется скрипт)
-script | Указание скрипта непосредственно в строке вместо использования scriptPath и scriptLinkedService. Например: "script" : "CREATE DATABASE test" | Нет (при использовании scriptPath и scriptLinkedService)
+script | Указание сценария непосредственно в строке вместо использования scriptPath и scriptLinkedService. Например: "script" : "CREATE DATABASE test" | Нет (при использовании scriptPath и scriptLinkedService)
 degreeOfParallelism | Максимальное количество узлов, которые будут использоваться одновременно для выполнения задания. | Нет
 priority | Определяет, какие задания из всех в очереди должны запускаться в первую очередь. Чем меньше число, тем выше приоритет. | Нет 
 parameters | Параметры скрипта U-SQL | Нет 
 
 Определение сценария см. в разделе [Определение сценария SearchLogProcessing.txt](#script-definition).
 
-### Примеры входных и выходных наборов данных
+## Примеры входных и выходных наборов данных
 
-#### Входной набор данных
+### Входной набор данных
 В этом примере входной набор данных находится в хранилище озера данных Azure (файл SearchLog.tsv в папке datalake/input).
 
 	{
@@ -191,7 +191,7 @@ parameters | Параметры скрипта U-SQL | Нет
     	}
 	}	
 
-#### Выходной набор данных
+### Выходной набор данных
 В этом примере выходные данные, порождаемые скриптом U-SQL, сохраняются в хранилище озера данных Azure (папка datalake/output).
 
 	{
@@ -209,7 +209,7 @@ parameters | Параметры скрипта U-SQL | Нет
 	    }
 	}
 
-#### Пример связанной службы хранилища озера данных Azure
+### Пример связанной службы Data Lake Store
 Вот определение примера связанной службы хранилища озера данных Azure, используемой наборами входных и выходных данных выше.
 
 	{
@@ -226,7 +226,7 @@ parameters | Параметры скрипта U-SQL | Нет
 
 Описания свойств JSON в связанной службе хранилища озера данных Azure и фрагментах кода JSON с наборами данных выше см. в статье [Перемещение данных в хранилище озера данных Azure и из него](data-factory-azure-datalake-connector.md).
 
-### Определение сценария
+## Пример сценария U-SQL 
 
 	@searchlog =
 	    EXTRACT UserId          int,
@@ -257,4 +257,21 @@ parameters | Параметры скрипта U-SQL | Нет
 
 В определении канала для заданий, которые запускаются в службе аналитики озера данных Azure, можно определить другие свойства, такие как степень параллелизма, приоритет и т. д.
 
-<!---HONumber=AcomDC_0629_2016-->
+## Динамические параметры
+В приведенном выше определении конвейера параметрам in и out присвоено жестко заданное значение.
+
+    "parameters": {
+        "in": "/datalake/input/SearchLog.tsv",
+        "out": "/datalake/output/Result.tsv"
+    }
+
+Вместо этого можно использовать динамические параметры. Например:
+
+    "parameters": {
+        "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
+        "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
+    }
+
+В этом случае входные файлы по-прежнему берутся из папки /datalake/input, выходные файлы создаются в папке /datalake/output, но имена файлов являются динамическими и основаны на времени начала среза.
+
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>
 
 # Добавление push-уведомлений в приложение Apache Cordova
@@ -76,7 +76,7 @@
 
 1.  В обозревателе решений откройте файл `config.xml`, щелкните **Подключаемые модули** > **Настраиваемые**, выберите **Git** как источник установки, а затем в качестве источника введите `https://github.com/phonegap/phonegap-plugin-push`.
 
-	.![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
 
 2.  Щелкните стрелку рядом с источником установки.
 
@@ -234,11 +234,11 @@
 
 	Добавьте учетную запись Google на устройство Android, щелкнув **Приложения** > **Параметры** > **Добавить учетную запись**. Следуйте указаниям, чтобы использовать на устройстве имеющуюся учетную запись Google (рекомендуется) или создать новую.
 
-	.![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
+	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
 	Запустите приложение todolist, как ранее, и вставьте новый элемент списка дел. На этот раз в области уведомлений отображается значок уведомления. Вы можете открыть панель уведомлений, чтобы просмотреть полный текст уведомления.
 
-	.![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
+	![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
 
 ##Настройка и запуск проекта в iOS (необязательно)
 
@@ -384,4 +384,4 @@
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

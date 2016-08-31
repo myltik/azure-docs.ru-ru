@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"   
+   ms.date="08/10/2016"   
    ms.author="seanmck"/>
 
 # Моделирование приложения в структуре службы
@@ -29,7 +29,8 @@
 
 Тип приложения представляет собой отнесение приложения к определенной категории и состоит из пакета типов служб. Тип службы представляет собой отнесение службы к определенной категории, которая может обладать различными параметрами и конфигурациями, однако ее основная функция не изменяется. Экземпляры службы представляют собой различные вариации конфигурации служб, принадлежащих к одному типу.
 
-Классы (или типы) приложений и служб описываются с помощью XML-файлов (манифесты приложений и манифесты служб), которые представляют собой шаблоны, по которым создаются экземпляры приложений из хранилища образов кластера. Определение схемы для файла ServiceManifest.xml и ApplicationManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
+Классы (или типы) приложений и служб описываются с помощью XML-файлов (манифесты приложений и манифесты служб), которые представляют собой шаблоны, по которым создаются экземпляры приложений из хранилища образов кластера. 
+Определение схемы для файла ServiceManifest.xml и ApplicationManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
 Код для различных экземпляров приложений будет выполняться как отдельные процессы, даже если они размещены на одном узле структуры службы. Кроме того, возможно независимое управление жизненным циклом (например, обновление) каждого экземпляра приложения. На следующей диаграмме показано, что типы приложений состоят из типов служб, которые, в свою очередь, состоят из кода, конфигурации и пакетов. Чтобы упростить схему, показаны только пакеты кода, конфигурации или данных для `ServiceType4`, хотя каждый тип службы будет включать некоторые или все из этих типов пакетов.
 
@@ -243,7 +244,7 @@ PS D:\temp>
 
 [Запуск от имени: запуск приложения Service Fabric с использованием различных разрешений безопасности][12]
 
-<!--Image references-->
+.<!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
@@ -254,4 +255,4 @@ PS D:\temp>
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

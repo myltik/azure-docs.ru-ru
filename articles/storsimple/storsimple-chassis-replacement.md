@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/22/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Замена корпуса устройства StorSimple
@@ -63,4 +63,4 @@
 
 Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0817_2016-->

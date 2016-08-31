@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2016"
+   ms.date="08/11/2016"
    ms.author="seanmck"/>
 
 
@@ -169,11 +169,11 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 2. В меню **Сборка** откройте **диспетчер конфигураций**. Вы увидите нечто вроде этого:
 
-    .![Диспетчер конфигураций, отображающий библиотеку класса как AnyCPU ("Любой ЦП")][vs-configuration-manager]
+    ![Диспетчер конфигураций, отображающий библиотеку класса как AnyCPU ("Любой ЦП")][vs-configuration-manager]
 
     Обратите внимание, что для проекта библиотеки классов, **MyStatefulService.Interface**, выбран вариант Any CPU ("Любой ЦП"). Чтобы нормально работать с Service Fabric, его нужно вручную настроить для работы с 64-разрядной архитектурой. Щелкните раскрывающееся меню "Платформа", выберите элемент **Создать** и создайте конфигурацию 64-разрядной платформы.
 
-    .![Создание платформы для библиотеки класса][vs-create-platform]
+    ![Создание платформы для библиотеки класса][vs-create-platform]
 
 3. Добавьте в проект ASP.NET пакет Microsoft.ServiceFabric.Services (так же, как и для проекта библиотеки классов ранее). Будет добавлен класс `ServiceProxy`.
 
@@ -188,7 +188,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     public async Task<IEnumerable<string>> Get()
     {
         ICounter counter =
-            ServiceProxy.Create<ICounter>(0, new Uri("fabric:/MyApplication/MyStatefulService"));
+            ServiceProxy.Create<ICounter>(new Uri("fabric:/MyApplication/MyStatefulService"), new ServicePartitionKey(0));
 
         long count = await counter.GetCountAsync();
 
@@ -208,7 +208,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 5. Нажмите клавишу F5 еще раз, чтобы запустить измененное приложение. Visual Studio автоматически откроет в браузере корень веб-проекта. Добавьте путь api/values, и вы увидите возвращаемое текущее значение счетчика.
 
-    .![Отображаемое в браузере значение счетчика с отслеживанием состояния][browser-aspnet-counter-value]
+    ![Отображаемое в браузере значение счетчика с отслеживанием состояния][browser-aspnet-counter-value]
 
     Периодически обновляйте браузер, чтобы отслеживать актуальные показания счетчика.
 
@@ -238,7 +238,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 - [Дополнительные сведения о взаимодействии со службами](service-fabric-connect-and-communicate-with-services.md)
 - [Дополнительные сведения о секционировании служб с отслеживанием состояния](service-fabric-concepts-partitioning.md)
 
-.<!-- Image References -->
+<!-- Image References -->
 
 [vs-add-new-service]: ./media/service-fabric-add-a-web-frontend/vs-add-new-service.png
 [vs-new-service-dialog]: ./media/service-fabric-add-a-web-frontend/vs-new-service-dialog.png
@@ -252,8 +252,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-create-platform]: ./media/service-fabric-add-a-web-frontend/vs-create-platform.png
 
 
-.<!-- external links -->
+<!-- external links -->
 [dotnetcore-install]: https://www.microsoft.com/net/core#windows
-[api-management-landing-page]: https://azure.microsoft.com/ru-RU/services/api-management/
+[api-management-landing-page]: https://azure.microsoft.com/services/api-management/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

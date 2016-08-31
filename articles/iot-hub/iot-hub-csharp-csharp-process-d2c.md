@@ -51,7 +51,7 @@
 
 + Microsoft Visual Studio 2015.
 
-+ Активная учетная запись Azure. <br/>Если у вас нет подписки Azure, всего за несколько минут можно создать [бесплатную учетную запись](https://azure.microsoft.com/free/).
++ Активная учетная запись Azure. <br/>Если у вас нет подписки Azure, то всего за несколько минут можно создать [бесплатную учетную запись](https://azure.microsoft.com/free/).
 
 Кроме того, у вас должны быть базовые знания о [службе хранилища Azure] и [служебной шине Azure].
 
@@ -90,7 +90,7 @@
     SendDeviceToCloudInteractiveMessagesAsync();
     ````
 
-    > [AZURE.NOTE] Для упрощения в этом руководстве не реализуются какие-либо политики повтора. В рабочем коде следует реализовать политику повтора (например, экспоненциальную задержку), как предлагается в статье MSDN [Transient Fault Handling] \(Обработка временного сбоя).
+    > [AZURE.NOTE] Для упрощения в этом руководстве не реализуются какие-либо политики повтора. В рабочем коде следует реализовать политику повтора (например, экспоненциальную задержку), как предлагается в статье MSDN [Transient Fault Handling] (Обработка временного сбоя).
 
 ## Обработка сообщений с устройства в облако
 
@@ -139,7 +139,7 @@
 
 3. Найдите **WindowsAzure.ServiceBus**, щелкните **Установить** и примите условия использования. После этого будут выполнены скачивание, установка и добавление ссылки на [пакет NuGet служебной шины Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) со всеми ее зависимостями.
 
-4. Найдите **Концентратор событий служебной шины Microsoft Azure — EventProcessorHost**, а затем щелкните **Установить** и примите условия использования. Будет скачана, установлена и добавлена ссылка на [пакет концентратора событий служебной шины Azure — EventProcessorHost NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) со всеми его зависимостями.
+4. Найдите **Концентратор событий служебной шины Microsoft Azure — EventProcessorHost**, а затем щелкните **Установить** и примите условия использования. Будет скачана, установлена и добавлена ссылка на [пакет концентратора событий служебной шины Azure — EventProcessorHost NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) со всеми его зависимостями.
 
 5. Щелкните правой кнопкой мыши проект **ProcessDeviceToCloudMessages**, выберите команду **Добавить**, а затем щелкните элемент **Класс**. Присвойте классу имя **StoreEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс.
 
@@ -336,7 +336,7 @@
 
 2. В обозревателе решений щелкните правой кнопкой мыши проект **ProcessD2CInteractiveMessages** и выберите пункт **Управление пакетами NuGet**. Откроется окно **Диспетчер пакетов NuGet**.
 
-3. Найдите **WindowsAzure.Service Bus**, щелкните **Установить** и примите условия использования. После этого будут выполнены скачивание, установка и добавление ссылки на [служебную шину Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) со всеми ее зависимостями.
+3. Найдите **WindowsAzure.ServiceBus**, щелкните **Установить** и примите условия использования. После этого будут выполнены скачивание, установка и добавление ссылки на [служебную шину Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus) со всеми ее зависимостями.
 
 4. Добавьте следующие инструкции **using** в начало файла **Program.cs**:
 
@@ -410,7 +410,7 @@
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue3.png
 [32]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue4.png
 
-<!-- Links -->
+.<!-- Links -->
 
 [хранилище BLOB-объектов Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
 [фабрика данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
@@ -448,4 +448,4 @@
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0817_2016-->

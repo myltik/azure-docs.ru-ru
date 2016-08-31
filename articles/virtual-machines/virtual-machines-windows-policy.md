@@ -3,7 +3,7 @@
 	description="Как применить политику к виртуальной машине Azure Resource Manager на основе Windows"
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="singhkay"
+	authors="singhkays"
 	manager="drewm"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -86,7 +86,7 @@
 * [Поля и источники](../resource-manager-policy.md#fields-and-sources)
 
 
-| Имя поля | Описание |
+| Имя поля | Description (Описание) |
 |----------------|----------------------------------------------------|
 | imagePublisher | Указывает издателя образа |
 | imageOffer | Указывает предложение для выбранного издателя образа |
@@ -106,4 +106,4 @@
 
 * [Создание политики](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->
