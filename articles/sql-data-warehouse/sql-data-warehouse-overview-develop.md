@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="08/16/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Проектные решения и методики программирования для хранилища данных SQL
@@ -48,11 +48,11 @@
 ## Дальнейшие действия
 После ознакомления со статьями о разработке перейдите в [Справочник по Transact-SQL][], чтобы получить дополнительные сведения о поддерживаемом синтаксисе для хранилища данных SQL.
 
-<!--Image references-->
+.<!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [параллелизм;]: ./sql-data-warehouse-develop-concurrency.md
-[подключения;]: ./sql-data-warehouse-develop-connections.md
+[подключения;]: ./sql-data-warehouse-connect-overview.md
 [CTAS;]: ./sql-data-warehouse-develop-ctas.md
 [динамический SQL;]: ./sql-data-warehouse-develop-dynamic-sql.md
 [группировка по параметрам;]: ./sql-data-warehouse-develop-group-by-options.md
@@ -70,9 +70,9 @@
 [представления;]: ./sql-data-warehouse-develop-views.md
 [Справочник по Transact-SQL]: ./sql-data-warehouse-overview-reference.md
 
-<!--MSDN references-->
+.<!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
-<!--Other Web references-->
+.<!--Other Web references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0817_2016-->

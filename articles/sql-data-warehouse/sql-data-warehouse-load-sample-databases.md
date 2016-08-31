@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/17/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 #Загрузка образца данных в хранилище данных SQL
@@ -45,7 +45,7 @@
 
 ##Запрос части данных для примера
 
-После загрузки некоторых демонстрационных данных в хранилище данных SQL можно быстро выполнить несколько запросов. Для выполнения запроса подключитесь к недавно созданной базе данных Adventure Works в хранилище данных SQL Azure с помощью Visual Studio и SSDT, как описано в документе о [подключении][].
+После загрузки некоторых демонстрационных данных в хранилище данных SQL можно быстро выполнить несколько запросов. Для выполнения запроса подключитесь к недавно созданной базе данных Adventure Works в хранилище данных SQL Azure с помощью Visual Studio и SSDT, как описано в документе о [выполнении запроса с помощью Visual Studio][].
 
 Пример простого оператора select для получения всех сведений о сотрудниках:
 
@@ -77,18 +77,18 @@ ORDER BY OrderDateKey;
 ## Дальнейшие действия
 Теперь, когда имеется возможность выполнить некоторые запросы с демонстрационными данными, попробуйте осуществлять [разработку][], [загрузку][] или [перенос][] в хранилище данных SQL.
 
-<!--Image references-->
+.<!--Image references-->
 
-<!--Article references-->
-[перенос]: ./sql-data-warehouse-overview-migrate.md
-[разработку]: ./sql-data-warehouse-overview-develop.md
-[загрузку]: ./sql-data-warehouse-overview-load.md
-[подключении]: ./sql-data-warehouse-get-started-connect.md
-[переносу кода]: ./sql-data-warehouse-migrate-code.md
-[установки bcp]: ./sql-data-warehouse-load-with-bcp.md
-[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+.<!--Article references-->
+[перенос]: sql-data-warehouse-overview-migrate.md
+[разработку]: sql-data-warehouse-overview-develop.md
+[загрузку]: sql-data-warehouse-overview-load.md
+[выполнении запроса с помощью Visual Studio]: sql-data-warehouse-query-visual-studio.md
+[переносу кода]: sql-data-warehouse-migrate-code.md
+[установки bcp]: sql-data-warehouse-load-with-bcp.md
+[sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
-<!--Other Web references-->
+.<!--Other Web references-->
 [примерами сценариев Adventure Works для хранилища данных SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0817_2016-->

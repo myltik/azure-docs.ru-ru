@@ -101,4 +101,4 @@
 
 Последние новости и обновления см. в блоге, посвященном [прокси приложений](http://blogs.technet.com/b/applicationproxyblog/).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->

@@ -128,4 +128,4 @@ Accept: application/json
 
 Этот сценарий веб-API с цепочками может поддерживаться путем предоставления учетных данных носителя JWT OAuth 2.0 или потока On-Behalf-Of. Однако в Azure AD B2C поток On-Behalf-Of еще не реализован.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->

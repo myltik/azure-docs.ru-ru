@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/28/2016"
+	ms.date="08/24/2016"
 	ms.author="awills"/>
 
 
@@ -48,7 +48,7 @@
 
 ## Инструментирование веб-приложения во время выполнения
 
-Вам потребуется подписка на [Microsoft Azure](http://azure.com).
+Вам потребуется подписка [Microsoft Azure](http://azure.com).
 
 ### Если приложение размещено на сервере IIS
 
@@ -300,4 +300,4 @@
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -3,8 +3,8 @@
 	description="Как реализовать назначение пользователей для приложений Azure."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
-	manager="stevenpo"
+	authors="femila"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="08/15/2015"
 	ms.author="inhenk"/>
 
 # Azure AD и приложения: назначение пользователей для приложения
@@ -33,4 +33,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/16/2016"
 	ms.author="garye;bradsev;ahgyger"/>
 
 
 # Создание рабочей области машинного обучения Azure и предоставление к ней общего доступа
 
-Это меню содержит ссылки на разделы, описывающие настройку различных сред обработки и анализа данных, используемых процессом аналитики Cortana (CAP).
+Это меню содержит ссылки на разделы, описывающие настройку различных сред обработки и анализа данных, используемых процессом Cortana Analytics (CAP).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -85,21 +85,21 @@
 | Доступ к [студии машинного обучения] | Нет * | Да |
 
 
-> [AZURE.NOTE] * Администратор подписки Azure автоматически добавляется в рабочую область, которую он создает, в качестве владельца рабочей области. Однако тот факт , что он является администратором подписки Azure, не предоставляет ему доступ к любой рабочей области в этой подписке.
+> [AZURE.NOTE] * Администратор подписки Azure автоматически добавляется в рабочую область, которую он создает, в качестве владельца рабочей области. Однако тот факт, что он является администратором подписки Azure, не предоставляет ему доступ к любой рабочей области в этой подписке.
 
-<!-- ![List of Machine Learning workspaces][2] -->
+.<!-- ![List of Machine Learning workspaces][2] -->
 
-<!--Anchors-->
+.<!--Anchors-->
 [To create a workspace]: #createworkspace
 
-<!--Image references-->
+.<!--Image references-->
 [1]: media/machine-learning-create-workspace/cw1.png
 [2]: media/machine-learning-create-workspace/cw2.png
 [3]: media/machine-learning-create-workspace/cw4.png
 [4]: media/machine-learning-create-workspace/cw5.png
 
 
-<!--Link references-->
+.<!--Link references-->
 [Управление рабочей областью машинного обучения Azure]: machine-learning-manage-workspace.md
 [Руководство по поиску и устранению проблем: создание и подключение к рабочей области машинного обучения Azure]: machine-learning-troubleshooting-creating-ml-workspace.md
 [Студию машинного обучения Azure]: https://studio.azureml.net/
@@ -107,4 +107,4 @@
 [классический портал Microsoft Azure]: https://manage.windowsazure.com/
 [классическому порталу Microsoft Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0817_2016-->

@@ -70,4 +70,4 @@
 - См. статью [RBAC: встроенные роли](role-based-access-built-in-roles.md)
 - Определите собственные [пользовательские роли в RBAC Azure](role-based-access-control-custom-roles.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!----HONumber=AcomDC_0727_2016-->

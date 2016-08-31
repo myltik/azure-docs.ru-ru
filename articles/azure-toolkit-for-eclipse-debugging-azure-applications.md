@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
@@ -26,7 +26,7 @@
 
 В этом руководстве предполагается, что у вас уже есть успешно созданное приложение, а сами вы знакомы с эмулятором вычислений и развертыванием в Azure.
 
-В качестве отправной точки в этом разделе мы будем использовать приложение из руководства [Использование библиотеки среды выполнения служб Azure в JSP][]. Создайте такое приложение, прежде чем продолжить, если вы еще не сделали этого.
+В качестве отправной точки в этом разделе мы будем использовать приложение из [центра разработчиков Java][]. Создайте такое приложение, прежде чем продолжить, если вы еще не сделали этого.
 
 ## Отладка приложения во время выполнения в Azure ##
 
@@ -119,18 +119,18 @@
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
-<!-- URL List -->
+.<!-- URL List -->
 
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [портала управления Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Использование библиотеки среды выполнения служб Azure в JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
+[центра разработчиков Java]: http://go.microsoft.com/fwlink/?LinkID=699551
 
-<!-- IMG List -->
+.<!-- IMG List -->
 
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0817_2016-->

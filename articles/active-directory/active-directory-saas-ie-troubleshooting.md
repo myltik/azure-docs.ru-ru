@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="MarkusVi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="05/19/2016"
-    ms.author="markvi;liviodlc"/>
+    ms.date="08/16/2016"
+    ms.author="markvi"/>
 
 #Устранение неполадок, связанных с расширением панели доступа для Internet Explorer
 
@@ -109,4 +109,4 @@
 - [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
 - [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0817_2016-->

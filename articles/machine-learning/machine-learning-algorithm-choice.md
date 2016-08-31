@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/28/2016"
+	ms.date="08/09/2016"
 	ms.author="brohrer;garye" />
 
 # Выбор алгоритмов машинного обучения Microsoft Azure
@@ -109,7 +109,7 @@
 |[джунгли решений](https://msdn.microsoft.com/library/azure/dn905976.aspx)|●|○| |6|Низкий объем памяти|
 |[увеличивающееся дерево решений](https://msdn.microsoft.com/library/azure/dn906025.aspx)|●|○| |6|Большой объем памяти|
 |[нейронная сеть](https://msdn.microsoft.com/library/azure/dn905947.aspx)|●| | |9|[Возможна дополнительная настройка](http://go.microsoft.com/fwlink/?LinkId=402867)|
-|[усредненное восприятие](https://msdn.microsoft.com/library/azure/dn906036.aspx)|○|○|●|4| |
+|[усредненное восприятие](https://msdn.microsoft.com/library/azure/dn906036.aspx)|○|○|●|4\.| |
 |[метод опорных векторов](https://msdn.microsoft.com/library/azure/dn905835.aspx)| |○|●|5|Подходит для больших наборов функций|
 |[локально глубокий метод опорных векторов](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Подходит для больших наборов функций|
 |[точечная машина Байеса](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
@@ -119,17 +119,17 @@
 |[джунгли решений](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Низкий объем памяти|
 |[нейронная сеть](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Возможна дополнительная настройка](http://go.microsoft.com/fwlink/?LinkId=402867)|
 |[один-все](https://msdn.microsoft.com/library/azure/dn905887.aspx)|-|-|-|-|См. свойства выбранного двухклассового метода|
-|**регрессия**| | | | | | 
-|[линейный ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| | 
+|**регрессия**| | | | | |
+|[линейный ](https://msdn.microsoft.com/library/azure/dn905978.aspx)| |●|●|4| |
 |[байесовский линейный](https://msdn.microsoft.com/library/azure/dn906022.aspx)| |○|●|2| | 
 |[лес решений](https://msdn.microsoft.com/library/azure/dn905862.aspx)|●|○| |6| | 
 |[увеличивающееся дерево решений](https://msdn.microsoft.com/library/azure/dn905801.aspx)|●|○| |5|Большой объем памяти| 
 |[квантильная регрессия быстрого леса](https://msdn.microsoft.com/library/azure/dn913093.aspx)|●|○| |9|Распределения вместо прогнозирования точек| 
 |[нейронная сеть](https://msdn.microsoft.com/library/azure/dn905924.aspx)|●| | |9|[Возможна дополнительная настройка](http://go.microsoft.com/fwlink/?LinkId=402867)| 
-|[пуассоновский ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|С технической точки зрения логарифмически линеен. Для прогнозирования подсчетов|
-|[порядковый](https://msdn.microsoft.com/library/azure/dn906029.aspx)| | | |0| Для прогнозирования упорядочения ранга|
-|**обнаружение аномалий**| | | | | |
-|[метод опорных векторов](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2| Особенно хорошо подходит для больших наборов функций|
+|[пуассоновский ](https://msdn.microsoft.com/library/azure/dn905988.aspx)| | |●|5|С технической точки зрения логарифмически линеен. Для прогнозирования подсчетов| 
+|[порядковый](https://msdn.microsoft.com/library/azure/dn906029.aspx)||| |0| Для прогнозирования упорядочения ранга| 
+|**обнаружение аномалий**| | | | | | 
+|[метод опорных векторов](https://msdn.microsoft.com/library/azure/dn913103.aspx)|○|○| |2| Особенно хорошо подходит для больших наборов функций| 
 |[обнаружение аномалий на основе анализа главных компонентов](https://msdn.microsoft.com/library/azure/dn913102.aspx)| |○|●|3| |
 |[K-средние](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)| |○|●|4| Алгоритм кластеризации A|
 
@@ -237,4 +237,4 @@
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0817_2016-->

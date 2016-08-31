@@ -3,7 +3,7 @@
    description="Сведения о создании виртуальной сети на портале Azure в диспетчере Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -139,7 +139,7 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
-Чтобы с помощью PowerShell настроить пиринг между виртуальными сетями в рамках подписок, сделайте следующее.
+Чтобы с помощью PowerShell настроить пиринг между виртуальными сетями в рамках подписок, выполните такие действия:
 
 1. Войдите в Azure, используя учетную запись привилегированного пользователя A для подписки A, и запустите следующий командлет:
 
@@ -201,4 +201,4 @@
 
 2. Когда вы удалите одно соединение в рамках пиринга виртуальных сетей, состояние пирингового соединения изменится на "Отключено". В этом состоянии вы не сможете повторно создать соединение, пока состояние не изменится на "Инициировано". Перед повторной настройкой пиринга виртуальных сетей рекомендуется удалить оба соединения.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

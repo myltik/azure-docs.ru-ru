@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 
 <tags 
     ms.service="active-directory" 
@@ -12,14 +12,16 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="05/19/2016" 
+    ms.date="08/12/2016" 
     ms.author="jeedes" />
 
 
 #Учебник. Интеграция Azure Active Directory с песочницей Salesforce
 >[AZURE.TIP]Чтобы оставить отзыв, щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-Цель данного учебника — показать интеграцию Azure и песочницы Salesforce. Песочницы позволяет создать несколько копий организации в отдельных средах для различных целей, например для разработки, тестирования и обучения, не подвергая риску данные и приложения в рабочей организации Salesforce. Дополнительные сведения см. в статье [Общие сведения о песочнице](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US).
+Цель данного учебника — показать интеграцию Azure и песочницы Salesforce.  
+Песочницы позволяет создать несколько копий организации в отдельных средах для различных целей, например для разработки, тестирования и обучения, не подвергая риску данные и приложения в рабочей организации Salesforce. Дополнительные сведения см.
+в статье [Общие сведения о песочнице](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US).
   
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -204,7 +206,7 @@
 
 2.  На странице интеграции с приложением **Salesforce Sandbox** щелкните **Назначить пользователей**.
 
-    ![Назначение пользователей](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Назначить пользователей")
+    ![Назначение пользователей](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Назначение пользователей")
 
 3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
@@ -214,4 +216,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0817_2016-->

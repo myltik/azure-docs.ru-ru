@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="07/22/2016"
+    ms.date="08/18/2016"
     ms.author="sstein"/>
 
 # Создание пула эластичных баз данных с помощью C&#x23;
@@ -24,7 +24,7 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Узнайте, как создавать [пулы эластичных баз данных](sql-database-elastic-pool.md) и управлять ими с помощью языка C#;.
+Узнайте, как создавать [пулы эластичных баз данных](sql-database-elastic-pool.md) с помощью языка C#.
 
 Стандартные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
 
@@ -76,20 +76,20 @@
 
 ## Пример. Создание пула с помощью C&#x23;
 
-В этом примере создается группа ресурсов Azure, экземпляр Azure SQL Server и эластичный пул.
+В этом примере создается группа ресурсов Azure, экземпляр Azure SQL Server и пул эластичных БД.
  
 
 Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio выполните следующие команды в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**).
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Сведения о том, как получить идентификатор клиента и другие значения, см. в статье [Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода](sql-database-client-id-keys.md). Используйте командлет [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx), чтобы получить значение subscriptionId.
+Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Сведения о том, как получить идентификатор клиента и другие значения, см. в статье [Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода](sql-database-client-id-keys.md).
 
     using Microsoft.Azure;
-    using Microsoft.Azure.Management.Resources;
-    using Microsoft.Azure.Management.Resources.Models;
+    using Microsoft.Azure.Management.ResourceManager;
+    using Microsoft.Azure.Management.ResourceManager.Models;
     using Microsoft.Azure.Management.Sql;
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -241,12 +241,12 @@
 ## Дальнейшие действия
 
 - [Управление пулом.](sql-database-elastic-pool-manage-csharp.md)
-- [Обзор заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение скриптов T-SQL для любого количества эластичных баз данных в пуле.
+- [Создание заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение сценариев T-SQL для любого количества баз данных в пуле.
 - [Развертывание с помощью Базы данных SQL Azure](sql-database-elastic-scale-introduction.md). Использование средств эластичных баз данных для масштабирования.
 
-## Дополнительные ресурсы
+## дополнительные ресурсы.
 
 - [База данных SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

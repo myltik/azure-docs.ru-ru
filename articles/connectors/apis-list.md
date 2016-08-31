@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/15/2016"
+	ms.date="08/23/2016"
 	ms.author="deonhe"/>
 
 # Список соединителей
 
-Выберите значок и узнайте, как быстро задействовать соединители для создания рабочих процессов, которые вызывают эти службы.
+Выберите соединитель, чтобы узнать, как быстро создавать рабочие процессы.
 
 ## Стандартные соединители
 
@@ -46,26 +46,27 @@
  
 |Соединители EIP ||||
 |-----------|-----------|-----------|-----------|
-|[![Значок API][as2icon]<br/>**Кодирование или декодирование</br>AS2**][as2doc]|[![Значок API][x12icon]<br/>**Кодирование или декодирование</br>X12**][x12Doc]|[![Значок API][xmlvalidateicon]<br/>**Проверка <br/>XML-файла**][xmlvalidatedoc]|[![Значок API][xmltransformicon]<br/>**Преобразование<br/>XML-файла**][xmltransformdoc]|
-|[![Значок API][flatfileicon]<br/>**Кодирование</br>неструктурированного файла**][flatfiledoc]|[![Значок API][flatfiledecodeicon]<br/>**Декодирование</br>неструктурированного файла**][flatfiledecodedoc]|||
+|[![Значок API][xmlvalidateicon]<br/>**Проверка <br/>XML-файла**][xmlvalidatedoc]|[![Значок API][xmltransformicon]<br/>**Преобразование<br/>XML-файла**][xmltransformdoc]|[![Значок API][flatfileicon]<br/>**Кодирование</br>неструктурированного файла**][flatfiledoc]|[![Значок API][flatfiledecodeicon]<br/>**Декодирование</br>неструктурированного файла**][flatfiledecodedoc]|
+|[![Значок API][as2icon]<br/>**Декодирование</br>AS2**][as2decode]|[![Значок API][as2icon]<br/>**Кодировка</br>AS2**][as2encode]|[![Значок API][x12icon]<br/>**Декодирование</br>X12**][x12decode]|[![Значок API][x12icon]<br/>**Кодировка</br>X12**][x12encode]|
+|[![Значок API][x12icon]<br/>**Декодирование</br>EDIFACT**][EDIFACTdecode]|[![Значок API][x12icon]<br/>**Кодировка</br>EDIFACT**][EDIFACTencode]||||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Соединители могут быть триггерами.
-Некоторые соединители служат триггерами, которые могут уведомлять приложение о возникновении определенных событий. Например, соединитель FTP имеет триггер OnUpdatedFile. Вы можете создать приложение логики, приложение PowerApp или поток, которые прослушивают этот триггер и предпринимают определенные действия при его активации.
+Некоторые соединители служат триггерами, которые могут уведомлять приложение о возникновении определенных событий. Например, соединитель FTP имеет триггер OnUpdatedFile. Вы можете создать приложение логики, приложение PowerApp или поток, которые прослушивают этот триггер и выполняют определенные действия при его активации.
 
 Существует два типа триггеров:
 
 * Триггеры опроса. Эти триггеры опрашивают вашу службу с указанной частотой для поиска новых данных. Когда новые данные обнаруживаются, запускается новый экземпляр приложения с этими данными в качестве входных данных. Чтобы предотвратить многократное использование одних и тех же данных, триггер может выполнять очистку данных, которые были прочитаны и отправлены в ваше приложение.
-* Триггеры отправки. Эти триггеры прослушивают данные в конечной точке или происходящее событие. Затем они запускают новый экземпляр вашего приложения. Один из примеров — соединитель Twitter.
+* Триггеры Push. Эти триггеры прослушивают данные в конечной точке или происходящее событие, а затем инициируют новый экземпляр приложения. Один из примеров — соединитель Twitter.
 
 ### Соединители могут быть действиями
 Соединители могут также использоваться как действия в приложениях. Действия удобно использовать для поиска данных, которые можно использовать при выполнении вашего приложения. Например, при обработке заказа может потребоваться найти в базе данных SQL дополнительные сведения о клиенте либо записать, обновить или удалить данные в таблице назначения. Это можно сделать с помощью действий, предоставляемых соединителями. Действия сопоставляются с операциями, определенными в метаданных Swagger.
 
 ## Дальнейшие действия
 
-- См. статью [Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
-- См. статью о [создании пользовательского соединителя](../app-service-logic/app-service-logic-create-api-app.md).
-- См. статью [Мониторинг приложений логики](../app-service-logic/app-service-logic-monitor-your-logic-apps.md).
+- [См. статью Создание нового приложения логики, подключающего службы SaaS.](../app-service-logic/app-service-logic-create-a-logic-app.md)
+- [См. статью о создании пользовательского соединителя.](../app-service-logic/app-service-logic-create-api-app.md)
+- [См. статью Мониторинг приложений логики.](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Подключается к BLOB-объекту Azure для управления файлами в контейнере BLOB-объектов."
@@ -105,6 +106,12 @@
 [flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Узнайте о неструктурированном файле в рамках корпоративной интеграции."
 [xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Узнайте о проверке XML в рамках корпоративной интеграции."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Узнайте о преобразованиях в рамках корпоративной интеграции."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Узнайте о декодировании AS2 в рамках корпоративной интеграции."
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Узнайте о кодировке AS2 в рамках корпоративной интеграции."
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Узнайте о декодировании X12 в рамках корпоративной интеграции."
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Узнайте о кодировке X12 в рамках корпоративной интеграции."
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Узнайте о декодировании EDIFACT в рамках корпоративной интеграции."
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Узнайте о кодировке EDIFACT в рамках корпоративной интеграции."
 [httpdoc]: ./connectors-native-http.md "Соединитель HTTP для выполнения вызовов HTTP."
 [http~requestdoc]: ./connectors-native-reqres.md "Действия "Запрос" и "Ответ"."
 [http~responsedoc]: ./connectors-native-reqres.md "Действия "Запрос" и "Ответ"."
@@ -183,4 +190,4 @@
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

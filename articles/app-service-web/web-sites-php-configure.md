@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 #Настройка PHP в веб-приложениях службы приложений Azure
@@ -208,4 +208,4 @@
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0817_2016-->

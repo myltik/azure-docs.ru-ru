@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="08/15/2016"
    ms.author="kipandya"/>
    
    
@@ -26,7 +26,7 @@
   
 ## Настройка учетных записей в нескольких регионах
 
-Настроить учетную запись DocumentDB для масштабирования по всему миру можно менее чем за минуту, воспользовавшись порталом Azure. Вам всего лишь нужно выбрать подходящий уровень согласованности из нескольких поддерживаемых четко определенных уровней согласованности и связать любое количество регионов Azure со своей учетной записью базы данных. Уровни согласованности DocumentDB обеспечивает четкие компромиссы между конкретными гарантиями согласованности и производительностью.
+Настроить учетную запись DocumentDB для масштабирования по всему миру можно менее чем за минуту, воспользовавшись [порталом Azure](documentdb-portal-global-replication.md). Вам всего лишь нужно выбрать подходящий уровень согласованности из нескольких поддерживаемых четко определенных уровней согласованности и связать любое количество регионов Azure со своей учетной записью базы данных. Уровни согласованности DocumentDB обеспечивает четкие компромиссы между конкретными гарантиями согласованности и производительностью.
 
 ![DocumentDB предлагает несколько четко определенных моделей согласованности (нестрогой) на ваш выбор.][1]
 
@@ -54,7 +54,7 @@ DocumentDB гарантирует менее 10 мс задержки для ч�
 
 ## Включение глобального распределения 
 
-Вы можете применить глобальное или локальное распределение данных, связав один или несколько регионов Azure с учетной записью базы данных DocumentDB. Вы можете добавлять области в учетную запись базы данных и удалять их оттуда в любое время.
+Вы можете применить глобальное или локальное распределение данных, связав один или несколько регионов Azure с учетной записью базы данных DocumentDB. Вы можете добавлять области в учетную запись базы данных и удалять их оттуда в любое время. Сведения о включении глобального распределения с помощью портала см. в статье [How to perform DocumentDB global database replication using the Azure portal](documentdb-portal-global-replication.md) (Выполнение глобальной репликации базы данных DocumentDB с помощью портала Azure). Сведения о включении глобального распределения программным путем см. в статье [Разработка с помощью учетных записей DocumentDB в нескольких регионах](documentdb-developing-with-multiple-regions.md).
 
 ## Дальнейшие действия
 
@@ -69,22 +69,21 @@ DocumentDB гарантирует менее 10 мс задержки для ч�
 [1]: ./media/documentdb-distribute-data-globally/consistency-tradeoffs.png
 [2]: ./media/documentdb-distribute-data-globally/collection-regions.png
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[pcolls]: https://azure.microsoft.com/documentation/articles/documentdb-partition-data/
-[consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
+.<!--Reference style links - using these makes the source content way more readable than using inline links-->
+[pcolls]: documentdb-partition-data.md
+[consistency]: documentdb-consistency-levels.md
 [consistencytradeooffs]: ./documentdb-consistency-levels/#consistency-levels-and-tradeoffs
-[developingwithmultipleregions]: https://azure.microsoft.com/documentation/articles/documentdb-developing-with-multiple-regions/
-[createaccount]: https://azure.microsoft.com/documentation/articles/documentdb-create-account/
-[manageaccount]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/
-[manageaccount-consistency]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#consistency
-[manageaccount-addregion]: https://azure.microsoft.com/documentation/articles/documentdb-manage-account/#addregion
-[throughputandstorage]: https://azure.microsoft.com/documentation/articles/documentdb-manage/
-[arm]: https://azure.microsoft.com/documentation/articles/documentdb-automation-resource-manager-cli/
+[developingwithmultipleregions]: documentdb-developing-with-multiple-regions.md
+[createaccount]: documentdb-create-account.md
+[manageaccount]: documentdb-manage-account.md
+[manageaccount-consistency]: documentdb-manage-account.md#consistency
+[throughputandstorage]: documentdb-manage.md
+[arm]: documentdb-automation-resource-manager-cli.md
 [regions]: https://azure.microsoft.com/regions/
 [serviceregions]: https://azure.microsoft.com/regions/#services
 [pricing]: https://azure.microsoft.com/pricing/details/documentdb/
 [sla]: https://azure.microsoft.com/support/legal/sla/documentdb/
 [vldb]: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
-[sqlqueries]: https://azure.microsoft.com/documentation/articles/documentdb-sql-query/
+[sqlqueries]: documentdb-sql-query.md
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0817_2016-->

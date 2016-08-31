@@ -64,7 +64,7 @@
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
-            "portalLink": “https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1”                                
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",
@@ -72,8 +72,6 @@
               }
 }
 ```
-
->[AZURE.NOTE] В следующем обновлении мы добавим поддержку оповещений о событиях (“conditionType” : “Event”).
 
 
 | Поле | Обязательное? | Фиксированный набор значений? | Примечания |
@@ -123,4 +121,4 @@
 
 [Использование приложения логики для отправки сообщений в очередь Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0817_2016-->

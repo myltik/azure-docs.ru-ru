@@ -2,6 +2,7 @@
 	pageTitle="Руководство для разработчиков Azure Government" 
 	description="Данное руководство включает сравнительный анализ характеристик и рекомендации по разработке приложений для разработчиков Azure." 
 	services="" 
+	cloud="gov"
 	documentationCenter="" 
 	authors="Joharve2" 
 	manager="Chrisnie" 
@@ -19,7 +20,7 @@
 
 #  Руководство для разработчиков Microsoft Azure Government 
 
-<p> Microsoft Azure Government  — это физически изолированный от сети экземпляр Microsoft Azure. В данном руководстве для разработчиков представлены подробные сведения о различиях, с которыми столкнутся разработчики приложений и администраторы при работе с этими отдельными регионами Azure.
+<p> Microsoft Azure Government  — это физически изолированный от сети экземпляр Microsoft Azure. В данном руководстве для разработчиков представлены подробные сведения о различиях, с которыми столкнутся разработчики приложений и администраторы при работе с этими отдельными регионами Azure.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
@@ -92,12 +93,12 @@ Azure Goverment в настоящее время имеет следующие �
 Общие сведения|*.windows.net|*.usgovcloudapi.net
 Core|*.core.windows.net|*.core.usgovcloudapi.net
 Среда выполнения приложений|*.cloudapp.net|*.usgovcloudapp.net
-Хранилище BLOB-объектов|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net
-Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Хранилище BLOB-объектов|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net
+Хранилище очередей|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Хранилище таблиц|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 База данных SQL|*.database.windows.net|*.database.usgovcloudapi.net
-Конечная точка с балансировкой нагрузки ARM|https://management.windows.net|https://management.usgovcloudapi.net  
+Конечная точка с балансировкой нагрузки ARM|.https://management.windows.net|https://management.usgovcloudapi.net  
 
 * Подробнее о проверке подлинности ARM через Azure AD см. в разделе [Проверка подлинности запросов диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
@@ -119,14 +120,14 @@ Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 
 
 
-<!-- Images. -->
+.<!-- Images. -->
 
 [1]: ./media/azure-government-developer-guide/publisherguide.png
 
 
-<!--Link references-->
+.<!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0817_2016-->
