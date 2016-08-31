@@ -356,7 +356,7 @@ conn.Open();
 [СОЗДАНИЕ ПОЛЬЗОВАТЕЛЯ (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
 
-.<!--Image references-->
+<!--Image references-->
 
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
 [2]: ./media/sql-database-aad-authentication/2subscription-relationship.png

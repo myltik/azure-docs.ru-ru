@@ -81,7 +81,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 Сведения о других задачах управления см. в статье [Средства управления][].
 
-.<!--Image references-->
+<!--Image references-->
 
 <!--Article references-->
 [Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md

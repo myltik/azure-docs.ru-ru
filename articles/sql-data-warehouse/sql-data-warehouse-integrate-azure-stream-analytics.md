@@ -77,21 +77,21 @@ Azure Stream Analytics является полностью управляемо�
 
 Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
 
-.<!--Image references-->
+<!--Image references-->
 
 [add-output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
 [server-name]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png
 [add-database]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png
 [test-connection]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/test-connection.png
 
-.<!--Article references-->
+<!--Article references-->
 
 [Основные сведения о службе Azure Stream Analytics]: ../stream-analytics/stream-analytics-introduction.md
 [Приступая к работе с Azure Stream Analytics]: ../stream-analytics/stream-analytics-get-started.md
 [Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
 [Обзор интеграции хранилища данных SQL]: ./sql-data-warehouse-overview-integrate.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/

@@ -127,7 +127,7 @@
 
 См. дополнительные сведения о [методах маршрутизации трафика](traffic-manager-routing-methods.md) в диспетчере трафика.
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
 

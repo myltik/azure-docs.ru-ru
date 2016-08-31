@@ -88,15 +88,15 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 
 Список всех задач, которые можно автоматизировать с помощью PowerShell, см. в разделе [Azure SQL Database Cmdlets][] (Командлеты базы данных SQL Azure). Список задач, которые можно автоматизировать с помощью REST, см. в статье [Операции для баз данных SQL Azure][].
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Установка и настройка Azure PowerShell]: ./powershell-install-configure.md
 [Создание хранилища данных SQL с помощью Powershell]: ./sql-data-warehouse-get-started-provision-powershell.md
 [Восстановление базы данных]: ./sql-data-warehouse-restore-database-powershell.md
 [Управление вычислительными ресурсами в хранилище данных SQL Azure (REST)]: ./sql-data-warehouse-manage-compute-rest-api.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [Azure SQL Database Cmdlets]: https://msdn.microsoft.com/library/mt574084.aspx
 [Операции для баз данных SQL Azure]: https://msdn.microsoft.com/library/azure/dn505719.aspx
 [Get-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt603648.aspx
@@ -106,12 +106,12 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 [Remove-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619368.aspx
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
-.<!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
+<!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
 [Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
 [Set-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619433.aspx
 [Suspend-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619337.aspx
 
-.<!--Other Web references-->
+<!--Other Web references-->
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
 <!---HONumber=AcomDC_0817_2016-->

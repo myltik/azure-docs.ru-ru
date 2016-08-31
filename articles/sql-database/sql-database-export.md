@@ -93,7 +93,7 @@
 
 
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/sql-database-export/export.png
 [2]: ./media/sql-database-export/export-blade.png
 [3]: ./media/sql-database-export/export-notification.png

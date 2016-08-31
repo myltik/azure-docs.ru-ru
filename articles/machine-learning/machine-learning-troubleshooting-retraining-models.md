@@ -97,7 +97,7 @@
 3.	Проверьте расположение своей рабочей области.
 
 
-.<!-- Image Links -->
+<!-- Image Links -->
 
 [image1]: ./media/machine-learning-troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
 [image2]: ./media/machine-learning-troubleshooting-retraining-a-model/addEndpoint-output.png

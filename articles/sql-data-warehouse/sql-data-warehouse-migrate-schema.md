@@ -140,6 +140,6 @@ AND  y.[is_user_defined] = 1
 <!--MSDN references-->
 
 
-.<!--Other Web references-->
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0810_2016-->

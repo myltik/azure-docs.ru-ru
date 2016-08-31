@@ -122,7 +122,7 @@ FROM dbo.DimProduct;
 
 Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
 
-.<!--Image references-->
+<!--Image references-->
 
 [drag_reader]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-reader.png
 [server_name]: ./media/sql-data-warehouse-integrate-azure-machine-learning/dw-server-name.png
@@ -132,7 +132,7 @@ FROM dbo.DimProduct;
 [drag_writer]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-writer.png
 [writer_properties]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-writer-properties.png
 
-.<!--Article references-->
+<!--Article references-->
 
 [Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
 [Создание эксперимента]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
@@ -140,9 +140,9 @@ FROM dbo.DimProduct;
 [Студии машинного обучения Microsoft Azure]: https://studio.azureml.net/Home
 [портале Azure]: https://portal.azure.com/
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
-.<!--Other Web references-->
+<!--Other Web references-->
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 

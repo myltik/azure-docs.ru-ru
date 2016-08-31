@@ -149,7 +149,7 @@
 
 Узнайте, как настроить разгрузку SSL и убрать дорогостоящее шифрование SSL с веб-серверов, посетив страницу [Настройка шлюза приложений для разгрузки SSL с помощью диспетчера ресурсов Azure](application-gateway-ssl-arm.md).
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png
 [2]: ./media/application-gateway-create-gateway-portal/figure2.png
 [3]: ./media/application-gateway-create-gateway-portal/figure3.png
