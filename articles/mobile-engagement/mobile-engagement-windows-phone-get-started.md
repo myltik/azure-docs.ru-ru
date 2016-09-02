@@ -155,7 +155,7 @@ Mobile Engagement позволяет взаимодействовать и св�
 
 ![][6]
 
-.<!-- URLs. -->
+<!-- URLs. -->
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9874664
 [Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/
 

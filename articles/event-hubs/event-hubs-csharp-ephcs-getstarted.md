@@ -79,7 +79,7 @@
 - [Решение для обмена сообщениями в очереди][] при помощи очередей служебной шины.
 - [Обзор концентраторов событий][]
 
-.<!-- Images. -->
+<!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
 [20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
