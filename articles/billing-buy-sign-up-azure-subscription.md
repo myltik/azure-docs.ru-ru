@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Практическое руководство по регистрации, приобретении, обновлении и активации подписки Azure | Microsoft Azure"
 	description="В этом разделе описано, как купить или оформить подписку на Azure."
 	services=""

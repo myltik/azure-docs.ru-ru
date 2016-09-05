@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Основные команды Azure CLI для Linux и Mac | Microsoft Azure"
    description="Основные команды интерфейса командной строки Azure (CLI) для управления виртуальными машинами в режиме Azure Resource Manager в Linux и Mac."
    services="virtual-machines-linux"

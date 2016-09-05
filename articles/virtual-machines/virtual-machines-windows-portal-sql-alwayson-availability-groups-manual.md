@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Ручная настройка группы доступности AlwaysOn на виртуальной машине Azure в модели Resource Manager"
 	description="Создание группы доступности AlwaysOn на виртуальных машинах Azure. В этом учебнике в основном используется пользовательский интерфейс и инструменты, а не сценарии."
 	services="virtual-machines"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Развертывание ресурсов с помощью PowerShell и шаблона | Microsoft Azure"
    description="Узнайте, как использовать Azure Resource Manager и Azure PowerShell для развертывания ресурсов в Azure. Эти ресурсы определяются в шаблоне Resource Manager."
    services="azure-resource-manager"

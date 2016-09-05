@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка оповещений о выставлении счетов за подписки Microsoft Azure | Microsoft Azure"
 	description="Описывает процесс настройки предупреждений на счете Azure, помогая избежать непредвиденных счетов."
 	services=""

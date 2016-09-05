@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Доступ к идентификатору виртуальной машины"
    description="Описывается получение и использование уникального идентификатора виртуальной машины Azure."
    services="virtual-machines-linux"

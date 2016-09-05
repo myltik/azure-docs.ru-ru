@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="collectd: статистика производительности для Java на Unix в Application Insights" 
 	description="Расширенный мониторинг веб-сайта Java с подключаемым модулем CollectD для Application Insights" 
 	services="application-insights" 
@@ -6,7 +6,7 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-.<tags 
+<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 

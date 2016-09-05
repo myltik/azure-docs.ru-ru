@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Перенос виртуальных машин IaaS Azure из одного региона Azure в другой с помощью Site Recovery | Microsoft Azure"
 	description="Используйте службу Site Recovery для переноса виртуальных машин IaaS Azure из одного региона Azure в другой."
 	services="site-recovery"

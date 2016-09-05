@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Статистика в реальном времени в сети Azure CDN | Microsoft Azure"
 	description="Статистика в реальном времени предоставляет актуальные данные о производительности сети Azure CDN при доставке содержимого клиентам."
 	services="cdn"

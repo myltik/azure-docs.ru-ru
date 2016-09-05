@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Обзор интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Используйте функции интеграции Enterprise, чтобы реализовать сценарии бизнес-процессов и интеграции с помощью приложений логики." 
 	services="logic-apps" 
@@ -7,7 +7,7 @@
 	manager="erikre" 
 	editor="cgronlun"/>
 
-.<tags 
+<tags 
 	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 

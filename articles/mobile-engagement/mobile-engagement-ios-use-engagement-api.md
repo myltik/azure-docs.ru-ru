@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Как использовать API Engagement в iOS"
 	description="Пакет SDK для последней версии iOS - Как использовать API Engagement в iOS"
 	services="mobile-engagement"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Репликация виртуальных машин Hyper-V из облаков VMM на вторичный сайт VMM с помощью PowerShell (Resource Manager) | Microsoft Azure"
 	description="Описывается, как развернуть Azure Site Recovery, чтобы управлять репликацией, отработкой отказа и восстановлением виртуальных машин Hyper-V в облаках VMM на вторичный сайт VMM с помощью PowerShell (Resource Manager)."
 	services="site-recovery"

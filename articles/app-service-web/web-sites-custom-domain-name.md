@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Сопоставление имени личного домена с приложением Azure"
 	description="Сведения о сопоставлении имени личного домена с приложением в службе приложение Azure."
 	services="app-service"

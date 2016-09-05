@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Управление сроком хранения содержимого BLOB-объекта в службе хранилища Azure в Azure CDN | Microsoft Azure"
  description="Сведения о возможностях контроля времени жизни BLOB-объектов в кэшировании Azure CDN."
  services="cdn"

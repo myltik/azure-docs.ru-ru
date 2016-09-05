@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Поддержка протокола DocumentDB для MongoDB | Microsoft Azure" 
 	description="Сведения о поддержке протокола DocumentDB для MongoDB, которая теперь общедоступна в предварительной версии." 
 	keywords="MongoDB"

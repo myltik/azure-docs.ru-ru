@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Активная георепликация для базы данных SQL Azure"
 	description="Активная георепликация позволяет настроить четыре реплики базы данных в любом из центров обработки данных Azure."
 	services="sql-database"

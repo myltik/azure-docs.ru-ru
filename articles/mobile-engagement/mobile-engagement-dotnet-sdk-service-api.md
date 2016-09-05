@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Использование пакета SDK для .NET для доступа к интерфейсам API службы Azure Mobile Engagement" 
 	description="Описывает, как использовать пакет SDK для .NET Mobile Engagement для доступа к интерфейсам API службы Azure Mobile Engagement"		
 	services="mobile-engagement" 
@@ -47,7 +47,7 @@ Azure Mobile Engagement предоставляет набор интерфейс
         const string SUBSCRIPTION_ID = "<Your Subscription Id>";
 
         // This is the Azure Resource group concept for grouping together resources 
-        //  see here: https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-portal/
+        //  see here: https://azure.microsoft.com/documentation/articles/resource-group-portal/
         const string RESOURCE_GROUP = "";
 
         // For Mobile Engagement operations

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Перенос существующего хранилища данных SQL Azure в хранилище уровня ";Премиум"; | Microsoft Azure"
    description="Инструкции по переносу существующего хранилища данных SQL в хранилище уровня ";Премиум";."
    services="sql-data-warehouse"
@@ -7,7 +7,7 @@
    manager="barbkess"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"
@@ -183,7 +183,7 @@ drop table sql\_statements; go ````
 
 
 <!--Other Web references-->
-[хранилища класса Premium, обеспечивающего более предсказуемую производительность]: https://azure.microsoft.com/ru-RU/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[хранилища класса Premium, обеспечивающего более предсказуемую производительность]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [портале Azure]: https://portal.azure.com
 
 <!---HONumber=AcomDC_0824_2016-->

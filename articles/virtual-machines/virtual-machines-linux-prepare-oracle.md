@@ -1,4 +1,4 @@
-.<properties
+<properties
 pageTitle="Подготовка виртуальной машины Oracle Linux для Azure | Microsoft Azure"
 description="Пошаговая настройка виртуальной машины Oracle под управлением Linux в Microsoft Azure."
 services="virtual-machines-linux"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Использование соединителя AS2 в приложениях логики | Служба приложений Microsoft Azure" 
    description="Как создать и настроить соединитель AS2 или приложение API и использовать его в приложении логики в службе приложений Azure" 
    services="logic-apps" 

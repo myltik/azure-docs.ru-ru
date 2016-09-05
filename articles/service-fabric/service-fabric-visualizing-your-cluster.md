@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Визуализация кластера с помощью обозревателя Service Fabric | Microsoft Azure"
    description="Обозреватель Service Fabric — это веб-средство для изучения облачных приложений и узлов в кластере Microsoft Azure Service Fabric и управления ими."
    services="service-fabric"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Начало работы с защитой идентификации Azure Active Directory и Microsoft Graph | Microsoft Azure"
 	description="Общие сведения о выполнении запросов с помощью Microsoft Graph для получения списка рисковых событий и связанных сведений из Azure Active Directory."
 	services="active-directory"

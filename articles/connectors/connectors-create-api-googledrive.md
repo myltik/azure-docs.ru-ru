@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Добавление соединителя Google Диска в приложения логики | Microsoft Azure"
     description="Обзор соединителя Google-диска с параметрами интерфейса API REST"
     services=""

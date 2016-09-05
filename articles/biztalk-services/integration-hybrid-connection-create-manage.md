@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Создание гибридных подключений и управление ими | Microsoft Azure" 
 	description="Узнайте, как создать гибридное подключение, управлять подключением и установить диспетчер гибридных подключений. MABS, WABS" 
 	services="biztalk-services" 

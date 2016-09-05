@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Нетехнические предварительные требования, необходимые для создания предложения в Azure Marketplace | Microsoft Azure"
    description="Ознакомьтесь с требованиями по созданию и развертыванию предложения Azure Marketplace, предназначенного для продажи другим пользователям."
    services="marketplace-publishing"

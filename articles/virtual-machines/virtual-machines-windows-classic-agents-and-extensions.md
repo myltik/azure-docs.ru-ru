@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Агент виртуальной машины Azure и расширения | Microsoft Azure"
  description="Статья описывает агент, расширения, а также способы установки агента с помощью классической модели развертывания."
  services="virtual-machines-windows"

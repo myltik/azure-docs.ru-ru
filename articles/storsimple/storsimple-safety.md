@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Обновление устройства StorSimple | Microsoft Azure"
    description="Описание соглашений, правил и рекомендаций в области безопасности, а также безопасная установка и эксплуатация устройства StorSimple."
    services="storsimple"

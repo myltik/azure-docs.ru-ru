@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Сравнение Azure Mobile Engagement с другими подобными службами Azure"
 	description="Сравнение Azure Mobile Engagement с другими подобными службами Azure — HockeyApp, AppInsights, центры уведомлений"
 	services="mobile-engagement"

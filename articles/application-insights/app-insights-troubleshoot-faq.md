@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Устранение неполадок и ответы на вопросы по Application Insights" 
 	description="Что-то в Visual Studio Application Insights непонятно или не работает? Попробуйте здесь." 
 	services="application-insights" 

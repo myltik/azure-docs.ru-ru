@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="RBAC: встроенные роли | Microsoft Azure"
 	description="В этом разделе описаны встроенные роли для управления доступом на основе ролей (RBAC)."
 	services="active-directory"

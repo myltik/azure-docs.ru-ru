@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Поиск и выбор образов виртуальных машин Windows | Microsoft Azure"
    description="Узнайте, как определить издателя, предложение и номер SKU для образов при создании виртуальной машины Windows с помощью развертывания посредством диспетчера ресурсов."
    services="virtual-machines-windows"

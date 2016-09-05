@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Применение пользовательских сценариев на виртуальных машинах Windows с помощью шаблонов | Microsoft Azure"
    description="Автоматизируйте задачи настройки виртуальных машин Windows с помощью расширения пользовательских сценариев и шаблонов Resource Manager."
    services="virtual-machines-windows"

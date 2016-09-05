@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Перенос ресурсов IaaS из классического развертывания в развертывание с помощью Azure Resource Manager с использованием Azure PowerShell | Microsoft Azure"
 	description="В этой статье последовательно описывается поддерживаемый платформой перенос ресурсов из классической модели в модель Azure Resource Manager с помощью сценариев PowerShell."
 	services="virtual-machines-windows"

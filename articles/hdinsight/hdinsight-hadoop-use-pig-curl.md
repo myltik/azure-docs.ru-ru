@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование Hadoop Pig с Curl в HDInsight | Microsoft Azure"
    description="Узнайте, как с помощью Curl выполнять задания Pig Latin в кластере Hadoop в Azure HDInsight."
    services="hdinsight"

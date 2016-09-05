@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Перенос схемы в хранилище данных SQL | Microsoft Azure"
    description="Советы по переносу схемы в хранилище данных SQL Azure для разработки решений."
    services="sql-data-warehouse"
@@ -132,14 +132,14 @@ AND  y.[is_user_defined] = 1
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Перенос кода]: sql-data-warehouse-migrate-code.md
 [Перенос данных]: sql-data-warehouse-migrate-data.md
 [Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 
-.<!--Other Web references-->
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0824_2016-->

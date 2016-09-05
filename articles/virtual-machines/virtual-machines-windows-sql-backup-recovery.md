@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Резервное копирование и восстановление для SQL Server | Microsoft Azure"
 	description="Содержит сведения об архивации и восстановлении баз данных SQL Server на виртуальных машинах Azure."
 	services="virtual-machines-windows"

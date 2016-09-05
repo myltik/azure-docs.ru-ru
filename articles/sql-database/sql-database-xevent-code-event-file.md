@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Код файла событий XEvent для Базы данных SQL | Microsoft Azure" 
 	description="Содержит сценарии PowerShell и Transact-SQL для примера двухэтапного кода, демонстрирующего целевой файл событий в расширенном событии в Базе данных SQL Azure. Обязательной частью данного сценария является хранилище Azure." 
 	services="sql-database" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Выбор образов виртуальных машин Linux с помощью Azure CLI | Microsoft Azure"
    description="Узнайте, как определить издателя, предложение и SKU для образов при создании виртуальной машины Linux с помощью развертывания посредством диспетчера ресурсов."
    services="virtual-machines-linux"

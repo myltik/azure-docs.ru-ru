@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Пользовательский интерфейс Azure Mobile Engagement - «Аналитика»"
    description="Научитесь анализировать журналы данных о приложении с помощью Azure Mobile Engagement"
    services="mobile-engagement"

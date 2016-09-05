@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Замена контроллера EBOD на устройстве StorSimple | Microsoft Azure"
    description="Объясняется процесс снятия или замены одного или обоих контроллеров EBOD на устройстве StorSimple 8600."
    services="storsimple"

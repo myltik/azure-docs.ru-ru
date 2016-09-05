@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Устранение неполадок прокси-сервера приложений | Microsoft Azure"
 	description="Способы устранения ошибок в прокси-сервере приложений Azure AD."
 	services="active-directory"

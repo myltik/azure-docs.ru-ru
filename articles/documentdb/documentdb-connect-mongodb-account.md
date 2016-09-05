@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Подключение к учетной записи DocumentDB с поддержкой протокола MongoDB | Microsoft Azure" 
 	description="Узнайте, как подключиться к учетной записи DocumentDB с поддержкой протокола MongoDB, доступной в предварительной версии. Подключитесь с помощью строки подключения MongoDB." 
 	keywords="строка подключения MongoDB"

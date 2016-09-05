@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Linux и вычисления с открытым кодом в Azure | Microsoft Azure"
 	description="Содержит перечень тем по Linux и вычислениям с открытым кодом в Azure, включая базовые принципы использования Linux, некоторые основные понятия о запуске или отправке образов Linux в Azure, а также другие сведения о конкретных технологиях и оптимизациях."
 	services="virtual-machines-linux"

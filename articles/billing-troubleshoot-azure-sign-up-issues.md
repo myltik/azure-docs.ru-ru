@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Устранение неполадок при регистрации в Azure | Microsoft Azure"
 	description="Устранение причин основных проблем, которые могут возникнуть при регистрации в Azure."
 	services=""

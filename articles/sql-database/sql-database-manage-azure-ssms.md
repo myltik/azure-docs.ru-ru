@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Управление Базой данных SQL с помощью SSMS | Microsoft Azure" 
 	description="Узнайте, как использовать SQL Server Management Studio для управления серверами и базами данных Базы данных SQL." 
 	services="sql-database" 

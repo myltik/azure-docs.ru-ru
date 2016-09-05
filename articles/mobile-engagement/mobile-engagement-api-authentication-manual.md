@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Проверка подлинности с помощью интерфейсов REST API Mobile Engagement — настройка вручную"
 	description="Описание ручной настройки проверки подлинности для REST API Mobile Engagement" 
 	services="mobile-engagement" 

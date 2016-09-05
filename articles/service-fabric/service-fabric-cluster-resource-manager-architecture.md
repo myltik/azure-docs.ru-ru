@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Архитектура диспетчера ресурсов | Microsoft Azure"
    description="Общие сведения об архитектуре диспетчера кластерных ресурсов Service Fabric."
    services="service-fabric"

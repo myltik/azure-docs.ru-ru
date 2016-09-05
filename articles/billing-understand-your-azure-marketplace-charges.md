@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Основная информация о расходах на заказы Azure Marketplace | Microsoft Azure"
 	description="Здесь содержатся сведения о расходах, связанных с заказами Marketplace."
 	services=""

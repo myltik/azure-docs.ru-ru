@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Передача учетных данных в Azure с помощью DSC | Microsoft Azure"
    description="Общие сведения о безопасной передаче учетных данных для виртуальных машин Azure с помощью настройки требуемого состояния PowerShell"
    services="virtual-machines-windows"

@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Пример топологий Apache Storm в HDInsight | Microsoft Azure"
  description="Список примеров топологий Storm, созданных и протестированных с помощью Apache Storm в HDInsight, включая базовые топологии на C# и Java, а также работа с концентраторами событий."
  services="hdinsight"

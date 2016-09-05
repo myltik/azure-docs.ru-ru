@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Скачивание счета на оплату и данных о ежедневном использовании в Azure | Microsoft Azure"
 	description="Инструкции по скачиванию счета на оплату и данных о ежедневном использовании в Azure"
 	services=""

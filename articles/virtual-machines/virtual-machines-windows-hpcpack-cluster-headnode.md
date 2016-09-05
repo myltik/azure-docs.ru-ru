@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Создание головного узла пакета HPC в виртуальной машине Azure | Microsoft Azure"
  description="Узнайте, как использовать портал Azure и модель развертывания диспетчера ресурсов для создания головного узла пакета Microsoft HPC на виртуальной машине Azure."
  services="virtual-machines-windows"

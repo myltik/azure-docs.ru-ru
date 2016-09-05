@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Служба Azure Active Directory B2B Collaboration | Microsoft Azure"
    description="Служба Azure Active Directory B2B Collaboration позволяет деловым партнерам получить доступ к вашим корпоративным приложениям, при этом любой пользователь представляется как одна учетная запись Azure AD."
    services="active-directory"

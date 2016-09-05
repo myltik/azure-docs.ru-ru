@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание правила на основе пути для шлюза приложений с помощью портала | Microsoft Azure"
    description="Узнайте, как создать правило на основе пути для шлюза приложений с помощью портала."
    services="application-gateway"

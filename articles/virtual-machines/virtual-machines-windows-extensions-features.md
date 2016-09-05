@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Расширения и компоненты виртуальной машины | Microsoft Azure"
  description="Узнайте о расширениях, доступных для виртуальных машин Azure и сгруппированных по предоставляемым функциям или улучшениям."
  services="virtual-machines-windows"

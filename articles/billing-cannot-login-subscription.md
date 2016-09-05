@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Не удается выполнить вход для управления подпиской Azure | Microsoft Azure"
 	description="Сведения об устранении неполадок для некоторых распространенных проблем со входом в подписку Azure"
 	services=""

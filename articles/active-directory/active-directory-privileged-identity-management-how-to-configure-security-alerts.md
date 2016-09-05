@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Как настроить оповещения безопасности | Microsoft Azure"
    description="Узнайте, как настроить предупреждения безопасности в расширении для управления привилегированными пользователями Azure."
    services="active-directory"

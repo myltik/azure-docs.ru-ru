@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание полного доменного имени для виртуальной машины на портале Azure | Microsoft Azure"
    description="Узнайте, как создать полное доменное имя (FQDN) для виртуальной машины на основе диспетчера ресурсов на портале Azure."
    services="virtual-machines-linux"

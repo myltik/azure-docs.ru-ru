@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Что для меня означает Azure Multi-Factor Authentication" 
 	description="Приведенные на этой странице сведения о многофакторной проверке подлинности в службе Azure помогут пользователям начать работу с Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 

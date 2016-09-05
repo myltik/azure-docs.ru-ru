@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Установка обновления 1.2 на устройство StorSimple | Microsoft Azure"
    description="Описание процедуры установки обновления 1.2 для StorSimple 8000 Series на вашем устройстве StorSimple 8000."
    services="storsimple"

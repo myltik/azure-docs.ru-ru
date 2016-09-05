@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Привязки концентратора событий функций Azure | Microsoft Azure"
 	description="Узнайте, как использовать привязки концентратора событий Azure в функциях Azure."
 	services="functions"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Потоковая трансляция с помощью локальных кодировщиков | Microsoft Azure" 
 	description="В этой статье показано, как использовать .NET для кодирования в реальном времени с помощью локальных кодировщиков." 
 	services="media-services" 

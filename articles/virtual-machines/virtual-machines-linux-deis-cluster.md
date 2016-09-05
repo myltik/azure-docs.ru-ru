@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Развертывание 3-узлового кластера Deis | Microsoft Azure"
    description="В этой статье описывается создание 3-узлового кластера Deis в Azure с помощью шаблона диспетчера ресурсов Azure."
    services="virtual-machines-linux"

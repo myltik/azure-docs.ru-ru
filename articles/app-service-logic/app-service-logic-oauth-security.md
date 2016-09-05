@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Безопасность OAUTH в соединителях SaaS и приложениях API | Azure"
 	description="Сведения о безопасности OAUTH в соединителях и приложениях API в службе приложений Azure; архитектура микрослужб; saas"
 	services="logic-apps"

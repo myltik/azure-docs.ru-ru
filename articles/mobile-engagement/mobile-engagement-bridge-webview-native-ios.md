@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Создание моста между iOS WebView и собственным пакетом SDK iOS Mobile Engagement" 
 	description="Описывает, как создать мост между WebView с Javascript и собственным пакетом SDK iOS Mobile Engagement"		
 	services="mobile-engagement" 

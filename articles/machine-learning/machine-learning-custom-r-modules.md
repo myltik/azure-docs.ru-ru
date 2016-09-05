@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Создание пользовательских R-модулей в Машинном обучении Azure | Microsoft Azure" 
 	description="Краткое руководство по созданию пользовательских R-модулей в Машинном обучении Azure." 
 	services="machine-learning" 

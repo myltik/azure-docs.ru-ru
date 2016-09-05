@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Отслеживание зависимостей, исключений и времени выполнения в веб-приложениях Java" 
 	description="Расширенный мониторинг веб-сайта Java с помощью Application Insights" 
 	services="application-insights" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Шифрование службы хранилища Azure для неактивных данных (предварительная версия) | Microsoft Azure"
 	description="Используйте функцию шифрования службы хранилища Azure для шифрования хранилища BLOB-объектов Azure на стороне службы при сохранении данных и его расшифровки при извлечении данных."
 	services="storage"
@@ -7,7 +7,7 @@
 	manager="carmonm"
 	editor="tysonn"/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"

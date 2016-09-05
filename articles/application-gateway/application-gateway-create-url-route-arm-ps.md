@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание шлюза приложений с помощью правил маршрутизации URL-адресов | Microsoft Azure"
    description="На этой странице приводятся инструкции по созданию и настройке шлюза приложений Azure с помощью правил маршрутизации URL-адресов."
    documentationCenter="na"

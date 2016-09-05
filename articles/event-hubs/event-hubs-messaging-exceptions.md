@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Исключения обмена сообщениями концентраторов событий | Microsoft Azure"
     description="Список исключений обмена сообщениями концентраторов событий и предлагаемые действия."
     services="event-hubs"

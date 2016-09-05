@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Как использовать API Engagement для универсальных приложений для Windows" 
 	description="Как использовать API Engagement для универсальных приложений для Windows"			
 	services="mobile-engagement" 

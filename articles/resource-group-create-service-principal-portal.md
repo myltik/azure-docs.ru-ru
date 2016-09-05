@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание субъекта-службы на портале | Microsoft Azure"
    description="Описывается создание нового приложения Active Directory и субъекта-службы, которые можно использовать в сочетании с контролем доступа на основе ролей в диспетчере ресурсов Azure для управления доступом к ресурсам."
    services="azure-resource-manager"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание виртуальной машины Linux | Microsoft Azure"
 	description="Узнайте, как создать настраиваемую виртуальную машину под управлением Linux с помощью классической модели развертывания."
 	services="virtual-machines-linux"
@@ -35,4 +35,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!----HONumber=AcomDC_0824_2016-->

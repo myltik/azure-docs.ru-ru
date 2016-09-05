@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Диспетчер кластерных ресурсов Service Fabric — политики размещения | Microsoft Azure"
    description="Общие сведения о дополнительных политиках размещения и правилах для служб Service Fabric"
    services="service-fabric"

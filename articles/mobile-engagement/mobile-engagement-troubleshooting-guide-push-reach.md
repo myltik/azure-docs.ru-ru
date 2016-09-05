@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Руководство по устранению неполадок Azure Mobile Engagement — push-уведомления и рекламные кампании" 
    description="Устранение неполадок взаимодействия с пользователем и проблемы с уведомлениями в Azure Mobile Engagement" 
    services="mobile-engagement" 

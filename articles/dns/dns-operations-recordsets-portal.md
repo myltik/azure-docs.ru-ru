@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление наборами записей и записями DNS с помощью портала Azure | Microsoft Azure"
    description="Управление наборами записей и записями DNS при размещении домена в Azure DNS."
    services="dns"
@@ -8,7 +8,7 @@
    editor=""
    tags="azure-resource-manager"/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"
@@ -61,7 +61,7 @@
 
 3. В углу отображается уведомление о сохранении записи.
 
-	.![Сохранение набора записей](./media/dns-operations-recordsets-portal/saving150.png)
+	![Сохранение набора записей](./media/dns-operations-recordsets-portal/saving150.png)
 
 После сохранения записи значения в колонке **Зона DNS** будут соответствовать новой записи.
 

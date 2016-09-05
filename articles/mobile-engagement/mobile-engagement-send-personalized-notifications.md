@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Отправка персонализированных уведомлений с помощью Azure Mobile Engagement" 
 	description="Отправка персонализированных уведомлений, которые включают сведения из профиля пользователя (например, их имена)."		
 	services="mobile-engagement" 

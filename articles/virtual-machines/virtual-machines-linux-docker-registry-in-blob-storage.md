@@ -1,4 +1,4 @@
-.<properties 
+<properties 
   pageTitle="Развертывание частного реестра Docker в Azure | Microsoft Azure"
   description="В этой статье объясняется, как разместить образы контейнеров в службе хранилища BLOB-объектов Azure."
   services="virtual-machines-linux"

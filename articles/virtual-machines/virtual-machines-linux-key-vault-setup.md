@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка хранилища ключей для виртуальных машин в Azure Resource Manager | Microsoft Azure"
 	description="Узнайте, как настроить хранилище ключей для использования с виртуальной машиной Azure Resource Manager."
 	services="virtual-machines-linux"

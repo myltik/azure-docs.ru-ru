@@ -1,5 +1,5 @@
 
-.<properties
+<properties
 	pageTitle="Управление ресурсами с помощью интерфейса командной строки Azure | Microsoft Azure"
 	description="Используйте интерфейс командной строки Azure для управления ресурсами и группами ресурсов в Azure."
 	editor=""

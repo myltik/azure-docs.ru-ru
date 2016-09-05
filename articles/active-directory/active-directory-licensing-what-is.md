@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Что такое лицензирование Microsoft Azure Active? | Microsoft Azure"
     description="Описание процедуры и принципа работы лицензирования Microsoft Azure Active Directory, а также рекомендации по началу работы, включая сведения о лицензировании Office 365, Microsoft Intune, а также выпусков Azure Active Directory Premium и Basic."
     services="active-directory"
@@ -82,7 +82,7 @@ Azure Active Directory (Azure AD) — это служба идентифика�
 
 ![Планы пробной лицензии Azure Active Directory](./media/active-directory-licensing-what-is/trial_plans.png)
 
-.![Планы пробной лицензии Enterprise Mobility Suite](./media/active-directory-licensing-what-is/EMS_trial_plan.png)
+![Планы пробной лицензии Enterprise Mobility Suite](./media/active-directory-licensing-what-is/EMS_trial_plan.png)
 
 ![Активация планов пробных лицензий](./media/active-directory-licensing-what-is/active_license_trials.png)
 

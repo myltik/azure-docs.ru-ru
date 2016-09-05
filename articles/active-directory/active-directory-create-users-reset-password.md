@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Сброс пароля для пользователя в Azure Active Directory | Microsoft Azure"
 	description="Сведения о процедуре сброса пароля пользователя в Azure Active Directory, выполняемой администратором."
 	services="active-directory"

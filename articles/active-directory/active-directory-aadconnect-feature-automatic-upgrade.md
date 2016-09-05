@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Azure AD Connect: автоматическое обновление | Microsoft Azure"
    description="В этом разделе описывается встроенная функция автоматического обновления в Azure AD Connect."
    services="active-directory"

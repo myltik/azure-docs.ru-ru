@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Разработка и выполнение Функций Azure локально | Microsoft Azure"
 	description="Узнайте, как писать и тестировать код для Функций Azure в Visual Studio перед их запуском в службе приложений Azure."
 	services="functions"

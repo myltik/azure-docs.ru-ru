@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Отключение диска от виртуальной машины Linux | Microsoft Azure"
 	description="Узнайте, как отключить диск данных от виртуальной машины Azure, созданной с использованием классической модели развертывания."
 	services="virtual-machines-linux"

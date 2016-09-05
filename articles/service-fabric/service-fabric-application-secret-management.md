@@ -1,5 +1,5 @@
 
-.<properties
+<properties
    pageTitle="Управление секретами в приложениях Service Fabric | Microsoft Azure"
    description="В этой статье описывается, как защитить значения секретов в приложении Service Fabric."
    services="service-fabric"

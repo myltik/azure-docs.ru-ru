@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство. Интеграция Azure Active Directory с eDigitalResearch | Microsoft Azure"
 	description="Узнайте, как настроить единый вход Azure Active Directory в приложении eDigitalResearch."
 	services="active-directory"
@@ -62,17 +62,17 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Active Directory][1]
+	![Active Directory][1]
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 	
-	.![Приложения][2]
+	![Приложения][2]
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 
-	.![Приложения][3]
+	![Приложения][3]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -117,7 +117,7 @@
 
 3. На диалоговой странице **Configure App Settings** (Настройка параметров приложения) выполните следующие действия, а затем нажмите кнопку **Далее**.
 
-	.![Настройка единого входа](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_04.png)
+	![Настройка единого входа](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_04.png)
 
     а. В текстовом поле **URL-адрес ответа** введите URL-адрес в следующем формате:
 
@@ -145,30 +145,30 @@
 
 6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
 
-	.![Единый вход в Azure AD][10]
+	![Единый вход в Azure AD][10]
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
 
-	.![Единый вход в Azure AD][11]
+	![Единый вход в Azure AD][11]
 
 
 
 ### Создание тестового пользователя Azure AD
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
 	
-.![Создание пользователя Azure AD][20]
+![Создание пользователя Azure AD][20]
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_09.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_09.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 	
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_03.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_03.png)
 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 	
@@ -176,7 +176,7 @@
 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_05.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_05.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -186,7 +186,7 @@
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
 	
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_06.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_06.png)
 
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -200,11 +200,11 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 	
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_07.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_07.png)
 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 	
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_08.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_08.png)
 
     а. Запишите значение поля **Новый пароль**.
 
@@ -237,13 +237,13 @@
 
 3. В меню в верхней части страницы щелкните **Пользователи**.
 	
-	.![Назначение пользователя][203]
+	![Назначение пользователя][203]
 
 4. В списке пользователей выберите **Britta Simon**.
 
 5. На панели инструментов внизу щелкните **Назначить**.
 
-	.![Назначение пользователя][205]
+	![Назначение пользователя][205]
 
 
 

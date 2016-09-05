@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Регулирование в диспетчере кластерных ресурсов Service Fabric | Microsoft Azure"
    description="Узнайте, как настраивать регулирование в диспетчере кластерных ресурсов Service Fabric."
    services="service-fabric"

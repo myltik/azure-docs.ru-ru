@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Учебник по Unity. Игра Roll a Ball"
 	description="Шаги по созданию классической игры Roll a Ball на платформе Unity, что является необходимым условием для всех учебников по Mobile Engagement для Unity."
 	services="mobile-engagement"

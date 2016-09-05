@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Предварительная версия доменных служб Azure Active Directory: руководство по администрированию | Microsoft Azure"
 	description="Присоединение виртуальной машины Red Hat Enterprise Linux к доменным службам Azure AD"
 	services="active-directory-ds"

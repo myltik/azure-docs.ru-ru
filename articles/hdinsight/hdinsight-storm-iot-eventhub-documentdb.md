@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Обработка данных с датчиков автомобилей с использованием Apache Storm в HDInsight | Microsoft Azure"
  description="Узнайте, как обрабатывать данные с датчиков автомобилей из концентраторов событий с использованием средств Apache Storm в HDInsight. Добавление модели данных из DocumentDB и сохранение выходных данных в хранилище."
  services="hdinsight,documentdb,notification-hubs"

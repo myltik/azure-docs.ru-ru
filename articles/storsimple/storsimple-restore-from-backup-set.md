@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Восстановление тома StorSimple из резервной копии | Microsoft Azure"
    description="Описание способов использования страницы каталога резервного копирования службы диспетчера StorSimple для восстановления тома StorSimple из резервного набора данных."
    services="storsimple"

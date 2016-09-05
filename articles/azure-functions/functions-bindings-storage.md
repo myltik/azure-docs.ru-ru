@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Триггеры и привязки для службы хранилища Azure в функциях Azure | Microsoft Azure"
 	description="Узнайте, как использовать триггеры и привязки службы хранилища Azure в функциях Azure."
 	services="functions"

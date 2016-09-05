@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка MySQL на виртуальной машине Linux | Microsoft Azure "
 	description="Узнайте, как установить стек MySQL на виртуальной машине Linux (из семейства ОС Ubuntu или RedHat) в Azure."
 	services="virtual-machines-linux"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Хранилище и производительность DocumentDB | Microsoft Azure" 
 	description="Дополнительные сведения о хранилище данных и документов в DocumentDB и масштабировании DocumentDB в соответствии с требованиями вашего приложения." 
 	keywords="хранилище документов"

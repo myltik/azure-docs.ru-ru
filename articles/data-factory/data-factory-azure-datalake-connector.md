@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Перемещение данных в озеро данных Azure и из него| Фабрика данных Azure"
 	description="Узнайте, как с помощью фабрики данных Azure перемещать данные в озеро данных Azure и обратно"
 	services="data-factory"

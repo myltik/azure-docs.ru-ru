@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Выполнение заданий STAR-CCM+ с помощью пакета HPC на виртуальных машинах Linux | Microsoft Azure"
  description="Развертывание кластера Microsoft HPC в Azure и запуск задания STAR-CCM+ на нескольких вычислительных узлах Linux в сети RDMA."
  services="virtual-machines-linux"

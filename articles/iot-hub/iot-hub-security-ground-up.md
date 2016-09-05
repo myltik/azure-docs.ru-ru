@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Все аспекты безопасности решения IoT | Microsoft Azure"
  description="В этой статье описываются встроенные средства обеспечения безопасности Microsoft Azure IoT Suite."
  services="iot-hub"
@@ -7,7 +7,7 @@
  manager="timlt"
  editor=""/>
 
-.<tags
+<tags
  ms.service="iot-hub"
  ms.devlang="na"
  ms.topic="article"

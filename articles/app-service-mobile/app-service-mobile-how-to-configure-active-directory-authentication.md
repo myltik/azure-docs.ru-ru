@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка проверки подлинности Azure Active Directory для приложения служб приложений"
 	description="Узнайте, как настроить проверку подлинности Azure Active Directory для приложения служб приложений."
 	authors="mattchenderson"

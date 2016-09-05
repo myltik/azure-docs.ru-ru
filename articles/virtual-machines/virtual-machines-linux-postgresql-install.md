@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка PostgreSQL на виртуальной машине Linux | Microsoft Azure"
 	description="Узнайте, как установить и настроить PostgreSQL на виртуальной машине Linux в Azure."
 	services="virtual-machines-linux"

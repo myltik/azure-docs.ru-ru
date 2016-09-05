@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Подготовка сетевого сопоставления для защиты виртуальных машин Hyper-V с помощью VMM в Azure Site Recovery | Microsoft Azure"
 	description="Настройка сетевого сопоставления для репликации виртуальных машин Hyper-V из локального центра данных в Azure или на дополнительный сайт."
 	services="site-recovery"

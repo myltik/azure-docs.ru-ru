@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Azure Mobile Engagement — интеграция с серверной частью" 
 	description="Подключите Azure Mobile Engagement к серверной части SharePoint для создания кампаний из SharePoint." 
 	services="mobile-engagement" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Перенос решения в хранилище данных SQL| Microsoft Azure"
    description="Руководство по миграции, с помощью которого вы сможете перенести свое решение в хранилище данных Azure SQL."
    services="sql-data-warehouse"

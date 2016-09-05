@@ -1,4 +1,4 @@
-.<properties
+<properties
 pageTitle="Добавление соединителя Excel | Microsoft Azure"
 description="Обзор соединителя Excel с параметрами API REST"
 services=""    

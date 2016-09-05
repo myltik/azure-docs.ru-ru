@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Руководства по устранению неполадок Azure Mobile Engagement" 
    description="Руководство по устранению неполадок для Azure Mobile Engagement" 
    services="mobile-engagement" 

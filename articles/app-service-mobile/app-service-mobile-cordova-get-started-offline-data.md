@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Включение автономной синхронизации для мобильного приложения Azure (Cordova) | Microsoft Azure"
     description="Использование мобильного приложения службы приложений для кэширования и синхронизации автономных данных в приложении Cordova"
     documentationCenter="cordova"

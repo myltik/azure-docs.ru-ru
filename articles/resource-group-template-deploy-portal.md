@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Развертывание ресурсов Azure с помощью портала Azure | Microsoft Azure" 
 	description="Узнайте, как использовать портал Azure для развертывания ресурсов и управления ими." 
 	services="azure-resource-manager,azure-portal" 

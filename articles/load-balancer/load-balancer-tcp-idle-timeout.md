@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Настройка времени ожидания простоя TCP для подсистемы балансировки нагрузки | Microsoft Azure"
    description="Время ожидания простоя TCP подсистемы балансировки нагрузки"
    services="load-balancer"

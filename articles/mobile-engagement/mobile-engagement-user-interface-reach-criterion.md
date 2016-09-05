@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Пользовательский интерфейс Azure Mobile Engagement — условия охвата" 
    description="Узнайте, как в службе Azure Mobile Engagement можно организовать кампанию по рассылке push-уведомлений выбранному подмножеству пользователей." 
    services="mobile-engagement" 

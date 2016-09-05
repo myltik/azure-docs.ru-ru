@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="MapReduce с Hadoop в HDInsight | Microsoft Azure"
    description="Узнайте, как запускать задания MapReduce в Hadoop в кластере HDInsight. Мы запустим простую операцию подсчета слов, реализованную как задание MapReduce на Java."
    services="hdinsight"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Описание кластера для балансировщика ресурсов | Microsoft Azure"
    description="Описание кластера Service Fabric посредством указания доменов сбоя, доменов обновления, свойств узлов и емкости узлов для диспетчера кластерных ресурсов."
    services="service-fabric"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Часто задаваемые вопросы об интеграции журналов Azure | Microsoft Azure"
    description="Эта статья содержит ответы на часто задаваемые вопросы об интеграции журналов Azure."
    services="security"

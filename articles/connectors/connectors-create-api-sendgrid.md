@@ -1,4 +1,4 @@
-.<properties
+<properties
 pageTitle="SendGrid | Microsoft Azure"
 description="Создание приложений логики с помощью службы приложений Azure. Поставщик подключений SendGrid позволяет отправлять электронную почту и управлять списками получателей."
 services="logic-apps"	

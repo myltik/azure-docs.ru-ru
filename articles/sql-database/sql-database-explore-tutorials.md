@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Изучение учебников по базе данных SQL Azure | Microsoft Azure"
    description="Дополнительные сведения о функциях и возможностях базы данных SQL"
    keywords=""

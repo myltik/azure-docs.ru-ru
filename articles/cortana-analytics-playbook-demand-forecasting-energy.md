@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Сборник шаблонов решений Cortana Intelligence для прогнозирования энергопотребления | Microsoft Azure"
 	description="Шаблон решения Microsoft Cortana Intelligence для прогнозирования спроса на энергию в электроэнергетической компании."
 	services="cortana-analytics"

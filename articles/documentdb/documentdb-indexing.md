@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Автоматическое индексирование в DocumentDB | Microsoft Azure" 
 	description="Узнайте о том, как работает автоматическое индексирование в Azure DocumentDB." 
 	services="documentdb" 

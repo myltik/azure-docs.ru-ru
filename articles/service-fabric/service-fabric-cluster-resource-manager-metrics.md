@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление метриками с помощью диспетчера кластерных ресурсов Azure Service Fabric | Microsoft Azure"
    description="Узнайте, как настраивать и использовать метрики в Service Fabric."
    services="service-fabric"

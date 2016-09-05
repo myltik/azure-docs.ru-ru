@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Среды разработки и тестирования | Microsoft Azure"
    description="Узнайте, как с помощью шаблонов диспетчера ресурсов Azure быстро и согласованно создавать и удалять среды разработки и тестирования."
    services="azure-resource-manager"

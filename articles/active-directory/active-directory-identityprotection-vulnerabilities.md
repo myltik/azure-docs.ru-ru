@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Уязвимости, обнаруживаемые защитой идентификации Azure Active Directory | Microsoft Azure"
 	description="Обзор уязвимостей, обнаруживаемых защитой идентификации Azure Active Directory."
 	services="active-directory"

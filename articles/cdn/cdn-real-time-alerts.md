@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Оповещения в режиме реального времени в сети CDN Azure | Microsoft Azure"
 	description="Оповещения в режиме реального времени в сети CDN Microsoft Azure. Оповещения в режиме реального времени позволяют получать уведомления о производительности конечных точек в профиле CDN."
 	services="cdn"

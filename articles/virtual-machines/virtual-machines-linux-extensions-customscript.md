@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Применение пользовательских сценариев на виртуальных машинах Linux с помощью шаблонов | Microsoft Azure"
    description="Автоматизируйте задачи настройки виртуальных машин Linux с помощью расширения пользовательских сценариев и шаблонов Resource Manager."
    services="virtual-machines-linux"

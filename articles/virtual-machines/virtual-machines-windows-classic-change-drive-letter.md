@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Превращение диска D виртуальной машины в диск данных | Microsoft Azure"
 	description="Описывает, как изменить буквы дисков для виртуальной машины Windows, чтобы диск D можно было использовать в качестве диска данных."
 	services="virtual-machines-windows"
@@ -31,8 +31,8 @@
 
 Сначала необходимо подключить диск данных к виртуальной машине.
 
-- Сведения об использовании портала см. в разделе [How to attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md).
-- Сведения об использовании классического портала см. в разделе [Attach a data disk to a Windows virtual machine created with the classic deployment model](virtual-machines-windows-classic-attach-disk.md).
+- Сведения об использовании портала см. в разделе [Подключение диска данных к виртуальной машине Windows на портале Azure](virtual-machines-windows-attach-disk-portal.md).
+- Сведения об использовании классического портала см. в разделе [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](virtual-machines-windows-classic-attach-disk.md). 
 
 
 ## Временное перемещение файла pagefile.sys на диск C

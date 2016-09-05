@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Включение и отключение мониторинга виртуальной машины Azure"
    description="В этой статье описывается включение или отключение мониторинга виртуальной машины Azure"
    services="virtual-machines-linux"

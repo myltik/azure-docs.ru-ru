@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Включение, отключение или удаление профиля диспетчера трафика | Microsoft Azure"
    description="В этой статье вы узнаете, как работать с профилями диспетчера трафика."
    services="traffic-manager"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="SAP NetWeaver на виртуальных машинах Linux — руководство по развертыванию | Microsoft Azure"
    description="SAP NetWeaver на виртуальных машинах Linux — руководство по развертыванию"
    services="virtual-machines-linux,virtual-network,storage"

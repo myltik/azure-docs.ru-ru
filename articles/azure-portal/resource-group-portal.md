@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Управление ресурсами Azure с помощью портала Azure | Microsoft Azure" 
 	description="Узнайте, как использовать портал Azure и Azure Resource Manager для управления ресурсами. В статье объясняется, как работать с панелями мониторинга для отслеживания ресурсов." 
 	services="azure-resource-manager,azure-portal" 

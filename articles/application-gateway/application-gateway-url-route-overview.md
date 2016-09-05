@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о маршрутизации содержимого на основе URL-адресов | Microsoft Azure"
    description="Эта страница содержит общие сведения о маршрутизации содержимого шлюза приложений на основе URL-адресов, настройки UrlPathMap и правила PathBasedRouting."
    documentationCenter="na"
@@ -6,7 +6,7 @@
    authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
-.<tags
+<tags
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"

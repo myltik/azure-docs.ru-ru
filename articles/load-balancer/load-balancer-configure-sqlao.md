@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Настройка подсистемы балансировки нагрузки для AlwaysOn SQL | Microsoft Azure"
    description="Информация о настройке подсистемы балансировки нагрузки для работы с AlwaysOn SQL и использовании Powershell для создания подсистемы балансировки нагрузки для реализации SQL"
    services="load-balancer"

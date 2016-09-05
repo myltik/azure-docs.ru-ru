@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Связывание виртуальной сети с каналом ExpressRoute с помощью PowerShell | Microsoft Azure"
    description="В этом документе содержатся общие сведения о связывании виртуальных сетей с каналами ExpressRoute с помощью модели развертывания Resource Manager и PowerShell."
    services="expressroute"
@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
-.<tags 
+<tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"

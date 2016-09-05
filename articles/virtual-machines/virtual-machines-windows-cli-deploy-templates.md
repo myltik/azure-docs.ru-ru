@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Развертывание виртуальной машины и управление ей с помощью шаблонов | Microsoft Azure"
 	description="Развертывайте наиболее распространенные конфигурации для виртуальных машин Azure с помощью шаблонов диспетчера ресурсов и интерфейса командной строки Azure."
 	services="virtual-machines-windows"

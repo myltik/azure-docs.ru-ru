@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Добавление соединителя Поиска Bing в приложения логики | Microsoft Azure"
     description="Обзор соединителя Поиска Bing с параметрами интерфейса API REST"
     services=""

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Использование смайликов эмодзи в Azure Mobile Engagement" 
 	description="Как использовать смайлики эмодзи в push-уведомлениях"		
 	services="mobile-engagement" 
@@ -40,7 +40,9 @@
 
 7. При тестировании или активации объявления появится уведомление с выбранным вами смайликом.
 
-	![][3] ![][4] ![][5]
+	![][3] 
+	![][4] 
+	![][5]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png

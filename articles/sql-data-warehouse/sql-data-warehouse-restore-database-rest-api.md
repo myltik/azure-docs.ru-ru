@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Восстановление хранилища данных SQL Azure (REST API) | Microsoft Azure"
    description="Задачи REST API для восстановления хранилища данных SQL."
    services="sql-data-warehouse"

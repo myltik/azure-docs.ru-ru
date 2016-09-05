@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Диспетчер трафика — маршрутизация трафика | Microsoft Azure"
    description="Эта статья поможет вам разобраться в различных методах маршрутизации трафика, используемых диспетчером трафика."
    services="traffic-manager"

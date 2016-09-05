@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление владельцев и пользователей в лабораторию | Microsoft Azure"
 	description="Безопасное добавление пользователя, которого нет в вашей подписке, в Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"

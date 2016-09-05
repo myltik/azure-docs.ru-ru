@@ -1,5 +1,5 @@
 
-.<properties
+<properties
    pageTitle="Создание защищенного кластера Service Fabric с помощью Azure Resource Manager | Microsoft Azure"
    description="В этой статье описывается настройка защищенного кластера Service Fabric в Azure с помощью Azure Resource Manager, хранилища ключей Azure и Azure Active Directory (AAD) для проверки подлинности клиента."
    services="service-fabric"

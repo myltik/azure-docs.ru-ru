@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Добавление API Microsoft Translator в PowerApps Enterprise или приложения логики| Microsoft Azure"
     description="Обзор соединителя Microsoft Translator с параметрами интерфейса API REST"
     services=""

@@ -1,4 +1,4 @@
-.<properties
+<properties
 pageTitle="Использование DataFu с Pig в HDInsight"
 description="DataFu — это коллекция библиотек, предназначенных для использования с Hadoop. Узнайте, как использовать DataFu с Pig в кластере HDInsight."
 services="hdinsight"

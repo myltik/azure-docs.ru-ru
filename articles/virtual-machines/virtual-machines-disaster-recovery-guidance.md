@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure | Microsoft Azure"
 	description="Узнайте, что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure."
 	services="virtual-machines"

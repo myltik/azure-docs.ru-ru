@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Пользовательский интерфейс Azure Mobile Engagement - Настройки" 
    description="Узнайте, как управлять глобальными параметрами приложения с помощью Azure Mobile Engagement" 
    services="mobile-engagement" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление диска к виртуальной машине Linux | Microsoft Azure"
 	description="Узнайте, как добавить постоянный диск к виртуальной машине Linux."
 	keywords="виртуальная машина Linux, добавление диска ресурсов"

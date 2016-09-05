@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Введение в службу интеграции журналов Microsoft Azure (предварительная версия) | Microsoft Azure"
    description="Узнайте о службе интеграции журналов Azure, ее основных возможностях и принципах работы."
    services="security"

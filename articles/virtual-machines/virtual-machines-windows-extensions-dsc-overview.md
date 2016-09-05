@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о расширении Desired State Configuration для Azure | Microsoft Azure"
    description="Эта статья содержит общие сведения о работе с расширением Desired State Configuration PowerShell с помощью обработчика расширений Microsoft Azure. В ней описаны обязательные требования, архитектура, командлеты и многое другое."
    services="virtual-machines-windows"

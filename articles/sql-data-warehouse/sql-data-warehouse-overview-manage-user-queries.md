@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Мониторинг запросов пользователей в хранилище данных SQL Azure | Microsoft Azure"
    description="Обзор вопросов, рекомендаций и задач, связанных с мониторингом запросов пользователей в хранилище данных SQL Azure."
    services="sql-data-warehouse"
@@ -38,14 +38,14 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Поиск долго выполняющихся запросов]: sql-data-warehouse-manage-monitor.md
 [Управление параллелизмом и рабочей нагрузкой]: sql-data-warehouse-develop-concurrency.md
 [Управление базами данных в хранилище данных SQL Azure]: sql-data-warehouse-overview-manage.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 
-.<!--Other Web references-->
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0824_2016-->

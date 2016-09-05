@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Развертывание рабочей области машинного обучения с помощью шаблона Azure Resource Manager | Microsoft Azure"
 	description="Развертывание рабочей области для Машинного обучения Azure с помощью шаблона Azure Resource Manager"
 	services="machine-learning"

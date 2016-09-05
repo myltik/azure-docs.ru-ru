@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Непрерывное развертывание для Функций Azure | Microsoft Azure"
    description="Публикация Функций Azure с помощью средств непрерывного развертывания службы приложений Azure."
    services="azure-functions"

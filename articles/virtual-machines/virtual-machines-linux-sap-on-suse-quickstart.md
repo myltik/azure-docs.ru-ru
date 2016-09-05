@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Тестирование SAP NetWeaver на виртуальных машинах SUSE Linux Microsoft Azure | Microsoft Azure"
    description="Тестирование SAP NetWeaver на виртуальных машинах SUSE Linux Microsoft Azure"
    services="virtual-machines,virtual-network,storage"

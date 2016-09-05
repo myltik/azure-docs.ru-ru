@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление наборами записей и записями DNS с помощью портала Azure | Microsoft Azure"
    description="Управляйте наборами записей и записями DNS в службе Azure DNS при размещении вашего домена в Azure DNS. Все команды PowerShell для операций с наборами записей и записями."
    services="dns"
@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"

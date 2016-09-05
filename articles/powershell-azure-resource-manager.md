@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Использование Azure PowerShell с диспетчером ресурсов | Microsoft Azure" 
 	description="Общие сведения об использовании Azure PowerShell для развертывания нескольких ресурсов в виде группы ресурсов в Azure." 
 	services="azure-resource-manager" 

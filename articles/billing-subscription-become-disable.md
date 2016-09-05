@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что делать при отключении подписки Azure? | Microsoft Azure"
 	description="Описание причин и решения для ситуации с отключением подписки Azure"
 	services=""
@@ -64,7 +64,7 @@
 
 Чтобы повторно включить отключенную подписку, необходимо создать запрос в службу поддержки. Войдите на [портал Azure](https://portal.azure.com/), выберите **Справка+поддержка** > **Новый запрос в службу поддержки**.
 
-.![кнопка справки и поддержки](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
+![кнопка справки и поддержки](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
 Если у вас нет доступа к порталу, отправьте запрос на поддержку с веб-сайта службы поддержки Azure или из центра учетных записей Azure.
 

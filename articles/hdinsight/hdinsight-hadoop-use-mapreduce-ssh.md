@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование MapReduce и подключения SSH с Hadoop в HDInsight | Microsoft Azure"
    description="Информация об использовании SSH для выполнения заданий MapReduce с помощью Hadoop в HDInsight."
    services="hdinsight"

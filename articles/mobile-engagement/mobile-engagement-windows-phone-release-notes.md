@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Заметки о выпуске пакета SDK для Windows Phone Silverlight" 
 	description="Заметки о выпуске пакета SDK для Windows Phone Silverlight для Azure Mobile Engagement" 					
 	services="mobile-engagement" 

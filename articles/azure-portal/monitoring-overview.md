@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обзор мониторинга в Microsoft Azure | Microsoft Azure"
 	description="Обзор верхнего уровня мониторинга и диагностики в Microsoft Azure, в том числе предупреждений, объектов webhook, автоматического масштабирования и других компонентов."
 	authors="rboucher"
@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-.<tags
+<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -24,13 +24,13 @@
 
 На приведенной ниже схеме показано логическое представление мониторинга Azure. Базовая реализация является более сложной. На рисунке показан тип журналов, которые можно собирать, и указано, что можно делать с этими данными.
 
-.![Логическая модель мониторинга и диагностики для невычислительных ресурсов](./media/monitoring-overview/monitoring-azure-resources-non-compute.png)
+![Логическая модель мониторинга и диагностики для невычислительных ресурсов](./media/monitoring-overview/monitoring-azure-resources-non-compute.png)
 
 Рисунок 1. Логическая модель мониторинга и диагностики для невычислительных ресурсов
 
 <br/>
 
-.![Логическая модель мониторинга и диагностики для вычислительных ресурсов](./media/monitoring-overview/monitoring-azure-resources-compute.png)
+![Логическая модель мониторинга и диагностики для вычислительных ресурсов](./media/monitoring-overview/monitoring-azure-resources-compute.png)
 
 Рисунок 2. Логическая модель мониторинга и диагностики для вычислительных ресурсов
 

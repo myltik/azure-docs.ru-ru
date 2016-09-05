@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Восстановление хранилища данных SQL Azure (портал) | Microsoft Azure"
    description="Задачи портала Azure для восстановления хранилища данных SQL."
    services="sql-data-warehouse"
@@ -92,7 +92,7 @@
 8. Нажмите кнопку **ОК**.
 9. Начнется процесс восстановления базы данных, который можно отслеживать с помощью **уведомлений**.
 
->[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
+>[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной Базы данных SQL Azure][].
 
 
 ## Дальнейшие действия
@@ -100,7 +100,7 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: ./sql-database-business-continuity.md
 [Обзор]: ./sql-data-warehouse-restore-database-overview.md
 [Портал]: ./sql-data-warehouse-restore-database-portal.md
@@ -109,9 +109,9 @@
 [Финализация восстановленной Базы данных SQL Azure]: ./sql-database-recovered-finalize.md
 [Создание запроса в службу поддержки для хранилища данных SQL]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
-.<!--Blog references-->
+<!--Blog references-->
 
 <!--Other Web references-->
 [портал Azure]: https://portal.azure.com/

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Сведения о соединителе расшифровки сообщений X12 из пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики." 
 	services="logic-apps" 

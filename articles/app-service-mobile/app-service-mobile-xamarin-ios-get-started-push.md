@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление push-уведомлений в приложение Xamarin.iOS с помощью службы приложений Azure"
 	description="Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.iOS"
 	services="app-service\mobile"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Системные представления хранилища данных SQL | Microsoft Azure"
    description="Ссылки на системные представления для хранилища данных SQL."
    services="sql-data-warehouse"

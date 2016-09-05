@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Устранение неполадок, связанных с тем, что в Application Insights для .NET не отображаются данные" 
 	description="Данные в Visual Studio Application Insights не отображаются? Попробуйте здесь." 
 	services="application-insights" 

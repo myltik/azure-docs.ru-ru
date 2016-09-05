@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Развертывание LAMP на виртуальной машине Linux | Microsoft Azure"
 	description="Узнайте, как установить стек LAMP на виртуальную машину Linux."
 	services="virtual-machines-linux"

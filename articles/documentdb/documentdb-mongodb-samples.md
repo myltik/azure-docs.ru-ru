@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Примеры DocumentDB для MongoDB | Microsoft Azure" 
 	description="Примеры поддержки протокола DocumentDB для MongoDB." 
 	keywords="примеры mongodb"

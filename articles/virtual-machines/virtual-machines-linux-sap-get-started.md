@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование SAP на виртуальных машинах Linux | Microsoft Azure"
    description="Узнайте об использовании SAP на виртуальных машинах в Microsoft Azure."
    services="virtual-machines-linux,virtual-network,storage"

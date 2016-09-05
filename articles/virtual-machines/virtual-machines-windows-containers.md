@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Виртуальные машины и контейнеры | Microsoft Azure"
 	description="Описание виртуальных машин, контейнеров Docker и Linux, а также особенностей их использования в группах в среде Azure, включая преимущества каждого из них и сценарии, в которых лучше всего работает соответствующий подход."
 	services="virtual-machines-windows"

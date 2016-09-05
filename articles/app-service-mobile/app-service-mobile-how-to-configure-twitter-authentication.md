@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка проверки подлинности Twitter для приложения служб приложений"
 	description="Узнайте, как настроить проверку подлинности Twitter для приложения служб приложений."
 	services="app-service"

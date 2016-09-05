@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Копирование данных из хранилища BLOB-объектов в базу данных SQL | Microsoft Azure"
 	description="В этом учебнике рассказывается, как использовать действие копирования в конвейере фабрики данных Azure для копирования данных из хранилища BLOB-объектов в базу данных SQL."
 	Keywords="BLOB-объект, SQL, хранилище BLOB-объектов, копирование данных"
@@ -109,7 +109,7 @@
 Дополнительные сведения о действии копирования в фабрике данных Azure см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
 
 
-.<!--Link references-->
+<!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com/
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Часто задаваемые вопросы о службе Azure Multi-Factor Authentication"
 	description="Содержит список часто задаваемых вопросов и ответов о Azure Multi-Factor Authentication. Multi-factor Authentication — это метод проверки личности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Данный метод обеспечивает дополнительный уровень защиты входа пользователей в систему и транзакций."
 	services="multi-factor-authentication"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Обзор виртуального массива StorSimple | Microsoft Azure"
    description="Здесь описывается виртуальный массив Microsoft Azure StorSimple — интегрированное решение хранилища, которое управляет задачами хранилища на локальном виртуальном устройстве и в облачном хранилище Microsoft Azure."
    services="storsimple"

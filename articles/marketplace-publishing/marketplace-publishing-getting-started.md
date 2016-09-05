@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о том, как создать и развернуть предложение в Marketplace | Microsoft Azure"
    description="Описание шагов, необходимых для того, чтобы стать утвержденным разработчиком Майкрософт и создавать и развертывать образ виртуальной машины, шаблон, службу данных и службу разработчика в Azure Marketplace."
    services="marketplace-publishing"

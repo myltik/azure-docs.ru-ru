@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Добавление соединителя Box в приложения логики | Microsoft Azure"
     description="Обзор соединителя Box с параметрами API REST"
     services=""

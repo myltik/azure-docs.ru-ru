@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Подключение к службе хранилища Azure в приложении Xamarin.Forms"
     description="Добавление изображений в мобильное приложение списка задач Xamarin.Forms с использованием подключения к хранилищу BLOB-объектов Azure"
     documentationCenter="xamarin"

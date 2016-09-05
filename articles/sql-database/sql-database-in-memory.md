@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Приступая к работе с SQL In-Memory | Microsoft Azure"
 	description="Технологии SQL In-Memory значительно повышают производительность транзакций и аналитических операций. Узнайте, как воспользоваться преимуществами этих технологий."
 	services="sql-database"

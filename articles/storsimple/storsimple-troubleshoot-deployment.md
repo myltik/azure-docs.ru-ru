@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Устранение неполадок при развертывании StorSimple | Microsoft Azure"
    description="Инструкции по диагностике и устранению ошибок при первом развертывании StorSimple."
    services="storsimple"

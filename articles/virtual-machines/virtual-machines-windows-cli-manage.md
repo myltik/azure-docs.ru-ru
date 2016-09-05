@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Основные команды интерфейса командной строки для задач виртуальных машин Windows | Microsoft Azure"
 	description="Основные команды интерфейса командной строки Azure для создания виртуальных машин Windows и управления ими в Azure Resource Manager"
 	services="virtual-machines-windows"

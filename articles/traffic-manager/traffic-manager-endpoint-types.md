@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Типы конечных точек диспетчера трафика | Microsoft Azure"
    description="В этой статье описываются разные типы конечных точек, которые можно использовать с диспетчером трафика Azure"
    services="traffic-manager"
@@ -6,7 +6,7 @@
    authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-.<tags
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"

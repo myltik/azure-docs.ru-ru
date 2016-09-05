@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Что такое Microsoft Azure Active Directory"
     description="Используйте Azure Active Directory, чтобы расширить возможности существующих локальных удостоверений в облаке или разрабатывать приложения, интегрируемые с Azure AD."
     services="active-directory"

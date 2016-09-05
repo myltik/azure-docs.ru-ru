@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Устранение неполадок при повторном обучении классической веб-службы машинного обучения Azure | Microsoft Azure"
 	description="С помощью этой статьи вы сможете выявить и исправить распространенные проблемы, которые возникают при повторном обучении модели для веб-службы машинного обучения Azure."
 	services="machine-learning"
@@ -7,7 +7,7 @@
 	manager=""
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
@@ -75,7 +75,7 @@
 
 Страница исправления содержит URL-адрес исправления, который нужно использовать, и пример кода, с помощью которого можно выполнить вызов.
 
-.![URL-адрес исправления.][image5]
+![URL-адрес исправления.][image5]
 
 ### Проверьте, та ли оценивающая конечная точка обновляется
 
@@ -99,7 +99,7 @@
 2.	В меню выберите пункт "Машинное обучение". ![Пользовательский интерфейс региона машинного обучения.][image4]
 3.	Проверьте расположение своей рабочей области.
 
-.<!-- Image Links -->
+<!-- Image Links -->
 
 [image1]: ./media/machine-learning-troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
 [image2]: ./media/machine-learning-troubleshooting-retraining-a-model/addEndpoint-output.png

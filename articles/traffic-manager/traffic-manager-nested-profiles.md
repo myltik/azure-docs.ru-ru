@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Вложенные профили диспетчера трафика | Microsoft Azure"
    description="В этой статье описываются функции ";вложенных профилей"; диспетчера трафика Azure."
    services="traffic-manager"

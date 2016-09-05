@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Балансирование нагрузки в кластере с помощью диспетчера кластерных ресурсов Azure Service Fabric | Microsoft Azure"
    description="Общие сведения о распределении нагрузки в кластере с помощью диспетчера кластерных ресурсов Azure Service Fabric."
    services="service-fabric"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""/>
 
-.<tags
+<tags
    ms.service="Service-Fabric"
    ms.devlang="dotnet"
    ms.topic="article"

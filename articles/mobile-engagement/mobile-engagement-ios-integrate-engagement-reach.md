@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Интеграция пакета SDK для рекламных кампаний в iOS для Azure Mobile Engagement"
 	description="Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
 	services="mobile-engagement"

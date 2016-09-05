@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Создание моста между Android WebView и собственным пакетом SDK Android Mobile Engagement" 
 	description="Описывает, как создать мост между WebView с Javascript и собственным пакетом SDK Android Mobile Engagement"		
 	services="mobile-engagement" 

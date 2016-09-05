@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Включение автономной синхронизации для мобильного приложения Azure (Xamarin iOS)"
     description="Использование мобильного приложения службы приложений для кэширования и синхронизации автономных данных в приложении Xamarin iOS"
     documentationCenter="xamarin"
@@ -57,7 +57,7 @@
     В представленном коде запрашиваются все записи из удаленной таблицы `TodoItem`, однако их можно также отфильтровать путем передачи идентификатора запроса и запроса в `PushAsync`. Дополнительные сведения см. в подразделе *Добавочная синхронизация* раздела [Автономная синхронизация данных в мобильных приложениях Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
-	-->
+ 	-->
 
 
 		// QSTodoService.cs

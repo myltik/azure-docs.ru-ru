@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание внутреннего балансировщика нагрузки с помощью PowerShell в классической модели развертывания | Microsoft Azure"
    description="Узнайте, как создать внутренний балансировщик нагрузки в классической модели развертывания с помощью PowerShell."
    services="load-balancer"

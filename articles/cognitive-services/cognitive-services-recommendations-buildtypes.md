@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Краткое руководство: API рекомендаций для машинного обучения | Microsoft Azure"
 	description="Рекомендации по Машинному обучению Azure. Краткое руководство по началу работы"
 	services="cognitive-services"

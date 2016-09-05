@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure Insights. Рекомендации по автомасштабированию Azure Insights | Microsoft Azure"
 	description="Изучите принципы эффективного использования автомасштабирования в Azure Insights."
 	authors="kamathashwin"
@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-.<tags
+<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

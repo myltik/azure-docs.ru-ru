@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Кластер Linux RDMA для выполнения приложений MPI | Microsoft Azure"
  description="Создание кластера Linux виртуальных машин A8 или A9, чтобы использовать RDMA для запуска приложений MPI"
  services="virtual-machines-linux"

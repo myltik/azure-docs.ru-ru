@@ -1,4 +1,4 @@
-.<properties
+<properties
 pageTitle="Использование соединителя SharePoint Online в приложениях логики | Microsoft Azure"
 description="Начните использовать соединитель SharePoint Online для службы приложений Azure в приложениях логики."
 services=""    

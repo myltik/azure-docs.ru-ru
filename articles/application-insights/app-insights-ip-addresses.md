@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="IP-адреса, используемые службой Application Insights | Microsoft Azure"
 	description="Исключения брандмауэра сервера, требуемые для Application Insights" 
 	services="application-insights"

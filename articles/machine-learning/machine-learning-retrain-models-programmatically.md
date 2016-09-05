@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Программное переобучение моделей машинного обучения | Microsoft Azure"
 	description="Узнайте о том, как осуществить программное переобучение модели и обновить веб-службу так, чтобы она использовала переобученную модель при задействовании функций машинного обучения Azure."
 	services="machine-learning"
@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-.<tags
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
@@ -235,7 +235,7 @@
 [6]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE06.png
 
 
-.<!-- Module References -->
+<!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 <!---HONumber=AcomDC_0824_2016-->

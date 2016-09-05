@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Интеграция пакета SDK Reach для универсальных приложений для Windows" 
 	description="Интеграция Azure Mobile Engagement Reach с универсальными приложениями для Windows"
 	services="mobile-engagement" 

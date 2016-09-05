@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Создание самозаверяющих сертификатов для распределенных подключений виртуальных сетей типа ";точка — сеть"; с помощью makecert | Microsoft Azure"
    description="Эта статья содержит инструкции по использованию makecert для создания самозаверяющих сертификатов в Windows 10."
    services="vpn-gateway"
@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
-.<tags 
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"

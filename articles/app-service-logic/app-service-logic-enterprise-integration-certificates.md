@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Использование сертификатов с помощью пакета интеграции Enterprise | Служба приложений Microsoft Azure" 
 	description="Узнайте, как использовать сертификаты с пакетом интеграции Enterprise и приложениями логики." 
 	services="logic-apps" 
@@ -39,7 +39,7 @@
 После передачи сертификат можно будет использовать для защиты сообщений "бизнес — бизнес" при определении их свойств в ваших [соглашениях](./app-service-logic-enterprise-integration-agreements.md).
 
 Ниже приведены подробные инструкции по передаче открытых сертификатов в учетную запись интеграции после входа на портал Azure.
-1. Щелкните **Обзор**.![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+1. Щелкните **Обзор**![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Выберите **учетную запись интеграции**, в которую необходимо добавить сертификат. ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
 4.  Выберите элемент **Сертификаты**. ![](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)
@@ -57,7 +57,7 @@
 После выполнения описанных выше действий закрытый сертификат можно будет использовать для создания соглашений.
 
 Ниже приведены подробные инструкции по передаче закрытых сертификатов в учетную запись интеграции после входа на портал Azure.
-1. Щелкните **Обзор**.![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+1. Щелкните **Обзор**![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Выберите **учетную запись интеграции**, в которую необходимо добавить сертификат. ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
 4.  Щелкните плитку **Сертификаты**. ![](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)

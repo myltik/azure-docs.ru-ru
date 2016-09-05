@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Пользовательский интерфейс Azure Mobile Engagement — сегменты" 
    description="Научитесь создавать сегменты и управлять ими с помощью Azure Mobile Engagement для выявления закономерностей использования" 
    services="mobile-engagement" 

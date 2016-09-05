@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание образа виртуальной машины на основе виртуальной машины Azure | Microsoft Azure"
 	description="Научитесь создавать универсальный образ виртуальной машины на основе существующей виртуальной машины Azure, созданной с помощью модели развертывания Resource Manager"
 	services="virtual-machines-windows"

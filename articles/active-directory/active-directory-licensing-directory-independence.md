@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Добавление нескольких каталогов Azure Active Directory и управление ими | Microsoft Azure"
    description="Инструкции и рекомендации по добавлению каталогов Azure Active Directory и управлению ими (здесь каталоги рассматриваются как полностью независимые ресурсы)."
    services="active-directory"

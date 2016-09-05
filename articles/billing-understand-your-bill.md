@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Расшифровка счета за использование | Microsoft Azure"
    description="Узнайте, как получать и интерпретировать сведения, указанные в счете за использование подписки Azure."
    services=""

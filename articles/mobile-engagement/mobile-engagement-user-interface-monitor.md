@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Пользовательский интерфейс Azure Mobile Engagement: Monitor (Мониторинг)"
    description="Наблюдение за работой приложения в режиме реального времени с помощью Azure Mobile Engagement"
    services="mobile-engagement"

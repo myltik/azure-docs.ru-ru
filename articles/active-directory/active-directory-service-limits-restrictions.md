@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Лимиты и ограничения службы Azure Active Directory"
 	description="Ограничения на использование и другие ограничения для службы Azure Active Directory."
 	services="active-directory"

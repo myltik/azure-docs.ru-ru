@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Включение пользовательских данных в виртуальные машины Azure | Microsoft Azure"
 	description="В этом разделе описывается включение пользовательских данных в виртуальную машину Azure во время создания экземпляра, а также поиск пользовательских данных в Windows или Linux."
 	services="virtual-machines-linux"

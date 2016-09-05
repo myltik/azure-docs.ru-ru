@@ -1,5 +1,5 @@
 
-.<properties
+<properties
 	pageTitle="Получение пакетов рекомендаций: API рекомендаций для машинного обучения | Microsoft Azure"
 	description="Рекомендации для машинного обучения Azure. Получение пакетов рекомендаций"
 	services="cognitive-services"
@@ -8,7 +8,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-.<tags
+<tags
 	ms.service="cognitive-services"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"

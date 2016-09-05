@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Проблемы с Azure Multi-Factor Authentication | Microsoft Azure" 
 	description="В этом документе пользователи найдут сведения о том, что следует предпринять в случае возникновения проблем с Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication"
@@ -8,7 +8,7 @@
 	manager="stevenpo" 
 	editor="curtland"/>
 
-.<tags 
+<tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
@@ -45,7 +45,7 @@
  - **Correlation ID** — код идентификатора корреляции, создаваемый при просмотре ошибки пользователем.
  - **Timestamp** — точные дата и время, когда вы заметили ошибку (включая часовой пояс).
  
-.![Идентификатор корреляции](./media/multi-factor-authentication-end-user-manage/correlation.png)
+![Идентификатор корреляции](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
  - **Идентификатор пользователя** — идентификатор пользователя, который увидел ошибку (например, user@contoso.com)?
  - **Сведения о пользователе** — был ли пользователь федеративным, с включенной синхронизацией хэшей паролей, или только облачным? Была ли назначена пользователю лицензия на Azure AD Premium, Enterprise Mobility или Azure AD Basic? Использует ли пользователь Office 365 и т. п.?

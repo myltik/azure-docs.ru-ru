@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление паролями в Azure Active Directory | Microsoft Azure"
 	description="Сведения об управлении паролями в Azure Active Directory."
 	services="active-directory"

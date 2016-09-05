@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Привязки Azure DocumentDB в функциях Azure | Microsoft Azure"
 	description="Узнайте, как использовать привязки Azure DocumentDB в функциях Azure."
 	services="functions"

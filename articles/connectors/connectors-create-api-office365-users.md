@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Добавление соединителя ";Office 365 Пользователи"; в приложения логики | Microsoft Azure"
     description="Обзор соединителя Office 365 Пользователи с параметрами интерфейса API REST"
     services=""    

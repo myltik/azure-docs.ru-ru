@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Azure Multi-Factor Authentication — дальнейшие действия" 
 	description="Это страница Azure Multi-Factor Authentication с описанием дальнейших действий в отношении MFA. Сюда относятся отчеты, предупреждения о мошенничестве, разовый обход проверки, пользовательские голосовые сообщения, кэширование, надежные IP-адреса и пароли приложений." 
 	services="multi-factor-authentication" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование хранилища ключей Azure из веб-приложения | Microsoft Azure"
 	description="В этом учебнике показано, как использовать хранилище ключей Azure из веб-приложения."
 	services="key-vault"

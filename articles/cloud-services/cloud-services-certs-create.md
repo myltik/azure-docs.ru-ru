@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Облачные службы и сертификаты управления | Microsoft Azure" 
 	description="Узнайте, как создавать и использовать сертификаты с помощью Microsoft Azure" 
 	services="cloud-services" 

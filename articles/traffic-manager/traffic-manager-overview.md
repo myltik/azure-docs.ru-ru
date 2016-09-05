@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Что такое диспетчер трафика | Microsoft Azure"
    description="Эта статья поможет понять, что такое диспетчер трафика и насколько он подходит для маршрутизации трафика вашего приложения"
    services="traffic-manager"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Пользовательский интерфейс Azure Mobile Engagement — домашняя страница"
    description="Узнайте, как управлять существующими приложениями и проектами с помощью Azure Mobile Engagement"
    services="mobile-engagement"

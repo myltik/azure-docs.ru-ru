@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Azure AD Connect sync: расширения каталогов | Microsoft Azure"
    description="В этой статье описывается функция расширений каталогов в Azure AD Connect."
    services="active-directory"

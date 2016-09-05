@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Восстановление хранилища данных SQL Azure (PowerShell) | Microsoft Azure"
    description="Задачи PowerShell для восстановления хранилища данных SQL."
    services="sql-data-warehouse"

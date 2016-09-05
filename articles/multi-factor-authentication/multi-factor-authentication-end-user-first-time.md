@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Первый вход в службу Azure Multi-Factor Authentication" 
 	description="Эта страница описывает первый вход пользователя в службу." 
 	services="multi-factor-authentication"
@@ -8,7 +8,7 @@
 	manager="stevenp" 
 	editor="curtland"/>
 
-.<tags 
+<tags 
 	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 

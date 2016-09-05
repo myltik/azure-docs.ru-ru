@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Непрерывность бизнес-процессов и аварийное восстановление в службах BizTalk: пары регионов Azure | Microsoft Azure"
 	description="Пары регионов Azure гарантируют отказоустойчивость приложений во время сбоев в центрах обработки данных."
 	services="site-recovery"

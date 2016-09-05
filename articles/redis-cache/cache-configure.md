@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Настройка кэша Redis для Azure | Microsoft Azure"
 	description="Обзор конфигурации Redis по умолчанию для кэша Redis для Azure и описание способов настройки экземпляров кэша Redis для Azure"
 	services="redis-cache"

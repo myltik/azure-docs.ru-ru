@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание масштабируемых наборов виртуальных машин с помощью командлетов PowerShell | Microsoft Azure"
 	description="Приступите к созданию своего первого масштабируемого набора виртуальных машин Azure и научитесь им управлять с помощью Azure PowerShell."
 	services="virtual-machines-windows"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="API-интерфейсы REST диспетчера ресурсов| Microsoft Azure"
    description="Обзор примеров проверки подлинности и использования API-интерфейсов REST диспетчера ресурсов"
    services="azure-resource-manager"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Переключение подписки Azure на другое предложение | Microsoft Azure"
 	description="Узнайте, как изменить подписку Azure и переключить ее на другое предложение Azure с помощью портала управления подпиской"
 	services=""

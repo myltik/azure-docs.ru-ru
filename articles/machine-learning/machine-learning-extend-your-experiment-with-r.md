@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Расширение возможностей эксперимента с помощью R | Microsoft Azure"
 	description="Рассматривается, как расширить функциональные возможности Студии машинного обучения Microsoft Azure с помощью языка R, используя модуль «Выполнение сценария R»."
 	services="machine-learning"

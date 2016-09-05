@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Высокая доступность и надежность планировщика"
  description="Высокая доступность и надежность планировщика"
  services="scheduler"

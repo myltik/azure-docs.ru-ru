@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Содержимое пакета SDK для универсальных приложений для Windows" 
 	description="Изучите содержимое пакета SDK универсальных приложений для Windows для Azure Mobile Engagement" 					
 	services="mobile-engagement" 

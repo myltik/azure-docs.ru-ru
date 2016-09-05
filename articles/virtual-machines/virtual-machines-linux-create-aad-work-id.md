@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание рабочего или учебного удостоверения в Azure Active Directory | Microsoft Azure"
    description="Сведения о создании рабочих или учебных удостоверений в Azure Active Directory для использования с виртуальными машинами Linux."
    services="virtual-machines-linux"

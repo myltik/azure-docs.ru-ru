@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Развертывание ресурсов с помощью REST API и шаблона | Microsoft Azure"
    description="Узнайте, как использовать Azure Resource Manager и REST API Resource Manager для развертывания ресурсов в Azure. Эти ресурсы определяются в шаблоне Resource Manager."
    services="azure-resource-manager"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обновление агента Linux для Azure из GitHub | Microsoft Azure"
 	description="Узнайте, как обновить агент Linux для Azure на виртуальной машине Linux до последней версии с сайта Github."
 	services="virtual-machines-linux"

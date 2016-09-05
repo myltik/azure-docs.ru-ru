@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о службе контейнеров Azure | Microsoft Azure"
    description="Служба контейнеров Azure позволяет упростить создание, настройку кластера виртуальных машин, подготовленных для запуска контейнерных приложений, и управление ими."
    services="container-service"

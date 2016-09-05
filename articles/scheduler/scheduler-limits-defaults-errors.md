@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Ограничения и значения по умолчанию планировщика"
  description="Ограничения и значения по умолчанию планировщика"
  services="scheduler"

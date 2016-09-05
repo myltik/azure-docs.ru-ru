@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Расширение Custom Script на виртуальной машине под управлением Windows | Microsoft Azure"
    description="Автоматизируйте процесс настройки виртуальных машин Azure с помощью расширения Custom Script для выполнения сценариев PowerShell на удаленной виртуальной машине под управлением Windows"
    services="virtual-machines-windows"
@@ -21,7 +21,8 @@
 
 В этой статье представлен обзор использования расширения пользовательских сценариев на виртуальных машинах Windows с помощью командлетов Azure PowerShell и интерфейсов API управления службами Azure.
 
-Расширения виртуальной машины разработаны корпорацией Майкрософт и доверенными сторонними компаниями для расширения функциональных возможностей виртуальной машины. Общие сведения о расширениях виртуальных машин см. в статье [Расширения и компоненты виртуальных машин Azure](virtual-machines-windows-extensions-features.md).
+Расширения виртуальной машины разработаны корпорацией Майкрософт и доверенными сторонними компаниями для расширения функциональных возможностей виртуальной машины. Общие сведения о расширениях виртуальных машин см. в статье 
+[Расширения и компоненты виртуальных машин Azure](virtual-machines-windows-extensions-features.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-machines-windows-extensions-customscript.md).
 

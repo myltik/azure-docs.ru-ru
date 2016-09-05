@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Шаблоны приложений SQL Server в виртуальных машинах | Microsoft Azure"
 	description="В этой статье описаны шаблоны приложений для SQL Server в виртуальных машинах Azure. Статья предоставляет архитекторам и разработчикам решений основу для создания правильных архитектуры и конструкции."
 	services="virtual-machines-windows"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Запись образа виртуальной машины Linux | Microsoft Azure"
 	description="Узнайте, как записать образ виртуальной машины Azure под управлением Linux, созданной с помощью классической модели развертывания."
 	services="virtual-machines-linux"

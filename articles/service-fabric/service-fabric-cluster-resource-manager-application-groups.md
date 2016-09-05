@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Диспетчер кластерных ресурсов Service Fabric: группы приложений | Microsoft Azure"
    description="Общие сведения о назначении групп приложений в диспетчере кластерных ресурсов службы Fabric Service"
    services="service-fabric"

@@ -1,5 +1,5 @@
 
-.<properties
+<properties
    pageTitle="Создание полной среды Linux с помощью интерфейса командной строки Azure | Microsoft Azure"
    description="Узнайте, как с помощью Azure CLI создать ";с нуля"; хранилище, виртуальную машину Linux, виртуальную сеть и подсеть, балансировщик нагрузки, сетевую карту, общедоступный IP-адрес и группу безопасности сети."
    services="virtual-machines-linux"

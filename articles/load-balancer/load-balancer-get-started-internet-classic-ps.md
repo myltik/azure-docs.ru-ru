@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Приступая к работе по созданию балансировщика нагрузки для Интернета в классическом режиме с помощью PowerShell | Microsoft Azure"
    description="Сведения о создании балансировщика нагрузки для Интернета в классическом режиме с помощью PowerShell"
    services="load-balancer"

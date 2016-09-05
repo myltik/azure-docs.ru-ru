@@ -1,5 +1,5 @@
 
-.<properties
+<properties
 	pageTitle="Azure Site Recovery: репликация виртуальных машин Hyper-V на обособленный сервер VMM | Microsoft Azure"
 	description="В этой статье описывается, как выполнить репликацию виртуальных машин Hyper-V, если имеется только один сервер VMM."
 	services="site-recovery"

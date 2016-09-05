@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Архитектура безопасности IoT | Microsoft Azure"
  description="Рекомендации и советы по архитектуре безопасности IoT"
  services="iot-hub"

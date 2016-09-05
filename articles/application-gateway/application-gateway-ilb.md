@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Создание и настройка шлюза приложений с внутренней подсистемой балансировщика нагрузки (ILB) в виртуальной сети | Microsoft Azure"
    description="Данная страница содержит инструкции по настройке шлюза приложений Azure с конечной точкой с внутренней балансировкой нагрузки."
    documentationCenter="na"
@@ -6,7 +6,7 @@
    authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
-.<tags 
+<tags 
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article" 

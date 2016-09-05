@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Как управлять обратными записями DNS для служб с помощью PowerShell в Resource Manager | Microsoft Azure"
    description="Как управлять обратными записями DNS или записями типа PTR для служб Azure с помощью PowerShell в Resource Manager."
    services="DNS"

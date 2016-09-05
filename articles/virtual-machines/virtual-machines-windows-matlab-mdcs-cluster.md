@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Кластеры MATLAB на виртуальных машинах | Microsoft Azure"
    description="Использование виртуальных машин Microsoft Azure для создания кластеров MATLAB Distributed Computing Server для запуска параллельных рабочих нагрузок MATLAB с ресурсоемкими вычислениями"
    services="virtual-machines-windows"

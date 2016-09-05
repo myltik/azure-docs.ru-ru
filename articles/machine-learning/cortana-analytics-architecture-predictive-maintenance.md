@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Архитектура диагностического обслуживания | Microsoft Azure"
 	description="Схема архитектуры шаблона решения Microsoft Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических, транспортных и обслуживающих компаниях."
 	services="cortana-analytics"

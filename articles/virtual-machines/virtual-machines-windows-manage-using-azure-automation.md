@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление виртуальными машинами с помощью службы автоматизации Azure | Microsoft Azure"
 	description="Способы использования службы автоматизации Azure для управления виртуальными машинами Azure при масштабировании."
 	services="virtual-machines-windows, automation"

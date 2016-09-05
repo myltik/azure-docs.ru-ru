@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что такое самостоятельная регистрация для Azure? | Microsoft Azure"
 	description="Общие сведения о самостоятельной регистрации для Azure, а также описание управления процессом регистрации и смены доменного имени DNS."
 	services="active-directory"

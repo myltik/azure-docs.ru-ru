@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Проверка параметров диспетчера трафика | Microsoft Azure"
    description="В этой статье вы узнаете, как проверять параметры диспетчера трафика"
    services="traffic-manager"

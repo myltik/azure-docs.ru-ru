@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Расширенные события в Базе данных SQL | Microsoft Azure"
 	description="В статье описываются расширенные события (XEvents) в Базе данных SQL Azure и отличия соответствующих сеансов событий от сеансов событий в Microsoft SQL Server."
 	services="sql-database"

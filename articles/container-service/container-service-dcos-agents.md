@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Пулы общедоступных и частных агентов ACS | Microsoft Azure"
    description="Как пулы общедоступных и частных агентов работают с кластером службы контейнеров Azure."
    services="container-service"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Как использовать AMQP 1.0 с API .NET служебной шины | Microsoft Azure" 
 	description="Узнайте, как использовать протокол AMQP 1.0 с API .NET для служебной шины Azure." 
 	services="service-bus" 

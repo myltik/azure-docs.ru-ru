@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование SAP в виртуальных машинах Windows | Microsoft Azure"
    description="Узнайте об использовании SAP на виртуальных машинах Windows в Microsoft Azure."
    services="virtual-machines-windows,virtual-network,storage"

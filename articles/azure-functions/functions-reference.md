@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Справочник разработчика по функциям Azure | Microsoft Azure"
 	description="Ознакомьтесь с особенностями и компонентами Функций Azure, общими для всех языков и привязок."
 	services="functions"

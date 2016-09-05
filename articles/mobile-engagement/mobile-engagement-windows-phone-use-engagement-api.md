@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Как использовать API Engagement в Windows Phone Silverlight" 
 	description="Как использовать API Engagement в Windows Phone Silverlight"	
 	services="mobile-engagement" 

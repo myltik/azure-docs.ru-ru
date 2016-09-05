@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание и регистрация учетной записи издателя | Microsoft Azure"
    description="Инструкции по созданию учетной записи разработчика Майкрософт, после утверждения которой вы сможете продавать предложения различных типов в Azure Marketplace."
    services="Azure Marketplace"

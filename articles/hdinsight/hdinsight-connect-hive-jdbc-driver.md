@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Использование JDBC для запроса Hive в Azure HDInsight"
  description="Узнайте, как использовать JDBC для подключения к Hive в Azure HDInsight и удаленного выполнения запросов данных, хранящихся в облаке."
  services="hdinsight"

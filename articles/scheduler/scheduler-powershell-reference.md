@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Справочник по командлетам PowerShell планировщика"
  description="Справочник по командлетам PowerShell планировщика"
  services="scheduler"

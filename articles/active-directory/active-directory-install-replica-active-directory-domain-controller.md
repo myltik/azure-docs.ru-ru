@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Установка реплики контроллера домена Active Directory в Azure | Microsoft Azure"
 	description="Учебник, в котором объясняется, как установить контроллер домена из леса локальной службы Active Directory на виртуальной машине Azure."
 	services="virtual-network"

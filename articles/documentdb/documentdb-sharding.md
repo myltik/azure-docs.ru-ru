@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Как реализовать секционирование на стороне клиента с помощью пакетов SDK | Microsoft Azure" 
 	description="Узнайте, как использовать пакеты SDK Azure DocumentDB для .NET для секционирования (сегментирования) данных и маршрутизации запросов по нескольким коллекциям." 
 	services="documentdb" 

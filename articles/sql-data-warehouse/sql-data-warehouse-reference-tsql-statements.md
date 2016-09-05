@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Справочная информация о языке Transact-SQL хранилища данных SQL | Microsoft Azure"
    description="Список ссылок на справочные материалы по темам, связанным с языком Transact-SQL, который используется для хранилища данных SQL."
    services="sql-data-warehouse"

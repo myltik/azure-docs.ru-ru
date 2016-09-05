@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Репликация виртуальных машин VMware в Azure с помощью Site Recovery и Azure Automation DSC | Microsoft Azure"
 	description="В этой статье описывается использование Azure Automation DSC для автоматического развертывания службы Mobility Service ASR и агента Azure для виртуальных машин и физических компьютеров в Azure."
 	services="site-recovery"
@@ -7,7 +7,7 @@
 	manager="lorenr"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="site-recovery"
 	ms.workload="backup-recovery"
 	ms.tgt_pltfrm="na"
@@ -204,7 +204,7 @@ configuration ASRMobilityService {
 
 Здесь можно найти модуль и импортировать его в вашу учетную запись.
 
-.![Импорт модуля](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
+![Импорт модуля](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
 После этого перейдите на компьютер, где установлены модули Azure RM, и импортируйте созданную конфигурацию DSC.
 
@@ -331,7 +331,7 @@ Get-DscConfigurationStatus
 
 Результат показывает, что сервер успешно извлек конфигурацию.
 
-.![Регистрация узла](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
+![Регистрация узла](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
 
 Кроме того, в программе установки службы Mobility Service есть собственный журнал, расположенный в пути <SystemDrive>\\ProgramData\\ASRSetupLogs.
 

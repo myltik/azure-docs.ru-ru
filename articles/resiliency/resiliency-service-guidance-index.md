@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Руководство по обеспечению устойчивости служб | Microsoft Azure"
    description="Ссылки на руководства по аварийному восстановлению и превентивным мерам повышения устойчивости и доступности служб Microsoft Azure."
    services=""

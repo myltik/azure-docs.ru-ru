@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Восстановление отдельной таблицы в резервной копии базы данных SQL Azure | Microsoft Azure"
 	description="Инструкции по восстановлению отдельной таблицы в резервной копии базы данных SQL Azure."
 	services="sql-database"

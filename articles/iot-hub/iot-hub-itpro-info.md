@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Сведения о центре IoT в Azure для ИТ-специалистов | Microsoft Azure"
  description="Сведения, которые помогут ИТ-специалистам работать с центром IoT Azure, например требования к портам и безопасности."
  services="iot-hub"
@@ -7,7 +7,7 @@
  manager="timlt"
  editor=""/>
 
-.<tags
+<tags
  ms.service="iot-hub"
  ms.devlang="na"
  ms.topic="article"

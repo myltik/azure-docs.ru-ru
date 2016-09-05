@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Реализация службы Azure Mobile Engagement в игровом приложении"
 	description="Сценарий для реализации службы Azure Mobile Engagement в игровом приложении." 
 	services="mobile-engagement" 

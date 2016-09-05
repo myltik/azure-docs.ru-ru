@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Почему вы получили уведомление о том, что имеется задолженность по вашей подписке Azure | Microsoft Azure"
 	description="Описание процедуры оплаты, если имеется задолженность по вашей подписке Azure"
 	services=""

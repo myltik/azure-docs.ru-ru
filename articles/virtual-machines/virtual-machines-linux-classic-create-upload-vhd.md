@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание и передача виртуального жесткого диска Linux | Microsoft Azure"
 	description="Создание и передача виртуального жесткого диска Azure, содержащего операционную систему Linux, с использованием классической модели развертывания."
 	services="virtual-machines-linux"

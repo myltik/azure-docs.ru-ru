@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Руководство по устранению неполадок Azure Mobile Engagement — аналитика" 
    description="Поиск и устранение неисправностей функций аналитики, мониторинга, сегментации и панели мониторинга в Azure Mobile Engagement" 
    services="mobile-engagement" 

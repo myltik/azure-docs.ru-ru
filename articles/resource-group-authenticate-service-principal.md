@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание субъекта-службы Azure с помощью Azure PowerShell | Microsoft Azure"
    description="Использование Azure PowerShell для создания приложения Active Directory и субъекта-службы с последующим предоставлением доступа к ресурсам с управлением доступом на основе ролей. В статье показано, как выполнять проверку подлинности приложения с помощью пароля или сертификата."
    services="azure-resource-manager"

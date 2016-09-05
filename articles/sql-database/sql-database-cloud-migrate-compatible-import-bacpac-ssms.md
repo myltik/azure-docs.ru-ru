@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Перенос базы данных SQL Server в базу данных SQL Azure | Microsoft Azure"
    description="База данных SQL Microsoft Azure, развертывание базы данных, миграция базы данных, импорт базы данных, экспорт базы данных, мастер миграции"
    services="sql-database"

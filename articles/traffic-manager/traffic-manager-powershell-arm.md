@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Поддержка Azure Resource Manager для диспетчера трафика | Microsoft Azure "
    description="Использование PowerShell для диспетчера трафика с Azure Resource Manager (ARM)"
    services="traffic-manager"

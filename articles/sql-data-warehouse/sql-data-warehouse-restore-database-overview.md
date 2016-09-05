@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Восстановление хранилища данных SQL Azure (обзор) | Microsoft Azure"
    description="Обзор параметров для восстановления базы данных в хранилище данных SQL Azure."
    services="sql-data-warehouse"

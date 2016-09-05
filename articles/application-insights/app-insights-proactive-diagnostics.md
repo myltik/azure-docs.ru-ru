@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Упреждающая диагностика в Application Insights | Microsoft Azure" 
 	description="Служба Application Insights автоматически выполняет углубленный анализ телеметрии вашего приложения и предупреждает о потенциальных проблемах." 
 	services="application-insights" 
@@ -6,7 +6,7 @@
 	authors="rakefetj" 
 	manager="douge"/>
 
-.<tags 
+<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
@@ -29,13 +29,13 @@
 
 * **В сообщениях электронной почты**, получаемых из Application Insights. Вот типичный пример:
 
-    .![Оповещение по электронной почте](./media/app-insights-proactive-diagnostics/03.png)
+    ![Оповещение по электронной почте](./media/app-insights-proactive-diagnostics/03.png)
 
     Нажмите большую кнопку, чтобы просмотреть подробные сведения на портале.
 
 * **На плитке "Упреждающее обнаружение"** в колонке "Обзор", где отображается количество оповещений. Щелкните плитку, чтобы просмотреть список последних оповещений.
 
-.![Просмотр последних результатов обнаружения](./media/app-insights-proactive-diagnostics/04.png)
+![Просмотр последних результатов обнаружения](./media/app-insights-proactive-diagnostics/04.png)
 
 Выберите оповещение, чтобы просмотреть сведения о нем.
 

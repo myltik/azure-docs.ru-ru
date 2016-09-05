@@ -1,4 +1,4 @@
-.<properties
+<properties
 pageTitle="GitHub | Microsoft Azure"
 description="Создание приложений логики с помощью службы приложений Azure. GitHub — это веб-служба размещения репозиториев Git. Она предоставляет все возможности распределенного управления редакциями и исходным кодом (SCM) Git, а также собственные функции."
 services="logic-apps"	

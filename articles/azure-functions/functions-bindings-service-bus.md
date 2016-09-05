@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Триггеры и привязки служебной шины в функциях Azure | Microsoft Azure"
 	description="Узнайте, как использовать триггеры и привязки служебной шины Azure в функциях Azure."
 	services="functions"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Проверка подлинности и авторизация в мобильных приложениях Azure | Microsoft Azure"
 	description="Справочник принципов и общие сведения о функции проверки подлинности и авторизации для мобильных приложений Azure."
 	services="app-service\mobile"

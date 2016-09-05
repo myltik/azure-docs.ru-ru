@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Службы синхронизации Azure AD Connect: рекомендации по изменению конфигурации по умолчанию | Microsoft Azure"
 	description="В этой статье приведены рекомендации по изменению стандартной конфигурации служб синхронизации Azure AD Connect."
 	services="active-directory"

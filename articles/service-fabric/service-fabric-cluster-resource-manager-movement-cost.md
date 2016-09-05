@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Диспетчер кластерных ресурсов Service Fabric: стоимость перемещения | Microsoft Azure"
    description="Общие сведения о стоимости перемещения для служб Service Fabric"
    services="service-fabric"

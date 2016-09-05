@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Устранение проблем совместимости базы данных SQL Server перед переносом в базу данных SQL | Microsoft Azure"
    description="База данных SQL Microsoft Azure, миграция базы данных, совместимость, мастер миграции SQL Azure"
    services="sql-database"

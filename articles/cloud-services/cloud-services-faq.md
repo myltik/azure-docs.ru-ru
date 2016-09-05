@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Часто задаваемые вопросы об облачных службах | Microsoft Azure"
 	description="Часто задаваемые вопросы об облачных службах."
 	services="cloud-services"

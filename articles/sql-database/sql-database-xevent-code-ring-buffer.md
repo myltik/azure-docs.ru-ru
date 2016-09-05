@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Код кольцевого буфера XEvent для Базы данных SQL | Microsoft Azure" 
 	description="Содержит пример кода Transact-SQL, обеспечивающего простоту и удобство использования целевого объекта ";Кольцевой буфер"; в Базе данных SQL Azure." 
 	services="sql-database" 

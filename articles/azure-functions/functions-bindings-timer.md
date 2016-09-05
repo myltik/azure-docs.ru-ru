@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Триггеры с таймерами в функциях Azure | Microsoft Azure"
 	description="Узнайте, как использовать триггеры с таймерами в функциях Azure."
 	services="functions"

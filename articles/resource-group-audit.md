@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Операции аудита с помощью диспетчера ресурсов | Microsoft Azure"
 	description="Просмотр действий пользователя и ошибок с помощью журнала действий в Resource Manager. Отображаются портал Azure, PowerShell, интерфейс командной строки Azure и REST."
 	services="azure-resource-manager"

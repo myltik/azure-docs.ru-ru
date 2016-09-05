@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Приступая к созданию внутреннего балансировщика нагрузки в Resource Manager с помощью портала Azure | Microsoft Azure"
    description="Узнайте, как создать внутренний балансировщик нагрузки в Resource Manager с помощью портала Azure."
    services="load-balancer"

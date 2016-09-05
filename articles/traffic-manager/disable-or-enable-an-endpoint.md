@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Отключение и включение конечной точки диспетчера трафика | Microsoft Azure"
    description="Эта статья поможет вам отключить или включить конечные точки профиля диспетчера трафика."
    services="traffic-manager"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Выходная привязка центра уведомлений для функций Azure | Microsoft Azure"
 	description="Узнайте, как использовать привязки центра уведомлений Azure в функциях Azure."
 	services="functions"

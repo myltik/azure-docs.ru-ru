@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Непрерывное развертывание с помощью Automation DSC Azure и Chocolatey | Microsoft Azure"
    description="Непрерывное развертывание DevOps с помощью Automation DSC Azure и диспетчера пакетов Chocolatey. Пример с полным шаблоном ARM в формате JSON и исходным кодом PowerShell."
    services="automation"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Поставщики вычислительных и сетевых ресурсов, а также ресурсов службы хранилища | Microsoft Azure"
    description="Обзор поставщиков вычислительных и сетевых ресурсов, а также ресурсов хранения (CRP, NRP и SRP) для приложений Linux в модели развертывания с помощью Azure Resource Manager"
    services="virtual-machines-linux"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Пользовательский интерфейс Azure Mobile Engagement - Моя учетная запись" 
    description="Управление профилем учетной записи и тестовыми устройствами с помощью Azure Mobile Engagement" 
    services="mobile-engagement" 

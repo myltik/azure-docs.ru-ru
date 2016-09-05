@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Приступая к работе со службой интеграции журналов Azure | Microsoft Azure"
    description="Узнайте, как установить службу интеграции журналов Azure и интегрировать журналы из службы хранилища Azure, журналы аудита Azure и оповещения центра безопасности Azure."
    services="security"

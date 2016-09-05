@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Azure AD Connect: история выпусков версий | Microsoft Azure"
    description="В этой статье перечислены все выпуски Azure AD Connect и Azure AD Sync"
    services="active-directory"

@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Добавление соединителя Facebook в приложения логики | Microsoft Azure"
     description="Обзор соединителя Facebook с параметрами интерфейса API REST"
     services=""

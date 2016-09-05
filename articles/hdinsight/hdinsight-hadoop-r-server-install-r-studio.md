@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Установка RStudio с R Server в HDInsight (предварительная версия) | Microsoft Azure"
 	description="Процедура установки RStudio с R Server в кластере HDInsight (предварительная версия)."
 	services="hdinsight"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Перенос данных в базу данных SQL с использованием транзакционной репликации | Microsoft Azure"
    description="База данных SQL Microsoft Azure, миграция базы данных, импорт базы данных, транзакционная репликация"
    services="sql-database"

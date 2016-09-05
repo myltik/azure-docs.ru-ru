@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Аварийное восстановление для приложений на платформе Azure | Microsoft Azure"
    description="Технический обзор и подробные сведения о разработке приложений c аварийным восстановлением на платформе Microsoft Azure."
    services=""

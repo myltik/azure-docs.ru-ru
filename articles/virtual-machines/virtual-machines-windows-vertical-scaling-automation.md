@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Вертикальное масштабирование виртуальных машин Azure c помощью службы автоматизации Azure | Microsoft Azure"
 	description="Как вертикально масштабировать виртуальную машину Windows в ответ на предупреждения мониторинга c помощью службы автоматизации Azure"
 	services="virtual-machines-windows"

@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Планы и выставление счетов в планировщике Azure"
  description="Планы и выставление счетов в планировщике Azure"
  services="scheduler"

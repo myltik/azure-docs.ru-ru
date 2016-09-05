@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Управление административными единицами в Azure Active Directory"
    description="Использование административных единиц для делегирования разрешений в Azure Active Directory на фрагментарном уровне"
    services="active-directory"

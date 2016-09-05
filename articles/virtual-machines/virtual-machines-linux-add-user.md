@@ -1,4 +1,4 @@
-.<properties
+<properties
 		pageTitle="Добавление пользователя в виртуальную машину Linux в Azure | Microsoft Azure"
 		description="Добавьте пользователя в виртуальную машину Linux в Azure."
 		services="virtual-machines-linux"

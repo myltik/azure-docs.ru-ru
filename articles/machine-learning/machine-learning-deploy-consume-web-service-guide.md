@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Развертывание и использование веб-служб машинного обучения Azure | Microsoft Azure"
 	description="Ресурсы для развертывания и использования веб-служб."
 	services="machine-learning"

@@ -1,5 +1,5 @@
 
-.<properties
+<properties
    pageTitle="Создание защищенного кластера Service Fabric с помощью портала Azure | Microsoft Azure"
    description="В этой статье описывается настройка защищенного кластера Service Fabric в Azure с помощью портала Azure и хранилища ключей Azure."
    services="service-fabric"

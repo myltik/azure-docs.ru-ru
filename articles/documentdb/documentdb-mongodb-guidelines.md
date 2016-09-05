@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Предварительная версия руководства по разработке учетных записей DocumentDB с поддержкой протокола MongoDB | Microsoft Azure" 
 	description="Ознакомьтесь с руководством по разработке учетных записей DocumentDB с поддержкой протокола MongoDB (предварительная версия)." 
 	services="documentdb" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка личного доменного имени в службе приложений Azure (GoDaddy)"
 	description="Узнайте, как использовать доменное имя из GoDaddy с веб-приложениями Azure"
 	services="app-service"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка служб с помощью диспетчера кластерных ресурсов Service Fabric | Microsoft Azure"
    description="Описание службы Service Fabric с указанием метрик, ограничений на размещение и других политик размещения."
    services="service-fabric"

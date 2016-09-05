@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Вход на классическую виртуальную машину Azure | Microsoft Azure"
 	description="Использование классического портала Azure для входа в виртуальную машину Windows, созданную с использованием классической модели развертывания."
 	services="virtual-machines-windows"

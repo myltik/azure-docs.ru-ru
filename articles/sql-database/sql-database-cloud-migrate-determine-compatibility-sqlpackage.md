@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Определение совместимости базы данных SQL с помощью SqlPackage.exe | Microsoft Azure"
    description="База данных SQL Microsoft Azure, миграция базы данных, совместимость базы данных SQL, SqlPackage"
    services="sql-database"

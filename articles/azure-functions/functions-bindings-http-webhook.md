@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Привязки HTTP и webhook в функциях Azure | Microsoft Azure"
 	description="Узнайте, как использовать триггеры и привязки HTTP и webhook в функциях Azure."
 	services="functions"

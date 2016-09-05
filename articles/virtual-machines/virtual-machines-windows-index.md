@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Технические статьи по классическим виртуальным машинам Windows | Microsoft Azure"
    description="Полный список статей Microsoft Azure, посвященных виртуальным машинам Windows в классической модели развертывания"
    services="virtual-machines-windows"
@@ -8,7 +8,7 @@
    tags="azure-service-management"
    editor=""/>
 
-.<tags
+<tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
@@ -75,7 +75,7 @@
 
 [Создание настраиваемой виртуальной машины под управлением Windows](virtual-machines-windows-classic-createportal.md)
 
-[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Windows Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
+[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Microsoft Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
 
 [Создание и передача виртуального жесткого диска Windows Server в Azure](virtual-machines-windows-classic-createupload-vhd.md)
 

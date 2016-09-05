@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Перенос виртуальных машин Windows из Amazon Web Services (AWS) в Azure с помощью Azure Site Recovery | Microsoft Azure"
 	description="В этой статье описано, как перенести виртуальные машины Windows, запущенные в Amazon Web Services (AWS), в Azure с помощью Azure Site Recovery."
 	services="site-recovery"

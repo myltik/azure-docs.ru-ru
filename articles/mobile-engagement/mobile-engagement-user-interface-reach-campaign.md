@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Пользовательский интерфейс Azure Mobile Engagement — Рекламная кампания" 
    description="Узнайте, как создавать кампании push-уведомлений с помощью службы Azure Mobile Engagement, а также управлять ими" 
    services="mobile-engagement" 

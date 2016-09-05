@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Дефрагментация метрик в кластере Azure Service Fabric | Microsoft Azure"
    description="Общие сведения об использовании дефрагментации или упаковки в качестве стратегии для метрик в кластере Service Fabric"
    services="service-fabric"

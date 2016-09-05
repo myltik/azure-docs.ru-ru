@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование хранилища Azure Premium с SQL Server | Microsoft Azure"
 	description="В этой статье используется ресурсы, созданные с помощью классической модели развертывания, и предоставляются рекомендации по использованию хранилища Azure Premium с SQL Server, выполняющимся на виртуальных машинах Azure."
 	services="virtual-machines-windows"

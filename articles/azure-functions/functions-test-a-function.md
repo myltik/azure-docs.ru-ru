@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Тестирование функций Azure | Microsoft Azure"
    description="Тестирование функций Azure с помощью Postman, cURL и Node.js."
    services="functions"

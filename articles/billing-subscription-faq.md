@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Вопросы и ответы о выставлении счетов и управлении подпиской Azure | Microsoft Azure"
 	description="Ответы на распространенные вопросы о выставлении счетов и управлении подпиской Azure"
 	services=""

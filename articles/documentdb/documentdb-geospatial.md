@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Работа с геопространственными данными в Azure DocumentDB | Microsoft Azure" 
     description="Узнайте, как создать, индексировать и запрашивать пространственные объекты в Azure DocumentDB." 
     services="documentdb" 

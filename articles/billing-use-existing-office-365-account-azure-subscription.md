@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Совместное использование одного клиента Azure AD с подписками Office 365 и Azure | Microsoft Azure"
 	description="Узнайте, как передать клиент Azure AD Office 365 и его пользователей в подписку Azure, или наоборот."
 	services=""

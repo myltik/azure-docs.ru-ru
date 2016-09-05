@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка проверки подлинности Google для приложения служб приложений"
 	description="Настройка проверки подлинности Google для приложения служб приложений."
     services="app-service"

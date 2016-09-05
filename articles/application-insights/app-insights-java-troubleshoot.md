@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Устранение неполадок Application Insights в веб-проекте Java" 
 	description="Руководство по устранению неполадок — мониторинг динамических приложений Java с помощью Application Insights." 
 	services="application-insights" 

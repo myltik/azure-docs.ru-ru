@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Все разделы о службе хранилища данных SQL | Microsoft Azure"
 	description="Таблица всех разделов о службе Azure, которая называется хранилищем данных SQL, расположенных по адресу http://azure.microsoft.com/documentation/articles/, включая заголовок и описание."
 	services="sql-data-warehouse"

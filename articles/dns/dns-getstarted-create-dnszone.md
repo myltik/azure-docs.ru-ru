@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Приступая к работе с Azure DNS | Microsoft Azure"
    description="Узнайте, как создавать зоны DNS для Azure DNS. В этом пошаговом руководстве мы рассмотрим, как создать зону DNS для размещения домена DNS, используя PowerShell."
    services="dns"
@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"

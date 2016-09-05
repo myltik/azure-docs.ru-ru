@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Диспетчер кластерных ресурсов Service Fabric — интеграция управления | Microsoft Azure"
    description="Обзор точек интеграции между диспетчером ресурсов кластера и управлением Service Fabric."
    services="service-fabric"

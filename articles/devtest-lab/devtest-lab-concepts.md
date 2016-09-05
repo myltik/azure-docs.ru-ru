@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Основные понятия DevTest Labs | Microsoft Azure"
 	description="Изучите основные понятия DevTest Labs и узнайте, как DevTest Labs поможет упростить создание и отслеживание виртуальных машин Azure, а также управление ими."
 	services="devtest-lab,virtual-machines"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Руководство по регистрации для сброса пароля Azure AD | Microsoft Azure"
 	description="Узнайте, как зарегистрироваться для сброса пароля в Azure Active Directory."
 	services="active-directory"

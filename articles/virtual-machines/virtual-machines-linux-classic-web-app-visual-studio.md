@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание виртуальной машины для веб-приложения | Microsoft Azure"
 	description="Создание виртуальной машины для веб-проекта с помощью Visual Studio и Linux."
 	services="virtual-machines-linux"
@@ -8,7 +8,7 @@
 	editor=""
 	tags="azure-service-management"/>
 
-.<tags
+<tags
 	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"

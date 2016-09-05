@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Замена контроллера на устройстве StorSimple | Microsoft Azure"
    description="В этом учебнике объясняется, как снять и заменить один или оба модуля контроллера на устройстве StorSimple."
    services="storsimple"

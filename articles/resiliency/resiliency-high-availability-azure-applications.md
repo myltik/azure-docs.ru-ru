@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Обеспечение высокой доступности для приложений на платформе Azure | Microsoft Azure"
    description="Технический обзор и подробные сведения о проектировании и разработке приложений c высоким уровнем доступности на платформе Microsoft Azure."
    services=""

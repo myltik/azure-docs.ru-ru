@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Диспетчер кластерных ресурсов Service Fabric: сходство | Microsoft Azure"
    description="Общие сведения о настройке сходства для служб Service Fabric"
    services="service-fabric"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Как проверить метод оплаты и оплатить подписку Azure | Microsoft Azure"
 	description="В этой статье объясняется, как проверить метод оплаты и платить за подписку Azure."
 	services=""

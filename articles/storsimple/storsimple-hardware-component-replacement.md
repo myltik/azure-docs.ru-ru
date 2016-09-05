@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Замена компонентов оборудования StorSimple | Microsoft Azure"
    description="Описывает безопасную замену БПО, аккумулятора, модулей контроллера, контроллеров EBOD, дисковых накопителей и корпуса устройства StorSimple."
    services="storsimple"

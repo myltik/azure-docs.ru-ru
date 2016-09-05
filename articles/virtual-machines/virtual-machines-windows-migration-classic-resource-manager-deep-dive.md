@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Техническое руководство по поддерживаемому платформой переносу из классической модели в модель Azure Resource Manager| Microsoft Azure"
 	description="Эта статья является техническим руководством по поддерживаемому платформой переносу из классической модели в модель Azure Resource Manager."
 	services="virtual-machines-windows"

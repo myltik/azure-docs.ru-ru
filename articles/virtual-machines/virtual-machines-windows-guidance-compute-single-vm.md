@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Рекомендации по запуску виртуальных машин Windows в Azure | Microsoft Azure"
  description="Эта статья содержит рекомендации по запуску виртуальных машин Windows в Azure."
  services="virtual-machines-windows"

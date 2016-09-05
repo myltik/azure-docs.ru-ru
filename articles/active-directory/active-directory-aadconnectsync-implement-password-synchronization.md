@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Реализация синхронизации паролей с помощью службы Azure AD Connect Sync | Microsoft Azure"
 	description="В этой статье объясняется, как работает синхронизация паролей и как ее включить."
 	services="active-directory"

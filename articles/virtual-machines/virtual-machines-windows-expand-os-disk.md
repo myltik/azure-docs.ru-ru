@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Как расширить диск ОС виртуальной машины в группе ресурсов Azure | Microsoft Azure"
    description="В этой статье демонстрируется, как увеличить размер диска ОС виртуальной машины с помощью PowerShell для Azure Resource Manager."
    services="virtual-machines-windows"

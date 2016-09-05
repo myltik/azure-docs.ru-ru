@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Экспорт базы данных SQL Server в BACPAC-файл с помощью SqlPackage | Microsoft Azure"
    description="База данных SQL Microsoft Azure, миграция базы данных, экспорт базы данных, экспорт BACPAC-файла, sqlpackage"
    services="sql-database"

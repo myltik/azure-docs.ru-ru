@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Установка интерфейса командной строки Azure | Microsoft Azure"
 	description="Установка интерфейса командной строки (CLI) Azure на компьютерах c Mac OS, Linux и Windows и работа со службами Azure"
 	editor=""

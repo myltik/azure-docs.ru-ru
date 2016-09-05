@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="О дисках и виртуальных жестких дисках для виртуальных машин Linux | Microsoft Azure"
 	description="Информация об основах использования дисков и виртуальных жестких дисков для виртуальных машин Linux в Azure."
 	services="virtual-machines-linux"
