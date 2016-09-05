@@ -1,4 +1,4 @@
-<properties
+.<properties
  pageTitle="Агент виртуальной машины Azure и расширения | Microsoft Azure"
  description="Статья описывает агент, расширения, а также способы установки агента с помощью классической модели развертывания."
  services="virtual-machines-windows"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="04/14/2016"
+ ms.date="08/23/2016"
  ms.author="rasquill"/>
 
 #Обзор агента и расширений виртуальной машины
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-agents-and-extensions](../../includes/virtual-machines-common-classic-agents-and-extensions.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

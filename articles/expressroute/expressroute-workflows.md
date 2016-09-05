@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Процедуры настройки канала ExpressRoute | Microsoft Azure"
    description="На этой странице описана процедура настройки канала ExpressRoute и пирингов"
    documentationCenter="na"
@@ -12,15 +12,16 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="cherylmc"/>
 
 # Процедуры ExpressRoute для подготовки каналов и состояний каналов
+
 На этой странице описаны процедуры подготовки служб и настройки маршрутизации на высоком уровне.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-Данная схема и описанные ниже действия показывают, какие задачи нужно выполнить, чтобы полностью подготовить канал ExpressRoute.
+Приведенная схема и соответствующие действия показывают, какие задачи нужно выполнить, чтобы полностью подготовить канал ExpressRoute.
 
 1. Настройте канал ExpressRoute с помощью PowerShell. Для этого выполните инструкции в статье [Создание каналов ExpressRoute](expressroute-howto-circuit-classic.md).
 
@@ -36,7 +37,8 @@
 	
 	>[AZURE.IMPORTANT] Для подключения к Майкрософт нельзя использовать прокси-сервер или ресурс, который используется для подключения к Интернету. Подключение к ExpressRoute и к Интернету через один и тот же ресурс приведет к асимметричной маршрутизации и вызовет проблемы подключения в вашей сети.
 
-	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
+	![](./media/expressroute-workflows/routing-workflow.png)
+
 
 5. Свяжите виртуальные сети с каналами ExpressRoute. Виртуальные сети можно связать с каналом ExpressRoute. Выполните инструкции по [связыванию виртуальных сетей](expressroute-howto-linkvnet-arm.md) с каналом. Эти виртуальные сети могут входить в ту же самую подписку, что и канал ExpressRoute, или в другую.
 
@@ -120,4 +122,4 @@
 	- [Настройка маршрутизации](expressroute-howto-routing-arm.md)
 	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

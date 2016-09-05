@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Обзор интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
 	description="Используйте функции интеграции Enterprise, чтобы реализовать сценарии бизнес-процессов и интеграции с помощью приложений логики." 
 	services="logic-apps" 
@@ -7,7 +7,7 @@
 	manager="erikre" 
 	editor="cgronlun"/>
 
-<tags 
+.<tags 
 	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
@@ -44,10 +44,13 @@
 - EDI — электронный обмен данными;
 - EAI — интеграция приложений.
 
-## Вот что необходимо для немедленного начала работы
+## Вот что необходимо для немедленного начала работы.
 - Подписка Azure с учетной записью интеграции.
 - Visual Studio 2015 для создания карт и схем.
 - [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0.](https://aka.ms/vsmapsandschemas)
+
+## Попробуйте сами
+Почему бы не попробовать. Щелкните [здесь](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive), чтобы развернуть полностью работоспособное приложение логики AS2 send & receive с помощью функций B2B Logic Apps.
 
 ## См. также:
 - [Соглашения](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.")
@@ -61,4 +64,4 @@
 - [Проверка сообщений XML](./app-service-logic-enterprise-integration-xml.md "Узнайте, как проверять сообщения XML с помощью приложений логики.")
 - [Преобразование XML-файла](./app-service-logic-enterprise-integration-transform.md "Узнайте о картах интеграции Enterprise.")
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

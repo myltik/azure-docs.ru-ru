@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Развертывание ресурсов с помощью Azure CLI и шаблона | Microsoft Azure"
    description="Узнайте, как использовать Azure Resource Manager и Azure CLI для развертывания ресурсов в Azure. Эти ресурсы определяются в шаблоне Resource Manager."
    services="azure-resource-manager"
@@ -7,7 +7,7 @@
    manager="timlt"
    editor="tysonn"/>
 
-<tags
+.<tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
@@ -23,11 +23,6 @@
 - [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
 - [Портал](resource-group-template-deploy-portal.md)
 - [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 В этой статье объясняется, как использовать интерфейс командной строки Azure и шаблоны Resource Manager для развертывания ресурсов в Azure.
 
@@ -176,4 +171,4 @@
 - Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
 - Дополнительные сведения об использовании ссылки на KeyVault для передачи безопасных значений см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

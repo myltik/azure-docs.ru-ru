@@ -1,4 +1,4 @@
-<properties
+.<properties
  pageTitle="Обработка данных с датчиков автомобилей с использованием Apache Storm в HDInsight | Microsoft Azure"
  description="Узнайте, как обрабатывать данные с датчиков автомобилей из концентраторов событий с использованием средств Apache Storm в HDInsight. Добавление модели данных из DocumentDB и сохранение выходных данных в хранилище."
  services="hdinsight,documentdb,notification-hubs"
@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/06/2016"
+ms.date="08/23/2016"
 ms.author="larryfr"/>
 
 #Обработка данных с датчиков автомобилей из концентраторов событий Azure с использованием средств Apache Storm в HDInsight.
@@ -58,4 +58,4 @@ ms.author="larryfr"/>
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

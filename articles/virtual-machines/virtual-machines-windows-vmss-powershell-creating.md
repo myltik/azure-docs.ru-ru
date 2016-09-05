@@ -1,10 +1,10 @@
-<properties
+.<properties
 	pageTitle="Создание масштабируемых наборов виртуальных машин с помощью командлетов PowerShell | Microsoft Azure"
 	description="Приступите к созданию своего первого масштабируемого набора виртуальных машин Azure и научитесь им управлять с помощью Azure PowerShell."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="danielsollondon"
-	manager="guybo"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -208,4 +208,4 @@ VM1 : pubipmynewrgwu.westus.cloudapp.azure.com:3361
 VM2 : pubipmynewrgwu.westus.cloudapp.azure.com:3362
 ```
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

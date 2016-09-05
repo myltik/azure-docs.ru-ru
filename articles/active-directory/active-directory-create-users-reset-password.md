@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Сброс пароля для пользователя в Azure Active Directory | Microsoft Azure"
 	description="Сведения о процедуре сброса пароля пользователя в Azure Active Directory, выполняемой администратором."
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 # Сброс пароля для пользователя
@@ -35,4 +35,4 @@
 - [Управление паролями в Azure AD](active-directory-manage-passwords.md)
 - [Управление группами в Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

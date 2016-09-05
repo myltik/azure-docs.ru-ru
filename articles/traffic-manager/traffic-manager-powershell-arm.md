@@ -1,9 +1,9 @@
-<properties
-   pageTitle="Поддержка Azure Resource Manager для диспетчера трафика | Microsoft Azure"
+.<properties
+   pageTitle="Поддержка Azure Resource Manager для диспетчера трафика | Microsoft Azure "
    description="Использование PowerShell для диспетчера трафика с Azure Resource Manager (ARM)"
    services="traffic-manager"
    documentationCenter="na"
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Поддержка Azure Resource Manager для диспетчера ресурсов Azure
 Диспетчер ресурсов Azure (ARM) представляет собой новую платформу управления для служб в Azure. Теперь профилями диспетчера трафика Azure можно управлять с помощью интерфейсов API и инструментов на основе диспетчера ресурсов Azure.
@@ -70,7 +70,7 @@
 
 ### Шаг 4.
 
-Для управления службой диспетчера трафика используется поставщик ресурсов Microsoft.Network. Прежде чем приступать к работе с диспетчером с помощью ARM, необходимо зарегистрировать подписку Azure для использования этого поставщика. Эта операция выполняется один раз для каждой подписки.
+Для управления службой диспетчера трафика используется поставщик ресурсов Microsoft.Network. Прежде чем приступать к работе с диспетчером трафика с помощью ARM, необходимо зарегистрировать подписку Azure для использования этого поставщика ресурсов. Эта операция выполняется один раз для каждой подписки.
 
 	PS C:\> Register-AzureRmResourceProvider –ProviderNamespace Microsoft.Network
 
@@ -309,4 +309,4 @@
 [Рекомендации по безопасности для диспетчера трафика](traffic-manager-performance-considerations.md)
  
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

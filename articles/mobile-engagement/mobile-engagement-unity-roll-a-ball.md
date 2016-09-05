@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Учебник по Unity. Игра Roll a Ball"
 	description="Шаги по созданию классической игры Roll a Ball на платформе Unity, что является необходимым условием для всех учебников по Mobile Engagement для Unity."
 	services="mobile-engagement"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/25/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 #<a id="unity-roll-a-ball"></a>Создание игры Roll a Ball на платформе Unity
@@ -23,7 +23,7 @@
 ### Настройка игры
 Ниже приведены шаги из [учебника по Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141).
 
-1. Откройте **редактор Unity** и щелкните **New** (Создать). 
+1. Откройте **редактор Unity** и щелкните **New** (Создать).
 	
 	![][51]
 	
@@ -82,7 +82,7 @@
 ### Перемещение игрока
 Ниже приведены шаги из [учебника по Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-player?playlist=17141).
 
-1. Добавьте компонент **RigidBody** в объект **Player**. 
+1. Добавьте компонент **RigidBody** в объект **Player**.
 
 	![][13]
 
@@ -125,8 +125,8 @@
 ### Перемещение камеры
 Шаги ниже представлены шаги из [учебника по Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-camera?playlist=17141), с помощью которых мы привяжем объект **Main Camera** к объекту **Player**.
 
-1. Присвойте **Transform.Position** значения X = 0, Y = 10,5, Z = -10.  
-2. Присвойте **Transform.Rotation** значения X = 45, Y = 0, Z = 0.  
+1. Присвойте **Transform.Position** значения X = 0, Y = 10,5, Z = -10.
+2. Присвойте **Transform.Rotation** значения X = 45, Y = 0, Z = 0.
 
 	![][16]
 
@@ -192,7 +192,7 @@
 ### Создание подбираемых объектов
 Ниже приведены шаги из [учебника по Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/creating-collectables?playlist=17141). Мы создадим несколько привлекательных объектов, которые составят набор подбираемых объектов, которые объект шара игрока должен "собирать", сталкиваться с ними.
 
-1. Создайте новый **трехмерный куб** и назовите этот объект Pickup. 
+1. Создайте новый **трехмерный куб** и назовите этот объект Pickup.
 
 2. Настройте параметры объекта Pickup, щелкнув **Transform -> Rotation** ("Преобразование" -> "Поворот") и **Transform -> Scale** ("Преобразование" -> "Масштаб").
 
@@ -244,7 +244,7 @@
 ### Сбор объектов Pickup
 Ниже приведены шаги из [учебника по Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/collecting-pick-up-objects?playlist=17141). Мы изменим объект Player, чтобы он мог "собирать" объекты Pickup, сталкиваясь с ними.
 
-1. Откройте для редактирования сценарий **PlayerController**, присоединенный к объекту Player, и измените его следующим образом.  
+1. Откройте для редактирования сценарий **PlayerController**, присоединенный к объекту Player, и измените его следующим образом.
 
 		using UnityEngine;
 		using System.Collections;
@@ -374,4 +374,4 @@
 	
 	
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

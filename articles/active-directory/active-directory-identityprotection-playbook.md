@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Тренировочное задание по защите идентификации Azure Active Directory | Microsoft Azure"
 	description="Узнайте, как защита идентификации Azure AD позволяет помешать злоумышленникам воспользоваться скомпрометированными удостоверениями и устройствами, а также защитить удостоверение или устройство, которое ранее предположительно или фактически скомпрометировано."
 	services="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/06/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 #Тренировочное задание по защите идентификации Azure Active Directory 
@@ -43,7 +43,7 @@
 **Чтобы смоделировать вход с использованием анонимного IP-адреса, выполните следующее**.
 
 1.	Скачайте [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en).
-2.	В браузере Tor Browser перейдите по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+2.	В браузере Tor Browser перейдите по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com).
 3.	Введите учетные данные учетной записи, которую нужно использовать в отчете **Попытки входа с анонимных IP-адресов**.
 
 Информация о входе появится на панели мониторинга защиты идентификации в течение 5 минут.
@@ -63,7 +63,7 @@
 
 **Чтобы смоделировать вход из незнакомого расположения, выполните следующее**.
 
-1.	Выберите учетную запись, в журнале которой есть записи по крайней мере за 14 дней. 
+1.	Выберите учетную запись, в журнале которой есть записи по крайней мере за 14 дней.
 
 2.	Выполните одно из двух:
 	
@@ -78,7 +78,7 @@
 
 **Чтобы смоделировать невозможность перемещения в типичное расположение, выполните следующее**.
 
-1.	В стандартном браузере перейдите по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1.	В стандартном браузере перейдите по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 2.	Введите данные учетной записи, для которой вы хотите создать событие риска невозможности перемещения.
 
@@ -96,7 +96,7 @@
 
 -	Azure AD [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md);
 -	Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md);
--	[управление привилегированными пользователями](active-directory-privileged-identity-management-configure.md) Azure AD. 
+-	[управление привилегированными пользователями](active-directory-privileged-identity-management-configure.md) Azure AD.
 
 
 
@@ -165,8 +165,8 @@
 <br> ![Подробный обзор типов](./media/active-directory-identityprotection-playbook/200.png "Подробный обзор типов") <br>
 
 
-## См. также
+## Дополнительные материалы
 
  - [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

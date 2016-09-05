@@ -1,9 +1,9 @@
-<properties
+.<properties
    pageTitle="Настройка метода маршрутизации трафика с циклическим перебором для диспетчера трафика | Microsoft Azure"
    description="Эта статья поможет вам настроить балансировку нагрузки с циклическим перебором для конечных точек диспетчера трафика."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Настройка метода маршрутизации с применением циклического перебора
 
@@ -52,4 +52,4 @@
 
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

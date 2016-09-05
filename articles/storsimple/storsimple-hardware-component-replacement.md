@@ -1,4 +1,4 @@
-<properties 
+.<properties 
    pageTitle="Замена компонентов оборудования StorSimple | Microsoft Azure"
    description="Описывает безопасную замену БПО, аккумулятора, модулей контроллера, контроллеров EBOD, дисковых накопителей и корпуса устройства StorSimple."
    services="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="08/22/2016"
    ms.author="alkohli" />
 
 # Замена компонентов оборудования StorSimple
@@ -114,7 +114,7 @@
 |1|PCM 0|
 |2|PCM 1|
 |3|Контроллер EBOD 0|
-|4|Контроллер EBOD 1|
+|4\.|Контроллер EBOD 1|
 
 ## Блоки, заменяемые в полевых условиях
 
@@ -142,4 +142,4 @@
 
 Перед заменой компонентов оборудования StorSimple ознакомьтесь со всеми [мерами предосторожности](storsimple-safety.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

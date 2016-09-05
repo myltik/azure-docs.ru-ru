@@ -1,6 +1,6 @@
-<properties 
+.<properties 
 	pageTitle="IP-адреса, используемые службой Application Insights | Microsoft Azure"
-	description="Список статических адресов" 
+	description="Исключения брандмауэра сервера, требуемые для Application Insights" 
 	services="application-insights"
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # IP-адреса, используемые службой Application Insights
 
-Служба [Visual Studio Application Insights](app-insights-overview.md) использует ряд IP-адресов, знание которых может вам пригодиться. Например, они вам могут потребоваться при мониторинге приложений, которые работают за брандмауэром.
+Служба [Visual Studio Application Insights](app-insights-overview.md) использует несколько IP-адресов. Вам могут понадобиться эти адреса, если отслеживаемое приложение расположено за брандмауэром.
 
 > [AZURE.NOTE] Эти адреса статические, но время от времени мы можем их менять.
 
@@ -35,22 +35,22 @@
 
 + Настройка монитора состояния (требуется только для внесения изменений):
  -	`management.core.windows.net:443`
- -	`management.azure.com:443`
- -	`login.windows.net:443`
- -	`login.microsoftonline.com:443`
- -	`secure.aadcdn.microsoftonline-p.com:443`
- -	`auth.gfx.ms:443`
+ -	.`management.azure.com:443`
+ -	.`login.windows.net:443`
+ -	.`login.microsoftonline.com:443`
+ -	.`secure.aadcdn.microsoftonline-p.com:443`
+ -	.`auth.gfx.ms:443`
  -	`login.live.com:443`
 + Установка монитора состояния:
  +	`packages.nuget.org:443`
 
 Время от времени этот список может меняться.
 
-## Доступность
+## Тесты доступности
 
-Ниже приведен список адресов, которые используются для [проверки доступности веб-сайтов](app-insights-monitor-web-app-availability.md).
+Ниже приведен список адресов, которые используются для [проверки доступности веб-сайтов](app-insights-monitor-web-app-availability.md). Если вам нужно запустить веб-тесты в приложении, а веб-сервер обслуживает только определенные клиенты, следует разрешить входящий трафик от наших серверов тестирования доступности.
 
-Откройте порты 80 (HTTP) и 443 (HTTPS).
+Откройте порты 80 (http) и 443 (https) для входящего трафика с этих адресов:
 
 ```
 
@@ -184,4 +184,4 @@
 
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

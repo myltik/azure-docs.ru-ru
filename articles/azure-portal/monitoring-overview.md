@@ -1,13 +1,13 @@
-<properties
+.<properties
 	pageTitle="Обзор мониторинга в Microsoft Azure | Microsoft Azure"
-	description="Общий обзор мониторинга и диагностики в Azure, а также описание пересылки оповещений в другие системы, не относящиеся к Azure."
+	description="Обзор верхнего уровня мониторинга и диагностики в Microsoft Azure, в том числе предупреждений, объектов webhook, автоматического масштабирования и других компонентов."
 	authors="rboucher"
 	manager=""
 	editor=""
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-<tags
+.<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -138,4 +138,4 @@
 - [Устранении неполадок службы хранилища Azure](../storage/storage-e2e-troubleshooting.md), если вы используете большие двоичные объекты, таблицы или очереди службы хранилища.
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) и [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

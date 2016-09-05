@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Часто задаваемые вопросы по виртуальным машинам Linux | Microsoft Azure"
 	description="В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Linux, созданных с помощью модели Resource Manager."
 	services="virtual-machines-linux"
@@ -8,7 +8,7 @@
 	editor=""
 	tags="azure-resource-management"/>
 
-<tags
+.<tags
 	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
@@ -37,7 +37,7 @@
 
 ## Как получить доступ к своей виртуальной машине?
 
-Необходимо установить удаленное подключение для входа на виртуальную машину с помощью Secure Shell (SSH). См. указания по подключению [из Windows](virtual-machines-linux-ssh-from-windows.md) или [Linux и Mac](virtual-machines-linux-ssh-from-linux.md). По умолчанию SSH поддерживает не более 10 параллельных подключений. Число доступных параллельных подключений можно увеличить, изменив файл конфигурации.
+Необходимо установить удаленное подключение для входа на виртуальную машину с помощью Secure Shell (SSH). См. указания по подключению [из Windows](virtual-machines-linux-ssh-from-windows.md) или [Linux и Mac](virtual-machines-linux-mac-create-ssh-keys.md). По умолчанию SSH поддерживает не более 10 параллельных подключений. Число доступных параллельных подключений можно увеличить, изменив файл конфигурации.
 
 
 Если возникают проблемы, ознакомьтесь со статьей об [устранении неполадок с подключением Secure Shell (SSH)](virtual-machines-linux-troubleshoot-ssh-connection.md).
@@ -58,4 +58,4 @@
 
 Нет. Добавить сетевую карту можно только во время создания.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

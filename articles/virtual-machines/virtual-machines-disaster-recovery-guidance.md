@@ -1,10 +1,10 @@
-<properties
+.<properties
 	pageTitle="Что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure | Microsoft Azure"
 	description="Узнайте, что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kmouss"
-	manager="drewm"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -62,4 +62,4 @@
 
 Если инструкции не ясны или вы хотите, чтобы корпорация Майкрософт выполнила эти действия от вашего имени, свяжитесь со [службой поддержки клиентов](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

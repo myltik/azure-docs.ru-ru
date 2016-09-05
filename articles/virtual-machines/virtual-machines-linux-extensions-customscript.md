@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Применение пользовательских сценариев на виртуальных машинах Linux с помощью шаблонов | Microsoft Azure"
    description="Автоматизируйте задачи настройки виртуальных машин Linux с помощью расширения пользовательских сценариев и шаблонов Resource Manager."
    services="virtual-machines-linux"
@@ -27,23 +27,7 @@
 
 В разделе Resource шаблона определите следующий ресурс расширения:
 
-      {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "MyCustomScriptExtension",
-    "apiVersion": "2015-05-01-preview",
-    "location": "[parameters('location')]",
-    "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"],
-    "properties":
-    {
-      "publisher": "Microsoft.OSTCExtensions",
-      "type": "CustomScriptForLinux",
-      "typeHandlerVersion": "1.2",
-      "settings": {
-      "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"],
-      "commandToExecute": "sh mongo-install-ubuntu.sh"
-      }
-    }
-    }
+   { "type": "Microsoft.Compute/virtualMachines/extensions", "name": "MyCustomScriptExtension", "apiVersion": "2015-05-01-preview", "location": "[parameters('location')]", "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"], "properties": { "publisher": "Microsoft.OSTCExtensions", "type": "CustomScriptForLinux", "typeHandlerVersion": "1.2", "autoUpgradeMinorVersion": true "settings": { "fileUris": [ "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh" ], "commandToExecute": "sh mongo-install-ubuntu.sh" }, "protectedSettings": {} } }
 
 В приведенном выше примере замените URL-адрес и имя файла собственными значениями.
 
@@ -53,4 +37,4 @@
 
 * [Расширение пользовательских сценариев на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

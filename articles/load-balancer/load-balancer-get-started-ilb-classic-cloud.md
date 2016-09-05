@@ -1,21 +1,21 @@
-<properties 
+.<properties
    pageTitle="Создание внутреннего балансировщика нагрузки для облачных служб в классической модели развертывания | Microsoft Azure"
    description="Узнайте, как создать внутренний балансировщик нагрузки в классической модели развертывания с помощью PowerShell."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Начало работы по созданию внутреннего балансировщика нагрузки (классическая версия) для облачных служб
 
@@ -91,4 +91,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,4 +1,4 @@
-<properties 
+.<properties 
     pageTitle="Служебная шина и .NET с протоколом AMQP 1.0 | Microsoft Azure"
     description="Использование служебной шины на платформе .NET с протоколом AMQP"
     services="service-bus"
@@ -25,13 +25,13 @@
 
 ## Настройка приложений .NET для использования протокола AMQP 1.0
 
-По умолчанию клиентская библиотеке служебной шины .NET взаимодействует со службой служебной шины, используя специализированный протокол на базе SOAP. Чтобы использовать протокол AMQP 1.0 вместо протокола по умолчанию, необходимо явно настроить строку подключения служебной шины, как описано в следующем разделе. Помимо этих изменений, код приложения остается в прежнем состоянии при использовании AMQP 1.0.
+По умолчанию клиентская библиотеке служебной шины .NET взаимодействует со службой служебной шины, используя специализированный протокол на базе SOAP. Чтобы использовать протокол AMQP 1.0 вместо протокола по умолчанию, необходимо явно настроить строку подключения служебной шины, как описано в следующем разделе. Помимо этих изменений, код приложения остается без изменений при использовании AMQP 1.0.
 
 Текущий выпуск содержит некоторые функции интерфейса API, не поддерживаемые при использовании AMQP. Эти неподдерживаемые функции перечислены ниже в разделе [Неподдерживаемые функции, ограничения и различия в поведении](#unsupported-features-restrictions-and-behavioral-differences). Кроме того, при использовании AMQP отличается значение некоторых дополнительных параметров конфигурации.
 
 ### Настройка с помощью файла App.config
 
-Рекомендуется использовать файл конфигурации App.config для хранения настроек при работе с приложениями. Если вы используете приложения служебной шины, в файле App.config можно хранить значение параметра строки подключения **ConnectionString** служебной шины. Ниже приводится пример файла App.config:
+Рекомендуется, чтобы приложения использовали для хранения настроек файл конфигурации App.config. Если вы используете приложения служебной шины, в файле App.config можно хранить значение параметра строки подключения **ConnectionString** служебной шины. Ниже приводится пример файла App.config:
 
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
@@ -45,7 +45,7 @@
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Здесь `[namespace]` и `SharedAccessKey` получены с [классического портала Azure][]. Дополнительные сведения см. в статье [Как использовать очереди служебной шины][].
+Где `[namespace]` и `SharedAccessKey` получены с [портала Azure][]. Дополнительные сведения см. в статье [Как использовать очереди служебной шины][].
 
 Если вы используете AMQP, добавьте строку подключения с `;TransportType=Amqp`. Эта запись сообщает клиентской библиотеке о создании подключения к служебной шине с помощью протокола AMQP 1.0.
 
@@ -70,12 +70,12 @@
 | длинное целое число | длинное целое число | Значение AMQP |
 | float; | float; | Значение AMQP |
 | double | double | Значение AMQP |
-| decimal; | decimal128 | Значение AMQP |
+| decimal | decimal128 | Значение AMQP |
 | char; | char; | Значение AMQP |
 | DateTime | Timestamp | Значение AMQP |
 | Guid | uuid | Значение AMQP |
 | byte | binary; | Значение AMQP |
-| строка | строка | Значение AMQP |
+| string | string | Значение AMQP |
 | System.Collections.IList | list | Значение AMQP. В коллекции могут содержаться только элементы, которые определены в этой таблице. |
 | System.Array | array | Значение AMQP. В коллекции могут содержаться только элементы, которые определены в этой таблице. |
 | System.Collections.IDictionary | map | Значение AMQP. В коллекции могут содержаться только элементы, которые определены в этой таблице. Примечание: поддерживаются только строковые ключи. |
@@ -134,9 +134,9 @@ API-интерфейсы .NET предоставляют несколько па
   [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
-[классического портала Azure]: http://manage.windowsazure.com
+[портала Azure]: https://portal.azure.com
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

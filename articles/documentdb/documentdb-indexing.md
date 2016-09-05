@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Автоматическое индексирование в DocumentDB | Microsoft Azure" 
 	description="Узнайте о том, как работает автоматическое индексирование в Azure DocumentDB." 
 	services="documentdb" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016" 
+	ms.date="08/08/2016" 
 	ms.author="arramac"/>
 	
 # Автоматическое индексирование в Azure DocumentDB
@@ -67,4 +67,4 @@
 - Узнайте о том, как настроить индекс DocumentDB, [здесь](documentdb-indexing-policies.md).
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0824_2016-->

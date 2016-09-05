@@ -1,9 +1,9 @@
-<properties 
+.<properties 
    pageTitle="Настройка режима распределения подсистемы балансировки нагрузки | Microsoft Azure"
    description="Как настроить режим распределения подсистемы балансировки нагрузки Azure для поддержки соответствия исходному IP-адресу"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Режим распределения для балансировщика нагрузки (сходство исходного IP-адреса)
@@ -149,4 +149,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,4 +1,4 @@
-<properties 
+.<properties 
    pageTitle="Основные команды Azure CLI для Linux и Mac | Microsoft Azure"
    description="Основные команды интерфейса командной строки Azure (CLI) для управления виртуальными машинами в режиме Azure Resource Manager в Linux и Mac."
    services="virtual-machines-linux"
@@ -14,11 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="07/12/2016"
+   ms.date="08/23/2016"
    ms.author="rclaus" />
 
 # Основные команды Azure CLI в Linux и Mac
 
 [AZURE.INCLUDE [virtual-machines-common-cli-manage](../../includes/virtual-machines-common-cli-manage.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

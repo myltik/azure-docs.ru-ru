@@ -1,9 +1,9 @@
-<properties
+.<properties
    pageTitle="Восстановление хранилища данных SQL Azure (PowerShell) | Microsoft Azure"
    description="Задачи PowerShell для восстановления хранилища данных SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="07/18/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 # Восстановление хранилища данных SQL Azure (PowerShell)
 
@@ -40,7 +40,7 @@
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
-3. Выберите подписку, содержащую базу данных, которую надо восстановить.
+3. Выберите подписку, содержащую базу данных, которую нужно восстановить.
 4. Выведите список точек восстановления для базы данных.
 5. Выберите нужные точки восстановления с помощью свойства RestorePointCreationDate.
 6. Восстановите базу данных в желаемой точке восстановления.
@@ -87,7 +87,7 @@ $RestoredDatabase.status
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
-3. Выберите подписку, содержащую удаленную базу данных, которую надо восстановить.
+3. Выберите подписку, содержащую удаленную базу данных, которую нужно восстановить.
 4. Получите конкретную удаленную базу данных.
 5. Восстановите удаленную базу данных.
 6. Убедитесь, что восстановленная база данных подключена к сети.
@@ -122,7 +122,7 @@ $RestoredDatabase.status
 
 1. Откройте Windows PowerShell.
 2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
-3. Выберите подписку, содержащую базу данных, которую надо восстановить.
+3. Выберите подписку, содержащую базу данных, которую нужно восстановить.
 4. Получите базу данных, которую требуется восстановить.
 5. Создайте запрос на восстановление базы данных.
 6. Проверьте состояние геовосстановленной базы данных.
@@ -153,7 +153,7 @@ $GeoRestoredDatabase.status
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: sql-database-business-continuity.md
 [Создание запроса в службу поддержки для хранилища данных SQL]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Finalize a recovered database]: sql-database-recovered-finalize.md
@@ -164,11 +164,11 @@ $GeoRestoredDatabase.status
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 [Финализация восстановленной базы данных SQL Azure]: ./sql-database-recovered-finalize.md
 
-<!--MSDN references-->
+.<!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

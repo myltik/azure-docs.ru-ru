@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Технические статьи по классическим виртуальным машинам Windows | Microsoft Azure"
    description="Полный список статей Microsoft Azure, посвященных виртуальным машинам Windows в классической модели развертывания"
    services="virtual-machines-windows"
@@ -8,7 +8,7 @@
    tags="azure-service-management"
    editor=""/>
 
-<tags
+.<tags
    ms.service="virtual-machines-windows"
    ms.devlang="na"
    ms.topic="article"
@@ -66,7 +66,7 @@
 
 [Плановое обслуживание виртуальных машин Azure](virtual-machines-windows-planned-maintenance.md)
 
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-windows-infrastructure-service-guidelines.md)
+[Руководство по реализации служб инфраструктуры Azure](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
 [How to configure an availability set for virtual machines in the classic deployment model (Создание группы доступности для виртуальных машин в классической модели развертывания)](virtual-machines-windows-classic-configure-availability.md)
 
@@ -90,7 +90,7 @@
 
 [Управление виртуальными машинами с помощью Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
 	
-[Подключение классических виртуальных сетей к новым виртуальным сетям](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
+[Подключение классических виртуальных сетей к новым виртуальным сетям](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 	
 [Обзор агента и расширений виртуальной машины](virtual-machines-windows-classic-agents-and-extensions.md)
 
@@ -192,4 +192,4 @@
 
 [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

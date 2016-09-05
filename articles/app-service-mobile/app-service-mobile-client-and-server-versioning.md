@@ -1,4 +1,4 @@
-<properties
+.<properties
   pageTitle="Управление версиями пакетов SDK клиента и сервера в мобильных приложениях и мобильных службах | Служба приложений Azure"
   description="Список пакетов SDK клиента и сведения о совместимости с версиями пакетов SDK сервера для мобильных служб и мобильных приложений Azure"
   services="app-service\mobile"
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="05/10/2016"
+  ms.date="08/22/2016"
   ms.author="donnam"/>
 
 # Управление версиями клиента и сервера в мобильных приложениях и мобильных службах
@@ -40,9 +40,9 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## Отказ от проверки версий
 
-Можно отказаться от проверки версий, задав значение **true** для параметра приложения **MS\_SkipVersionCheck**. Укажите это в файле web.config или в разделе параметров приложения портала Azure.
+Можно отказаться от проверки версий, задав значение **true** для параметра приложения **MS\_SkipVersionCheck**. Укажите это значение в файле web.config или в разделе параметров приложения портала Azure.
 
-> [AZURE.NOTE] Работа мобильных приложений отличается от мобильных служб в нескольких аспектах, в частности, в сфере автономной синхронизации, проверки подлинности и push-уведомлений. Отказываться от проверки версий необходимо только после выполнения тщательного тестирования, чтобы гарантировать, что эти изменения в работе не нарушат функциональность приложения.
+> [AZURE.NOTE] Работа мобильных приложений отличается от мобильных служб в нескольких аспектах, в частности, в сфере автономной синхронизации, проверки подлинности и push-уведомлений. Вы можете отказаться от проверки версий только после выполнения тщательного тестирования, чтобы изменения в работе не нарушили функциональность приложения.
 
 ## Сводные сведения о совместимости для всех версий
 
@@ -68,7 +68,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ### <a name="MobileServicesClients"></a>Пакеты SDK для клиента мобильных *служб*
 
-| Платформа клиента | Версия | Значение заголовка версии |
+| Платформа клиента | Version (версия) | Значение заголовка версии |
 | -------------------               | ------------------------                                                  | -------------------  |
 | Управляемый клиент (Windows, Xamarin) | [1\.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) | Недоступно |
 | iOS | [2\.2.2](http://aka.ms/gc6fex) | Недоступно |
@@ -77,10 +77,10 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ### Пакеты SDK для сервера мобильных *служб*
 
-| Платформа сервера | Версия | Принятый заголовок версии |
+| Платформа сервера | Version (версия) | Принятый заголовок версии |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* версия 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Нет заголовка версии** |
-| Node.js | (ожидается в ближайшее время) | **Нет заголовка версии** |
+| .NET | [WindowsAzure.MobileServices.Backend.* версия 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Отсутствует заголовок версии** |
+| Node.js | (ожидается в ближайшее время) | **Отсутствует заголовок версии** |
 
 <!-- TODO: add Node npm version -->
 
@@ -98,7 +98,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 Проверка версии была добавлена, начиная со следующих версий пакета SDK для клиента **мобильных приложений Azure**:
 
-| Платформа клиента | Версия | Значение заголовка версии |
+| Платформа клиента | Version (версия) | Значение заголовка версии |
 | -------------------               | ------------------------  | -----------------    |
 | Управляемый клиент (Windows, Xamarin) | [2\.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) | 2\.0.0 |
 | iOS | [3\.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) | 2\.0.0 |
@@ -120,7 +120,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | ZUMO-API-VERSION | Значение параметра MS\_SkipVersionCheck | Ответ |
 | ---------------- | ---------------------------- | -------- |
 | x.y.z или значение NULL | Истина | 200 – OK |
-| NULL | False/не указан | 400 – неверный запрос |
+| Null | False/не указан | 400 – неверный запрос |
 | 1\.x.y | False/не указан | 400 – неверный запрос |
 | 2\.0.0-2.x.y | False/не указан | 200 – OK |
 | 3\.0.0-3.x.y | False/не указан | 400 – неверный запрос |
@@ -138,4 +138,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Перенос мобильной службы в службу приложений Azure]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

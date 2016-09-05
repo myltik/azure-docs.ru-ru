@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Развертывание ресурсов Azure с помощью портала Azure | Microsoft Azure" 
+.<properties 
+	pageTitle="Развертывание ресурсов Azure с помощью портала Azure | Microsoft Azure" 
 	description="Узнайте, как использовать портал Azure для развертывания ресурсов и управления ими." 
 	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
@@ -23,16 +23,10 @@
 - [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
 - [Портал](resource-group-template-deploy-portal.md)
 - [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
+В этой статье показано, как использовать [портал Azure](https://portal.azure.com) и [Azure Resource Manager](resource-group-overview.md) для развертывания ресурсов Azure. Сведения об управлении ресурсами см. в статье [Управление ресурсами Azure через портал](./azure-portal/resource-group-portal.md).
 
-В этой статье показано, как использовать [портал Azure](https://portal.azure.com) с [Azure Resource Manager](resource-group-overview.md) для развертывания ресурсов Azure. Сведения об управлении ресурсами см. в статье [Управление ресурсами Azure через портал](./azure-portal/resource-group-portal.md).
-
-В настоящее время не все службы поддерживают текущую версию портала или диспетчер ресурсов. Для этих служб необходимо использовать [классический портал](https://manage.windowsazure.com). Состояние каждой службы можно просмотреть на [диаграмме доступности на портале Azure](https://azure.microsoft.com/features/azure-portal/availability/).
+В настоящее время не все службы поддерживают текущую версию портала или диспетчер ресурсов. Для некоторых служб необходимо использовать [классический портал](https://manage.windowsazure.com). Состояние каждой службы можно просмотреть в [таблице доступности портала Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
 ## Создать группу ресурсов
 
@@ -56,11 +50,11 @@
 
     ![поиск в Marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
-3. В зависимости от выбранного типа ресурса вам потребуется задать набор соответствующих свойств, прежде чем начинать развертывание. Здесь эти свойства не показаны, так как они варьируются в зависимости от типа ресурса. Для всех типов необходимо выбрать целевую группу ресурсов. Ниже показано создание нового веб-приложения и его развертывание в только что созданной группе ресурсов.
+3. В зависимости от выбранного типа ресурса вам потребуется задать набор соответствующих свойств, прежде чем начинать развертывание. Здесь эти свойства не показаны, так как они варьируются в зависимости от типа ресурса. Для всех типов необходимо выбрать целевую группу ресурсов. Ниже показано создание веб-приложения и его развертывание в уже созданной группе ресурсов.
 
     ![Создать группу ресурсов](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
-    Кроме того, можно создать новую группу ресурсов при развертывании существующих ресурсов. Щелкните **Создать** и укажите имя группы ресурсов.
+    Кроме того, можно создать новую группу ресурсов непосредственно при развертывании ресурсов. Щелкните **Создать** и укажите имя группы ресурсов.
 
     ![создание новой группы ресурсов](./media/resource-group-template-deploy-portal/select-new-group.png)
 
@@ -68,13 +62,13 @@
 
     ![просмотр уведомления](./media/resource-group-template-deploy-portal/view-notification.png)
 
-5. Развернув ресурсы, вы можете добавлять другие ресурсы в группу с помощью команды **Добавить** в колонке этой группы ресурсов.
+5. Развернув ресурсы, вы можете добавлять в группу другие ресурсы с помощью команды **Добавить** в колонке этой группы ресурсов.
 
     ![Добавить ресурсы](./media/resource-group-template-deploy-portal/add-resource.png)
 
 ## Развертывание ресурсов с помощью настраиваемого шаблона
 
-Если вы хотите выполнить развертывание без использования шаблонов из Marketplace, создайте настраиваемый шаблон, определяющий инфраструктуру для вашего решения. Сведения о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
+Если вы хотите выполнить развертывание без использования шаблонов из Marketplace, создайте настраиваемый шаблон, определяющий инфраструктуру для вашего решения. Сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 
 1. Чтобы развернуть настроенный шаблон на портале, выберите **Создать** и начните поиск по словам **Развертывание шаблона**, пока не появится соответствующий пункт.
 
@@ -104,7 +98,7 @@
 
 ## Развертывание ресурсов с помощью шаблона, сохраненного в учетной записи
 
-Портал позволяет сохранить шаблон свою учетную запись Azure для последующего повторного развертывания. Дополнительные сведения о работе с сохраненными шаблонами см. в разделе [Начало работы с частными шаблонами на портале Azure](./marketplace-consumer/mytemplates-getstarted.md).
+Портал позволяет сохранить шаблон в свою учетную запись Azure для последующего повторного развертывания. Дополнительные сведения о работе с сохраненными шаблонами см. в разделе [Начало работы с частными шаблонами на портале Azure](./marketplace-consumer/mytemplates-getstarted.md).
 
 1. Чтобы найти сохраненные шаблоны, выберите **Обзор** > **Шаблоны**.
 
@@ -124,4 +118,4 @@
 - Сведения об устранении неполадок развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
 - Чтобы извлечь шаблон из развернутой службы или группы ресурсов, ознакомьтесь со статьей [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

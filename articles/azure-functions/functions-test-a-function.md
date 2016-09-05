@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Тестирование функций Azure | Microsoft Azure"
    description="Тестирование функций Azure с помощью Postman, cURL и Node.js."
    services="functions"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="03/30/2016"
+   ms.date="08/19/2016"
    ms.author="wesmc"/>
 
 # Тестирование функций Azure
@@ -135,8 +135,8 @@
 
 > [AZURE.TIP] Используйте клиент REST, с которым вам удобно работать. Вот некоторые альтернативы Postman:
 > 
-> * [Fiddler](http://www.telerik.com/fiddler)  
-> * [Paw](https://luckymarmot.com/paw).  
+> * [Fiddler](http://www.telerik.com/fiddler)
+> * [Paw](https://luckymarmot.com/paw).
 
 Чтобы протестировать функцию с текстом запроса в приложении Postman, выполните следующие действия.
 
@@ -238,7 +238,7 @@
 > [AZURE.NOTE] При использовании другого имени очереди убедитесь, что используемое имя соответствует правилам [именования очередей и метаданных](https://msdn.microsoft.com/library/dd179349.aspx). В противном случае вы получите код состояния HTTP 400 (недопустимый запрос).
 
 1. На [портале Azure] для приложения "Функции" щелкните **Создать функцию** > **QueueTrigger - C#**.
-2. Введите имя очереди, которое будет отслеживаться функцией очереди. 
+2. Введите имя очереди, которое будет отслеживаться функцией очереди.
 
 		queue-newusers 
 
@@ -440,4 +440,4 @@
 [портал Azure]: https://portal.azure.com
 [портале Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

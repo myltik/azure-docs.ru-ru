@@ -1,10 +1,10 @@
-<properties
+.<properties
 	pageTitle="Разработка и выполнение Функций Azure локально | Microsoft Azure"
 	description="Узнайте, как писать и тестировать код для Функций Azure в Visual Studio перед их запуском в службе приложений Azure."
 	services="functions"
 	documentationCenter="na"
 	authors="tdykstra"
-	manager="wpickett"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/14/2016"
-	ms.author="tdykstra"/>
+	ms.date="08/22/2016"
+	ms.author="glenga"/>
 
 # Как писать и тестировать код для Функций Azure в Visual Studio
 
@@ -222,4 +222,4 @@
 * [Справочник разработчика NodeJS по функциям Azure](functions-reference-node.md)
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,9 +1,9 @@
-<properties 
+.<properties 
    pageTitle="Приступая к работе по созданию балансировщика нагрузки для Интернета по классической модели развертывания для облачных служб | Microsoft Azure"
    description="Сведения о создании балансировщика нагрузки для Интернета по классической модели развертывания для облачных служб"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Приступая к работе по созданию балансировщика нагрузки для Интернета для облачных служб
 
@@ -23,13 +23,13 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье рассматривается классическая модель развертывания. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-cli.md).
 
 Облачные службы автоматически настраиваются с помощью подсистемы балансировки нагрузки. Их также можно настроить, используя модель службы.
 
 ## Создайте балансировщик нагрузки при помощи CSDEF-файла
  
-Вы можете обновить облачную службу с помощью пакета Azure SDK для .NET 2.5. Параметры конечных точек для облачных служб создаются в файле [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
+Вы можете обновить облачную службу с помощью пакета Azure SDK для .NET 2.5. Параметры конечных точек для облачных служб создаются в файле [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
 
 В следующем примере показано, как настроить файл servicedefinition.csdef для облачного развертывания.
 
@@ -83,4 +83,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

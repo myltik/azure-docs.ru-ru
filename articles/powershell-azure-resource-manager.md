@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Использование Azure PowerShell с диспетчером ресурсов | Microsoft Azure" 
 	description="Общие сведения об использовании Azure PowerShell для развертывания нескольких ресурсов в виде группы ресурсов в Azure." 
 	services="azure-resource-manager" 
@@ -13,21 +13,10 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2016" 
+	ms.date="08/18/2016" 
 	ms.author="tomfitz"/>
 
 # Использование Azure PowerShell с диспетчером ресурсов Azure
-
-> [AZURE.SELECTOR]
-- [Портал](azure-portal/resource-group-portal.md)
-- [Интерфейс командной строки Azure](xplat-cli-azure-resource-manager.md)
-- [Azure PowerShell](powershell-azure-resource-manager.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
-- [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
-
 
 Диспетчер ресурсов Azure предлагает кардинально новый способ представления ресурсов Azure. Вместо того чтобы создавать отдельные ресурсы и управлять ими, вы для начала представляете себе полное решение, такое как блог, коллекция фотографий, портал SharePoint или вики-страница. Вы используете шаблон (декларативное представление решения), чтобы создать группу ресурсов, содержащую все ресурсы, необходимые для поддержки решения. Затем вы развертываете группу ресурсов и управляете нею как логической единицей.
 
@@ -47,9 +36,9 @@
 Для работы с этим учебником необходимы указанные ниже компоненты.
 
 - Учетная запись Azure.
-  + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/?WT.mc_id=A261C142F) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после использования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты не будет взиматься плата, если вы явно не измените параметры и не попросите снимать плату.
+  + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/?WT.mc_id=A261C142F) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после использования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты не будет взиматься плата, если вы явно не измените параметры и не попросите снимать плату.
   
-  + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
+  + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
 - Azure PowerShell 1.0. Сведения об этом выпуске и его установке см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 
 Этот учебник предназначен для начинающих пользователей PowerShell, но предполагается, что вы знакомы с основными понятиями, такими как модули, командлеты и сеансы.
@@ -122,7 +111,7 @@
 
 ## Развертывание решения
 
-В этом разделе не объясняется, как создать шаблон, и не рассматривается структура шаблона. Эту информацию см. в статьях [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md) и [Пошаговое руководство по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md). Вы развернете предопределенный шаблон [веб-приложения, подготовленного к работе с базой данных SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/), который приведен на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/).
+В этой статье не объясняется, как создать шаблон, и не рассматривается структура шаблона. Эти сведения см. в статьях [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md) и [Пошаговое руководство по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md). Вы развернете предопределенный шаблон [веб-приложения, подготовленного к работе с базой данных SQL](https://azure.microsoft.com/documentation/templates/201-web-app-sql-database/), который приведен на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/).
 
 У вас есть группа ресурсов и шаблон, поэтому вы можете развернуть инфраструктуру, определенную в шаблоне, в группу ресурсов. Разверните ресурсы, используя командлет **New-AzureRmResourceGroupDeployment**. Шаблон указывает множество значений по умолчанию, которые мы и будем использовать. Таким образом, вам не придется задавать значения для этих параметров. Базовый синтаксис выглядит вот так:
 
@@ -178,7 +167,7 @@
 
 ### Ведение журнала отладочной информации
 
-При развертывании шаблона можно вести журнал дополнительных сведений о запросах и ответах. Для этого во время выполнения команды **New-AzureRmResourceGroupDeployment** необходимо указать параметр **-DeploymentDebugLogLevel**. Эта информация может помочь устранить ошибки развертывания. По умолчанию задано значение **None**. В этом случае содержимое запросов и ответов не регистрируется. Можно задать ведение журнала содержимого запроса, ответа или и того, и другого. Дополнительные сведения об устранении неполадок развертывания и ведении журнала отладочной информации см. в статье [Просмотр операций развертывания с помощью Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). В следующем примере для развертывания задан параметр ведения журнала содержимого запроса и ответа.
+При развертывании шаблона можно ввести журнал дополнительных сведений о запросах и ответах. Для этого во время выполнения команды **New-AzureRmResourceGroupDeployment** необходимо указать параметр **-DeploymentDebugLogLevel**. Эта информация может помочь устранить ошибки развертывания. По умолчанию задано значение **None**. В этом случае содержимое запросов и ответов не регистрируется. Можно задать ведение журнала содержимого запроса, ответа или и того, и другого. Дополнительные сведения об устранении неполадок развертывания и ведении журнала отладочной информации см. в статье [Просмотр операций развертывания с помощью Azure PowerShell](resource-manager-troubleshoot-deployments-powershell.md). В следующем примере для развертывания задан параметр ведения журнала содержимого запроса и ответа.
 
     New-AzureRmResourceGroupDeployment -ResourceGroupName TestRG1 -DeploymentDebugLogLevel All -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json 
 
@@ -387,4 +376,4 @@
 - Подробный пример развертывания проекта см. в статье [Предсказуемое развертывание микрослужб в Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Сведения об устранении неполадок развертывания, которое завершилось сбоем, см. в статье [Устранение неполадок развертывания группы ресурсов в Azure](./resource-manager-troubleshoot-deployments-powershell.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

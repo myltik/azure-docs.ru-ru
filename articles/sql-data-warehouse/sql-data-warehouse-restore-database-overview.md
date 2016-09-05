@@ -1,9 +1,9 @@
-<properties
+.<properties
    pageTitle="Восстановление хранилища данных SQL Azure (обзор) | Microsoft Azure"
    description="Обзор параметров для восстановления базы данных в хранилище данных SQL Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/28/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 
 # Восстановление хранилища данных SQL Azure (обзор)
@@ -59,7 +59,7 @@ order by run_id desc;
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: ./sql-database-business-continuity.md
 [локально избыточного (LRS)]: ../storage/storage-redundancy.md
 [Обзор]: ./sql-data-warehouse-restore-database-overview.md
@@ -67,9 +67,9 @@ order by run_id desc;
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
-<!--MSDN references-->
+.<!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

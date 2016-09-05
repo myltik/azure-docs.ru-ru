@@ -1,5 +1,5 @@
 
-<properties
+.<properties
 	pageTitle="Получение пакетов рекомендаций: API рекомендаций для машинного обучения | Microsoft Azure"
 	description="Рекомендации для машинного обучения Azure. Получение пакетов рекомендаций"
 	services="cognitive-services"
@@ -8,13 +8,13 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags
+.<tags
 	ms.service="cognitive-services"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="08/17/2016"
 	ms.author="luisca"/>
 
 # Получение пакетов рекомендаций
@@ -198,4 +198,4 @@
 -	Для каждой подписки можно единовременно выполнять только одно пакетное задание.
 -	Размер входного файла для пакетного задания не может превышать 2 МБ.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

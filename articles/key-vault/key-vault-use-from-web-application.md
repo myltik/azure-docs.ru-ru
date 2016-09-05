@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Использование хранилища ключей Azure из веб-приложения | Microsoft Azure"
 	description="В этом учебнике показано, как использовать хранилище ключей Azure из веб-приложения."
 	services="key-vault"
@@ -78,13 +78,14 @@
 
 	//add these using statements
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using System.Threading.Tasks;
 	using System.Web.Configuration;
 
 	//this is an optional property to hold the secret after it is retrieved
 	public static string EncryptSecret { get; set; }
 
 	//the method that will be provided to the KeyVaultClient
-	public async static Task<string> GetToken(string authority, string resource, string scope)
+	public static async Task<string> GetToken(string authority, string resource, string scope)
     {
 	    var authContext = new AuthenticationContext(authority);
 	    ClientCredential clientCred = new ClientCredential(WebConfigurationManager.AppSettings["ClientId"],
@@ -253,4 +254,4 @@
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

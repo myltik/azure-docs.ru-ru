@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Создание виртуальной машины Linux | Microsoft Azure"
 	description="Узнайте, как создать настраиваемую виртуальную машину под управлением Linux с помощью классической модели развертывания."
 	services="virtual-machines-linux"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="08/23/2016"
 	ms.author="iainfou"/>
 
 # Создание настраиваемой виртуальной машины Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-В этом разделе описано создание настраиваемой виртуальной машины с помощью Azure CLI и классической модели развертывания. Мы будем использовать образ Linux из раздела **ОБРАЗЫ** в Azure. Интерфейс командной строки Azure позволяет настраивать, помимо прочих, следующие параметры:
+В этой статье описано создание настраиваемой виртуальной машины с помощью интерфейса командной строки Azure и классической модели развертывания. Мы используем образ Linux из раздела **ОБРАЗЫ** в Azure. Интерфейс командной строки Azure позволяет настраивать, помимо прочих, следующие параметры:
 
 - Подключение виртуальной машины к виртуальной сети.
 - Добавление виртуальной машины к существующей облачной службе.
@@ -35,4 +35,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

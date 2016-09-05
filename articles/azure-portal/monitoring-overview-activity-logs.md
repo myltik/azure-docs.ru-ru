@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Общие сведения о журнале действий Azure | Microsoft Azure"
 	description="Узнайте, что такое журнал действий Azure и как его использовать для просмотра событий, происходящих в рамках подписки Azure."
 	authors="johnkemnetz"
@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-<tags
+.<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -29,7 +29,7 @@
 - Запросы и просмотры журнала на **портале Azure**.
 - Обращение к журналу с помощью REST API, командлетов PowerShell или интерфейса командной строки.
 - [Создание оповещений электронной почты или веб-перехватчика, активируемых событием журнала действий.](./insights-auditlog-to-webhook-email.md)
-- Сохранение журнала в **учетную запись хранения** для архивации или проверки вручную. В **профилях журнала** вы также можете задать время хранения (в днях).
+- [Сохранение журнала в **учетную запись хранения** для архивации или проверки вручную](./monitoring-archive-activity-log.md). В **профилях журнала** вы также можете задать время хранения (в днях).
 - Анализ журнала в PowerBI с помощью [**пакета содержимого PowerBI**](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Потоковая передача журнала в **концентратор событий**](./monitoring-stream-activity-logs-event-hubs.md) для обработки в сторонней службе или пользовательском аналитическом решении, например, PowerBI.
 
@@ -48,13 +48,13 @@
 
 1. Перейдите к колонке **Журнал действий** с помощью меню в левой части портала.
 
-    ![Переход к журналу действий на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+    .![Переход к журналу действий на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Нажмите кнопку **Экспорт** в верхней части колонки.
 
-    ![Кнопка экспорта на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    .![Кнопка экспорта на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. Откроется колонка, в которой вы можете выбрать следующие элементы: регионы, связанные с экспортируемыми событиями; учетную запись хранения для хранения событий (а также количество дней, в течение которых эти события будут храниться); пространство имен служебной шины, в котором будет создан концентратор событий для потоковой передачи этих событий.
 
-    ![Колонка экспорта журнала действий](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+    .![Колонка экспорта журнала действий](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Нажмите кнопку **Сохранить**, чтобы сохранить эти параметры. Параметры будут немедленно применены к подписке
 
 ### Настройка профилей журнала с помощью командлетов Azure PowerShell
@@ -223,4 +223,4 @@ azure insights logprofile delete --name my_log_profile
 - [Дополнительные сведения о журнале действий (прежнее название — журналы аудита)](../resource-group-audit.md)
 - [Потоковая передача журнала действий Azure в концентраторы событий](./monitoring-stream-activity-logs-event-hubs.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

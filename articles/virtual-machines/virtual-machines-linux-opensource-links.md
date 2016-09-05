@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Linux и вычисления с открытым кодом в Azure | Microsoft Azure"
 	description="Содержит перечень тем по Linux и вычислениям с открытым кодом в Azure, включая базовые принципы использования Linux, некоторые основные понятия о запуске или отправке образов Linux в Azure, а также другие сведения о конкретных технологиях и оптимизациях."
 	services="virtual-machines-linux"
@@ -30,7 +30,7 @@
 - [Вопросы и ответы по виртуальным машинам Azure, созданным при помощи классической модели развертывания](virtual-machines-linux-classic-faq.md)
 - [Образы виртуальных машин](virtual-machines-linux-classic-about-images.md)
 - [Передача собственного образа дистрибутива](virtual-machines-linux-classic-create-upload-vhd.md) (а также инструкции по использованию [рекомендованных дистрибутивов Azure](virtual-machines-linux-endorsed-distros.md))
-- [Вход на виртуальную машину Linux через классический портал Azure](virtual-machines-linux-classic-log-on.md)
+- [Вход на виртуальную машину Linux через классический портал Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## Настройка
 
@@ -71,7 +71,7 @@
 
 
 ## Планирование
-- [Руководство по реализации служб инфраструктуры Azure](virtual-machines-linux-infrastructure-service-guidelines.md)
+- [Руководство по реализации служб инфраструктуры Azure](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 - [Выбор имен пользователей Linux](virtual-machines-linux-usernames.md)
 - [Как настроить группу доступности для виртуальных машин в классической модели развертывания](virtual-machines-linux-classic-configure-availability.md)
 - [Как запланировать плановое обслуживание на виртуальных машинах Azure](virtual-machines-linux-planned-maintenance-schedule.md)
@@ -87,7 +87,7 @@
 
 ## управления
 
-- [SSH](virtual-machines-linux-ssh-from-linux.md)
+- [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
 - [Сброс пароля или свойств SSH для Linux](virtual-machines-linux-classic-reset-access.md)
 - [Использование прав root](virtual-machines-linux-use-root-privileges.md)
 
@@ -189,4 +189,4 @@
 
 - [Подключаемый модуль Packer для Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

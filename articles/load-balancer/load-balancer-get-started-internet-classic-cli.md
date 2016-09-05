@@ -1,21 +1,21 @@
-<properties 
+.<properties
    pageTitle="Начало работы по созданию балансировщика нагрузки для Интернета по классической модели развертывания с помощью интерфейса командной строки Azure | Microsoft Azure"
    description="Узнайте, как создать балансировщик нагрузки для Интернета в классической модели развертывания с помощью интерфейса командной строки Azure."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Приступая к созданию балансировщика нагрузки (классический режим) для Интернета в Azure CLI
 
@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье рассматривается классическая модель развертывания. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -32,7 +32,7 @@
 
 Это руководство описывает создание балансировщика нагрузки для Интернета на основе приведенного выше сценария.
 
-1. Если вы еще не пользовались Azure CLI, см. статью [Установка и настройка CLI Azure](../../articles/xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если у вас нет опыта работы с интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](../../articles/xplat-cli-install.md). Следуйте приведенным инструкциям вплоть до выбора учетной записи Azure и подписки.
 
 2. Выполните команду **azure config mode**, чтобы переключиться в классический режим, как показано ниже.
 
@@ -43,28 +43,28 @@
 		info:    New mode is asm
 
 
-## Создание набора балансировщика нагрузки и конечной точки 
+## Создание набора балансировщика нагрузки и конечной точки
 
 Сценарий предполагает, что были созданы виртуальные машины "web1" и "web2". В этом руководстве будет создан набор балансировщика нагрузки с использованием общего порта 80 и локального порта 80. Для пробы также задается порт 80, а набору балансировщика нагрузки присваивается имя lbset.
 
 
-### Шаг 1. 
+### Шаг 1
 
 Создайте первую конечную точку и набор балансировщика нагрузки, используя `azure network vm endpoint create` для виртуальной машины web1.
 
-	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset 
+	azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset
 
 Используемые параметры:
 
 **-k** — порт локальной виртуальной машины; <br> **-o** — протокол;<BR> **-t** — порт пробы;<BR> **-b** — имя балансировщика нагрузки.<BR>
- 
-## Шаг 2. 
+
+## Шаг 2
 
 Добавьте в набор балансировщика нагрузки вторую виртуальную машину "web2".
 
 	azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
 
-## Шаг 3. 
+## Шаг 3.
 
 Проверьте конфигурацию балансировщика нагрузки с помощью `azure vm show`.
 
@@ -118,7 +118,7 @@
 
 Вы можете создать конечную точку удаленного рабочего стола для пересылки трафика с общего порта на локальный порт для конкретной виртуальной машины с помощью `azure vm endpoint create`.
 
-	azure vm endpoint create web1 54580 -k 3389 
+	azure vm endpoint create web1 54580 -k 3389
 
 
 ## Удаление виртуальной машины из балансировщика нагрузки
@@ -141,6 +141,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
- 
-
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

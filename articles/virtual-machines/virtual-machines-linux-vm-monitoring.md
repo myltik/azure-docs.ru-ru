@@ -1,10 +1,10 @@
-<properties
+.<properties
    pageTitle="Включение и отключение мониторинга виртуальной машины Azure"
    description="В этой статье описывается включение или отключение мониторинга виртуальной машины Azure"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
-   manager="drewm"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -52,10 +52,10 @@
 
 [Azure.Note] С версии 2.0 можно переключиться на более позднюю версию, когда она появится.
 
-Дополнительные сведения о настройке показателей мониторинга и образцы см. в документе **[Использование диагностического расширения Linux для мониторинга производительности и диагностических данных виртуальных машин Linux](virtual-machines-linux-diagnostic-extension/).
+Дополнительные сведения о настройке метрик мониторинга и примеры см. в документе **[Использование диагностического расширения Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux](virtual-machines-linux-classic-diagnostic-extension.md).
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

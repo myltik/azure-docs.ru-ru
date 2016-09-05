@@ -1,10 +1,10 @@
-<properties
+.<properties
 	pageTitle="Что такое самостоятельная регистрация для Azure? | Microsoft Azure"
 	description="Общие сведения о самостоятельной регистрации для Azure, а также описание управления процессом регистрации и смены доменного имени DNS."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/10/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 
@@ -221,7 +221,7 @@
 
 ## См. также
 
--  [Установка и настройка Azure PowerShell](../powershell-install-configure/)
+-  [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
 
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
@@ -232,4 +232,4 @@
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Добавление push-уведомлений в приложение Apache Cordova с помощью мобильных приложений Azure | Служба приложений Azure"
 	description="Узнайте, как использовать мобильные приложения Azure для отправки push-уведомлений в приложение Apache Cordova."
 	services="app-service\mobile"
@@ -76,7 +76,7 @@
 
 1.  В обозревателе решений откройте файл `config.xml`, щелкните **Подключаемые модули** > **Настраиваемые**, выберите **Git** как источник установки, а затем в качестве источника введите `https://github.com/phonegap/phonegap-plugin-push`.
 
-	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	.![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
 
 2.  Щелкните стрелку рядом с источником установки.
 
@@ -234,11 +234,11 @@
 
 	Добавьте учетную запись Google на устройство Android, щелкнув **Приложения** > **Параметры** > **Добавить учетную запись**. Следуйте указаниям, чтобы использовать на устройстве имеющуюся учетную запись Google (рекомендуется) или создать новую.
 
-	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
+	.![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
 	Запустите приложение todolist, как ранее, и вставьте новый элемент списка дел. На этот раз в области уведомлений отображается значок уведомления. Вы можете открыть панель уведомлений, чтобы просмотреть полный текст уведомления.
 
-	![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
+	.![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
 
 ##Настройка и запуск проекта в iOS (необязательно)
 
@@ -249,6 +249,8 @@
 Прежде чем запускать приложение Cordova в iOS с помощью Visual Studio, выполните шаги в [руководстве по установке iOS](http://taco.visualstudio.com/ru-RU/docs/ios-guide/), чтобы установить и запустить агент удаленной сборки.
 
 Убедитесь, что вы можете создать приложение для iOS. Приведенные в этом руководстве шаги по установке необходимы для сборки приложения для iOS в Visual Studio. Если у вас нет компьютера Mac, можно использовать агент удаленной сборки в такой службе, как MacInCloud. Дополнительные сведения см. в статье [Run your iOS app in the cloud](http://taco.visualstudio.com/ru-RU/docs/build_ios_cloud/) (Запуск приложения iOS в облаке).
+
+>[AZURE.NOTE] XCode 7 или более поздней версии требуется для использования подключаемого модуля push-уведомлений в iOS.
 
 ####Поиск идентификатора, который будет использоваться как идентификатор приложения
 
@@ -320,7 +322,7 @@
 
 Откройте конструктор конфигурации (щелкните файл config.xml правой кнопкой мыши и выберите **Конструктор представлений**), перейдите на вкладку **Windows** и выберите для параметра **Целевая версия Windows** значение **Windows 10**.
 
-	>[AZURE.NOTE] If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
+>[AZURE.NOTE] При использовании версии Cordova старше Cordova 5.1.1 (рекомендуется 6.1.1) укажите для флага Toast Capable (Всплывающие уведомления) значение true в файле config.xml.
 
 Для поддержки push-уведомлений в сборках по умолчанию (отладка) откройте файл build.json. Скопируйте конфигурацию в разделе release в конфигурацию отладки.
 
@@ -367,7 +369,7 @@
 * [Серверный пакет SDK для ASP.NET]
 * [Серверный пакет SDK для Node.js]
 
-<!-- URLs -->
+.<!-- URLs -->
 [добавьте аутентификацию в приложение Apache Cordova]: app-service-mobile-cordova-get-started-users.md
 [ознакомительного проекта Apache Cordova]: app-service-mobile-cordova-get-started.md
 [ознакомительный проект Apache Cordova]: app-service-mobile-cordova-get-started.md
@@ -384,4 +386,4 @@
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,9 +1,9 @@
-<properties 
+.<properties 
    pageTitle="Создание балансировщика нагрузки для Интернета в диспетчере ресурсов с помощью PowerShell | Microsoft Azure"
    description="Узнайте, как создать балансировщик нагрузки для Интернета в диспетчере ресурсов с помощью PowerShell."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Приступая к созданию балансировщика нагрузки для Интернета в диспетчере ресурсов с помощью PowerShell
 
@@ -58,7 +58,7 @@
 
 Вам будет предложено пройти проверку подлинности с вашими учетными данными.<BR>
 
-### Шаг 2.
+### Шаг 2
 
 Проверка подписок для учетной записи
 
@@ -87,7 +87,7 @@
     $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
     New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
-### Шаг 2.
+### Шаг 2
 
 Создайте ресурс для общедоступного IP-адреса Azure с именем *PublicIP*, который будет использоваться пулом IP-адресов клиентской части с DNS-именем *loadbalancernrp.westus.cloudapp.azure.com*. В команде ниже используется статическое выделение.
 
@@ -103,7 +103,7 @@
 
 	$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
 
-### Шаг 2. 
+### Шаг 2 
 
 Создайте пул адресов серверной части с именем *LB-backend*.
 
@@ -244,7 +244,7 @@
 
 	$lb= get-azurermloadbalancer –name NRP-LB -resourcegroupname NRP-RG
 
-#### Шаг 2. 
+#### Шаг 2 
 
 Загрузите в переменную конфигурацию серверной части.
 
@@ -308,4 +308,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

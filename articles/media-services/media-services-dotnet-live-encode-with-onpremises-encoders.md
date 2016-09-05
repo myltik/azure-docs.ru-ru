@@ -1,6 +1,6 @@
-<properties 
-	pageTitle="Потоковая трансляция с помощью локальных кодировщиков" 
-	description="В этом разделе показано, как использовать .NET для кодирования в реальном времени с помощью локальных кодировщиков." 
+.<properties 
+	pageTitle="Потоковая трансляция с помощью локальных кодировщиков | Microsoft Azure" 
+	description="В этой статье показано, как использовать .NET для кодирования в реальном времени с помощью локальных кодировщиков." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="05/05/2016"  
+ 	ms.date="08/19/2016"  
 	ms.author="cenkdin;juliako"/>
 
 #Потоковая трансляция с помощью локальных кодировщиков
@@ -377,7 +377,9 @@
 	    }
 	}
 
-##Схемы обучения работе со службами мультимедиа
+##Дальнейшее действие
+
+Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -385,4 +387,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,21 +1,21 @@
-<properties 
+.<properties
    pageTitle="Создание внутреннего балансировщика нагрузки с помощью Azure CLI в классической модели развертывания | Microsoft Azure"
    description="Узнайте, как создать внутренний балансировщик нагрузки в классической модели развертывания с помощью интерфейса командной строки Azure."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/09/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Приступая к созданию внутреннего балансировщика нагрузки (классический режим) с помощью Azure CLI
 
@@ -53,7 +53,7 @@
 		info:    New mode is asm
 
 
-## Создание набора балансировщика нагрузки и конечной точки 
+## Создание набора балансировщика нагрузки и конечной точки
 
 Сценарий предполагает наличие виртуальных машин "DB1" и "DB2" в облачной службе с именем "mytestcloud". Обе виртуальные машины используют виртуальную сеть с именем "testvnet" с подсетью "subnet-1".
 
@@ -62,7 +62,7 @@
 Это распространенный сценарий, где у вас есть виртуальные машины SQL в серверной части, использующие внутренний балансировщик нагрузки, чтобы гарантировать, что серверы базы данных не будут предоставляться напрямую, используя общедоступный IP-адрес.
 
 
-### Шаг 1 
+### Шаг 1
 
 Создайте набор внутренних балансировщиков нагрузки с помощью `azure network service internal-load-balancer add`.
 
@@ -73,7 +73,7 @@
 **-r** — имя облачной службы<BR> **-n** — имя внутреннего балансировщика нагрузки<BR> **-t** — имя подсети (ту же подсеть для виртуальных машин вы добавите для набора внутренних балансировщиков нагрузки)<BR> **-a** — (необязательно) добавьте статический частный IP-адрес<BR>
 
 Дополнительные сведения см. в `azure service internal-load-balancer --help`.
- 
+
 Можно проверить свойства внутреннего балансировщика нагрузки с помощью команды `azure service internal-load-balancer list` *имя облачной службы*.
 
 Ниже следует пример выходных данных:
@@ -87,7 +87,7 @@
 	info:    service internal-load-balancer list command OK
 
 
-## Шаг 2 
+## Шаг 2
 
 Настройте набор внутренних балансировщиков нагрузки при добавлении первой конечной точки. В этом шаге нужно связать конечную точку, виртуальную машину и порт пробы с набором внутренних балансировщиков нагрузки.
 
@@ -98,11 +98,11 @@
 **-k** — порт на локальной виртуальной машине<BR> **-t** — порт пробы<BR> **-r** — протокол пробы<BR> **-e** — интервал пробы в секундах<BR> **-f** — интервал времени ожидания в секундах <BR> **-i** — имя внутреннего балансировщика нагрузки <BR>
 
 
-## Шаг 3. 
+## Шаг 3.
 
 Проверьте конфигурацию балансировщика нагрузки с помощью `azure vm show` *имя виртуальной машины*
 
-	azure vm show DB1 
+	azure vm show DB1
 
 Выходные данные должны выглядеть следующим образом:
 
@@ -132,7 +132,7 @@
 	data:    Network Endpoints 0 name "PowerShell"
 	data:    Network Endpoints 0 port 5986
 	data:    Network Endpoints 0 protocol "tcp"
-	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"	
+	data:    Network Endpoints 0 virtualIPAddress "137.116.64.107"
 	data:    Network Endpoints 0 enableDirectServerReturn false
 	data:    Network Endpoints 1 localPort 3389
 	data:    Network Endpoints 1 name "Remote Desktop"
@@ -158,7 +158,7 @@
 
 Вы можете создать конечную точку удаленного рабочего стола для пересылки трафика с общего порта на локальный порт для конкретной виртуальной машины с помощью `azure vm endpoint create`.
 
-	azure vm endpoint create web1 54580 -k 3389 
+	azure vm endpoint create web1 54580 -k 3389
 
 
 ## Удаление виртуальной машины из балансировщика нагрузки
@@ -179,4 +179,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

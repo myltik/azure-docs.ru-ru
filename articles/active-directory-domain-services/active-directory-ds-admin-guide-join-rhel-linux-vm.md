@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Предварительная версия доменных служб Azure Active Directory: руководство по администрированию | Microsoft Azure"
 	description="Присоединение виртуальной машины Red Hat Enterprise Linux к доменным службам Azure AD"
 	services="active-directory-ds"
@@ -71,7 +71,7 @@
 ## Удаленное подключение к только что подготовленной виртуальной машине Linux
 Вы подготовили виртуальную машину RHEL 7.2 в Azure. Следующий шаг — установка удаленного подключения к этой виртуальной машине.
 
-**Подключение к виртуальной машине RHEL 7.2**. Выполните инструкции из статьи [Как войти в виртуальную машину под управлением Linux](../virtual-machines/virtual-machines-linux-classic-log-on.md).
+**Подключение к виртуальной машине RHEL 7.2**. Выполните инструкции из статьи [Как войти в виртуальную машину под управлением Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 Во всех последующих действиях мы используем для подключения к виртуальной машине RHEL SSH-клиент PuTTY. Дополнительные сведения см. на [странице загрузки PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -173,8 +173,8 @@
 
 
 ## Дополнительные сведения
-- [Вход в виртуальную машину под управлением ОС Linux](../virtual-machines/virtual-machines-linux-classic-log-on.md)
+- [Вход в виртуальную машину под управлением ОС Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 - [Installing Kerberos](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html) (Установка Kerberos)
 - [Red Hat Enterprise Linux 7: Windows Integration Guide](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html) (Red Hat Enterprise Linux 7: руководство по интеграции Windows)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Предварительная версия руководства по разработке учетных записей DocumentDB с поддержкой протокола MongoDB | Microsoft Azure" 
 	description="Ознакомьтесь с руководством по разработке учетных записей DocumentDB с поддержкой протокола MongoDB (предварительная версия)." 
 	services="documentdb" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # Предварительная версия руководства по разработке для учетных записей DocumentDB с поддержкой протокола MongoDB
@@ -65,14 +65,14 @@ DocumentDB не поддерживает конвейер статистичес
 Замените|ReplaceOne| |
 Удалить|DeleteOne | |
  |DeleteMany| | 
- |Remove| | 
+ |Удалить| | 
 BulkWrite| |bulkWrite()| 
 Сравнение|-все-| | 
 Логические|-все-| | 
 Запрос элементов| |-все-| 
-Оценка|$mod|$regex, $text, $where| 
+Оценка|$mod, $regex |$text, $where| 
 Геопространственные|2dsphere, 2d, polygon|Все остальное| 
-Массив|$all, $size|$elemMatch| 
+Массив|$all, $size, $elemMatch|| 
 Побитовые| |-все-| 
 Комментарий|-все-| | 
 Проекция| |-все-| 
@@ -100,4 +100,4 @@ BulkWrite| |bulkWrite()|
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

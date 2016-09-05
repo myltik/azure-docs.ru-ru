@@ -1,10 +1,10 @@
-<properties
+.<properties
    pageTitle="Проверка параметров диспетчера трафика"
    description="В этой статье вы узнаете, как проверять параметры диспетчера трафика"
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Проверка параметров диспетчера трафика
 
@@ -59,4 +59,4 @@
 [О методах маршрутизации трафика в диспетчере трафика](traffic-manager-routing-methods.md) [Диспетчер трафика](traffic-manager-overview.md)
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

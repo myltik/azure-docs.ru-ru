@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Общие сведения о маршрутизации содержимого на основе URL-адресов | Microsoft Azure"
    description="Эта страница содержит общие сведения о маршрутизации содержимого шлюза приложений на основе URL-адресов, настройки UrlPathMap и правила PathBasedRouting."
    documentationCenter="na"
@@ -6,13 +6,13 @@
    authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
-<tags
+.<tags
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="08/18/2016"
    ms.author="gwallace"/>
 
 # Общие сведения о маршрутизации на основе URL-путей
@@ -21,11 +21,11 @@
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Запросы к http://contoso.com/video* будут направляться в пул VideoServerPool, а запросы к http://contoso.com/images* — в пул ImageServerPool. Если ни один из шаблонов пути не подходит, выбирается пул DefaultServerPool.
+Запросы к http://contoso.com/video* направляются в пул VideoServerPool, а запросы к http://contoso.com/images* — в пул ImageServerPool. Если ни один из шаблонов пути не подходит, выбирается пул DefaultServerPool.
 
 ## Элемент конфигурации UrlPathMap
 
-Элемент UrlPathMap используется для указания шаблонов пути при сопоставлении с пулом тыловых серверов. Приведем фрагмент элемента urlPathMap из файла шаблона:
+Элемент UrlPathMap используется для указания шаблонов пути при сопоставлении с пулом тыловых серверов. Ниже приведен фрагмент элемента urlPathMap из файла шаблона.
 
 	"urlPathMaps": [
 	{
@@ -58,9 +58,9 @@
 	}
 	
 
->[AZURE.NOTE] PathPattern: список шаблонов пути для сопоставления. Каждый шаблон должен начинаться с косой черты (/); символ * может быть только в конце после косой черты. Строка, передаваемая для сопоставления пути, не должна содержать никакого текста после первого символа ? или # — эти символы не допускаются.
+>[AZURE.NOTE] Параметр PathPattern представляет список шаблонов пути для сопоставления. Каждый шаблон должен начинаться с косой черты (/). Символ * может быть только в конце после косой черты. Строка, передаваемая для сопоставления пути, не должна содержать никакого текста после первого символа ? или # — эти символы не допускаются.
 
-Дополнительные сведения см. в статье [Шаблон ARM с использованием маршрутизации на основе URL-адресов](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing).
+Дополнительные сведения см. в статье [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) (Шаблон Resource Manager с использованием маршрутизации на основе URL-адресов).
 
 ## Правило PathBasedRouting
 
@@ -84,6 +84,6 @@
 	
 ## Дальнейшие действия 
 
-Ознакомившись с маршрутизацией на основе URL-адресов, создайте шлюз приложений с соответствующим правилами маршрутизации, как указано в статье [Создание шлюза приложений с помощью маршрутизации на основе URL-адресов](application-gateway-create-url-route-arm-ps.md).
+Ознакомившись с маршрутизацией на основе URL-адресов, создайте шлюз приложений с соответствующими правилами маршрутизации, как указано в статье о [создании шлюза приложений с помощью маршрутизации на основе URL-адресов](application-gateway-create-url-route-portal.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,11 +1,11 @@
-<properties 
+.<properties 
   pageTitle="Развертывание частного реестра Docker в Azure | Microsoft Azure"
   description="В этой статье объясняется, как разместить образы контейнеров в службе хранилища BLOB-объектов Azure."
   services="virtual-machines-linux"
   documentationCenter="virtual-machines"
   authors="ahmetalpbalkan"
   editor="squillace"
-  manager="" 
+  manager="timlt"
   tags="azure-service-management,azure-resource-manager" />
 
 <tags
@@ -101,4 +101,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure Mobile Engagement — интеграция с серверной частью" 
+.<properties 
+	pageTitle="Azure Mobile Engagement — интеграция с серверной частью" 
 	description="Подключите Azure Mobile Engagement к серверной части SharePoint для создания кампаний из SharePoint." 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
-# Azure Mobile Engagement — интеграция API
+# Azure Mobile Engagement — интеграция API
 
 В автоматизированной системе маркетинга создание и активация маркетинговых кампаний также происходит автоматически. Поэтому Azure Mobile Engagement поддерживает создание автоматических маркетинговых кампаний с помощью API.
 
@@ -86,7 +86,7 @@
         }
 
 ## Интеграция с Mobile Engagement
-1.  Когда мы найдем элемент списка, требующий обработки, мы извлечем из него сведения, необходимые для создания объявления, и вызовем `CreateAzMECampaign`, чтобы создать его, а затем `ActivateAzMECampaign` — чтобы активировать. Фактически это вызовы API REST к серверной части Mobile Engagement. 
+1.  Когда мы найдем элемент списка, требующий обработки, мы извлечем из него сведения, необходимые для создания объявления, и вызовем `CreateAzMECampaign`, чтобы создать его, а затем `ActivateAzMECampaign` — чтобы активировать. Фактически это вызовы API REST к серверной части Mobile Engagement.
 
 2.  Для интерфейсов API REST для Mobile Engagement требуется **HTTP-заголовок авторизации базовой схемы проверки подлинности**, состоящий из компонентов `ApplicationId` и `ApiKey`, которые можно найти на портале Azure. Убедитесь, что вы используете ключ из раздела **api keys** (а *не* из раздела **sdk keys**).
 
@@ -151,7 +151,7 @@
             }
         }
 
-4. После создания объявления вы увидите на портале Mobile Engagement примерно следующее (обратите внимание что параметр State (состояние) имеет значение Draft (черновик), а Activated (статус активации) — N/A (недоступно)).
+4. После создания объявления вы увидите на портале Mobile Engagement примерно следующее (обратите внимание что параметр State (состояние) имеет значение Draft (черновик), а Activated (статус активации) — N/A (недоступно)).
 
 	![][3]
 
@@ -207,4 +207,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

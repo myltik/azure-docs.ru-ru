@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Содержимое пакета SDK для Windows Phone Silverlight" 
 	description="Информация о содержимом пакета SDK для Windows Phone Silverlight для Azure Mobile Engagement" 					
 	services="mobile-engagement" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 	
 #Содержимое пакета SDK для Windows Phone Silverlight
@@ -34,7 +34,7 @@
  
 - `EngagementIconCloseDark.png`: значок "Закрыть" уведомлений рекламных кампаний в Mobile Engagement для темной темы Windows Phone.
 
-- `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Engagement (строку подключения Engagement, сообщение о сбое и т. д.).
+- `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Engagement (строку подключения Engagement, сообщение о сбое и т. д.).
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,10 +1,10 @@
-<properties
+.<properties
    pageTitle="Azure AD Connect: история выпусков версий | Microsoft Azure"
    description="В этой статье перечислены все выпуски Azure AD Connect и Azure AD Sync"
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/02/2016"
+   ms.date="08/23/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: история выпусков версий
@@ -22,13 +22,13 @@
 
 Эта статья поможет вам отследить выпущенные версии и понять, требуется ли обновление до последней версии или нет.
 
-Далее приведен список связанных разделов.
+Далее приведен список связанных статей.
 
 Раздел |  
 --------- | --------- |
 Действия по переходу с Azure AD Connect | Различные методы [обновления предыдущей версии до последней версии](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect.
 Необходимые разрешения | Разрешения, необходимые для установки обновления, в разделе [Учетные записи и разрешения](active-directory-aadconnect-accounts-permissions.md#upgrade).
-Скачивание| [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+Загрузить| [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 ## 1\.1.189.0
 Дата выпуска: июнь 2016 г.
@@ -134,7 +134,7 @@
 **Новые функции предварительной версии:**
 
 - [Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md).
-- Поддержка синхронизации паролей [доменных служб Azure AD](active-directory-get-started.md).
+- Поддержка синхронизации паролей [доменных служб Azure AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
 
 **Новый поддерживаемый сценарий:**
 
@@ -293,4 +293,4 @@
 ## Дальнейшие действия
 Ознакомьтесь с дополнительными сведениями об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

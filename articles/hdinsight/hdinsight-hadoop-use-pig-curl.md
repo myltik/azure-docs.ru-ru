@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Использование Hadoop Pig с Curl в HDInsight | Microsoft Azure"
    description="Узнайте, как с помощью Curl выполнять задания Pig Latin в кластере Hadoop в Azure HDInsight."
    services="hdinsight"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/06/2016"
+   ms.date="08/23/2016"
    ms.author="larryfr"/>
 
 #Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight
@@ -29,7 +29,7 @@ Curl используется для демонстрации возможнос
 
 ##<a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Linux или Windows).
 
@@ -118,4 +118,4 @@ Curl используется для демонстрации возможнос
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

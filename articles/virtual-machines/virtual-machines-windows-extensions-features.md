@@ -1,4 +1,4 @@
-<properties
+.<properties
  pageTitle="Расширения и компоненты виртуальной машины | Microsoft Azure"
  description="Узнайте о расширениях, доступных для виртуальных машин Azure и сгруппированных по предоставляемым функциям или улучшениям."
  services="virtual-machines-windows"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="05/27/2016"
+ ms.date="08/23/2016"
  ms.author="rasquill"/>
 
 #Обзор расширений и компонентов виртуальной машины
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-extensions-features](../../includes/virtual-machines-common-extensions-features.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

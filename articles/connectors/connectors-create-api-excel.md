@@ -1,5 +1,5 @@
-<properties
-pageTitle="Добавление соединителя Excel в PowerApps Enterprise | Microsoft Azure"
+.<properties
+pageTitle="Добавление соединителя Excel | Microsoft Azure"
 description="Обзор соединителя Excel с параметрами API REST"
 services=""    
 documentationCenter=""     
@@ -14,198 +14,204 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/18/2016"
+ms.date="08/23/2016"
 ms.author="deonhe"/>
 
 # Начало работы с соединителем Excel
 
-Подключение к Excel для вставки строки, удаления строки и многого другого. Соединитель Excel можно использовать из таких компонентов, как:
+В настоящее время в приложениях логики нет соединителя Excel.
 
-- PowerApps.
+## Использование данных Excel
+Вы можете сохранить данные Excel как файл с разделителями-запятыми (CSV) в папку хранилища, например [OneDrive](connectors-create-api-onedrive.md). Этот CSV-файл можно использовать с [соединителем неструктурированного файла](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
 
-С помощью Excel можно:
+<!---
 
-- Добавьте соединитель Excel в PowerApps Enterprise. После этого пользователи смогут использовать его в своих приложениях. 
+There is no Excel connector in Logic Apps. Originally, this topic only referenced PowerApps. Removed all PowerApps references. 
 
-Сведения о добавлении соединителя в PowerApps Enterprise см. в статье [Регистрация API, управляемого корпорацией Майкрософт, или API, управляемого ИТ-службой](../power-apps/powerapps-register-from-available-apis.md).
 
-## Триггеры и действия
-Excel содержит следующее действие. Триггеры отсутствуют.
 
-|Триггер|Действия|
+Connect to Excel to insert a row, delete a row, and more. 
+
+## Triggers and actions
+Excel includes the following action. There are no triggers. 
+
+|Trigger|Actions|
 |--- | ---|
-|None | <ul><li>Получение строк</li><li>Вставка строки</li><li>Удаление строки</li><li>Получение строки</li><li>Получение таблиц</li><li>Обновление строки</li></ul>
+|None | <ul><li>Get rows</li><li>Insert row</li><li>Delete row</li><li>Get row</li><li>Get tables</li><li>Update row</li></ul>
 
-Все соединители поддерживают данные в форматах JSON и XML.
+All connectors support data in JSON and XML formats. 
 
-## Справочник по REST API Swagger
-Относится к версии 1.0.
+## Swagger REST API reference
+Applies to version: 1.0.
 
-### Вставка новой строки в таблицу Excel
-```POST: /datasets/{dataset}/tables/{table}/items```
+### Inserts a new row into an Excel table
+```POST: /datasets/{dataset}/tables/{table}/items``` 
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|Имя файла Excel|
-|таблица|строка|Да|path|Нет|Имя таблицы Excel|
-|item| |Да|текст|Нет|Строка, вставляемая в указанную таблицу Excel|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|item| |yes|body|none|Row to insert into the specified Excel table|
 
 
-### Ответ
+### Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
 
 
-### Извлечение одной строки из таблицы Excel
-```GET: /datasets/{dataset}/tables/{table}/items/{id}```
+### Retrieves a single row from an Excel table
+```GET: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|Имя файла Excel|
-|таблица|строка|Да|path|Нет|Имя таблицы Excel|
-|id|строка|Да|path|Нет|Уникальный идентификатор извлекаемой строки|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|id|string|yes|path|none|Unique identifier of row to retrieve|
 
 
-### Ответ
+### Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
 
 
-### Удаление одной строки из таблицы Excel
-```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
+### Deletes a row from an Excel table
+```DELETE: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|Имя файла Excel|
-|таблица|строка|Да|path|Нет|Имя таблицы Excel|
-|id|строка|Да|path|Нет|Уникальный идентификатор удаляемой строки|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|id|string|yes|path|none|Unique identifier of the row to delete|
 
 
-### Ответ
+### Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
 
 
-### Обновление существующей строки в таблице Excel
-```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
+### Updates an existing row in an Excel table
+```PATCH: /datasets/{dataset}/tables/{table}/items/{id}``` 
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name| Data Type|Required|Located In|Default Value|Description|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|Имя файла Excel|
-|таблица|строка|Да|path|Нет|Имя таблицы Excel|
-|id|строка|Да|path|Нет|Уникальный идентификатор обновляемой строки|
-|item| |Да|текст|Нет|Строка с обновленными значениями|
+|dataset|string|yes|path|none|Excel file name|
+|table|string|yes|path|none|Excel table name|
+|id|string|yes|path|none|Unique identifier of the row to update|
+|item| |yes|body|none|Row with updated values|
 
 
-### Ответ
+### Response
 
-|Имя|Описание|
+|Name|Description|
 |---|---|
-|200|ОК|
-|по умолчанию|Операция завершилась ошибкой.|
+|200|OK|
+|default|Operation Failed.|
 
 
 
 
-## Определения объектов
+## Object definitions
 
 #### DataSetsMetadata
 
-| Имя | Тип данных | Обязательно|
+| Name | Data Type | Required|
 |---|---|---|
-|tabular|Не определен|Нет|
-|blob-объект|Не определен|Нет|
+|tabular|not defined|no|
+|blob|not defined|no|
 
 #### TabularDataSetsMetadata
 
-| Имя | Тип данных |Обязательно|
+| Name | Data Type |Required|
 |---|---|---|
-|источник|строка|Нет|
-|displayName|строка|Нет|
-|urlEncoding|string|Нет|
-|tableDisplayName|string|Нет|
-|tablePluralName|string|Нет|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
+|tableDisplayName|string|no|
+|tablePluralName|string|no|
 
 #### BlobDataSetsMetadata
 
-| Имя | Тип данных |Обязательно|
+| Name | Data Type |Required|
 |---|---|---|
-|источник|строка|Нет|
-|displayName|строка|Нет|
-|urlEncoding|string|Нет|
+|source|string|no|
+|displayName|string|no|
+|urlEncoding|string|no|
 
 #### TableMetadata
 
-| Имя | Тип данных |Обязательно|
+| Name | Data Type |Required|
 |---|---|---|
-|name|строка|Нет|
-|title|string|Нет|
-|x-ms-permission|строка|Нет|
-|schema|Не определен|Нет|
+|name|string|no|
+|title|string|no|
+|x-ms-permission|string|no|
+|schema|not defined|no|
 
 #### DataSetsList
 
-| Имя | Тип данных |Обязательно|
+| Name | Data Type |Required|
 |---|---|---|
-|value|array|Нет|
+|value|array|no|
 
 #### DataSet
 
-| Имя | Тип данных |Обязательно|
+| Name | Data Type |Required|
 |---|---|---|
-|Имя|строка|Нет|
-|DisplayName|строка|Нет|
+|Name|string|no|
+|DisplayName|string|no|
 
-#### Таблица
+#### Table
 
-| Имя | Тип данных |Обязательно|
+| Name | Data Type |Required|
 |---|---|---|
-|Имя|строка|Нет|
-|DisplayName|строка|Нет|
+|Name|string|no|
+|DisplayName|string|no|
 
-#### Элемент
+#### Item
 
-| Имя | Тип данных |Обязательно|
+| Name | Data Type |Required|
 |---|---|---|
-|ItemInternalId|строка|Нет|
+|ItemInternalId|string|no|
 
 #### TablesList
 
-| Имя | Тип данных |Обязательно|
+| Name | Data Type |Required|
 |---|---|---|
-|value|array|Нет|
+|value|array|no|
 
 #### ItemsList
 
-| Имя | Тип данных |Обязательно|
+| Name | Data Type |Required|
 |---|---|---|
-|value|array|Нет|
+|value|array|no|
 
 
-## Дальнейшие действия
-[Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md) [Создание приложения PowerApps](../power-apps/powerapps-get-started-azure-portal.md)
+## Next Steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 
-<!---HONumber=AcomDC_0525_2016-->
+
+-->
+
+<!---HONumber=AcomDC_0824_2016-->

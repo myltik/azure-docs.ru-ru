@@ -1,4 +1,4 @@
-<properties 
+.<properties 
    pageTitle="Замена контроллера EBOD на устройстве StorSimple | Microsoft Azure"
    description="Объясняется процесс снятия или замены одного или обоих контроллеров EBOD на устройстве StorSimple 8600."
    services="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/24/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Замена контроллера EBOD на устройстве StorSimple
@@ -59,7 +59,7 @@
     |1|Индикатор сбоя|
     |2|Индикатор питания|
     |3|Соединители SAS|
-    |4\.|Индикаторы SAS|
+    |4|Индикаторы SAS|
     |5|Последовательные порты только для служебного использования|
     |6|Порт A (Входной порт узла)|
     |7|Порт B (Выходной порт узла)|
@@ -89,7 +89,7 @@
 
     ![Подключите питание к устройству 4U](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    **Рис. 4.** Повторное подключение кабелей
+    **Рис. 4**. Повторное подключение кабелей
 
     |Метка|Описание|
     |:----|:----------|
@@ -107,4 +107,4 @@
 
 Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

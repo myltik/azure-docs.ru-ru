@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Интеграция пакета SDK Reach для универсальных приложений для Windows" 
 	description="Интеграция Azure Mobile Engagement Reach с универсальными приложениями для Windows"
 	services="mobile-engagement" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 # Интеграция пакета SDK Reach для универсальных приложений для Windows
@@ -59,7 +59,7 @@ Engagement предоставляет два способа добавления
 Чтобы выбрать нужный вариант интеграции, обратите внимание на приведенные далее рекомендации.
 
 -   Выберите интеграцию наложения, если ваши страницы уже наследуют от агента `EngagementPage`— вам придется лишь заменить `EngagementPage` на `EngagementPageOverlay` и `xmlns:engagement="using:Microsoft.Azure.Engagement"` на `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` на страницах.
--   Выберите интеграцию веб-представлений вручную, чтобы добиться точного размещения пользовательского интерфейса Reach на страницах, или если вы не хотите добавлять на страницы еще один уровень наследования. 
+-   Выберите интеграцию веб-представлений вручную, чтобы добиться точного размещения пользовательского интерфейса Reach на страницах, или если вы не хотите добавлять на страницы еще один уровень наследования.
 
 ### Интеграции наложения
 
@@ -334,4 +334,4 @@ NotfificationHTML — `ms-appx-web:///Resources/EngagementNotification.html`. П
 			  #endregion
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

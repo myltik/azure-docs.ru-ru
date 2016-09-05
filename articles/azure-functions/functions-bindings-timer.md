@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Триггеры с таймерами в функциях Azure | Microsoft Azure"
 	description="Узнайте, как использовать триггеры с таймерами в функциях Azure."
 	services="functions"
@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Триггеры с таймерами в функциях Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 В этой статье описывается настройка триггеров с таймерами в функциях Azure. Триггеры с таймерами вызывают функции по расписанию, однократно или в повторяющемся режиме.
 
@@ -26,7 +28,7 @@
 
 ## Файл function.JSON для триггера с таймером
 
-Файл *function.json* содержит выражение schedule.
+Файл *function.json* содержит выражение schedule. Например, следующее расписание запускает функцию каждую минуту:
 
 ```json
 {
@@ -46,9 +48,11 @@
 
 ## Формат выражения schedule
 
-Выражение schedule может быть [выражением CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression), содержащим 6 полей: {second}, {minute}, {hour}, {day}, {month} и {day of the week}. Во многих документах по выражениям CRON в сети отсутствует поле {second}. Поэтому если скопировать текст выражения в одном из них, понадобится добавить дополнительное поле.
+Выражение schedule представляет собой [выражение CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) с шестью полями: `{second} {minute} {hour} {day} {month} {day of the week}`.
 
-Ниже приведены примеры выражений schedule.
+Обратите внимание, что во многих выражениях CRON, которые можно найти в сети, отсутствует поле {second}. Поэтому, если скопировать текст выражения в одном из них, понадобится добавить дополнительное поле.
+
+Ниже приведены примеры других выражений schedule.
 
 Активация через каждые 5 минут:
 
@@ -56,10 +60,34 @@
 "schedule": "0 */5 * * * *"
 ```
 
+Активация через каждый час:
+
+```json
+"schedule": "0 0 * * * *",
+```
+
 Активация через каждые 2 часа.
 
 ```json
 "schedule": "0 0 */2 * * *",
+```
+
+Активация каждый час с 9:00 до 17:00:
+
+```json
+"schedule": "0 0 9-17 * * *",
+```
+
+Активация в 9:30 каждый день:
+
+```json
+"schedule": "0 30 9 * * *",
+```
+
+Активация в 9:30 каждый будний день:
+
+```json
+"schedule": "0 30 9 * * 1-5",
 ```
 
 ## Пример кода C# для триггера таймера
@@ -77,4 +105,4 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 [AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

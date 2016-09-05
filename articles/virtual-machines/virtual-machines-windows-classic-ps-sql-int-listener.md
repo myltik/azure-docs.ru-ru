@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Настройка прослушивателя внутренней подсистемы балансировки нагрузки для групп доступности AlwaysOn | Microsoft Azure"
 	description="В этом руководстве используются ресурсы, созданные в классической модели развертывания, а также создается прослушиватель группы доступности AlwaysOn в Azure с помощью внутренней подсистемы балансировки нагрузки."
 	services="virtual-machines-windows"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="07/12/2016"
+	ms.date="08/19/2016"
 	ms.author="MikeRayMSFT" />
 
 # Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure
@@ -24,7 +24,7 @@
 
 ## Обзор
 
-В этой статье показано, как настроить прослушиватель для группы доступности AlwaysOn с помощью **внутренней подсистемы балансировки нагрузки**.
+В этой статье показано, как настроить прослушиватель для группы доступности AlwaysOn с помощью **внутреннего балансировщика нагрузки**.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в модели Resource Manager описана в статье [Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
@@ -104,7 +104,9 @@
 		$ServiceName="<MyServiceName>" # the name of the cloud service that contains the AG nodes
 		(Get-AzureInternalLoadBalancer -ServiceName $ServiceName).IPAddress
 
-1. Войдите на одну из виртуальных машин и скопируйте приведенный ниже сценарий PowerShell в текстовый редактор. Затем присвойте переменным записанные ранее значения.
+1. Войдите на одну из виртуальных машин и скопируйте сценарий PowerShell для операционной системы в текстовый редактор. Затем присвойте переменным записанные ранее значения.
+
+    Для Windows Server 2012 или более поздней версии используйте следующий сценарий:
 
 		# Define variables
 		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -113,10 +115,19 @@
 
 		Import-Module FailoverClusters
 
-		# If you are using Windows Server 2012 or higher, use the Get-Cluster Resource command. If you are using Windows Server 2008 R2, use the cluster res command. Both commands are commented out. Choose the one applicable to your environment and remove the # at the beginning of the line to convert the comment to an executable line of code.
+	    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+		
+    Для Windows Server 2008 R2 используйте следующий сценарий:
 
-		# Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-		# cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+		# Define variables
+		$ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+		$IPResourceName = "<IPResourceName>" # the IP Address resource name
+		$ILBIP = “<X.X.X.X>” # the IP Address of the Internal Load Balancer (ILB)
+
+		Import-Module FailoverClusters
+
+		cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
+	
 
 1. Присвоив значения переменным, откройте окно Windows PowerShell с повышенными правами. Затем скопируйте сценарий из текстового редактора, вставьте его в текущий сеанс Azure PowerShell и выполните сценарий. Если в командной строке отображается >>, нажмите клавишу ВВОД еще раз, чтобы начать выполнение сценария.
 
@@ -138,4 +149,4 @@
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

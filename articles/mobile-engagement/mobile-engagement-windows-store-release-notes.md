@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Заметки о выпуске пакета SDK для универсальных приложений для Windows" 
 	description="Заметки о выпуске SDK для универсальных приложений Windows для Azure Mobile Engagement"
 	services="mobile-engagement" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Заметки о выпуске пакета SDK для универсальных приложений для Windows
@@ -67,4 +67,4 @@
 
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Все статьи о службе баз данных SQL Server Stretch | Microsoft Azure"
 	description="Таблица всех статей о службе Azure, которая называется базой данных SQL Server Stretch. Статьи находятся по адресу http://azure.microsoft.com/documentation/articles/. Заголовок и описание."
 	services="sql-server-stretch-database"
@@ -7,13 +7,13 @@
 	manager="jhubbard"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="sql-server-stretch-database"
 	ms.workload="sql-server-stretch-database"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/21/2016"
 	ms.author="DouglasL"/>
 
 
@@ -60,8 +60,8 @@
 
 | &nbsp; | Название | Описание |
 | --: | :-- | :-- |
-| 12 | [Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure](sql-server-stretch-database-encryption-tde.md) | Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure |
-| 13\. | [Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure](sql-server-stretch-database-tde-tsql.md) | Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure TSQL |
+| 12 | [Включение прозрачного шифрования данных (TDE) для базы данных Stretch в Azure](sql-server-stretch-database-encryption-tde.md) | Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure |
+| 13\. | [Включение прозрачного шифрования данных (TDE) для базы данных Stretch в Azure (Transact-SQL)](sql-server-stretch-database-tde-tsql.md) | Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure TSQL |
 
 
 
@@ -72,4 +72,4 @@
 | 14 | [Резервное копирование баз данных с поддержкой растяжения](sql-server-stretch-database-backup.md) | Узнайте, как создавать резервные копии баз данных, поддерживающих перенос. |
 | 15 | [Восстановление баз данных с поддержкой Stretch](sql-server-stretch-database-restore.md) | Узнайте, как восстанавливать базы данных, поддерживающие перенос. |
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

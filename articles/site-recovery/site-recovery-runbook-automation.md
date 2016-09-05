@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Добавление модулей Runbook службы автоматизации Azure в планы восстановления | Microsoft Azure"
    description="В этой статье описывается, как Azure Site Recovery позволяет расширить планы восстановления с помощью службы автоматизации Azure для выполнения сложных задач во время восстановления в Azure."
    services="site-recovery"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required"
-   ms.date="12/14/2015"
+   ms.date="08/23/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 
@@ -101,7 +101,7 @@
 
 Теперь оба этих параметра доступны в ресурсах.
 
-![](media/site-recovery-runbook-automation/11.png)
+.![](media/site-recovery-runbook-automation/11.png)
 
 Дополнительные сведения о подключении к подписке через PowerShell см. [здесь](../powershell-install-configure.md).
 
@@ -308,4 +308,4 @@ CloudServiceName | Имя облачной службы Azure, под котор
 
 [Примеры сценариев службы автоматизации Azure](http://gallery.technet.microsoft.com/scriptcenter/site/search?f[0].Type=User&f[0].Value=SC%20Automation%20Product%20Team&f[0].Text=SC%20Automation%20Product%20Team "Примеры сценариев службы автоматизации Azure")
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

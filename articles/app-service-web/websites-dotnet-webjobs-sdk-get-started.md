@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Создание веб-задания .NET в службе приложений Azure | Microsoft Azure"
 	description="Создание многоуровневого приложения с помощью ASP.NET MVC и Azure. Внешний сервер запускается как веб-приложение в службе приложений Azure, а внутренний сервер — как веб-задание. Приложение использует Entity Framework, базу данных SQL, очереди службы хранилища Azure и большие двоичные объекты."
 	services="app-service"
@@ -75,17 +75,15 @@
 
 Учетная запись хранилища Azure обеспечивает ресурсы для хранения данных очередей и больших двоичных объектов в облаке. Она также используется пакетом SDK веб-заданий для хранения данных журналов для панели мониторинга.
 
-В реальном приложении обычно создают отдельные учетные записи для данных приложения и данных журналов, а также отдельные учетные записи для тестовых данных и рабочих данных. В этом учебнике будет использоваться одна запись.
+В реальном приложении обычно создают отдельные учетные записи для данных приложения и данных журналов, а также отдельные учетные записи для тестовых данных и рабочих данных. В этом учебнике будет использоваться одна учетная запись.
 
 1. Откройте окно **Обозреватель серверов** в Visual Studio.
 
-2. Щелкните правой кнопкой мыши узел **Azure** и выберите **Подключиться к Microsoft Azure**.  
-![Подключение к Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Щелкните правой кнопкой мыши узел **Azure** и выберите **Подключиться к Microsoft Azure**. ![Подключение к Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Выполните вход с использованием учетных данных Azure.
 
-5. Щелкните правой кнопкой мыши **Хранилище** в узле Azure и выберите пункт **Создать учетную запись хранения**.  
-![Создать учетную запись хранения](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Щелкните правой кнопкой мыши **Хранилище** в узле Azure и выберите пункт **Создать учетную запись хранения**. ![Создать учетную запись хранения](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. В диалоговом окне **Создание учетной записи хранения** введите имя для учетной записи хранения.
 
@@ -97,7 +95,7 @@
 
 	Этот параметр указывает, в каком центре обработки данных Azure будет размещаться учетная запись хранения. Теоретически этот выбор не имеет большого значения. Но для рабочего веб-приложения веб-сервер и учетная запись хранения должны находиться в одном регионе, чтобы свести к минимуму задержку и стоимость исходящих данных. Веб-приложение (которое будет создано позже) должно находиться как можно ближе к браузерам, получившим доступ к нему, чтобы свести к минимуму задержку.
 
-6. В раскрывающемся списке **Репликация** установите значение **Локально избыточное**.
+6. В раскрывающемся списке **Репликация ** установите значение **Локально избыточное**.
 
 	При включении георепликации для учетной записи хранения хранящиеся данные реплицируются в дополнительный центр обработки данных для обеспечения возможности отработки отказа в это расположение в случае крупной аварии в основном расположении. Георепликация может потребовать дополнительных затрат. Для учетных записей тестирования и разработки оплачивать георепликацию обычно не требуется. Дополнительные сведения см. в разделе [Создание, удаление учетной записи хранения или управление ей](../storage-create-storage-account/#replication-options).
 
@@ -154,15 +152,15 @@
 
 	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. Можно использовать отдельные учетные записи хранения для данных приложений и ведения журнала; также можно использовать [несколько учетных записей хранения для данных](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). В этом руководстве будет использоваться одна учетная запись. Строки подключения имеют заполнители для ключей учетной записи хранения.
   	<pre class="prettyprint">&lt;configuration>
-	&lt;connectionStrings>
-	    &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[учетная_запись]</mark>;AccountKey=<mark>[ключ_доступа]</mark>"/>
-	    &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
-	    &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/>
-	&lt;/connectionStrings>
-	    &lt;startup>
-	        &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-	&lt;/startup>
-	&lt;/configuration></pre>
+  	&lt;connectionStrings>
+  	    &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[учетная_запись]</mark>;AccountKey=<mark>[ключ_доступа]</mark>"/>
+  	    &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+  	    &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/>
+  	&lt;/connectionStrings>
+  	    &lt;startup>
+  	        &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  	&lt;/startup>
+  	&lt;/configuration></pre>
 
 	По умолчанию пакет SDK веб-заданий ищет строки подключения с именами AzureWebJobsStorage и AzureWebJobsDashboard. В качестве альтернативы можно [сохранить строку подключения любым способом и передать ее явно в объект `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -473,7 +471,7 @@
 2. В проекте ContosoAdsCommon добавьте следующие файлы из загруженного проекта.
 
 	- *Web.config*
-	- *Global.asax.cs*  
+	- *Global.asax.cs*
 	- В папку *Controllers*: *AdController.cs*
 	- В папку *Views\\Shared*: файл *\_Layout.cshtml*.
 	- В папку *Views\\Home*: файл *Index.cshtml*.
@@ -602,15 +600,15 @@
 		        });
 		}
 
-Аналогичный код получает ссылку на очередь *blobnamerequest* и создает новую очередь В этом случае изменений разрешений не требуется. В разделе [ResolveBlobName](#resolveblobname) далее в этом учебнике объясняется, почему очередь, в которую выполняет запись веб-приложение, используется только для получения имен больших двоичных объектов, а не для создания эскизов.
+Похожий код получает ссылку на очередь *thumbnailrequest* и создает новую очередь. В этом случае изменений разрешений не требуется.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		var imagesQueue = queueClient.GetQueueReference("blobnamerequest");
+		var imagesQueue = queueClient.GetQueueReference("thumbnailrequest");
 		imagesQueue.CreateIfNotExists();
 
 ### ContosoAdsWeb — \_Layout.cshtml
 
-Файл *\_Layout.cshtml* устанавливает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
+Файл *\_Layout.cshtml* задает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
 
 ### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
@@ -823,4 +821,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 Дополнительные сведения см. в статье [Документация по веб-заданиям Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!----HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

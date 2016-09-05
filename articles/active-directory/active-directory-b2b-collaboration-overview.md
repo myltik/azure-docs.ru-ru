@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Служба Azure Active Directory B2B Collaboration | Microsoft Azure"
    description="Служба Azure Active Directory B2B Collaboration позволяет деловым партнерам получить доступ к вашим корпоративным приложениям, при этом любой пользователь представляется как одна учетная запись Azure AD."
    services="active-directory"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/09/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Служба Azure Active Directory B2B Collaboration
@@ -58,4 +58,4 @@
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

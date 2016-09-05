@@ -1,19 +1,19 @@
-<properties
+.<properties
    pageTitle="Типы конечных точек диспетчера трафика | Microsoft Azure"
    description="В этой статье описываются разные типы конечных точек, которые можно использовать с диспетчером трафика Azure"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags
+.<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/08/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Конечные точки диспетчера трафика
 
@@ -144,4 +144,4 @@
 
 - Узнайте больше о [методах маршрутизации трафика](traffic-manager-routing-methods.md) в диспетчере трафика.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

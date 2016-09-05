@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Включение пользовательских данных в виртуальные машины Azure | Microsoft Azure"
 	description="В этом разделе описывается включение пользовательских данных в виртуальную машину Azure во время создания экземпляра, а также поиск пользовательских данных в Windows или Linux."
 	services="virtual-machines-linux"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="08/23/2016"
 	ms.author="rasquill"/>
 
 #Включение пользовательских данных в виртуальную машину Azure
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-inject-custom-data](../../includes/virtual-machines-common-classic-inject-custom-data.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Статистика в реальном времени в сети Azure CDN | Microsoft Azure"
 	description="Статистика в реальном времени предоставляет актуальные данные о производительности сети Azure CDN при доставке содержимого клиентам."
 	services="cdn"
@@ -90,7 +90,8 @@
 
 ## Дальнейшие действия
 
+- Получение уведомлений с помощью [оповещения в режиме реального времени в Azure CDN](cdn-real-time-alerts.md)
 - См. сведения о [расширенных HTTP-отчетах](cdn-advanced-http-reports.md).
 - См. сведения об [анализе шаблонов использования](cdn-analyze-usage-patterns.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Как реализовать секционирование на стороне клиента с помощью пакетов SDK | Microsoft Azure" 
 	description="Узнайте, как использовать пакеты SDK Azure DocumentDB для .NET для секционирования (сегментирования) данных и маршрутизации запросов по нескольким коллекциям." 
 	services="documentdb" 
@@ -164,4 +164,4 @@ foreach (UserProfile activeUser in query)
 * [Блог с советами по повышению производительности DocumentDB](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

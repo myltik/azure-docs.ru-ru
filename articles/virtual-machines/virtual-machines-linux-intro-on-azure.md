@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Введение в Linux в Azure | Microsoft Azure"
 	description="Узнайте о том, как использовать виртуальные машины Linux в Azure."
 	services="virtual-machines-linux"
@@ -28,7 +28,7 @@
 
 
  - См. статью [Создание виртуальной машины с ОС Linux](virtual-machines-linux-quick-create-cli.md).
- - См. [Использование SSH с Linux в Azure](virtual-machines-linux-ssh-from-linux.md)
+ - См. [Использование SSH с Linux в Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
 ## Получение привилегий суперпользователя с помощью `sudo`
@@ -98,4 +98,4 @@ Azure предоставляет возможность записи состо�
 
  - **Также см. статью** [Настройка программного RAID-массива в Linux](virtual-machines-linux-configure-raid.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0824_2016-->

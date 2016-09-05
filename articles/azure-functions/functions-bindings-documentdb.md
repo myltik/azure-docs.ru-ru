@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Привязки Azure DocumentDB в функциях Azure | Microsoft Azure"
 	description="Узнайте, как использовать привязки Azure DocumentDB в функциях Azure."
 	services="functions"
@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Привязки Azure DocumentDB в функциях Azure
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Эта статья объясняет, как настроить и запрограммировать привязки Azure DocumentDB в функциях Azure.
 
@@ -33,12 +35,12 @@
 Файл *function.json* содержит следующие свойства:
 
 - `name` — имя переменной, используемой в коде функции для документа.
-- `type` — для этого свойства необходимо задать значение "documentdb".
+- `type` — для этого свойства необходимо задать значение documentdb.
 - `databaseName` — база данных, содержащая документ.
 - `collectionName` — коллекция, содержащая документ.
 - `id` — идентификатор документа, который нужно получить. Это свойство поддерживает привязки, аналогичные {queueTrigger}, в которых в качестве идентификатора документа будет использоваться значение строки сообщения очереди.
-- `connection` — строка параметра приложения, установленная в конечную точку учетной записи DocumentDB. При выборе учетной записи на вкладке "Интеграция" будет создан параметр приложения с именем в формате yourAccount\_DOCUMENTDB. Если параметр приложения нужно создать вручную, фактическую строку подключения необходимо записать в следующем формате: AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;.
-- direction — для этого свойства нужно задать значение *"in"*.
+- `connection` — строка параметра приложения, установленная в конечную точку учетной записи DocumentDB. При выборе учетной записи на вкладке "Интеграция" будет создан параметр приложения с именем в формате yourAccount\_DOCUMENTDB. Если параметр приложения нужно создать вручную, фактическую строку подключения необходимо записать в следующем формате: AccountEndpoint=<конечная точка для уч. записи>;AccountKey=<первичный ключ доступа>;.
+- direction — для этого свойства нужно задать значение *in*.
 
 Пример файла *function.json*:
  
@@ -78,19 +80,19 @@
 
 ## <a id="docdboutput"></a> Выходные привязки для Azure DocumentDB
 
-Функции могут записать документ JSON в базу данных Azure DocumentDB с помощью выходной привязки для **документов Azure DocumentDB**. Дополнительные сведения об Azure DocumentDB см. в статье [Введение в DocumentDB](../documentdb/documentdb-introduction.md) и в [руководстве по началу работы](../documentdb/documentdb-get-started.md).
+Функции могут записать документ JSON в базу данных Azure DocumentDB с помощью выходной привязки для **документов Azure DocumentDB**. Дополнительные сведения об Azure DocumentDB см. в статье о [DocumentDB](../documentdb/documentdb-introduction.md) и в [руководстве по началу работы](../documentdb/documentdb-get-started.md).
 
 #### Файл function.json для выходной привязки DocumentDB
 
 Файл function.json содержит следующие свойства:
 
 - `name` — имя переменной, используемой в коде функции для нового документа.
-- `type` — для этого свойства необходимо задать значение *"documentdb"*.
+- `type` — для этого свойства необходимо задать значение *documentdb*.
 - `databaseName` — база данных, содержащая коллекцию, в которой будет создан документ.
 - `collectionName` — коллекция, в которой будет создан документ.
 - `createIfNotExists` — логическое значение, указывающее, нужно ли создавать коллекцию, если она не существует. Значение по умолчанию — *false*. Это вызвано тем, что коллекции создаются с использованием зарезервированной пропускной способности, с которой связаны ценовые требования. Дополнительные сведения см. на [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
-- `connection` — строка **параметра приложения**, установленная в конечную точку учетной записи DocumentDB. При выборе учетной записи на вкладке **Интеграция** будет создан параметр приложения с именем в формате `yourAccount_DOCUMENTDB`. Если параметр приложения нужно создать вручную, строку подключения необходимо указать в формате `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`. 
-- `direction` — для этого свойства нужно задать значение *"out"*. 
+- `connection` — строка **параметра приложения**, установленная в конечную точку учетной записи DocumentDB. При выборе учетной записи на вкладке **Интеграция** будет создан параметр приложения с именем в формате `yourAccount_DOCUMENTDB`. Если параметр приложения нужно создать вручную, строку подключения необходимо указать в формате `AccountEndpoint=<Endpoint for your account>;AccountKey=<Your primary access key>;`.
+- `direction` — для этого свойства необходимо задать значение *out*.
  
 Пример файла function.json:
 
@@ -189,4 +191,4 @@
 
 [AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

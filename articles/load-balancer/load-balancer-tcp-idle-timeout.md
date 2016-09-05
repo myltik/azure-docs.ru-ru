@@ -1,9 +1,9 @@
-<properties 
+.<properties 
    pageTitle="Настройка времени ожидания простоя TCP для подсистемы балансировки нагрузки | Microsoft Azure"
    description="Время ожидания простоя TCP подсистемы балансировки нагрузки"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/03/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Как изменить параметры времени ожидания простоя TCP для подсистемы балансировки нагрузки
 
@@ -166,4 +166,4 @@ IdleTimeoutInMinutes — необязательный параметр. Если
 
  
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0824_2016-->

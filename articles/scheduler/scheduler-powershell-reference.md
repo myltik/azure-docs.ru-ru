@@ -1,4 +1,4 @@
-<properties
+.<properties
  pageTitle="Справочник по командлетам PowerShell планировщика"
  description="Справочник по командлетам PowerShell планировщика"
  services="scheduler"
@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Справочник по командлетам PowerShell планировщика
@@ -54,4 +54,4 @@
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

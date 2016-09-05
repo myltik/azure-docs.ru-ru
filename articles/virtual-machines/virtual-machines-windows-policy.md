@@ -1,10 +1,10 @@
-<properties
+.<properties
 	pageTitle="Применение политик к виртуальным машинам Azure Resource Manager | Microsoft Azure"
 	description="Как применить политику к виртуальной машине Azure Resource Manager на основе Windows"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -106,4 +106,4 @@
 
 * [Создание политики](../resource-manager-policy.md#applying-a-policy)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

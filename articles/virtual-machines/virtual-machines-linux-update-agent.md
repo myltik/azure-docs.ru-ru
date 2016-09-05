@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Обновление агента Linux для Azure из GitHub | Microsoft Azure"
 	description="Узнайте, как обновить агент Linux для Azure на виртуальной машине Linux до последней версии с сайта Github."
 	services="virtual-machines-linux"
@@ -29,7 +29,7 @@
 
 <br>
 
-> [AZURE.NOTE] Если эта задача выполняется на компьютере Windows, можно использовать PuTTY, чтобы подключиться по протоколу SSH к компьютеру Linux. Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-classic-log-on.md).
+> [AZURE.NOTE] Если эта задача выполняется на компьютере Windows, можно использовать PuTTY, чтобы подключиться по протоколу SSH к компьютеру Linux. Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-mac-create-ssh-keys.md).
 
 Рекомендованные Azure дистрибутивы Linux содержат в своих репозиториях пакет агента Linux для Azure, так что сначала проверьте наличие и установите последнюю версию из этого репозитория дистрибутивов, если это возможно.
 
@@ -159,4 +159,4 @@
 
 Дополнительную информацию об агенте Linux для Azure см. в [файле сведений агента Linux для Azure](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

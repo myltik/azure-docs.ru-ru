@@ -1,10 +1,10 @@
 
-<properties 
-   pageTitle="Обзор подсистемы балансировки нагрузки, доступной в Интернете | Microsoft Azure"
+.<properties 
+   pageTitle="Обзор подсистемы балансировки нагрузки, доступной в Интернете | Microsoft Azure "
    description="Обзор подсистемы балансировки нагрузки, доступной в Интернете, и ее функций. Информация о принципе работы подсистемы балансировки нагрузки с виртуальными машинами и облачными службами в Azure."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Доступная в Интернете подсистема балансировки нагрузки, используемая для нескольких виртуальных машин или служб
@@ -48,4 +48,4 @@
 
  
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

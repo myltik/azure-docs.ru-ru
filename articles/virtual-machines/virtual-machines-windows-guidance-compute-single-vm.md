@@ -1,10 +1,10 @@
-<properties
+.<properties
  pageTitle="Рекомендации по запуску виртуальных машин Windows в Azure | Microsoft Azure"
  description="Эта статья содержит рекомендации по запуску виртуальных машин Windows в Azure."
  services="virtual-machines-windows"
  documentationCenter=""
  authors="mikewasson"
- manager=""
+ manager="timlt"
  editor=""
  tags="azure-resource-manager"/>
 
@@ -25,4 +25,4 @@ ms.service="virtual-machines-windows"
 
 [AZURE.INCLUDE [gudiance-comput-single-vm-windows](../../includes/guidance-compute-single-vm-windows.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

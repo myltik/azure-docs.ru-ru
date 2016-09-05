@@ -1,9 +1,9 @@
-<properties
+.<properties
    pageTitle="Восстановление хранилища данных SQL Azure (портал) | Microsoft Azure"
    description="Задачи портала Azure для восстановления хранилища данных SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
+   authors="Lakshmi1812"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="07/18/2016"
-   ms.author="sonyama;barbkess;nicw"/>
+   ms.author="lakshmir;barbkess;sonyama"/>
 
 # Восстановление хранилища данных SQL Azure (портал)
 
@@ -36,7 +36,7 @@
 Процедура восстановления базы данных
 
 1. Войдите на [портал Azure][].
-2. В левой части экрана выберите **Обзор**, а затем — **Серверы SQL**.
+2. В левой части экрана выберите **Обзор**, а затем — **Серверы SQL**.
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
     
@@ -68,7 +68,7 @@
 Восстановление удаленной базы данных.
 
 1. Войдите на [портал Azure][].
-2. В левой части экрана выберите **Обзор**, а затем — **Серверы SQL**.
+2. В левой части экрана выберите **Обзор**, а затем — **Серверы SQL**.
     
     ![](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 
@@ -92,7 +92,7 @@
 8. Нажмите кнопку **ОК**.
 9. Начнется процесс восстановления базы данных, который можно отслеживать с помощью **уведомлений**.
 
->[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной Базы данных SQL Azure][].
+>[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
 
 
 ## Дальнейшие действия
@@ -100,7 +100,7 @@
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: ./sql-database-business-continuity.md
 [Обзор]: ./sql-data-warehouse-restore-database-overview.md
 [Портал]: ./sql-data-warehouse-restore-database-portal.md
@@ -109,11 +109,11 @@
 [Финализация восстановленной Базы данных SQL Azure]: ./sql-database-recovered-finalize.md
 [Создание запроса в службу поддержки для хранилища данных SQL]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 
-<!--MSDN references-->
+.<!--MSDN references-->
 
-<!--Blog references-->
+.<!--Blog references-->
 
 <!--Other Web references-->
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

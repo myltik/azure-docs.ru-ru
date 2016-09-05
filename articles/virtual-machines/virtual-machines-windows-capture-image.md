@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Создание образа виртуальной машины на основе виртуальной машины Azure | Microsoft Azure"
 	description="Научитесь создавать универсальный образ виртуальной машины на основе существующей виртуальной машины Azure, созданной с помощью модели развертывания Resource Manager"
 	services="virtual-machines-windows"
@@ -99,7 +99,7 @@
 
 	URL-адрес образа можно получить из шаблона файла JSON. Перейдите к разделу **resources** > **storageProfile** > **osDisk** > **image** > **uri**, чтобы получить полный путь к образу. URL-адрес образа выглядит так: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
-	Также вы также можете проверить URI на портале. Образ копируется в большой двоичный объект с именем **system** в вашей учетной записи хранения.
+	Также вы также можете проверить URI на портале. Образ копируется в контейнер **system** в вашей учетной записи хранения.
 
 2. Создайте переменную для пути к образу.
 
@@ -210,4 +210,4 @@
 
 Сведения об управлении созданной виртуальной машиной с помощью Azure PowerShell см. в статье [Управление виртуальными машинами Azure с помощью Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

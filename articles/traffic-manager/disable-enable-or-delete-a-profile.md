@@ -1,16 +1,19 @@
-<properties
+.<properties
    pageTitle="Включение, отключение или удаление профиля диспетчера трафика | Microsoft Azure"
    description="В этой статье вы узнаете, как работать с профилями диспетчера трафика."
    services="traffic-manager"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags  ms.service="traffic-manager" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services"
-   
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"   
    ms.date="06/10/2016"
-
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Включение, отключение или удаление профиля
 
@@ -35,7 +38,7 @@
 
 
 1. Убедитесь, что запись ресурса DNS на DNS-сервере Интернета больше не использует запись ресурса CNAME, указывающую на доменное имя вашего профиля диспетчера трафика.
-1. Выберите профиль, который требуется удалить. Чтобы выбрать профиль, на странице диспетчера трафика выделите профиль, 
+1. Выберите профиль, который требуется удалить. Чтобы выбрать профиль, на странице диспетчера трафика выделите профиль,
 1. щелкнув столбец рядом с его именем. Не щелкайте имя профиля или стрелку рядом с именем, так как при этом вы перейдете на страницу параметров для профиля.
 1. После выбора профиля нажмите кнопку «Удалить» в нижней части страницы.
 
@@ -51,4 +54,4 @@
 
 [Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Потоковая передача журнала действий Azure в концентраторы событий | Microsoft Azure"
 	description="Узнайте, как настроить потоковую передачу журнала действий Azure в концентраторы событий."
 	authors="johnkemnetz"
@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-<tags
+.<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -31,13 +31,13 @@
 ### С помощью портала Azure 
 1. Перейдите к колонке **Журнал действий** с помощью меню в левой части портала.
 
-    ![Переход к журналу действий на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+    .![Переход к журналу действий на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Нажмите кнопку **Экспорт** в верхней части колонки.
 
-    ![Кнопка экспорта на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    .![Кнопка экспорта на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. Откроется колонка, в которой вы можете выбрать регионы, для которых нужно выполнять передачу событий, и пространство имен служебной шины, в котором вы хотите создать концентратор событий для потоковой передачи этих событий.
 
-    ![Колонка экспорта журнала действий](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+    .![Колонка экспорта журнала действий](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Нажмите кнопку **Сохранить**, чтобы сохранить эти параметры. Параметры будут немедленно применены к подписке
 
 
@@ -71,7 +71,8 @@ ServiceBusRuleID — это строка в таком формате: `{service
 [Схема для журнала действий доступна здесь](./monitoring-overview-activity-logs.md). Каждое событие сохраняется в массиве больших двоичных объектов JSON, которые называются "записями".
 
 ## Дальнейшие действия
+- [Archive the Azure Activity Log](./monitoring-archive-activity-log.md) (Архивация журнала действий Azure)
 - [Изучите общие сведения о журнале действий Azure](./monitoring-overview-activity-logs.md)
 - [Настройте оповещения на основе событий журнала действий](./insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->
