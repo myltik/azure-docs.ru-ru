@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Аварийное восстановление и высокая доступность для приложений на платформе Azure
@@ -131,4 +131,4 @@ Azure обнаруживает и обрабатывает многие ошиб
 
 Эта статья входит в цикл статей, посвященных аварийному восстановлению и обеспечению высокой доступности приложений Azure. Следующая статья в этой серии — [Обеспечение высокой доступности для приложений на платформе Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

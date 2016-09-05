@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="singhkays"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -185,4 +185,4 @@ Add-AzureSMVmToRM -ServiceName acloudservice -Name atestvm -ResourceGroupName ar
 ## Примечания
 1. При последовательном клонировании нескольких виртуальных машин с коротким промежутком времени может возникнуть конфликт DNS-имен для общедоступных IP-адресов из-за времени обновления кэша DNS.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

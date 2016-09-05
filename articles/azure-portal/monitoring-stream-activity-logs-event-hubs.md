@@ -71,7 +71,8 @@ ServiceBusRuleID — это строка в таком формате: `{service
 [Схема для журнала действий доступна здесь](./monitoring-overview-activity-logs.md). Каждое событие сохраняется в массиве больших двоичных объектов JSON, которые называются "записями".
 
 ## Дальнейшие действия
+- [Archive the Azure Activity Log](./monitoring-archive-activity-log.md) (Архивация журнала действий Azure)
 - [Изучите общие сведения о журнале действий Azure](./monitoring-overview-activity-logs.md)
 - [Настройте оповещения на основе событий журнала действий](./insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

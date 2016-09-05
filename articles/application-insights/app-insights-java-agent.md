@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Отслеживание зависимостей, исключений и времени выполнения в веб-приложениях Java
@@ -25,7 +25,7 @@
 * **Зависимости** — данные о вызовах других компонентов в вашем приложении, включая:
  * **вызовы REST** через HttpClient, OkHttp и RestTemplate (Spring);
  * вызовы **Redis** через клиент Jedis. Если вызов выполняется дольше 10 с, агент также получает аргументы вызова.
- * **[Вызовы JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** — MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB или Apache Derby DB. Поддерживаются вызовы "executeBatch". Если для MySQL и PostgreSQL вызов выполняется дольше 10 с, агент сообщит о плане запроса. 
+ * **[Вызовы JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** — MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB или Apache Derby DB. Поддерживаются вызовы "executeBatch". Если для MySQL и PostgreSQL вызов выполняется дольше 10 с, агент сообщает о плане запроса.
 * **Перехваченные исключения:** данные об исключениях, обработанных вашим кодом.
 * **Время выполнения метода:** данные о времени, которое потребовалось для выполнения определенных методов.
 
@@ -36,7 +36,7 @@
 1. [Загрузите агент](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html) на компьютер с сервером Java.
 2. Измените скрипт запуска сервера приложений, добавив следующую виртуальную машину Java:
 
-    `javaagent:` *полный путь к файлу агента JAR*
+    `javaagent:`*полный путь к файлу агента JAR*.
 
     Например, в Tomcat на компьютере Linux:
 
@@ -59,11 +59,11 @@
         
         <!-- Collect remote dependency data -->
         <BuiltIn enabled="true">
-           <!-- Disable Redis or alter threshold call duration above which arguments will be sent.
+           <!-- Disable Redis or alter threshold call duration above which arguments are sent.
                Defaults: enabled, 10000 ms -->
            <Jedis enabled="true" thresholdInMS="1000"/>
            
-           <!-- Set SQL query duration above which query plan will be reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+           <!-- Set SQL query duration above which query plan is reported (MySQL, PostgreSQL). Default is 10000 ms. -->
            <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
         </BuiltIn>
 
@@ -94,7 +94,7 @@
 
 ## Просмотр данных
 
-В ресурсе Application Insights сводные данные по удаленным зависимостям и времени выполнения методов появятся [под плиткой производительности][metrics].
+В ресурсе Application Insights сводные данные по удаленным зависимостям и времени выполнения методов отображаются [под плиткой производительности][metrics].
 
 Для поиска отдельных экземпляров отчетов по зависимостям, исключениям и методам откройте [Поиск][diagnostic].
 
@@ -104,7 +104,8 @@
 
 ## Вопросы? Проблемы?
 
-[Устранение неполадок Java](app-insights-java-troubleshoot.md)
+* Данные отсутствуют? [Настройте исключения брандмауэра](app-insights-ip-addresses.md)
+* [Устранение неполадок Java](app-insights-java-troubleshoot.md)
 
 
 
@@ -122,4 +123,4 @@
 
  
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

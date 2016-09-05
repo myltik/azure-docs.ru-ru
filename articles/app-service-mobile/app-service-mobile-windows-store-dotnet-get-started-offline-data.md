@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/14/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Включение автономной синхронизации для приложения для Windows
@@ -129,7 +129,7 @@
          public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
-	Если в приложении используется проверка подлинности, единый вход завершится ошибкой. Чтобы продемонстрировать поведение в автономном режиме, отключите на устройстве Wi-Fi и сотовую связь и включите авиарежим.
+	Если в приложении используется проверка подлинности, единый вход завершится ошибкой. Чтобы продемонстрировать поведение в автономном режиме, отключите на устройстве Wi-Fi и мобильную связь и включите режим "в самолете".
 
 2. Нажмите клавишу **F5**, чтобы выполнить сборку и запустить приложение. Обратите внимание, синхронизацию не удалось выполнить при обновлении во время запуска приложения.
  
@@ -175,7 +175,7 @@
 
 ## Подробнее
 
-В следующих разделах приводятся дополнительные сведения о функции автономной синхронизации мобильных приложений:
+В следующих статьях приводятся дополнительные сведения о функции автономной синхронизации мобильных приложений.
 
 * [Автономная синхронизация данных в мобильных приложениях Azure]
 * [Облачное покрытие: автономная синхронизация в мобильных службах Azure]. (Обратите внимание: видео посвящено мобильным службам, но автономная синхронизация работает в мобильных приложениях Azure точно так же.)
@@ -187,7 +187,7 @@
 [Update the app to reconnect your Mobile Apps backend]: #update-online-app
 [Next Steps]: #next-steps
 
-<!-- Images -->
+.<!-- Images -->
 [1]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/app-service-mobile-add-reference-sqlite-dialog.png
 [11]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/app-service-mobile-add-wp81-reference-sqlite-dialog.png
 [13]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/cpu-architecture.png
@@ -215,4 +215,4 @@
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: приложения с поддержкой автономного режима в мобильных службах Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0824_2016-->

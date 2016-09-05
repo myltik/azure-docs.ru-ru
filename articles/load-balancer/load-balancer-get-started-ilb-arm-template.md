@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Создание внутреннего балансировщика нагрузки в диспетчере ресурсов с помощью шаблона | Microsoft Azure"
+   pageTitle="Создание внутреннего балансировщика нагрузки в диспетчере ресурсов с помощью шаблона | Microsoft Azure"
    description="Узнайте, как создать внутренний балансировщик нагрузки в диспетчере ресурсов с помощью шаблона."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/04/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Начало работы по созданию внутреннего балансировщика нагрузки с помощью шаблона
 
@@ -23,7 +23,7 @@
 <BR>
 [AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [Классическая модель развертывания](load-balancer-get-started-ilb-classic-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -35,12 +35,12 @@
 
 Чтобы развернуть шаблон, загруженный с помощью PowerShell, выполните описанные ниже действия.
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../../articles/powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../../articles/powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 
 
 2. Скачайте файл [параметров](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.parameters.json) на локальный диск.
 3. Измените и сохраните файл.
-4. Выполните командлет **New-AzureRmResourceGroupDeployment**, чтобы создать группу ресурсов с помощью шаблона. 
+4. Выполните командлет **New-AzureRmResourceGroupDeployment**, чтобы создать группу ресурсов с помощью шаблона.
 
 
 		New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
@@ -75,4 +75,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

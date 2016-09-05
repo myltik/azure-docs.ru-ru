@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Использование пакета SDK для .NET для доступа к интерфейсам API службы Azure Mobile Engagement
@@ -24,7 +24,7 @@ Azure Mobile Engagement предоставляет набор интерфейс
 
 В этом примере используется набор шагов, которые необходимо выполнить для использования пакета SDK для .NET:
 
-1. Во-первых, необходимо настроить проверку подлинности для интерфейсов API с помощью Azure Active Directory, как описано [здесь](mobile-engagement-api-authentication.md#authentication). По завершении этих шагов вы должны иметь допустимые **идентификатор подписки**, **идентификатор клиента**, **идентификатор приложения** и **секрет**. 
+1. Во-первых, необходимо настроить проверку подлинности для интерфейсов API с помощью Azure Active Directory, как описано [здесь](mobile-engagement-api-authentication.md#authentication). По завершении этих шагов вы должны иметь допустимые **идентификатор подписки**, **идентификатор клиента**, **идентификатор приложения** и **секрет**.
 
 2. Мы используем простое консольное приложение Windows для демонстрации работы с пакетом SDK для .NET с помощью сценария создания кампании типа "Объявление". Откройте Visual Studio и создайте **консольное приложение**.
 
@@ -47,7 +47,7 @@ Azure Mobile Engagement предоставляет набор интерфейс
         const string SUBSCRIPTION_ID = "<Your Subscription Id>";
 
         // This is the Azure Resource group concept for grouping together resources 
-        //  see here: https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-portal/
+        //  see here: https://azure.microsoft.com/documentation/articles/resource-group-portal/
         const string RESOURCE_GROUP = "";
 
         // For Mobile Engagement operations
@@ -122,4 +122,4 @@ Azure Mobile Engagement предоставляет набор интерфейс
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

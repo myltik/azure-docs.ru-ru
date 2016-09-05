@@ -15,13 +15,13 @@
 		ms.tgt_pltfrm="vm-linux"
 		ms.devlang="na"
 		ms.topic="article"
-		ms.date="03/04/2016"
+		ms.date="08/18/2016"
 		ms.author="v-livech"
 />
 
 # Добавление пользователя в виртуальную машину Azure
 
-Одной из первых задач для любой недавно запущенной виртуальной машины Linux является создание нового пользователя. В этой статье описано создание учетной записи пользователя sudo, настройка пароля, добавление открытых ключей SSH и использование `visudo` для разрешения sudo без пароля.
+Одной из первых задач для любой недавно запущенной виртуальной машины Linux является создание нового пользователя. В этой статье описано создание учетной записи пользователя sudo, настройка пароля, добавление открытых ключей SSH и использование `visudo` для разрешения доступа sudo без пароля.
 
 Необходимые компоненты: [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/), [открытый и закрытый ключи SSH](virtual-machines-linux-mac-create-ssh-keys.md), группа ресурсов Azure и интерфейс командной строки Azure, установленный и переведенный в режим Azure Resource Manager с помощью `azure config mode arm`.
 
@@ -29,23 +29,23 @@
 
 ```bash
 # Add a new user on RedHat family distros
-bill@slackware$ sudo useradd -G wheel exampleUser
+sudo useradd -G wheel exampleUser
 
 # Add a new user on Debian family distros
-bill@slackware$ sudo useradd -G sudo exampleUser
+sudo useradd -G sudo exampleUser
 
 # Set a password
-bill@slackware$ sudo passwd exampleUser
+sudo passwd exampleUser
 Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
 
 # Copy the SSH Public Key to the new user
-bill@slackware$ ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
+ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
 
 # Change sudoers to allow no password
 # Execute visudo as root to edit the /etc/sudoers file
-bill@slackware$ visudo
+visudo
 
 # On RedHat family distros uncomment this line:
 ## Same thing without a password
@@ -67,16 +67,16 @@ bill@slackware$ visudo
 bill@slackware$ ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
 
 # Verify sudo access
-exampleuser@exampleserver$ sudo top
+sudo top
 ```
 
 ## Подробное пошаговое руководство
 
 ### Введение
 
-Одной из первых и наиболее распространенных задач для нового сервера является добавление учетной записи пользователя. Корневые имена входа должны быть всегда отключены, и даже сама учетная запись root не должна использоваться с сервером Linux, применяйте только sudo. Правильный способ администрирования и использования Linux заключается в создании нового пользователя и назначении ему корневых привилегий эскалации с помощью sudo.
+Одной из первых и наиболее распространенных задач для нового сервера является добавление учетной записи пользователя. Корневые имена для входа должны быть отключены, и даже сама учетная запись root не должна использоваться на сервере Linux, применяйте только sudo. Правильный способ администрирования и использования Linux заключается в назначении пользователю корневых привилегий эскалации с помощью sudo.
 
-Мы будем использовать команду `useradd`, которая изменяет `/etc/passwd`, `/etc/shadow`, `/etc/group` и `/etc/gshadow` для создания нового пользователя Linux. Мы добавим флаг командной строки для команды `useradd`, чтобы добавить нового пользователя в соответствующую группу sudo в Linux. Хотя `useradd` создает запись в `/etc/passwd`, она не назначает пароль для новой учетной записи пользователя. Мы создадим начальный пароль для нового пользователя с помощью очень простой команды `passwd`. Последним шагом будет изменение правил sudo, разрешающее пользователю выполнять команды с привилегиями sudo без ввода пароля для каждой из них. После входа пользователя с помощью пары из открытого и закрытого ключей предполагается, что эта учетная запись безопасна с точки зрения недобросовестных субъектов, и доступ sudo предоставляется без пароля.
+С помощью команды `useradd` мы добавляем учетные записи пользователей на виртуальную машину Linux. Выполнение `useradd` изменяет `/etc/passwd`, `/etc/shadow`, `/etc/group` и `/etc/gshadow`. Мы добавляем флаг командной строки в команду `useradd`, чтобы добавить нового пользователя в соответствующую группу sudo в Linux. Хотя команда `useradd` создает запись в `/etc/passwd`, она не назначает пароль для новой учетной записи пользователя. Мы создаем начальный пароль для нового пользователя с помощью простой команды `passwd`. Последний шаг — изменение правил sudo, разрешающее пользователю выполнять команды с привилегиями sudo без ввода пароля для каждой из них. В случае входа с помощью закрытого ключей предполагается, что данная учетная запись пользователя безопасна с точки зрения неблагонадежных субъектов, и доступ sudo предоставляется без пароля.
 
 ### Добавление отдельного пользователя sudo в виртуальную машину Azure
 
@@ -95,18 +95,18 @@ exampleuser@exampleserver$ sudo top
 
 ```bash
 # On RedHat family distros
-bill@slackware$ sudo useradd -G wheel exampleUser
+sudo useradd -G wheel exampleUser
 
 # On Debian family distros
-bill@slackware$ sudo useradd -G sudo exampleUser
+sudo useradd -G sudo exampleUser
 ```
 
 #### Задание пароля
 
-Команда `useradd` создает нового пользователя и добавляет запись в `/etc/passwd` и `/etc/gpasswd`, но не задает сам пароль. Для этого мы воспользуемся командой `passwd`.
+Команда `useradd` создает пользователя и добавляет запись в `/etc/passwd` и `/etc/gpasswd`, но не задает сам пароль. Пароль добавляется в запись с помощью команды `passwd`.
 
 ```bash
-bill@slackware$ sudo passwd exampleUser
+sudo passwd exampleUser
 Enter new UNIX password:
 Retype new UNIX password:
 passwd: password updated successfully
@@ -116,21 +116,21 @@ passwd: password updated successfully
 
 ### Добавление открытого ключа SSH в новую учетную запись пользователя
 
-На своем компьютере выполните команду `ssh-copy-id` с только что настроенным паролем.
+На своем компьютере выполните команду `ssh-copy-id` с новым паролем.
 
 ```bash
-bill@slackware$ ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
+ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
 ```
 
 ### Использование visudo для разрешения применения sudo без пароля
 
-При использовании `visudo` для изменения файла `/etc/sudoers` обеспечивается несколько уровней защиты от неправильного изменения этого крайне важного файла. При выполнении `visudo` файл `/etc/sudoers` блокируется, чтобы во время работы с ним никто другой не мог внести в него изменения. `visudo` также проверяет файл `/etc/sudoers` на наличие ошибок при попытке сохранения или выхода. Таким образом, вы не можете оставить неработающий файл sudoers в системе.
+При использовании `visudo` для изменения файла `/etc/sudoers` обеспечивается несколько уровней защиты от неправильного изменения этого важного файла. При выполнении `visudo` файл `/etc/sudoers` блокируется, чтобы во время его редактирования никто другой не мог внести в него изменения. `visudo` также проверяет файл `/etc/sudoers` на наличие ошибок при попытке сохранения или выхода, чтобы было невозможно сохранить нерабочий файл sudoers.
 
-У нас уже есть пользователи в группе по умолчанию для доступа к sudo. Теперь нужно разрешить им использовать sudo без пароля.
+У нас уже есть пользователи в группе по умолчанию для доступа к sudo. Теперь нужно разрешить этим группам использовать sudo без пароля.
 
 ```bash
 # Execute visudo as root to edit the /etc/sudoers file
-bill@slackware$ visudo
+visudo
 
 # On RedHat family distros uncomment this line:
 ## Same thing without a password
@@ -152,10 +152,10 @@ bill@slackware$ visudo
 
 ```bash
 # Verify the SSH keys & User account
-bill@slackware$ ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
+ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
 
 # Verify sudo access
-exampleuser@exampleserver$ sudo top
+sudo top
 ```
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0824_2016-->

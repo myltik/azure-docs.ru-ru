@@ -47,15 +47,15 @@
 
 
 ## Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде.
+Цель этого руководства — показать, как выполнить проверку единого входа Microsoft Azure AD в тестовой среде.
 
 Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление eDigitalResearch из коллекции.
-2. Настройка и проверка единого входа в Azure AD
+2. Настройка и проверка единого входа в Microsoft Azure AD
 
 
-## Добавление eDigitalResearch из коллекции
+## Добавление eDigitalResearch из коллекции.
 Чтобы настроить интеграцию eDigitalResearch с Azure AD, необходимо добавить приложение eDigitalResearch из коллекции в список управляемых приложений SaaS.
 
 **Чтобы добавить eDigitalResearch из коллекции, сделайте следующее:**
@@ -86,32 +86,32 @@
 	![Выбор приложения в коллекции](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_0001.png)
 
 
-##  Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в eDigitalResearch с использованием тестового пользователя Britta Simon.
+##  Настройка и проверка единого входа в Microsoft Azure AD
+Цель этого раздела — показать, как настроить и проверить единый вход Microsoft Azure AD в eDigitalResearch с использованием тестового пользователя Britta Simon.
 
 Для работы единого входа в Azure AD необходимо знать, какой пользователь в eDigitalResearch соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в eDigitalResearch.
 
 Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в eDigitalResearch.
 
-Чтобы настроить и проверить единый вход Azure AD в eDigitalResearch, вам потребуется выполнить действия в следующих стандартных блоках:
+Чтобы настроить и проверить единый вход Microsoft Azure AD в eDigitalResearch, выполните следующие стандартные действия.
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+1. **[Настройка единого входа Microsoft Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы позволить пользователям использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Microsoft Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя eDigitalResearch](#creating-a-edigitalresearch-test-user)** требуется для создания в eDigitalResearch пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
-4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Microsoft Azure AD.
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-### Настройка единого входа в Azure AD
+### Настройка единого входа Microsoft Azure AD
 
-В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении eDigitalResearch.
+В этом разделе описано, как включить единый вход Microsoft Azure AD на классическом портале и настроить его в приложении eDigitalResearch.
 
-**Чтобы настроить единый вход Azure AD в eDigitalResearch, сделайте следующее:**
+**Чтобы настроить единый вход Microsoft Azure AD в eDigitalResearch, сделайте следующее:**
 
 1. На классическом портале на странице интеграции с приложением **eDigitalResearch** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
 	 
 	![Настройка единого входа][6]
 
-2. На странице **How would you like users to sign on to eDigitalResearch** (Как пользователи должны входить в eDigitalResearch?) выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+2. На странице **Как пользователи должны входить в eDigitalResearch** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
 
 	![Настройка единого входа](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_03.png)
 
@@ -166,7 +166,7 @@
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3. Чтобы вывести на экран список пользователей, щелкните **Пользователи** в меню вверху.
+3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 	
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_03.png)
 
@@ -249,7 +249,7 @@
 
 ### Проверка единого входа
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+Цель этого раздела — проверить конфигурацию единого входа Microsoft Azure AD с помощью панели доступа.
 
 Щелкнув элемент eDigitalResearch на панели доступа, вы автоматически войдете в приложение eDigitalResearch.
 
@@ -279,4 +279,4 @@
 [204]: ./media/active-directory-saas-edigitalresearch-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-edigitalresearch-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

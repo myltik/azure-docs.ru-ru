@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/06/2016"
+   ms.date="08/23/2016"
    ms.author="larryfr"/>
 
 # Использование MapReduce в Hadoop в HDInsight
@@ -156,7 +156,7 @@ HDInsight может запускать задания HiveQL с помощью 
 |:-------------------------------------------------------------------|:--------------------------------------------------------|:------------------------------------------|:-----------------------------------------|
 | [SSH](hdinsight-hadoop-use-mapreduce-ssh.md) | Использование команды Hadoop через **SSH** | Linux | Linux, Unix, Mac OS X или Windows |
 | [Curl](hdinsight-hadoop-use-mapreduce-curl.md) | Удаленная отправка заданий с помощью **REST** | Windows или Linux | Linux, Unix, Mac OS X или Windows |
-| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) | Удаленная отправка заданий с помощью **Windows PowerShell** | Windows или Linux | Windows |
+| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) | Удаленная отправка заданий с помощью **Windows PowerShell** | Linux или Windows | Windows |
 | [Удаленный рабочий стол](hdinsight-hadoop-use-mapreduce-remote-desktop) | Использование команды Hadoop с помощью **удаленного рабочего стола** | Windows | Windows |
 
 ##<a id="nextsteps"></a>Дальнейшие действия
@@ -188,4 +188,4 @@ HDInsight может запускать задания HiveQL с помощью 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

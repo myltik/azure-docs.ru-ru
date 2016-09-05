@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 # Руководство обеспечению по устойчивости службы Microsoft Azure
@@ -38,4 +38,4 @@
 ##Дальнейшие действия
 Более развернутые рекомендации по системам и решениям см. в статье [Аварийное восстановление и высокая доступность для приложений на платформе Azure](https://aka.ms/drtechguide).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

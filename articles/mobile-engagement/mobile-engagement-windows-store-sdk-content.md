@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Содержимое пакета SDK для универсальных приложений для Windows
@@ -47,4 +47,4 @@
 - `EngagementPageOverlay.cs`: страница наложения, ответственная за добавление пользовательского интерфейса Engagement в приложении в дочерний элемент.
   
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

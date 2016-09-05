@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Приложение Azure Authenticator для мобильных телефонов" 
+	pageTitle="Приложение Microsoft Authenticator для мобильных телефонов" 
 	description="Узнайте, как выполнить обновление до последней версии Azure Authenticatior." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtland"/>
 
 <tags 
@@ -13,19 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
+# Microsoft Authenticator
+
+Приложение Microsoft Authenticator обеспечивает дополнительный уровень безопасности, который можно применить для учетной записи Azure (например, bsimon@contoso.onmicrosoft.com), для локальной рабочей учетной записи (например, bsimon@contoso.com), или для учетной записи Майкрософт (например, bsimon@outlook.com).
+
+## Загрузка приложения Microsoft Authenticator
+
+Приложение Microsoft Authenticator доступно для платформ [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+
+## Как работает Microsoft Authenticator
+Приложение Microsoft Authenticator передает push-уведомления на ваш смартфон или планшет. Для проверки подлинности вам достаточно нажать кнопку "Подтвердить" в приложении.
+
+Также может использоваться код проверки. В этом сценарии код, предоставленный приложением, нужно ввести в ответ на запрос на экране входа.
+
+Соответственно, вам доступны два разных режима.
+
+**Уведомление**. В этом режиме приложение Microsoft Authenticator предотвращает несанкционированный доступ к учетным записям и блокирует мошеннические транзакции. Это осуществляется с помощью push-уведомлений на телефон или зарегистрированное устройство. Просто просмотрите уведомление и, если оно подлинное, выберите «Подтвердить подлинность». В противном случае вы можете просто выбрать "Отказать" или можете, отказав, еще и отправить сообщение о мошенническом уведомлении. Сведения о том, как сообщить о мошенничестве, см. в статье об использовании функции запрета и уведомления о мошенничестве для Multi-Factor Authentication.
+
+**Одноразовый пароль**. В этом режиме приложение Microsoft Authenticator можно использовать в качестве программного токена для создания кода проверки OATH. Затем вы можете ввести этот код вместе с именем пользователя и паролем, что дает вам второй способ проверки подлинности.
+
+## Добавление учетной записи к приложению Microsoft Authenticator
+
+## Переход к новому приложению Microsoft Authenticator
+
+С выпуском новой версии старое приложение Azure Authenticator постепенно выводится из использования. Вы можете продолжать использовать приложение Azure Authenticator. Сведения в этой статье пригодятся вам, когда вы решите перейти к новому приложению Microsoft Authenticator.
 
 
-# Переход к новому приложению Azure Authenticator
+## Переход к новому приложению Microsoft Authenticator 
 
-После выпуска приложение Azure Authenticator для [Windows Phone](http://www.windowsphone.com/ru-RU/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) заменит старое приложение Multi-Factor Authentication. Вы можете продолжать использовать приложение Multi-Factor Authentication. Сведения в этой статье помогут вам, когда вы решите перейти к новому приложению Azure Authenticator.
-
-
-## Переход к использованию нового приложения Azure Authenticator 
-
-**Шаг 1.** Установите приложение Azure Authenticator.
+**Шаг 1**. Установите Microsoft Authenticator.
 
 ![Облако](./media/multi-factor-authentication-azure-authenticator/home.png)
 
@@ -73,7 +92,7 @@
   
 ![Сканирование штрихкода](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-- Теперь запустите приложение Azure Authenticator (должна открыться страница учетных записей). Здесь вы увидите список настроенных учетных записей. Чтобы добавить учетную запись, щелкните символ +. Откроется сканер.
+- Теперь запустите приложение Microsoft Authenticator (должна открыться страница учетных записей). Здесь вы увидите список настроенных учетных записей. Чтобы добавить учетную запись, щелкните символ +. Откроется сканер.
 
 ![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
@@ -102,7 +121,7 @@
   
 ![Сканирование штрихкода](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-- Теперь запустите приложение Azure Authenticator (должна открыться страница учетных записей). Здесь вы увидите список настроенных учетных записей. Чтобы добавить учетную запись, щелкните символ +. Откроется сканер.
+- Теперь запустите приложение Microsoft Authenticator (должна открыться страница учетных записей). Здесь вы увидите список настроенных учетных записей. Чтобы добавить учетную запись, щелкните символ +. Откроется сканер.
 
 ![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
@@ -131,7 +150,7 @@
 
 ![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
-- Запустите приложение Azure Authenticator (должна открыться страница учетных записей). Здесь вы увидите список настроенных учетных записей. Чтобы добавить учетную запись, щелкните символ +. Откроется сканер.
+- Запустите приложение Microsoft Authenticator (должна открыться страница учетных записей). Здесь вы увидите список настроенных учетных записей. Чтобы добавить учетную запись, щелкните символ +. Откроется сканер.
 
 ![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
@@ -152,9 +171,9 @@
 ![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/verify.png)
 
 ## Добавление учетной записи с помощью TouchID
-Мобильное приложение Azure Authenticator на iOS поддерживает TouchID. Azure Multi-Factor Authentication позволяет организациям запрашивать ПИН-код у владельцев зарегистрированных устройств. Благодаря этой функции, пользователями устройств iOS с поддержкой TouchID больше не нужно будет вводить ПИН-код. После предварительной настройки вместо того, чтобы вводить ПИН-код, пользователи смогут просканировать свой отпечаток пальца и выбрать параметр «Разрешить».
+Мобильное приложение Microsoft Authenticator на iOS поддерживает TouchID. Azure Multi-Factor Authentication позволяет организациям запрашивать ПИН-код у владельцев зарегистрированных устройств. Благодаря этой функции, пользователями устройств iOS с поддержкой TouchID больше не нужно будет вводить ПИН-код. После предварительной настройки вместо того, чтобы вводить ПИН-код, пользователи смогут просканировать свой отпечаток пальца и выбрать параметр «Разрешить».
 
-Настройка TouchID в приложении Azure Authenticator выполняется очень просто. Пройдите обычную проверку, указав ПИН-код, и, если ваше устройство поддерживает TouchID, мы настроим его автоматически.
+Настройка TouchID в приложении Microsoft Authenticator выполняется очень просто. Пройдите обычную проверку, указав ПИН-код, и, если ваше устройство поддерживает TouchID, мы настроим его автоматически.
 
 ![Идентификатор сенсорного экрана](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
 
@@ -164,8 +183,8 @@
 
 ## Удаление учетной записи
 
-Для удаления учетной записи из приложения проверки подлинности Azure просто коснитесь этой учетной записи. Отобразится параметр Delete (Удалить).
+Для удаления учетной записи из приложения Microsoft Authenticator просто коснитесь этой учетной записи. Отобразится параметр Delete (Удалить).
 
 ![Удаление учетной записи](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

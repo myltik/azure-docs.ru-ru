@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2016" 
+	ms.date="08/18/2016" 
 	ms.author="sdanie"/>
 
 # Кэш Redis для Azure. Вопросы и ответы
@@ -27,6 +27,7 @@
 
 -	Можно опубликовать вопрос в [дискуссии Disqus](#comments), указанной в конце раздела часто задаваемых вопросов, и обсудить данную статью с командой разработчиков кэша Azure и другими участниками сообщества.
 -	Чтобы охватить большую аудиторию, можно опубликовать вопрос на [форуме MSDN по кэшу Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) и обсудить его с командой разработчиков кэша Azure и другими участниками сообщества.
+-	Если вы хотите сделать запрос на функцию, то можете отправить свои запросы и предложения на [форуме пользователей кэша Redis для Azure](https://feedback.azure.com/forums/169382-cache).
 -	Можно также [отправить нам внешний отзыв о кэше Azure](mailto:azurecache@microsoft.com) по электронной почте.
 
 ## Основные сведения о кэше Redis для Azure
@@ -448,4 +449,4 @@ ConnectTimeout|Время ожидания в миллисекундах для 
 
 [параметр конфигурации minIoThreads]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

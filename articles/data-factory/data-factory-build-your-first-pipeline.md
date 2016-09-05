@@ -204,7 +204,7 @@
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] Указанная выше команда создает контейнер с именем **adfgetstarted** в хранилище BLOB-объектов Azure и копирует файл **partitionweblogs.hql** с локального диска в папку **inputdata** в контейнере.
+		> [AZURE.NOTE] Указанная выше команда создает контейнер с именем **adfgetstarted** в хранилище BLOB-объектов Azure и копирует файл **input.log** с локального диска в папку **inputdata** в контейнере.
 	
 	5. После успешной передачи файла отображаются примерно следующие выходные данные из AzCopy.
 	
@@ -228,4 +228,4 @@
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Шаблон диспетчера ресурсов](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

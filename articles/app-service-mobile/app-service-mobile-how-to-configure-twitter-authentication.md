@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Как настроить приложение службы приложений для использования имени для входа Twitter
@@ -29,7 +29,7 @@
 
 1. Перейдите на [портал Azure] и перейдите к своему приложению. Скопируйте свой **URL-адрес**. Он будет использован для настройки приложения Twitter.
 
-2. Перейдите на веб-сайт [Twitter Developers] (Разработчики Twitter), войдите по учетным данным учетной записи Twitter и щелкните **Создать приложение**.
+2. Перейдите на веб-сайт [Twitter Developers] (Разработчики Twitter), войдите с помощью учетных данных учетной записи Twitter и щелкните **Create New App** (Создать приложение).
 
 3. Введите в **имя** и **описание** для нового приложения. Вставьте **URL-адрес** приложения в поле **Веб-сайт**. Затем в поле **URL-адрес обратного вызова** вставьте **URL-адрес обратного вызова**, скопированный ранее. Это шлюз мобильного приложения, дополненный путем _/.auth/login/twitter/callback_. Пример: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Убедитесь, что используете схему HTTPS.
 
@@ -77,4 +77,4 @@
 [портал Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

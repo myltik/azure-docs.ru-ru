@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/11/2016"
+   ms.date="08/19/2016"
    ms.author="nicw;barbkess;sonyama"/>
 
 # Сведения о миграции в хранилище класса Premium
@@ -91,13 +91,13 @@
 | Восточная часть Японии | 10 августа 2016 г. | 24 августа 2016 г. |
 | Западная часть Японии | Еще не определено | Еще не определено |
 | Северо-центральный регион США | Еще не определено | Еще не определено |
-| Северная Европа | 10 августа 2016 г. | 24 августа 2016 г. |
+| Северная Европа | 10 августа 2016 г. | 31 августа 2016 г. |
 | Южно-центральный регион США | 23 июня 2016 г. | 2 июля 2016 г. |
 | Юго-Восточная Азия | 23 июня 2016 г. | 1 июля 2016 г. |
 | Западная Европа | 23 июня 2016 г. | 8 июля 2016 г. |
-| Западно-центральная часть США | 14 августа 2016 г. | 28 августа 2016 г. |
+| Западно-центральная часть США | 14 августа 2016 г. | 31 августа 2016 г. |
 | Запад США | 23 июня 2016 г. | 7 июля 2016 г. |
-| Западная часть США 2 | 14 августа 2016 г. | 28 августа 2016 г. |
+| Западная часть США 2 | 14 августа 2016 г. | 31 августа 2016 г. |
 
 ## Самостоятельная миграция в хранилище класса Premium
 Если вы хотите управлять временем простоя, то можно выполнить приведенные ниже шаги, чтобы перенести существующее хранилище данных из хранилища уровня "Стандартный" в хранилище уровня "Премиум". Если вы решили выполнить миграцию самостоятельно, то это необходимо сделать до начала автоматической миграции в соответствующем регионе. Так вы избежите риска конфликтов (см. раздел [Расписание автоматической миграции][]).
@@ -147,48 +147,25 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 Шаг 1. Создание таблицы для управления перестроением индекса
 Выполните сценарий ниже от имени пользователя в роли mediumrc или выше.
 --------------------------------------------------------------------------------
-create table sql_statements
-WITH (distribution = round_robin)
-as select 
-    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement,
-    row_number() over (order by s.name, t.name) as sequence
-from 
-    sys.schemas s
-    inner join sys.tables t
-        on s.schema_id = t.schema_id
-where
-    is_external = 0
-;
-go
+create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
  
 --------------------------------------------------------------------------------
 Шаг 2. Перестроение индекса В случае сбоя сценария код ниже может быть повторно запущен с места остановки.
 Выполните сценарий ниже от имени пользователя в роли mediumrc или выше.
 --------------------------------------------------------------------------------
 
-declare @nbr_statements int = (select count(*) from sql_statements)
-declare @i int = 1
-while(@i <= @nbr_statements)
-begin
-      declare @statement nvarchar(1000)= (select statement from sql_statements where sequence = @i)
-      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement
-      exec (@statement)
-      delete from sql_statements where sequence = @i
-      set @i += 1
-end;
+declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
 go
 -------------------------------------------------------------------------------
 Шаг 3. Очистка таблицы, созданной на шаге 1
 --------------------------------------------------------------------------------
-drop table sql_statements;
-go
-````
+drop table sql\_statements; go ````
 
 Если возникнут проблемы с хранилищем данных, [создайте запрос в службу поддержки][] и укажите "Перенос в хранилище уровня "Премиум"" в качестве возможной причины.
 
-<!--Image references-->
+.<!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [Расписание автоматической миграции]: #automatic-migration-schedule
 [расписание автоматического переноса]: #automatic-migration-schedule
 [расписания автоматического переноса]: #automatic-migration-schedule
@@ -202,12 +179,11 @@ go
 [масштабировании вычислительной мощности]: sql-data-warehouse-manage-compute-portal/#scale-compute-power
 [роли mediumrc]: sql-data-warehouse-develop-concurrency/#workload-management
 
-<!--MSDN references-->
+.<!--MSDN references-->
 
 
 <!--Other Web references-->
 [хранилища класса Premium, обеспечивающего более предсказуемую производительность]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [портале Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0817_2016-->
-
+<!---HONumber=AcomDC_0824_2016-->

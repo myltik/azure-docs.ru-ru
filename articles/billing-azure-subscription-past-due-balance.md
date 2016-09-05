@@ -15,11 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # Почему вы получили уведомление о том, что имеется задолженность по вашей подписке Azure?
 Если вы являетесь администратором учетной записи для подписки Azure и не осуществили оплату вовремя, вы получите по электронной почте уведомление о задолженности или увидите предупреждение на сайте [https://account.windowsazure.com](https://account.windowsazure.com) или [https://portal.azure.com](https://portal.azure.com).
+
+> [AZURE.NOTE] Если в ходе работы с этой статьей вам потребуется дополнительная помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет вам быстро устранить проблему.
 
 Если по какой-либо причине нам не удалось обработать ваш платеж, вы можете получить электронное сообщение с примерно таким содержанием:
 
@@ -45,4 +47,6 @@
 
 > [AZURE.NOTE] Если ваша подписка Azure отключена, можно включить ее повторно, выполнив приведенные в этой статье действия: [Что делать в случае отмены подписки Azure?](billing-subscription-become-disable.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+> [AZURE.NOTE] Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
+
+<!---HONumber=AcomDC_0824_2016-->
