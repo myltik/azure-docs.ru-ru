@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Использование ключей SSH с Hadoop в кластерах на платформе Linux из Windows | Microsoft Azure"
    description="Узнайте, как создавать и использовать ключи SSH для аутентификации в кластерах HDInsight на основе Linux. Подключайте кластеры с клиентов под управлением Windows с помощью клиента PuTTY SSH."
    services="hdinsight"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Использование SSH с Hadoop на основе Linux в HDInsight из Windows
@@ -26,6 +26,8 @@
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) позволяет удаленно выполнять операции в кластерах HDInsight на основе Linux с помощью интерфейса командной строки. Этот документ содержит информацию о подключении к HDInsight из клиентов Windows с помощью клиента SSH PuTTY.
 
 > [AZURE.NOTE] При описании действий в данной статье предполагается, что вы используете клиент Windows. Если вы используете клиент OS X, Linux или Unix, см. статью [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+>
+> Если вы работаете на компьютере с Windows 10 и используете [Bash на Ubuntu в Windows](https://msdn.microsoft.com/commandline/wsl/about), следуйте инструкциям в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ##Предварительные требования
 
@@ -35,7 +37,7 @@
 
 ИЛИ
 
-* [Azure CLI](../xplat-cli-install.md).
+* [Интерфейс командной строки Azure](../xplat-cli-install.md).
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -235,4 +237,4 @@ SSH — это служебная программа для входа в сис
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

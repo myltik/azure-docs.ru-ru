@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Расположения ExpressRoute | Microsoft Azure"
    description="В этой статье приведена подробная информация о расположениях, где предлагаются услуги, и способах подключения к регионам Azure."
    services="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # Партнеры и одноранговые расположения ExpressRoute
@@ -76,7 +76,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Мумбай** | Tata Communications |
 | **Осака** | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
 | **Париж** | Interxion |
-| **Сан-Паулу** | Equinix, Telefonica+ |
+| **Сан-Паулу** | Equinix Telefonica |
 | **Сиэтл;** | Equinix, Level 3 Communications, Megaport |
 | **Кремниевая долина** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Сингапур** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
@@ -153,7 +153,7 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!--Image References-->
+.<!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

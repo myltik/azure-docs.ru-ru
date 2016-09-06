@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Сборка и развертывание приложения API Java в службе приложений Azure"
 	description="Узнайте, как создать пакет приложения API Java и развернуть его в службе приложений Azure."
 	services="app-service\api"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/31/2016"
 	ms.author="rachelap"/>
 
 # Сборка и развертывание приложения API Java в службе приложений Azure
@@ -27,7 +27,7 @@
 1. [Java Developer Kit 8] (или более поздней версии).
 1. Установка [Maven] на компьютере, на котором ведется разработка.
 1. Установка [Git] на компьютере, на котором ведется разработка.
-1. Платная или [бесплатная пробная версия] подписки на [Microsoft Azure].
+1. Платная или [бесплатная пробная версия] подписки [Microsoft Azure].
 1. Пример HTTP-приложения, например [Postman].
 
 ## Формирование API на основе скаффолдинга при помощи Swagger.io
@@ -338,4 +338,4 @@
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

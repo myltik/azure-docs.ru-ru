@@ -1,5 +1,5 @@
-<properties
-    pageTitle="Аналитика для приложений Android"
+.<properties
+    pageTitle="Аналитика для приложений Android | Microsoft Azure"
     description="Анализ использования и производительности приложения Android. "
     services="application-insights"
     documentationCenter="android"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="06/20/2016"
+	ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Аналитика для приложений Android
@@ -30,8 +30,16 @@
 
 Если у приложения есть серверная часть, используйте [Application Insights](app-insights-overview.md) для мониторинга веб-сервера приложения на платформе [ASP.NET](app-insights-asp-net.md) или [J2EE](app-insights-java-get-started.md).
 
-> [AZURE.NOTE] Скоро вы сможете использовать [аналитику Application Insights](app-insights-analytics.md) и [непрерывный экспорт](app-insights-export-telemetry.md) с данными телеметрии, отправляемыми из пакета SDK HockeyApp.
->
-> [Дополнительные сведения об этом изменении.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
-<!---HONumber=AcomDC_0622_2016-->
+## Аналитика, экспорт и доступ API к данным HockeyApp 
+
+[Настройте мост HockeyApp](app-insights-hockeyapp-bridge-app.md) в Application Insights. Это позволяет:
+
+* использовать эффективный язык запросов [аналитики](app-insights-analytics.md) для телеметрии;
+* [экспортировать данные телеметрии](app-insights-export-telemetry.md) в хранилище BLOB-объектов Azure.
+
+## Дальнейшие действия
+
+* [Начало работы с HockeyApp для Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
+
+<!---HONumber=AcomDC_0831_2016-->

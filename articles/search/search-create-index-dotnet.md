@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Создание индекса службы поиска Azure с помощью пакета SDK для .NET | Microsoft Azure | Размещенная облачная служба поиска"
     description="Индекс можно создать в коде с помощью пакета SDK для .NET службы поиска Azure."
     services="search"
@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Создание индекса службы поиска Azure с помощью пакета SDK для .NET
@@ -99,7 +99,7 @@ var definition = new Index()
 
 Обратите внимание, что только одно поле в индексе типа `DataType.String` должно быть назначено как поле _key_ путем задания значения `true` для `IsKey` (см. `hotelId` в примере выше).
 
-Приведенное ранее определение индекса использует настраиваемый языковой анализатор для поля `description_fr`, так как оно предназначено для текста на французском языке. Дополнительные сведения о языковых анализаторах см. в [статье о поддержке языков на сайте MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx), а также в соответствующей [записи блога](https://azure.microsoft.com/blog/language-support-in-azure-search/).
+Приведенное ранее определение индекса использует настраиваемый языковой анализатор для поля `description_fr`, так как оно предназначено для текста на французском языке. Дополнительные сведения об анализаторах языка см. в [статье о поддержке языков на сайте MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx), а также в соответствующей [записи блога](https://azure.microsoft.com/blog/language-support-in-azure-search/).
 
 > [AZURE.NOTE]  Обратите внимание, что при передаче `AnalyzerName.FrLucene` в конструктор `Field` будет автоматически иметь тип `DataType.String`, а для его `IsSearchable` будет установлено значение `true`.
 
@@ -123,4 +123,4 @@ serviceClient.Indexes.Delete("hotels");
 ## Далее
 Создав индекс службы поиска Azure, вы сможете [передать в него содержимое](search-what-is-data-import.md) и искать нужные вам данные.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

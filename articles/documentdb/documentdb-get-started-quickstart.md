@@ -23,33 +23,29 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Добро пожаловать в руководство по NoSQL, посвященное пакету SDK для .NET в Azure DocumentDB. После изучения этого учебника e вас будет консольное приложение, которое создает ресурсы DocumentDB и отправляет запросы к ним.
+Добро пожаловать в руководство по NoSQL, посвященное пакету SDK для .NET в Azure DocumentDB. После создания проекта QuickStart и изучения этого руководства вы получите консольное приложение, которое создает ресурсы DocumentDB и отправляет запросы к ним.
 
-Мы рассмотрим следующие вопросы:
-
-- создание учетной записи DocumentDB и подключение к ней;
-- настройка решения Visual Studio;
-- Создание оперативной базы данных
-- создание коллекции;
-- создание документов JSON;
-- выполнение запросов к коллекции;
-- замена документа;
-- удаление документа;
-- удаление базы данных.
-
-У вас нет времени? Не беспокойтесь! Завершенное решение доступно на [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Краткие инструкции см. в разделе [Получение завершенного решения](#GetSolution).
-
-После этого используйте кнопки голосования в верхней или нижней части этой страницы, чтобы отправить нам отзыв. Если вы хотите, чтобы мы связались с вами, укажите ваш электронный адрес в комментариях.
-
-А теперь приступим к работе!
+- **[QuickStart](#quickstart)**. Скачайте пример проекта, добавьте сведения о подключении, и вы сможете запустить приложение DocumentDB менее чем через 5 минут.
+- **[Руководство](#tutorial)**. Создайте приложение QuickStart с нуля за 30 минут.
 
 ## Предварительные требования
 
-Убедитесь, что у вас есть указанные ниже компоненты.
-
 - Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/).
-- [Visual Studio 2013 или 2015](http://www.visualstudio.com/).
+- [Visual Studio 2013 или Visual Studio 2015](http://www.visualstudio.com/).
 - .NET Framework 4.6
+
+## Быстрый запуск
+
+1. Скачайте пример проекта с портала [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
+2. На портале Azure [создайте учетную запись DocumentDB](documentdb-create-account.md).
+3. В файле App.config замените значения EndpointUri и PrimaryKey значениями, полученными с [портала Azure](https://portal.azure.com/). Для этого перейдите к колонке **DocumentDB (NoSQL)**, затем щелкните **Имя учетной записи** и в меню ресурсов выберите пункт **Ключи**. ![Снимок экрана со значениями EndpointUri и PrimaryKey, которые нужно заменить в файле App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
+4. Создайте проект. В окне консоли отображается создание ресурсов, отправка запросов к ним и их очистка.
+    
+    ![Снимок экрана с выходными данными консоли](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-console-output.png)
+
+## <a id="tutorial"></a>Руководство
+
+В этом руководстве описано, как создать базу данных DocumentDB, коллекцию DocumentDB и документы JSON. Затем вы узнаете, как отправить запрос к коллекции, а также как очистить и удалить базу данных. В этом руководстве описано создание проекта, идентичного проекту QuickStart, но вы будете создавать его постепенно, получая объяснения кода, добавляемого в проект.
 
 ## Этап 1: создание учетной записи DocumentDB
 
@@ -194,7 +190,7 @@
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
 		// ADD THIS PART TO YOUR CODE
-		await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+		await this.CreateDatabaseIfNotExists("FamilyDB_va");
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -242,14 +238,14 @@
 		}
 	}
 
-Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания базы данных. Будет создана коллекция документов с именем *FamilyCollection\_oa*.
+Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания базы данных. Будет создана коллекция документов с именем *FamilyCollection\_va*.
 
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
 		await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
 		// ADD THIS PART TO YOUR CODE
-		await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+		await this.CreateDocumentCollectionIfNotExists("FamilyDB_va", "FamilyCollection_va");
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -340,9 +336,9 @@
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания коллекции документов.
 
-	await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+	await this.CreateDatabaseIfNotExists("FamilyDB_va");
 
-	await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+	await this.CreateDocumentCollectionIfNotExists("FamilyDB_va", "FamilyCollection_va");
 
 	// ADD THIS PART TO YOUR CODE
 	Family andersenFamily = new Family
@@ -371,7 +367,7 @@
 			IsRegistered = true
 	};
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", andersenFamily);
 
 	Family wakefieldFamily = new Family
 	{
@@ -408,7 +404,7 @@
 			IsRegistered = false
 	};
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -458,10 +454,10 @@
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания второго документа.
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
 	// ADD THIS PART TO YOUR CODE
-	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -495,17 +491,17 @@ DocumentDB поддерживает замену документов JSON.
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом выполнения запроса. После замены документа тот же запрос будет запущен повторно, чтобы вы могли просмотреть измененный документ.
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 	// ADD THIS PART TO YOUR CODE
 	// Update the Grade of the Andersen Family child
 	andersenFamily.Children[0].Grade = 6;
 
-	await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
+	await this.ReplaceFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1", andersenFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -533,12 +529,12 @@ DocumentDB поддерживает удаление документов JSON.
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом выполнения второго запроса.
 
-	await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
+	await this.ReplaceFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1", andersenFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 	// ADD THIS PART TO CODE
-	await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+	await this.DeleteFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1");
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -550,13 +546,13 @@ DocumentDB поддерживает удаление документов JSON.
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом удаления документа, чтобы удалить всю базу данных и все дочерние ресурсы.
 
-	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+	this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
-	await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+	await this.DeleteFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1");
 
 	// ADD THIS PART TO CODE
 	// Clean up/delete the database
-	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
+	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_va"));
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -568,9 +564,9 @@ DocumentDB поддерживает удаление документов JSON.
 
 Должны отобразиться выходные данные вашего приложения. Они должны содержать результаты обработки добавленных запросов. При этом выглядеть они должны примерно так, как показано в примере ниже.
 
-	Created FamilyDB_oa
+	Created FamilyDB_va
 	Press any key to continue ...
-	Created FamilyCollection_oa
+	Created FamilyCollection_va
 	Press any key to continue ...
 	Created Family Andersen.1
 	Press any key to continue ...
@@ -591,15 +587,6 @@ DocumentDB поддерживает удаление документов JSON.
 
 Поздравляем! Вы завершили работу с руководством по NoSQL и создали работающее консольное приложение C#.
 
-##<a id="GetSolution"></a> Получение полного решения NoSQL для этого руководства
-Чтобы собрать решение GetStarted, которое содержит все примеры из данной статьи, вам понадобится следующее:
-
-- Активная учетная запись Azure. Если у вас ее нет, зарегистрируйте [бесплатную учетную запись](https://azure.microsoft.com/free/).
--   [Учетная запись DocumentDB][documentdb-create-account].
--   решение [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started), доступное в GitHub.
-
-Чтобы в Visual Studio восстановить ссылки на пакет SDK для .NET в DocumentDB, в обозревателе решений щелкните правой кнопкой мыши решение **GetStarted**, а затем выберите пункт **Включить восстановление пакета NuGet**. Затем в файле App.config обновите значения EndpointUrl и AuthorizationKey согласно инструкциям раздела [Подключение к учетной записи DocumentDB](#Connect).
-
 ## Дальнейшие действия
 
 - Требуется более подробное руководство по NoSQL для ASP.NET MVC? См. статью [Создание веб-приложения ASP.NET MVC с использованием DocumentDB](documentdb-dotnet-application.md).
@@ -610,6 +597,6 @@ DocumentDB поддерживает удаление документов JSON.
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
 <!---HONumber=AcomDC_0831_2016-->

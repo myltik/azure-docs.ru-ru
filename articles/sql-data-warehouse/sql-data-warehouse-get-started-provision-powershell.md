@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание хранилища данных SQL с помощью PowerShell | Microsoft Azure"
    description="Создание хранилища данных SQL с помощью PowerShell"
    services="sql-data-warehouse"
@@ -7,13 +7,13 @@
    manager="barbkess"
    editor=""/>
 
-<tags
+.<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Создание хранилища данных SQL с помощью PowerShell
@@ -23,11 +23,11 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-В этой статье описано, как создать хранилище данных SQL с помощью PowerShell.
+В этой статье объясняется, как создать хранилище данных SQL с помощью PowerShell.
 
 ## Предварительные требования
 
-Для начала работы вам потребуются перечисленные ниже компоненты и данные.
+Для начала работы необходимы перечисленные ниже компоненты и данные.
 
 - **Учетная запись Azure**. Чтобы создать учетную запись, перейдите на страницу [бесплатной пробной версии Azure][] или [кредитов Azure MSDN][].
 - **Сервер SQL Azure**. См. сведения в статьях, посвященных [созданию логического сервера базы данных SQL с помощью портала Azure][] или [с помощью PowerShell][].
@@ -51,21 +51,27 @@
 	Get-AzureRmSubscription	-SubscriptionName "MySubscription" | Select-AzureRmSubscription
 	```
 
-4.  Создайте базу данных. В этом примере новая база данных с именем mynewsqldw и целевым уровнем обслуживания DW400 будет создана на сервере с именем sqldwserver1, который находится в группе ресурсов с именем mywesteuroperesgp1.
+4.  Создайте базу данных. В этом примере база данных с именем mynewsqldw и целевым уровнем обслуживания DW400 будет создана на сервере с именем sqldwserver1, который находится в группе ресурсов с именем mywesteuroperesgp1.
 
 	```Powershell
-	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
+	New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
 	```
 
-Список параметров, необходимых для этого командлета:
+Ниже перечислены необходимые параметры.
 
 - **RequestedServiceObjectiveName**: количество запрашиваемых единиц [DWU][]. Поддерживаемые значения: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 и DW6000.
 - **DatabaseName**: имя создаваемого хранилища данных SQL.
 - **ServerName**: имя сервера, который используется для создания (должен быть версии 12).
 - **ResourceGroupName**: используемая группа ресурсов. Чтобы найти доступные группы ресурсов, входящие в вашу подписку, используйте командлет Get-AzureResource.
-- **Edition**: необходимо установить выпуск DataWarehouse, чтобы создать хранилище данных SQL.
+- **Edition**: для создания хранилища данных необходим выпуск DataWarehouse.
 
-Дополнительные сведения о параметрах см. в статье, посвященной [созданию базы данных (хранилище данных SQL Azure)][]. Справку по командам см. в статье [New-AzureRmSqlDatabase][].
+Необязательные параметры.
+
+- **CollationName**: если параметры сортировки не указаны, по умолчанию используется SQL\_Latin1\_General\_CP1\_CI\_AS. Нельзя изменить параметры сортировки базы данных.
+- **MaxSizeBytes**: по умолчанию максимальный размер базы данных составляет 10 ГБ.
+
+
+Дополнительные сведения о параметрах см. в спецификации командлета [New-AzureRmSqlDatabase][] и в статье, посвященной [созданию базы данных (хранилище данных SQL Azure)][].
 
 ## Дальнейшие действия
 
@@ -101,4 +107,4 @@
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

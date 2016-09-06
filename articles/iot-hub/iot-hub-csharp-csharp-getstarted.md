@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Начало работы с центром IoT Azure. Язык C# | Microsoft Azure"
 	description="Начальное руководство по работе с центром IoT Azure для языка C#. Используя центр IoT Azure, язык C# и пакеты SDK для Интернета вещей Microsoft Azure, создайте собственное решение IoT."
 	services="iot-hub"
@@ -28,7 +28,7 @@
 
 > [AZURE.NOTE] Дополнительные сведения о разных пакетах SDK, которые можно использовать для создания приложений, предназначенных для запуска на устройствах и серверной части решения, см. в статье [Пакеты SDK для центра IoT][lnk-hub-sdks].
 
-Для работы с этим руководством требуется:
+Для работы с этим учебником требуется:
 
 + Microsoft Visual Studio 2015.
 
@@ -60,7 +60,7 @@
 5. Добавьте следующие поля в класс **Program**. Замените значение заполнителя строкой подключения для центра IoT, созданного в предыдущем разделе.
 
 		static RegistryManager registryManager;
-        static string connectionString = "{iothub connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. Добавьте следующий метод в класс **Program**.
 
@@ -239,7 +239,7 @@
 
 3. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в центр.
 
-    ![Плитка "Использование" на портале Azure][43]
+    .![Плитка "Использование" на портале Azure][43]
 
 
 ## Дальнейшие действия
@@ -252,9 +252,9 @@
 - [Приступая к работе с функцией управления устройствами центра IoT Azure с использованием C# (предварительная версия)][lnk-device-management]
 - [Пакет SDK для шлюза IoT (бета-версия): начало работы с Linux][lnk-gateway-SDK]
 
-В руководстве по [обработке сообщений, отправляемых с устройства в облако][lnk-process-d2c-tutorial], показано, как расширить свое решение IoT и обрабатывать такие сообщения с применением масштабирования.
+В руководстве по [обработке сообщений, отправляемых с устройства в облако][lnk-process-d2c-tutorial], показано, как расширить решение IoT и обрабатывать такие сообщения в большом количестве.
 
-<!-- Images. -->
+.<!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
@@ -282,4 +282,4 @@
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

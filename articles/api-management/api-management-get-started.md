@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Приступая к работе с API в службе управления Azure | Microsoft Azure"
 	description="Узнайте, как создавать API, добавлять операции и начать работу со службой управления API."
 	services="api-management"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Начало работы со службой управления Azure API
@@ -186,7 +186,7 @@ API представляет набор операций, которые мог�
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
--	Просмотрите другие разделы в руководстве [Приступая к работе с расширенными параметрами API][].
+- Информация о [защите интерфейсов API с помощью ограничений скорости](api-management-howto-product-with-rules.md).
 
 [Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -205,7 +205,6 @@ API представляет набор операций, которые мог�
 [Как настраивать уведомления и почтовые шаблоны в Azure API Management]: api-management-howto-configure-notifications.md
 [Responses]: api-management-howto-add-operations.md#responses
 [How create and publish a product]: api-management-howto-add-products.md
-[Приступая к работе с расширенными параметрами API]: api-management-get-started-advanced.md
 [Цены на управление API]: http://azure.microsoft.com/pricing/details/api-management/
 
 [классический портал Azure]: https://manage.windowsazure.com/
@@ -245,4 +244,4 @@ API представляет набор операций, которые мог�
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

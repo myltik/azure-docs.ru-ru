@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание первого приложения Service Fabric в Visual Studio | Microsoft Azure"
    description="Создание, развертывание и отладка приложения Service Fabric с помощью Visual Studio"
    services="service-fabric"
@@ -123,6 +123,7 @@
 - Узнайте, как создавать [кластер в Azure](service-fabric-cluster-creation-via-portal.md) или [автономный кластер в Windows](service-fabric-cluster-creation-for-windows-server.md).
 - Попробуйте создать службу с помощью модели программирования [Reliable Services](service-fabric-reliable-services-quick-start.md) или [Reliable Actors](service-fabric-reliable-actors-get-started.md).
 - Узнайте, как предоставлять доступ к службам из Интернета с помощью [внешнего интерфейса веб-служб](service-fabric-add-a-web-frontend.md).
+- Ознакомьтесь с [практическим примером](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx), а также создайте службу без отслеживания состояния, настройте мониторинг и отчеты о работоспособности и обновите приложение.
 
 <!-- Image References -->
 
@@ -138,4 +139,4 @@
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

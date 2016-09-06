@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Обзор Apache Spark в HDInsight | Microsoft Azure" 
 	description="Общие сведения о Spark в HDInsight и сценарии использования Spark в HDInsight в приложениях." 
 	services="hdinsight" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # Обзор. Apache Spark в HDInsight на платформе Linux
@@ -135,4 +135,4 @@ Spark в HDInsight, кроме того, включает [драйвер ODBC](
 
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Отправка данных в службе поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
     description="Сведения об отправке данных в индекс в службе поиска Azure."
     services="search"
@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Отправка данных в службу поиска Azure
@@ -45,4 +45,4 @@
 
 Функция индексатора предоставляется на [портале Azure](search-import-data-portal.md), а также в интерфейсе [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

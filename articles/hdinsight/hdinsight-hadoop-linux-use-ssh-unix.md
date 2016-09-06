@@ -1,6 +1,6 @@
-<properties
+.<properties
    pageTitle="Использование ключей SSH с Hadoop на платформе Linux из Linux, Unix или OS X | Microsoft Azure"
-   description="Можно получить доступ к HDInsight под управлением Linux с помощью Secure Shell (SSH). В этом документе содержатся сведения об использовании SSH с HDInsight из клиентов OS X, Linux и Unix."
+   description=" Можно получить доступ к HDInsight под управлением Linux с помощью Secure Shell (SSH). В этом документе содержатся сведения об использовании SSH с HDInsight из клиентов OS X, Linux и Unix."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X
@@ -25,7 +25,9 @@
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) позволяет удаленно выполнять операции в кластерах HDInsight под управлением Linux с помощью интерфейса командной строки. В этом документе содержатся сведения об использовании SSH с HDInsight из клиентов OS X, Linux и Unix.
 
-> [AZURE.NOTE] При описаний действий в данной статье предполагается, что вы используете клиент OS X, Linux или Unix. Хотя то же самое можно сделать и на клиентах Windows после установки пакета, который предоставляет `ssh` и `ssh-keygen` (например, Git для Windows), на таких клиентах рекомендуется выполнить действия, описанные в статье [Использование SSH с кластерами HDInsight (Hadoop) под управлением Linux в Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
+> [AZURE.NOTE] При описаний действий в данной статье предполагается, что вы используете клиент OS X, Linux или Unix. Эти действия можно выполнять на клиентском компьютере под управлением Windows, если на нем установлен пакет, который предоставляет `ssh` и `ssh-keygen`, например [Bash на Ubuntu в Windows](https://msdn.microsoft.com/commandline/wsl/about).
+>
+> Если вы установили SSH на клиентском компьютере под управлением Windows, см. инструкции по установке и использованию PuTTY в статье [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ##Предварительные требования
 
@@ -35,7 +37,7 @@
 
 ИЛИ
 
-* [Azure CLI](../xplat-cli-install.md).
+* [Интерфейс командной строки Azure](../xplat-cli-install.md).
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
@@ -245,4 +247,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

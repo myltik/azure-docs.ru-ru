@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Добавление кэширования для повышения производительности в службе управления API Azure | Microsoft Azure"
 	description="Сведения об уменьшении задержки, использования пропускной способности и загрузки веб-службы для вызовов службы управления API."
 	services="api-management"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Добавление кэширования для повышения производительности в службе управления API Azure
@@ -113,7 +113,7 @@
 
 Сохраните значения по умолчанию для **param1** и **param2**.
 
-Выберите в раскрывающемся списке **subscription-key** требуемый ключ. Если ваша учетная запись содержит только одну подписку, то он уже будет выбран.
+Выберите в раскрывающемся списке **subscription-key** требуемый ключ. Если ваша учетная запись содержит только одну подписку, он уже будет выбран.
 
 Введите **sampleheader:value1** в текстовом поле **Заголовки запроса**.
 
@@ -129,7 +129,6 @@
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
--	Просмотрите другие разделы в руководстве [Приступая к работе с расширенными параметрами API][].
 -	Дополнительные сведения о политиках кэширования см. в разделе [Политики кэширования][] [справочника по политикам управления API][].
 -	Сведения о кэшировании элементов по ключу с помощью выражений политики см. в разделе [Пользовательское кэширование в управлении Azure API](api-management-sample-cache-by-key.md).
 
@@ -152,7 +151,6 @@
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Начало работы с Azure API Management]: api-management-get-started.md
 [Начинаем работу с API Management]: api-management-get-started.md
-[Приступая к работе с расширенными параметрами API]: api-management-get-started-advanced.md
 
 [справочника по политикам управления API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Политики кэширования]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -164,4 +162,4 @@
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->
