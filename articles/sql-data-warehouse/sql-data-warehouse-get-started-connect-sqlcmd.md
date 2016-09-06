@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Запросы к хранилищу данных SQL Azure (sqlcmd)
@@ -24,21 +24,15 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
 
-В этом пошаговом руководстве показано, как создавать запросы к хранилищу данных SQL Azure с помощью служебной программы командной строки sqlcmd.
-
-## Предварительные требования
-
-Для выполнения этих действий необходимо иметь следующее:
-
--  Файл [sqlcmd.exe][]. Загрузите служебные программы [Microsoft Command Line Utilities 11 для SQL Server ][], для которых также может понадобиться [Программа установки Microsoft ODBC Driver 11 для SQL Server (Windows)][].
+В этом пошаговом руководстве показано, как создавать запросы к хранилищу данных SQL Azure с помощью служебной программы командной строки [sqlcmd][].
 
 ## 1\. Подключение
 
-Чтобы начать использовать sqlcmd, откройте командную строку и введите **sqlcmd** и строку подключения к базе данных хранилища данных SQL. В строке подключения необходимо указать следующие обязательные параметры:
+Чтобы начать использовать [sqlcmd][], откройте командную строку и введите **sqlcmd** и строку подключения к базе данных хранилища данных SQL. В строке подключения обязательно укажите следующие параметры.
 
 + **Server (-S):** сервер в виде `<`имя сервера`>`.database.windows.net
 + **Database (-d)**. Имя базы данных.
-+ **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
++ **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
 + **Password (-P)** — пароль, связанный с пользователем.
 + **Enable Quoted Identifiers (-I)** — для подключения к экземпляру хранилища данных SQL необходимо включить заключенные в кавычки идентификаторы.
 
@@ -50,7 +44,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 
 > [AZURE.NOTE] Параметр -I, который включает заключенные в кавычки идентификаторы, требуется для подключения к хранилищу данных SQL.
 
-## 2\. Запрос
+## 2) Запрос
 
 После подключения можно подавать любые поддерживаемые инструкции Transact-SQL для экземпляра. В этом примере запросы отправляются в интерактивном режиме.
 
@@ -73,18 +67,16 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## Дальнейшие действия
 
-Дополнительные сведения о параметрах, доступных в sqlcmd, см. в [документации по sqlcmd][sqlcmd.exe].
+Дополнительные сведения о параметрах, доступных в sqlcmd, см. в [документации по sqlcmd][sqlcmd].
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 
-<!--MSDN references--> 
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[Программа установки Microsoft ODBC Driver 11 для SQL Server (Windows)]: https://www.microsoft.com/download/details.aspx?id=36434
-[Microsoft Command Line Utilities 11 для SQL Server ]: http://go.microsoft.com/fwlink/?LinkId=321501
+.<!--MSDN references--> 
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

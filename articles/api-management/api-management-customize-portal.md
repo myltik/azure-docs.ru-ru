@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Настройка портала разработчика в службе управления Azure API
@@ -78,7 +78,7 @@
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
--	Просмотрите другие разделы в руководстве [Приступая к работе с расширенными параметрами API][].
+-	Узнайте, как настроить содержимое страницы портала разработчика с помощью [шаблонов портала разработчиков](api-management-developer-portal-templates.md).
 
 [Change the text/logo in the page headers]: #change-page-headers
 [Change the styling of the headers]: #change-headers-styling
@@ -95,8 +95,7 @@
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Приступая к работе с расширенными параметрами API]: api-management-get-started-advanced.md
 [начальной загрузкой]: http://getbootstrap.com/
 [переменным LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

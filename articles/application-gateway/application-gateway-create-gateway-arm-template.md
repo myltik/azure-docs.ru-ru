@@ -26,6 +26,7 @@
 - [PowerShell и диспетчер ресурсов Azure](application-gateway-create-gateway-arm.md)
 - [Классическая модель — Azure PowerShell](application-gateway-create-gateway.md)
 - [Шаблон диспетчера ресурсов Azure](application-gateway-create-gateway-arm-template.md)
+- [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -74,7 +75,7 @@
 	| **backendaddress2** | IP-адрес второго веб-сервера |
 
 
->[AZURE.IMPORTANT] Шаблоны ARM, хранящиеся в GitHub, со временем могут изменяться. Перед использованием шаблона обязательно его проверьте.
+	>[AZURE.IMPORTANT] Шаблоны ARM, хранящиеся в GitHub, со временем могут изменяться. Перед использованием шаблона обязательно его проверьте.
 
 6. Проверьте содержимое раздела **resources** и обратите внимание на следующие параметры:
 
@@ -147,8 +148,6 @@
 При необходимости создайте новую группу ресурсов с помощью командлета **New-AzureResourceGroup**. В примере ниже создается группа ресурсов с именем AppgatewayRG, расположенная в восточной части США.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
-
 
 		ResourceGroupName : AppgatewayRG
 		Location          : eastus
@@ -293,4 +292,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

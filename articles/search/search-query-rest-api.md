@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Отправка запросов в индекс службы поиска Azure с помощью REST API
@@ -159,4 +159,4 @@ api-key: [query key]
 
 Дополнительные сведения см. в статье [Поиск документов (REST API службы поиска Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx) в разделе "Ответ". Дополнительные сведения о других кодах состояния HTTP, которые могут быть возвращены в случае сбоя, см. в статье [Коды состояния HTTP (поиск Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/25/2016"
    ms.author="barbkess;lodipalm;sonyama"/>
 
 # Создание хранилища данных SQL Azure
@@ -60,6 +60,8 @@
 
     - **Выбрать источник**. Последовательно выберите **Выбрать источник** > **Пример**. Azure автоматически подставляет в поле **Выберите пример** вариант AdventureWorksDW.
 
+> [AZURE.NOTE] Параметры сортировки по умолчанию для хранилища данных SQL: SQL\_Latin1\_General\_CP1\_CI\_AS. Если требуются другие параметры сортировки, можно использовать [T-SQL][] для создания базы данных с другими параметрами сортировки.
+
 4. Щелкните **Создать**, чтобы создать хранилище данных SQL.
 
 5. Подождите несколько минут. Когда хранилище данных будет готово, вы будете перенаправлены на [портал Azure](https://portal.azure.com). Хранилище данных SQL можно найти на панели мониторинга в списке баз данных SQL или в группе ресурсов, в которой оно было создано.
@@ -88,8 +90,9 @@
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [подписку]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
-
-<!--MSDN references-->
+[T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
+ 
+.<!--MSDN references-->
 [sp\_set\_firewall\_rule (база данных SQL Azure)]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp\_set\_database\_firewall\_rule (база данных SQL Azure)]: https://msdn.microsoft.com/library/dn270010.aspx
 
@@ -99,4 +102,4 @@
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [кредитов Azure MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

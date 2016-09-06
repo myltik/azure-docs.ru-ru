@@ -24,11 +24,11 @@
 ## Предварительные требования
 
  - Visual Studio 2013 или 2015
- - [инструменты Python для Visual Studio][] (PTVS);
+ - [инструменты Python для Visual Studio][] \(PTVS);
  - [Пакет SDK Azure для VS 2013][] или [Пакет SDK Azure для VS 2015][]
  - [Python 2.7 (32-разрядный)][] или [Python 3.5 (32-разрядный)][].
 
-[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [замечание по созданию учетной записи и веб-сайтов](../../includes/create-account-and-websites-note.md)]
 
 ## Что такое веб-роли и рабочие роли Python?
 
@@ -76,7 +76,7 @@ Azure предоставляет три вычислительных модел�
       <Variable name="EMULATED">
         <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
       </Variable>
-	  <Variable name="PYTHON2" value="off" />
+      <Variable name="PYTHON2" value="off" />
     </Environment>
   </Task>
 
@@ -85,8 +85,9 @@ Azure предоставляет три вычислительных модел�
       <Variable name="EMULATED">
         <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
       </Variable>
+      <Variable name="PYTHON2" value="off" />
     </Environment>
-	<Variable name="PYTHON2" value="off" />
+	
   </Task>
 
 </Startup>
@@ -171,7 +172,7 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Host "Checking if python is installed...$nl"
+	Write-Output "Checking if python is installed...$nl"
 	if ($is_python2) {
 		& "${env:SystemDrive}\Python27\python.exe"  -V | Out-Null
 	}
@@ -189,9 +190,9 @@ if (-not $is_emulated){
 			$outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
 		}
 		
-		Write-Host "Not found, downloading $url to $outFile$nl"
+		Write-Output "Not found, downloading $url to $outFile$nl"
 		Invoke-WebRequest $url -OutFile $outFile
-		Write-Host "Installing$nl"
+		Write-Output "Installing$nl"
 
 		if ($is_python2) {
 			Start-Process msiexec.exe -ArgumentList "/q", "/i", "$outFile", "ALLUSERS=1" -Wait
@@ -200,10 +201,10 @@ if (-not $is_emulated){
 			Start-Process "$outFile" -ArgumentList "/quiet", "InstallAllUsers=1" -Wait
 		}
 
-		Write-Host "Done$nl"
+		Write-Output "Done$nl"
 	}
 	else {
-		Write-Host "Already installed"
+		Write-Output "Already installed"
 	}
 }
 ```
@@ -218,9 +219,9 @@ $is_python2 = $env:PYTHON2 -eq "on"
 $nl = [Environment]::NewLine
 
 if (-not $is_emulated){
-	Write-Host "Checking if requirements.txt exists$nl"
+	Write-Output "Checking if requirements.txt exists$nl"
 	if (Test-Path ..\requirements.txt) {
-		Write-Host "Found. Processing pip$nl"
+		Write-Output "Found. Processing pip$nl"
 
 		if ($is_python2) {
 			& "${env:SystemDrive}\Python27\python.exe" -m pip install -r ..\requirements.txt
@@ -229,10 +230,10 @@ if (-not $is_emulated){
 			py -m pip install -r ..\requirements.txt
 		}
 
-		Write-Host "Done$nl"
+		Write-Output "Done$nl"
 	}
 	else {
-		Write-Host "Not found$nl"
+		Write-Output "Not found$nl"
 	}
 }
 ```
@@ -250,7 +251,7 @@ $nl = [Environment]::NewLine
 
 if (-not $is_emulated)
 {
-	Write-Host "Running worker.py$nl"
+	Write-Output "Running worker.py$nl"
 
 	if ($is_python2) {
 		cd..
@@ -263,7 +264,7 @@ if (-not $is_emulated)
 }
 else
 {
-	Write-Host "Running (EMULATED) worker.py$nl"
+	Write-Output "Running (EMULATED) worker.py$nl"
 
 	# Customize to your local dev environment
 
@@ -335,7 +336,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 - [Служба таблиц][]
 - [Служба очередей][]
 - [Очереди служебной шины][]
-- [Разделы служебной шины][]
+- [Разделы шины обслуживания][]
 
 
 <!--Link references-->
@@ -350,7 +351,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 [Служба очередей]: ../storage/storage-python-how-to-use-queue-storage.md
 [Служба таблиц]: ../storage/storage-python-how-to-use-table-storage.md
 [Очереди служебной шины]: ../service-bus/service-bus-python-how-to-use-queues.md
-[Разделы служебной шины]: ../service-bus/service-bus-python-how-to-use-topics-subscriptions.md
+[Разделы шины обслуживания]: ../service-bus/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
@@ -364,4 +365,4 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 [Python 2.7 (32-разрядный)]: https://www.python.org/downloads/
 [Python 3.5 (32-разрядный)]: https://www.python.org/downloads/
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->
