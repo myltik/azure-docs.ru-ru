@@ -88,7 +88,7 @@ Barracuda WAF использует TCP-порт 8000 для настройки �
 
 > Примечание. VIP облачной службы изменится, если удалить и повторно создать облачную службу. Не забудьте после этого обновить IP-адрес в группе ресурсов сети.
  
-.<!-- IMAGES -->
+<!-- IMAGES -->
 [Architecture]: ./media/app-service-app-service-environment-web-application-firewall/Architecture.png
 [ConfigureEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureEndpoint.png
 [AddManagementEndpoint]: ./media/app-service-app-service-environment-web-application-firewall/AddManagementEndpoint.png

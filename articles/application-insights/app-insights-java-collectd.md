@@ -130,7 +130,7 @@
 
 
 
-.<!--Link references-->
+<!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
