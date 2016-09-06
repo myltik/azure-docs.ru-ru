@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание хранилища данных SQL на портале Azure | Microsoft Azure"
    description="Узнайте, как создать хранилище данных SQL на портале Azure."
    services="sql-data-warehouse"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Защита API с помощью управления API Azure| Microsoft Azure"
 	description="Узнайте, как защитить API с помощью политик квот и регулирования (ограничения скорости)."
 	services="api-management"
@@ -46,7 +46,8 @@
 
 В поле **Заголовок** введите **Бесплатная пробная версия**.
 
-В текстовом поле **Описание** введите **Подписчики смогут выполнять до 10 вызовов в минуту и до 200 вызовов в неделю, после чего доступ будет запрещен**.
+В текстовом поле **Описание** введите 
+**Подписчики смогут выполнять до 10 вызовов в минуту и до 200 вызовов в неделю, после чего доступ будет запрещен**.
 
 Продукты в службе управления API могут быть защищенными или открытыми. Доступ к защищенным продуктам предоставляется по подписке. Открытые продукты могут использоваться без подписки. Обязательно установите флажок **Require subscription** (Требуется подписка), чтобы создать защищенный продукт, требующий подписки. Это значение по умолчанию.
 
@@ -277,7 +278,7 @@
 [Начало работы со службой управления Azure API]: api-management-get-started.md
 [Как создать и использовать группы в службе управления Azure API]: api-management-howto-create-groups.md
 [View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
-[Get started with Azure API Management]: api-management-get-started.md
+[Начало работы с Azure API Management]: api-management-get-started.md
 [Создание экземпляра управления API]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
 
@@ -288,7 +289,7 @@
 [Subscribe a developer account to the product]: #subscribe-account
 [Call an operation and test the rate limit]: #test-rate-limit
 
-[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Ограничить скорость вызова]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Задать квоту использования]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 <!---HONumber=AcomDC_0831_2016-->

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование ключей SSH с Hadoop в кластерах на платформе Linux из Windows | Microsoft Azure"
    description="Узнайте, как создавать и использовать ключи SSH для аутентификации в кластерах HDInsight на основе Linux. Подключайте кластеры с клиентов под управлением Windows с помощью клиента PuTTY SSH."
    services="hdinsight"

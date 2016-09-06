@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Аналитика для приложений iOS | Microsoft Azure"
     description="Анализ использования и производительности приложения iOS. "
     services="application-insights"

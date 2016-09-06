@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Подключение к хранилищу данных SQL Azure | Microsoft Azure"
    description="Общие сведения о подключении к хранилищу данных SQL Azure."
    services="sql-data-warehouse"

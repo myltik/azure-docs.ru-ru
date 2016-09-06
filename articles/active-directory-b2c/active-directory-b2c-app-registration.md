@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure Active Directory B2C: регистрация приложения | Microsoft Azure"
 	description="Как зарегистрировать приложение для использования Azure Active Directory B2C."
 	services="active-directory-b2c"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Защита облачных и локальных ресурсов с помощью сервера Azure Multi-Factor Authentication в Windows Server 2012 R2 AD FS | Microsoft Azure"
 	description="В этой статье объясняется, как начать работу с Azure Multi-Factor Authentication и AD FS в Windows Server 2012 R2."
 	services="multi-factor-authentication"

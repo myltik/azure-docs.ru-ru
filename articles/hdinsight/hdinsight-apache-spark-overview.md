@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Обзор Apache Spark в HDInsight | Microsoft Azure" 
 	description="Общие сведения о Spark в HDInsight и сценарии использования Spark в HDInsight в приложениях." 
 	services="hdinsight" 

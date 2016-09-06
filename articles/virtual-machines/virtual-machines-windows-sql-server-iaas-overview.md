@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обзор SQL Server на виртуальных машинах Azure | Microsoft Azure"
 	description="Из этой статьи вы узнаете, как запускать полные выпуски SQL Server на виртуальных машинах Azure. Прямые ссылки на все образы виртуальных машин SQL Server и соответствующие статьи."
 	services="virtual-machines-windows"

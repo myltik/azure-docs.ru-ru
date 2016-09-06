@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание хранилища данных SQL с помощью PowerShell | Microsoft Azure"
    description="Создание хранилища данных SQL с помощью PowerShell"
    services="sql-data-warehouse"
@@ -7,7 +7,7 @@
    manager="barbkess"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"

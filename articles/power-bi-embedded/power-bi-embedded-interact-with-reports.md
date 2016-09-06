@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Взаимодействие с отчетами с помощью интерфейса API JavaScript | Microsoft Azure"
    description="Power BI Embedded, взаимодействие с отчетами с помощью интерфейса API JavaScript"
    services="power-bi-embedded"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание хранилища данных SQL с помощью TSQL | Microsoft Azure"
    description="Сведения о создании хранилища данных SQL Azure с помощью TSQL"
    services="sql-data-warehouse"
@@ -8,7 +8,7 @@
    editor=""
    tags="azure-sql-data-warehouse"/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="hero-article"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание лабораторий для разработки и тестирования | Microsoft Azure"
 	description="Создание лаборатории для разработки и тестирования для виртуальных машин"
 	services="devtest-lab,virtual-machines"

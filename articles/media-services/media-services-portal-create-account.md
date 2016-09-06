@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle=" Создание учетной записи служб мультимедиа Azure с помощью портала Azure | Microsoft Azure"
 	description="В этом руководстве описаны этапы создания учетной записи служб мультимедиа Azure с помощью портала Azure."
 	services="media-services"

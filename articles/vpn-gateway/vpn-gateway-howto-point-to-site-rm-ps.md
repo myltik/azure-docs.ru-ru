@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Настройка подключения типа ";точка— сеть"; к виртуальной сети с помощью модели развертывания Resource Manager | Microsoft Azure"
    description="Безопасно подключайтесь к своей виртуальной сети Azure, создав VPN-подключение ";точка — сеть";."
    services="vpn-gateway"

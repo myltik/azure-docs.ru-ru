@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Расположения ExpressRoute | Microsoft Azure"
    description="В этой статье приведена подробная информация о расположениях, где предлагаются услуги, и способах подключения к регионам Azure."
    services="expressroute"
@@ -153,7 +153,7 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-.<!--Image References-->
+<!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
 <!---HONumber=AcomDC_0831_2016-->

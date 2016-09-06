@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Диагностика проблем производительности на работающем веб-сайте IIS | Microsoft Azure"
 	description="Мониторинг производительности веб-сайта без необходимости его повторного развертывания. Для получения телеметрии зависимостей используйте автономно или с пакетом SDK для Application Insights."
 	services="application-insights"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование ключей SSH с Hadoop на платформе Linux из Linux, Unix или OS X | Microsoft Azure"
    description=" Можно получить доступ к HDInsight под управлением Linux с помощью Secure Shell (SSH). В этом документе содержатся сведения об использовании SSH с HDInsight из клиентов OS X, Linux и Unix."
    services="hdinsight"

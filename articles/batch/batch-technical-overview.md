@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Основные сведения о пакетной службе Azure | Microsoft Azure"
 	description="Узнайте об использовании пакетной службы Azure для крупномасштабных параллельных рабочих нагрузок и рабочих нагрузок HPC."
 	services="batch"
@@ -71,7 +71,8 @@
 | **Пакетная служба (REST)** | [MSDN][batch_rest] | Недоступно | [MSDN][batch_rest] |
 | **Пакетная служба (.NET)** | [MSDN][api_net] | [NuGet][api_net_nuget] | [GitHub][api_sample_net] |
 | **Пакетная служба Python** | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
-| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | — | | **Batch Java** (предварительная версия) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | — | 
+| **Batch Java** (предварительная версия) | [github.io][api_java] | [Maven][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Управление ресурсами пакетной службы
 
@@ -99,7 +100,7 @@
 
 На следующей схеме показан общий рабочий процесс, в котором используется клиентское приложение или размещенная служба для запуска параллельной рабочей нагрузки с помощью пакетной службы.
 
-.![Рабочий процесс решения с использованием пакетной службы][2]
+![Рабочий процесс решения с использованием пакетной службы][2]
 
 В этом распространенном сценарии для обработки вычислительной рабочей нагрузки приложением или службой в пакетной службе Azure необходимо выполнить следующие действия:
 

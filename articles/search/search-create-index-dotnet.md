@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание индекса службы поиска Azure с помощью пакета SDK для .NET | Microsoft Azure | Размещенная облачная служба поиска"
     description="Индекс можно создать в коде с помощью пакета SDK для .NET службы поиска Azure."
     services="search"

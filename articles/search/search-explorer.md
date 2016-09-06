@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Отправка запросов в индекс службы поиска Azure с помощью портала Azure | Microsoft Azure | Размещенная облачная служба поиска"
     description="Создайте поисковый запрос в проводнике поиска на портале Azure."
     services="search"

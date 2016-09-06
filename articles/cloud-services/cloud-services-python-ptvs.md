@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование веб-ролей и рабочих ролей Python с помощью средств Python для Visual Studio | Microsoft Azure"
 	description="Обзор использования Python Tools в Visual Studio для создания облачных служб Azure, включая веб-роли и рабочие роли."
 	services="cloud-services"
@@ -24,7 +24,7 @@
 ## Предварительные требования
 
  - Visual Studio 2013 или 2015
- - [инструменты Python для Visual Studio][] (PTVS);
+ - [инструменты Python для Visual Studio][] \(PTVS);
  - [Пакет SDK Azure для VS 2013][] или [Пакет SDK Azure для VS 2015][]
  - [Python 2.7 (32-разрядный)][] или [Python 3.5 (32-разрядный)][].
 

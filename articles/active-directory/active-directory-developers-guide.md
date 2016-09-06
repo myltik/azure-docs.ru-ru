@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Руководство разработчика по Azure Active Directory | Microsoft Azure"
    description="Данная статья содержит полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory"
    services="active-directory"

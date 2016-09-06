@@ -1,5 +1,5 @@
 
-.<properties
+<properties
    pageTitle="Создание шлюза приложений с помощью шаблонов диспетчера ресурсов Azure | Microsoft Azure"
    description="На этой странице приводятся инструкции по созданию шлюза приложений Azure с помощью шаблона диспетчера ресурсов Azure."
    documentationCenter="na"

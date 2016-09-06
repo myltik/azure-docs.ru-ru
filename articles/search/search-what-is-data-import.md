@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Отправка данных в службе поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
     description="Сведения об отправке данных в индекс в службе поиска Azure."
     services="search"

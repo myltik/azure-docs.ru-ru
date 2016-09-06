@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Устранение неполадок: развернутые инструкции | Microsoft Azure"
 	description="В этой статье описаны действия для получения доступа к необходимому приложению после отображения страницы с отказом в доступе."
 	services="active-directory"

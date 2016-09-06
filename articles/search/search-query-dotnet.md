@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Отправка запросов в индекс службы поиска Azure с помощью пакета SDK для .NET | Microsoft Azure | Размещенная облачная служба поиска"
     description="В службе поиска Azure можно создавать поисковые запросы и с помощью параметров поиска фильтровать, сортировать и уточнять результаты."
     services="search"
@@ -6,7 +6,7 @@
     authors="brjohnstmsft"
 />
 
-.<tags
+<tags
     ms.service="search"
     ms.devlang="dotnet"
     ms.workload="search"

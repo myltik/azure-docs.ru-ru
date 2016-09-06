@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle=" Отправка файлов в учетную запись служб мультимедиа с помощью портала Azure | Microsoft Azure"
 	description="В этом руководстве описаны этапы отправки файлов в учетную запись служб мультимедиа Azure с помощью портала Azure."
 	services="media-services"

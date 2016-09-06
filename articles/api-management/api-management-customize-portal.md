@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка портала разработчика в службе управления Azure API | Microsoft Azure"
 	description="Узнайте, как настроить оформление портала разработчика в службе управления Azure API."
 	services="api-management"

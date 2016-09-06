@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обзор функций пакетной службы Azure для разработчиков | Microsoft Azure"
 	description="Ознакомьтесь с функциями пакетной службы и ее API-интерфейсов с точки зрения разработки."
 	services="batch"
@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Возможности обнаружения в центре безопасности Azure | Microsoft Azure"
    description="Этот документ содержит информацию о возможностях обнаружения в центре безопасности Azure."
    services="security-center"

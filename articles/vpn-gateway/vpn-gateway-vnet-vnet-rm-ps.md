@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Подключение виртуальных сетей Azure с помощью VPN-шлюза и PowerShell | Microsoft Azure"
    description="Эта статья описывает этапы настройки подключения между виртуальными сетями с помощью диспетчера ресурсов Azure и PowerShell."
    services="vpn-gateway"

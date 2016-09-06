@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Потоковая трансляция с помощью локальных кодировщиков c использованием портала Azure | Microsoft Azure" 
 	description="В этом руководстве рассматривается создание канала, настроенного для сквозной доставки." 
 	services="media-services" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание виртуальной машины в Azure с помощью PowerShell | Microsoft Azure"
 	description="При помощи Azure PowerShell и Azure Resource Manager можно с легкостью создать виртуальную машину под управлением Windows Server."
 	services="virtual-machines-windows"

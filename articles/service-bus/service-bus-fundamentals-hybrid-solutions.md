@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Служебная шина Azure | Microsoft Azure" 
 	description="Общие сведения об использовании служебной шины для подключения приложений Azure к другим программам." 
 	services="service-bus" 

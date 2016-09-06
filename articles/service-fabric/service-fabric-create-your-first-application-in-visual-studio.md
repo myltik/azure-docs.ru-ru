@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание первого приложения Service Fabric в Visual Studio | Microsoft Azure"
    description="Создание, развертывание и отладка приложения Service Fabric с помощью Visual Studio"
    services="service-fabric"

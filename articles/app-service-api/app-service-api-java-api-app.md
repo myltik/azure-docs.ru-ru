@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Сборка и развертывание приложения API Java в службе приложений Azure"
 	description="Узнайте, как создать пакет приложения API Java и развернуть его в службе приложений Azure."
 	services="app-service\api"

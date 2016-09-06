@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обзор веб-приложений | Microsoft Azure"
 	description="Узнайте, как служба приложений Azure помогает разрабатывать и размещать веб-приложения."
 	services="app-service\web"

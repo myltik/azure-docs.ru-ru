@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание индекса службы поиска Azure с помощью REST API | Microsoft Azure | Размещенная облачная служба поиска"
     description="Программное создание индекса с помощью HTTP REST API службы поиска Azure."
     services="search"

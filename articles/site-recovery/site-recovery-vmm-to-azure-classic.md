@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Репликация виртуальных машин Hyper-V из облачных сред VMM в Azure | Microsoft Azure"
 	description="В этой статье описывается, как выполнять репликацию виртуальных машин Hyper-V на узлах Hyper-V, расположенных в облаках System Center VMM, в Azure."
 	services="site-recovery"

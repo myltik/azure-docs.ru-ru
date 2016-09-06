@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Аналитика для приложений Android | Microsoft Azure"
     description="Анализ использования и производительности приложения Android. "
     services="application-insights"

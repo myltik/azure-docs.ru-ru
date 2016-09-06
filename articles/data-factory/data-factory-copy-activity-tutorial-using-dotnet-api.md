@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Руководство. Создание конвейера с действием копирования с помощью API .NET | Microsoft Azure" 
 	description="В этом руководстве описано, как с помощью API .NET создать конвейер фабрики данных Azure с действием копирования." 
 	services="data-factory" 

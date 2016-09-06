@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование ключей SSH в Linux и Mac | Microsoft Azure"
 	description="Создание и использование SSH-ключей в Linux и Mac для развертывания с помощью диспетчера ресурсов и классической модели развертывания в Azure."
 	services="virtual-machines-linux"

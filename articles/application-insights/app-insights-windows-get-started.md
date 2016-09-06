@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Аналитика для приложений Windows Phone и приложений Магазина | Microsoft Azure"
 	description="Анализ использования и сбоев приложения для устройства Windows."
 	services="application-insights"
