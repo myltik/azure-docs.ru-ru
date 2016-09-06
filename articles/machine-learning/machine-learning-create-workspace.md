@@ -87,19 +87,19 @@
 
 > [AZURE.NOTE] * Администратор подписки Azure автоматически добавляется в рабочую область, которую он создает, в качестве владельца рабочей области. Однако тот факт, что он является администратором подписки Azure, не предоставляет ему доступ к любой рабочей области в этой подписке.
 
-.<!-- ![List of Machine Learning workspaces][2] -->
+<!-- ![List of Machine Learning workspaces][2] -->
 
-.<!--Anchors-->
+<!--Anchors-->
 [To create a workspace]: #createworkspace
 
-.<!--Image references-->
+<!--Image references-->
 [1]: media/machine-learning-create-workspace/cw1.png
 [2]: media/machine-learning-create-workspace/cw2.png
 [3]: media/machine-learning-create-workspace/cw4.png
 [4]: media/machine-learning-create-workspace/cw5.png
 
 
-.<!--Link references-->
+<!--Link references-->
 [Управление рабочей областью машинного обучения Azure]: machine-learning-manage-workspace.md
 [Руководство по поиску и устранению проблем: создание и подключение к рабочей области машинного обучения Azure]: machine-learning-troubleshooting-creating-ml-workspace.md
 [Студию машинного обучения Azure]: https://studio.azureml.net/

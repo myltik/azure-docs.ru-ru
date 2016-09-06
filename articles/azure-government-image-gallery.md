@@ -113,7 +113,7 @@ Visual Studio|Visual Studio Enterprise 2015, обновление 2 с паке�
 
 
 
-.<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged -->
 
 ## <a name="next"></a>Дальнейшие действия
 
@@ -132,12 +132,12 @@ Visual Studio|Visual Studio Enterprise 2015, обновление 2 с паке�
 
 
 
-.<!-- Images. -->
+<!-- Images. -->
 
 [1]: ./media/azure-government-developer-guide/publisherguide.png
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
-.<!--Link references-->
+<!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

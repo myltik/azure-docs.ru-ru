@@ -233,7 +233,7 @@
 ![Помощник по производительности](./media/sql-database-query-performance/ia.png)
 
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/sql-database-query-performance/tile.png
 [2]: ./media/sql-database-query-performance/top-queries.png
 [3]: ./media/sql-database-query-performance/query-details.png

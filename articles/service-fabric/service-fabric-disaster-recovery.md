@@ -106,7 +106,7 @@ protected virtual Task<bool> OnDataLoss(CancellationToken cancellationToken)
 [dr-ha-guide]: https://msdn.microsoft.com/library/azure/dn251004.aspx
 
 
-.<!-- Images -->
+<!-- Images -->
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 

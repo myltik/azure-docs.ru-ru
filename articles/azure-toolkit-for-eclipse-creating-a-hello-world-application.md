@@ -157,7 +157,7 @@
 
 Дополнительные сведения об использовании Azure с Java можно найти в [центре разработчиков Java для Azure][].
 
-.<!-- URL List -->
+<!-- URL List -->
 
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [портал управления Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
@@ -168,7 +168,7 @@
 [Свойства конфигурации сервера]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
 [Новые возможности набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
-.<!-- IMG List -->
+<!-- IMG List -->
 
 [ic589576]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic589576.png
 [ic589579]: ./media/azure-toolkit-for-eclipse-creating-a-hello-world-application/ic589579.png

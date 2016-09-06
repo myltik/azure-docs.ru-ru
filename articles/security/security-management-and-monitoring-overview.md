@@ -131,7 +131,7 @@ VPN-шлюзы, или шлюзы виртуальных сетей Azure, ис�
 
 - [Введение в Центр безопасности Azure](../security-center/security-center-intro.md)
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
 
 <!---HONumber=AcomDC_0817_2016-->
