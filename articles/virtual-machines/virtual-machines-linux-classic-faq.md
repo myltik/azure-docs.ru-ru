@@ -19,7 +19,9 @@
 
 # Вопросы и ответы по виртуальным машинам Linux в Azure, созданным при помощи классической модели развертывания
 
-> [AZURE.NOTE] Если у вас есть несколько минут, помогите нам улучшить качество документации по виртуальным машинам Linux в Azure, поделившись своими впечатлениями в этом [быстром опросе](https://aka.ms/linuxdocsurvey). Каждый ваш ответ помогает нам совершенствовать средства, необходимые вам для работы. <br /> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [AZURE.NOTE] Если у вас есть несколько минут, помогите нам улучшить качество документации по виртуальным машинам Linux в Azure, поделившись своими впечатлениями в этом [быстром опросе](https://aka.ms/linuxdocsurvey). Каждый ваш ответ помогает нам совершенствовать средства, необходимые вам для работы. 
+<br />
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-faq](../../includes/virtual-machines-common-classic-faq.md)]
 

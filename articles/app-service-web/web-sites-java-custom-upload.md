@@ -254,7 +254,7 @@ Liferay поддерживается в веб-приложениях служб
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
-.<!-- External Links -->
+<!-- External Links -->
 [службы приложений Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
 <!---HONumber=AcomDC_0817_2016-->

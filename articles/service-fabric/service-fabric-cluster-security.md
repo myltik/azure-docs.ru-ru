@@ -101,7 +101,7 @@ Service Fabric использует сертификаты сервера X.509,
 
 >[AZURE.NOTE] Для выполнения всех операций управления в кластере Service Fabric необходимы сертификаты серверов. Для управления нельзя использовать сертификаты клиента.
 
-.<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 
 ## Дальнейшие действия

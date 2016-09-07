@@ -438,7 +438,7 @@ pscp .\gatewaysdk.zip root@192.168.0.45:/home/root
 - [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
 - [Управление центрами IoT через портал Azure][lnk-portal]
 
-.<!-- Links -->
+<!-- Links -->
 [lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 [lnk-create-hub]: iot-hub-manage-through-portal.md

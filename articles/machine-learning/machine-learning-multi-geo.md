@@ -53,7 +53,7 @@
 
 Задайте вопрос на [форуме по Машинному обучению Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=MachineLearning).
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/machine-learning-multi-geo/multi-geo_1.png
 [2]: ./media/machine-learning-multi-geo/multi-geo_2.png
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png

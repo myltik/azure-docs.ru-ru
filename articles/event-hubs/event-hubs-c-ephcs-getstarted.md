@@ -63,11 +63,11 @@
 - [Решение для обмена сообщениями в очереди][] при помощи очередей служебной шины.
 - [Обзор концентраторов событий][]
 
-.<!-- Images. -->
+<!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
 
-.<!-- Links -->
+<!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Обзор концентраторов событий]: event-hubs-overview.md

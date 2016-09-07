@@ -169,9 +169,9 @@ PolyBase также поддерживает так называемую фун�
 ## Дальнейшие действия
 Дополнительные сведения о переносе данных см. в разделе [Перенос решения в хранилище данных SQL][]. Дополнительные советы по разработке см. в статье [Общие сведения о разработке][].
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
 [Примеры использования ADF]: ../data-factory/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
@@ -182,9 +182,9 @@ PolyBase также поддерживает так называемую фун�
 [Использование PolyBase для загрузки данных в хранилище данных SQL]: sql-data-warehouse-get-started-load-with-polybase.md
 
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
-.<!--Other Web references-->
+<!--Other Web references-->
 [фабрики данных Azure]: http://azure.microsoft.com/services/data-factory/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [документации по ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/

@@ -62,7 +62,7 @@
 - Полный список ресурсов для разработчиков, в том числе информацию о поддержке в Azure AD протоколов и потоков предоставления авторизации OAuth2, см. в статье [Руководство разработчика по Azure Active Directory][AAD-Developers-Guide].
 - Дополнительные сведения об интеграции приложений см. в статье [Интеграция с Azure Active Directory][ACOM-How-To-Integrate].
 
-.<!--Image references-->
+<!--Image references-->
 
 <!--Reference style links in use-->
 [AAD-Developers-Guide]: active-directory-developers-guide.md
