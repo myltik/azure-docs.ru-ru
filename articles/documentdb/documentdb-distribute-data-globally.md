@@ -69,7 +69,7 @@ DocumentDB гарантирует менее 10 мс задержки для ч�
 [1]: ./media/documentdb-distribute-data-globally/consistency-tradeoffs.png
 [2]: ./media/documentdb-distribute-data-globally/collection-regions.png
 
-.<!--Reference style links - using these makes the source content way more readable than using inline links-->
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [pcolls]: documentdb-partition-data.md
 [consistency]: documentdb-consistency-levels.md
 [consistencytradeooffs]: ./documentdb-consistency-levels/#consistency-levels-and-tradeoffs

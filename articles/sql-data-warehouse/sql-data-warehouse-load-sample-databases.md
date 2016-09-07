@@ -77,9 +77,9 @@ ORDER BY OrderDateKey;
 ## Дальнейшие действия
 Теперь, когда имеется возможность выполнить некоторые запросы с демонстрационными данными, попробуйте осуществлять [разработку][], [загрузку][] или [перенос][] в хранилище данных SQL.
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [перенос]: sql-data-warehouse-overview-migrate.md
 [разработку]: sql-data-warehouse-overview-develop.md
 [загрузку]: sql-data-warehouse-overview-load.md
@@ -88,7 +88,7 @@ ORDER BY OrderDateKey;
 [установки bcp]: sql-data-warehouse-load-with-bcp.md
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
-.<!--Other Web references-->
+<!--Other Web references-->
 [примерами сценариев Adventure Works для хранилища данных SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
 <!---HONumber=AcomDC_0817_2016-->

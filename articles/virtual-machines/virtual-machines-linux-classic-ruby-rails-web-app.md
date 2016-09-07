@@ -144,7 +144,7 @@
 [tables]: ../storage/storage-ruby-how-to-use-table-storage.md
 [vm-instructions]: virtual-machines-linux-classic-createportal.md
 
-.<!-- External Links -->
+<!-- External Links -->
 [rails-guides]: http://guides.rubyonrails.org/
 [sqlite3]: http://www.sqlite.org/
 

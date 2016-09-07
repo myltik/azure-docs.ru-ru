@@ -72,7 +72,7 @@
 | Инструкция MERGE не поддерживается | Ознакомьтесь с [обходными решениями для инструкции MERGE][].|
 | Ограничения хранимых процедур | Ознакомьтесь с [ограничениями хранимых процедур][].|
 | Определяемые пользователем функции не поддерживают инструкции SELECT | Это текущее ограничение определяемых пользователем функций. Сведения о поддерживаемом синтаксисе см. в разделе документации об инструкции [CREATE FUNCTION][]. |
-'<--LocComment: страница не найдена, раздел "Ограничения хранимых процедур" поврежден. Я попыталась исправить ссылку в справочных материалах к статье -->'
+<--LocComment: страница не найдена, раздел "Ограничения хранимых процедур" поврежден. Я попыталась исправить ссылку в справочных материалах к статье -->
 
 ## Дальнейшие действия
 
@@ -89,7 +89,7 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [общими сведениями о безопасности]: ./sql-data-warehouse-overview-manage-security.md
 [Создание запроса в службу поддержки]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [масштабирования хранилища данных SQL]: ./sql-data-warehouse-manage-compute-overview.md
@@ -121,12 +121,12 @@
 [Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
 [Обход требования PolyBase UTF-8]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [собственный клиент SQL Server 10 или SQL Server 11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
 
-.<!--Other Web references-->
+<!--Other Web references-->
 [Блоги]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Блоги группы CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Запросы функций]: https://feedback.azure.com/forums/307516-sql-data-warehouse

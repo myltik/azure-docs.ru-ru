@@ -52,7 +52,7 @@
 - [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
 - [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/security-center-install-endpoint-protection/select-install-endpoint-protection.png
 [2]: ./media/security-center-install-endpoint-protection/install-endpoint-protection-blade.png
 [3]: ./media/security-center-install-endpoint-protection/select-endpoint-protection.png

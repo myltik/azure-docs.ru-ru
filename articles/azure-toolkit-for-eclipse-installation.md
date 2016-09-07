@@ -87,7 +87,7 @@
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
 
-.<!-- URL List -->
+<!-- URL List -->
 
 [Набор средств Azure для Eclipse]: ./azure-toolkit-for-eclipse.md
 [Набор средств Azure для IntelliJ]: ./azure-toolkit-for-intellij.md
@@ -100,7 +100,7 @@
 
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 
-.<!-- IMG List -->
+<!-- IMG List -->
 
 [01]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-01.png
 [02]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-02.png

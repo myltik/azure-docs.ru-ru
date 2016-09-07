@@ -69,7 +69,7 @@
 -   **CloudBlobContainer**: используется для создания контейнера больших двоичных объектов, перечисления BLOB-объектов в контейнере и удаления контейнера.
 -   **CloudBlockBlob**: используется для отправки локального файла изображения в контейнер.
 
-.<!-- -->
+<!-- -->
 
     CloudStorageAccount account;
     CloudBlobClient serviceClient;
@@ -131,7 +131,7 @@
 -   **URISyntaxException**: может вызываться методом **ListBlobItem.getUri**.
 -   **Исключение**: обработка универсального исключения.
 
-.<!-- -->
+<!-- -->
 
     catch (FileNotFoundException fileNotFoundException)
     {
