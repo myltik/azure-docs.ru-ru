@@ -23,12 +23,6 @@
 - [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
 - [Портал](resource-group-template-deploy-portal.md)
 - [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
 
 В этом разделе объясняется, как использовать Azure PowerShell с шаблонами Resource Manager для развертывания ресурсов в Azure.
 
@@ -128,7 +122,7 @@
         Mode              : Incremental
         ...
 
-     Если шаблон содержит параметр, имя которого совпадает с именем одного из параметров в команде PowerShell, с помощью которой развертывается шаблон, вам будет предложено указать значение для этого параметра с постфиксом **FromTemplate**. Предположим, что параметр с именем **ResourceGroupName** в шаблоне конфликтует с параметром **ResourceGroupName** в командлете [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx). Вам будет предложено указать значение для параметра **ResourceGroupNameFromTemplate**. В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
+     Если шаблон содержит параметр, имя которого совпадает с именем одного из параметров в команде PowerShell, появится окно с запросом указать значение для этого параметра. Параметр из шаблона должен включать постфикс **FromTemplate**. Предположим, что параметр с именем **ResourceGroupName** в шаблоне конфликтует с параметром **ResourceGroupName** в командлете [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx). Вам будет предложено указать значение для параметра **ResourceGroupNameFromTemplate**. В общем случае следует избегать этой путаницы, не присваивая параметрам имена параметров, используемых для операций развертывания.
 
 6. Если вы хотите включить в журнал дополнительные сведения о развертывании, которые могут помочь в устранении ошибок развертывания, используйте параметр **DeploymentDebugLogLevel**. Можно задать регистрацию в журнале содержимого запроса или содержимого ответа (или и того, и другого) при операции развертывания.
 
@@ -158,7 +152,7 @@
 
         Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 
-4. Создайте контейнер. Для разрешения задано значение **Off**. Это означает, что доступ к контейнер разрешен только владельцу.
+4. Создайте контейнер. Разрешение имеет значение **Off**, это означает, что контейнер доступен только владельцу.
 
         New-AzureStorageContainer -Name templates -Permission Off
         
@@ -196,7 +190,7 @@
 
 ## Дальнейшие действия
 - Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](virtual-machines/virtual-machines-windows-csharp-template.md).
-- Сведения об определении параметров в командной строке см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md#parameters).
+- Сведения об определении параметров в шаблоне см. в разделе [Параметры](resource-group-authoring-templates.md#parameters).
 - Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

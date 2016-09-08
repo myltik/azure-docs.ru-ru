@@ -56,13 +56,13 @@
 ## Дальнейшие действия
 Теперь, когда вы перенесли данные, ознакомьтесь с процессом [разработки][].
 
-.<!--Image references-->
+<!--Image references-->
 
 <!--Article references-->
 [документации по миграции]: sql-data-warehouse-overview-migrate.md
 [разработки]: sql-data-warehouse-overview-develop.md
 
-.<!--Other Web references--> 
+<!--Other Web references--> 
 [Скачивание служебной программы миграции]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
 <!---HONumber=AcomDC_0810_2016-->

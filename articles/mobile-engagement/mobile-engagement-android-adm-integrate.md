@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo" />
 
 
@@ -109,4 +109,4 @@
 [интегрировали ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [следующую процедуру]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!---HONumber=AcomDC_0316_2016-->
+<!---HONumber=AcomDC_0824_2016-->

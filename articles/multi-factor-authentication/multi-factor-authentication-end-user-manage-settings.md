@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 # Проблемы с Azure Multi-Factor Authentication
@@ -30,7 +30,7 @@
 - [Я хочу изменить свой номер телефона в связи с покупкой нового устройства](#i-have-a-new-phone-and-need-to-change-my-phone-number)
 - [На мой телефон не пришел код](#i-am-not-receiving-a-code-or-a-call-on-my-phone)
 - [Пароли приложений не работают](#app-passwords-are-not-working)
-- [Как удалить Azure Authenticator со старого устройства и перенести на новое?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+- [Как удалить Microsoft Authenticator со старого устройства и перенести на новое?](#how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one)
 - [Здесь нет решения моей проблемы](#i-didnt-find-an-answer-to-my-problem)
 
 ##Ошибки идентификатора корреляции
@@ -45,7 +45,7 @@
  - **Correlation ID** — код идентификатора корреляции, создаваемый при просмотре ошибки пользователем.
  - **Timestamp** — точные дата и время, когда вы заметили ошибку (включая часовой пояс).
  
-.![Идентификатор корреляции](./media/multi-factor-authentication-end-user-manage/correlation.png)
+![Идентификатор корреляции](./media/multi-factor-authentication-end-user-manage/correlation.png)
 
  - **Идентификатор пользователя** — идентификатор пользователя, который увидел ошибку (например, user@contoso.com)?
  - **Сведения о пользователе** — был ли пользователь федеративным, с включенной синхронизацией хэшей паролей, или только облачным? Была ли назначена пользователю лицензия на Azure AD Premium, Enterprise Mobility или Azure AD Basic? Использует ли пользователь Office 365 и т. п.?
@@ -147,7 +147,7 @@
 - Если вы выбрали получение кодов подтверждения с помощью текстового сообщения на мобильный телефон, убедитесь, что план обслуживания и устройство поддерживают доставку текстовых сообщений. Скорость доставки и доступность зависят от расположения и поставщика услуг. Также при попытке получения кодов убедитесь в достаточной мощности сигнала.
 - Если вы выбрали проверку через мобильное приложение, убедитесь в достаточной мощности сигнала. Также помните, что скорость доставки и доступность зависят от расположения и поставщика услуг.
 
-Если у вас смартфон, рекомендуем использовать [приложение Azure Authenticator](multi-factor-authentication-azure-authenticator.md).
+Если у вас смартфон, рекомендуем использовать [приложение Azure Authenticator](multi-factor-authentication-microsoft-authenticator.md).
 
 Можно переключаться между получением кодов проверки в текстовых сообщениях и через мобильное приложение, выбрав при входе параметр **Использовать другой вариант проверки**.
 
@@ -162,8 +162,8 @@
 ##Пароли приложений не работают
 Во-первых, убедитесь, что вы правильно ввели пароль приложения. Если пароль по-прежнему не подходит, войдите и выберите [Создать пароль приложения](multi-factor-authentication-end-user-app-passwords.md). Если это не поможет, обратитесь к администратору и попросите [удалить текущие пароли приложений](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords). Затем создайте новый пароль и используйте его.
 
-##Как удалить Azure Authenticator со старого устройства и перенести на новое?
-При удалении приложения с устройства или сбросе его параметров активация на внутреннем сервере не удаляется. Выполните действия, описанные в разделе [Переход на новое устройство](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
+##Как удалить Microsoft Authenticator со старого устройства и перенести на новое?
+При удалении приложения с устройства или сбросе его параметров активация на внутреннем сервере не удаляется. Выполните действия, описанные в разделе [Переход на новое устройство](multi-factor-authentication-microsoft-authenticator.md#how-to-move-to-the-new-microsoft-authenticator-app).
 
 ##Здесь нет решения моей проблемы
 Если на этой странице нет решения для вашей проблемы, вы можете разместить вопрос на [форумах Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [выполнить поиск в базе знаний Майкрософт](https://www.microsoft.com/ru-RU/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) или [обратиться в службу поддержки](https://support.microsoft.com/ru-RU).
@@ -172,4 +172,4 @@
 
 Наконец, не забудьте оставить подробный отзыв на этой странице, чтобы мы могли обновить и улучшить ее, добавив дополнительные сведения.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

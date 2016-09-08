@@ -11,27 +11,27 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #Заметки о выпуске пакета SDK для Windows Phone Silverlight
 
 
 ##3\.3.0 (19.04.2016)
-Входит в пакет NuGet *MicrosoftAzure.MobileEngagement* **версии 3.4.0**
+Входит в пакет Nuget *MicrosoftAzure.MobileEngagement* **версии 3.4.0**
 
 -   Добавлен API "TestLogLevel" для включения, отключения или фильтрации журналов консоли, созданных с помощью пакета SDK.
 
 ##3\.2.0 (22.01.2016 г.)
-Входит в пакет NuGet *MicrosoftAzure.MobileEngagement* **версии 3.3.0**
+Входит в пакет Nuget *MicrosoftAzure.MobileEngagement* **версии 3.3.0**
 
 -   По URL-адресам действия доступны настраиваемые схемы, ms-appx и ms-appdata.
 -   Улучшение стабильности.
   
 ##3\.1.0 (11/20/2015)
-Входит в пакет NuGet *MicrosoftAzure.MobileEngagement* **версии 3.2.0**
+Входит в пакет Nuget *MicrosoftAzure.MobileEngagement* **версии 3.2.0**
 
 -   Исправлена проблема сбоев при запросе идентификатора устройства сразу после инициализации.
 -   Улучшены журналы консоли.
@@ -49,4 +49,4 @@
 -   Улучшения безопасности.
  
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

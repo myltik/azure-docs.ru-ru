@@ -3,8 +3,8 @@
    description="Эта статья поможет вам настроить маршрутизацию трафика с отработкой отказа в диспетчере трафика."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/10/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Настройте метод маршрутизации с отработкой отказа
 
@@ -52,4 +52,4 @@
 
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0824_2016-->

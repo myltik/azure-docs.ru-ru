@@ -21,7 +21,7 @@ description="Узнайте, как создавать и использоват
 
 > [AZURE.SELECTOR]
 - [Windows](virtual-machines-linux-ssh-from-windows.md)
-- [Linux или Mac](virtual-machines-linux-ssh-from-linux.md)
+- [Linux или Mac](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
 В этом разделе описывается создание и использование в Windows файлов открытых и закрытых ключей в формате **ssh-rsa** и **PEM**, которые можно использовать для подключения к виртуальным машинам Linux в Azure с помощью команды **ssh**. Если файлы **.pem** уже созданы, можно воспользоваться ими для создания виртуальных машин Linux, к которым можно подключиться с помощью **ssh**. В некоторых других командах протокол **SSH** и файлы ключей используются для безопасного выполнения работы, в частности **scp** или [безопасное копирование](https://en.wikipedia.org/wiki/Secure_copy), позволяющее надежно копировать файлы на компьютеры с поддержкой подключений **SSH** и с них.
@@ -142,13 +142,13 @@ description="Узнайте, как создавать и использоват
 
 6. Щелкните **Открыть**. Появится запрос, который должен выглядеть следующим образом:
 
-	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-linux/linuxgoodforeignkey.png)
+	![linuxgoodforeignkey](./media/virtual-machines-linux-ssh-from-windows/linuxgoodforeignkey.png)
 
 7. Нажмите кнопку **ОК**.
 
 8. Щелкните **Сохранить закрытый ключ**, который выделен на следующем снимке экрана:
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtygenprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtygenprivatekey.png)
 
 9. Сохраните файл как PPK.
 
@@ -159,13 +159,13 @@ description="Узнайте, как создавать и использоват
 2.	Запустите putty.exe
 3.	Заполните имя узла, используя IP с портала управления.
 
-	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-linux/linuxputtyconfig.png)
+	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
 
 4.	Перед выбором **Открыть** щелкните вкладку Подключение > SSH > Проверка подлинности, чтобы указать ключ. Ниже см. снимок экрана поля для заполнения.
 
-	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-linux/linuxputtyprivatekey.png)
+	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
 
 5.	Щелкните **Открыть**, чтобы подключится к виртуальной машине.
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

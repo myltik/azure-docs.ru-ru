@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/22/2016"
 	ms.author="ggailey"/>
 
 # Использование клиентской библиотеки Apache Cordova для мобильных приложений Azure
@@ -137,4 +137,4 @@ pushHandler.on('error', function (error) {
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [документации по объектам запросов]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

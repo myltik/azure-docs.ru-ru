@@ -5,9 +5,9 @@
 - [Как активировать или деактивировать роль](../articles/active-directory/active-directory-privileged-identity-management-how-to-activate-role.md)
 - [Как изменить или просмотреть параметры активации по умолчанию для роли](../articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md)
 - [Как настроить оповещения безопасности](../articles/active-directory/active-directory-privileged-identity-management-how-to-configure-security-alerts.md)
-- [Как начать проверку безопасности](../articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md)
-- [Как выполнить проверку безопасности](../articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md)
+- [Как запустить проверку доступа](../articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Как выполнить проверку доступа](../articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md)
 - [Как сделать MFA обязательной](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
 - [Как использовать журнал аудита](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

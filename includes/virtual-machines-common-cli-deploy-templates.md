@@ -30,13 +30,13 @@
 
 ### Настройка учетной записи и подписки Azure
 
-Если у вас нет подписки Azure, но есть подписка MSDN, вы можете [активировать преимущества подписчика MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или подписаться на [бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/).
+Если у вас нет подписки Azure, но есть подписка MSDN, то вы можете [активировать преимущества подписчика MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). или подписаться на [бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/).
 
 Теперь [войдите в систему с помощью учетной записи Azure](../articles/xplat-cli-connect.md#use-the-log-in-method): введите `azure login` и следуйте подсказкам по интерактивному входу в учетную запись Azure.
 
 > [AZURE.NOTE] Если у вас есть рабочий или учебный идентификатор и известно, что двухфакторная проверка подлинности не включена, можно **также** использовать `azure login -u` совместно с рабочим или учебным идентификатором для входа *без* интерактивного сеанса. Если у вас нет рабочего или учебного идентификатора, его можно [создать из личной учетной записи Майкрософт](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md) для выполнения входа описанным образом.
 
-В вашей учетной записи может быть несколько подписок. Их можно указать, введя `azure account list`. Это может выглядеть примерно следующим образом:
+У вашей учетной записи может быть несколько подписок. Их можно указать, введя `azure account list`. Результат может выглядеть примерно следующим образом.
 
     azure account list
     info:    Executing command account list
@@ -47,7 +47,7 @@
     data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
     data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 
-Вы можете настроить текущую подписку Azure, введя следующее. Используйте имя подписки или идентификатор объекта, который содержит ресурсы для управления.
+Вы можете настроить текущую подписку Azure, введя приведенную ниже команду. Укажите в ней имя подписки или идентификатор объекта, который содержит ресурсы для управления.
 
 	azure account set <subscription name or ID> true
 
@@ -98,7 +98,7 @@
 
 > [AZURE.NOTE] Кроме того, для параметра ComputeImageVersion можно использовать значение latest как в языке шаблона, так и в интерфейсе командной строки Azure. Это позволит вам всегда использовать последнюю исправленную версию образа без необходимости изменять сценарии или шаблоны. Такой способ показан ниже.
 
-| PublisherName | ПРЕДЛОЖЕНИЕ | Sku | Версия |
+| PublisherName | ПРЕДЛОЖЕНИЕ | Sku | Version (версия) |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic | CentOS | 7 | 7\.0.201503 |
 | OpenLogic | CentOS | 7\.1. | 7\.1.201504 |
@@ -223,7 +223,7 @@
 - доменное имя для внешнего использования;
 - номер версии Ubuntu Server, который содержится в списке.
 
-Как только вы задали эти значения, вы можете приступить к созданию группы для шаблона и развернуть его в подписке Azure.
+Как только вы определили эти значения, вы можете приступить к созданию группы для шаблона и развернуть его в подписке Azure.
 
     {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -743,7 +743,7 @@
 
 ### Шаг 1. Поиск шаблона в JSON-файле
 
-Далее приведено содержимое JSON-файла для шаблона. Если требуется последняя версия, она находится [в репозитории Github для шаблонов](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). В этом разделе используется переключатель `--template-uri` для вызова шаблона, но вы также можете использовать переключатель `--template-file` для передачи локальной версии.
+Далее приведено содержимое JSON-файла для шаблона. Если требуется последняя версия, она находится [в репозитории Github для шаблонов](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). В этом разделе для вызова шаблона используется параметр `--template-uri`, но вы также можете использовать параметр `--template-file` для передачи локальной версии.
 
 
     {
@@ -1240,7 +1240,7 @@
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Задача: вход в виртуальную машину под управлением ОС Linux
 
-Как правило, к компьютерам Linux можно подключиться через SSH-порт. Дополнительную информацию см. в разделе [Использование SSH с Linux в Azure](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md).
+Как правило, к компьютерам Linux можно подключиться через SSH-порт. Дополнительную информацию см. в разделе [Использование SSH с Linux в Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 ## <a id="stop-a-virtual-machine"></a>Задача: остановка виртуальной машины
 
@@ -1264,7 +1264,7 @@
 
      azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 
-Чтобы присоединить существующий диск, выполните следующую команду:
+Чтобы подключить существующий диск, выполните следующую команду:
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
 
@@ -1278,4 +1278,4 @@
 
 Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/) и в статье [Создание платформ приложений с помощью шаблонов](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

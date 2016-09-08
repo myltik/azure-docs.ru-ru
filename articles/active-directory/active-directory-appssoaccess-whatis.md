@@ -126,7 +126,7 @@ Azure AD поддерживает единый вход на основе пар
 
 
 *	**Добавление самостоятельно разработанного приложения**. Если вы самостоятельно разработали приложение, то с помощью рекомендаций в документации разработчика для Azure AD можно реализовать федеративный единый вход или выполнить подготовку с использованием API Graph Azure AD. Для получения дополнительных сведений см. следующие ресурсы.
-  * Сценарии аутентификации в Azure Active Directory
+  * [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md)
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)

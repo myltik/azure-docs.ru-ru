@@ -66,7 +66,7 @@
 
 [Плановое обслуживание виртуальных машин Azure](virtual-machines-windows-planned-maintenance.md)
 
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-windows-infrastructure-service-guidelines.md)
+[Руководство по реализации служб инфраструктуры Azure](virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
 
 [How to configure an availability set for virtual machines in the classic deployment model (Создание группы доступности для виртуальных машин в классической модели развертывания)](virtual-machines-windows-classic-configure-availability.md)
 
@@ -75,7 +75,7 @@
 
 [Создание настраиваемой виртуальной машины под управлением Windows](virtual-machines-windows-classic-createportal.md)
 
-[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Windows Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
+[Capture an image of an Azure Windows virtual machine created with the classic deployment model (Запись образа виртуальной машины Microsoft Azure, созданной с помощью классической модели развертывания)](virtual-machines-windows-classic-capture-image.md)
 
 [Создание и передача виртуального жесткого диска Windows Server в Azure](virtual-machines-windows-classic-createupload-vhd.md)
 
@@ -90,7 +90,7 @@
 
 [Управление виртуальными машинами с помощью Azure PowerShell](virtual-machines-windows-classic-manage-psh.md)
 	
-[Подключение классических виртуальных сетей к новым виртуальным сетям](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)
+[Подключение классических виртуальных сетей к новым виртуальным сетям](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 	
 [Обзор агента и расширений виртуальной машины](virtual-machines-windows-classic-agents-and-extensions.md)
 
@@ -192,4 +192,4 @@
 
 [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

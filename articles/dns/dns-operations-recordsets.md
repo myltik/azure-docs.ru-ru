@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="cherylmc"
-   manager="carmon"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -237,4 +237,4 @@
 
 Дополнительные сведения об обратных записях DNS см. в статье [Как управлять обратными записями DNS для служб с помощью PowerShell](dns-reverse-dns-record-operations-ps.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

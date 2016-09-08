@@ -101,7 +101,7 @@ Microsoft Monitoring Agent подключает компьютеры к Operatio
 
 Установите агент на локальный компьютер, следуя инструкциям в статье [Подключение компьютеров Windows к Log Analytics](../log-analytics/log-analytics-windows-agents.md). Выполните эту процедуру на нескольких компьютерах, чтобы добавить в среду несколько компонентов Worker.
 
-Агент, успешно подключенный к Operations Management Suite, появится на вкладке **Подключенные источники** в области **Параметры** Operations Management Suite. Если агент загрузил решение службы автоматизации правильно, в каталоге C:\\Program Files\\Microsoft Monitoring Agent\\Agent появится папка **AzureAutomationFiles**. Чтобы проверить версию гибридной рабочей среды Runbook, откройте папку C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\AzureAutomation\\ и найдите вложенную папку \*version*.
+Агент, успешно подключенный к Operations Management Suite, появится на вкладке **Подключенные источники** в области **Параметры** Operations Management Suite. Если агент загрузил решение службы автоматизации правильно, в каталоге C:\\Program Files\\Microsoft Monitoring Agent\\Agent появится папка **AzureAutomationFiles**. Чтобы проверить версию гибридной рабочей среды Runbook, откройте папку C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\AzureAutomation\\ и найдите вложенную папку \ *version*.
 
 
 ### 4\. Установите среду модулей Runbook и выполните подключение к службе автоматизации Azure

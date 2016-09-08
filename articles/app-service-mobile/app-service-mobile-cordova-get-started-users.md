@@ -102,7 +102,7 @@
 * [Серверный пакет SDK для ASP.NET]
 * [Серверный пакет SDK для Node.js]
 
-.<!-- URLs. -->
+<!-- URLs. -->
 [Начало работы с мобильными службами]: app-service-mobile-cordova-get-started.md
 [Приступая к работе с мобильными приложениями]: app-service-mobile-cordova-get-started.md
 [документации по политике безопасности содержимого]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html

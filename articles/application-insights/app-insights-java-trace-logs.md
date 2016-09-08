@@ -144,7 +144,7 @@ Log4J версии 1.2|[Пакет SDK с аппендером Log4J верси�
 
 [Поиск по журналу диагностики][diagnostic]
 
-.<!--Link references-->
+<!--Link references-->
 
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md

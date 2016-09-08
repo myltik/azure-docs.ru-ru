@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/16/2016"
+	ms.date="08/29/2016"
 	ms.author="anhoh"/>
 
 # Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C#
@@ -96,11 +96,11 @@
 
 Затем войдите на [портал Azure](https://portal.azure.com), чтобы получить URI и первичный ключ. Универсальный код ресурса (URI) DocumentDB и первичный ключ необходимы, чтобы предоставить приложению данные о расположении, в котором будет устанавливаться подключение, и сделать подключение вашего приложения доверенным для DocumentDB.
 
-На портале Azure перейдите к учетной записи DocumentDB (из шага 1) и щелкните **Ключи**.
+На портале Azure перейдите к учетной записи DocumentDB и щелкните **Ключи**.
 
-Скопируйте универсальный код ресурса (URI) и вставьте скопированное значение в приложение, заменив *<ваше значение URI конечной точки>*. Скопируйте первичный ключ и вставьте скопированное значение в приложение, заменив *<ваше значение ключа>*.
+Скопируйте универсальный код ресурса (URI) с портала и вставьте его в параметр `<your endpoint URI>` в файле program.cs. Затем скопируйте на портале значение поля "Первичный ключ" и вставьте его в параметр `<your key>`.
 
-.![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения C#. Отображена учетная запись DocumentDB со следующими выделенными элементами: активный концентратор, кнопка "Ключи" в колонке учетной записи DocumentDB, а также значения универсального кода ресурса, первичный и вторичный ключи в колонке "Ключи".][keys]
+![Снимок экрана портала Azure в ходе работы с руководством по NoSQL при создании консольного приложения C#. Отображена учетная запись DocumentDB со следующими выделенными элементами: активный концентратор, кнопка "Ключи" в колонке учетной записи DocumentDB, а также значения универсального кода ресурса, первичный и вторичный ключи в колонке "Ключи".][keys]
 
 Мы запустим ознакомительное приложение, создав экземпляр **DocumentClient**.
 
@@ -194,7 +194,7 @@
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
 		// ADD THIS PART TO YOUR CODE
-		await this.CreateDatabaseIfNotExists("FamilyDB");
+		await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -242,14 +242,14 @@
 		}
 	}
 
-Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания базы данных. Будет создана коллекция документов с именем *FamilyCollection*.
+Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания базы данных. Будет создана коллекция документов с именем *FamilyCollection\_oa*.
 
 		this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-		await this.CreateDatabaseIfNotExists("FamilyDB");
+		await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
 		// ADD THIS PART TO YOUR CODE
-		await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+		await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -340,9 +340,9 @@
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания коллекции документов.
 
-	await this.CreateDatabaseIfNotExists("FamilyDB");
+	await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
-	await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+	await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
 	// ADD THIS PART TO YOUR CODE
 	Family andersenFamily = new Family
@@ -371,7 +371,7 @@
 			IsRegistered = true
 	};
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
 
 	Family wakefieldFamily = new Family
 	{
@@ -408,13 +408,13 @@
 			IsRegistered = false
 	};
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
 Поздравляем! Созданы два документа DocumentDB.
 
-.![На схеме представлены иерархические отношения между учетной записью, оперативной базой данных, коллекцией и документами, используемыми в руководстве по NoSQL при создании консольного приложения C#.](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![На схеме представлены иерархические отношения между учетной записью, оперативной базой данных, коллекцией и документами, используемыми в руководстве по NoSQL при создании консольного приложения C#.](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ##<a id="Query"></a>Этап 7: запросы ресурсов DocumentDB
 
@@ -458,10 +458,10 @@
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом создания второго документа.
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
 	// ADD THIS PART TO YOUR CODE
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -495,17 +495,17 @@ DocumentDB поддерживает замену документов JSON.
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом выполнения запроса. После замены документа тот же запрос будет запущен повторно, чтобы вы могли просмотреть измененный документ.
 
-	await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+	await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 	// ADD THIS PART TO YOUR CODE
 	// Update the Grade of the Andersen Family child
 	andersenFamily.Children[0].Grade = 6;
 
-	await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+	await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -533,12 +533,12 @@ DocumentDB поддерживает удаление документов JSON.
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом выполнения второго запроса.
 
-	await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+	await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 	// ADD THIS PART TO CODE
-	await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+	await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -550,13 +550,13 @@ DocumentDB поддерживает удаление документов JSON.
 
 Скопируйте и вставьте приведенный код в метод **GetStartedDemo** под кодом удаления документа, чтобы удалить всю базу данных и все дочерние ресурсы.
 
-	this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+	this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-	await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+	await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
 	// ADD THIS PART TO CODE
 	// Clean up/delete the database
-	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
+	await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
 
 Нажмите клавишу **F5**, чтобы запустить приложение.
 
@@ -568,9 +568,9 @@ DocumentDB поддерживает удаление документов JSON.
 
 Должны отобразиться выходные данные вашего приложения. Они должны содержать результаты обработки добавленных запросов. При этом выглядеть они должны примерно так, как показано в примере ниже.
 
-	Created FamilyDB
+	Created FamilyDB_oa
 	Press any key to continue ...
-	Created FamilyCollection
+	Created FamilyCollection_oa
 	Press any key to continue ...
 	Created Family Andersen.1
 	Press any key to continue ...
@@ -612,4 +612,4 @@ DocumentDB поддерживает удаление документов JSON.
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

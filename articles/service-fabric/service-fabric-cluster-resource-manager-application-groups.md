@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/20/2016"
+   ms.date="08/19/2016"
    ms.author="masnider"/>
 
 # Введение в группы приложений
@@ -158,7 +158,7 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 6 –MinimumNodes
 -	Не пытайтесь с помощью емкости приложений разместить две службы одного приложения вместе. Для этого можно использовать отношения сходства между службами, но их следует применять только для тех служб, для которых совместное размещение действительно необходимо.
 
 ## Дальнейшие действия
-- Дополнительные сведения о других вариантах настройки служб см. в разделе о других конфигурациях Cluster Resource Manager в статье [Настройка параметров диспетчера кластерных ресурсов для служб Service Fabric](service-fabric-cluster-resource-manager-configure-services.md).
+- Дополнительные сведения о других вариантах настройки служб см. в статье [Настройка параметров диспетчера кластерных ресурсов для служб Service Fabric](service-fabric-cluster-resource-manager-configure-services.md).
 - Чтобы узнать, как диспетчер кластерных ресурсов управляет нагрузкой кластера и балансирует ее, ознакомьтесь со статьей о [балансировке нагрузки](service-fabric-cluster-resource-manager-balancing.md).
 - Начните с самого начала, [изучив общие сведения о диспетчере кластерных ресурсов Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
 - Дополнительные сведения об использовании метрик см. в статье [Управление потреблением ресурсов и нагрузкой в Service Fabric с помощью метрик](service-fabric-cluster-resource-manager-metrics.md).
@@ -168,4 +168,4 @@ Update-ServiceFabricApplication –Name fabric:/MyApplication1 6 –MinimumNodes
 [Image1]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0824_2016-->

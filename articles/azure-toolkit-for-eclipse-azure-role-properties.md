@@ -414,7 +414,7 @@
 [Сходство сеанса]: http://go.microsoft.com/fwlink/?LinkID=699548
 [разгрузка SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
 
-.<!-- IMG List -->
+<!-- IMG List -->
 
 [ic789599]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic789599.png
 [ic719499]: ./media/azure-toolkit-for-eclipse-azure-role-properties/ic719499.png

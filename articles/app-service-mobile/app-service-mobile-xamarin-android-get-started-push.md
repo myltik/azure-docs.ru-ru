@@ -73,7 +73,7 @@
 	![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 
 
-.<!-- URLs. -->
+<!-- URLs. -->
 [Xamarin.Android quickstart]: app-service-mobile-xamarin-android-get-started.md
 [Создание приложения Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
 [Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/

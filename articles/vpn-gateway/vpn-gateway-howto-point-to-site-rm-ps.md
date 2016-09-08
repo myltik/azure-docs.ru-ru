@@ -13,10 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/16/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc" />
 
-# Настройка подключения типа "точка–сеть" к виртуальной сети с помощью PowerShell
+# Настройка подключения типа "точка — сеть" к виртуальной сети с помощью PowerShell
 
 > [AZURE.SELECTOR]
 - [PowerShell — Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -24,9 +24,11 @@
 
 Конфигурация типа "точка — сеть" позволяет создать безопасное подключение к виртуальной сети с отдельного клиентского компьютера. Это эффективное решение для подключения к виртуальной сети из удаленного расположения, например, если вы находитесь дома или на конференции либо если подключение к виртуальной сети требуется всего нескольким клиентам.
 
+В этой статье рассматривается создание виртуальной сети с подключением "точка — сеть" в **модели развертывания Resource Manager**. Для этого нам понадобится PowerShell. Сейчас создать это решение полностью на портале Azure нельзя.
+
 Для подключения типа "точка–сеть" не требуется VPN-устройство или общедоступный IP-адрес. VPN-подключение сначала устанавливается с локального клиентского компьютера. Дополнительные сведения о подключениях типа "точка — сеть" см. в статьях [VPN-шлюз: вопросы и ответы](vpn-gateway-vpn-faq.md#point-to-site-connections) и [Планирование и проектирование VPN-шлюза](vpn-gateway-plan-design.md).
 
-Это статья о подключениях типа "точка — сеть" к виртуальной сети, созданной с помощью модели развертывания Resource Manager. В этой статье описывается использование PowerShell.
+
 
 **О моделях развертывания Azure**
 
@@ -36,14 +38,14 @@
 
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
-![Схема подключения типа "точка — сеть"](./media/vpn-gateway-point-to-site-create/point2site.png "точка — сеть")
+![Схема подключения типа "точка — сеть"](./media/vpn-gateway-howto-point-to-site-rm-ps/p2srm.png "точка — сеть")
 
 
 ## Об этой конфигурации.
 
-В этом сценарии вы создадите виртуальную сеть с подключением типа "точка–сеть". Подключение "точка — сеть" состоит из следующих элементов: виртуальная сеть со шлюзом, CER-файл корневого сертификата, сертификат клиента и конфигурация VPN на стороне клиента.
+В этом сценарии вы создадите виртуальную сеть с подключением типа "точка — сеть". С помощью приведенных здесь инструкций вы также сможете создать сертификаты, необходимые для этой конфигурации. Подключение "точка — сеть" состоит из следующих элементов: виртуальная сеть с VPN-шлюзом, CER-файл корневого сертификата (открытый ключ), сертификат клиента и конфигурация VPN на стороне клиента.
 
-Для этой конфигурации мы используем следующие значения.
+Для этой конфигурации мы используем следующие значения. Переменные присваиваются в части [1](#declare) этой статьи. Вы можете использовать эти пошаговые инструкции, используя указанные в них значения, или же изменить значения в соответствии со своей средой.
 
 - Имя — **VNet1**, используемые адресные пространства — **192.168.0.0/16** и **10.254.0.0/16**. Обратите внимание, что для виртуальной сети можно использовать более одного адресного пространства.
 - Имя подсети — **FrontEnd**, используется **192.168.1.0/24**.
@@ -65,7 +67,9 @@
 	
 - Установите командлеты PowerShell Azure Resource Manager (1.0.2 или более поздней версии). Дополнительные сведения об установке командлетов PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
-## Настройка подключения "точка–сеть" для Azure
+## <a name="declare"></a>Часть 1. Вход и настройка переменных
+
+В этом разделе мы выполним вход и объявим значения для этой конфигурации. Объявленные значения используются в примерах скриптов. Измените значения в соответствии со своей средой. Также можно использовать объявленные значения и выполнить эти шаги в качестве упражнения.
 
 1. В консоли PowerShell войдите в свою учетную запись Azure. Командлет запрашивает учетные данные входа для вашей учетной записи Azure. После выполнения входа он скачивает параметры учетной записи, чтобы они были доступны в Azure PowerShell.
 
@@ -79,7 +83,7 @@
 
 		Select-AzureRmSubscription -SubscriptionName "Name of subscription"
 
-4. В этой конфигурации объявлены следующие переменные PowerShell со значениями, которые вы хотите использовать. Объявленные значения используются в примерах скриптов. Объявите значения, которые вы хотите использовать. Используйте следующий пример, подставив собственные значения в соответствующих параметрах.
+4. Объявите переменные, которые вы хотите использовать. Используйте следующий пример, подставив собственные значения в соответствующих параметрах.
 
 		$VNetName  = "VNet1"
 		$FESubName = "FrontEnd"
@@ -99,69 +103,100 @@
 		$GWIPconfName = "gwipconf"
     	$P2SRootCertName = "ARMP2SRootCert.cer"
 
-5. Создайте новую группу ресурсов.
+
+## Часть 2. Настройка виртуальной сети 
+
+
+1. Создайте группу ресурсов.
 
 		New-AzureRmResourceGroup -Name $RG -Location $Location
 
-6. Создайте конфигурации подсети для виртуальной сети, присвоив им имена *FrontEnd*, *BackEnd* и *GatewaySubnet*. Эти префиксы должны быть частью объявленного выше адресного пространства виртуальной сети.
+2. Создайте конфигурации подсети для виртуальной сети, присвоив им имена *FrontEnd*, *BackEnd* и *GatewaySubnet*. Эти префиксы должны быть частью объявленного выше адресного пространства виртуальной сети.
 
 		$fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
 		$besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
 		$gwsub = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName -AddressPrefix $GWSubPrefix
 
-7. Создание виртуальной сети. Необходимо указать DNS-сервер, который может разрешать имена для ресурсов, к которым вы подключаетесь. В этом примере мы использовали общедоступный IP-адрес. Подставьте собственные значения.
+3. Создание виртуальной сети. Необходимо указать DNS-сервер, который может разрешать имена для ресурсов, к которым вы подключаетесь. В этом примере мы использовали общедоступный IP-адрес. Подставьте собственные значения.
 	
 		New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer $DNS
 
-8. Укажите переменные для созданной виртуальной сети.
+4. Укажите переменные для созданной виртуальной сети.
 
 		$vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
 		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
 
-9. Запросите динамически назначенный общедоступный IP-адрес. Этот IP-адрес необходим для правильной работы шлюза. Позже вы подключите шлюз к конфигурации IP-адреса для шлюза.
+5. Запросите динамически назначенный общедоступный IP-адрес. Этот IP-адрес необходим для правильной работы шлюза. Позже вы подключите шлюз к конфигурации IP-адреса для шлюза.
 		
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
-		
-10. Добавление доверенных сертификатов в Azure. Вы можете добавить до 20 сертификатов. Дополнительные сведения о создании самозаверяющего корневого сертификата с помощью *makecert* см. в статье [Работа с самозаверяющими корневыми сертификатами для конфигураций типа "точка-сеть"](vpn-gateway-certificates-point-to-site.md). При добавлении CER-файла Base64-encoded X.509 в Azure вы указываете Azure доверять корневому сертификату, который представляет собой файл.
 
-	Чтобы получить открытый ключ, экспортируйте сертификат как CER-файл Base64-encoded X.509. Запишите путь к расположению, в которое экспортирован файл CER-файл. Ниже приведен пример получения строкового представления сертификата Base64. На этом шаге необходимо использовать собственный путь к CER-файлу.
+## Часть 3. Добавление доверенных сертификатов
+
+В Azure проверка подлинности клиентов, которые используют подключение "точка — сеть", выполняется с помощью сертификатов. Импортируйте в Azure CER-файл (открытый ключ) для корневого сертификата. При добавлении CER-файла Base64-encoded X.509 в Azure вы указываете Azure доверять корневому сертификату, который представляет собой файл.
+
+Если вы пользуетесь корпоративным решением центра сертификации, можно использовать существующую цепочку сертификатов. В противном случае можно создать самозаверяющий корневой сертификат. Один из способов создания самозаверяющего сертификата — средство makecert. Дополнительные сведения о создании самозаверяющего корневого сертификата с помощью *makecert* см. в статье [Работа с самозаверяющими корневыми сертификатами для конфигураций типа "точка-сеть"](vpn-gateway-certificates-point-to-site.md).
+
+Независимо от способа получения сертификата следует отправить CER-файл сертификата в Azure, а также создать сертификаты клиента для установки на подключаемых клиентах. Не устанавливайте самозаверяющий сертификат непосредственно на клиенте. Создание сертификатов клиента описывается ниже в разделе, посвященном [конфигурации клиента](#cc).
+		
+В Azure можно добавить до 20 доверенных сертификатов. Чтобы получить открытый ключ, экспортируйте сертификат как CER-файл X.509 в кодировке Base-64. Один из способов экспорта CER-файла: откройте **certmger.msc** и найдите сертификат в разделе Personal/Certificates. Щелкните правой кнопкой мыши и экспортируйте сертификат как CER-файл X.509 в кодировке Base-64 без закрытого ключа. Запишите путь к расположению, в которое экспортирован файл CER-файл. Ниже приведен пример получения строкового представления сертификата Base64.
+
+Добавьте доверенный сертификат в Azure. На этом шаге необходимо использовать собственный путь к CER-файлу. Обратите особое внимание на переменную $P2SRootCertName = "ARMP2SRootCert.cer", которую вы определили в части 1 этой статьи. Если имя вашего сертификата отличается, измените переменную соответствующим образом.
     
 		$filePathForCert = "pasteYourCerFilePathHere"
 		$cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($filePathForCert)
 		$CertBase64 = [system.convert]::ToBase64String($cert.RawData)
 		$p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
 
+## Часть 4. Создание VPN-шлюза
 
-11. Создайте шлюз для своей виртуальной сети. Параметр *-GatewayType* должен иметь значение **Vpn**, а параметр *-VpnType*— **RouteBased**.
+Настройте и создайте шлюз для своей виртуальной сети. Параметр *-GatewayType* должен иметь значение **Vpn**, а параметр *-VpnType*— **RouteBased**. Это может занять до 45 минут.
 
 		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 		-Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
 		-VpnType RouteBased -EnableBgp $false -GatewaySku Standard `
 		-VpnClientAddressPool $VPNClientAddressPool -VpnClientRootCertificates $p2srootcert
 
-## Настройка клиента
+## Часть 5. Скачивание пакета конфигурации VPN-клиента
 
-Для каждого клиента, который подключается к Azure с помощью подключения "точка–сеть", есть два обязательных требования: VPN-клиент должен быть настроен для подключения, а сертификат клиента должен быть установлен. Для клиентов Windows доступны пакеты конфигурации VPN-клиента. Дополнительные сведения см. в разделе [Подключения "точка — сеть"](vpn-gateway-vpn-faq.md#point-to-site-connections) статьи "VPN-шлюз: вопросы и ответы".
+На клиентах с подключением к Azure типа "точка — сеть" должны быть установлены сертификат клиента и пакет конфигурации VPN-клиента. Для клиентов Windows доступны пакеты конфигурации VPN-клиента. Пакет VPN-клиента содержит сведения о настройке программного обеспечения VPN-клиента. Такое ПО встроено в ОС Windows и зависит от сети VPN, к которой необходимо подключиться. Пакет не устанавливает никакого дополнительного программного обеспечения. Дополнительные сведения см. в разделе [Подключения "точка — сеть"](vpn-gateway-vpn-faq.md#point-to-site-connections) статьи "VPN-шлюз: вопросы и ответы".
 
-1. Скачайте пакет конфигурации VPN-клиента. На этом шаге используйте приведенный ниже пример, чтобы скачать пакет конфигурации клиента.
+1. После создания шлюза используйте приведенный ниже пример, чтобы скачать пакет конфигурации клиента.
 
 		Get-AzureRmVpnClientPackage -ResourceGroupName $RG `
 		-VirtualNetworkGatewayName $GWName -ProcessorArchitecture Amd64
 
-	Командлет PowerShell вернет URL-адрес. Скопируйте и вставьте этот URL-адрес в веб-браузер, чтобы скачать пакет на свой компьютер. Ниже приведен пример возвращаемого URL-адреса.
+2. Командлет PowerShell вернет URL-адрес. Ниже приведен пример возвращаемого URL-адреса.
 
     	"https://mdsbrketwprodsn1prod.blob.core.windows.net/cmakexe/4a431aa7-b5c2-45d9-97a0-859940069d3f/amd64/4a431aa7-b5c2-45d9-97a0-859940069d3f.exe?sv=2014-02-14&sr=b&sig=jSNCNQ9aUKkCiEokdo%2BqvfjAfyhSXGnRG0vYAv4efg0%3D&st=2016-01-08T07%3A10%3A08Z&se=2016-01-08T08%3A10%3A08Z&sp=r&fileExtension=.exe"
+
+3. Скопируйте и вставьте этот URL-адрес в веб-браузер, чтобы скачать пакет. Затем установите пакет на клиентском компьютере.
+
+4. На клиентском компьютере перейдите в раздел **Параметры сети** и щелкните **VPN**. Вы увидите подключение в списке. Оно будет содержать имя виртуальной сети, подключение к которой будет установлено, и выглядеть примерно так:
+
+	![VPN-клиент](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN-клиент")
+
+## <a name="cc"></a>Часть 6. Установка сертификата клиента
 	
-2. Создайте и установите сертификаты клиента (PFX), созданные из корневого сертификата, на клиентских компьютерах. Можно использовать любой метод установки, который вам подходит. Если вы используете самозаверяющий корневой сертификат и не знакомы с процедурой, см. сведения в статье [Работа с самозаверяющими корневыми сертификатами для конфигураций типа "точка — сеть"](vpn-gateway-certificates-point-to-site.md).
+Создайте и установите сертификаты клиента (PFX), созданные из корневого сертификата, на клиентских компьютерах. Можно использовать любой метод установки, который вам подходит.
 
-3. Чтобы подключиться к виртуальной сети, откройте VPN-подключения на клиентском компьютере и найдите созданное VPN-подключение. Его имя совпадает с названием вашей виртуальной сети. Щелкните **Подключить**. Может появиться всплывающее сообщение об использовании сертификата. В таком случае щелкните **Продолжить**, чтобы использовать более высокий уровень привилегий.
+Если вы используете самозаверяющий корневой сертификат и не знаете, как создать сертификат клиента, ознакомьтесь с инструкциями в [этой статье](vpn-gateway-certificates-point-to-site.md). При использовании корпоративного решения создайте сертификаты клиента с именем в формате "имя@домен.com", а не в формате "имя домена NetBIOS\\имя пользователя".
 
-4. На странице состояния **Подключение** щелкните **Подключить**. Если появится окно **Выбор сертификата**, убедитесь в том, что отображается сертификат клиента, с помощью которого вы хотите подключиться к сети. Если окно не появится, выберите нужный сертификат в раскрывающемся списке и нажмите кнопку **ОК**.
+Сертификат клиента можно установить непосредственно на компьютере, дважды щелкнув PFX-файл.
 
-5. Теперь следует установить подключение. Подключение можно проверить с помощью описанной ниже процедуры.
+## Часть 7. Подключение к Azure
 
-## Проверка подключения
+1. Чтобы подключиться к виртуальной сети, откройте VPN-подключения на клиентском компьютере и найдите созданное VPN-подключение. Его имя совпадает с названием вашей виртуальной сети. Щелкните **Подключить**. Может появиться всплывающее сообщение об использовании сертификата. В таком случае щелкните **Продолжить**, чтобы использовать более высокий уровень привилегий.
+
+2. На странице состояния **Подключение** щелкните **Подключить**. Если появится окно **Выбор сертификата**, убедитесь в том, что отображается сертификат клиента, с помощью которого вы хотите подключиться к сети. Если окно не появится, выберите нужный сертификат в раскрывающемся списке и нажмите кнопку **ОК**.
+
+	![VPN-клиент 2](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png "Подключение VPN-клиента")
+
+3. Теперь следует установить подключение.
+
+	![VPN-клиент 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "Подключение 2 VPN-клиента")
+
+## Часть 8. Проверка подключения
 
 1. Чтобы проверить, активно ли VPN-подключение, откройте окно командной строки от имени администратора и выполните команду *ipconfig/all*.
 
@@ -182,23 +217,33 @@
 
 Сертификаты используются для проверки подлинности VPN-клиентов в VPN-подключениях типа "точка — сеть". Ниже приведены пошаговые инструкции по добавлению и удалению корневых сертификатов. При добавлении CER-файла Base64-encoded X.509 в Azure вы указываете Azure доверять корневому сертификату, который представляет собой файл.
 
+Доверенные корневые сертификаты можно добавлять и удалять с помощью PowerShell или портала Azure. Если вы хотите сделать это с помощью портала Azure, выберите **Шлюз виртуальной сети > Параметры > Конфигурация "точка — сеть" > Корневые сертификаты**. Ниже описано выполнение этих задач с помощью PowerShell.
+
 ### Добавление доверенного корневого сертификата
 
 В Azure можно добавить до 20 CER-файлов доверенных корневых сертификатов. Чтобы добавить корневой сертификат, сделайте следующее:
 
-1. Создайте корневой сертификат и подготовьте его к добавлению в Azure.
+1. Создайте корневой сертификат и подготовьте его к добавлению в Azure. Экспортируйте открытый ключ как CER-файл X.509 в кодировке Base-64 и откройте его в текстовом редакторе. Затем скопируйте только раздел, указанный ниже.
+ 
+	Скопируйте значения, как показано в следующем примере.
+
+	![на основе сертификата.](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "на основе сертификата.")
+	
+2. В приведенном ниже примере укажите имя сертификата и сведения о ключе как значения переменных. Подставьте собственные значения.
 
 		$P2SRootCertName2 = "ARMP2SRootCert2.cer"
 		$MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
 
-2. Добавьте новый корневой сертификат. Можно добавлять только один сертификат за раз.
 
-		Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
+3. Добавьте новый корневой сертификат. Можно добавлять только один сертификат за раз.
 
-3. Чтобы проверить, добавлен ли новый сертификат должным образом, можно выполнить следующий командлет.
+		Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname "GW" -ResourceGroupName "TestRG" -PublicCertData $MyP2SCertPubKeyBase64_2
 
-		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG `
-		-VirtualNetworkGatewayName $GWName
+
+4. Чтобы проверить, добавлен ли новый сертификат должным образом, можно выполнить следующий командлет.
+
+		Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
+		-VirtualNetworkGatewayName "GW"
 
 ### Удаление доверенного корневого сертификата
 
@@ -206,12 +251,19 @@
 
 1. Чтобы удалить доверенный корневой сертификат, измените пример кода ниже.
 
-		Remove-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
+	Объявите переменные.
 
+		$P2SRootCertName2 = "ARMP2SRootCert2.cer"
+		$MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
+
+2. Удалите сертификат.
+
+		Remove-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
  
-2. Выполните следующий командлет, чтобы убедиться, что сертификат успешно удален.
+3. Выполните следующий командлет, чтобы убедиться, что сертификат успешно удален.
 
-		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName
+		Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
+		-VirtualNetworkGatewayName "GW"
 
 ## Управление списком отозванных сертификатов клиента
 
@@ -250,4 +302,4 @@
 
 Вы можете добавить виртуальную машину в виртуальную сеть. Инструкции см. в статье [Создание виртуальной машины под управлением Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

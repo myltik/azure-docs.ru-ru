@@ -19,26 +19,26 @@
 
 # Создание и передача виртуального жесткого диска с операционной системой Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Вы можете также [передать пользовательский образ с помощью Azure Resource Manager](virtual-machines-linux-upload-vhd.md).
 
-В этой статье показано, как создать и передать виртуальный жесткий диск (VHD-файл), чтобы использовать его в качестве образа для создания виртуальных машин в Azure. Вы узнаете, как подготовить операционную систему, чтобы использовать ее в качестве образа для создания нескольких виртуальных машин.
-
-**Важно!** Соглашение об уровне обслуживания платформы Azure применяется к виртуальным машинам, работающим под управлением ОС Linux, только если один из рекомендуемых дистрибутивов используется вместе со сведениями о конфигурации, указанными в статье «Поддерживаемые версии» раздела [Linux с рекомендуемыми дистрибутивами Azure](virtual-machines-linux-endorsed-distros.md). Все дистрибутивы Linux в коллекции образов Azure — это рекомендуемые дистрибутивы, уже имеющие необходимую конфигурацию.
+В этой статье показано, как создать и передать виртуальный жесткий диск (VHD-файл), чтобы использовать его в качестве образа для создания виртуальных машин в Azure. Узнайте, как подготовить операционную систему, чтобы использовать ее в качестве образа для создания нескольких виртуальных машин.
 
 
 ## Предварительные требования
 В данной статье предполагается, что у вас есть следующие элементы:
 
-- **Операционная система Linux, установленная в VHD-файле**. Вы установили [рекомендуемый для Azure дистрибутив Linux](virtual-machines-linux-endorsed-distros.md) (или см. [информацию о нерекомендованных дистрибутивах](virtual-machines-linux-create-upload-generic.md)) на виртуальный диск в формате VHD. Существует несколько инструментов для создания VHD-файлов. Например, для создания VHD-файла и установки операционной системы можно использовать решения для виртуализации, такие как Hyper-V. Инструкции см. в разделе [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx).
+- **Операционная система Linux, установленная в VHD-файле**. Вы установили [рекомендуемый для Azure дистрибутив Linux](virtual-machines-linux-endorsed-distros.md) (или ознакомьтесь с [информацией о нерекомендованных дистрибутивах](virtual-machines-linux-create-upload-generic.md)) на виртуальный диск в формате VHD. Для создания VHD-файлов существует несколько средств.
+	- Установите и настройте [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) или [KVM](http://www.linux-kvm.org/page/RunningKVM), используя VHD в качестве формата образа. При необходимости вы можете [преобразовать образ](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) с помощью `qemu-img convert`.
+	- Кроме того, можно использовать Hyper-V [в Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) или [Windows Server 2012 и 2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
-	> [AZURE.NOTE] Более новый формат VHDX не поддерживается в Azure. Можно преобразовать VHDX в формат VHD с помощью диспетчера Hyper-V или командлета `Convert-VHD`. Кроме того, Azure не поддерживает отправку динамических дисков VHD, поэтому перед отправкой необходимо преобразовать такие диски в статические диски VHD. Для преобразования динамических дисков можно использовать [служебные программы Azure VHD для GO](https://github.com/Microsoft/azure-vhd-utils-for-go).
+> [AZURE.NOTE] Более новый формат VHDX не поддерживается в Azure. При создании виртуальной машины укажите формат VHD. При необходимости можно преобразовать диски VHDX в диски VHD с помощью командлета PowerShell [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) или [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx). Кроме того, Azure не поддерживает отправку динамических дисков VHD, поэтому перед отправкой необходимо преобразовать такие диски в статические диски VHD. Для преобразования динамических дисков во время передачи в Azure можно использовать [служебные программы Azure VHD для GO](https://github.com/Microsoft/azure-vhd-utils-for-go).
 
-- **Интерфейс командной строки Azure**. Установите последнюю версию [интерфейса командной строки Azure](../virtual-machines-command-line-tools.md) для отправки дисков VHD.
+- **Интерфейс командной строки Azure**. Установите последнюю версию [интерфейса командной строки Azure](../virtual-machines-command-line-tools.md) для передачи VHD.
 
 <a id="prepimage"> </a>
 ## Шаг 1. Подготовка образа для передачи
 
-Microsoft Azure поддерживает различные дистрибутивы Linux (см. раздел [Рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md)). В следующих статьях описывается подготовка различных дистрибутивов Linux, которые поддерживаются в Azure. После выполнения этапов, описанных в приведенных ниже руководствах, вернитесь сюда. У вас уже должен быть VHD-файл для передачи в Azure.
+Azure поддерживает различные дистрибутивы Linux (см. раздел [Рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md)). В следующих статьях описывается подготовка различных дистрибутивов Linux, которые поддерживаются в Azure. После выполнения указаний, описанных в приведенных ниже руководствах, вернитесь сюда. У вас уже будет VHD-файл для передачи в Azure.
 
 - **[Дистрибутивы на основе CentOS](virtual-machines-linux-create-upload-centos.md)**
 - **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
@@ -48,13 +48,15 @@ Microsoft Azure поддерживает различные дистрибути
 - **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
 - **[Прочее — нерекомендованные дистрибутивы](virtual-machines-linux-create-upload-generic.md)**
 
-Дополнительные общие советы по подготовке образов Linux для Azure см. в разделе **[Общие замечания по установке Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)**.
+> [AZURE.NOTE] Соглашение об уровне обслуживания платформы Azure применяется к виртуальным машинам, работающим под управлением Linux, только если используется один из рекомендуемых дистрибутивов с конфигурацией, указанной в разделе "Поддерживаемые дистрибутивы и версии" статьи [Linux в Azure — рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md). Все дистрибутивы Linux в коллекции образов Azure — это рекомендуемые дистрибутивы, уже имеющие необходимую конфигурацию.
+
+Другие общие советы по подготовке образов Linux для Azure см. в разделе **[Общие замечания по установке Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes)**.
 
 
 <a id="connect"> </a>
 ## Шаг 2. Подготовка подключения к Azure
 
-Убедитесь, что вы используете интерфейс командной строки Azure в классической модели развертывания (`azure config mode asm`), а затем войдите в свою учетную запись:
+Убедитесь, что вы используете интерфейс командной строки Azure в классической модели развертывания (`azure config mode asm`), а затем войдите со своей учетной записью.
 
 ```
 azure login
@@ -64,23 +66,42 @@ azure login
 <a id="upload"> </a>
 ## Шаг 3. Передача образа в Azure
 
-Потребуется учетная запись хранения для отправки VHD-файла. На этом шаге можно выбрать существующую учетную запись или [создать новую](../storage/storage-create-storage-account.md).
+Для передачи VHD-файла нужна учетная запись хранения. Можно выбрать существующую учетную запись хранения или [создать новую](../storage/storage-create-storage-account.md).
 
 Для передачи образа выполните следующую команду в командной строке Azure:
 
-		azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> --os Linux <PathToVHDFile>
+```bash
+azure vm image create <ImageName> --blob-url <BlobStorageURL>/<YourImagesFolder>/<VHDName> --os Linux <PathToVHDFile>
+```
 
 В предыдущем примере:
 
 - **BlobStorageURL** — URL-адрес для учетной записи хранения, которую вы планируете использовать.
 - **YourImagesFolder** — контейнер внутри хранилища BLOB-объектов, где будут храниться образы.
 - **VHDName** — метка, которая отображается на портале для идентификации виртуального жесткого диска.
-- **PathToVHDFile** — полный путь и имя VHD-файла на виртуальной машине.
+- **PathToVHDFile** — полный путь и имя VHD-файла на вашем компьютере.
 
-Дополнительные сведения см. в [справочнике по командам Azure CLI для управления службами Azure](../virtual-machines-command-line-tools.md).
+Ниже представлен полный пример.
+
+```bash
+azure vm image create UbuntuLTS --blob-url https://teststorage.blob.core.windows.net/vhds/UbuntuLTS.vhd --os Linux /home/ahmet/UbuntuLTS.vhd
+```
+
+## Шаг 4. Создание виртуальной машины из образа
+Создайте обычную виртуальную машину с помощью команды `azure vm create`. Укажите имя, присвоенное образу на предыдущем шаге. В следующем примере мы используем имя образа **UbuntuLTS**, присвоенное на предыдущем шаге.
+
+```bash
+azure vm create --userName ops --password P@ssw0rd! --vm-size Small --ssh --location "West US" "DeployedUbuntu" UbuntuLTS
+```
+
+Для создания виртуальной машины следует указать свои имя пользователя и пароль, расположение, DNS-имя и имя образа.
+
+## Дальнейшие действия
+
+Дополнительные сведения см. в [справочнике по Azure CLI для классической модели развертывания Azure](../virtual-machines-command-line-tools.md).
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -25,7 +25,7 @@
 
 ## Шаг 1. Установка Azure PowerShell
 
-Сведения о том, как установить последнюю версию Azure PowerShell, выбрать нужную подписку и войти в учетную запись Azure, см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Сведения об установке последней версии Azure PowerShell, выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
         
 ## Шаг 2. Создание группы ресурсов
 
@@ -122,7 +122,7 @@
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Пароль должен содержать от 12 до 123 символов и включать по крайней мере одну строчную букву, одну прописную букву, одну цифру и один специальный знак.
+    Пароль должен содержать от 8 до 123 символов и включать по крайней мере три из перечисленных далее символов: одна строчная буква, одна заглавная буква, одно число и один специальный символ. См. дополнительную информацию о [требованиях к имени пользователя и паролю](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
         
 2. Замените значение **$vmName** именем виртуальной машины. Создайте переменную и конфигурацию виртуальной машины.
 
@@ -140,7 +140,7 @@
 
         $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         
-    Дополнительную информацию о выборе образов, которые можно использовать, см. в статье [Просмотр и выбор образов виртуальных машин Linux в Azure с помощью интерфейса командной строки или оболочки PowerShell](virtual-machines-windows-cli-ps-findimage.md).
+    Дополнительную информацию о выборе образов, которые можно использовать, см. в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](virtual-machines-windows-cli-ps-findimage.md).
         
 5. Добавьте в конфигурацию созданный сетевой интерфейс.
 
@@ -168,8 +168,8 @@
                                   
 ## Дальнейшие действия
 
-- При возникновении проблем с развертыванием ознакомьтесь со статьей [Устранение неполадок развертываний групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
+- При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Узнайте, как управлять созданной виртуальной машиной, прочитав статью об [управлении виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
 - Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

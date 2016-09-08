@@ -55,7 +55,7 @@
 ##Дальнейшие действия##
 После создания виртуальной машины она запускается автоматически. Когда отображается состояние портала "Выполняется", можно войти в виртуальную машину. Указания см. в одной из следующих статей:
 
-- [Как войти в виртуальную машину под управлением Linux](../articles/virtual-machines/virtual-machines-linux-classic-log-on.md)
+- [Как войти в виртуальную машину под управлением Linux](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
 - [Как войти в виртуальную машину под управлением Windows Server](../articles/virtual-machines/virtual-machines-windows-classic-connect-logon.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

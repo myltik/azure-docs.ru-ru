@@ -3,7 +3,7 @@
    description="Информация о настройке подсистемы балансировки нагрузки для работы с AlwaysOn SQL и использовании Powershell для создания подсистемы балансировки нагрузки для реализации SQL"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Настройка подсистемы балансировки нагрузки для AlwaysOn SQL
 
@@ -36,13 +36,13 @@
 
 ## Добавление внутренней подсистемы балансировки нагрузки в службу 
 
-### Шаг 1
+### Шаг 1
 
 В следующем примере мы настроим виртуальную сеть, содержащую подсеть с именем Subnet-1:
 
 	Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
 
-### Шаг 2
+### Шаг 2
 
 Добавление конечных точек с балансировкой нагрузки для внутренней подсистемы балансировки нагрузки на каждой виртуальной машине
 
@@ -68,4 +68,4 @@
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

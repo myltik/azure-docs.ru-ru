@@ -6,10 +6,11 @@ Azure предлагает отличные облачные решения на
 **Но это уже устаревшие новости.** А вот *свежие* новости — Azure предоставляет еще больше удобств Docker:
 
 - [много](../articles/virtual-machines/virtual-machines-linux-docker-machine.md) [разных](../articles/virtual-machines/virtual-machines-linux-dockerextension.md) способов создания узлов Docker для контейнеров в соответствии с конкретной ситуацией;
+- [Служба контейнеров Azure](https://azure.microsoft.com/documentation/services/container-service/) создает кластеры узлов контейнеров с помощью таких оркестраторов, как **marathon** и **swarm**.
 - [диспетчер ресурсов Azure](../articles/resource-group-overview.md) и [шаблоны групп ресурсов](../articles/resource-group-authoring-templates.md) упрощают развертывание и обновление сложных распределенных приложений;
 - интеграцию с большим массивом частных инструментов управления конфигурациями и инструментов управления конфигурациями с открытым исходным кодом.
 
-Так как есть возможность программным путем создавать виртуальные машины и контейнеры Linux в Azure, можно также использовать инструменты *оркестрации* виртуальных машин и контейнеров для создания групп виртуальных машин и развертывания приложений в контейнерах Linux, а вскоре и в [контейнерах Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
+Так как вы можете программно создавать виртуальные машины и контейнеры Linux в Azure, то можете также использовать инструменты *оркестрации* виртуальных машин и контейнеров для создания групп виртуальных машин и развертывания приложений в контейнерах Linux, а теперь и в [контейнерах Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
 В этой статье не только рассматриваются общие черты этих понятий, но и содержится множество ссылок на дополнительную информацию, учебники и продукты, связанные с использованием контейнеров и кластеров в Azure. Если вы все это знаете и вам нужны только ссылки, их можно найти в статье [Инструменты для работы с контейнерами](#tools-for-working-with-containers).
 
@@ -23,7 +24,7 @@ Azure предлагает отличные облачные решения на
 
 Это замечательно.
 
-Контейнеры Windows предоставляют те же преимущества, что и контейнеры Linux, но предназначены для приложений, работающих в Windows. Контейнеры Windows поддерживают формат образов и API Docker, но ими также можно управлять с помощью PowerShell. Для работы с контейнерами Windows, Windows Server и Hyper-V доступны две среды выполнения. Контейнеры Hyper-V обеспечивают дополнительный уровень защиты, поскольку каждый контейнер размещается на оптимизированной виртуальной машине. Дополнительные сведения о контейнерах Windows см. в разделе [О контейнерах Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Чтобы опробовать контейнеры Windows в Azure, обратитесь к [руководству Azure по быстрому запуску контейнеров Windows](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup).
+Контейнеры Windows предоставляют те же преимущества, что и контейнеры Linux для приложений, работающих в Windows. Контейнеры Windows поддерживают формат образов Docker и API Docker, но ими можно также управлять с помощью PowerShell. Для работы с контейнерами Windows, Windows Server и Hyper-V доступны две среды выполнения. Контейнеры Hyper-V обеспечивают дополнительный уровень защиты, так как каждый контейнер размещается на сверхоптимизированной виртуальной машине. Дополнительные сведения о контейнерах Windows см. в разделе [О контейнерах Windows](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Чтобы опробовать контейнеры Windows в Azure, обратитесь к [руководству Azure по быстрому запуску контейнеров Windows](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup).
 
 Это тоже замечательно.
 
@@ -39,7 +40,7 @@ Azure предлагает отличные облачные решения на
 
 ## Для чего же контейнеры подходят лучше всего?
 
-Они отлично подходят для многого, но мы советуем использовать их (в случае [облачных служб Azure](https://azure.microsoft.com/services/cloud-services/) и [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)) для создания ориентированных на [микрослужбы] распределенных приложений с одной службой, когда структура приложения состоит из нескольких небольших составных частей, а не компонентов большего размера, которые сильнее связаны друг с другом.
+Они отлично подходят для многого, но мы советуем использовать их (в случае [облачных служб Azure](https://azure.microsoft.com/services/cloud-services/) и [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)) для создания ориентированных на микрослужбы распределенных приложений с одной службой, когда структура приложения состоит из нескольких небольших составных частей, а не компонентов большего размера, которые сильнее связаны друг с другом.
 
 Это особенно важно в общедоступном облаке, например в Azure, где можно сдавать виртуальные машины там, где нужно, и тогда, когда нужно. Вы получаете не только изоляцию, быстрое развертывание и инструменты оркестрации, но и можете создавать более эффективные решения для инфраструктуры приложений.
 
@@ -53,7 +54,7 @@ Azure предлагает отличные облачные решения на
 
 Как правило, нетрудно увидеть, что технология контейнеров — это шаг вперед, но здесь кроются также и более специфичные преимущества. Рассмотрим пример контейнеров Docker. В этом разделе мы не будем углубляться в возможности Docker (более подробную информацию можно найти в статье [Возможности Docker](https://www.docker.com/whatisdocker/) или на соответствующей странице [Википедии](http://wikipedia.org/wiki/Docker_%28software%29)), но Docker и сопутствующая экосистема обеспечивают значительные преимущества для разработчиков и ИТ-специалистов.
 
-Разработчики переходят на контейнеры Docker быстрее, так как в первую очередь он упрощает использование контейнеров Linux.
+Разработчики могут быстро перейти на контейнеры Docker, так как в первую очередь это упрощает использование контейнеров Linux и Windows.
 
 - Они могут использовать простые, составные команды для создания основного образа, который можно легко развернуть, и автоматизировать создание таких образов с помощью dockerfile.
 - Они могут совместно использовать эти образы с помощью простых команд запроса и передачи в стиле [git](https://git-scm.com/) для [открытых](https://registry.hub.docker.com/) или [закрытых реестров Docker](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
@@ -97,7 +98,7 @@ Azure предлагает отличные облачные решения на
 
 На этом этапе любой архитектор, разработчик, производственный или ИТ-специалист может подумать, что можно ВСЕ это автоматизировать — ведь это НАСТОЯЩИЙ «ЦОД как служба».
 
-И это действительно так. Во множестве систем, многие из которых, вероятно, уже используются, можно управлять группами виртуальных машин Azure и внедрять пользовательский код с помощью сценариев, в частности [CustomScriptingExtension для Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) или [CustomScriptingExtension для Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Вы можете автоматизировать развертывание Azure (и, возможно, уже делаете это) с помощью сценариев PowerShell или интерфейса командной строки Azure [следующим образом](../articles/virtual-machines/virtual-machines-windows-ps-create.md).
+И это действительно так. Во множестве систем, многие из которых, вероятно, уже используются, можно управлять группами виртуальных машин Azure и внедрять пользовательский код с помощью сценариев, в частности [CustomScriptingExtension для Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) или [CustomScriptingExtension для Linux](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Вы можете автоматизировать развертывание Azure (и, возможно, уже делаете это) с помощью сценариев PowerShell или интерфейса командной строки Azure.
 
 Эти возможности часто затем переносятся в такие инструменты, как [Puppet](https://puppetlabs.com/) и [Chef](https://www.chef.io/), для автоматизации создания и настройки виртуальных машин при масштабировании. (Ссылки на использование этих инструментов в Azure см. [здесь](#tools-for-working-with-containers).)
 
@@ -109,14 +110,13 @@ Azure предлагает отличные облачные решения на
 - [Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md);
 - [модули Azure PowerShell](../articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md).
 
-
 ### Развертывание всей группы виртуальных машин Azure и контейнеров и управление ими
 
 Существует несколько популярных систем, которые позволяют развертывать целые группы виртуальных машин и устанавливать Docker (или другие узлы контейнеров Linux) в виде автоматизируемой группы. Прямые ссылки см. в разделе [контейнеров и инструментов](#containers-and-vm-technologies) ниже. Существует несколько систем, которые в большей или меньшей степени позволяют сделать это, и этот список не является исчерпывающим. В зависимости от доступных навыков и сценариев, они могут быть или не быть полезными.
 
 У Docker есть собственный набор инструментов для создания виртуальной машины ([docker-machine](../articles/virtual-machines/virtual-machines-linux-docker-machine.md)) и инструмент управления кластерами контейнеров Docker с балансировкой нагрузки ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md)). Кроме того, расширение [Docker для виртуальных машин Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) по умолчанию поддерживает [`docker-compose`](https://docs.docker.com/compose/), который позволяет развертывать настроенные контейнеры приложений в нескольких контейнерах.
 
-Вы также можете попробовать ОС [Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/) от Mesosphere. DCOS основана на проекте с открытым исходным кодом [mesos](http://mesos.apache.org/) для ядра распределенных систем, который позволяет реализовать центр обработки данных как одну адресуемую службу. DCOS оснащена встроенными пакетами для нескольких важных систем, таких как [Spark](http://spark.apache.org/) и [Kafka](http://kafka.apache.org/) (и др.), а также встроенными службами, такими как [Marathon](https://mesosphere.github.io/marathon/) (система управления контейнерами) и [Chronos](https://mesos.github.io/chronos/) (распределенный планировщик). Mesos создан с учетом уроков, полученных при развитии Twitter, AirBnb и других веб-масштабируемых компаний.
+Вы также можете попробовать ОС [Data Center Operating System (DCOS)](http://docs.mesosphere.com/install/azurecluster/) от Mesosphere. DCOS основана на проекте с открытым исходным кодом [mesos](http://mesos.apache.org/) для ядра распределенных систем, который позволяет реализовать центр обработки данных как одну адресуемую службу. DCOS оснащена встроенными пакетами для нескольких важных систем, таких как [Spark](http://spark.apache.org/) и [Kafka](http://kafka.apache.org/) (и др.), а также встроенными службами, такими как [Marathon](https://mesosphere.github.io/marathon/) (система управления контейнерами) и [Chronos](https://mesos.github.io/chronos/) (распределенный планировщик). Mesos создан с учетом уроков, полученных при развитии Twitter, AirBnb и других веб-масштабируемых компаний. Можно также использовать **swarm** в качестве механизма оркестрации.
 
 Кроме того, [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) — это система для управления группами виртуальных машин и контейнеров с открытым исходным кодом, созданная с учетом опыта Google. Вы даже можете использовать [kubernetes совместно с weave для обеспечения поддержки сети](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
@@ -208,7 +208,7 @@ Docker в Microsoft Azure:
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
-[микрослужбы]: http://martinfowler.com/articles/microservices.html
+[microservice]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

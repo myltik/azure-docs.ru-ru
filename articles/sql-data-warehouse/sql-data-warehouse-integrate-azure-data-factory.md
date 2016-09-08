@@ -37,7 +37,7 @@
 ## Дальнейшие действия
 Общие сведения об интеграции см. в разделе [Обзор интеграции хранилища данных SQL][]. Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
 
-.<!--Image references-->
+<!--Image references-->
 
 <!--Article references-->
 
@@ -47,7 +47,7 @@
 
 <!--MSDN references-->
 
-.<!--Other Web references-->
+<!--Other Web references-->
 [документации к фабрике данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 
 <!---HONumber=AcomDC_0810_2016-->

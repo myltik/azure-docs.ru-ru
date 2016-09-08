@@ -85,10 +85,10 @@ Application Insights можно использовать с любыми веб-
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
     // can affect browser performance.
-    enableDebug: true,
+    enableDebug: boolean,
 
     // Don't log browser exceptions.
-    disableExceptionTracking: true,
+    disableExceptionTracking: boolean,
 
     // Don't log ajax calls.
     disableAjaxTracking: boolean,
@@ -249,4 +249,4 @@ Application Insights можно использовать с любыми веб-
 * [Пользовательские события и метрики](app-insights-api-custom-events-metrics.md)
 * [Сборка, измерение и обучение](app-insights-overview-usage.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

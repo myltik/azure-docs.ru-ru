@@ -120,7 +120,7 @@
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
-.<!-- URL List -->
+<!-- URL List -->
 
 [центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
@@ -128,7 +128,7 @@
 [Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
 [Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
-.<!-- IMG List -->
+<!-- IMG List -->
 
 [ic712275]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic712275.png
 [ic719495]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719495.png

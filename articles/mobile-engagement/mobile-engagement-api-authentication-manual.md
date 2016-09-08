@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="05/03/2016"
+	ms.date="08/19/2016"
 	ms.author="piyushjo"/>
 
 # Проверка подлинности с помощью интерфейсов REST API Mobile Engagement — настройка вручную
@@ -144,4 +144,4 @@
 [20]: ./media/mobile-engagement-api-authentication-manual/add-user-select.png
 [21]: ./media/mobile-engagement-api-authentication-manual/add-access-final.png
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0824_2016-->

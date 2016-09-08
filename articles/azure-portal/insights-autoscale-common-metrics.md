@@ -166,12 +166,21 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Эти значения можно настроить на портале Azure в колонке **Параметры**. Для наборов масштабирования виртуальных машин можно настроить параметр автоматического масштабирования в шаблоне ARM так, чтобы для параметра *metricName* использовалось значение *ApproximateMessageCount*, а идентификатор очереди хранилища передавался в параметре *metricResourceUri*.
 
+Например, в классической учетной записи хранения metricTrigger параметра автомасштабирования включает следующие данные:
 
 ```
 "metricName": "ApproximateMessageCount",
  "metricNamespace": "",
  "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
  ```
+
+В обычной учетной записи хранения (неклассической) metricTrigger включает следующие данные:
+
+```
+"metricName": "ApproximateMessageCount",
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
+```
 
 ## Часто используемые метрики служебной шины
 
@@ -187,4 +196,4 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 >[AZURE.NOTE] Для служебной шины концепции группы ресурсов не существует, но Azure Resource Manager создает группу ресурсов по умолчанию на регион. Группа ресурсов обычно имеет формат Default-ServiceBus-[region]. Например, Default-ServiceBus-EastUS, Default-ServiceBus-WestUS, Default-ServiceBus-AustraliaEast и т. д.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

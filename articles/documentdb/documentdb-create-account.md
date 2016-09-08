@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2016"
+	ms.date="08/25/2016"
 	ms.author="mimig"/>
 
 # Создание учетной записи базы данных DocumentDB с помощью портала Azure
@@ -28,7 +28,7 @@
 - Учетная запись Azure. Если у вас ее нет, [создайте бесплатную учетную запись](https://azure.microsoft.com/free).
 - Учетная запись DocumentDB.
 
-Учетную запись DocumentDB можно создать с помощью портала Azure, шаблонов Azure Resource Manager или интерфейса командной строки Azure (Azure CLI). В этой статье показано, как создать учетную запись базы данных на портале Azure. Чтобы создать учетную запись базы данных с помощью диспетчера ресурсов Azure или Azure CLI, см. статью [Автоматизация создания учетной базы данных DocumentDB](documentdb-automation-resource-manager-cli.md).
+Учетную запись DocumentDB можно создать с помощью портала Azure, шаблонов Azure Resource Manager или интерфейса командной строки Azure (Azure CLI). В этой статье объясняется, как создать учетную запись DocumentDB на портале Azure. Чтобы создать учетную запись базы данных с помощью диспетчера ресурсов Azure или Azure CLI, см. статью [Автоматизация создания учетной базы данных DocumentDB](documentdb-automation-resource-manager-cli.md).
 
 Не знакомы с DocumentDB? Посмотрите [это](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) четырехминутное видео Скотта Хансельмана (Scott Hanselman), чтобы узнать, как выполнять наиболее распространенные задачи на веб-портале.
 
@@ -53,4 +53,4 @@
 -	[Схема обучения для DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Модель ресурсов и понятия DocumentDB](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

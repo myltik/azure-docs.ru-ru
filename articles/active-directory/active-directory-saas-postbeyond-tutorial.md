@@ -247,7 +247,7 @@
 
 
 
-.<!--Image references-->
+<!--Image references-->
 
 [1]: ./media/active-directory-saas-postbeyond-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-postbeyond-tutorial/tutorial_general_02.png

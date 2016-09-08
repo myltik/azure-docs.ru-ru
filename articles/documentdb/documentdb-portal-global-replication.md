@@ -45,7 +45,7 @@
 
 Важно следовать этим указаниям, если для сценариев аварийного восстановления настроено только два региона. Если регионов больше, то выполнение данных указаний рекомендуется, но не критично, при условии, что некоторые из выбранных регионов образуют пары.
 
-.<!---
+<!---
 ## <a id="selectwriteregion"></a>Select the write region
 
 While all regions associated with your DocumentDB database account can serve reads (both, single item as well as multi-item paginated reads) and queries, only one region can actively receive the write (insert, upsert, replace, delete) requests. To set the active write region, do the following  
@@ -65,13 +65,13 @@ While all regions associated with your DocumentDB database account can serve rea
 
 Сведения о том, как функционирует репликация глобальной базы данных в DocumentDB, см. в статье [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md). Сведения о том, как программным путем выполнить репликацию данных в нескольких регионах, см. в статье [Разработка с помощью учетных записей DocumentDB в нескольких регионах](documentdb-developing-with-multiple-regions.md).
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/documentdb-portal-global-replication/documentdb-account-blade.png
 [2]: ./media/documentdb-portal-global-replication/documentdb-add-region.png
 [3]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-1.png
 [4]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-2.png
 
-.<!--Reference style links - using these makes the source content way more readable than using inline links-->
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
 [azureregions]: https://azure.microsoft.com/regions/#services

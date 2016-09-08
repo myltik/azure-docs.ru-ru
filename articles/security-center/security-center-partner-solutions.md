@@ -56,7 +56,7 @@
 - [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Часто задаваемые вопросы об использовании этой службы.
 - [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/). Последние новости и информация об обеспечении безопасности в Azure.
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png
 [2]: ./media/security-center-partner-solutions/no-partner-solutions-to-display.png
 [3]: ./media/security-center-partner-solutions/partner-solutions.png

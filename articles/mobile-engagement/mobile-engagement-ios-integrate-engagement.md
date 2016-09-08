@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/19/2016"
 	ms.author="MehrdadMzfr" />
 
 #Интеграция службы Engagement в iOS
@@ -37,11 +37,11 @@
 
 Служба Engagement требует дополнительные среды для работы: в обозревателе проектов откройте панель проекта и выберите правильную цель. Затем откройте вкладку **Этапы сборки** и в меню **Связать двоичные объекты с библиотеками** добавьте следующие инфраструктуры:
 
-> -   `AdSupport.framework` : задайте для связи значение `Optional`
+> -   `AdSupport.framework`: задайте для связи значение `Optional`
 > -   `SystemConfiguration.framework`
-> -   `CoreTelephony.framework`
-> -   `CFNetwork.framework`
-> -   `CoreLocation.framework`
+> -   .`CoreTelephony.framework`
+> -   .`CFNetwork.framework`
+> -   .`CoreLocation.framework`
 > -   `libxml2.dylib`
 
 <br\>
@@ -211,4 +211,4 @@ API службы Engagement позволяет использовать все �
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!------HONumber=AcomDC_0302_2016-->
+<!---HONumber=AcomDC_0824_2016-->

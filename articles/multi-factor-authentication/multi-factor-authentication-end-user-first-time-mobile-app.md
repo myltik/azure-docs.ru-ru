@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2016" 
+	ms.date="08/22/2016" 
 	ms.author="billmath"/>
 
 # Использование мобильного приложения для связи при работе со службой Azure Multi-Factor Authentication
 
-В этой статье вы узнаете, как использовать мобильное приложение в качестве основного способа связи. Здесь описана настройка многофакторной проверки подлинности с использованием мобильного приложения в качестве основного способа связи.
+Из этой статьи вы узнаете, как использовать Microsoft Authenticator в качестве основного способа связи. Здесь описана настройка многофакторной проверки подлинности с использованием мобильного приложения в качестве основного способа связи.
 
-Приложение Azure Authenticator доступно для [Windows Phone](http://www.windowsphone.com/ru-RU/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+Приложение Microsoft Authenticator доступно для платформ [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 ## Использование мобильного приложения для связи
 
@@ -31,7 +31,7 @@
 ![Настройка](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 - Выберите элемент «Уведомление» или «Одноразовый пароль» и нажмите кнопку «Установить».
-- Запустите установленное на телефоне приложение Azure Authenticator и нажмите кнопку Scan barcode (Считать штрихкод). Инструкции по добавлению учетной записи, для которой уже настроена Azure MFA или сторонняя учетная запись, см. в статье <a href="#ruru">Добавление учетной записи вручную</a>.
+- Запустите установленное на телефоне приложение Microsoft Authenticator и нажмите кнопку Scan barcode (Считать штрихкод). Инструкции по добавлению учетной записи, для которой уже настроена Azure MFA или сторонняя учетная запись, см. в статье [Добавление учетной записи вручную](#adding-an-account-manually).
 
 ![Настройка](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
@@ -54,7 +54,7 @@
 - Нажмите кнопку Done (Готово).
 
 
-<h2 id="ruru">Добавление учетной записи вручную</h2>
+## Добавление учетной записи вручную
 Чтобы добавить учетную запись вручную, нажмите соответствующую кнопку.
 
 ![Настройка](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount.png)
@@ -70,7 +70,7 @@
 
 ![Настройка](./media/multi-factor-authentication-end-user-first-time-mobile-app/add3rdparty.png)
 
->[AZURE.NOTE]Если отображается параметр «Добавить рабочую учетную запись», он относится к присоединению к рабочему месту, а не к многофакторной проверке подлинности. Не обращайте на него внимания.
+
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

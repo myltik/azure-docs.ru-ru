@@ -87,7 +87,7 @@
 Дополнительные сведения о DocumentDB можно найти в документации по Azure DocumentDB на сайте [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
 [2]: ./media/documentdb-manage-account/documentdb_add_region-2.png
 [3]: ./media/documentdb-manage-account/documentdb_change_write_region-1.png
@@ -95,7 +95,7 @@
 [5]: ./media/documentdb-manage-account/documentdb_change_consistency-1.png
 [6]: ./media/documentdb-manage-account/chooseandsaveconsistency.png
 
-.<!--Reference style links - using these makes the source content way more readable than using inline links-->
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
 [azureregions]: https://azure.microsoft.com/regions/#services

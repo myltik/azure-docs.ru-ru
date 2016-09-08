@@ -1,10 +1,10 @@
 <properties
 	pageTitle="RBAC: встроенные роли | Microsoft Azure"
-	description="В этом разделе описаны встроенные роли для контроля доступа на основе ролей (RBAC)."
+	description="В этом разделе описаны встроенные роли для управления доступом на основе ролей (RBAC)."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="05/20/2016"
+	ms.date="08/25/2016"
 	ms.author="kgremban"/>
 
 #RBAC: встроенные роли
@@ -26,7 +26,7 @@
 
 >[AZURE.NOTE] Определения ролей Azure постоянно развиваются. Эта статья регулярно обновляется для поддержания актуальности сведений, но вы всегда можете найти последние определения ролей в Azure PowerShell. Используйте командлеты `(get-azurermroledefinition "<role name>").actions` и `(get-azurermroledefinition "<role name>").notactions` по мере необходимости.
 
-| Имя роли | Описание |
+| Имя роли | Description (Описание) |
 | --------- | ----------- |
 | [Участник службы управления API](#api-management-service-contributor) | Может управлять службами управления API |
 | [Участник компонента Application Insights](#application-insights-component-contributor) | Может управлять компонентами Application Insights |
@@ -42,7 +42,7 @@
 | [Участник учетной записи New Relic APM](#new-relic-apm-account-contributor) | Может управлять учетными записями и приложениями для управления производительностью приложений New Relic |
 | [Владелец](#owner) | Может управлять всем, включая доступ |
 | [Читатель](#reader) | Может все просматривать, но не может вносить изменения |
-| [Участник кэша Redis](#redis-cache-contributor]) | Может управлять кэшами Redis |
+| [Участник кэша Redis](#redis-cache-contributor) | Может управлять кэшами Redis |
 | [Участник коллекции заданий планировщика](#scheduler-job-collections-contributor) | Может управлять коллекциями заданий планировщика |
 | [Участник службы поиска](#search-service-contributor) | Может управлять службами поиска |
 | [Диспетчер безопасности](#security-manager) | Может управлять компонентами безопасности, политиками безопасности и виртуальными машинами |
@@ -59,7 +59,7 @@
 | [Участник веб-сайта](#website-contributor) | Может управлять веб-сайтами, но не веб-планами, к которым они подключены |
 
 ## Разрешения ролей
-В следующих таблицах описываются разрешения, предоставленные каждой роли. Это могут быть свойства **Actions**, которые предоставляют разрешения, и свойства **NotActions**, которые их ограничивают.
+В следующих таблицах описываются разрешения, предоставленные каждой роли. Это могут быть свойства **Action**, которые предоставляют разрешения, и свойства **NotAction**, которые их ограничивают.
 
 ### Участник службы управления API
 Может управлять службами управления API
@@ -147,8 +147,8 @@
 
 | **NotActions** ||
 | ------- | ------ |
+| Microsoft.Authorization/*/Delete | Не может удалять роли и назначения ролей |  
 | Microsoft.Authorization/*/Write | Не может создавать роли и назначения ролей |
-| Microsoft.Authorization/*/Delete | Не может удалять роли и назначения ролей |
 
 ### Участник фабрики данных
 Может управлять фабриками данных
@@ -255,12 +255,12 @@
 | ------- | ------ |
 | * | Создание ресурсов всех типов и управление ими |
 
-### Читатель
+### читатель.
 Может все просматривать, но не может вносить изменения
 
 | **Действия** ||
 | ------- | ------ |
-| **/read | Чтение ресурсов всех типов, кроме секретов. |
+| */чтение | Чтение ресурсов всех типов, кроме секретов. |
 
 ### Участник кэша Redis
 Может управлять кэшами Redis
@@ -284,7 +284,8 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Scheduler/jobcollections/* | Создание коллекциями заданий и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |  
+| Microsoft.Scheduler/jobcollections/* | Создание коллекциями заданий и управление ими |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Участник службы поиска
@@ -296,7 +297,8 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Search/searchServices/* | Создание служб поиска и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |  
+| Microsoft.Search/searchServices/* | Создание служб поиска и управление ими |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Диспетчер безопасности
@@ -311,7 +313,8 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Security/* | Создание компонентов и политик безопасности и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |  
+| Microsoft.Security/* | Создание компонентов и политик безопасности и управление ими |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Участник БД SQL
@@ -323,7 +326,8 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Sql/servers/databases/* | Создание баз данных SQL и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |
+| Microsoft.Sql/servers/databases/* | Создание баз данных SQL и управление ими |
 | Microsoft.Sql/servers/read | Чтение серверов SQL Server |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
@@ -331,6 +335,7 @@
 | ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Не может изменять политики аудита |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Не может изменять параметры аудита |
+| Microsoft.Sql/servers/databases/auditRecords/read | Не может читать записи аудита |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Не может изменять политики подключения |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Не может изменять политики маскирования данных |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Не может изменять политики оповещения системы безопасности |
@@ -345,10 +350,12 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения Insights и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Sql/servers/auditingPolicies/* | Создание политик аудита SQL Server и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |
+| Microsoft.Sql/servers/auditingPolicies/* | Создание политик аудита SQL Server и управление ими |
 | Microsoft.Sql/servers/auditingSettings/* | Создание параметров аудита SQL Server и управление ими |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Создание политик аудита баз данных SQL Server и управление ими |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Создание параметров аудита баз данных SQL Server и управление ими |
+| Microsoft.Sql/servers/databases/auditRecords/read | Чтение записей аудита |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Создание политик подключения баз данных SQL Server и управление ими |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Создание политик маскирования данных баз данных SQL Server и управление ими |
 | Microsoft.Sql/servers/databases/read | Чтение баз данных SQL |
@@ -370,7 +377,8 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения Insights и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Sql/servers/* | Создание серверов SQL Server и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |
+| Microsoft.Sql/servers/* | Создание серверов SQL Server и управление ими |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 | **NotActions** ||
@@ -379,6 +387,7 @@
 | Microsoft.Sql/servers/auditingSettings/* | Не может изменять параметры аудита SQL Server |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Не может изменять политики аудита баз данных SQL Server |
 | Microsoft.Sql/servers/databases/auditingSettings/* | Не может изменять параметры аудита баз данных SQL Server |
+| Microsoft.Sql/servers/databases/auditRecords/read | Не может читать записи аудита |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Не может изменять политики подключения баз данных SQL Server |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Не может изменять политики маскирования данных баз данных SQL Server |
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Не может изменять политики оповещения системы безопасности баз данных SQL Server |
@@ -395,7 +404,8 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения Insights и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |  
+| Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Участник учетной записи хранения
 Может управлять учетными записями хранения, но не имеет к ним доступа.
@@ -407,7 +417,8 @@
 | Microsoft.Insights/diagnosticSettings/* | Управление параметрами диагностики |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Storage/storageAccounts/* | Создание учетных записей хранения и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |  
+| Microsoft.Storage/storageAccounts/* | Создание учетных записей хранения и управление ими |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Администратор доступа пользователей
@@ -415,7 +426,7 @@
 
 | **Действия** ||
 | ------- | ------ |
-| */read | Чтение ресурсов всех типов, кроме секретов. |
+| */чтение | Чтение ресурсов всех типов, кроме секретов. |
 | Microsoft.Authorization/* | Управление авторизацией |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
@@ -439,7 +450,8 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения Insights и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |
+| Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Участник виртуальной машины
 Может управлять виртуальными машинами, но не виртуальными сетями и учетными записями хранения, к которым они подключены
@@ -467,7 +479,8 @@
 | Microsoft.Network/virtualNetworks/subnets/join/action | Присоединение подсетей виртуальных сетей |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Storage/storageAccounts/listKeys/action | Вывод списка ключей учетной записи хранения |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |  
+| Microsoft.Storage/storageAccounts/listKeys/action | Вывод списка ключей учетной записи хранения |
 | Microsoft.Storage/storageAccounts/read | Чтение учетных записей хранения |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
@@ -481,7 +494,8 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения Insights и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |  
+| Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Участник веб-плана
 Может управлять веб-планами
@@ -492,7 +506,8 @@
 | Microsoft.Insights/alertRules/* | Создание правил оповещения Insights и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |  
+| Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 | Microsoft.Web/serverFarms/* | Создание ферм серверов и управление ими |
 
 ### Участник веб-сайта
@@ -505,17 +520,18 @@
 | Microsoft.Insights/components/* | Создание компонентов Insights и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Чтение группы ресурсов |  
+| Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 | Microsoft.Web/certificates/* | Создание сертификатов веб-сайтов и управление ими |
 | Microsoft.Web/listSitesAssignedToHostName/read | Чтение сайтов, назначенных имени узла |
 | Microsoft.Web/serverFarms/join/action | Присоединение ферм серверов |
 | Microsoft.Web/serverFarms/read | Чтение ферм серверов |
 | Microsoft.Web/sites/* | Создание веб-сайтов и управление ими |
 
-## См. также
-- [Управление доступом на основе ролей в Azure](role-based-access-control-configure.md). Начало работы с RBAC на портале Azure.
+## Дополнительные материалы
+- [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](role-based-access-control-configure.md). Начало работы с RBAC на портале Azure.
 - [Пользовательские роли в Azure RBAC](role-based-access-control-custom-roles.md). Сведения о создании пользовательских ролей в соответствии с потребностями доступа.
-- [Создание отчета по журналу изменения доступа](role-based-access-control-access-change-history-report.md). Отслеживание изменения назначений ролей в RBAC.
-- [Устранение неполадок контроля доступа на основе ролей](role-based-access-control-troubleshooting.md). Рекомендации по устранению распространенных проблем.
+- [Создание отчета по журналу изменений доступа](role-based-access-control-access-change-history-report.md). Отслеживание изменения назначений ролей в RBAC.
+- [Устранение неполадок при управлении доступом на основе ролей](role-based-access-control-troubleshooting.md). Рекомендации по устранению распространенных проблем.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

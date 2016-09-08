@@ -85,7 +85,7 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 
 Сведения о других задачах управления см. в статье [Средства управления][].
 
-.<!--Image references-->
+<!--Image references-->
 
 <!--Article references-->
 [Средства управления]: ./sql-data-warehouse-overview-manage.md
@@ -96,7 +96,7 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 [возобновления базы данных]: https://msdn.microsoft.com/library/azure/mt718820.aspx
 [создания или обновления базы данных]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 
-.<!--Other Web references-->
+<!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
 

@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="mahthi"
-	manager="drewm"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
@@ -34,7 +34,7 @@
 
 Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
-## Шаг 3. Настройка подписки и регистрация для использования миграции
+## Шаг 3. Настройка подписки и регистрация для миграции
 
 Сначала запустите командную строку PowerShell. Для сценариев миграции следует настроить среду для классической модели и модели Resource Manager.
 
@@ -181,4 +181,4 @@
 - [Техническое руководство по поддерживаемому платформой переносу из классической модели в модель Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Клонирование классической виртуальной машины в Azure Resource Manager с помощью сценариев PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

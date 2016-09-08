@@ -117,7 +117,7 @@
 
 Начните тестировать приложения и службы, используя встроенные [сценарии тестирования](service-fabric-testability-scenarios.md) или составьте собственные сценарии, используя [действия по ошибкам](service-fabric-testability-actions.md), предоставляемые службой анализа сбоев.
 
-.<!--Image references-->
+<!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png
 
 <!---HONumber=AcomDC_0817_2016-->

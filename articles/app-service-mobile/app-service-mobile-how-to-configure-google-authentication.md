@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # Как настроить приложение службы приложений для использования имени для входа Google
@@ -26,9 +26,9 @@
 
 ## <a name="register"> </a>Регистрация приложения с помощью Google
 
-1. Перейдите на [портал Azure] и перейдите к своему приложению. Скопируйте свой **URL-адрес**. Он будет использован для настройки приложения Google.
+1. Войдите на [портал Azure] и перейдите к своему приложению. Скопируйте **URL-адрес**, который вы будете использовать позже для настройки приложения Google.
 
-2. Перейдите на веб-сайт [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), войдите с учетными данными Google, выберите **Create Project** (Создать проект), укажите имя проекта в поле **Project name** (Имя проекта), а затем нажмите кнопку **Create** (Создать).
+2. Перейдите на веб-сайт [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), войдите с помощью учетных данных Google, выберите команду **Create Project** (Создать проект), укажите имя проекта в поле **Project name** (Имя проекта), а затем нажмите кнопку **Create** (Создать).
 
 3. В разделе **Social APIs** (Интерфейсы API для соцсетей) щелкните **Google+ API**, а потом — **Enable** (Включить).
 
@@ -70,7 +70,7 @@
 
 <!-- Anchors. -->
 
-<!-- Images. -->
+.<!-- Images. -->
 
 [0]: ./media/app-service-mobile-how-to-configure-google-authentication/mobile-app-google-redirect.png
 [1]: ./media/app-service-mobile-how-to-configure-google-authentication/mobile-app-google-settings.png
@@ -81,4 +81,4 @@
 
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0824_2016-->

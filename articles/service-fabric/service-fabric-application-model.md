@@ -244,7 +244,7 @@ PS D:\temp>
 
 [Запуск от имени: запуск приложения Service Fabric с использованием различных разрешений безопасности][12]
 
-.<!--Image references-->
+<!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
