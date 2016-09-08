@@ -30,7 +30,7 @@
 ## Дальнейшие действия
 Информацию о разработке см. в обзоре [Общие сведения о разработке][].
 
-.<!--Image references-->
+<!--Image references-->
 
 <!--Article references-->
 [Общие сведения о разработке]: sql-data-warehouse-overview-develop.md

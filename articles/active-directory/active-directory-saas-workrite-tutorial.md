@@ -265,7 +265,7 @@
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-.<!--Image references-->
+<!--Image references-->
 
 [1]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-workrite-tutorial/tutorial_general_02.png

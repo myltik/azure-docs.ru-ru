@@ -88,7 +88,7 @@
 		Login-AzureRmAccount #-Credential $Cred 
 	
 
-2. Получите список своих подписок. При этом также будет выведен список идентификаторов subscriptionID для каждой подписки. Запишите идентификатор subscriptionID подписки, в которой хотите создать хранилище служб восстановления.
+2. Получите список своих подписок. При этом также отобразится список идентификаторов subscriptionID для каждой подписки. Запишите идентификатор subscriptionID подписки, в которой хотите создать хранилище служб восстановления.
 
 		Get-AzureRmSubscription 
 
@@ -214,7 +214,7 @@
 
 2. Приведенные ниже команды получают сеть Site Recovery для исходного и целевого серверов VMM.
 
-    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]
+    	$PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 
 		$RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 
@@ -226,7 +226,30 @@
 
 		New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
-## Шаг 6. Включение защиты для виртуальных машин
+## Шаг 6. Настройка сопоставления хранилищ
+
+1. Приведенная ниже команда получает список классификаций хранилищ в переменную $storageclassifications.
+
+		$storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
+
+
+2. Следующие команды получают классификацию источников в переменную $SourceClassification, а классификацию целей — в переменную $TargetClassification.
+
+    	$SourceClassificaion = $storageclassifications[0]
+
+		$TargetClassification = $storageclassifications[1]
+
+	
+	> [AZURE.NOTE] Классификации источников и целей могут быть любым элементом в массиве. Обратитесь к выходным данным приведенной ниже команды, чтобы определить индекс классификаций источников и целей в массиве $storageclassifications.
+	
+	> Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
+
+
+3. Приведенный ниже командлет создает сопоставление между классификациями источников и целей.
+
+		New-AzureRmSiteRecoveryStorageClassificationMapping -PrimaryStorageClassification $SourceClassificaion -RecoveryStorageClassification $TargetClassification
+
+## Шаг 7. Включение защиты для виртуальных машин
 
 После успешной настройки серверов, облаков и сетей можно включить защиту для виртуальных машин в облаке.
 
@@ -331,4 +354,4 @@
 
 [Узнайте больше](https://msdn.microsoft.com/library/azure/mt637930.aspx) об использовании командлетов PowerShell инструмента Azure Resource Manager для службы Azure Site Recovery.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

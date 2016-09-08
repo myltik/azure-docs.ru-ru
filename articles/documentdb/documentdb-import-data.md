@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="08/23/2016"
 	ms.author="anhoh"/>
 
 # Импорт данных в DocumentDB с помощью средства миграции базы данных
@@ -138,8 +138,20 @@
 
 Обратите внимание на псевдонимы, например Address.AddressType и Address.Location.StateProvinceName. Если указать разделитель вложения ".", средство импорта создает вложенные документы Address и Address.Location во время импорта. Ниже приведен пример полученного документа в DocumentDB:
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
-
+*{
+  "id": "956",
+  "Name": "Finer Sales and Service",
+  "Address": {
+    "AddressType": "Main Office",
+    "AddressLine1": "#500-75 O'Connor Street",
+    "Location": {
+      "City": "Ottawa",
+      "StateProvinceName": "Ontario"
+    },
+    "PostalCode": "K4B 1S2",
+    "CountryRegionName": "Canada"
+  }
+}*
 Ниже приведены некоторые примеры команд для импорта данных из SQL Server:
 
 	#Import records from SQL which match a query
@@ -160,7 +172,18 @@
 
 Обратите внимание на псевдонимы, например DomainInfo.Domain\_Name и RedirectInfo.Redirecting. Если указать разделитель вложения ".", средство импорта создает вложенные документы DomainInfo и RedirectInfo во время импорта. Ниже приведен пример полученного документа в DocumentDB:
 
-*{ "DomainInfo": { "Domain\_Name": "ACUS.GOV", "Domain\_Name\_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect\_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{
+  "DomainInfo": {
+    "Domain_Name": "ACUS.GOV",
+    "Domain_Name_Address": "http://www.ACUS.GOV"
+  },
+  "Federal Agency": "Administrative Conference of the United States",
+  "RedirectInfo": {
+    "Redirecting": "0",
+    "Redirect_Destination": ""
+  },
+  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
+}*
 
 Средство импорта попытается определить сведения о типе для значений, которые не заключены в кавычки и находятся в CSV-файлах (значения, заключенные в кавычки, считаются строками). Типы определяются в таком порядке: номер, дата и время, логическое значение.
 
@@ -490,4 +513,4 @@ JSON-файл, файл экспорта MongoDB и параметры импо�
 
 - Дополнительные сведения о DocumentDB см. на странице [схемы обучения](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0824_2016-->

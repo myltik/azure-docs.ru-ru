@@ -94,9 +94,9 @@
 ## Дальнейшие действия
 Правильное проектирование баз данных упростит управление ими в хранилище данных SQL. Дополнительные сведения см. в [обзоре разработки][].
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
 [Создание базы данных (PowerShell)]: sql-data-warehouse-get-started-provision-powershell
 [connection]: sql-data-warehouse-develop-connections.md
@@ -112,7 +112,7 @@
 [Рекомендации по использованию хранилища данных SQL]: sql-data-warehouse-best-practices.md
 [Системные представления хранилища данных SQL]: sql-data-warehouse-reference-tsql-system-views.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
 <!--Other web references-->

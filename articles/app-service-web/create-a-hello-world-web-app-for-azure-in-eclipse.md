@@ -203,13 +203,13 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-.<!-- URL List -->
+<!-- URL List -->
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
 [Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
-.<!-- IMG List -->
+<!-- IMG List -->
 
 [01]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/01-Web-Page.png
 [02]: ./media/create-a-hello-world-web-app-for-azure-in-eclipse/02-Dynamic-Web-Project.png

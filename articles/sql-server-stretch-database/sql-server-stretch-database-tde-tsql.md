@@ -69,8 +69,8 @@ FROM
 [Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Link references-->
+<!--Link references-->
 
 <!---HONumber=AcomDC_0810_2016-->

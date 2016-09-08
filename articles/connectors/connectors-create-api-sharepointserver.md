@@ -1,6 +1,6 @@
 <properties
-pageTitle="Использование соединителя SharePoint Online в приложениях логики или приложениях PowerApps | Microsoft Azure"
-description="Начните использовать соединитель SharePoint Online для службы приложений Azure в приложениях логики и приложениях PowerApps."
+pageTitle="Использование соединителя SharePoint Online в приложениях логики | Microsoft Azure"
+description="Начните использовать соединитель SharePoint Online для службы приложений Azure в приложениях логики."
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -14,7 +14,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="07/18/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Приступая к работе с соединителем SharePoint Online 
@@ -23,12 +23,8 @@ ms.author="deonhe"/>
 
 >[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
-С помощью SharePoint вы можете:
 
-* создавать приложения логики.
-* создавать приложения PowerApps.
-
-Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Сведения о добавлении операции в приложения логики см. в статье о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Поговорим о триггерах и действиях
 
@@ -39,7 +35,7 @@ ms.author="deonhe"/>
 ### Действия SharePoint
 Вы можете выполнять перечисленные ниже действия:
 
-|Действие|Описание|
+|Действие|Description (Описание)|
 |--- | ---|
 |GetFileMetadata|Используется для получения метаданных файла в библиотеке документов|
 |UpdateFile|Используется для обновления файла в библиотеке документов|
@@ -66,25 +62,24 @@ ms.author="deonhe"/>
 
 
 ## Создание подключения к SharePoint
-Чтобы использовать соединитель SharePoint, сначала нужно создать **подключение**, а затем указать данные для приведенных ниже свойств.
+Чтобы использовать соединитель SharePoint, сначала нужно создать **подключение**, а затем указать данные для следующих свойств:
 
-|Свойство| Обязательно|Описание|
+|Свойство| Обязательно|Description (Описание)|
 | ---|---|---|
-|токен|Да|Указание учетных данных SharePoint|
+|Маркер|Да|Указание учетных данных SharePoint|
 
 Для подключения к **SharePoint Online** необходимо предоставить свое удостоверение (имя пользователя и пароль, учетные данные смарт-карты и т. п.). После прохождения аутентификации вы сможете использовать соединитель SharePoint Online в приложении логики.
 
-В конструкторе приложения логики выполните следующие действия, чтобы войти в SharePoint для создания **подключения**, которое будет использоваться в приложении логики.
+Чтобы войти в SharePoint для создания **подключения**, которое будет использоваться в приложении логики, в конструкторе приложения логики сделайте следующее:
 
-1. В поле поиска введите "SharePoint" и дождитесь возвращения всех записей с текстом "SharePoint" в имени. ![Настройка SharePoint][1]
+1. В поле поиска введите SharePoint и дождитесь возвращения всех записей с текстом SharePoint в имени. ![Настройка SharePoint][1]
 2. Выберите **SharePoint Online — When a file is created** (SharePoint Online — при создании файла).
-3. Выберите **Вход в SharePoint Online**. ![Настройка SharePoint][2]
+3. Выберите **Sign in to SharePoint Online** (Вход в SharePoint Online). ![Настройка SharePoint][2]
 4. Укажите учетные данные SharePoint, чтобы войти и пройти аутентификацию в SharePoint. ![Настройка SharePoint][3]
 5. После успешной проверки подлинности вы перейдете к своему приложению логики, чтобы завершить его, настроив параметры в диалоговом окне **When a file is created** (При создании файла) SharePoint. ![Настройка SharePoint][4]
 6. Затем можно будет добавить другие триггеры и действия, необходимые для завершения приложения логики.
 7. Сохраните результаты работы, выбрав **Сохранить** в строке меню вверху.
 
->[AZURE.TIP] Это подключение можно использовать в других приложениях логики и приложениях PowerApps.
 
 ## Справочник по API REST SharePoint
 #### Эта документация предназначена для версии 1.0
@@ -95,10 +90,10 @@ ms.author="deonhe"/>
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
-|id|строка|Да|path|Нет|Уникальный идентификатор файла|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|id|string|Да|path|Нет|Уникальный идентификатор файла|
 
 
 ### Ниже перечислены возможные ответы:
@@ -118,14 +113,14 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
-|id|строка|Да|path|Нет|Уникальный идентификатор файла|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|id|string|Да|path|Нет|Уникальный идентификатор файла|
 |текст| |Да|текст|Нет|Содержимое файла|
 
 
 ### Ниже перечислены возможные ответы:
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |по умолчанию|Операция завершилась ошибкой.|
@@ -138,10 +133,10 @@ ms.author="deonhe"/>
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
-|id|строка|Да|path|Нет|Уникальный идентификатор файла|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|id|string|Да|path|Нет|Уникальный идентификатор файла|
 
 
 ### Ниже перечислены возможные ответы:
@@ -159,10 +154,10 @@ ms.author="deonhe"/>
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
-|path|строка|Да|запрос|Нет|Путь к файлу|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|path|string|Да|запрос|Нет|Путь к файлу|
 
 
 ### Ниже перечислены возможные ответы:
@@ -180,10 +175,10 @@ ms.author="deonhe"/>
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
-|path|строка|Да|запрос|Нет|Путь к файлу|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|path|string|Да|запрос|Нет|Путь к файлу|
 
 
 ### Ниже перечислены возможные ответы:
@@ -203,13 +198,13 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
-|id|строка|Да|path|Нет|Уникальный идентификатор файла|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|id|string|Да|path|Нет|Уникальный идентификатор файла|
 
 
 ### Ниже перечислены возможные ответы:
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |по умолчанию|Операция завершилась ошибкой.|
@@ -224,9 +219,9 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
-|folderPath|строка|Да|запрос|Нет|Путь к папке|
-|name|строка|Да|запрос|Нет|Имя файла|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|folderPath|string|Да|запрос|Нет|Путь к папке|
+|name|string|Да|запрос|Нет|Имя файла|
 |текст| |Да|текст|Нет|Содержимое файла|
 
 
@@ -247,9 +242,9 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
 |источник|string|Да|запрос|Нет|Путь к исходному файлу|
-|ресурс destination|строка|Да|запрос|Нет|Путь к конечному файлу|
+|ресурс destination|string|Да|запрос|Нет|Путь к конечному файлу|
 |overwrite|Логическое|Нет|запрос|нет|Следует ли перезаписывать существующий файл|
 
 
@@ -310,17 +305,17 @@ ms.author="deonhe"/>
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|.
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
 |источник|string|Да|запрос|Нет|Путь к исходному файлу|
-|ресурс destination|строка|Да|запрос|Нет|Путь к конечной папке|
-|перезаписать|Логическое|Нет|запрос|нет|Следует ли перезаписывать существующий файл|
+|ресурс destination|string|Да|запрос|Нет|Путь к конечной папке|
+|overwrite|Логическое|Нет|запрос|нет|Следует ли перезаписывать существующий файл|
 
 
 ### Ниже перечислены возможные ответы:
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |по умолчанию|Операция завершилась ошибкой.|
@@ -333,14 +328,14 @@ ms.author="deonhe"/>
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
-|таблица|строка|Да|path|Нет|Имя списка SharePoint|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
 |$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
 |$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 |$filter|string|Нет|запрос|Нет|Запрос фильтра ODATA для ограничения количества записей|
-|$orderby|строка|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
+|$orderby|string|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
 
 
 ### Ниже перечислены возможные ответы:
@@ -358,19 +353,19 @@ ms.author="deonhe"/>
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
-|таблица|строка|Да|path|Нет|Имя списка SharePoint|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
 |$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
 |$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 |$filter|string|Нет|запрос|Нет|Запрос фильтра ODATA для ограничения количества записей|
-|$orderby|строка|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
+|$orderby|string|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
 
 
 ### Ниже перечислены возможные ответы:
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |по умолчанию|Операция завершилась ошибкой.|
@@ -383,10 +378,10 @@ ms.author="deonhe"/>
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
-|таблица|строка|Да|path|Нет|Имя списка SharePoint|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
 |item| |Да|текст|Нет|Создаваемый элемент|
 
 
@@ -407,14 +402,14 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
-|таблица|строка|Да|path|Нет|Имя списка SharePoint|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
 |id|целое число|Да|path|Нет|Уникальный идентификатор извлекаемого элемента|
 
 
 ### Ниже перечислены возможные ответы:
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |по умолчанию|Операция завершилась ошибкой.|
@@ -427,10 +422,10 @@ ms.author="deonhe"/>
 
 
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
-|таблица|строка|Да|path|Нет|Имя списка SharePoint|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
 |id|целое число|Да|path|Нет|Уникальный идентификатор удаляемого элемента|
 
 
@@ -451,15 +446,15 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
-|таблица|строка|Да|path|Нет|Имя списка SharePoint|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
 |id|целое число|Да|path|Нет|Уникальный идентификатор обновляемого элемента|
 |item| |Да|текст|Нет|Элемент с измененными свойствами|
 
 
 ### Ниже перечислены возможные ответы:
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |по умолчанию|Операция завершилась ошибкой.|
@@ -469,7 +464,7 @@ ms.author="deonhe"/>
 
 ## Определения объектов: 
 
- **DataSetsMetadata**:
+ **DataSetsMetadata**
 
 Обязательные свойства для DataSetsMetadata:
 
@@ -477,7 +472,7 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
 | Имя | Тип данных |
@@ -487,7 +482,7 @@ ms.author="deonhe"/>
 
 
 
- **TabularDataSetsMetadata**:
+ **TabularDataSetsMetadata**
 
 Обязательные свойства для TabularDataSetsMetadata:
 
@@ -495,20 +490,20 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
 | Имя | Тип данных |
 |---|---|
 |источник|string|
-|displayName|строка|
+|displayName|string|
 |urlEncoding|string|
-|tableDisplayName|строка|
-|tablePluralName|строка|
+|tableDisplayName|string|
+|tablePluralName|string|
 
 
 
- **BlobDataSetsMetadata**:
+ **BlobDataSetsMetadata**
 
 Обязательные свойства для BlobDataSetsMetadata:
 
@@ -516,18 +511,18 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
 | Имя | Тип данных |
 |---|---|
 |источник|string|
-|displayName|строка|
+|displayName|string|
 |urlEncoding|string|
 
 
 
- **BlobMetadata**:
+ **BlobMetadata**
 
 Обязательные свойства для BlobMetadata:
 
@@ -535,25 +530,25 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
 | Имя | Тип данных |
 |---|---|
-|Идентификатор|строка|
-|Имя|строка|
-|DisplayName|строка|
-|Путь|строка|
-|LastModified|строка|
+|Идентификатор|string|
+|Name (Имя)|string|
+|DisplayName|string|
+|Путь|string|
+|LastModified|string|
 |Размер|целое число|
-|MediaType|строка|
+|MediaType|string|
 |IsFolder|Логическое|
 |ETag|string|
-|FileLocator|строка|
+|FileLocator|string|
 
 
 
- **Object**:
+ **Object**
 
 Обязательные свойства для Object:
 
@@ -561,15 +556,15 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
-| Имя | Тип данных |
+| Name (Имя) | Тип данных |
 |---|---|
 
 
 
- **TableMetadata**:
+ **TableMetadata**
 
 Обязательные свойства для TableMetadata:
 
@@ -583,13 +578,13 @@ ms.author="deonhe"/>
 | Имя | Тип данных |
 |---|---|
 |name|string|
-|title|строка|
-|x-ms-permission|строка|
+|title|string|
+|x-ms-permission|string|
 |schema|не определено|
 
 
 
- **DataSetsList**:
+ **DataSetsList**
 
 Обязательные свойства для DataSetsList:
 
@@ -597,16 +592,16 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
-| Имя | Тип данных |
+| Name (Имя) | Тип данных |
 |---|---|
 |value|array|
 
 
 
- **DataSet**:
+ **DataSet**
 
 Обязательные свойства для DataSet:
 
@@ -614,13 +609,13 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
 | Имя | Тип данных |
 |---|---|
-|Имя|строка|
-|DisplayName|строка|
+|Имя|string|
+|DisplayName|string|
 
 
 
@@ -632,17 +627,17 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
-| Имя | Тип данных |
+| Name (Имя) | Тип данных |
 |---|---|
-|Имя|строка|
-|DisplayName|строка|
+|Имя|string|
+|DisplayName|string|
 
 
 
- **Item**:
+ **Item**
 
 Обязательные свойства для Item:
 
@@ -650,16 +645,16 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
-| Имя | Тип данных |
+| Name (Имя) | Тип данных |
 |---|---|
-|ItemInternalId|строка|
+|ItemInternalId|string|
 
 
 
- **ItemsList**:
+ **ItemsList**
 
 Обязательные свойства для ItemsList:
 
@@ -667,7 +662,7 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
 | Имя | Тип данных |
@@ -676,7 +671,7 @@ ms.author="deonhe"/>
 
 
 
- **TablesList**:
+ **TablesList**
 
 Обязательные свойства для TablesList:
 
@@ -684,7 +679,7 @@ ms.author="deonhe"/>
 обязательные свойства отсутствуют.
 
 
-**Все свойства**:
+**Все свойства**
 
 
 | Имя | Тип данных |
@@ -693,7 +688,7 @@ ms.author="deonhe"/>
 
 
 ## Дальнейшие действия
-[Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md). [Создание приложения PowerApps](../power-apps/powerapps-get-started-azure-portal.md).
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
 [1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
@@ -701,4 +696,4 @@ ms.author="deonhe"/>
 [4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

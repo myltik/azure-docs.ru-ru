@@ -14,18 +14,13 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/17/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Начало работы с соединителем MailChimp
 
+MailChimp — это служба SaaS, которая позволяет компаниям управлять маркетинговыми мероприятиями по электронной почте, включая отправку маркетинговых сообщений электронной почты, автоматических сообщений и целевых кампаний, и автоматизировать их.
 
-
-Соединитель MailChimp можно использовать из таких компонентов, как:
-
-- [Приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps.](http://powerapps.microsoft.com)
-- [Поток](http://flows.microsoft.com)
 
 >[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
@@ -57,11 +52,11 @@ ms.author="deonhe"/>
 
 
 ## Создание подключения к MailChimp
-Для создания приложений логики с помощью MailChimp необходимо создать **подключение**, а затем указать данные для следующих свойств:
+Для создания приложений логики с помощью MailChimp необходимо создать **подключение**, а затем указать данные для следующих свойств.
 
 |Свойство| Обязательно|Описание|
 | ---|---|---|
-|токен|Да|Укажите учетные данные MailChimp|
+|Маркер|Да|Укажите учетные данные MailChimp|
 
 >[AZURE.INCLUDE [Шаги по созданию подключения к MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 
@@ -97,13 +92,13 @@ ms.author="deonhe"/>
 
 ```POST: /lists```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
 |newListRequest| |Да|текст|Нет|Объект JSON, отправляемый в тексте с параметрами запроса новой кампании|
 
 #### Ответ
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |400|Ошибка запроса|
@@ -121,7 +116,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|list\_id|строка|Да|path|Нет|Уникальный идентификатор для списка|
+|list\_id|string|Да|path|Нет|Уникальный идентификатор для списка|
 |newMemberInList| |Да|текст|Нет|Объект JSON, отправляемый в тексте со сведениями о новом элементе|
 
 #### Ответ
@@ -144,7 +139,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|list\_id|строка|Да|path|Нет|Уникальный идентификатор для списка|
+|list\_id|string|Да|path|Нет|Уникальный идентификатор для списка|
 |member\_email|string|Да|path|Нет|Адрес электронной почты удаляемого элемента|
 
 #### Ответ
@@ -165,9 +160,9 @@ ms.author="deonhe"/>
 
 ```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|list\_id|строка|Да|path|Нет|Уникальный идентификатор для списка|
+|list\_id|string|Да|path|Нет|Уникальный идентификатор для списка|
 |member\_email|string|Да|path|Нет|Уникальный адрес электронной почты изменяемого элемента|
 |updateMemberInListRequest| |Да|текст|Нет|Объект JSON, отправляемый в тексте со сведениями об изменяемом элементе|
 
@@ -191,7 +186,7 @@ ms.author="deonhe"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|list\_id|строка|Да|path|Нет|Уникальный идентификатор для списка|
+|list\_id|string|Да|path|Нет|Уникальный идентификатор для списка|
 
 #### Ответ
 
@@ -247,24 +242,24 @@ ms.author="deonhe"/>
 ### Recipient
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |list\_id|string|Да |
 |segment\_opts|не определено|Нет |
 
 
 
-### данных
+### Параметры
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |subject\_line|string|Да |
-|title|строка|Нет |
+|title|string|Нет |
 |from\_name|string|Да |
-|reply\_to|строка|Да |
+|reply\_to|string|Да |
 |use\_conversation|Логическое|Нет |
-|to\_name|строка|Нет |
+|to\_name|string|Нет |
 |folder\_id|целое число|Нет |
 |authenticate|Логическое|Нет |
 |auto\_footer|Логическое|Нет |
@@ -278,7 +273,7 @@ ms.author="deonhe"/>
 ### Variate\_Settings
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |winner\_criteria|string|Нет |
 |wait\_time|целое число|Нет |
@@ -293,15 +288,15 @@ ms.author="deonhe"/>
 ### Отслеживание
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |opens|Логическое|Нет |
 |html\_clicks|Логическое|Нет |
 |text\_clicks|Логическое|Нет |
 |goal\_tracking|Логическое|Нет |
 |ecomm360|Логическое|Нет |
-|google\_analytics|строка|Нет |
-|clicktale|строка|Нет |
+|google\_analytics|string|Нет |
+|clicktale|string|Нет |
 |salesforce|не определено|Нет |
 |highrise|не определено|Нет |
 |capsule|не определено|Нет |
@@ -311,7 +306,7 @@ ms.author="deonhe"/>
 ### RSS\_Opts
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |feed\_url|string|Нет |
 |frequency|string|Нет |
@@ -323,21 +318,21 @@ ms.author="deonhe"/>
 ### Social\_Card
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |image\_url|string|Нет |
-|description|строка|Нет |
-|title|строка|Нет |
+|description|string|Нет |
+|title|string|Нет |
 
 
 
 ### Segment\_Opts
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |saved\_segment\_id|целое число|Нет |
-|match|строка|Нет |
+|match|string|Нет |
 
 
 
@@ -364,7 +359,7 @@ ms.author="deonhe"/>
 ### Capsule
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |HDInsight|Логическое|Нет |
 
@@ -373,7 +368,7 @@ ms.author="deonhe"/>
 ### Расписание
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |hour|целое число|Нет |
 |daily\_send|не определено|Нет |
@@ -385,7 +380,7 @@ ms.author="deonhe"/>
 ### Daily\_Send
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |sunday|Логическое|Нет |
 |monday|Логическое|Нет |
@@ -403,10 +398,10 @@ ms.author="deonhe"/>
 | Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |id|string|Нет |
-|type|строка|Нет |
+|type|string|Нет |
 |create\_time|string|Нет |
 |archive\_url|string|Нет |
-|status|строка|Нет |
+|status|string|Нет |
 |emails\_sent|целое число|Нет |
 |send\_time|string|Нет |
 |content\_type|string|Нет |
@@ -426,21 +421,21 @@ ms.author="deonhe"/>
 ### AB\_Split\_Opts
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |split\_test|string|Нет |
 |pick\_winner|string|Нет |
-|wait\_units|строка|Нет |
+|wait\_units|string|Нет |
 |wait\_time|целое число|Нет |
 |split\_size|целое число|Нет |
 |from\_name\_a|string|Нет |
 |from\_name\_b|string|Нет |
-|reply\_email\_a|строка|Нет |
-|reply\_email\_b|строка|Нет |
-|subject\_a|строка|Нет |
+|reply\_email\_a|string|Нет |
+|reply\_email\_b|string|Нет |
+|subject\_a|string|Нет |
 |subject\_b|string|Нет |
-|send\_time\_a|строка|Нет |
-|send\_time\_b|строка|Нет |
+|send\_time\_a|string|Нет |
+|send\_time\_b|string|Нет |
 |send\_time\_winner|string|Нет |
 
 
@@ -448,7 +443,7 @@ ms.author="deonhe"/>
 ### Report\_Summary
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |opens|целое число|Нет |
 |unique\_opens|целое число|Нет |
@@ -462,11 +457,11 @@ ms.author="deonhe"/>
 ### Delivery\_Status
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |включено|Логическое|Нет |
 |can\_cancel|Логическое|Нет |
-|status|строка|Нет |
+|status|string|Нет |
 |emails\_sent|целое число|Нет |
 |emails\_canceled|целое число|Нет |
 
@@ -475,12 +470,12 @@ ms.author="deonhe"/>
 ### Ссылка
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |rel|string|Нет |
-|href|строка|Нет |
-|метод|строка|Нет |
-|targetSchema|строка|Нет |
+|href|string|Нет |
+|метод|string|Нет |
+|targetSchema|string|Нет |
 |schema|string|Нет |
 
 
@@ -490,28 +485,28 @@ ms.author="deonhe"/>
 
 | Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|name|строка|Да |
+|name|string|Да |
 |contact|не определено|Да |
 |permission\_reminder|string|Да |
 |use\_archive\_bar|Логическое|Нет |
 |campaign\_defaults|не определено|Да |
 |notify\_on\_subscribe|string|Нет |
-|notify\_on\_unsubscribe|строка|Нет |
+|notify\_on\_unsubscribe|string|Нет |
 |email\_type\_option|Логическое|Да |
-|visibility|строка|Нет |
+|visibility|string|Нет |
 
 
 
 ### Контакт
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |company|string|Да |
 |address1|string|Да |
-|address2|строка|Нет |
+|address2|string|Нет |
 |city|string|Да |
-|state|строка|Да |
+|state|string|Да |
 |zip|string|Да |
 |country|string|Да |
 |phone|string|Да |
@@ -521,12 +516,12 @@ ms.author="deonhe"/>
 ### Campaign\_Defaults
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |from\_name|string|Да |
 |from\_email|string|Да |
-|subject|строка|Нет |
-|язык|строка|Да |
+|subject|string|Нет |
+|язык|string|Да |
 
 
 
@@ -535,21 +530,21 @@ ms.author="deonhe"/>
 
 | Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|id|строка|Да |
-|name|строка|Да |
+|id|string|Да |
+|name|string|Да |
 |contact|не определено|Да |
 |permission\_reminder|string|Да |
 |use\_archive\_bar|Логическое|Нет |
 |campaign\_defaults|не определено|Да |
 |notify\_on\_subscribe|string|Нет |
-|notify\_on\_unsubscribe|строка|Нет |
+|notify\_on\_unsubscribe|string|Нет |
 |date\_created|string|Нет |
 |list\_rating|целое число|Нет |
 |email\_type\_option|Логическое|Да |
-|subscribe\_url\_short|строка|Нет |
-|subscribe\_url\_long|строка|Нет |
+|subscribe\_url\_short|string|Нет |
+|subscribe\_url\_long|string|Нет |
 |beamer\_address|string|Нет |
-|visibility|строка|Нет |
+|visibility|string|Нет |
 |modules|array|Нет |
 |stats|не определено|Нет |
 |\_links|array|Нет |
@@ -559,7 +554,7 @@ ms.author="deonhe"/>
 ### Статистика
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |member\_count|целое число|Нет |
 |unsubscribe\_count|целое число|Нет |
@@ -575,15 +570,15 @@ ms.author="deonhe"/>
 |target\_sub\_rate|number|Нет |
 |open\_rate|number|Нет |
 |click\_rate|number|Нет |
-|last\_sub\_date|строка|Нет |
-|last\_unsub\_date|строка|Нет |
+|last\_sub\_date|string|Нет |
+|last\_unsub\_date|string|Нет |
 
 
 
 ### GetListsResponseModel
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |lists|array|Нет |
 |total\_items|целое число|Нет |
@@ -593,13 +588,13 @@ ms.author="deonhe"/>
 ### NewMemberInListRequest
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |email\_type|string|Нет |
-|status|строка|Да |
+|status|string|Да |
 |merge\_fields|не определено|Нет |
 |interests|string|Нет |
-|язык|строка|Нет |
+|язык|string|Нет |
 |виртуальный IP-адрес|Логическое|Нет |
 |location|не определено|Нет |
 |email\_address|string|Да |
@@ -609,17 +604,17 @@ ms.author="deonhe"/>
 ### FirstAndLastName
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|FNAME|строка|Нет |
-|LNAME|строка|Нет |
+|FNAME|string|Нет |
+|LNAME|string|Нет |
 
 
 
 ### Расположение
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |latitude|number|Нет |
 |longitude|number|Нет |
@@ -632,22 +627,22 @@ ms.author="deonhe"/>
 | Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |id|string|Нет |
-|email\_address|строка|Нет |
+|email\_address|string|Нет |
 |unique\_email\_id|string|Нет |
 |email\_type|string|Нет |
-|status|строка|Нет |
+|status|string|Нет |
 |merge\_fields|не определено|Нет |
 |interests|string|Нет |
 |stats|не определено|Нет |
-|ip\_signup|строка|Нет |
+|ip\_signup|string|Нет |
 |timestamp\_signup|string|Нет |
 |ip\_opt|string|Нет |
-|timestamp\_opt|строка|Нет |
+|timestamp\_opt|string|Нет |
 |member\_rating|целое число|Нет |
-|last\_changed|строка|Нет |
-|язык|строка|Нет |
+|last\_changed|string|Нет |
+|язык|string|Нет |
 |виртуальный IP-адрес|Логическое|Нет |
-|email\_client|строка|Нет |
+|email\_client|string|Нет |
 |location|не определено|Нет |
 |last\_note|не определено|Нет |
 |list\_id|string|Нет |
@@ -658,11 +653,11 @@ ms.author="deonhe"/>
 ### Last\_Note
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |note\_id|целое число|Нет |
 |created\_at|string|Нет |
-|created\_by|строка|Нет |
+|created\_by|string|Нет |
 |note|string|Нет |
 
 
@@ -670,7 +665,7 @@ ms.author="deonhe"/>
 ### GetAllMembersResponseModel
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |members|array|Нет |
 |list\_id|string|Нет |
@@ -681,7 +676,7 @@ ms.author="deonhe"/>
 ### Объект
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 
 
@@ -689,14 +684,14 @@ ms.author="deonhe"/>
 ### UpdateMemberInListRequest
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|email\_address|строка|Нет |
+|email\_address|string|Нет |
 |email\_type|string|Нет |
-|status|строка|Да |
+|status|string|Да |
 |merge\_fields|не определено|Нет |
 |interests|string|Нет |
-|язык|строка|Нет |
+|язык|string|Нет |
 |виртуальный IP-адрес|Логическое|Нет |
 |location|не определено|Нет |
 
@@ -705,7 +700,7 @@ ms.author="deonhe"/>
 ### GetMembersResponseModel
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |members|array|Нет |
 |list\_id|string|Нет |
@@ -718,23 +713,23 @@ ms.author="deonhe"/>
 
 | Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|id|строка|Да |
+|id|string|Да |
 |email\_address|string|Да |
 |unique\_email\_id|string|Нет |
 |email\_type|string|Нет |
-|status|строка|Нет |
+|status|string|Нет |
 |merge\_fields|не определено|Да |
 |interests|string|Нет |
 |stats|не определено|Нет |
-|ip\_signup|строка|Нет |
+|ip\_signup|string|Нет |
 |timestamp\_signup|string|Нет |
 |ip\_opt|string|Нет |
-|timestamp\_opt|строка|Нет |
+|timestamp\_opt|string|Нет |
 |member\_rating|целое число|Нет |
-|last\_changed|строка|Нет |
-|язык|строка|Нет |
+|last\_changed|string|Нет |
+|язык|string|Нет |
 |виртуальный IP-адрес|Логическое|Нет |
-|email\_client|строка|Нет |
+|email\_client|string|Нет |
 |location|не определено|Нет |
 |last\_note|не определено|Нет |
 |list\_id|string|Нет |
@@ -744,4 +739,4 @@ ms.author="deonhe"/>
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

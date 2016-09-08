@@ -171,7 +171,7 @@
   }
 	```
 
-- **[networkSecurityGroup.parameters.json][nsg-parameters]**. Этот файл содержит определения групп безопасности сети и их правил. Параметр `name` в блоке `virtualNetworkSettings` задает виртуальную сеть, к которой подключена группа безопасности сети. Параметр `subnets` в блоке `networkSecurityGroupSettings` идентифицирует все подсети в виртуальной сети, к которым применяются правила группы безопасности сети. Это должны быть элементы, определенные в файле **virtualNetwork.parameters.json**.
+- **[networkSecurityGroups.parameters.json][nsg-parameters]**. Этот файл содержит определения групп безопасности сети и их правил. Параметр `name` в блоке `virtualNetworkSettings` задает виртуальную сеть, к которой подключена группа безопасности сети. Параметр `subnets` в блоке `networkSecurityGroupSettings` идентифицирует все подсети в виртуальной сети, к которым применяются правила группы безопасности сети. Это должны быть элементы, определенные в файле **virtualNetwork.parameters.json**.
 
 	Обратите внимание, что правило безопасности по умолчанию, показанное в примере, позволяет пользователю подключаться к виртуальной машине через подключение к удаленному рабочему столу. Можно открыть дополнительные порты (или запретить доступ через определенные порты), добавив дополнительные элементы в массив `securityRules`.
 
@@ -313,7 +313,7 @@
 
 	- [virtualNetwork.parameters.json;][vnet-parameters]
 
-	- [networkSecurityGroup.parameters.json;][nsg-parameters]
+	- [networkSecurityGroups.parameters.json][nsg-parameters]
 
 	- [virtualMachineParameters.json.][vm-parameters]
 
@@ -386,11 +386,11 @@
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
-[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json
-[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json
+[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json
+[vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Архитектура с одной виртуальной машиной Windows в Azure"
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0824_2016-->

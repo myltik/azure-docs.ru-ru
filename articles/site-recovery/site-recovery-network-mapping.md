@@ -55,7 +55,7 @@
 Нью-Йорк | VMM-NewYork| VMNetwork1-NewYork | Сопоставляется с VMNetwork1-Chicago
  | | VMNetwork2-NewYork | Не сопоставлена
 Чикаго | VMM-Chicago| VMNetwork1-Chicago | Сопоставляется с VMNetwork1-NewYork
- | | VMNetwork1-Chicago | Не сопоставлена
+ | | VMNetwork2-Chicago | Не сопоставлена
 
 В этом примере:
 
@@ -123,4 +123,4 @@ VM2 (реплика VM1) | VMNetwork1-Chicago
 
 Теперь, когда вы разобрались с сетевым сопоставлением, можно [начинать развертывание службы Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Обзор мониторинга в Microsoft Azure | Microsoft Azure"
-	description="Общий обзор мониторинга и диагностики в Azure, а также описание пересылки оповещений в другие системы, не относящиеся к Azure."
+	description="Обзор верхнего уровня мониторинга и диагностики в Microsoft Azure, в том числе предупреждений, объектов webhook, автоматического масштабирования и других компонентов."
 	authors="rboucher"
 	manager=""
 	editor=""
@@ -24,13 +24,13 @@
 
 На приведенной ниже схеме показано логическое представление мониторинга Azure. Базовая реализация является более сложной. На рисунке показан тип журналов, которые можно собирать, и указано, что можно делать с этими данными.
 
-.![Логическая модель мониторинга и диагностики для невычислительных ресурсов](./media/monitoring-overview/monitoring-azure-resources-non-compute.png)
+![Логическая модель мониторинга и диагностики для невычислительных ресурсов](./media/monitoring-overview/monitoring-azure-resources-non-compute.png)
 
 Рисунок 1. Логическая модель мониторинга и диагностики для невычислительных ресурсов
 
 <br/>
 
-.![Логическая модель мониторинга и диагностики для вычислительных ресурсов](./media/monitoring-overview/monitoring-azure-resources-compute.png)
+![Логическая модель мониторинга и диагностики для вычислительных ресурсов](./media/monitoring-overview/monitoring-azure-resources-compute.png)
 
 Рисунок 2. Логическая модель мониторинга и диагностики для вычислительных ресурсов
 
@@ -138,4 +138,4 @@
 - [Устранении неполадок службы хранилища Azure](../storage/storage-e2e-troubleshooting.md), если вы используете большие двоичные объекты, таблицы или очереди службы хранилища.
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) и [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0824_2016-->

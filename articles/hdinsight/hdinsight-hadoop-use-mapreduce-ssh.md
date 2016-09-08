@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/06/2016"
+   ms.date="08/23/2016"
    ms.author="larryfr"/>
 
 # Использование MapReduce с Hadoop в HDInsight с помощью SSH
@@ -27,7 +27,7 @@
 
 ##<a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * Кластер HDInsight на основе Linux (Hadoop в HDInsight).
 
@@ -57,7 +57,7 @@ Windows не предоставляет встроенный клиент SSH. �
 
 1. После подключения к кластеру HDInsight используйте следующую команду **Hadoop**, чтобы запустить задание MapReduce:
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
+		yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
 	При этом запустится класс **wordcount**, содержащийся в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **wasbs://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются здесь: **wasbs:///example/data/WordCountOutput**.
 
@@ -108,4 +108,4 @@ Windows не предоставляет встроенный клиент SSH. �
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Настроить CHAP для устройства StorSimple.
@@ -198,4 +198,4 @@ CHAP лучше всего использовать для повышения б
 
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->

@@ -329,7 +329,7 @@
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-.<!--Image references-->
+<!--Image references-->
 
 [0]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_00.png
 [1]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_01.png

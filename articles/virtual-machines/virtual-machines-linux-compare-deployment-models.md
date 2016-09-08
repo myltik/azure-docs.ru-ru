@@ -3,9 +3,9 @@
    description="Обзор поставщиков вычислительных и сетевых ресурсов, а также ресурсов хранения (CRP, NRP и SRP) для приложений Linux в модели развертывания с помощью Azure Resource Manager"
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="mahthi"
+   authors="tfitzmac"
    manager="timlt"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+   ms.date="08/19/2015"
+   ms.author="tomfitz"/>
 
 # Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения для приложений Linux в рамках модели развертывания с помощью Azure Resource Manager
 
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-compare-deployment-models](../../includes/virtual-machines-common-compare-deployment-models.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0824_2016-->

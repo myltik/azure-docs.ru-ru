@@ -23,17 +23,12 @@
 - [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
 - [Портал](resource-group-template-deploy-portal.md)
 - [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Узел](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
 
 В этом разделе объясняется, как использовать шаблоны и REST API Resource Manager для развертывания ресурсов в Azure.
 
 > [AZURE.TIP] Справку по отладке ошибок во время развертывания можно получить в следующих статьях.
 >
-> - [Просмотр операций развертывания с помощью API REST Azure Resource Manager](resource-manager-troubleshoot-deployments-rest.md) — руководство по получению сведений для устранения ошибки.
+> - Статья [Просмотр операций развертывания с помощью REST API Azure Resource Manager](resource-manager-troubleshoot-deployments-rest.md) содержит информацию о том, как получить сведения, которые помогут устранить ошибку.
 > - [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md) — руководство по устранению распространенных ошибок при развертывании.
 
 Шаблон может быть локальным файлом или внешним файл, доступным по универсальному коду ресурса (URI). Если шаблон находится в учетной записи хранения, то во время развертывания можно ограничить доступ к шаблону и предоставить маркер подписанного URL-адреса (SAS).
@@ -94,4 +89,4 @@
 - Инструкции по развертыванию своего решения в различных средах см. в статье [Среды разработки и тестирования в Microsoft Azure](solution-dev-test-environments.md).
 - Дополнительные сведения об использовании ссылки на KeyVault для передачи безопасных значений см. в статье [Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0824_2016-->

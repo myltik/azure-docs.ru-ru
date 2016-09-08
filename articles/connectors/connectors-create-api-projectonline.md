@@ -14,18 +14,12 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="05/16/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
 # Начало работы с соединителем ProjectOnline
 
 Project Online — это гибкое интернет-решение для управления портфелем проектов (PPM) и повседневной работы с продуктами Майкрософт. Project Online предоставляется в рамках служб Office 365. Это решение позволяет организациям быстро приступить к работе с эффективными функциями управления проектами для планирования, определения приоритетов и управления проектами и инвестициями в портфель проектов в режиме повсеместной доступности.
-
-Соединитель ProjectOnline можно использовать из следующих компонентов:
-
-- [Приложения логики](../app-service-logic/app-service-logic-what-are-logic-apps.md)
-- [PowerApps.](http://powerapps.microsoft.com)
-- [Поток](http://flow.microsoft.com)
 
 >[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
@@ -40,7 +34,7 @@ Project Online — это гибкое интернет-решение для у
 ### Действия ProjectOnline
 Вы можете выполнять перечисленные ниже действия:
 
-|Действие|Описание|
+|Действие|Description (Описание)|
 |--- | ---|
 |[ListProjects](connectors-create-api-projectonline.md#listprojects)|Список проектов на сайте Project Online|
 |[CreateProject](connectors-create-api-projectonline.md#createproject)|Создание проекта на сайте Project Online|
@@ -52,7 +46,7 @@ Project Online — это гибкое интернет-решение для у
 ### Триггеры ProjectOnline
 Можно прослушивать указанные ниже события:
 
-|Триггер | Описание|
+|Триггер | Description (Описание)|
 |--- | ---|
 |При создании проекта|Запускает поток при создании нового проекта|
 |При создании ресурса|Запускает новый поток при создании нового ресурса|
@@ -62,9 +56,9 @@ Project Online — это гибкое интернет-решение для у
 ## Создание подключения к ProjectOnline
 Для создания приложений логики с помощью ProjectOnline необходимо создать **подключение**, а затем указать данные для следующих свойств:
 
-|Свойство| Обязательно|Описание|
+|Свойство| Обязательно|Description (Описание)|
 | ---|---|---|
-|токен|Да|Укажите учетные данные ProjectOnline|
+|Маркер|Да|Укажите учетные данные ProjectOnline|
 
 >[AZURE.INCLUDE [Шаги по созданию подключения к ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
 
@@ -80,11 +74,11 @@ Project Online — это гибкое интернет-решение для у
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|siteUrl|строка|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
 
 #### Ответ
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |400|Ошибка запроса|
@@ -100,9 +94,9 @@ Project Online — это гибкое интернет-решение для у
 
 ```GET: /trigger/_api/ProjectData/Resources```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|siteUrl|строка|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
 
 #### Ответ
 
@@ -122,13 +116,13 @@ Project Online — это гибкое интернет-решение для у
 
 ```GET: /trigger/_api/ProjectData/Tasks```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|siteUrl|строка|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
 
 #### Ответ
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |400|Ошибка запроса|
@@ -144,13 +138,13 @@ Project Online — это гибкое интернет-решение для у
 
 ```GET: /_api/ProjectServer/Projects```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|siteUrl|строка|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
 
 #### Ответ
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |400|Ошибка запроса|
@@ -166,14 +160,14 @@ Project Online — это гибкое интернет-решение для у
 
 ```POST: /_api/ProjectServer/Projects```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|siteUrl|строка|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
 |proj| |Да|текст|Нет|Создаваемый проект|
 
 #### Ответ
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |400|Ошибка запроса|
@@ -191,13 +185,13 @@ Project Online — это гибкое интернет-решение для у
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|siteUrl|строка|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
 |project\_id|string|Да|path|Нет|Уникальный идентификатор проекта, в который добавляется задача|
 |task| |Да|текст|Нет|Новая задача для добавления в проект|
 
 #### Ответ
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |400|Ошибка запроса|
@@ -213,9 +207,9 @@ Project Online — это гибкое интернет-решение для у
 
 ```POST: /_api/ProjectServer/EnterpriseResources```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|siteUrl|строка|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
 |resource| |Да|текст|Нет|Новые корпоративные ресурсы для добавления в проект|
 
 #### Ответ
@@ -236,9 +230,9 @@ Project Online — это гибкое интернет-решение для у
 
 ```GET: /_api/ProjectServer/Projects('{project_id}')/Tasks```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|siteUrl|строка|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
 |project\_id|string|Да|path|Нет|Уникальный идентификатор проекта для получения задач|
 
 #### Ответ
@@ -259,14 +253,14 @@ Project Online — это гибкое интернет-решение для у
 
 ```POST: /_api/ProjectServer/Projects('{project_id}')/checkOut```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|siteUrl|строка|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
 |project\_id|string|Да|path|Нет|Уникальный идентификатор проекта, в который добавляется задача|
 
 #### Ответ
 
-|Имя|Описание|
+|Name (Имя)|Описание|
 |---|---|
 |200|ОК|
 |400|Ошибка запроса|
@@ -282,9 +276,9 @@ Project Online — это гибкое интернет-решение для у
 
 ```POST: /_api/ProjectServer/Projects('{project_id}')/Draft/Publish(true)```
 
-| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|siteUrl|строка|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
+|siteUrl|string|Да|запрос|Нет|URL-адрес корневого сайта проекта (например, https://sampletenant.sharepoint.com/teams/sampleteam).|
 |project\_id|string|Да|path|Нет|Уникальный идентификатор возвращаемого проекта|
 
 #### Ответ
@@ -314,13 +308,13 @@ Project Online — это гибкое интернет-решение для у
 ### TriggerProject
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|ProjectStartDate|строка|Нет |
+|ProjectStartDate|string|Нет |
 |ProjectFinishDate|string|Нет |
-|ProjectCreatedDate|строка|Нет |
-|ProjectId|строка|Нет |
-|ProjectModifiedDate|строка|Нет |
+|ProjectCreatedDate|string|Нет |
+|ProjectId|string|Нет |
+|ProjectModifiedDate|string|Нет |
 |ProjectType|целое число|Нет |
 |ProjectName|string|Нет |
 
@@ -338,23 +332,23 @@ Project Online — это гибкое интернет-решение для у
 ### TriggerResource
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |ResourceId|string|Нет |
-|ResourceBaseCalendar|строка|Нет |
+|ResourceBaseCalendar|string|Нет |
 |ResourceBookingType|целое число|Нет |
 |ResourceCanLevel|Логическое|Нет |
 |ResourceCostPerUse|number|Нет |
 |ResourceCreatedDate|string|Нет |
-|ResourceEarliestAvailableFrom|строка|Нет |
+|ResourceEarliestAvailableFrom|string|Нет |
 |ResourceEmail|string|Нет |
 |ResourceInitials|string|Нет |
 |ResourceIsActive|Логическое|Нет |
 |ResourceIsGeneric|Логическое|Нет |
 |ResourceLatestAvailableTo|string|Нет |
-|ResourceModifiedDate|строка|Нет |
+|ResourceModifiedDate|string|Нет |
 |ResourceName|string|Нет |
-|ResourceStatusName|строка|Нет |
+|ResourceStatusName|string|Нет |
 |ResourceType|целое число|Нет |
 |TypeDescription|string|Нет |
 |TypeName|string|Нет |
@@ -373,13 +367,13 @@ Project Online — это гибкое интернет-решение для у
 ### TriggerTask
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|ProjectId|строка|Нет |
+|ProjectId|string|Нет |
 |TaskId|строка|Нет |
 |ProjectName|string|Нет |
 |TaskName|string|Нет |
-|TaskCreatedDate|строка|Нет |
+|TaskCreatedDate|string|Нет |
 |TaskModifieddate|string|Нет |
 |TaskStartDate|string|Нет |
 |TaskFinishDate|string|Нет |
@@ -394,8 +388,8 @@ Project Online — это гибкое интернет-решение для у
 | Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |Имя|string|Да |
-|Описание|строка|Нет |
-|Начало|строка|Нет |
+|Description (Описание)|string|Нет |
+|Начало|string|Нет |
 
 
 
@@ -414,22 +408,22 @@ Project Online — это гибкое интернет-решение для у
 ### Project
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|ApprovedStart|строка|Нет |
+|ApprovedStart|string|Нет |
 |ApprovedEnd|string|Нет |
 |CheckedOutDate|string|Нет |
-|CheckOutDescription|строка|Нет |
+|CheckOutDescription|string|Нет |
 |CheckOutId|string|Нет |
 |CreatedDate|string|Нет |
-|Идентификатор|строка|Нет |
+|Идентификатор|string|Нет |
 |IsCheckedOut|Логическое|Нет |
-|LastPublishedDate|строка|Нет |
-|LastSavedDate|строка|Нет |
+|LastPublishedDate|string|Нет |
+|LastSavedDate|string|Нет |
 |OptimizerDecision|целое число|Нет |
 |PlannerDecision|целое число|Нет |
 |ProjectType|целое число|Нет |
-|Имя|string|Нет |
+|Name (Имя)|string|Нет |
 |WinprojVersion|string|Нет |
 
 
@@ -446,7 +440,7 @@ Project Online — это гибкое интернет-решение для у
 ### NewTask
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |parameters|не определено|Да |
 
@@ -457,30 +451,30 @@ Project Online — это гибкое интернет-решение для у
 
 | Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Имя|string|Да |
-|Примечания|строка|Нет |
-|Начало|строка|Нет |
-|Длительность|строка|Нет |
+|Name (Имя)|string|Да |
+|Примечания|string|Нет |
+|Начало|string|Нет |
+|Длительность|string|Нет |
 
 
 
 ### EnterpriseResource
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 |CanLevel|Логическое|Нет |
 |Код|string|Нет |
 |CostAccrual|целое число|Нет |
-|CostCenter|строка|Нет |
-|Создано|строка|Нет |
+|CostCenter|string|Нет |
+|Создано|string|Нет |
 |DefaultBookingType|целое число|Нет |
-|Email|строка|Нет |
-|ExternalId|строка|Нет |
-|Группа|строка|Нет |
+|Email|string|Нет |
+|ExternalId|string|Нет |
+|Группа|string|Нет |
 |HireDate|string|Нет |
-|Идентификатор|строка|Нет |
-|Initials|строка|Нет |
+|Идентификатор|string|Нет |
+|Initials|string|Нет |
 |IsActive|Логическое|Нет |
 |IsBudget|Логическое|Нет |
 |IsCheckedOut|Логическое|Нет |
@@ -489,9 +483,9 @@ Project Online — это гибкое интернет-решение для у
 |MaterialLabel|string|Нет |
 |Изменено|string|Нет |
 |Имя|string|Нет |
-|Phonetics|строка|Нет |
+|Phonetics|string|Нет |
 |ResourceType|целое число|Нет |
-|TerminationDate|строка|Нет |
+|TerminationDate|string|Нет |
 
 
 
@@ -507,21 +501,21 @@ Project Online — это гибкое интернет-решение для у
 ### Задача
 
 
-| Имя свойства | Тип данных | Обязательное |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Создано|строка|Нет |
+|Создано|string|Нет |
 |Изменено|string|Нет |
-|Начало|строка|Нет |
+|Начало|string|Нет |
 |Готово|string|Нет |
 |Имя|string|Нет |
-|Идентификатор|строка|Нет |
+|Идентификатор|string|Нет |
 |Приоритет|целое число|Нет |
 |PercentComplete|целое число|Нет |
-|Примечания|строка|Нет |
-|Контакт|строка|Нет |
+|Примечания|string|Нет |
+|Контакт|string|Нет |
 
 
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

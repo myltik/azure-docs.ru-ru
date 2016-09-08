@@ -222,7 +222,7 @@
 |	**Действие:** уменьшить количество на 3 |
 |	**Охлаждение (в минутах):** 120 |
 
-.<!-- IMAGES -->
+<!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
 [settings-scale]: ./media/app-service-environment-auto-scale/settings-scale.png
 [scale-manual]: ./media/app-service-environment-auto-scale/scale-manual.png

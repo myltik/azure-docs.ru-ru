@@ -48,9 +48,9 @@
 ## Дальнейшие действия
 После ознакомления со статьями о разработке перейдите в [Справочник по Transact-SQL][], чтобы получить дополнительные сведения о поддерживаемом синтаксисе для хранилища данных SQL.
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [параллелизм;]: ./sql-data-warehouse-develop-concurrency.md
 [подключения;]: ./sql-data-warehouse-connect-overview.md
 [CTAS;]: ./sql-data-warehouse-develop-ctas.md
@@ -70,9 +70,9 @@
 [представления;]: ./sql-data-warehouse-develop-views.md
 [Справочник по Transact-SQL]: ./sql-data-warehouse-overview-reference.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
 
-.<!--Other Web references-->
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0817_2016-->

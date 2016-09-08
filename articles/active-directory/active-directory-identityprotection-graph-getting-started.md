@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2016"
+	ms.date="08/22/2016"
 	ms.author="markvi"/>
 
 # Начало работы с защитой идентификации Azure Active Directory и Microsoft Graph
@@ -23,7 +23,7 @@ Microsoft Graph — это конечная точка единого Microsoft 
 
 Получить доступ к данным защиты идентификации с помощью Microsoft Graph можно в три этапа.
 
-1. Добавление приложения с секретом клиента. 
+1. Добавление приложения с секретом клиента.
 
 2. Использование этого секрета и других данных для прохождения проверки подлинности в Microsoft Graph и получения маркера проверки подлинности.
 
@@ -39,7 +39,7 @@ Microsoft Graph — это конечная точка единого Microsoft 
 ## Добавление приложения с секретом клиента
 
 
-1. [Войдите](https://manage.windowsazure.com) на классический портал Azure, используя учетную запись администратора. 
+1. [Войдите](https://manage.windowsazure.com) на классический портал Azure, используя учетную запись администратора.
 
 1. В области навигации слева щелкните **Active Directory**.
 
@@ -91,7 +91,7 @@ Microsoft Graph — это конечная точка единого Microsoft 
 ## Предоставление приложению разрешения на использование API
 
 
-1. На странице приложения в меню вверху щелкните **Настройка**. 
+1. На странице приложения в меню вверху щелкните **Настройка**.
 
 	![Создание приложения](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_08.png)
 
@@ -155,9 +155,9 @@ Microsoft Graph — это конечная точка единого Microsoft 
 
 - resource: “**https://graph.microsoft.com**”
 
-- client\_id: <your client ID>
+- client\_id: <идентификатор\_вашего\_клиента>
 
-- client\_secret: <your key>
+- client\_secret: <ваш\_ключ>
 
 
 > [AZURE.NOTE] Необходимо указать значения для параметров **client\_id** и **client\_secret**.
@@ -208,7 +208,7 @@ Microsoft Graph — это конечная точка единого Microsoft 
 
 Поздравляем, вы только что выполнили первый вызов Microsoft Graph. Теперь вы можете запрашивать рисковые события идентификации и использовать данные по своему усмотрению.
 
-Дополнительные сведения о Microsoft Graph и том, как создавать приложения с помощью API Graph, см. в [документации](https://graph.microsoft.io/docs), а также на [веб-сайте Microsoft Graph](https://graph.microsoft.io/). Кроме того, сохраните в закладки страницу, посвященную [API защиты идентификации Azure AD](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root). На ней представлен список всех доступных в Graph API-интерфейсов защиты идентификации. Мы будем добавлять на эту страницу новые способы работы с защитой идентификации через API, поэтому следите за новостями.
+Дополнительные сведения о Microsoft Graph и инструкции по созданию приложения с помощью API Graph см. в [документации](https://graph.microsoft.io/docs), а также на [веб-сайте Microsoft Graph](https://graph.microsoft.io/). Кроме того, сохраните в закладки страницу, посвященную [API защиты идентификации Azure AD](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root). Она содержит список всех доступных в Graph API-интерфейсов защиты идентификации. Мы будем добавлять на эту страницу новые способы работы с защитой идентификации через API, поэтому следите за новостями.
 
 
 ## Дополнительные ресурсы
@@ -219,8 +219,8 @@ Microsoft Graph — это конечная точка единого Microsoft 
 
 - [Microsoft Graph](https://graph.microsoft.io/)
 
-- [Overview of Microsoft Graph](https://graph.microsoft.io/docs) (Обзор Microsoft Graph)
+- [Overview of Microsoft Graph (Обзор Microsoft Graph)](https://graph.microsoft.io/docs)
 
-- [Azure AD Identity Protection Service Root](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) (Корень службы защиты идентификации Azure AD)
+- [Azure AD Identity Protection Service Root (Корень службы защиты идентификации Azure AD)](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

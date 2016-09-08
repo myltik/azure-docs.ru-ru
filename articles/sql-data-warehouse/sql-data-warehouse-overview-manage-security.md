@@ -105,15 +105,15 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ## Дальнейшие действия
 Дополнительные сведения и примеры подключения к хранилищу данных SQL с различными протоколами см. в статье [Подключение к хранилищу данных SQL Azure][].
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Подключение к хранилищу данных SQL Azure]: ./sql-data-warehouse-connect-overview.md
 [Приступая к работе с аудитом Базы данных SQL]: ./sql-data-warehouse-auditing-overview.md
 [Начало работы с прозрачным шифрованием данных (TDE) в хранилище данных SQL]: ./sql-data-warehouse-encryption-tde.md
 [Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [Брандмауэр базы данных SQL Azure]: https://msdn.microsoft.com/library/ee621782.aspx
 [sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
@@ -124,7 +124,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [прозрачное шифрование данных]: https://go.microsoft.com/fwlink/?LinkId=526242
 [портале Azure]: https://portal.azure.com/
 
-.<!--Other Web references-->
+<!--Other Web references-->
 [Использование назначений ролей для управления доступом к ресурсам в подписке Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
 <!---HONumber=AcomDC_0817_2016-->

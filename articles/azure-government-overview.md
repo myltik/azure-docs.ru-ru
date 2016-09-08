@@ -108,7 +108,7 @@ Azure Goverment в настоящее время имеет следующие �
 
 
 
-.<!-- Images. -->
+<!-- Images. -->
 
 [1]: ./media/azure-government-developer-guide/publisherguide.png
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg

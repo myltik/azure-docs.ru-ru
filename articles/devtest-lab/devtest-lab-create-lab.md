@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Создание лаборатории в лаборатории для разработки и тестирования Azure
@@ -46,6 +46,8 @@
 
     ![Колонка создания лаборатории](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Дальнейшие действия
 
 Создав лабораторию, можно выполнить дальнейшие действия, приведенные ниже.
@@ -58,6 +60,6 @@
 
 - [Создание пользовательских артефактов для виртуальных машин](devtest-lab-artifact-author.md).
 
-- [Добавление в лабораторию виртуальной машины с артефактами](devtest-lab-add-vm-with-artifacts.md).
+- [Добавление виртуальной машины с артефактами в лабораторию](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

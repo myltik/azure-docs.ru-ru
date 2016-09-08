@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ограничения службы Azure AD"
+	pageTitle="Лимиты и ограничения службы Azure Active Directory"
 	description="Ограничения на использование и другие ограничения для службы Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="04/26/2016"
+	ms.date="08/23/2016"
 	ms.author="curtand"/>
 
 # Ограничения службы Azure AD
 
-Если вам нужно ознакомиться с полным перечнем ограничений для службы Microsoft Azure, см. раздел [Лимиты, квоты и ограничения подписки и обслуживания Azure](../azure-subscription-service-limits.md).
+В этой статье перечислены ограничения на использование и другие ограничения для службы Azure Active Directory (Azure AD). Если вам нужен полный список ограничений для службы Microsoft Azure, см. статью [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 
 [AZURE.INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 
@@ -26,4 +26,4 @@
 - [Регистрация организации в Azure](sign-up-organization.md)
 - [Как подписки Azure связаны с Azure AD](active-directory-how-subscriptions-associated-directory.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0824_2016-->

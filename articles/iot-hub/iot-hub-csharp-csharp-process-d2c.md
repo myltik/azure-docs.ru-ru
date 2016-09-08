@@ -410,7 +410,7 @@
 [31]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue3.png
 [32]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue4.png
 
-.<!-- Links -->
+<!-- Links -->
 
 [хранилище BLOB-объектов Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
 [фабрика данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/

@@ -190,7 +190,7 @@ Visual Studio откроется и создаст новый проект сл�
 - Ознакомьтесь со способами отладки и устранения неполадок в работе пакетов, доступными в среде разработки. Начните со статьи, посвященной [устранению неполадок при разработке пакета][].
 - Узнайте, как развернуть проекты и пакеты служб SSIS на сервер служб Integration Services или в другое хранилище. Вам поможет статья [Deploy Integration Services (SSIS) Projects and Packages][] (Развертывание проектов и пакетов служб интеграции).
 
-.<!-- Image references -->
+<!-- Image references -->
 [01]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-designer-01.png
 [02]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ssis-data-flow-task-02.png
 [03]: ./media/sql-data-warehouse-load-from-sql-server-with-integration-services/ado-net-source-03.png
@@ -218,7 +218,7 @@ Visual Studio откроется и создаст новый проект сл�
 [устранению неполадок при разработке пакета]: https://msdn.microsoft.com/library/ms137625.aspx
 [Deploy Integration Services (SSIS) Projects and Packages]: https://msdn.microsoft.com/library/hh213290.aspx
 
-.<!--Other Web references-->
+<!--Other Web references-->
 [пакет дополнительных компонентов для служб Microsoft SQL Server 2016 Integration Services для Azure]: http://go.microsoft.com/fwlink/?LinkID=626967
 [ознакомительных версий SQL Server]: https://www.microsoft.com/ru-RU/evalcenter/evaluate-sql-server-2016
 [Visual Studio Community]: https://www.visualstudio.com/ru-RU/products/visual-studio-community-vs.aspx

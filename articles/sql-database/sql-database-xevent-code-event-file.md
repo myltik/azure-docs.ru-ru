@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -49,10 +49,9 @@
  - При необходимости вы можете быстро [создать демонстрационную базу данных **AdventureWorksLT**](sql-database-get-started.md).
 
 
-- SQL Server Management Studio (ssms.exe): предварительная версия августа 2015 года или более поздняя. Ресурсы для загрузки последней версии файла ssms.exe:
- - статья [Загрузка SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
+- SQL Server Management Studio (ssms.exe), в идеале — последняя ежемесячная версия обновления. Ресурсы для загрузки последней версии файла ssms.exe:
+ - Статья [Скачивание SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
  - [Прямая ссылка на загрузку.](http://go.microsoft.com/fwlink/?linkid=616025)
- - Корпорация Майкрософт рекомендует периодически обновлять файл ssms.exe. В некоторых случаях ssms.exe обновляется ежемесячно.
 
 
 - Установленные [модули Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
@@ -143,7 +142,7 @@ Select-AzureSubscription -SubscriptionName $subscriptionName
 
 
 '
-Clean-up the old Azure Storage Account after any previous run, 
+Clean up the old Azure Storage Account after any previous run, 
 before continuing this new run.'
 
 
@@ -266,7 +265,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 ## Этап 2. Код Transact-SQL, использующий контейнер хранилища Azure
 
 
-- На первом этапе работы с примером кода вы выполнили сценарий PowerShell, создающий контейнер хранилища Azure.
+- На первом этапе работы с примером кода вы выполнили сценарий PowerShell, создающий контейнер службы хранилища Azure.
 - На втором этапе этот контейнер используется в сценарии Transact-SQL.
 
 
@@ -569,7 +568,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 Описание дополнительных параметров для просмотра данных из расширенных событий доступно в следующей статье.
 
-- [Advanced Viewing of Target Data from Extended Events in SQL Server](http://msdn.microsoft.com/library/mt752502.aspx) (Дополнительные параметры просмотра целевых данных из расширенных событий в SQL Server)
+- [Advanced Viewing of Target Data from Extended Events in SQL Server (Дополнительные параметры просмотра целевых данных из расширенных событий в SQL Server)](http://msdn.microsoft.com/library/mt752502.aspx)
 
 &nbsp;
 
@@ -580,10 +579,10 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 Предположим, что приведенный выше пример сценария Transact-SQL нужно выполнить на Microsoft SQL Server.
 
 
-- Проще всего будет полностью заменить контейнер хранилища Azure на простой файл, такой как **C:\\myeventdata.xel**. Этот файл будет записан на локальный жесткий диск компьютера, где находится SQL Server.
+- Проще всего будет полностью заменить контейнер службы хранилища Azure простым файлом, например **C:\\myeventdata.xel**. Этот файл будет записан на локальный жесткий диск компьютера, где находится SQL Server.
 
 
-- Операторы Transact-SQL типа **CREATE MASTER KEY** и **CREATE CREDENTIAL** в этом случае не понадобятся.
+- Инструкции Transact-SQL **CREATE MASTER KEY** и **CREATE CREDENTIAL** в этом случае не понадобятся.
 
 
 - В части **ADD TARGET** оператора **CREATE EVENT SESSION** измените значение Http, заменив **filename=** на полную строку пути, например **C:\\myfile.xel**.
@@ -610,4 +609,4 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0824_2016-->

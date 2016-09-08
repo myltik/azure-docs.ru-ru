@@ -282,7 +282,7 @@
 
 Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).
 
-.<!-- URL List -->
+<!-- URL List -->
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062

@@ -88,7 +88,7 @@
 В зависимости от конкретной базы данных обновление или возврат к предыдущей версии обычно не происходит мгновенно. По мере перехода базы данных на новый уровень портал будет предоставлять соответствующие уведомления. Кроме того, вы можете самостоятельно отслеживать состояние обновления с помощью запроса представления [sys.dm\_operation\_status (база данных SQL Azure)](https://msdn.microsoft.com/library/dn270022.aspx) в базе данных master базы данных SQL Server.
 
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/sql-database-service-tier-advisor/select-database.png
 [4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
 [5]: ./media/sql-database-service-tier-advisor/usage-details.png

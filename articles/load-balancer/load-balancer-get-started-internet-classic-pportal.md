@@ -1,21 +1,21 @@
-<properties 
+<properties
    pageTitle="Начало работы по созданию балансировщика нагрузки для Интернета по классической модели развертывания с помощью портала Azure | Microsoft Azure"
    description="Узнайте, как создать балансировщика нагрузки для Интернета в классической модели развертывания с помощью портала Azure."
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="carolz"
+   authors="sdwheeler"
+   manager="carmonm"
    editor=""
    tags="azure-service-management"
 />
-<tags  
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Приступая к созданию балансировщика нагрузки (классический режим) для Интернета на портале Azure
 
@@ -23,14 +23,14 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье рассматривается классическая модель развертывания. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-ps.md).
 
- 
+
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 
 
-## Начните с создания конечной точки балансировщика нагрузки с помощью портала Azure	
+## Начните с создания конечной точки балансировщика нагрузки с помощью портала Azure
 
 Чтобы создать балансировщик нагрузки для Интернета по классической модели развертывания из портала Azure, выполните следующие действия.
 
@@ -57,7 +57,7 @@
 11. Нажмите кнопку "ОК", чтобы вернуться в колонку "Присоединиться к набору балансировки нагрузки".
 
 12. Нажмите кнопку "ОК" и дождитесь появления нового ресурса балансировщика нагрузки в колонке "Наборы балансировщика нагрузки".
- 
+
 ## Дальнейшие действия
 
 [Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
@@ -66,4 +66,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0824_2016-->

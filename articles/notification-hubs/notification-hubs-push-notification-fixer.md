@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="08/19/2016" 
 	ms.author="wesmc"/>
 
 #Центры уведомлений Azure — рекомендации по диагностике
@@ -241,4 +241,4 @@
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0824_2016-->

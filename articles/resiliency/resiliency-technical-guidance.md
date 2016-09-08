@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Техническое руководство по обеспечению устойчивости в Azure
@@ -61,4 +61,4 @@
 
 Этот материал входит в цикл статей, составляющих техническое руководство по обеспечению устойчивости в Azure. Если вы хотите ознакомиться с другими материалами из этой серии, рекомендуем перейти к следующей статье под названием [Техническое руководство по обеспечению устойчивости в Azure. Восстановление после локальных сбоев в Azure](resiliency-technical-guidance-recovery-local-failures.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0824_2016-->

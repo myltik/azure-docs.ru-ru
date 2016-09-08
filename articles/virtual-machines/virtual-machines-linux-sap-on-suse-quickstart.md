@@ -4,7 +4,7 @@
    services="virtual-machines,virtual-network,storage"
    documentationCenter="saponazure"
    authors="hermanndms"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
@@ -164,6 +164,6 @@
 
 ## Поддержка SAP для Oracle на платформе Linux в облаке
 
-Существует ограничение поддержки, накладываемое Oracle на Linux в виртуализованных средах. Несмотря на то, что эта тема не относится к Azure, с ней необходимо ознакомиться. SAP не поддерживает Oracle на SUSE или RedHat в общедоступном облаке, таком как Azure. По этой теме обращайтесь напрямую в Oracle.
+Существует ограничение поддержки, накладываемое Oracle на Linux в виртуализованных средах. Несмотря на то, что эта тема не относится к Azure, ее следует изучить. SAP не поддерживает Oracle на SUSE или RedHat в общедоступном облаке, таком как Azure. По этому вопросу обращайтесь напрямую в Oracle.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0824_2016-->
