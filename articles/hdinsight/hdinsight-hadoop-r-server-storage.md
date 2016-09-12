@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="09/01/2016"
    ms.author="jeffstok"
 />
 
@@ -190,4 +190,4 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 - [Add RStudio Server to HDInsight Premium (Добавление RStudio Server в HDInsight "Премиум")](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Варианты контекста вычислений для R Server в HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/25/2016"
 	ms.author="larryfr"/>
 
 # Настройка кластеров HDInsight под управлением Linux с помощью действия сценария
@@ -120,7 +120,7 @@
 
 ## Использование действия скрипта при создании кластера
 
-В этом разделе описывается, как можно использовать действия скриптов при создании кластера HDInsight: с помощью портала Azure, шаблона ARM, командлетов PowerShell и пакета SDK для .NET.
+В этом разделе описывается, как можно использовать действия сценария при создании кластера HDInsight: с помощью портала Azure, шаблона Azure Resource Manager, командлетов PowerShell и пакета SDK для .NET.
 
 ### Использование действия скрипта при создании кластера с помощью портала Azure
 
@@ -143,19 +143,19 @@
 
 ### Использование действия сценария на основе шаблонов диспетчера ресурсов Azure
 
-В этом разделе для создания кластера HDInsight используются шаблоны диспетчера ресурсов Azure, а для установки пользовательских компонентов в кластере (в данном примере — R) — действие сценария. Ниже приведен пример шаблона ARM для создания кластера с помощью действия сценария.
+В этом разделе для создания кластера HDInsight используются шаблоны Azure Resource Manager, а для установки пользовательских компонентов в кластере (в данном примере — R) — действие сценария. Ниже приведен пример шаблона для создания кластера с помощью действия сценария.
 
-> [AZURE.NOTE] В этом разделе демонстрируется, как создать кластер с помощью действия сценария. Пример создания кластера из шаблона ARM с помощью приложения HDInsight доступен в разделе [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md).
+> [AZURE.NOTE] В этом разделе демонстрируется, как создать кластер с помощью действия сценария. Пример создания кластера из шаблона с помощью приложения HDInsight доступен в разделе [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md).
 
 #### Перед началом работы
 
 * Информацию о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md).
-* Инструкции по созданию шаблонов ARM см. в разделе [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
+* Инструкции по созданию шаблонов см. в разделе [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 * Информацию об использовании Azure PowerShell с диспетчером ресурсов см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
 #### Создание кластеров с помощью действия скрипта
 
-1. Скопируйте следующий шаблон в папку на своем компьютере. Он устанавливает R на головной и рабочие узлы в кластере. Чтобы убедиться, что шаблон JSON является допустимым, вставьте его содержимое в [JSONLint](http://jsonlint.com/), интерактивное средство проверки JSON.
+1. Скопируйте следующий шаблон в папку на своем компьютере. Он устанавливает Giraph на головной и рабочие узлы в кластере. Чтобы убедиться, что шаблон JSON является допустимым, вставьте его содержимое в [JSONLint](http://jsonlint.com/), интерактивное средство проверки JSON.
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -252,7 +252,7 @@
 		                            "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
 		                            "isDefault": true,
 		                            "container": "[parameters('clusterStorageAccountContainer')]",
-		                            "key": "[listKeys(resourceId(parameters('clusterStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).key1]"
+		                            "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
 		                        }
 		                    ]
 		                },
@@ -272,8 +272,8 @@
 		                            },
 		                            "scriptActions": [
 		                                {
-		                                    "name": "installR",
-		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh",
+		                                    "name": "installGiraph",
+		                                    "uri": "https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh",
 		                                    "parameters": ""
 		                                }
 		                            ]
@@ -319,11 +319,11 @@
 		--                             ----
 		someone@example.com            User       ...
 
-3. Если у вас несколько подписок, укажите идентификатор подписки, которую вы хотите использовать для развертывания.
+3. Если у вас несколько подписок, укажите подписку, которую вы хотите использовать для развертывания.
 
 		Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
 
-    > [AZURE.NOTE] `Get-AzureRmSubscription` можно использовать для получения связанного с вашей учетной записью списка всех подписок, в котором указан идентификатор каждой подписки.
+    > [AZURE.NOTE] `Get-AzureRmSubscription` можно использовать для получения списка всех подписок, связанных с вашей учетной записью, в котором указан идентификатор каждой подписки.
 
 5. Создайте группу ресурсов, если у вас нет существующей группы ресурсов. Введите имя группы ресурсов и расположение, необходимое для решения. Появится сводка по новой группе ресурсов.
 
@@ -367,7 +367,7 @@
 
 Выполните следующие действия:
 
-1. Откройте консоль Azure PowerShell, с помощью следующей команды войдите в подписку Azure, а затем объявите несколько переменных PowerShell.
+1. Откройте консоль Azure PowerShell и с помощью следующей команды войдите в подписку Azure. Затем объявите несколько переменных PowerShell.
 
         # LOGIN TO ZURE
         Login-AzureRmAccount
@@ -390,11 +390,11 @@
 		$config.DefaultStorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccountKey=$storageAccountKey
 
-3. Используйте командлет **Add-AzureRmHDInsightScriptAction** для вызова сценария. В следующем примере используется сценарий, устанавливающий R в кластере:
+3. Используйте командлет **Add-AzureRmHDInsightScriptAction** для вызова сценария. В следующем примере используется сценарий, устанавливающий Giraph в кластере.
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION FOR HEADNODE AND WORKERNODE
-		$config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
-        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install R"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+		$config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+        $config = Add-AzureRmHDInsightScriptAction -Config $config -Name "Install Giraph"  -NodeType WorkerNode -Uri https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
 	Командлет **Add-AzureRmHDInsightScriptAction** принимает следующие параметры.
 
@@ -452,8 +452,8 @@
 
 5. В колонке "Добавление действия скрипта" введите следующие сведения.
 
-    * __Имя__: понятное имя для этого действия сценария. В этом примере — `R`.
-    * __Универсальный код ресурса скрипта__: универсальный код ресурса (URI) для сценария. В этом примере — `https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh`.
+    * __Имя__: понятное имя для этого действия сценария. В этом примере — `Giraph`.
+    * __Универсальный код ресурса скрипта__: универсальный код ресурса (URI) для сценария. В этом примере — `https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`.
     * __Головной__, __Рабочий__ и __Zookeeper__: отметьте флажками узлы, на которых должен применяться этот сценарий. В этом примере отмечены головной и рабочий узлы.
     * __Параметры__: если сценарий принимает параметры, укажите их здесь.
     * __Сохраненное__: установите флажок для этой записи, если необходимо сохранить сценарий, чтобы он применялся на новых рабочих узлах при увеличении масштаба кластера.
@@ -464,7 +464,7 @@
 
 Прежде чем продолжить, убедитесь, что вы установили и настроили Azure PowerShell. Информацию о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
-1. Откройте консоль Azure PowerShell, с помощью следующей команды войдите в подписку Azure, а затем объявите несколько переменных PowerShell.
+1. Откройте консоль Azure PowerShell и с помощью следующей команды войдите в подписку Azure. Затем объявите несколько переменных PowerShell.
 
         # LOGIN TO ZURE
         Login-AzureRmAccount
@@ -485,8 +485,8 @@
 
         OperationState  : Succeeded
         ErrorMessage    :
-        Name            : R
-        Uri             : https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh
+        Name            : Giraph
+        Uri             : https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
         Parameters      :
         NodeTypes       : {HeadNode, WorkerNode}
 
@@ -500,7 +500,7 @@
 
         azure config mode arm
 
-2. Выполните приведенную далее команду для проверки подлинности в подписке Azure.
+2. Выполните приведенную далее команду для аутентификации в подписке Azure.
 
         azure login
 
@@ -691,7 +691,6 @@
 Ниже приведены ресурсы с информацией о создании и настройке кластера с помощью сценариев и соответствующими примерами.
 
 - [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions-linux.md)
-- [Установка и использование R в кластерах HDInsight](hdinsight-hadoop-r-scripts-linux.md)
 - [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md)
 - [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 
@@ -699,4 +698,4 @@
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -81,14 +81,14 @@
 5. При появлении запроса введите **p**, чтобы сделать раздел основным (primary). Введите **1**, чтобы сделать его первым разделом, а затем нажмите клавишу ВВОД, чтобы принять значение по умолчанию для цилиндра. В некоторых системах в первом и последнем секторах вместо цилиндра могут отображаться значения по умолчанию. При желании вы можете их принять.
 
 
-	![Создание раздела](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Создание раздела](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
 
 
 
 6. Введите **p**, чтобы просмотреть сведения о диске, на котором создаются разделы.
 
 
-	![Просмотр сведений о диске](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Просмотр сведений о диске](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
 
 
 
@@ -152,9 +152,9 @@
 		# sudo umount /datadrive
 		# sudo mount /datadrive
 
-	Если команда `mount` приводит к ошибке, проверьте правильность синтаксиса в файле /etc/fstab. При создании дополнительных дисков данных и разделов нужно также ввести их в файл /etc/fstab отдельно.
+	Если команда `mount` приводит к ошибке, проверьте правильность синтаксиса в файле /etc/fstab. При создании дополнительных дисков данных и разделов также введите их в файл /etc/fstab отдельно.
 
-	Диск необходимо сделать доступным для записи, выполнив следующую команду:
+	Сделайте диск доступным для записи, выполнив следующую команду:
 
 		# sudo chmod go+w /datadrive
 
@@ -198,4 +198,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-mac-create-ssh-keys.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

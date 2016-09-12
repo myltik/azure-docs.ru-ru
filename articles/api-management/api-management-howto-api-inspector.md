@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # Как использовать инспектор API для трассировки вызовов в Azure API Management
@@ -229,7 +229,6 @@
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 
--	Просмотрите другие разделы в руководстве [Приступая к работе с расширенными параметрами API][].
 -	Посмотрите видеоруководство по выражениям политики трассировки в ролике [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Перемотайте демонстрацию до 21:00.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
@@ -244,7 +243,6 @@
 
 [Приступая к работе со службой управления API]: api-management-get-started.md
 [Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
-[Приступая к работе с расширенными параметрами API]: api-management-get-started-advanced.md
 [Azure Classic Portal]: https://manage.windowsazure.com/
 
 
@@ -261,4 +259,4 @@
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/31/2016"
+   ms.date="08/25/2016"
    ms.author="spyros;sethm" />
 
 # Уведомление пользователей о данных, полученных с датчиков или из других систем
@@ -44,7 +44,7 @@
 Код, представленный в этом примере, демонстрирует только мониторинг концентраторов событий и порядок вызова внешних служб обмена сообщениями в случае, если вы хотите реализовать эту функцию в своем приложении. Обратите внимание на то, что это решение представляет собой пример, который создается с нуля и предназначен только для разработчиков. Оно не соответствует таким корпоративным требованиям, как избыточность, отказоустойчивость, перезапуск после отказа и т. д. В качестве более комплексных производственных решений можно привести следующие.
 
 - Использование соединителей и push-уведомлений с помощью [приложений логики Azure](../app-service-logic/app-service-logic-connectors-list.md).
-- Использование [концентраторов уведомлений Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx), как описано в блоге [Передача push-уведомлений на миллионы мобильных устройств с помощью центров уведомлений Azure](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs). 
+- Использование [концентраторов уведомлений Azure](https://msdn.microsoft.com/library/azure/jj927170.aspx), как описано в блоге [Передача push-уведомлений на миллионы мобильных устройств с помощью центров уведомлений Azure](http://weblogs.asp.net/scottgu/broadcast-push-notifications-to-millions-of-mobile-devices-using-windows-azure-notification-hubs).
 
 ## Дальнейшие действия
 
@@ -83,4 +83,4 @@
 [1]: ./media/event-hubs-sensors-notify-users/event-hubs-sensor-alert.png
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

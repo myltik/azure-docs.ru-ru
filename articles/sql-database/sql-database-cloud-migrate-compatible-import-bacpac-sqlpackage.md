@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Импорт из BACPAC-файла в Базу данных SQL с помощью SqlPackage
@@ -30,14 +30,14 @@
 
 ## Импорт из BACPAC-файла в базу данных SQL Azure с помощью SqlPackage
 
-Выполните следующие действия для импорта совместимой базы данных SQL Server (или Базы данных SQL Azure) из BACPAC-файла с помощью служебной программы командной строки [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx).
+Выполните следующие действия для импорта совместимой базы данных SQL Server (или Базы данных SQL Azure) из BACPAC-файла с помощью программы командной строки [SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx).
 
 > [AZURE.NOTE] При выполнении указанных ниже действий предполагается, что вы уже подготовили сервер базы данных SQL Azure и имеете сведения о подключении.
 
 1. Откройте окно командной строки и измените каталог, содержащий служебную программу командной строки sqlpackage.exe. Эта служебная программа поставляется в комплекте с Visual Studio и SQL Server.
 2. Выполните следующую команду sqlpackage.exe со следующими аргументами для вашей среды:
 
-	'sqlpackage.exe /Action:Import /tsn:<имя\_сервера> /tdn:<имя\_БД> /tu:<имя\_пользователя> /tp:<пароль> /sf:<исходный\_файл>
+	`sqlpackage.exe /Action:Import /tsn:< server_name > /tdn:< database_name > /tu:< user_name > /tp:< password > /sf:< source_file >`
 
 	| Аргумент | Описание |
 	|---|---|
@@ -60,4 +60,4 @@
 - [Частично или полностью неподдерживаемые функции Transact-SQL.](sql-database-transact-sql-information.md)
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

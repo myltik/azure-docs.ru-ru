@@ -223,6 +223,8 @@
 - доменное имя для внешнего использования;
 - номер версии Ubuntu Server, который содержится в списке.
 
+См. дополнительную информацию о [требованиях к имени пользователя и паролю](virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 Как только вы определили эти значения, вы можете приступить к созданию группы для шаблона и развернуть его в подписке Azure.
 
     {
@@ -1278,4 +1280,4 @@
 
 Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/) и в статье [Создание платформ приложений с помощью шаблонов](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

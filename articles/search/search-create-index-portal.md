@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="05/31/2016"
+	ms.date="08/29/2016"
 	ms.author="ashmaka"/>
 
 # Создание индекса службы поиска Azure с помощью портала Azure
@@ -61,4 +61,4 @@
 ## Далее
 Создав индекс службы поиска Azure, вы сможете [передать в него содержимое](search-what-is-data-import.md), чтобы приступить к поиску нужных данных.
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="08/30/2016" 
 	ms.author="stefsch"/>
 
 # Реализация многоуровневой архитектуры безопасности со средами службы приложений
@@ -41,7 +41,7 @@
 - **Необходимо ли внутреннему приложению API вызывать самого себя?** Есть один интересный сценарий, который часто упускают из виду: внутреннему приложению необходимо вызвать самого себя. Если внутреннему приложению API в среде службы приложений необходимо обратиться к себе же, такой вызов также будет расценен как интернет-вызов. В нашем примере архитектуры для этого также необходимо разрешить доступ от исходящего IP-адреса apiase среды службы приложений.
 
 ## Настройка группы безопасности сети ##
-Когда набор исходящих IP-адресов станет известен, можно переходить к созданию группы безопасности сети. Так как среды службы приложений в настоящее время поддерживаются только в виртуальных сетях v1, [настройка NSG][NetworkSecurityGroupsClassic] осуществляется путем реализации классической поддержки NSG в Powershell.
+Когда набор исходящих IP-адресов станет известен, можно переходить к созданию группы безопасности сети. Группы безопасности сети можно создавать и для виртуальных сетей с Resource Manager, и для классических виртуальных сетей. В приведенных ниже примерах показано создание и настройка группы безопасности сети в классической виртуальной сети с помощью Powershell.
 
 Так как в этом примере архитектуры среды расположены в Южно-Центральном регионе США, пустая группа NSG создается в этом регионе:
 
@@ -91,7 +91,7 @@
 ## Дополнительные ссылки и сведения ##
 Все статьи и практические руководства, посвященные средам службы приложений, доступны в [файле сведений для сред службы приложений](../app-service/app-service-app-service-environments-readme.md).
 
-Настройка [групп безопасности сети][NetworkSecurityGroupsClassic] в классических виртуальных сетях.
+Информация о [группах безопасности сети](../virtual-network/virtual-networks-nsg.md).
 
 Основные сведения об [исходящих IP-адресах][NetworkArchitecture] и средах службы приложений.
 
@@ -104,11 +104,10 @@
 <!-- LINKS -->
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [NetworkArchitecture]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-architecture-overview/
-[NetworkSecurityGroupsClassic]: https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps/
 [InboundTraffic]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-layered-security/ConceptualArchitecture-1.png
 [NSGConfiguration]: ./media/app-service-app-service-environment-layered-security/NSGConfiguration-1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

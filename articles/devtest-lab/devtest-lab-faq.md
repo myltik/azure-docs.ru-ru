@@ -13,12 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2016"
+	ms.date="08/29/2016"
 	ms.author="tarcher"/>
 
 # Часто задаваемые вопросы о DevTest Labs
 
 В этой статье содержатся ответы на некоторые самые распространенные вопросы о DevTest Labs.
+
+## Мне не удалось найти ответ на свой вопрос. Что делать?
+Если вашего вопроса нет в списке, сообщите нам об этом, и мы поможем найти ответ.
+
+- Опубликуйте вопрос в [дискуссии Disqus](#comments) в конце раздела часто задаваемых вопросов и обсудите данную статью с командой разработчиков кэша Azure и другими участниками сообщества.
+- Чтобы охватить большую аудиторию, опубликуйте вопрос на [форуме MSDN по Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs) и обсудите его с командой разработчиков Azure DevTest Labs и другими участниками сообщества.
+- Чтобы сделать запрос на функцию, отправьте свои запросы и предложения на [форуме пользователей Azure DevTest Labs](https://feedback.azure.com/forums/320373-azure-devtest-labs).
+
+## Приступая к работе
+- [Как начать использовать DevTest Labs?](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
 ## Общие сведения
 - [Почему следует использовать DevTest Labs?](#why-should-i-use-devtest-labs)
@@ -113,9 +123,9 @@ DevTest Labs предусматривает два типа ролей для п
 
 Дополнительные сведения и руководство по использованию расширения VSTS см. в следующих записях блога:
  
-- [Azure DevTest Labs – VSTS extension](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/) (Azure DevTest Labs: расширение VSTS)
-- [Deploying a new VM in an existing AzureDevTestLab from VSTS](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS) (Развертывание из VSTS новой виртуальной машины в имеющейся лаборатории Azure DevTest Labs)
-- [Using VSTS Release Management for Continuous Deployments to AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs) (Использование управления выпусками VSTS для непрерывного развертывания в Azure DevTest Labs)
+- [Azure DevTest Labs – VSTS extension (Azure DevTest Labs: расширение VSTS)](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
+- [Deploying a new VM in an existing AzureDevTestLab from VSTS (Развертывание из VSTS новой виртуальной машины в имеющейся лаборатории Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+- [Using VSTS Release Management for Continuous Deployments to AzureDevTestLabs (Использование управления выпусками VSTS для непрерывного развертывания в Azure DevTest Labs)](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
  
 Для других наборов инструментов CI/CD все указанные сценарии, осуществляемые с использованием задач VSTS, можно также реализовать путем развертывания [шаблонов Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) с помощью [командлетов Azure PowerShell](../resource-group-template-deploy.md) и [пакетов SDK для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Для интеграции DevTest Labs с набором инструментов также можно использовать [REST API для DevTest Labs](http://aka.ms/dtlrestapis).
 
@@ -161,7 +171,7 @@ DevTest Labs предусматривает два типа ролей для п
 Шаблоны Azure Resource Manager, используемые для создания лабораторий, доступны в [репозитории GitHub](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Каждый из этих шаблонов содержит ссылку, щелкнув которую вы запустите процесс развертывания лаборатории DevTest Labs с использованием собственной подписки Azure.
  
 ### Почему все виртуальные машины создаются в разных группах ресурсов с произвольными именами? Можно ли переименовать или изменить эти группы ресурсов? 
-Такая особенность групп ресурсов позволяет DevTest Labs управлять разрешениями пользователя и доступом к виртуальным машинам. Мы работаем над тем, чтобы исправить эту особенность и предоставить большую гибкость. При необходимости эти группы ресурсов можно переименовать. Чтобы избежать непреднамеренного изменения разрешений, рекомендуется не перемещать виртуальные машины в разные группы ресурсов.
+Такая особенность групп ресурсов позволяет DevTest Labs управлять разрешениями пользователя и доступом к виртуальным машинам. Вы можете переместить виртуальную машину в другую группу ресурсов с другим именем, однако это не рекомендуется. Мы работаем над тем, чтобы исправить эту особенность и предоставить большую гибкость.
  
 ### Сколько лабораторий можно создать в рамках одной подписки? 
 Определенного ограничения на количество лабораторий, которые можно создать в рамках одной подписки, нет, но используемые ресурсы ограничены. Дополнительные сведения см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md) и записи блога [об увеличении предельных значений ограничений](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
@@ -175,4 +185,4 @@ DevTest Labs предусматривает два типа ролей для п
 ### Почему имеющаяся виртуальная сеть не сохраняется должным образом?  
 Причина этого может заключаться в том, что в имени виртуальной сети содержатся точки. Если это так, удалите точки или замените их дефисами, а затем повторите попытку.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Управление формулами DevTest Labs для создания виртуальных машин
@@ -42,7 +42,7 @@
 
 1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Щелкните **Обзор**, а затем из списка выберите **DevTest Labs**.
+1. Щелкните **Обзор**, а затем выберите в списке **DevTest Labs**.
 
 1. Из списка лабораторий выберите нужную лабораторию.
 
@@ -84,7 +84,7 @@
 
 1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Щелкните **Обзор**, а затем из списка выберите **DevTest Labs**.
+1. Щелкните **Обзор**, а затем выберите в списке **DevTest Labs**.
 
 1. Из списка лабораторий выберите нужную лабораторию.
 
@@ -105,7 +105,7 @@
 
 1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Щелкните **Обзор**, а затем из списка выберите **DevTest Labs**.
+1. Щелкните **Обзор**, а затем выберите в списке **DevTest Labs**.
 
 1. Из списка лабораторий выберите нужную лабораторию.
 
@@ -122,7 +122,7 @@
 
 1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Щелкните **Обзор**, а затем из списка выберите **DevTest Labs**.
+1. Щелкните **Обзор**, а затем выберите в списке **DevTest Labs**.
 
 1. Из списка лабораторий выберите нужную лабораторию.
 
@@ -142,11 +142,13 @@
 
     ![Контекстное меню формулы](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Связанные записи в блогах
 
 - [Custom images or formulas? (Пользовательские изображения или формулы?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
 ## Дальнейшие действия
-Когда вы создадите формулу, используемую для создания виртуальных машин, вам нужно будет [добавить виртуальную машину в лабораторию](./devtest-lab-add-vm-with-artifacts.md).
+После создания формулы, которая служит для создания виртуальных машин, можно [добавить виртуальную машину в лабораторию](./devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

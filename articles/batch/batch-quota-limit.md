@@ -94,7 +94,7 @@
 
 ## Связанные разделы
 
-* [Создание учетной записи пакетной службы Azure и управление ею](batch-account-create-portal.md)
+* [Создание учетной записи пакетной службы Azure на портале Azure и управление ею](batch-account-create-portal.md)
 
 * [Обзор функций пакетной службы Azure](batch-api-basics.md)
 
@@ -106,4 +106,4 @@
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

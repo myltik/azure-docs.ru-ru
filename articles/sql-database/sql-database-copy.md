@@ -57,4 +57,4 @@
 - [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->
