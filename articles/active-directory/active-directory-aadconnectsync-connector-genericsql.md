@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Универсальный соединитель SQL | Microsoft Azure"
    description="В этой статье описана настройка универсального соединителя SQL от корпорации Майкрософт."
    services="active-directory"

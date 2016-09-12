@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Развертывание популярных платформ приложений | Microsoft Azure"
    description="Вы можете создавать популярные платформы приложений в виртуальных машинах Windows и Linux, используя шаблоны Azure Resource Manager для установки Active Directory, Docker и многих других ресурсов."
    services="virtual-machines-windows"

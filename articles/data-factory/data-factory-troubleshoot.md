@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Устранение неполадок фабрики данных Azure" 
 	description="Узнайте, как устранять неполадки при использовании фабрики данных Azure." 
 	services="data-factory" 

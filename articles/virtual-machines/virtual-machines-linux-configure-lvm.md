@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Настройка диспетчера логических томов на виртуальной машине Linux | Microsoft Azure" 
 	description="Узнайте, как настроить диспетчер логических томов на виртуальной машине Linux в Azure." 
 	services="virtual-machines-linux" 

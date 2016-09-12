@@ -1,5 +1,5 @@
 
-.<properties 
+<properties 
 	pageTitle="Настройка определений API, создаваемых в Swashbuckle" 
 	description="Узнайте, как настроить определения API Swagger, создаваемые с помощью Swashbuckle для приложения API в службе приложений Azure." 
 	services="app-service\api" 

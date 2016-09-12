@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Возможности использования JSON в Базе данных SQL Azure | Microsoft Azure"
 	description="База данных SQL Azure позволяет анализировать, запрашивать и форматировать данные в формате JSON (нотация объектов JavaScript)."
 	services="sql-database"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle=" Масштабирование обработки мультимедиа с помощью портала Azure | Microsoft Azure"
 	description="В этом учебнике пошагово описано, как масштабировать обработку мультимедиа с помощью портала Azure."
 	services="media-services"

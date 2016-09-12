@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Помесячная тенденция изменения расчетной стоимости | Microsoft Azure"
 	description="Узнайте о диаграмме помесячной тенденции изменения расчетной стоимости."
 	services="devtest-lab,virtual-machines"

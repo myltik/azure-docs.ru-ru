@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Сброс доступа в виртуальных машинах Linux в Azure с помощью расширения VMAccess | Microsoft Azure"
     description="Узнайте, как сбросить доступ в виртуальных машинах Linux в Azure с помощью расширения VMAccess."
     services="virtual-machines-linux"

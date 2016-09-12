@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Application Insights для ASP.NET Core" 
 	description="Отслеживайте доступность, производительность и использование веб-приложений." 
 	services="application-insights" 

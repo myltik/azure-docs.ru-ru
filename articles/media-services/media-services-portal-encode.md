@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Кодирование ресурса-контейнера с помощью Media Encoder Standard на портале Azure | Microsoft Azure"
 	description="Этот учебник поможет закодировать ресурс-контейнер с помощью Media Encoder Standard на портале Azure."
 	services="media-services"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Авторизация учетных записей разработчиков с помощью протокола OAuth 2.0 в службе управления Azure API" 
 	description="Сведения об авторизации пользователей с помощью OAuth 2.0 в службе управления API." 
 	services="api-management" 
@@ -68,7 +68,7 @@
 
     https://login.windows.net/<APPID>/oauth2/token
 
-Параметр **Client authentication methods** по умолчанию имеет значение **Basic** (Обычная), а параметр **Access token sending method** — значение **Authorization header** (Заголовок авторизации). Эти значения можно настроить в данном разделе формы вместе с параметром **Default scope**.
+Параметр **Client authentication methods** по умолчанию имеет значение **Basic** (Обычная), а параметр **Access token sending method** — значение **Authorization header** (Заголовок авторизации). Эти значения можно настроить в данном разделе формы вместе с параметром **Default scope**.
 
 В разделе **Client credentials** (Учетные данные клиента) содержатся поля **Client ID** (Идентификатор клиента) и **Client secret** (Секрет клиента), значения которых получены в ходе создания и настройки сервера OAuth 2.0. После определения значений **Client ID** и **Client secret** генерируется параметр **redirect\_uri** (URI перенаправления) для **кода авторизации**. Этот универсальный код ресурса (URI) используется для настройки URL-адреса ответа в конфигурации сервера OAuth 2.0.
 

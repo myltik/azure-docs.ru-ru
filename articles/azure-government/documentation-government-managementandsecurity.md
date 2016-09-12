@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Документация по Azure для государственных организаций | Microsoft Azure"
 	description="Данное руководство включает сравнительный анализ характеристик и рекомендации по разработке приложений для разработчиков Azure."
 	services="Azure-Government"

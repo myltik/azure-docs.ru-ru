@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Лицензирование пакета для портирования клиента бесперебойной потоковой передачи Microsoft® Smooth Streaming" 
 	description="Информация о лицензировании пакета для портирования клиента бесперебойной потоковой передачи Microsoft® Smooth Streaming" 
 	services="media-services" 

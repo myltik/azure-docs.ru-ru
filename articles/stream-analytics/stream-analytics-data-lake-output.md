@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Выходные данные хранилища озера данных в Stream Analytics | Microsoft Azure"
 	description="Настройка проверки подлинности и авторизации хранилища озера данных в задании Stream Analytics"
 	keywords=""

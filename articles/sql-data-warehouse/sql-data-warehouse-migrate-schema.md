@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Перенос схемы в хранилище данных SQL | Microsoft Azure"
    description="Советы по переносу схемы в хранилище данных SQL Azure для разработки решений."
    services="sql-data-warehouse"
@@ -36,7 +36,7 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Перенос кода]: ./sql-data-warehouse-migrate-code.md
 [Перенос данных]: ./sql-data-warehouse-migrate-data.md
 [Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
@@ -46,9 +46,9 @@
 [неподдерживаемых типов данных]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [рекомендациями по типам данных]: ./sql-data-warehouse-tables-data-types.md#data-type-best-practices
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 
-.<!--Other Web references-->
+<!--Other Web references-->
 
 <!---HONumber=AcomDC_0831_2016-->

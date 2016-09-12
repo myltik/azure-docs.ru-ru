@@ -1,4 +1,4 @@
-.<properties 
+<properties 
     pageTitle="Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью портала Azure | Microsoft Azure" 
     description="Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью портала Azure" 
     services="sql-database" 

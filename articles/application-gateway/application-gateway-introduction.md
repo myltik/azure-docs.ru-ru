@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Общие сведения о шлюзе приложений | Microsoft Azure"
    description="На этой странице представлены общие сведения о службе шлюза приложений для балансировки нагрузки 7 уровня, включая размеры шлюза, балансировку нагрузки HTTP, соответствие сеансу на основе файлов cookie и разгрузку SSL."
    documentationCenter="na"
@@ -6,7 +6,7 @@
    authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
-.<tags
+<tags
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"

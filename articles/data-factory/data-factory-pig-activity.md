@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Действие Pig" 
 	description="Узнайте, как с помощью действия Pig в фабрике данных Azure выполнять запросы Pig к собственному кластеру HDInsight или к кластеру HDInsight по требованию." 
 	services="data-factory" 

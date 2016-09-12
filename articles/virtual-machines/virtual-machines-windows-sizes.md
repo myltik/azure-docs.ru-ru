@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Размеры виртуальной машины Windows | Microsoft Azure"
  description="Список различных размеров виртуальных машин Windows в Azure."
  services="virtual-machines-windows"

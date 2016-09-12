@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Отсутствие поддержки в SQL T-SQL базы данных Azure | Microsoft Azure"
    description="Инструкции Transact-SQL, которые не полностью поддерживаются в базе данных SQL Azure"
    services="sql-database"

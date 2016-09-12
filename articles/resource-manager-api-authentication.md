@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Проверка подлинности Active Directory и Resource Manager | Microsoft Azure"
    description="Руководство разработчика по проверке подлинности с помощью API Azure Resource Manager и Active Directory для интеграции приложения с другими подписками Azure."
    services="azure-resource-manager,active-directory"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Выходные данные и сообщения Runbook в службе автоматизации Azure | Microsoft Azure"
    description="Описывает способы создания и извлечения выходных данных и сообщений об ошибках из модулей Runbook в службе автоматизации Azure."
    services="automation"

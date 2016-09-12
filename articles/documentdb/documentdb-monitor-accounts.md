@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Мониторинг запросов и хранилища DocumentDB | Microsoft Azure"
 	description="Узнайте, как отслеживать метрики производительности, например запросы и ошибки сервера, и метрики использования, такие как использованный объем хранилища, для учетной записи DocumentDB."
 	services="documentdb"

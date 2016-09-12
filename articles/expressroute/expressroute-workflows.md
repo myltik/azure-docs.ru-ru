@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Процедуры настройки канала ExpressRoute | Microsoft Azure"
    description="На этой странице описана процедура настройки канала ExpressRoute и пирингов"
    documentationCenter="na"

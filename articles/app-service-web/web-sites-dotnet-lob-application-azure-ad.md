@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Создание бизнес-приложения Azure с проверкой подлинности Azure Active Directory | Microsoft Azure" 
 	description="Узнайте, как создать бизнес-приложение ASP.NET MVC в службе приложений Azure, осуществляющее проверку подлинности с помощью Azure Active Directory" 
 	services="app-service\web, active-directory" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure AD Connect: порты | Microsoft Azure"
 	description="Эта страница является страницей технического справочника по портам, которые должны быть открыты для Azure AD Connect."
 	services="active-directory"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Соединитель Lotus Domino | Microsoft Azure"
    description="В этой статье описана настройка соединителя Lotus Domino (Майкрософт)."
    services="active-directory"

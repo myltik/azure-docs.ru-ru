@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка правил брандмауэра уровня сервера базы данных SQL Azure и уровня базы данных SQL Azure с помощью T-SQLL | Microsoft Azure"
 	description="Сведения о настройке брандмауэра для IP-адресов, через которые осуществляется доступ к базам данных SQL Azure."
 	services="sql-database"

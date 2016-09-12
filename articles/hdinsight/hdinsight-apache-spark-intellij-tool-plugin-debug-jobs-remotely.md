@@ -1,4 +1,4 @@
- .<properties
+ <properties
 	pageTitle="Удаленная отладка приложений Spark в кластерах HDInsight Spark с помощью средств HDInsight для набора средств Azure для IntelliJ | Microsoft Azure"
 	description="Узнайте, как использовать средства HDInsight в наборе средств Azure для IntelliJ для удаленной отладки приложений Spark в кластерах HDInsight Spark."
 	services="hdinsight"

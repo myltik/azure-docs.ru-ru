@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка режима распределения подсистемы балансировки нагрузки | Microsoft Azure"
    description="Как настроить режим распределения подсистемы балансировки нагрузки Azure для поддержки соответствия исходному IP-адресу"
    services="load-balancer"

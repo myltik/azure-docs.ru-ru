@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Распространенные исключения FabricClient | Microsoft Azure"
    description="Описание распространенных исключений и ошибок, которые могут выдаваться интерфейсами API FabricClient при управлении приложениями и кластерами."
    services="service-fabric"

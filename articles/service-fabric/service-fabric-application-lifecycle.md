@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Жизненный цикл приложений в Service Fabric | Microsoft Azure"
    description="Описывает разработку, развертывание, тестирование, обновление, обслуживание и удаление приложений Service Fabric."
    services="service-fabric"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание и передача виртуального жесткого диска с операционной системой SUSE Linux в Azure"
 	description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему SUSE Linux."
 	services="virtual-machines-linux"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Компоненты оборудования StorSimple и их состояние | Microsoft Azure"
    description="Узнайте, как отслеживать аппаратные компоненты устройства StorSimple через службу диспетчера StorSimple."
    services="storsimple"

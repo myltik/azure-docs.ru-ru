@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Репликация между локальными виртуальными машинами Hyper-V и Azure (без VMM) с помощью службы Site Recovery | Microsoft Azure"
 	description="В этой статье описывается репликация виртуальных машин Hyper-V в Azure с помощью Azure Site Recovery, когда виртуальные машины не управляются в облаках VMM."
 	services="site-recovery"

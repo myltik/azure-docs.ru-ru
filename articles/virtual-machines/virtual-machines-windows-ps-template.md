@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание виртуальной машины с помощью шаблона диспетчера ресурсов | Microsoft Azure"
 	description="Простое создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell."
 	services="virtual-machines-windows"

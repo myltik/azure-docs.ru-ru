@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Пример жизненного цикла приложения на основе REST | Microsoft Azure"
    description="Пример Microsoft Azure Service Fabric, в котором демонстрируется жизненный цикл приложения с использованием интерфейса REST Service Fabric."
    services="service-fabric"

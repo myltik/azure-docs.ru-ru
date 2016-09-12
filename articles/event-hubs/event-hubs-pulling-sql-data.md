@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Извлечение данных SQL в концентраторы событий Azure | Microsoft Azure"
    description="Общие сведения о примере импорта данных в концентраторы событий из SQL"
    services="event-hubs"

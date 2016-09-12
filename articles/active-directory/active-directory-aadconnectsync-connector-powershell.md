@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Соединитель PowerShell | Microsoft Azure"
    description="В этой статье описана настройка соединителя Windows PowerShell корпорации Майкрософт."
    services="active-directory"

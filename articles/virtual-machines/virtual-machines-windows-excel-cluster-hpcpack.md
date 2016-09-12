@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Кластер пакета HPC для Excel и SOA | Microsoft Azure"
  description="Приступая к работе с крупномасштабными рабочими нагрузками Excel и SOA в кластере пакета HPC в Azure"
  services="virtual-machines-windows"

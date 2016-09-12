@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Руководство по созданию службы данных для Marketplace | Microsoft Azure"
    description="Подробные инструкции по созданию, сертификации и развертыванию службы данных для продажи в Azure Marketplace."
    services="marketplace-publishing"

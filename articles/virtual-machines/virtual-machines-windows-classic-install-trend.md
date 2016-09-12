@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Установка Trend Micro Deep Security на виртуальную машину | Microsoft Azure"
 	description="В этой статье описывается установка и настройка защиты Trend Micro на виртуальной машине, созданной с помощью классической модели развертывания в Azure."
 	services="virtual-machines-windows"

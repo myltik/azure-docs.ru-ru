@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление формулами DevTest Labs для создания виртуальных машин | Microsoft Azure"
 	description="Узнайте как создавать, изменять и удалять формулы в лаборатории для разработки и тестирования, а также использовать их для создания виртуальных машин."
 	services="devtest-lab,virtual-machines"

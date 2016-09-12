@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure Active Directory B2C: пределы и ограничения | Microsoft Azure"
 	description="Перечень существующих пределов и ограничений в службе Azure Active Directory B2C"
 	services="active-directory-b2c"

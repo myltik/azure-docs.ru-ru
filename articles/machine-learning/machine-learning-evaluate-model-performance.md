@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Оценка эффективности модели в машинном обучении | Microsoft Azure" 
 	description="Описание способов оценки эффективности модели в Машинном обучении Microsoft Azure." 
 	services="machine-learning"

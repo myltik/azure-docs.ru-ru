@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Введение в Linux в Azure | Microsoft Azure"
 	description="Узнайте о том, как использовать виртуальные машины Linux в Azure."
 	services="virtual-machines-linux"

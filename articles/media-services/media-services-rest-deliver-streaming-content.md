@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Публикация содержимого служб мультимедиа Azure с помощью REST" 
 	description="Узнайте, как создать указатель для создания URL-адреса потоковой передачи. Код использует REST API." 
 	authors="Juliako" 

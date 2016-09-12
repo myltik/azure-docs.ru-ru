@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Подключение диска к виртуальной машине Linux | Microsoft Azure"
 	description="Узнайте, как подключить диск данных к виртуальной машине Linux в Azure и инициализировать его, чтобы подготовить к использованию."
 	services="virtual-machines-linux"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Тестирование предложения службы данных для Marketplace | Microsoft Azure"
    description="Узнайте, как протестировать предложение службы данных для Azure Marketplace."
    services="marketplace-publishing"

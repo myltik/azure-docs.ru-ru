@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Ограничения и настройка приложений логики | Microsoft Azure"
 	description="Обзор ограничений службы и значений конфигурации, доступных для приложений логики."
 	services="logic-apps"

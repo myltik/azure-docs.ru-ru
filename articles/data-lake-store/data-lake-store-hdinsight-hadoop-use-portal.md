@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание кластеров HDInsight с хранилищем озера данных Azure с помощью портала | Azure"
    description="Создание кластеров HDInsight для работы с хранилищем озера данных Azure с помощью портала Azure"
    services="data-lake-store,hdinsight" 

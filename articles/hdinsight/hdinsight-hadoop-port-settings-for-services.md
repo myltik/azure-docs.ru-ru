@@ -1,4 +1,4 @@
-.<properties
+<properties
 pageTitle="Порты, используемые службой HDInsight | Azure"
 description="Список портов, которые используются службами Hadoop, работающими в кластере HDInsight."
 services="hdinsight"

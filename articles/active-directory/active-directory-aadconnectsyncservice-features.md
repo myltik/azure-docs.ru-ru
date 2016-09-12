@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Функции и конфигурация службы синхронизации Azure AD Connect | Microsoft Azure"
 	description="Описываются функциональные возможности службы синхронизации Azure AD Connect."
 	services="active-directory"

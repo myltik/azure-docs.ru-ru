@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Вызов программ Spark из фабрики данных Azure" 
 	description="Узнайте, как вызывать программы Spark из фабрики данных Azure с помощью действия MapReduce." 
 	services="data-factory" 

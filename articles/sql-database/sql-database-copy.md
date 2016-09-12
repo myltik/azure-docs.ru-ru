@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Копирование базы данных SQL Azure | Microsoft Azure"
 	description="Создание копии Базы данных SQL Azure"
 	services="sql-database"

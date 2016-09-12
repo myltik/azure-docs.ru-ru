@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure" 
 	description="Узнайте, как авторизовать пользователей с помощью Azure Active Directory в управлении API" 
 	services="api-management" 
@@ -7,7 +7,7 @@
 	manager="erikre" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование образов клиента Windows для разработки и тестирования | Microsoft Azure"
    description="Узнайте, как использовать преимущества подписки Visual Studio для развертывания Windows 7, 8 или 10 в Azure в сценариях разработки и тестирования."
    services="virtual-machines-windowse"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Spark в HDInsight | Microsoft Azure" 
 	description="Узнайте, как установить записную книжку Jupyter на компьютере локально и как подключить ее к кластеру Apache Spark в Azure HDInsight." 
 	services="hdinsight" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Установка Symantec Endpoint Protection на виртуальную машину | Microsoft Azure"
 	description="Узнайте, как установить и настроить модуль безопасности Symantec Endpoint Protection на новой или существующей виртуальной машине Azure, созданной с помощью классической модели развертывания."
 	services="virtual-machines-windows"

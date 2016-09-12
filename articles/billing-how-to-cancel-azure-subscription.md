@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Отмена подписки Azure | Microsoft Azure"
 	description="В этой статьей объясняется, как отменить подписку Azure, например бесплатную пробную версию подписки."
 	services=""
@@ -9,7 +9,7 @@
 	tags="billing"
 	/>
 
-.<tags
+<tags
 	ms.service="billing"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

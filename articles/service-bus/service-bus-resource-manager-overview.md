@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание ресурсов служебной шины с использованием шаблонов Azure Resource Manager | Microsoft Azure"
     description="С помощью шаблонов Azure Resource Manager можно автоматизировать создание ресурсов служебной шины."
     services="service-bus"

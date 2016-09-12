@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Создание нового ресурса Application Insights | Microsoft Azure" 
 	description="Настройте мониторинг Application Insights для нового приложения в динамическом времени. Подход на основе веб-технологий." 
 	services="application-insights" 

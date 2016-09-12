@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование пакета iOS SDK для мобильных приложений Azure"
 	description="Использование пакета iOS SDK для мобильных приложений Azure"
 	services="app-service\mobile"
@@ -829,7 +829,7 @@ if (error.code == MSErrorPreconditionFailed) {
 [Next Steps]: #next-steps
 [How to: Use MSQuery]: #query-object
 
-.<!-- Images. -->
+<!-- Images. -->
 
 <!-- URLs. -->
 [Быстрый запуск мобильного приложения Azure]: app-service-mobile-ios-get-started.md

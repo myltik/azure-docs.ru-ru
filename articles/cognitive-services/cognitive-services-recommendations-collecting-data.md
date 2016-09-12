@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Сбор данных для обучения модели: интерфейс API рекомендаций для машинного обучения | Microsoft Azure"
 	description="Рекомендации для машинного обучения Azure — сбор данных для обучения модели"
 	services="cognitive-services"

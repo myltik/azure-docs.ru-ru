@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Управление веб-приложением в службе приложений Azure" 
 	description="Ссылки на ресурсы, посвященные управлению веб-приложением в службе приложений Azure." 
 	services="app-service\web" 

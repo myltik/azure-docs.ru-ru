@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Заметки о выпуске шлюза управления данными | Фабрика данных Azure" 
 	description="Заметки о выпуске шлюза управления данными" 
 	services="data-factory" 

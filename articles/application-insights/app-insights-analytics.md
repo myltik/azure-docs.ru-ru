@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Аналитика — эффективный инструмент поиска Application Insights | Microsoft Azure" 
 	description="Обзор аналитики — мощного инструмента поиска Application Insights. " 
 	services="application-insights" 

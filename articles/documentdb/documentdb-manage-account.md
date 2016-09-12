@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление учетной записью DocumentDB на портале Azure | Microsoft Azure"
 	description="Узнайте, как управлять учетной записью DocumentDB на портале Azure. Изучите руководство по использованию портала Azure для просмотра, копирования, удаления учетной записи и доступа к ней."
 	keywords="Портал Azure, DocumentDB, Azure, Microsoft Azure"
@@ -80,7 +80,7 @@
 3. В появившейся колонке подтверждения введите имя учетной записи DocumentDB, чтобы подтвердить ее удаление.
 4. Нажмите кнопку **Удалить**.
 
-.![Как удалить учетную запись DocumentDB на портале Azure](./media/documentdb-manage-account/delete-account-confirm.png)
+![Как удалить учетную запись DocumentDB на портале Azure](./media/documentdb-manage-account/delete-account-confirm.png)
 
 ## <a id="next"></a>Дальнейшие действия
 
@@ -89,7 +89,7 @@
 Дополнительные сведения о DocumentDB можно найти в документации по Azure DocumentDB на сайте [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
 [2]: ./media/documentdb-manage-account/documentdb_add_region-2.png
 [3]: ./media/documentdb-manage-account/documentdb_change_write_region-1.png
@@ -97,10 +97,10 @@
 [5]: ./media/documentdb-manage-account/documentdb_change_consistency-1.png
 [6]: ./media/documentdb-manage-account/chooseandsaveconsistency.png
 
-.<!--Reference style links - using these makes the source content way more readable than using inline links-->
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/ru-RU/regions/#services
-[offers]: https://azure.microsoft.com/ru-RU/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/regions/#services
+[offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
 <!---HONumber=AcomDC_0831_2016-->

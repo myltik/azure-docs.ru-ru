@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка виртуальной сети для лаборатории | Microsoft Azure"
 	description="Узнайте, как настроить существующую виртуальную сеть и подсеть и использовать их в виртуальной машине в DevTest Labs."
 	services="devtest-lab,virtual-machines"

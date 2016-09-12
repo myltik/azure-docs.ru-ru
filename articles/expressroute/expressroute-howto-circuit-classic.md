@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание и изменение канала ExpressRoute с помощью классической модели развертывания и PowerShell | Microsoft Azure"
    description="В этой статье описана процедура создания и подготовки канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить и отозвать канал."
    documentationCenter="na"

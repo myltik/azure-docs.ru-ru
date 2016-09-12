@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Каналы ExpressRoute и домены маршрутизации | Microsoft Azure"
    description="Общие сведения о каналах ExpressRoute и доменах маршрутизации."
    documentationCenter="na"

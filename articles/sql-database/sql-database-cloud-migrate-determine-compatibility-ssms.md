@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование SQL Server Management Studio для определения совместимости базы данных SQL Azure перед переносом | Microsoft Azure"
    description="База данных SQL Microsoft Azure, миграция базы данных, совместимость базы данных SQL, мастер экспорта приложений на уровне данных "
    services="sql-database"

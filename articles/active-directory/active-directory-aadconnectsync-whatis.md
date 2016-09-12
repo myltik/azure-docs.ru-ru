@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка | Microsoft Azure"
 	description="В этой статье описываются принципы работы и настройка служб синхронизации Azure AD Connect."
 	services="active-directory"

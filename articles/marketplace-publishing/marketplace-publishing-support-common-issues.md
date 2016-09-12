@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Решение основных проблем технической поддержки издателей | Microsoft Azure"
    description="Узнайте, как устранять основные проблемы технической поддержки издателей и обращаться за помощью"
    services="marketplace-publishing"
@@ -7,7 +7,7 @@
    manager="lakoch"
    editor=""/>
 
-   .<tags
+   <tags
       ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"

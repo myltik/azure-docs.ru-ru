@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure Active Directory B2C: создание клиента Azure Active Directory B2C | Microsoft Azure"
 	description="Инструкции по созданию клиента Azure Active Directory B2C"
 	services="active-directory-b2c"

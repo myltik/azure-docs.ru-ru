@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Распределение таблиц в хранилище данных SQL | Microsoft Azure"
    description="Начало работы с распределением таблиц в хранилище данных SQL Azure."
    services="sql-data-warehouse"
@@ -297,7 +297,7 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
 [Обзор]: ./sql-data-warehouse-tables-overview.md
 [Типы данных]: ./sql-data-warehouse-tables-data-types.md
@@ -316,7 +316,7 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 [Мониторинг рабочей нагрузки с помощью динамических административных представлений]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#querying-table-sizes
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [DBCC PDW_SHOWSPACEUSED()]: https://msdn.microsoft.com/library/mt204028.aspx
 
 <!--Other Web references-->

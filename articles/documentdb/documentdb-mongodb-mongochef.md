@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Использование MongoChef с учетной записью DocumentDB с поддержкой протокола MongoDB | Microsoft Azure" 
 	description="Узнайте, как использовать MongoChef с учетной записью DocumentDB с поддержкой протокола MongoDB, доступной в предварительной версии." 
 	keywords="mongochef"

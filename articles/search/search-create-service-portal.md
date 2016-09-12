@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание службы поиска Azure с помощью портала Azure | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Научитесь подготавливать службу поиска Azure с помощью портала Azure."
 	services="search"

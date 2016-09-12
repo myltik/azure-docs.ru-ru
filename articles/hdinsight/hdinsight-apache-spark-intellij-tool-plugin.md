@@ -1,4 +1,4 @@
- .<properties
+ <properties
 	pageTitle="Создание приложений Spark Scala с помощью средств HDInsight в наборе средств Azure для IntelliJ | Microsoft Azure"
 	description="Узнайте, как создать автономное приложение Spark для работы в кластерах HDInsight Spark"
 	services="hdinsight"

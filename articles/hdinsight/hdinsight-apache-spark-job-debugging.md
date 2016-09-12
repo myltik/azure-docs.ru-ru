@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Отслеживание и отладка заданий в кластере Apache Spark в Azure HDInsight | Microsoft Azure" 
 	description="Использование пользовательского интерфейса YARN, пользовательского интерфейса Spark и сервера журнала Spark для отслеживания и отладки заданий, запущенных в кластере Spark в Azure HDInsight" 
 	services="hdinsight" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Настройка подключения между виртуальными сетями для классической модели развертывания| Microsoft Azure"
    description="Узнайте, как подключить между собой виртуальные сети Azure, используя PowerShell и классический портал Azure."
    services="vpn-gateway"

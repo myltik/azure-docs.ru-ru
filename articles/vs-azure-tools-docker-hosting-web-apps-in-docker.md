@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Развертывание контейнера ASP.NET Core в Linux на удаленном узле Docker | Microsoft Azure"
    description="Узнайте, как использовать средства Visual Studio для Docker для развертывания веб-приложения ASP.NET Core в контейнере Docker, работающем на виртуальной машине узла Docker под управлением Linux в Azure"   
    services="azure-container-service"

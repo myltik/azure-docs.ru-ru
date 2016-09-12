@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание и изменение канала ExpressRoute с помощью диспетчера ресурсов и портала Azure | Microsoft Azure"
    description="В этой статье описывается создание, подготовка, проверка, обновление, удаление и отзыв канала ExpressRoute."
    documentationCenter="na"

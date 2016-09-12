@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Подготовка виртуального жесткого диска Debian Linux | Microsoft Azure"
 	description="Дополнительные сведения о создании VHD-файлов Debian 7 и 8 для развертывания в Azure."
 	services="virtual-machines-linux"

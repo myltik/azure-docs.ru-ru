@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure Active Directory B2C: использование API Graph | Microsoft Azure"
 	description="Сведения о том, как вызвать API Graph для клиента B2C, используя удостоверение приложения для автоматизации процесса."
 	services="active-directory-b2c"

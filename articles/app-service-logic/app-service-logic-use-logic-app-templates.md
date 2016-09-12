@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Шаблоны приложений логики | Microsoft Azure"
  description="Сведения об использовании предварительно созданных шаблонов приложения логики, помогающих начать работу."
  authors="kevinlam1"

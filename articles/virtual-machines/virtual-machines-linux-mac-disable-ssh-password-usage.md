@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Отключение паролей SSH в виртуальной машине Linux в настройках SSHD | Microsoft Azure"
 	description="Защита виртуальной машины Linux в Azure посредством отключения входа с использованием пароля для SSH."
 	services="virtual-machines-linux"

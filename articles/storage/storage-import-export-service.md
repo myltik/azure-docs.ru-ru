@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование службы экспорта и импорта для передачи данных BLOB-объектов в хранилище Microsoft Azure"
 	description="Узнайте, как создавать задания импорта и экспорта на классическом портале Azure для передачи данных в хранилище BLOB-объектов."
 	authors="renashahmsft"

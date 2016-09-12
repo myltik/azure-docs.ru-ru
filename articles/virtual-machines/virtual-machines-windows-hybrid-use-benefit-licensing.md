@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Льгота на гибридное использование Azure для Windows Server | Microsoft Azure"
    description="Узнайте, как воспользоваться преимуществами программы Software Assurance для Windows Server, чтобы перенести свои локальные лицензии в Azure."
    services="virtual-machines-windows"

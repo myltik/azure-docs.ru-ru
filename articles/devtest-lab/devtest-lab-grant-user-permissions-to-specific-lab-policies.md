@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Предоставление пользователю разрешений для определенных политик лаборатории | Microsoft Azure"
 	description="Узнайте, как предоставить пользователю разрешения для определенных политик лаборатории в DevTest Labs исходя из его потребностей."
 	services="devtest-lab,virtual-machines,visual-studio-online"

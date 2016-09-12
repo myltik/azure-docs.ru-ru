@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Кодирование ресурса-контейнера с помощью Media Encoder Standard и .NET" 
 	description="В этом разделе показано, как использовать .NET для кодирования ресурса-контейнера с помощью Media Encoder Strandard." 
 	services="media-services" 

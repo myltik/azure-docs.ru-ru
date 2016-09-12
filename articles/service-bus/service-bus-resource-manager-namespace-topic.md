@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание пространства имен служебной шины с разделом и подпиской с помощью шаблона Azure Resource Manager | Microsoft Azure"
     description="Создание пространства имен служебной шины с разделом и подпиской с помощью шаблона Azure Resource Manager."
     services="service-bus"
@@ -7,7 +7,7 @@
     manager="timlt"
     editor=""/>
 
-.<tags
+<tags
     ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="article"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Мониторинг использования и производительности классических приложений для Windows" 
 	description="Анализ использования и производительности классического приложения для Windows с помощью HockeyApp и Application Insights." 
 	services="application-insights" 

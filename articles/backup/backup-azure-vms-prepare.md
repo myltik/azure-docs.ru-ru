@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Подготовка среды для резервного копирования виртуальных машин Azure | Microsoft Azure"
 	description="Убедитесь, что ваша среда подготовлена для резервного копирования виртуальных машин в Azure."
 	services="backup"

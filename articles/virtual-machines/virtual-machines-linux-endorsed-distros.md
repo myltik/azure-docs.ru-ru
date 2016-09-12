@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Рекомендованные дистрибутивы Linux | Microsoft Azure"
 	description="Узнайте о рекомендованных дистрибутивах Linux в Azure, включая рекомендации по Ubuntu, OpenLogic, Oracle и SUSE."
 	services="virtual-machines-linux"

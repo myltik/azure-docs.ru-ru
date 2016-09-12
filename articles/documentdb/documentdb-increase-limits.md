@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Запрос увеличения квот учетной записи DocumentDB | Microsoft Azure"
 	description="Узнайте, как запросить изменение квот базы данных DocumentDB, например объема хранилища документов или пропускной способности для коллекции."
 	services="documentdb"

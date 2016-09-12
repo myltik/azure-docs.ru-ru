@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Часто задаваемые вопросы по виртуальным машинам Windows | Microsoft Azure"
 	description="В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Windows, созданных с помощью модели Resource Manager."
 	services="virtual-machines-windows"
@@ -8,7 +8,7 @@
 	editor=""
 	tags="azure-resource-management"/>
 
-.<tags
+<tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"

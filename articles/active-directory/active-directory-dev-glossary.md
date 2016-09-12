@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Глоссарий по Azure Active Directory для разработчика | Microsoft Azure"
    description="Определения часто используемых понятий и функций для разработчиков Azure Active Directory."
    services="active-directory"

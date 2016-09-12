@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Служба синхронизации Azure AD Connect: общие сведения о декларативной подготовке | Microsoft Azure"
 	description="В этой статье объясняется модель конфигурации декларативной подготовки в Azure AD Connect."
 	services="active-directory"

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Предварительные технические требования для создания службы данных для Marketplace | Microsoft Azure"
    description="Узнайте о требованиях к созданию службы данных для развертывания и продажи в Azure Marketplace"
    services="marketplace-publishing"

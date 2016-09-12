@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Использование MapReduce и PowerShell с Hadoop | Microsoft Azure"
    description="Информация об использовании PowerShell для удаленного выполнения заданий MapReduce с помощью Hadoop в HDInsight."
    services="hdinsight"

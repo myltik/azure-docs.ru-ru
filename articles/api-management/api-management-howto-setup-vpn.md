@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка VPN-подключений в службе управления API Azure"
 	description="Узнайте, как настроить VPN-подключение в службе управления API Azure и обращаться к веб-службам через него."
 	services="api-management"
@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="api-management"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"

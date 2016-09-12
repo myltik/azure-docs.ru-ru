@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление репозитория артефактов Git в лабораторию | Microsoft Azure"
 	description="Добавление репозитория Git GitHub или Visual Studio Team Services, предназначенного для настраиваемых артефактов, в DevTest Labs."
 	services="devtest-lab,virtual-machines,visual-studio-online"

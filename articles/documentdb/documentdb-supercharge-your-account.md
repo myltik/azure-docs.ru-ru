@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Расширение возможностей учетной записи DocumentDB S1 | Microsoft Azure" 
 	description="Воспользуйтесь преимуществами увеличения пропускной способности в учетной записи DocumentDB S1, внеся несколько простых изменений на портале Azure." 
 	services="documentdb" 

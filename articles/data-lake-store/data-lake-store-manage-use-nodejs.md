@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Управление хранилищами озера данных Azure с помощью пакета Azure SDK для Node.js | Microsoft Azure"
    description="Узнайте, как управлять учетными записями и файловой системой хранилища озера данных." 
    services="data-lake-store" 

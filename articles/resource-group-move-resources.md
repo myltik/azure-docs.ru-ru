@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Перемещение ресурсов в новую группу ресурсов | Microsoft Azure" 
 	description="Перемещайте ресурсы в новую группу ресурсов или новую подписку с помощью Azure Resource Manager." 
 	services="azure-resource-manager" 
@@ -136,7 +136,7 @@
 
 Чтобы переместить ресурс, выберите его, а затем нажмите кнопку **Переместить**.
 
-.![перемещение ресурса](./media/resource-group-move-resources/move-resources.png)
+![перемещение ресурса](./media/resource-group-move-resources/move-resources.png)
 
 > [AZURE.NOTE] В настоящее время не все ресурсы поддерживают перемещение на портале. Если кнопка **Переместить** не отображается для ресурса, который требуется переместить, воспользуйтесь PowerShell, интерфейсом командной строки или REST API.
 
@@ -146,7 +146,7 @@
 
 В области **уведомлений** вы увидите, что операция перемещения выполняется.
 
-.![отображение состояния перемещения](./media/resource-group-move-resources/show-status.png)
+![отображение состояния перемещения](./media/resource-group-move-resources/show-status.png)
 
 После ее завершения отобразится уведомление о результате.
 
@@ -154,11 +154,11 @@
 
 Чтобы иначе переместить ресурсы в новую группу ресурсов (но не подписку), выберите ресурс, который необходимо переместить.
 
-.![выбор ресурса для перемещения](./media/resource-group-move-resources/select-resource.png)
+![выбор ресурса для перемещения](./media/resource-group-move-resources/select-resource.png)
 
 Выберите его **свойства**.
 
-.![выбор свойств](./media/resource-group-move-resources/select-properties.png)
+![выбор свойств](./media/resource-group-move-resources/select-properties.png)
 
 Выберите команду **Изменить группу ресурсов**, если она доступна для этого типа ресурса.
 
@@ -166,15 +166,15 @@
 
 Можно выбрать, какие ресурсы перемещать и в какую группу ресурсов выполнять перемещение.
 
-.![перемещение ресурсов](./media/resource-group-move-resources/select-group.png)
+![перемещение ресурсов](./media/resource-group-move-resources/select-group.png)
 
 При перемещении ресурсов, развернутых с помощью классической модели, в новую группу ресурсов можно использовать значок редактирования, расположенный рядом с именем группы ресурсов.
 
-.![перемещение классических ресурсов](./media/resource-group-move-resources/edit-rg-icon.png)
+![перемещение классических ресурсов](./media/resource-group-move-resources/edit-rg-icon.png)
 
 Выберите ресурсы для перемещения, учитывая [ограничения классического развертывания](#classic-deployment-limitations). Чтобы начать перемещение, нажмите кнопку **ОК**.
 
- .![выбор классических ресурсов](./media/resource-group-move-resources/select-classic-resources.png)
+ ![выбор классических ресурсов](./media/resource-group-move-resources/select-classic-resources.png)
  
  При перемещении ресурсов, развернутых с помощью классической модели, в новую подписку можно использовать значок редактирования, расположенный рядом с именем подписки.
  

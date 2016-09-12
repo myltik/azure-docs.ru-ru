@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle=" Публикация содержимого с помощью портала Azure | Microsoft Azure"
 	description="В этом учебнике пошагово описано, как публиковать содержимое с помощью портала Azure."
 	services="media-services"

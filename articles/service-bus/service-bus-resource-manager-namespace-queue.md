@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Создание пространства имен и очереди служебной шины с помощью шаблона диспетчера ресурсов Azure | Microsoft Azure"
     description="Создание пространства имен и очереди служебной шины с помощью шаблона диспетчера ресурсов Azure"
     services="service-bus"
@@ -7,7 +7,7 @@
     manager="timlt"
     editor=""/>
 
-.<tags
+<tags
     ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="article"

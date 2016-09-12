@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка параметров образа Azure Marketplace в лаборатории | Microsoft Azure"
 	description="Настройка образов Azure Marketplace, которые можно использовать при создании виртуальной машины в DevTest Labs"
 	services="devtest-lab,virtual-machines"

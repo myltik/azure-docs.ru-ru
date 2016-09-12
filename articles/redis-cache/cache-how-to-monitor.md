@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Как отслеживать кэш Redis для Azure | Microsoft Azure" 
 	description="Узнайте, как отслеживать работоспособность и производительность экземпляров кэша Redis для Azure." 
 	services="redis-cache" 

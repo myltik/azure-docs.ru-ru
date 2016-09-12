@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Защита Active Directory и DNS с Azure Site Recovery | Microsoft Azure"
 	description="В этой статье описывается, как реализовать решение аварийного восстановления для Active Directory с помощью Azure Site Recovery."
 	services="site-recovery"
@@ -60,7 +60,7 @@ Site Recovery — это служба Azure, которая обеспечива
 
 Для виртуальной машины с контроллером домена или DNS настройте сетевые параметры в Site Recovery таким образом, чтобы после отработки отказа виртуальная машина подключалась к правильной сети. Например, если выполняется репликация виртуальных машин Hyper-V в Azure, выберите виртуальную машину в облаке VMM или в группе защиты и настройте параметры сети, как показано ниже.
 
-.![Параметры сети виртуальных машин](./media/site-recovery-active-directory/VM-Network-Settings.png)
+![Параметры сети виртуальных машин](./media/site-recovery-active-directory/VM-Network-Settings.png)
 
 ## Защита Active Directory с помощью репликации Active Directory
 

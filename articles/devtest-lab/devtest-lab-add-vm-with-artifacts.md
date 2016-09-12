@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Добавление виртуальной машины с артефактами в лабораторию | Microsoft Azure"
 	description="Узнайте, как добавить виртуальную машину с артефактами в DevTest Labs."
 	services="devtest-lab,virtual-machines"

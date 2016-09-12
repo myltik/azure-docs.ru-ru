@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Начало работы с примером"
    description="Power BI Embedded, использование пакета SDK для добавления интерактивных отчетов Power BI в приложение бизнес-аналитики"
    services="power-bi-embedded"

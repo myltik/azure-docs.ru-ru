@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Углубленная диагностика для веб-приложений и служб с помощью Application Insights | Microsoft Azure"
 	description="Как Application Insights встраивается в цикл разработки и операций (DevOps)"
 	services="application-insights"

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Приложение Microsoft Authenticator для мобильных телефонов" 
 	description="Узнайте, как выполнить обновление до последней версии Azure Authenticatior." 
 	services="multi-factor-authentication" 

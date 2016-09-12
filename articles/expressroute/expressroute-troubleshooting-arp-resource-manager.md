@@ -1,4 +1,4 @@
-.<properties 
+<properties 
    pageTitle="Руководство по устранению неполадок ExpressRoute. Получение таблиц ARP | Microsoft Azure"
    description="На этой странице приводятся инструкции по получению таблиц ARP для канала ExpressRoute."
    documentationCenter="na"

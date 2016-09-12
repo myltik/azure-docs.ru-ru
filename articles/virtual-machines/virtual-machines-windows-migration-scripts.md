@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Инструменты сообщества для переноса ресурсов из управления службами Azure в Azure Resource Manager"
 	description="В этой статье перечислены инструменты, которые были предоставлены сообществом для помощи с выполнением переноса ресурсов IaaS из управления службами Azure в стек Azure Resource Manager."
 	services="virtual-machines-windows"

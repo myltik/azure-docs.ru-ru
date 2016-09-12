@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Использование Hue с Hadoop в кластерах HDInsight на платформе Linux | Microsoft Azure"
 	description="Узнайте, как установить и использовать Hue с кластерами Hadoop в HDInsight на платформе Linux."
 	services="hdinsight"

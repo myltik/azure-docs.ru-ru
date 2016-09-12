@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Шлюз протокола IoT Azure | Microsoft Azure"
    description="Описывает, как использовать шлюз протокола IoT Azure для расширения возможностей и поддержки протоколов центра IoT Azure."
    services="iot-hub"

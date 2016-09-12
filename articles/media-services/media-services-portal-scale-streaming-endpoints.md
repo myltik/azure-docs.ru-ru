@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle=" Масштабирование конечных точек потоковой передачи с помощью портала Azure | Microsoft Azure"
 	description="В этом учебнике пошагово описано, как масштабировать конечные точки потоковой передачи с помощью портала Azure."
 	services="media-services"

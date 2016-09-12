@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Перенос решения в хранилище данных SQL| Microsoft Azure"
    description="Руководство по миграции, с помощью которого вы сможете перенести свое решение в хранилище данных Azure SQL."
    services="sql-data-warehouse"
@@ -32,17 +32,17 @@
 
 ## Дальнейшие действия
 
-У группы консультирования клиентов (CAT) также есть полезное руководство по хранилищу данных SQL, которое они публикуют в блогах. Прочитайте их статью [Migrating data to Azure SQL Data Warehouse in practice][] (Перенос данных в хранилище данных SQL Azure на практике), чтобы ознакомиться с дополнительными рекомендациями по переносу.
+У группы консультирования клиентов (CAT) также есть полезное руководство по хранилищу данных SQL, которое они публикуют в блогах. Прочитайте их статью [Migrating data to Azure SQL Data Warehouse in practice][] \(Перенос данных в хранилище данных SQL Azure на практике), чтобы ознакомиться с дополнительными рекомендациями по переносу.
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Перенос схемы]: sql-data-warehouse-migrate-schema.md
 [Перенос данных]: sql-data-warehouse-migrate-data.md
 [Перенос кода]: sql-data-warehouse-migrate-code.md
 
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 
 <!--Other Web references-->

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Как создать базу данных в DocumentDB | Microsoft Azure" 
 	description="Узнайте, как с помощью портала веб-служб для Azure DocumentDB создать базу данных — молниеносно быструю глобальную базу данных NoSQL." 
 	keywords="Как создать базу данных" 
@@ -8,7 +8,7 @@
 	editor="monicar" 
 	documentationCenter=""/>
 
-.<tags 
+<tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 

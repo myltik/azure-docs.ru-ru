@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Примеры кэша Redis для Azure | Microsoft Azure" 
 	description="Сведения об использовании кэша Redis для Azure." 
 	services="redis-cache" 

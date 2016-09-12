@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Настройка правила брандмауэра уровня сервера базы данных SQL | Microsoft Azure"
 	description="Сведения о настройке брандмауэра для IP-адресов, через которые осуществляется доступ к Azure SQL Server."
 	services="sql-database"
@@ -65,7 +65,7 @@
 - [Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589)
 
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->

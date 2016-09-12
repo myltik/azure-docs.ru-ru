@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Репликация виртуальных машин VMware в Azure с помощью Site Recovery и Azure Automation DSC | Microsoft Azure"
 	description="В этой статье описывается, как использовать Azure Automation DSC для автоматизированного развертывания службы Mobility Service Azure Site Recovery и агента Azure для виртуальных машин и физических компьютеров в Azure."
 	services="site-recovery"

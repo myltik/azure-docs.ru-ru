@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Импорт из BACPAC-файла в Базу данных SQL с помощью SqlPackage"
    description="База данных SQL Microsoft Azure, миграция базы данных, импорт базы данных, импорт BACPAC-файла, sqlpackage"
    services="sql-database"

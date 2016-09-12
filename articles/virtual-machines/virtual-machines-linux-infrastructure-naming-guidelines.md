@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Рекомендации по именованию для инфраструктуры | Microsoft Azure"
 	description="Изучите основные рекомендации по проектированию и реализации, касающиеся именования в службах инфраструктуры Azure."
 	documentationCenter=""

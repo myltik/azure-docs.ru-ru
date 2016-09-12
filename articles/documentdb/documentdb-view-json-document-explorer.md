@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Проводник документов DocumentDB для просмотра документов JSON | Microsoft Azure"
 	description="Сведения о проводнике документов DocumentDB, средстве портала Azure для просмотра, изменения, создания и отправки документов JSON с помощью DocumentDB — базы данных документов NoSQL."
     keywords="просмотр кода json"

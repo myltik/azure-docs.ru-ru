@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Миграция из Orchestrator в службу автоматизации Azure | Microsoft Azure"
    description="Описывает способ миграции пакетов Runbook и пакетов интеграции из System Center Orchestrator в службу автоматизации Azure."
    services="automation"

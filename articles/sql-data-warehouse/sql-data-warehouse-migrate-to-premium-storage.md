@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Перенос существующего хранилища данных SQL Azure в хранилище уровня ";Премиум"; | Microsoft Azure"
    description="Инструкции по переносу существующего хранилища данных SQL в хранилище уровня ";Премиум";."
    services="sql-data-warehouse"
@@ -7,7 +7,7 @@
    manager="barbkess"
    editor=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"
@@ -147,25 +147,48 @@ ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
 Шаг 1. Создание таблицы для управления перестроением индекса
 Выполните сценарий ниже от имени пользователя в роли mediumrc или выше.
 --------------------------------------------------------------------------------
-create table sql\_statements WITH (distribution = round\_robin) as select 'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, row\_number() over (order by s.name, t.name) as sequence from sys.schemas s inner join sys.tables t on s.schema\_id = t.schema\_id where is\_external = 0 ; go
+create table sql\_statements 
+WITH (distribution = round\_robin) 
+as select 
+    'alter index all on ' + s.name + '.' + t.NAME + ' rebuild;' as statement, 
+    row\_number() over (order by s.name, t.name) as sequence 
+from 
+    sys.schemas s 
+    inner join sys.tables t 
+        on s.schema\_id = t.schema\_id 
+where 
+    is\_external = 0 
+; 
+go
  
 --------------------------------------------------------------------------------
 Шаг 2. Перестроение индекса В случае сбоя сценария код ниже может быть повторно запущен с места остановки.
 Выполните сценарий ниже от имени пользователя в роли mediumrc или выше.
 --------------------------------------------------------------------------------
 
-declare @nbr\_statements int = (select count(*) from sql\_statements) declare @i int = 1 while(@i <= @nbr\_statements) begin declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement exec (@statement) delete from sql\_statements where sequence = @i set @i += 1 end;
+declare @nbr\_statements int = (select count(*) from sql\_statements) 
+declare @i int = 1 
+while(@i <= @nbr\_statements) 
+begin 
+      declare @statement nvarchar(1000)= (select statement from sql\_statements where sequence = @i) 
+      print cast(getdate() as nvarchar(1000)) + ' Executing... ' + @statement 
+      exec (@statement) 
+      delete from sql\_statements where sequence = @i 
+      set @i += 1 
+      end;
 go
 -------------------------------------------------------------------------------
 Шаг 3. Очистка таблицы, созданной на шаге 1
 --------------------------------------------------------------------------------
-drop table sql\_statements; go ````
+drop table sql\_statements; 
+go 
+````
 
 Если возникнут проблемы с хранилищем данных, [создайте запрос в службу поддержки][] и укажите "Перенос в хранилище уровня "Премиум"" в качестве возможной причины.
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Расписание автоматической миграции]: #automatic-migration-schedule
 [расписание автоматического переноса]: #automatic-migration-schedule
 [расписания автоматического переноса]: #automatic-migration-schedule
@@ -179,11 +202,11 @@ drop table sql\_statements; go ````
 [масштабировании вычислительной мощности]: sql-data-warehouse-manage-compute-portal/#scale-compute-power
 [роли mediumrc]: sql-data-warehouse-develop-concurrency/#workload-management
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 
 <!--Other Web references-->
-[хранилища класса Premium, обеспечивающего более предсказуемую производительность]: https://azure.microsoft.com/ru-RU/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
+[хранилища класса Premium, обеспечивающего более предсказуемую производительность]: https://azure.microsoft.com/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [портале Azure]: https://portal.azure.com
 
 <!---HONumber=AcomDC_0831_2016-->

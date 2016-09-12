@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Уровни производительности в DocumentDB | Microsoft Azure"
 	description="Узнайте, каким образом с помощью уровней производительности в DocumentDB можно резервировать пропускную способность для каждой коллекции."
 	services="documentdb"

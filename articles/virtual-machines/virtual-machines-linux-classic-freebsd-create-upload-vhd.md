@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Создание и передача образа виртуальной машины FreeBSD | Microsoft Azure"
    description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл), содержащий операционную систему FreeBSD, для создания виртуальной машины Azure."
    services="virtual-machines-linux"

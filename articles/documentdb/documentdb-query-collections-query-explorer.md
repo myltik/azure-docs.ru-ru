@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обозреватель запросов DocumentDB: редактор SQL-запросов | Microsoft Azure"
 	description="Сведения об обозревателе запросов DocumentDB — редакторе SQL-запросов портала Azure, предназначенном для написания SQL-запросов и их выполнения в коллекции DocumentDB NoSQL."
 	keywords="написание sql-запросов, редактор sql-запросов"

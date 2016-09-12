@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание и передача виртуального жесткого диска Oracle Linux | Microsoft Azure"
 	description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Oracle Linux."
 	services="virtual-machines-linux"

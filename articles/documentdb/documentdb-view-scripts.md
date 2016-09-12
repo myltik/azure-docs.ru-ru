@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обозреватель скриптов DocumentDB, редактор JavaScript | Microsoft Azure"
 	description="Узнайте об обозревателе скриптов DocumentDB, средстве портала Azure для управления артефактами программирования на стороне сервера DocumentDB, включая хранимые процедуры, триггеры и определяемые пользователем функции."
 	keywords="редактор JavaScript"

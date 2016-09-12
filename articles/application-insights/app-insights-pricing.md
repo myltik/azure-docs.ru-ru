@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Управление ценами и квотами для Application Insights" 
 	description="Выберите необходимый план цен" 
 	services="application-insights" 

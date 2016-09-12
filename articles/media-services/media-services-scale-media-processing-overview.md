@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Обзор масштабирования обработка мультимедиа | Microsoft Azure"
 	description="В этом разделе рассматривается масштабирование обработки мультимедиа с помощью служб мультимедиа Azure."
 	services="media-services"

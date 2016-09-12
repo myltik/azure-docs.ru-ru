@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure Insights. Примеры для быстрого запуска Azure Insights с помощью PowerShell | Microsoft Azure"
 	description="Примеры команд PowerShell, которые помогут быстро обращаться к функциям мониторинга Azure Insights."
 	authors="kamathashwin"

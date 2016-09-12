@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Аутентификация клиентского доступа к кластеру | Microsoft Azure"
    description="Описываются способы аутентификации клиентского доступа к кластеру Service Fabric с помощью сертификатов, а также безопасный обмен данными между клиентами и кластером."
    services="service-fabric"

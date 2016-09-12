@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Приложения больших данных, совместимые с хранилищем озера данных | Azure"
    description="Список приложений с открытым исходным кодом, совместимых с хранилищем озера данных Azure"
    services="data-lake-store"

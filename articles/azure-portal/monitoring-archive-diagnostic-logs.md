@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Архивация журналов диагностики Azure | Microsoft Azure"
 	description="Узнайте, как выполнить архивацию журналов диагностики Azure для долгосрочного хранения в учетной записи хранения."
 	authors="johnkemnetz"

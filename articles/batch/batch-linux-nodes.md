@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Узлы Linux в пулах пакетной службы Azure | Microsoft Azure"
 	description="Узнайте, как обрабатывать параллельные вычислительные рабочие нагрузки в пулах виртуальных машин Linux в пакетной службе Azure."
 	services="batch"

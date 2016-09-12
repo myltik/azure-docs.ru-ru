@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Новые возможности Power BI Embedded"
    description="В этой статье вы найдете самую актуальную информацию о новых возможностях службы Power BI Embedded."
    services="power-bi-embedded"

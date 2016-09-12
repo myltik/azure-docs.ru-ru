@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Мониторинг выполнения задания кодирования с помощью портала Azure" 
 	description="В этом учебнике описано, как отслеживать выполнение задания с помощью портала Azure." 
 	services="media-services" 

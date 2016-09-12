@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Настройка виртуальной машины Linux во время создания с помощь cloud-init | Microsoft Azure"
     description="Настройка виртуальной машины Linux во время создания с помощь cloud-init."
     services="virtual-machines-linux"

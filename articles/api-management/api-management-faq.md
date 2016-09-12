@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Часто задаваемые вопросы о службе управления API Azure | Microsoft Azure" 
 	description="Ознакомьтесь с ответами на часто задаваемые вопросы, шаблонами и рекомендациями для службы управления API Azure." 
 	services="api-management" 
@@ -7,7 +7,7 @@
 	manager="erikre" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 

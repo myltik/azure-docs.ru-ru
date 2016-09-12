@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Справочник по политикам службы управления Azure API " 
 	description="Сведения о политиках, доступных для настройки службы управления API." 
 	services="api-management" 

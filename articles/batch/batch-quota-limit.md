@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Квоты и ограничения пакетной службы | Microsoft Azure"
 	description="Сведения о квотах, ограничениях и лимитах использования пакетной службы Azure"
 	services="batch"

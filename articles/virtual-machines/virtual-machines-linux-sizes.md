@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Размеры виртуальной машины Linux | Microsoft Azure"
  description="Список различных размеров виртуальных машин Linux в Azure."
  services="virtual-machines-linux"

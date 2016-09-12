@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Управление пользовательскими образами Azure DevTest Labs для создания виртуальных машин | Microsoft Azure"
 	description="Узнайте, как создать пользовательский образ из VHD-файла или из существующей виртуальной машины в Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"

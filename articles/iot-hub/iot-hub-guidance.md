@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Центр IoT: руководство | Microsoft Azure"
  description="Разделы, посвященные шлюзам, подготовке устройств и аутентификации для разработки решений IoT с помощью центра IoT Azure."
  services="iot-hub"

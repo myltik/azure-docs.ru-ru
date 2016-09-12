@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Просмотр данных HockeyApp в Application Insights | Microsoft Azure" 
 	description="Анализ использования и производительности приложения Azure с помощью Application Insights." 
 	services="application-insights" 

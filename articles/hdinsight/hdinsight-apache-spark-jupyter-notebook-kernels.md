@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Ядра, доступные для записных книжек Jupyter в кластерах HDInsight Spark на платформе Linux | Microsoft Azure" 
 	description="Узнайте о дополнительных ядрах, доступных для записных книжек Jupyter с кластерами Spark в HDInsight на платформе Linux." 
 	services="hdinsight" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Подключение приложения к виртуальной сети с помощью PowerShell"
 	description="Инструкции по подключению виртуальных сетей и работы с ними с помощью PowerShell"
 	services="app-service"

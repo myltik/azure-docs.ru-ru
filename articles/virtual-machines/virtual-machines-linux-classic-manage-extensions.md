@@ -1,4 +1,4 @@
-.<properties
+<properties
  pageTitle="Управление расширениями виртуальной машины | Microsoft Azure"
  description="Описывает, как добавить, найти, обновить и удалить расширения для виртуальных машин Azure в классической модели развертывания."
  services="virtual-machines-linux"

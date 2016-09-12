@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Устранение неполадок хранилища данных SQL Azure | Microsoft Azure"
    description="Диагностика и устранение неполадок хранилища данных SQL Azure."
    services="sql-data-warehouse"
@@ -90,7 +90,7 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Защита базы данных в хранилище данных SQL]: ./sql-data-warehouse-overview-manage-security.md
 [общими сведениями о безопасности]: ./sql-data-warehouse-overview-manage-security.md
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
@@ -126,12 +126,12 @@
 [Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
 [Обход требования PolyBase UTF-8]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
-[sqlcmd]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
+[sqlcmd]: https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
 
-.<!--Other Web references-->
+<!--Other Web references-->
 [Блоги]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Блоги группы CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Запросы функций]: https://feedback.azure.com/forums/307516-sql-data-warehouse

@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Проверка подлинности в приложении Azure с помощью локального каталога Active Directory | Microsoft Azure" 
 	description="Из этой статьи вы узнаете о различных способах, с помощью которых бизнес-приложения в службе приложений Azure могут выполнять проверку подлинности в локальном каталоге Active Directory." 
 	services="app-service" 

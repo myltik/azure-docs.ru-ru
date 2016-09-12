@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Как использовать инспектор API для трассировки вызовов в Azure API Management" 
 	description="Сведения о трассировке вызовов с помощью инспектора API в службе управления API Azure." 
 	services="api-management" 

@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Приступая к работе с временными таблицами в базе данных SQL Azure | Microsoft Azure"
    description="Узнайте, как приступить к работе с временными таблицами в базе данных SQL Azure."
    services="sql-database"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Что делать, если прерывание работы службы Azure влияет на хранилище ключей Azure | Microsoft Azure"
 	description="Узнайте, что делать, если прерывание работы службы Azure влияет на хранилище ключей Azure."
 	services="key-vault"

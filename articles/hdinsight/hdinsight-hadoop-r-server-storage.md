@@ -1,5 +1,5 @@
 
-.<properties
+<properties
    pageTitle="Возможности службы хранилища Azure для R Server в HDInsight (предварительная версия) | Microsoft Azure"
    description="Сведения о разных вариантах хранения, доступных для пользователей R Server в кластере HDInsight (предварительная версия)."
    services="HDInsight"

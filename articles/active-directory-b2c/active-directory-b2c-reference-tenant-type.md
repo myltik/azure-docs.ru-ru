@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure Active Directory B2C: сравнение предварительной и рабочей версии клиента B2C | Microsoft Azure"
 	description="Статья о типах клиентов Azure Active Directory B2C"
 	services="active-directory-b2c"

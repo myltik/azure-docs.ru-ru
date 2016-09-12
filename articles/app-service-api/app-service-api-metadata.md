@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Метаданные приложений API службы приложений для обнаружения API и создания кода | Microsoft Azure"
 	description="Узнайте, как приложения API в службе приложений Azure используют метаданные Swagger для упрощения обнаружения API и создания кода."
 	services="app-service\api"

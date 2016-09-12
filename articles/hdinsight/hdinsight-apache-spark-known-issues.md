@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Известные проблемы Apache Spark в HDInsight | Microsoft Azure" 
 	description="Известные проблемы Apache Spark в HDInsight." 
 	services="hdinsight" 

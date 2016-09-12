@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание и передача виртуального жесткого диска с ОС Ubuntu Linux в Azure"
 	description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Ubuntu Linux."
 	services="virtual-machines-linux"

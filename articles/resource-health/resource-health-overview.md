@@ -1,4 +1,4 @@
-.<properties
+<properties
    pageTitle="Обзор службы работоспособности ресурсов Azure | Microsoft Azure"
    description="Обзор службы работоспособности ресурсов Azure"
    services="Resource health"

@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Создание и передача образа виртуальной машины с помощью Powershell | Microsoft Azure"
 	description="Узнайте, как создать и передать универсальный образ Windows Server (VHD) с помощью классической модели развертывания и Azure Powershell."
 	services="virtual-machines-windows"
@@ -8,7 +8,7 @@
 	editor="tysonn"
 	tags="azure-service-management"/>
 
-.<tags
+<tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"

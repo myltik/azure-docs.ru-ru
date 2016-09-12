@@ -1,4 +1,4 @@
-.<properties
+<properties
     pageTitle="Устранение неполадок DocumentDB на портале | Microsoft Azure"
     description="Узнайте, как устранять неполадки в работе DocumentDB на портале Azure." 
     services="documentdb"

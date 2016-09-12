@@ -1,4 +1,4 @@
-.<properties 
+<properties 
 	pageTitle="Создание пользовательских артефактов для виртуальной машины DevTest Labs | Microsoft Azure"
 	description="Узнайте, как создавать собственные артефакты, которые можно использовать с помощью решения DevTest Lab."
 	services="devtest-lab,virtual-machines"
