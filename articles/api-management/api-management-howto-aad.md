@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure" 
 	description="Узнайте, как авторизовать пользователей с помощью Azure Active Directory в управлении API" 
 	services="api-management" 
@@ -7,13 +7,13 @@
 	manager="erikre" 
 	editor=""/>
 
-<tags 
+.<tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure
@@ -211,7 +211,6 @@
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Начинаем работу с API Management]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
@@ -228,4 +227,4 @@
 
 [Вход на портал разработчика с помощью учетной записи Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

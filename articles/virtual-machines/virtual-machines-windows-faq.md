@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Часто задаваемые вопросы по виртуальным машинам Windows | Microsoft Azure"
 	description="В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Windows, созданных с помощью модели Resource Manager."
 	services="virtual-machines-windows"
@@ -8,7 +8,7 @@
 	editor=""
 	tags="azure-resource-management"/>
 
-<tags
+.<tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
@@ -38,7 +38,7 @@
 
 ## Как получить доступ к своей виртуальной машине?
 
-Необходимо установить удаленное подключение с использованием протокола удаленного рабочего стола к виртуальной машине Windows. Указания см. в статье [Как подключиться к виртуальной машине Azure под управлением Windows и войти на нее](virtual-machines-windows-connect-logon.md). Если сервер не настроен как узел сеансов служб удаленных рабочих столов, то поддерживается не более двух параллельных подключений.
+Установите удаленное подключение с использованием протокола удаленного рабочего стола (RDP) к виртуальной машине Windows. Указания см. в статье [Как подключиться к виртуальной машине Azure под управлением Windows и войти на нее](virtual-machines-windows-connect-logon.md). Если сервер не настроен как узел сеансов служб удаленных рабочих столов, то поддерживается не более двух параллельных подключений.
 
 
 Если возникли проблемы с удаленным подключением, ознакомьтесь со статьей [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
@@ -47,7 +47,7 @@
 
 ## Можно ли использовать временный диск (по умолчанию это диск D) для хранения данных?
 
-Не следует использовать временный диск для хранения данных. Он обеспечивает лишь временное хранение, поэтому вы рискуете потерять данные, которые невозможно восстановить. Это может происходить, когда виртуальная машина перемещается на другой узел. Виртуальная машина может перемещаться, когда возникает необходимость в изменении ее размера, при обновлении узла, при сбое оборудования, а также по другим причинам.
+Не используйте для хранения данных временный диск. Он обеспечивает лишь временное хранение, поэтому вы рискуете потерять данные, которые невозможно восстановить. Потеря данных может происходить, когда виртуальная машина перемещается на другой узел. Виртуальная машина может перемещаться, когда возникает необходимость в изменении ее размера, при обновлении узла, при сбое оборудования, а также по другим причинам.
 
 При наличии приложения, для которого необходимо использовать букву диска D, можно переназначить буквы дисков, чтобы для временного диска использовался диск, отличный от D. Указания см. в статье [Изменение буквы диска для временного диска Windows](virtual-machines-windows-classic-change-drive-letter.md).
 
@@ -83,4 +83,62 @@
 
 Нет. Добавить сетевую карту можно только во время создания.
 
-<!---HONumber=AcomDC_0817_2016-->
+## Есть ли какие-либо требования к имени компьютера?
+
+Да. Длина имени компьютера не должна превышать 15 знаков. Дополнительные сведения об именовании ресурсов см. в статье [Рекомендации по именованию для инфраструктуры](virtual-machines-windows-infrastructure-naming-guidelines.md).
+
+## Какие требования к имени пользователя при создании виртуальной машины?
+
+Длина имени пользователя не должна превышать 20 знаков. Также оно не должно заканчиваться точкой (".").
+
+Не допускаются следующие имена пользователей:
+
+<table>
+	<tr>
+		<td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">john </td><td style="text-align:center"> владелец </td><td style="text-align:center"> root </td><td style="text-align:center"> server</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+	</tr>
+</table>
+
+## Какие требования к паролю при создании виртуальной машины?
+
+Длина пароля должна быть от 8 до 123 знаков. Также должны удовлетворяться 3 из следующих 4 требований сложности:
+
+- используются строчные знаки;
+- используются прописные знаки;
+- используется цифра;
+- используется специальный знак (регулярное выражение [\\W\_]).
+
+Не допускаются следующие пароли:
+
+Не допускаются следующие пароли:
+<table>
+	<tr>
+		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">pass@word1</td><td style="text-align:center">Password!</td><td style="text-align:center">Password1</td><td style="text-align:center">Password22</td><td style="text-align:center">iloveyou!</td>
+	</tr>
+</table>
+
+<!---HONumber=AcomDC_0831_2016-->

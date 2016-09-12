@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Восстановление отдельной таблицы в резервной копии базы данных SQL Azure | Microsoft Azure"
 	description="Инструкции по восстановлению отдельной таблицы в резервной копии базы данных SQL Azure."
 	services="sql-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="08/31/2016"
 	ms.author="daleche"/>
 
 
@@ -71,4 +71,4 @@
 
 [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

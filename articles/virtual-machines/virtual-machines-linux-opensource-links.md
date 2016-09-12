@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Linux и вычисления с открытым кодом в Azure | Microsoft Azure"
 	description="Содержит перечень тем по Linux и вычислениям с открытым кодом в Azure, включая базовые принципы использования Linux, некоторые основные понятия о запуске или отправке образов Linux в Azure, а также другие сведения о конкретных технологиях и оптимизациях."
 	services="virtual-machines-linux"
@@ -39,7 +39,7 @@
 
 ## Учебники
 
-- [Установка стека LAMP на виртуальную машину Linux в Azure](virtual-machines-linux-install-lamp-stack.md)
+- [Установка стека LAMP на виртуальную машину Linux в Azure](virtual-machines-linux-create-lamp-stack.md)
 - [Веб-приложение Ruby on Rails на виртуальной машине Azure](virtual-machines-linux-classic-ruby-rails-web-app.md)
 - [Практическое руководство. Установка Apache Qpid Proton-C для AMQP и служебной шины](../service-bus/service-bus-amqp-apache.md)
 
@@ -189,4 +189,4 @@
 
 - [Подключаемый модуль Packer для Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

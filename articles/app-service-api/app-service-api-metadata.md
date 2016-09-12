@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Метаданные приложений API службы приложений для обнаружения API и создания кода | Microsoft Azure"
 	description="Узнайте, как приложения API в службе приложений Azure используют метаданные Swagger для упрощения обнаружения API и создания кода."
 	services="app-service\api"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/30/2016"
 	ms.author="rachelap"/>
 
 # Метаданные приложений API службы приложений для обнаружения API и создания кода 
@@ -36,7 +36,7 @@
 
 URL-адрес определения API для приложения API можно также настроить с помощью [обозревателя ресурсов](https://resources.azure.com/) или [шаблонов диспетчера Azure Resource Manager](../resource-group-authoring-templates.md), используя такие средства командной строки, как [Azure PowerShell](../powershell-install-configure.md) и [интерфейс командной строки Azure](../xplat-cli-install.md).
 
-В **обозревателе ресурсов** последовательно выберите пункты **Подписки > {ваша подписка} > Группы ресурсов > {ваша группа ресурсов} > Поставщики > Microsoft.Web > Сайты > {ваш сайт} > Конфигурации > Веб**. Отобразится свойство `apiDefinition`.
+В **обозревателе ресурсов** последовательно выберите пункты **Подписки > {ваша подписка} > Группы ресурсов > {ваша группа ресурсов} > Поставщики > Microsoft.Web > Сайты > {ваш сайт} > Конфигурации > Веб**. Отобразится свойство `apiDefinition`.
 
 		"apiDefinition": {
 		  "url": "https://contactslistapi.azurewebsites.net/swagger/docs/v1"
@@ -60,4 +60,4 @@ URL-адрес определения API для приложения API мож
 
 Если вы используете управление API Azure с приложениями API, вы можете использовать метаданные Swagger для импорта API в управление API. Дополнительные сведения см. в статье [Как импортировать определение API с операциями в Azure API Management](../api-management/api-management-howto-import-api.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

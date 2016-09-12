@@ -1,6 +1,6 @@
-<properties 
+.<properties 
 	pageTitle="Настройка политик доставки ресурсов-контейнеров с помощью пакета SDK для .NET" 
-	description="В этом разделе демонстрируется настройка различных политик доставки ресурсов-контейнеров с помощью пакета SDK для .NET служб мультимедиа." 
+	description="В этом разделе демонстрируется настройка различных политик доставки ресурсов-контейнеров с помощью пакета SDK служб мультимедиа для .NET." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,Mingfeiy" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/31/2016"
 	ms.author="juliako"/>
 
 #Настройка политик доставки ресурсов-контейнеров с помощью пакета SDK для .NET
@@ -23,7 +23,7 @@
 
 Если вы планируете доставлять зашифрованные ресурсы-контейнеры, вам следует настроить политику доставки таких ресурсов (один из этапов рабочего процесса доставки содержимого в службах мультимедиа). Политика доставки ресурсов сообщает службам мультимедиа способ доставки ресурса: какие протоколы передачи следует использовать для динамической упаковки ресурса (например, MPEG DASH, HLS, Smooth Streaming или все), следует ли использовать динамическое шифрование и как (конвертное или общее шифрование).
 
-В этом разделе рассматриваются причины и способы создания и настройки политик доставки ресурсов.
+В этом разделе рассматриваются причины и способы создания и настройки политик доставки ресурсов-контейнеров.
 
 >[AZURE.NOTE]Чтобы применять динамическую упаковку и динамическое шифрование, у вас должна быть хотя бы одна единица шифрования (которая также называется единицей потоковой передачи). Дополнительную информацию см. в разделе [Масштабирование службы мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints).
 >
@@ -157,7 +157,7 @@ HDS
 
 ##Политика доставки ресурсов DynamicEnvelopeEncryption 
 
-Следующий метод **CreateAssetDeliveryPolicy** создает сущность **AssetDeliveryPolicy**, для которой настроено применение динамического конвертного шифрования (**DynamicEnvelopeEncryption**) для протоколов HLS и DASH (потоковая передача по другим протоколам будет блокироваться). **Asset** (ресурс, к которому нужно применить политики доставки) и **IContentKey** (ключ содержимого типа **EnvelopeEncryption**. Дополнительная информация: [Создание ключа содержимого](media-services-dotnet-create-contentkey.md#envelope_contentkey).
+Следующий метод **CreateAssetDeliveryPolicy** создает сущность **AssetDeliveryPolicy**, для которой настроено применение динамического конвертного шифрования (**DynamicEnvelopeEncryption**) для протоколов Smooth Streaming, HLS и DASH (если вы не укажите какие-либо протоколы, то потоковая передача по ним будет блокироваться). **Asset** (ресурс, к которому нужно применить политики доставки) и **IContentKey** (ключ содержимого типа **EnvelopeEncryption**. Дополнительная информация: [Создание ключа содержимого](media-services-dotnet-create-contentkey.md#envelope_contentkey).
 
 
 Информацию о том, какие значения можно задать при создании политики доставки ресурсов, см. в разделе [Типы, используемые при определении AssetDeliveryPolicy](#types).
@@ -189,7 +189,7 @@ HDS
             _context.AssetDeliveryPolicies.Create(
                         "AssetDeliveryPolicy",
                         AssetDeliveryPolicyType.DynamicEnvelopeEncryption,
-                        AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
+                        AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
                         assetDeliveryPolicyConfiguration);
 
         // Add AssetDelivery Policy to the asset
@@ -361,4 +361,4 @@ HDS
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

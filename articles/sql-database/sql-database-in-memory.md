@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Приступая к работе с SQL In-Memory | Microsoft Azure"
 	description="Технологии SQL In-Memory значительно повышают производительность транзакций и аналитических операций. Узнайте, как воспользоваться преимуществами этих технологий."
 	services="sql-database"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2016"
+	ms.date="08/29/2016"
 	ms.author="jodebrui"/>
 
 
@@ -528,4 +528,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - [Мониторинг хранилища In-Memory](sql-database-in-memory-oltp-monitoring.md) для компонента In-Memory OLTP.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

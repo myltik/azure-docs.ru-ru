@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Создание и передача образа виртуальной машины FreeBSD | Microsoft Azure"
    description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл), содержащий операционную систему FreeBSD, для создания виртуальной машины Azure."
    services="virtual-machines-linux"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="kyliel"/>
 
 # Создание и отправка виртуального жесткого диска FreeBSD в Azure
@@ -228,4 +228,4 @@
 
 	![Образ FreeBSD в Azure](./media/virtual-machines-linux-classic-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

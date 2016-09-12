@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Общие сведения о терминологии Service Fabric | Microsoft Azure"
    description="Общие сведения о терминологии Service Fabric. Обсуждаются ключевые понятия и термины, используемые в остальной части документации."
    services="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/11/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Общие сведения о терминологии Service Fabric
@@ -82,7 +82,7 @@ Service Fabric — это платформа распределенных си�
 
 Дополнительные сведения см. в статье [Выбор модели программирования для службы](service-fabric-choose-framework.md).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+.<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
 Дополнительные сведения о платформе Service Fabric см. в следующих статьях.
 
@@ -90,4 +90,4 @@ Service Fabric — это платформа распределенных си�
 - [Разработка приложений с использованием микрослужб](service-fabric-overview-microservices.md)
 - [Сценарии приложений](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

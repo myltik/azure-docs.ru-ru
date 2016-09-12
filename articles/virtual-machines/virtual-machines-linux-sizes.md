@@ -1,4 +1,4 @@
-<properties
+.<properties
  pageTitle="Размеры виртуальной машины Linux | Microsoft Azure"
  description="Список различных размеров виртуальных машин Linux в Azure."
  services="virtual-machines-linux"
@@ -14,7 +14,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="08/03/2016"
+ ms.date="08/29/2016"
  ms.author="cynthn"/>
 
 # Размеры виртуальных машин в Azure
@@ -23,4 +23,4 @@ ms.service="virtual-machines-linux"
 
 [AZURE.INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

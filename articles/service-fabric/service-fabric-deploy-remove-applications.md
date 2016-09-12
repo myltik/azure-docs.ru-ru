@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Развертывание приложения Service Fabric | Microsoft Azure"
    description="Развертывание и удаление приложений в Service Fabric"
    services="service-fabric"
@@ -7,13 +7,13 @@
    manager="timlt"
    editor=""/>
 
-<tags
+.<tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Развертывание и удаление приложений с помощью PowerShell
@@ -239,4 +239,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

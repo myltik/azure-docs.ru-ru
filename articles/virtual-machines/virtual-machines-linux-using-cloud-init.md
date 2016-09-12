@@ -1,4 +1,4 @@
-<properties
+.<properties
     pageTitle="Настройка виртуальной машины Linux во время создания с помощь cloud-init | Microsoft Azure"
     description="Настройка виртуальной машины Linux во время создания с помощь cloud-init."
     services="virtual-machines-linux"
@@ -15,54 +15,26 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/29/2016"
+    ms.date="08/30/2016"
     ms.author="v-livech"
 />
 
 # Настройка виртуальной машины Linux во время создания с помощь cloud-init
 
-В этой статье демонстрируется создание сценария cloud-init для задания имени узла, обновления установленных пакетов и управления учетными записями пользователей. Такие сценарии cloud-init затем будут использоваться во время создания виртуальной машины с помощью [интерфейса командной строки Azure](../xplat-cli-install.md).
+В этой статье демонстрируется создание сценария cloud-init для задания имени узла, обновления установленных пакетов и управления учетными записями пользователей. Сценарии cloud-init вызываются во время создания виртуальной машины с помощью интерфейса командной строки Azure (Azure CLI).
 
 ## Предварительные требования
 
-Необходимые компоненты: [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/), [открытый и закрытый ключи SSH](virtual-machines-linux-mac-create-ssh-keys.md), группа ресурсов Azure, в которой будут запускаться виртуальные машины Linux, и интерфейс командной строки Azure, установленный и переведенный в режим ARM с помощью `azure config mode arm`.
-
-## Введение
-
-При запуске новой виртуальной машины Linux вы получаете стандартную виртуальную машину, не настроенную под ваши потребности. [Cloud-init](https://cloudinit.readthedocs.org) — это стандартный способ добавления сценария или параметров конфигурации в виртуальную машину Linux при ее первоначальной загрузке.
-
-В Azure есть три разных способа внесения изменений в запускаемую виртуальную машину Linux.
-
-- Вы можете добавить сценарии с помощью cloud-init.
-- Вы можете добавить сценарии с помощью Azure [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md).
-- Вы можете задать пользовательские параметры в шаблоне Azure и использовать его для запуска и настройки виртуальной машины Linux. Шаблоны поддерживают cloud-init, расширение CustomScript для виртуальных машин и многие другие возможности.
-
-Для добавления сценариев в любой момент вы можете:
-
-- использовать SSH для выполнения команд напрямую, использовать Azure [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md) принудительно или в шаблоне Azure либо использовать стандартные средства управления конфигурацией, такие как Ansible, Salt, Chef и Puppet, работающие по протоколу SSH, после завершения загрузки виртуальной машины.
-
-Примечание. Хотя расширение [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md) просто выполняет сценарий от имени привилегированного пользователя, так же как при использовании протокола SSH, применение расширения для виртуальных машин обеспечивает ряд предлагаемых Azure возможностей, которые могут быть полезны в некоторых сценариях.
+Необходимые компоненты: [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/), [открытый и закрытый ключи SSH](virtual-machines-linux-mac-create-ssh-keys.md) и [интерфейс командной строки Azure](../xplat-cli-install.md), переведенный в режим Azure Resource Manager с помощью `azure config mode arm`.
 
 ## Быстрые команды
 
-Создание сценария cloud-init создания имени узла
+Создайте сценарий cloud-init.txt, который задает имя узла, обновляет все пакеты и добавляет в Linux пользователя sudo.
 
 ```bash
 #cloud-config
 hostname: exampleServerName
-```
-
-Создание сценария cloud-init обновления Linux при первой загрузке для семейства Debian
-
-```bash
-#cloud-config
 apt_upgrade: true
-```
-
-Создание сценария cloud-init добавления пользователя
-
-```bash
-#cloud-config
 users:
   - name: exampleUser
     groups: sudo
@@ -72,31 +44,96 @@ users:
       - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
+Создайте виртуальную машину Linux, используя cloud-init для ее настройки в процессе загрузки.
+
+```bash
+azure group create cloudinitexample westus
+```
+
+```bash
+azure vm create \
+--resource-group cloudinitexample \
+--name cloudinitexample \
+--location westus \
+--os-type Linux \
+--nic-name cloudinitnicexample \
+--vnet-name cloudinitvnetexample \
+--vnet-address-prefix 10.0.0.0/22 \
+--vnet-subnet-name cloudinitvsubnet \
+--vnet-subnet-address-prefix 10.0.0.0/24 \
+--image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+--ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+--admin-username ahmet \
+--custom-data cloud-init.txt
+
+```
+
+## Введение
+
+При запуске новой виртуальной машины Linux вы получаете стандартную виртуальную машину, не настроенную под ваши потребности. [Cloud-init](https://cloudinit.readthedocs.org) — это стандартный способ добавления сценария или параметров конфигурации в виртуальную машину Linux при ее первоначальной загрузке.
+
+В Azure есть три разных способа внесения изменений в виртуальную машину Linux в процессе ее развертывания или загрузки.
+
+- Внедрить сценарии с помощью cloud-init.
+- Внедрить сценарии с помощью [расширения VMAccess](virtual-machines-linux-using-vmaccess-extension.md) Azure.
+- Шаблон Azure с использованием cloud-init.
+- Шаблон Azure с использованием расширения [CustomScriptExtention](virtual-machines-linux-extensions-customscript.md).
+
+Для внедрения сценариев в любой момент после загрузки можно воспользоваться одним из ниже приведенных способов.
+
+- Подключиться по SSH для выполнения команд напрямую.
+- Внедрить сценарии с помощью [расширения VMAccess](virtual-machines-linux-using-vmaccess-extension.md) Azure принудительно или через шаблон Azure.
+- Воспользоваться средствами управления, такими как Ansible, Salt, Chef или Puppet.
+
+>[AZURE.NOTE]Расширение VMAccess выполняет сценарий от имени привилегированного пользователя, так же как при использовании протокола SSH. Однако применение расширения для виртуальных машин обеспечивает ряд предлагаемых Azure возможностей, которые могут быть полезны в некоторых сценариях.
+
+### Доступность cloud-init для псевдонимов быстрого создания образов виртуальных машин Azure:
+
+| Alias | Издатель | ПРЕДЛОЖЕНИЕ | SKU | Version (версия) | cloud-init |
+|:----------|:----------|:-------------|:------------|:--------|:-----------|
+| CentOS | OpenLogic | CentOS | 7,2 | последних | Нет |
+| CoreOS | CoreOS | CoreOS | Stable | последних | Да |
+| Debian | credativ | Debian | 8 | последних | Нет |
+| openSUSE | SUSE | openSUSE | 13\.2 | последних | Нет |
+| RHEL | Redhat | RHEL | 7,2 | последних | Нет |
+| UbuntuLTS | Canonical | UbuntuServer | 14\.04.4-LTS | последних | Да |
+
+Корпорация Майкрософт работает со своими партнерами над тем, чтобы сценарии cloud-init были добавлены в образы, предоставляемые ими для Azure.
+
+
 ## Подробное пошаговое руководство
 
 ### Добавление сценария cloud-init в создаваемую виртуальную машину с помощью интерфейса командной строки Azure
 
 Чтобы запустить сценарий cloud-init при создании виртуальной машины в Azure, укажите файл cloud-init с помощью параметра `--custom-data` интерфейса командной строки Azure.
 
-Примечание. Хотя в этой статье рассматривается использование параметра `--custom-data` для файлов cloud-init, с его помощью можно передавать произвольный код или файлы. Если виртуальная машина Linux уже знает, что делать с такими файлами, они выполняются автоматически.
+```bash
+azure group create cloudinitexample westus
+```
 
 ```bash
 azure vm create \
---resource-group exampleRG \
---name exampleVM \
+--resource-group cloudinitexample \
+--name cloudinitexample \
 --location westus \
---admin-username exampleAdminUserName \
 --os-type Linux \
---nic-name exampleNIC \
+--nic-name cloudinitnicexample \
+--vnet-name cloudinitvnetexample \
+--vnet-address-prefix 10.0.0.0/22 \
+--vnet-subnet-name cloudinitvsubnet \
+--vnet-subnet-address-prefix 10.0.0.0/24 \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
---custom-data cloud_init_script.txt
+--ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+--admin-username ahmet \
+--custom-data cloud-init.txt
+
 ```
 
 ### Создание сценария cloud-init для задания имени узла виртуальной машины Linux
 
 Один из самых простых, но наиболее важных параметров для любой виртуальной машины Linux — это имя узла. Его можно легко задать с помощью приведенного ниже сценария cloud-init.
 
-#### Пример сценария cloud-init с именем `cloud_config_hostname.txt`.
+#### Пример сценария cloud-init с именем `cloud_config_hostname.txt`
 
 ``` bash
 #cloud-config
@@ -107,14 +144,20 @@ hostname: exampleServerName
 
 ```bash
 azure vm create \
---resource-group exampleRG \
---name exampleVM \
+--resource-group cloudinitexample \
+--name cloudinitexample \
 --location westus \
---admin-username exampleAdminUserName \
 --os-type Linux \
---nic-name exampleNIC \
+--nic-name cloudinitnicexample \
+--vnet-name cloudinitvnetexample \
+--vnet-address-prefix 10.0.0.0/22 \
+--vnet-subnet-name cloudinitvsubnet \
+--vnet-subnet-address-prefix 10.0.0.0/24 \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+--ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+--admin-username ahmet \
 --custom-data cloud_config_hostname.txt
+
 ```
 
 Выполните вход и проверьте имя узла новой виртуальной машины.
@@ -136,17 +179,22 @@ exampleServerName
 apt_upgrade: true
 ```
 
-После загрузки новой виртуальной машины Linux все установленные пакеты мгновенно обновляются с помощью `apt-get`.
+После загрузки Linux все установленные пакеты обновляются через `apt-get`.
 
 ```bash
 azure vm create \
---resource-group exampleRG \
---name exampleVM \
+--resource-group cloudinitexample \
+--name cloudinitexample \
 --location westus \
---admin-username exampleAdminUserName \
 --os-type Linux \
---nic-name exampleNIC \
+--nic-name cloudinitnicexample \
+--vnet-name cloudinitvnetexample \
+--vnet-address-prefix 10.0.0.0/22 \
+--vnet-subnet-name cloudinitvsubnet \
+--vnet-subnet-address-prefix 10.0.0.0/24 \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+--ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+--admin-username ahmet \
 --custom-data cloud_config_apt_upgrade.txt
 ```
 
@@ -166,7 +214,7 @@ The following packages have been kept back:
 
 ### Создание сценария cloud-init для добавления пользователя в Linux
 
-Одной из первых задач, которую нужно выполнить в любой новой виртуальной машине Linux, является добавление пользователя для себя или для того, чтобы не использовалась учетная запись `root`. Это целесообразно и по соображениям безопасности, и с точки зрения удобства работы, так как добавление открытого ключа SSH в файл `~/.ssh/authorized_keys` этого пользователя позволяет выполнять безопасный вход по протоколу SSH, не вводя пароль.
+Одна из первых задач, которую необходимо выполнить на любой из новых виртуальных машин Linux, — это добавление пользователя для себя или для того, чтобы не использовалась учетная запись `root`. Ключи SSH наиболее эффективны для обеспечения безопасности и удобства использования. Они добавляются в файл `~/.ssh/authorized_keys` с помощью данного сценария cloud-init.
 
 #### Пример сценария cloud-init `cloud_config_add_users.txt` для семейства Debian
 
@@ -181,17 +229,22 @@ users:
       - ssh-rsa AAAAB3<snip>==exampleuser@slackwarelaptop
 ```
 
-После загрузки новой виртуальной машины Linux он создаст пользователя и добавит его в группу sudo.
+После загрузки Linux все внесенные в список пользователи создаются и добавляются в группу sudo.
 
 ```bash
 azure vm create \
---resource-group exampleRG \
---name exampleVM \
+--resource-group cloudinitexample \
+--name cloudinitexample \
 --location westus \
---admin-username exampleAdminUserName \
 --os-type Linux \
---nic-name exampleNIC \
+--nic-name cloudinitnicexample \
+--vnet-name cloudinitvnetexample \
+--vnet-address-prefix 10.0.0.0/22 \
+--vnet-subnet-name cloudinitvsubnet \
+--vnet-subnet-address-prefix 10.0.0.0/24 \
 --image-urn canonical:ubuntuserver:14.04.2-LTS:latest \
+--ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
+--admin-username ahmet \
 --custom-data cloud_config_add_users.txt
 ```
 
@@ -211,4 +264,12 @@ sudo:x:27:exampleUser
 exampleUser:x:1000:
 ```
 
-<!---HONumber=AcomDC_0504_2016-->
+## Дальнейшие действия
+
+Сценарии cloud-init становятся стандартным способом изменения виртуальной машины Linux при загрузке. Azure также поддерживает расширения виртуальных машин, которые позволяют изменить виртуальную машину Linux при загрузке или во время ее выполнения. Например, можно воспользоваться расширением VMAccessExtension, предоставляемым в Azure, для сброса данных SSH или сведений о пользователях во время выполнения виртуальной машины. При использовании cloud-init для сброса пароля требуется перезагрузка.
+
+[Обзор расширений и компонентов виртуальной машины](virtual-machines-linux-extensions-features.md)
+
+[Управление пользователями, SSH и проверка или восстановление дисков в виртуальных машинах Azure с помощью расширения VMAccess](virtual-machines-linux-using-vmaccess-extension.md)
+
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Известные проблемы Apache Spark в HDInsight | Microsoft Azure" 
 	description="Известные проблемы Apache Spark в HDInsight." 
 	services="hdinsight" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/06/2016" 
+	ms.date="08/25/2016" 
 	ms.author="nitinme"/>
 
 # Известные проблемы в работе кластера Apache Spark в HDInsight на платформе Linux
@@ -29,8 +29,8 @@
 
 Для решения этой проблемы выполните указанные ниже действия.
 
-1. Подключитесь к головному узлу по протоколу SSH. 
-2. Выполните следующую команду, чтобы найти идентификаторы приложений для интерактивных заданий, запущенных из Livy: 
+1. Подключитесь к головному узлу по протоколу SSH.
+2. Выполните следующую команду, чтобы найти идентификаторы приложений для интерактивных заданий, запущенных из Livy:
 
         yarn application –list
 
@@ -56,10 +56,10 @@
 
 **Устранение.**
  
-1. Добавьте hdiuser в группу Hadoop. 
-2. После создания кластера предоставьте разрешения 777 для каталога /var/log/spark. 
-3. В Ambari измените путь размещения журнала Spark на каталог с разрешениями 777.  
-4. Выполните команду spark-submit как sudo.  
+1. Добавьте hdiuser в группу Hadoop.
+2. После создания кластера предоставьте разрешения 777 для каталога /var/log/spark.
+3. В Ambari измените путь размещения журнала Spark на каталог с разрешениями 777.
+4. Выполните команду spark-submit как sudo.
 
 ## Проблемы, связанные с записными книжками Jupyter
 
@@ -104,7 +104,7 @@
 
 2. Перезапустите записную книжку, которую вы пытались запустить. Теперь ресурсов должно быть достаточно для создания сеанса.
 
-##См. также
+##Дополнительные материалы
 
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
@@ -130,7 +130,7 @@
 
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely on HDInsight Spark Linux cluster (Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -146,4 +146,4 @@
 
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

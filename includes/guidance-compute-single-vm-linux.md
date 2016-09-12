@@ -8,7 +8,7 @@
 
 Для подготовки виртуальной машины в Azure нужно больше подвижных частей, чем просто для ее создания. К таким элементам относятся вычислительные, сетевые ресурсы и ресурсы хранения.
 
-![[0]][0]
+.![[0]][0]
 
 - **Группа ресурсов.** [_Группа ресурсов_][resource-manager-overview] представляет собой контейнер, содержащий связанные ресурсы. Создайте группу ресурсов для хранения ресурсов виртуальной машины.
 
@@ -153,18 +153,19 @@
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. Этот файл определяет параметры виртуальной сети, например имя, адресное пространство, подсети и адреса всех необходимых DNS-серверов. Обратите внимание, что адреса подсети должны быть включены в адресное пространство виртуальной сети.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/virtualNetwork.parameters.json#L4-L21 -->
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg",
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg",
         "addressPrefixes": [
           "172.17.0.0/16"
         ],
         "subnets": [
           {
-            "name": "app1-subnet",
+            "name": "ra-single-vm-sn",
             "addressPrefix": "172.17.0.0/24"
           }
         ],
@@ -177,24 +178,23 @@
 - **[networkSecurityGroup.parameters.json][nsg-parameters]**. Этот файл содержит определения групп безопасности сети и их правил. Параметр `name` в блоке `virtualNetworkSettings` задает виртуальную сеть, к которой подключена группа безопасности сети. Параметр `subnets` в блоке `networkSecurityGroupSettings` идентифицирует все подсети в виртуальной сети, к которым применяются правила группы безопасности сети. Это должны быть элементы, определенные в файле **virtualNetwork.parameters.json**.
 
 	Правило безопасности, показанное в примере, позволяет пользователю подключаться к виртуальной машине через подключение SSH. Можно открыть дополнительные порты (или запретить доступ через определенные порты), добавив дополнительные элементы в массив `securityRules`.
-
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroups.parameters.json#L4-L36 -->
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
-    "networkSecurityGroupSettings": {
+    "networkSecurityGroupsSettings": {
       "value": [
         {
-          "name": "app1-nsg",
+          "name": "ra-single-vm-nsg",
           "subnets": [
-            "app1-subnet"
+            "ra-single-vm-sn"
+          ],
+          "networkInterfaces": [
           ],
           "securityRules": [
             {
@@ -223,17 +223,18 @@
 	azure vm image list westus redhat rhel
 	```
 
-	Параметр `subnetName` в разделе `nics` задает подсеть для виртуальной машины. Точно так же параметр `name` в разделе `virtualNetworkSettings` определяет используемую виртуальную сеть. Это должны быть имена подсети и виртуальной сети, которые были определены в файле **virtualNetwork.parameters.json**.
+	Параметр `subnetName` в разделе `nics` задает подсеть для виртуальной машины. Точно так же параметр `name` в разделе `virtualNetworkSettings` определяет используемую виртуальную сеть. Эти значения должны быть именами подсети и виртуальной сети, которые были определены в файле **virtualNetwork.parameters.json**.
 
 	Можно создать несколько виртуальных машин в одной учетной записи хранения или указать для каждой отдельную учетную запись, изменив параметры в разделе `buildingBlockSettings`. При создании нескольких виртуальных машин необходимо также указать в разделе `availabilitySet` имя группы доступности, которую вы хотите использовать или создать.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/virtualMachine.parameters.json#L4-L63 -->
 	```json
   "parameters": {
     "virtualMachinesSettings": {
       "value": {
-        "namePrefix": "app1",
+        "namePrefix": "ra-single-vm",
         "computerNamePrefix": "cn",
-        "size": "Standard_DS1",
+        "size": "Standard_DS1_v2",
         "osType": "linux",
         "adminUsername": "testuser",
         "adminPassword": "AweS0me@PW",
@@ -241,16 +242,19 @@
         "nics": [
           {
             "isPublic": "true",
-            "subnetName": "app1-subnet",
+            "subnetName": "ra-single-vm-sn",
             "privateIPAllocationMethod": "dynamic",
             "publicIPAllocationMethod": "dynamic",
+            "enableIPForwarding": false,
+            "dnsServers": [
+            ],
             "isPrimary": "true"
           }
         ],
         "imageReference": {
-          "publisher": "RedHat",
-          "offer": "RHEL",
-          "sku": "7.2",
+          "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "14.04.5-LTS",
           "version": "latest"
         },
         "dataDisks": {
@@ -264,22 +268,17 @@
         "osDisk": {
           "caching": "ReadWrite"
         },
+        "extensions": [ ],
         "availabilitySet": {
           "useExistingAvailabilitySet": "No",
           "name": ""
         }
-      },
-      "metadata": {
-        "description": "Settings for Virtual Machines"
       }
     },
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
     "buildingBlockSettings": {
@@ -287,9 +286,6 @@
         "storageAccountsCount": 1,
         "vmCount": 1,
         "vmStartIndex": 0
-      },
-      "metadata": {
-        "description": "Settings specific to the building block"
       }
     }
   }
@@ -321,8 +317,9 @@
 
 5. Откройте файл Deploy-ReferenceArchitecture.ps1 в папке "Сценарии" для редактирования и измените следующую строку, чтобы указать группу ресурсов, которую следует создать или использовать для хранения виртуальных машин и ресурсов, созданных с помощью сценария.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1#L37 -->
 	```powershell
-	$resourceGroupName = "app1-dev-rg"
+	$resourceGroupName = "ra-single-vm-rg"
 	```
 6. Измените каждый из JSON-файлов в папке Шаблоны/Linux, задав параметры для виртуальной сети, группы безопасности сети и виртуальной машины, как описано в предыдущем разделе "Компоненты решения".
 
@@ -346,14 +343,14 @@
 
 <!-- links -->
 
-[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/ru-RU/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]: ../articles/virtual-machines/virtual-machines-windows-create-availability-set.md
 [azure-cli]: ../articles/virtual-machines-command-line-tools.md
 [azure-linux]: ../articles/virtual-machines/virtual-machines-linux-azure-overview.md
 [azure-storage]: ../articles/storage/storage-introduction.md
 [blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
 [blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/ru-RU/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
@@ -372,26 +369,26 @@
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[reboot-logs]: https://azure.microsoft.com/ru-RU/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/ru-RU/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
+[Resize virtual machines]: https://azure.microsoft.com/ru-RU/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/resource-group-overview.md
 [select-vm-image]: ../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/regions/#services
+[services-by-region]: https://azure.microsoft.com/ru-RU/regions/#services
 [ssh-linux]: ../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-price]: https://azure.microsoft.com/pricing/details/storage/
 [virtual-machine-sizes]: ../articles/virtual-machines/virtual-machines-linux-sizes.md
 [vm-disk-limits]: ../articles/azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/
+[vm-sla]: https://azure.microsoft.com/ru-RU/support/legal/sla/virtual-machines/v1_0/
 [arm-templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
+[solution-script]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/deploy-reference-architecture.sh
 [vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualNetwork.parameters.json
-[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroup.parameters.json
+[nsg-parameters]: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/linux/networkSecurityGroups.parameters.json
 [vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/linux/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Архитектура с одной виртуальной машиной Linux в Azure"
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

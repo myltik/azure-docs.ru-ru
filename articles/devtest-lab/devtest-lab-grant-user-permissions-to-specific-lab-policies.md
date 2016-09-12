@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Предоставление пользователю разрешений для определенных политик лаборатории | Microsoft Azure"
 	description="Узнайте, как предоставить пользователю разрешения для определенных политик лаборатории в DevTest Labs исходя из его потребностей."
 	services="devtest-lab,virtual-machines,visual-studio-online"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Предоставление пользователю разрешений для определенных политик лаборатории
@@ -30,10 +30,10 @@
 
 Например, чтобы предоставить пользователям разрешения на чтение и запись в отношении политики **Allowed VM Sizes** (Допустимые размеры виртуальных машин), необходимо создать пользовательскую роль, работающую с действием **Microsoft.DevTestLab/labs/policySets/policies/***, а затем назначить пользователей этой роли в области **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-Дополнительные сведения о пользовательских ролях см. в разделе о [пользовательских ролях в Azure RBAC](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) статьи [Использование назначений ролей для управления доступом к ресурсам Azure Active Directory](../active-directory/role-based-access-control-configure.md).
+Дополнительные сведения о пользовательских ролях см. в разделе о [пользовательских ролях в Azure RBAC](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) статьи [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
 
 ##Создание пользовательской роли лаборатории с помощью PowerShell
-Чтобы начать работу, прочтите статью [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre), в которой рассказывается, как установить и настроить командлеты PowerShell.
+Чтобы начать работу, прочтите статью [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre), в которой рассказывается, как установить и настроить командлеты Azure PowerShell.
 
 Настроив командлеты Azure PowerShell, вы сможете выполнять следующие задачи:
 
@@ -81,11 +81,13 @@
 - AllowedVmSizesInLab
 - LabVmsShutdown
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Дальнейшие действия
 
 После того как пользователю будут предоставлены разрешения для определенных политик лаборатории, можно выполнить следующие действия.
 
-- [Защита доступа к лаборатории](devtest-lab-add-devtest-user.md).
+- [Безопасный доступ к лаборатории](devtest-lab-add-devtest-user.md).
 
 - [Определение политик лаборатории](devtest-lab-set-lab-policy.md).
 
@@ -93,6 +95,6 @@
 
 - [Создание пользовательских артефактов для виртуальных машин](devtest-lab-artifact-author.md).
 
-- [Добавление в лабораторию виртуальной машины с артефактами](devtest-lab-add-vm-with-artifacts.md).
+- [Добавление виртуальной машины с артефактами в лабораторию](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

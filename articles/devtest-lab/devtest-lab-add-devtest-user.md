@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Добавление владельцев и пользователей в лабораторию | Microsoft Azure"
 	description="Безопасное добавление пользователя, которого нет в вашей подписке, в Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Добавление владельцев и пользователей в лабораторию
@@ -103,4 +103,6 @@
 
 1. В колонке **Пользователи** отображаются добавленные роли и пользователи.
 
-<!---HONumber=AcomDC_0824_2016-->
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+<!---HONumber=AcomDC_0831_2016-->

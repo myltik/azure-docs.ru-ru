@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Авторизация учетных записей разработчиков с помощью протокола OAuth 2.0 в службе управления Azure API" 
 	description="Сведения об авторизации пользователей с помощью OAuth 2.0 в службе управления API." 
 	services="api-management" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # Авторизация учетных записей разработчиков с помощью протокола OAuth 2.0 в службе управления Azure API
@@ -146,7 +146,6 @@
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Начинаем работу с API Management]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
@@ -160,4 +159,4 @@
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

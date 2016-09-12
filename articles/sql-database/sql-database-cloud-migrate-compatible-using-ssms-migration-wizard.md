@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Перенос базы данных SQL Server в базу данных SQL с помощью мастера развертывания базы данных в базу данных Microsoft Azure | Microsoft Azure"
    description="База данных SQL Microsoft Azure, миграция базы данных, мастер баз данных Microsoft Azure"
    services="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/24/2016"
    ms.author="carlrab"/>
 
 # Миграция базы данных SQL Server в Базу данных SQL с помощью мастера развертывания базы данных в Базу данных Microsoft Azure
@@ -48,11 +48,17 @@
 
 	![Развертывание в Azure из меню "Задачи"](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard00.png)
 
-5.	Укажите **Имя новой базы данных** для нового имени базы данных, установите параметры **Выпуск Базы данных SQL Microsoft Azure** ([уровень службы](sql-database-service-tiers.md)), **Максимальный размер базы данных**, **Цель обслуживания** (уровень производительности) и **Имя временного файла** для [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-файла, создаваемого мастером в процессе переноса.
+5.	Предоставьте следующие данные для [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-файла, создаваемого этим мастером при переносе:
 
-	![Параметры экспорта](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+ - **имя новой базы данных**;
+ - **выпуск Базы данных SQL Microsoft Azure** ([уровень служб](sql-database-service-tiers.md));
+ - **максимальный размер базы данных**;
+ - **цель обслуживания** (уровень производительности);
+ - **имя временного файла**.
 
-6.	Завершите выполнение мастера, чтобы перенести базу данных. В зависимости от размера и сложности базы данных процесс развертывания может занять от нескольких минут до нескольких часов. Если мастер выявляет проблемы совместимости, ошибки отображаются на экране и миграция останавливается. Руководство по устранению проблем совместимости базы данных см. в разделе [Устранение проблем совместимости базы данных](sql-database-cloud-migrate-fix-compatibility-issues.md).
+    ![Параметры экспорта](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
+
+6.	Завершите работу мастера. В зависимости от размера и сложности базы данных процесс развертывания может занять от нескольких минут до нескольких часов. Если мастер выявляет проблемы совместимости, ошибки отображаются на экране и перенос останавливается. Руководство по устранению проблем совместимости базы данных см. в разделе [Устранение проблем совместимости базы данных](sql-database-cloud-migrate-fix-compatibility-issues.md).
 
 7.	В обозревателе объектов подключитесь к перенесенной базе данных на сервере базы данных SQL Azure.
 8.	На портале Azure просмотрите базу данных и ее свойства.
@@ -65,7 +71,7 @@
 ## Дополнительные ресурсы
 
 - [База данных SQL версии 12.](sql-database-v12-whats-new.md)
-- [Частично или полностью неподдерживаемые функции Transact-SQL](sql-database-transact-sql-information.md).
+- [Частично или полностью неподдерживаемые функции Transact-SQL.](sql-database-transact-sql-information.md)
 - [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

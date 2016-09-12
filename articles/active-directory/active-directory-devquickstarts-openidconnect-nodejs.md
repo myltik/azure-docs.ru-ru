@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Приступая к работе с входом и выходом Azure AD с помощью node.js"
 	description="Как создать веб-приложение Node.js Express MVC, которое интегрируется с Azure AD для входа."
 	services="active-directory"
@@ -51,17 +51,17 @@
     - **URI идентификатора приложения** — это уникальный идентификатор вашего приложения. Соглашение заключается в использовании `https://<tenant-domain>/<app-name>`, например, `https://contoso.onmicrosoft.com/my-first-aad-app`
 - После завершения регистрации Azure AD присваивает приложению уникальный идентификатор клиента. Это значение понадобится в следующих разделах, поэтому его стоит скопировать из вкладки «Настройка».
 
-## 2\. Добавление предварительных требований в ваш каталог
+## 2) Добавление предварительных требований в ваш каталог
 
 В командной строке сделайте текущей корневую папку, если это еще не было сделано, и выполните следующие команды:
 
 - `npm install express`
-- `npm install ejs`
-- `npm install ejs-locals`
-- `npm install restify`
-- `npm install mongoose`
-- `npm install bunyan`
-- `npm install assert-plus`
+- .`npm install ejs`
+- .`npm install ejs-locals`
+- .`npm install restify`
+- .`npm install mongoose`
+- .`npm install bunyan`
+- .`npm install assert-plus`
 - `npm install passport`
 
 - Кроме того, вам также потребуется `passport-azure-ad`:
@@ -214,7 +214,7 @@ app.configure(function() {
 app.get('/auth/openid',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    log.info('Authenitcation was called in the Sample');
+    log.info('Authentication was called in the Sample');
     res.redirect('/');
   });
 
@@ -286,12 +286,12 @@ app.get('/logout', function(req, res){
 
 ```JavaScript
 
-// Простое ПО промежуточного слоя для маршрутизации, позволяющее пользователю пройти проверку подлинности. (Раздел 4)
+// Simple route middleware to ensure user is authenticated. (Section 4)
 
-//   Используйте это ПО промежуточного слоя маршрутизации для всех ресурсов, которые необходимо защитить.  Если
-//   запрос пройдет проверку подлинности (обычно с помощью постоянного сеанса входа),
-//   запрос будет продолжен. В противном случае, пользователь будет перенаправлен на
-//   страницу входа.
+//   Use this route middleware on any resource that needs to be protected.  If
+//   the request is authenticated (typically via a persistent login session),
+//   the request will proceed.  Otherwise, the user will be redirected to the
+//   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
@@ -414,4 +414,4 @@ exports.list = function(req, res){
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

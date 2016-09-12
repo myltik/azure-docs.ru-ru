@@ -1,6 +1,6 @@
-<properties
+.<properties
  pageTitle="Центр IoT: руководство | Microsoft Azure"
- description="Разделы, посвященные шлюзам, подготовке устройств и проверке подлинности для разработки решений IoT с помощью центра IoT Azure."
+ description="Разделы, посвященные шлюзам, подготовке устройств и аутентификации для разработки решений IoT с помощью центра IoT Azure."
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -138,4 +138,4 @@ IoT решения хранят такие данные об отдельных 
 [lnk-sas-token]: iot-hub-sas-tokens.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

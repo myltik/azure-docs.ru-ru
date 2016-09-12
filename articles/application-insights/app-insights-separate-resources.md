@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Отдельные ресурсы Application Insights для разработки, тестирования и эксплуатации" 
 	description="Отслеживание производительности и использования приложения на разных этапах разработки" 
 	services="application-insights" 
@@ -90,7 +90,7 @@
     // Modify this part:
     }({instrumentationKey:  
       // Generate from server property:
-      @Microsoft.ApplicationInsights.Extensibility.
+      "@Microsoft.ApplicationInsights.Extensibility.
          TelemetryConfiguration.Active.InstrumentationKey"
     }) // ...
 
@@ -119,7 +119,7 @@
 
 Ключ инструментирования идентифицирует созданный вами ресурс.
 
-![Щелкните Essentials, выделите ключ инструментирования и нажмите клавиши CTRL + C.](./media/app-insights-separate-resources/02-props.png)
+.![Щелкните Essentials, выделите ключ инструментирования и нажмите клавиши CTRL + C.](./media/app-insights-separate-resources/02-props.png)
 
 Вам потребуются ключи инструментирования всех ресурсов, в которые приложение будет отправлять данные.
 
@@ -127,4 +127,4 @@
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

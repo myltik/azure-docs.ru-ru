@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Памятка по работе с автоматическим конвейером данных для создания прогнозов машинного обучения Azure | Microsoft Azure"
 	description="Пригодная для печати памятка по настройке автоматического конвейера данных в веб-службу машинного обучения Azure в зависимости от того, хранятся ли данные на локальном компьютере, транслируются в режиме реального времени или находятся в Azure или в независимой облачной службе."
 	services="machine-learning"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/19/2016"
 	ms.author="mithal;garye" />
 
 # Памятка по работе с автоматическим конвейером данных для создания прогнозов машинного обучения Azure
@@ -41,4 +41,4 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0831_2016-->

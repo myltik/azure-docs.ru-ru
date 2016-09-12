@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Управление устройствами с помощью пакета SDK для шлюза | Microsoft Azure"
 	description="Пошаговое руководство по пакету SDK для шлюза центра IoT Azure, в котором описывается, как реализовать управление устройствами при использовании пакета SDK для шлюза"
 	services="iot-hub"
@@ -425,4 +425,4 @@ systemctl status iotdm_edison_sample.service
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

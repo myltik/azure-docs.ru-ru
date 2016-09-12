@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Создание и передача виртуального жесткого диска с операционной системой SUSE Linux в Azure"
 	description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему SUSE Linux."
 	services="virtual-machines-linux"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 # Подготовка виртуальной машины SLES или openSUSE для Azure
@@ -25,26 +25,23 @@
 
 В этой статье предполагается, что вы уже установили операционную систему SUSE или openSUSE Linux на виртуальный жесткий диск. Существует несколько средств для создания VHD-файлов, например решение для виртуализации, такое как Hyper-V. Инструкции см. в разделе [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx).
 
- - [SUSE Studio](http://www.susestudio.com) можно с легкостью использовать для создания образов SLES и openSUSE для Azure и Hyper-V, а также для управления этими образами. Этот подход рекомендуется для настройки собственных образов SUSE и openSUSE. Следующие официальные образы в коллекции SUSE Studio можно загрузить или клонировать для вашей собственной SUSE Studio:
-
-  - [SLES 11 с пакетом обновления 3 (SP3) для Azure в коллекции SUSE Studio](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
-  - [openSUSE 13.1 для Azure в коллекции SUSE Studio](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
-
-
-- Вместо того чтобы создать собственный виртуальный жесткий диск, SUSE публикует образы BYOS (использование собственной подписки) для SLES в каталоге [VM Depot](https://vmdepot.msopentech.com/User/Show?user=1007).
-
-
 ### Замечания по установке SLES и openSUSE
 
 - Дополнительные сведения о подготовке Linux для Azure см. в разделе [Общие замечания по установке Linux](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes).
 
-- Формат VHDX не поддерживается в Azure, поддерживается только **постоянный VHD**. Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета convert-vhd.
+- Формат VHDX не поддерживается в Azure, поддерживается только **фиксированный VHD**. Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета convert-vhd.
 
 - При установке системы Linux рекомендуется использовать стандартные разделы, а не LVM (как правило, значение по умолчанию во многих дистрибутивах). Это позволит избежать конфликта имен LVM при клонировании виртуальных машин, особенно если диск с OC может быть подключен к другой ВМ в целях устранения неполадок. При желании на дисках данных можно использовать [LVM](virtual-machines-linux-configure-lvm.md) или [RAID](virtual-machines-linux-configure-raid.md).
 
 - Не настраивайте раздел подкачки на диске с ОС. Можно настроить агент Linux для создания файла подкачки на временном диске ресурсов. Дополнительные сведения описаны далее.
 
 - Все VHD-диски должны иметь размер, кратный 1 МБ.
+
+
+## Использование SUSE Studio
+[SUSE Studio](http://www.susestudio.com) можно с легкостью использовать для создания образов SLES и openSUSE для Azure и Hyper-V, а также для управления этими образами. Этот подход рекомендуется для настройки собственных образов SLES и openSUSE.
+
+Вместо того чтобы создать собственный виртуальный жесткий диск, SUSE публикует образы BYOS (использование собственной подписки) для SLES в каталоге [VM Depot](https://vmdepot.msopentech.com/User/Show?user=1007).
 
 
 ## Подготовка SUSE Linux Enterprise Server 11 с пакетом обновления 4 (SP4) ##
@@ -87,11 +84,11 @@
 
 	Перед изменением
 	
-		root=/dev/disk/bi-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1
+		root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1
 
 	После изменения
 	
-		root=/dev/disk/bi-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+		root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 10. Переместите или удалите правила udev, чтобы не создавать статические правила для интерфейса Ethernet. Эти правила приводят к появлению проблем при клонировании виртуальной машины в Microsoft Azure или Hyper-V:
 
@@ -211,4 +208,4 @@
 ## Дальнейшие действия
 Теперь виртуальный жесткий диск SUSE Linux можно использовать для создания новых виртуальных машин Azure. Если вы впервые отправляете VHD-файл в Azure, см. шаги 2 и 3 в статье [Создание и передача виртуального жесткого диска с операционной системой Linux](virtual-machines-linux-classic-create-upload-vhd.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

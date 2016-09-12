@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Уровни согласованности в DocumentDB | Microsoft Azure"
 	description="В DocumentDB есть четыре уровня согласованности, что позволяет сбалансировать компромиссы между согласованностью в конечном итоге, доступностью и задержками."
 	keywords="окончательная согласованность, documentdb, azure, Microsoft azure"
@@ -8,13 +8,13 @@
 	editor="cgronlun"
 	documentationCenter=""/>
 
-<tags
+.<tags
 	ms.service="documentdb"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/24/2016"
 	ms.author="mimig"/>
 
 # Уровни согласованности в DocumentDB
@@ -83,14 +83,14 @@
 
 ## Настройка уровня согласованности по умолчанию
 
-1.  На панели быстрых переходов [портала Azure](https://portal.azure.com/) щелкните **Учетные записи DocumentDB**.
+1.  На навигационной панели [портала Azure](https://portal.azure.com/) щелкните **DocumentDB (NoSQL)**.
 
-2. В колонке **Учетные записи DocumentDB** выберите учетную запись базы данных для изменения.
+2. В колонке **DocumentDB (NoSQL)** выберите учетную запись базы данных для изменения.
 
-3. В колонке учетных записей щелкните **Согласованность по умолчанию**.
+3. В колонке учетной записи щелкните **Согласованность по умолчанию**.
 
 
-4. В колонке **Согласованность по умолчанию** выберите новый уровень согласованности и нажмите кнопку **ОК**.
+4. В колонке **Согласованность по умолчанию** выберите новый уровень согласованности и щелкните **Сохранить**.
 
 	![Снимок экрана, на котором показан значок "Параметры" и запись "Согласованность по умолчанию"](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 
@@ -119,4 +119,4 @@
 
 [1]: ./media/documentdb-consistency-levels/consistency-tradeoffs.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

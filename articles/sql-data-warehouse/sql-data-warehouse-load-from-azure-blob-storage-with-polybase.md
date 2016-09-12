@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase) | Microsoft Azure"
    description="Сведения об использовании технологии PolyBase для загрузки данных из хранилища больших двоичных объектов Azure в хранилище данных SQL. Описание загрузки нескольких таблиц из общедоступных данных в схему хранилища данных Contoso Retail."
    services="sql-data-warehouse"
@@ -7,13 +7,13 @@
    manager="barbkess"
    editor=""/>
 
-<tags
+.<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 
@@ -249,7 +249,7 @@ CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey
 
 ### 4\.3. Отслеживание хода загрузки
 
-Ход выполнения загрузки можно отслеживать с помощью динамического административного представления (DMV) `[sys].[dm_pdw_exec_requests]`.
+Ход выполнения загрузки можно отслеживать с помощью динамических административных представлений.
 
 ```sql
 -- To see all requests
@@ -257,9 +257,31 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 
 -- To see a particular request identified by its label
 SELECT * FROM sys.dm_pdw_exec_requests as r;
-WHERE r.label = 'CTAS : Load [cso].[DimProduct]             '
-      OR r.label = 'CTAS : Load [cso].[FactOnlineSales]        '
+WHERE r.[label] = 'CTAS : Load [cso].[DimProduct]             '
+      OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
 ;
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+WHERE 
+    r.[label] = 'CTAS : Load [cso].[DimProduct]             '
+    OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
 ```
 
 ## 5\. Оптимизация сжатия columnstore
@@ -343,14 +365,12 @@ JOIN    [cso].[DimProduct]      AS p ON f.[ProductKey] = p.[ProductKey]
 GROUP BY p.[BrandName]
 ```
 
-Получайте удовольствие от экспериментов с хранилищем данных SQL.
-
 ## Дальнейшие действия
 Чтобы загрузить полный набор данных хранилища данных Contoso Retail, используйте сценарий из раздела "Дополнительные советы по разработке" статьи [Общие сведения о разработке для хранилища данных SQL][].
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
 [Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
 [Общие сведения о разработке для хранилища данных SQL]: sql-data-warehouse-overview-develop.md
@@ -360,15 +380,15 @@ GROUP BY p.[BrandName]
 [CTAS]: sql-data-warehouse-develop-ctas.md
 [label]: sql-data-warehouse-develop-label.md
 
-<!--MSDN references-->
+.<!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/ru-RU/library/dn935022.aspx
 [CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/ru-RU/library/dn935026.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
-<!--Other Web references-->
+.<!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [загрузки полного хранилища данных Contoso Retail]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

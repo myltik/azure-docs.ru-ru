@@ -1,5 +1,5 @@
- <properties
-	pageTitle="Создание приложений Spark Scala с помощью подключаемого модуля HDInsight для Eclipse | Microsoft Azure"
+ .<properties
+	pageTitle="Создание приложений Spark Scala с помощью средств HDInsight в наборе средств Azure для Eclipse | Microsoft Azure"
 	description="Узнайте, как создать автономное приложение Spark для работы в кластерах HDInsight Spark"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/30/2016"
 	ms.author="nitinme"/>
 
 
-# Использование подключаемого модуля средств HDInsight для Eclipse для создания приложений Spark для кластера Spark в HDInsight на платформе Linux
+# Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для Eclipse
 
-В этой статье приводятся пошаговые инструкции по разработке приложений Spark, написанных на языке Scala, и их отправке в кластер HDInsight Spark с помощью подключаемого модуля HDInsight для Eclipse. Подключаемый модуль можно использовать различным образом:
+В этой статье приводятся пошаговые инструкции по разработке приложений Spark, написанных на языке Scala, и их отправке в кластер HDInsight Spark с помощью средств HDInsight в наборе средств Azure для Eclipse. Эти средства можно использовать различным образом:
 
 * Для разработки и отправки приложений Scala Spark в кластер HDInsight Spark.
 * Для доступа к ресурсам кластера Azure HDInsight Spark.
@@ -52,25 +52,13 @@
 * Установите e(fx)clipse, перейдя на страницу [https://www.eclipse.org/efxclipse/install.html](https://www.eclipse.org/efxclipse/install.html).
 
 
-## Установка подключаемого модуля средств HDInsight для Eclipse
+## Установка средств HDInsight в наборе средств Azure для Eclipse
 
-1. Запустите интегрированную среду разработки Eclipse. Перейдите к расположению, куда вы скачали ZIP-файл пакета и извлекли его содержимое, перейдите в папку **/eclipse** и щелкните файл **eclipse.exe**. На экране приветствия щелкните **Help** (Справка) и выберите **Install New Software** (Установить новое программное обеспечение).
-
-	![Установка подключаемого модуля HDInsight](./media/hdinsight-apache-spark-eclipse-tool-plugin/install-hdinsight-plugin-1.png)
-
-2. На следующем экране в текстовом поле **Work with** (Работа с) введите **http://dl.microsoft.com/eclipse** и нажмите клавишу **ВВОД**. Установите флажок **Azure Toolkit for Eclipse** (Набор средств Azure для Eclipse) и снимите флажок **Contact all update sites during install to find required software** (Проверить все сайты обновления во время установки для поиска требуемого ПО). Нажмите кнопку **Далее**.
-
-	![Установка подключаемого модуля HDInsight](./media/hdinsight-apache-spark-eclipse-tool-plugin/install-hdinsight-plugin-2.png)
-
-3. В диалоговом окне **Install Details** (Сведения об установке) проверьте компоненты, которые будут установлены, и нажмите кнопку **Далее**.
-
-4. В диалоговом окне **Review Licenses** (Проверка лицензий) примите условия лицензии и нажмите кнопку **Готово**.
-
-5. После завершения установки будет предложено перезапустить Eclipse. Щелкните **Да** в диалоговом окне, чтобы перезапустить Eclipse.
+Средства HDInsight для Eclipse доступны в составе набора средств Azure для Eclipse. Инструкции по установке набора средств Azure см. в разделе [Установка набора средств Azure для Eclipse](../azure-toolkit-for-eclipse-installation.md).
 
 ## Вход в подписку Azure
 
-1. Откройте Azure Explorer. В меню **Window** (Окно) в интегрированной среде разработки выберите пункт **Show View** (Показать представление) и щелкните **Other** (Другие). В открывшемся диалоговом окне разверните **Azure** и щелкните **Azure Explorer**, а затем нажмите кнопку **ОК**.
+1. Запустите интегрированную среду разработки Eclipse и откройте Azure Explorer. В меню **Window** (Окно) в интегрированной среде разработки выберите пункт **Show View** (Показать представление) и щелкните **Other** (Другие). В открывшемся диалоговом окне разверните **Azure** и щелкните **Azure Explorer**, а затем нажмите кнопку **ОК**.
 
 	![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-1.png)
 
@@ -133,7 +121,7 @@
 
 		   ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-9.png)
 
-	7. Добавленная среда JRE должна появиться в списке значений параметра **Execution Environment** (Среда выполнения). Нажмите кнопку **Готово**
+	7. Добавленная среда JRE должна появиться в списке значений параметра **Execution Environment** (Среда выполнения). Нажмите кнопку **Finish** (Готово).
 
 	  	   ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-10.png)
 
@@ -141,7 +129,7 @@
 
 	![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-11.png)
 
-	Нажимайте кнопки **Готово**, пока не покинете диалоговое окно параметров проекта.
+	Нажимайте кнопки **Finish** (Готово), пока не покинете диалоговое окно параметров проекта.
 
 ## Создание приложения Scala для кластера HDInsight Spark
 
@@ -151,7 +139,7 @@
 
 	![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-1.png)
 
-3. В диалоговом окне **Create New File** (Создание файла) введите имя объекта и нажмите кнопку **Готово**.
+3. В диалоговом окне **Create New File** (Создание файла) введите имя объекта и нажмите кнопку **Finish** (Готово).
 
 	![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-2.png)
 
@@ -197,12 +185,12 @@
 
         ![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
 
-    В следующем разделе вы узнаете, как получить доступ к выходным данным задачи, используя подключаемый модуль HDInsight для Eclipse.
+    В следующем разделе вы узнаете, как получить доступ к выходным данным задачи, используя средства HDInsight в наборе средств Azure для Eclipse.
 
 
-## Доступ к кластерам HDInsight Spark и управление ими с помощью подключаемого модуля HDInsight для Eclipse
+## Доступ к кластерам HDInsight Spark и управление ими с помощью средств HDInsight в наборе средств Azure для Eclipse
 
-С помощью подключаемого модуля HDInsight можно выполнять различные операции.
+С помощью средств HDInsight можно выполнять различные операции.
 
 ### Доступ к контейнеру хранилища для кластера
 
@@ -226,12 +214,12 @@
 
 ### Управление подписками Azure
 
-По умолчанию подключаемый модуль HDInsight содержит список кластеров Spark из всех ваших подписок Azure. При необходимости можно указать подписки, кластеры которых вас интересуют. В **Azure Explorer** щелкните правой кнопкой мыши корневой узел **Azure**, а затем выберите пункт **Управление подписками**. В диалоговом окне снимите флажки напротив подписок, доступ к которым вам не требуется, и нажмите кнопку **Закрыть**. Если вы хотите выйти из своей подписки Azure, нажмите кнопку **Выйти**.
+По умолчанию средства HDInsight в наборе средств Azure для Eclipse содержат список кластеров Spark из всех ваших подписок Azure. При необходимости можно указать подписки, кластеры из которых вас интересуют. В **Azure Explorer** щелкните правой кнопкой мыши корневой узел **Azure**, а затем выберите пункт **Управление подписками**. В диалоговом окне снимите флажки напротив подписок, доступ к которым вам не требуется, и нажмите кнопку **Закрыть**. Если вы хотите выйти из своей подписки Azure, нажмите кнопку **Выйти**.
 
 
 ## Запуск приложения Spark Scala на локальном компьютере
 
-Подключаемый модуль HDInsight Tools для Eclipse позволяет запускать приложения Spark Scala локально на рабочей станции. Как правило, такие приложения не требуют доступа к ресурсам кластера, таким как контейнер хранилища, и могут запускаться и тестироваться локально.
+Средства HDInsight в наборе средств Azure для Eclipse позволяют запускать приложения Spark Scala локально на рабочей станции. Как правило, такие приложения не требуют доступа к ресурсам кластера, таким как контейнер хранилища, и могут запускаться и тестироваться локально.
 
 ### Предварительные требования
 
@@ -243,7 +231,7 @@
 
 	![Создание приложения Spark Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 
-	* В левой области выберите **HDInsight**.
+	* В левой области выберите пункт **HDInsight**.
 	* В правой области выберите **Spark on HDInsight Local Run Sample (Scala)** (Пример локального запуска Spark в HDInsight (Scala)).
 	* Нажмите кнопку **Далее**.
 
@@ -288,9 +276,9 @@
 
 ### Средства и расширения
 
-* [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Использование средств HDInsight в наборе средств Azure для IntelliJ для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely on HDInsight Spark Linux cluster (Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -306,4 +294,4 @@
 
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

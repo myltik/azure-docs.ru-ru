@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Несколько виртуальных IP-адресов для облачной службы"
    description="Обзор данных об использовании нескольких виртуальных IP-адресов и установке нескольких виртуальных IP-адресов для облачной службы"
    services="load-balancer"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/09/2016"
+   ms.date="08/25/2016"
    ms.author="sewhee" />
 
 # Несколько виртуальных IP-адресов для облачной службы
@@ -160,4 +160,4 @@
 
 [API REST зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

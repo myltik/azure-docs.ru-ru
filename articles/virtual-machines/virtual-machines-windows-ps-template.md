@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Создание виртуальной машины с помощью шаблона диспетчера ресурсов | Microsoft Azure"
 	description="Простое создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell."
 	services="virtual-machines-windows"
@@ -216,11 +216,13 @@
           }
         }
 
+    >[AZURE.NOTE] См. дополнительную информацию о [требованиях к имени пользователя и паролю](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 2. Сохраните файл параметров.
 
 ## Шаг 3. Установка Azure PowerShell
 
-Сведения о том, как установить последнюю версию Azure PowerShell, выбрать нужную подписку и войти в учетную запись Azure, см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Сведения об установке последней версии Azure PowerShell, выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 ## Шаг 4. Создание группы ресурсов
 
@@ -281,7 +283,7 @@
 
 ## Дальнейшие действия
 
-- При наличии проблем с развертыванием ознакомьтесь с [устранением неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
-- Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C#](virtual-machines-windows-ps-manage.md).
+- При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Узнайте, как управлять созданной виртуальной машиной, прочитав статью об [управлении виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

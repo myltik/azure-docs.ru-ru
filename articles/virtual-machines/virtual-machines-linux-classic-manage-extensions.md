@@ -1,4 +1,4 @@
-<properties
+.<properties
  pageTitle="Управление расширениями виртуальной машины | Microsoft Azure"
  description="Описывает, как добавить, найти, обновить и удалить расширения для виртуальных машин Azure в классической модели развертывания."
  services="virtual-machines-linux"
@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="infrastructure-services"
- ms.date="04/15/2016"
+ ms.date="08/29/2016"
  ms.author="rasquill"/>
 
 #Управление расширениями виртуальной машины
@@ -24,4 +24,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

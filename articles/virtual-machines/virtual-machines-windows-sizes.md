@@ -1,4 +1,4 @@
-<properties
+.<properties
  pageTitle="Размеры виртуальной машины Windows | Microsoft Azure"
  description="Список различных размеров виртуальных машин Windows в Azure."
  services="virtual-machines-windows"
@@ -14,7 +14,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="infrastructure-services"
- ms.date="08/03/2016"
+ ms.date="08/29/2016"
  ms.author="cynthn"/>
 
 # Размеры виртуальных машин в Azure
@@ -23,4 +23,4 @@ ms.service="virtual-machines-windows"
 
 [AZURE.INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Что такое DevTest Labs? | Microsoft Azure"
 	description="Узнайте, как DevTest Labs может упростить создание и отслеживание виртуальных машин Azure, а также управление ими."
 	services="devtest-lab,virtual-machines"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 #Что такое DevTest Labs?
@@ -32,8 +32,10 @@ Azure DevTest Labs — это служба, помогающая разрабо
 
 > [AZURE.VIDEO what-is-azure-devtest-labs]
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ##Дальнейшие действия
 
 [Преимущества DevTest Labs](devtest-lab-why.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

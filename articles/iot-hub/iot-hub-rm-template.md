@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Создание центра IoT с помощью программы C# и шаблона диспетчера ресурсов Azure | Microsoft Azure"
 	description="Следуйте инструкциям этого учебника, чтобы приступить к работе с помощью шаблонов диспетчера ресурсов и создать центр IoT с помощью программы C#."
 	services="iot-hub"
@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-<tags
+.<tags
      ms.service="iot-hub"
      ms.devlang="dotnet"
      ms.topic="article"
@@ -200,9 +200,9 @@
 
 ## Дальнейшие действия
 
-После развертывания центра IoT с использованием шаблона Resource Manager и программы на C# вас могут заинтересовать следующие статьи:
+После развертывания центра IoT с использованием шаблона Azure Resource Manager и программы на C# вас могут заинтересовать следующие статьи:
 
-- Ознакомьтесь с возможностями [интерфейсов API REST поставщика ресурсов][lnk-rest-api].
+- Ознакомьтесь с возможностями [API REST поставщика ресурсов центра IoT][lnk-rest-api].
 - Сведения о дополнительных возможностях диспетчера ресурсов Azure см. в статье [Обзор диспетчера ресурсов Azure][lnk-azure-rm-overview].
 
 Дополнительные сведения о разработке для центра IoT см. в следующих руководствах.
@@ -217,7 +217,7 @@
 - [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
 - [Управление центрами IoT через портал Azure][lnk-portal]
 
-<!-- Links -->
+.<!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-powershell-install]: ../powershell-install-configure.md
@@ -233,4 +233,4 @@
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

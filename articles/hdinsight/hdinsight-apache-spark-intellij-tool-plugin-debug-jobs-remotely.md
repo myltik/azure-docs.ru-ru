@@ -1,6 +1,6 @@
- <properties
-	pageTitle="Удаленная отладка приложений Spark в кластерах HDInsight Spark с помощью подключаемого модуля HDInsight для IntelliJ IDEA | Microsoft Azure"
-	description="Узнайте, как выполнять удаленную отладку приложений, выполняющихся в кластерах HDInsight Spark, используя подключаемый модуль HDInsight для IntelliJ IDEA."
+ .<properties
+	pageTitle="Удаленная отладка приложений Spark в кластерах HDInsight Spark с помощью средств HDInsight для набора средств Azure для IntelliJ | Microsoft Azure"
+	description="Узнайте, как использовать средства HDInsight в наборе средств Azure для IntelliJ для удаленной отладки приложений Spark в кластерах HDInsight Spark."
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/26/2016"
 	ms.author="nitinme"/>
 
 
-# Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA
+# Удаленная отладка приложений Spark в кластере HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ
 
-В этой статье приводятся пошаговые инструкции по использованию подключаемого модуля средств HDInsight для IntelliJ IDEA с целью отправки задания Spark в кластер HDInsight Spark и его удаленной отладки с настольного компьютера. Для этого необходимо выполнить перечисленные ниже общие шаги.
+В этой статье приводятся пошаговые инструкции по использованию средств HDInsight в наборе средств Azure для IntelliJ для отправки задания Spark в кластер HDInsight Spark и его удаленной отладки с настольного компьютера. Для этого необходимо выполнить перечисленные ниже общие шаги.
 
 1. Создание виртуальной сети Azure типа "сеть — сеть" или "точка — сеть". В инструкциях в этом документе предполагается, что вы используете тип "сеть — сеть".
 
@@ -42,7 +42,7 @@
  
 * IntelliJ IDEA. В этой статье используется версия 15.0.1. Его можно установить [отсюда](https://www.jetbrains.com/idea/download/).
  
-* Подключаемый модуль средств HDInsight для IntelliJ IDEA. Подключаемый модуль средств HDInsight для IntelliJ IDEA доступен в составе набора средств Azure для IntelliJ. Инструкции по установке набора средств Azure см. в разделе [Установка набора средств Azure для IntelliJ](../azure-toolkit-for-intellij-installation.md).
+* Средства HDInsight в наборе средств Azure для IntelliJ. Средства HDInsight для IntelliJ доступны в составе набора средств Azure для IntelliJ. Инструкции по установке набора средств Azure см. в разделе [Установка набора средств Azure для IntelliJ](../azure-toolkit-for-intellij-installation.md).
  
 * При запуске приложения Spark Scala для удаленной отладки на компьютере Windows может возникнуть исключение, описанное в [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) и связанное с отсутствием в Windows файла WinUtils.exe. Чтобы обойти эту ошибку, [скачайте этот исполняемый файл отсюда](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe), например, в папку **C:\\WinUtils\\bin**. После этого добавьте переменную среды **HADOOP\_HOME** и присвойте ей значение **C\\WinUtils**.
 
@@ -97,7 +97,7 @@
 
 7. Повторите эти действия на другом головном узле.
 
-## Шаг 4. Создание приложения Spark Scala при помощи подключаемого модуля HDInsight IntelliJ IDEA и его настройка для удаленной отладки
+## Шаг 4. Создание приложения Spark Scala при помощи средств HDInsight в наборе средств Azure для IntelliJ и его настройка для удаленной отладки
 
 1. Запустите IntelliJ IDEA и создайте проект. В диалоговом окне нового проекта установите параметры, как на снимке экрана ниже, а затем нажмите кнопку **Next** («Далее»).
 
@@ -328,9 +328,9 @@
 
 ### Средства и расширения
 
-* [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Использование средств HDInsight в наборе средств Azure для IntelliJ для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Использование подключаемого модуля средств HDInsight для Eclipse для создания приложений Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Использование средств HDInsight в наборе средств Azure для Eclipse для создания приложений Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -344,6 +344,6 @@
 
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
-* [Track and debug jobs running on Apache Spark cluster in HDInsight Linux (Отслеживание и отладка заданий в кластере Apache Spark в Linux HDInsight)](hdinsight-apache-spark-job-debugging.md)
+* [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

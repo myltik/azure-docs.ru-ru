@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Пример жизненного цикла приложения на основе REST | Microsoft Azure"
    description="Пример Microsoft Azure Service Fabric, в котором демонстрируется жизненный цикл приложения с использованием интерфейса REST Service Fabric."
    services="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/02/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Пример жизненного цикла приложения на основе REST
@@ -709,4 +709,4 @@ namespace ServiceFabricRestCaller
 
 [Жизненный цикл приложений Service Fabric](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

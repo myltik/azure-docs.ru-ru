@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Развертывание контейнера ASP.NET Core в Linux на удаленном узле Docker | Microsoft Azure"
    description="Узнайте, как использовать средства Visual Studio для Docker для развертывания веб-приложения ASP.NET Core в контейнере Docker, работающем на виртуальной машине узла Docker под управлением Linux в Azure"   
    services="azure-container-service"
@@ -33,13 +33,13 @@ Docker — это облегченная платформа контейнеро
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 2\. Добавление поддержки Docker
+## 2) Добавление поддержки Docker
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
 ## 3\. Использование сценария PowerShell DockerTask.ps1 
 
-1.  В командной строке PowerShell перейдите в корневой каталог проекта. 
+1.  В командной строке PowerShell перейдите в корневой каталог проекта.
 
     ```
     PS C:\Src\WebApplication1>
@@ -64,7 +64,7 @@ Docker — это облегченная платформа контейнеро
     > [AZURE.NOTE] При использовании бета-версии Docker не указывайте аргумент -Machine.
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
     > ```  
 
 
@@ -77,7 +77,7 @@ Docker — это облегченная платформа контейнеро
     > [AZURE.NOTE] При использовании бета-версии Docker не указывайте аргумент -Machine.
     > 
     > ```
-    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
+    > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
     > ```
 
 	По завершении работы Docker должны отобразиться результаты, аналогичные приведенным ниже.
@@ -89,4 +89,4 @@ Docker — это облегченная платформа контейнеро
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0831_2016-->

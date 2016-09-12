@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Настройка виртуальной сети для лаборатории | Microsoft Azure"
 	description="Узнайте, как настроить существующую виртуальную сеть и подсеть и использовать их в виртуальной машине в DevTest Labs."
 	services="devtest-lab,virtual-machines"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Настройка виртуальной сети для лаборатории
@@ -27,7 +27,7 @@
 
 1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Щелкните **Обзор**, а затем из списка выберите **DevTest Labs**.
+1. Щелкните **Обзор**, а затем выберите в списке **DevTest Labs**.
 
 1. Из списка лабораторий выберите нужную лабораторию.
 
@@ -65,8 +65,10 @@
 
 1. После настройки виртуальной сети ее можно выбирать при создании новой виртуальной машины. Об этом рассказывается в статье [Добавление виртуальной машины с артефактами в лабораторию](devtest-lab-add-vm-with-artifacts.md).
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Дальнейшие действия
 
 После добавления в лабораторию нужных виртуальных сетей следует [добавить виртуальную машину в лабораторию](devtest-lab-add-vm-with-artifacts.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

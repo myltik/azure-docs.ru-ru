@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Подготовка виртуального жесткого диска Windows к передаче в Azure | Microsoft Azure"
 	description="Рекомендации по подготовке виртуального жесткого диска Windows к передаче в Azure."
 	services="virtual-machines-windows"
@@ -8,7 +8,7 @@
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags
+.<tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
@@ -26,7 +26,7 @@
 
 Убедитесь в правильной работе виртуального жесткого диска Windows на локальном сервере. Устраните все ошибки в виртуальной машине, прежде чем ее преобразовывать или передавать в Azure.
 
-Если необходимо преобразовать виртуальный диск в требуемый формат для Azure, используйте один из методов, указанных в следующих разделах.
+Если необходимо преобразовать виртуальный диск в требуемый формат для Azure, используйте один из методов, указанных в следующих разделах. Перед запуском процесса преобразования виртуального диска или программы Sysprep выполните архивацию виртуальной машины.
 
 ### Преобразование с помощью диспетчера Hyper-V
 - Откройте диспетчер Hyper-V и выберите свой локальный компьютер в левой части окна. В меню над ним выберите **Действие** > **Изменить диск…**.
@@ -66,7 +66,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 3. Настройте для политики SAN дисков значение [Onlineall](https://technet.microsoft.com/library/gg252636.aspx).
 
 	```
-	dispart san policy=onlineall
+	diskpart san policy=onlineall
 	```
 
 4. Используйте время в формате UTC для Windows и установите для типа запуска службы времени Windows (w32time) значение **Автоматически**.
@@ -287,6 +287,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 	- [Запись образа виртуальной машины Windows в модели развертывания диспетчера ресурсов](virtual-machines-windows-capture-image.md)
 	- [Запись образа виртуальной машины Azure Windows, созданной с использованием классической модели развертывания](virtual-machines-windows-classic-capture-image.md)
+	- [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep)
 
 
 ## Рекомендуемые дополнительные конфигурации
@@ -320,4 +321,4 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 - [Отправка образа виртуальной машины Windows в Azure для развертываний Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

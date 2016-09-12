@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Уровни производительности в DocumentDB | Microsoft Azure" 
-	description="Узнайте, каким образом с помощью уровней производительности в DocumentDB можно резервировать пропускную способность для каждой коллекции." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+.<properties
+	pageTitle="Уровни производительности в DocumentDB | Microsoft Azure"
+	description="Узнайте, каким образом с помощью уровней производительности в DocumentDB можно резервировать пропускную способность для каждой коллекции."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2016" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2016"
 	ms.author="mimig"/>
 
 # Уровни производительности в DocumentDB
@@ -109,13 +109,13 @@ DocumentDB предлагает широкий набор операций в б
 
       ![Снимок экрана колонки "База данных" и коллекции S1](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
 
-4. В колонке **Коллекции** щелкните **Параметры** на верхней панели.
+4. В колонке **Коллекции** выберите **Дополнительно**, а затем щелкните **Параметры** на верхней панели.
 5. В колонке **Параметры** щелкните **Ценовая категория**, чтобы отобразить оценку ежемесячных затрат для каждого плана в колонке **Выбор ценовой категории**. Для изменения пользовательской пропускной способности щелкните **Стандартная** и нажмите кнопку **Выбрать**, чтобы сохранить изменения.
 
       ![Снимок экрана с колонками "База данных" и "Выбор ценовой категории"](./media/documentdb-performance-levels/documentdb-change-performance.png)
 
-6. В колонке **Параметры** значение **Ценовая категория** изменилось на **Стандартная** и появилось поле **Пропускная способность (единицы запросов в секунду)** со значением 400 (единиц запросов в секунду) по умолчанию. Задайте пропускную способность от 400 до 10 000 [единиц запроса](documentdb-request-units.md) в секунду. **Сводка по ценам** в нижней части страницы автоматически обновляется, показывая оценку ежемесячных расходов. Нажмите кнопку **ОК**, чтобы сохранить изменения.
-    
+6. В колонке **Параметры** значение **Ценовая категория** изменилось на **Стандартная** и появилось поле **Пропускная способность (единицы запросов в секунду)** со значением 400 (единиц запросов в секунду) по умолчанию. Задайте пропускную способность от 400 до 10 000 [единиц запросов](documentdb-request-units.md) в секунду. **Сводка по ценам** в нижней части страницы автоматически обновляется, показывая оценку ежемесячных расходов. Нажмите кнопку **ОК**, чтобы сохранить изменения.
+
 	![Снимок экрана колонки "Параметры", на котором показано, где можно изменить значение пропускной способности](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
 
 7. В колонке **База данных** можно проверить новое значение пропускной способности для коллекции.
@@ -137,17 +137,17 @@ DocumentDB предлагает широкий набор операций в б
 		              .Where(r => r.ResourceLink == collection.SelfLink)    
 		              .AsEnumerable()
 		              .SingleOrDefault();
-	                          
+
 	// Set the throughput to 5000 request units per second
 	offer = new OfferV2(offer, 5000);
-	                    
+
 	//Now persist these changes to the database by replacing the original resource
 	await client.ReplaceOfferAsync(offer);
 
 	// Set the throughput to S2
 	offer = new Offer(offer);
 	offer.OfferType = "S2";
-	                    
+
 	//Now persist these changes to the database by replacing the original resource
 	await client.ReplaceOfferAsync(offer);
 
@@ -164,7 +164,7 @@ DocumentDB предлагает широкий набор операций в б
 
 ## <a id="change-throughput"></a>Изменение пропускной способности коллекции
 
-Если вы уже используете производительность по определенным пользователем показателям, то можете изменить пропускную способность коллекции, выполнив следующие действия. Для изменения уровня производительности S1, S2 или S3 (по заранее определенным показателям) на производительность по определенным пользователем показателям см. раздел [Переход с уровней производительности S1, S2 и S3 на производительность по определенным пользователем показателям](#changing-performance-levels-using-the-azure-portal).
+Если вы уже используете производительность по определенным пользователем показателям, то можете изменить пропускную способность коллекции, выполнив следующие действия. Для изменения уровня производительности S1, S2 или S3 (по заранее определенным показателям) на производительность по определенным пользователем показателям см. раздел [Переход с уровней производительности S1, S2 и S3 на уровень производительности, определенный пользователем](#changing-performance-levels-using-the-azure-portal).
 
 1. В браузере откройте [**портал Azure**](https://portal.azure.com).
 2. Последовательно щелкните элементы **Обзор** -> **Учетные записи DocumentDB**, затем выберите учетную запись DocumentDB для изменения.
@@ -172,14 +172,14 @@ DocumentDB предлагает широкий набор операций в б
 4. В колонке **Коллекции** щелкните **Параметры** на верхней панели.
 5. В колонке **Параметры** увеличьте значение в поле **Пропускная способность (единицы запросов в секунду)**, а затем нажмите кнопку **ОК**, чтобы сохранить изменение. **Сводка по ценам** в нижней части колонки обновляется, показывая новую оценку ежемесячных расходов для данной коллекции в одном регионе.
 
-    ![Снимок экрана колонки "Параметры", на котором выделены поля "Пропускная способность" и "Сводка по ценам"](./media/documentdb-performance-levels/documentdb-change-throughput.png)
- 
-Если вы не знаете точно, на сколько увеличивать пропускную способности, см. разделы [Оценка требований к пропускной способности](documentdb-request-units.md#estimating-throughput-needs) и [Калькулятор единиц запросов](https://www.documentdb.com/capacityplanner).
+    ![Снимок экрана колонки "Параметры", на котором выделены поля "Пропускная способность" и "Сводка по ценам"](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
+
+Если вы не знаете точно, на сколько увеличивать пропускную способности, см. раздел [Оценка требований к пропускной способности](documentdb-request-units.md#estimating-throughput-needs) и страницу [калькулятора единиц запросов](https://www.documentdb.com/capacityplanner).
 
 ## Дальнейшие действия
 
 Дополнительные сведения о ценах и управление данными с помощью Azure DocumentDB см. в следующих статьях.
- 
+
 - [Цены на DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Управление емкостью DocumentDB](documentdb-manage.md)
 - [Моделирование данных в DocumentDB](documentdb-modeling-data.md)
@@ -188,9 +188,9 @@ DocumentDB предлагает широкий набор операций в б
 
 Дополнительные сведения о DocumentDB можно найти в [документации](https://azure.microsoft.com/documentation/services/documentdb/) по Azure DocumentDB.
 
-Инструкции по тестированию масштабирования и производительности с помощью DocumentDB см. в [этой статье](documentdb-performance-testing.md).
+Инструкции по тестированию масштабирования и производительности с помощью Azure DocumentDB см. в [этой статье](documentdb-performance-testing.md).
 
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

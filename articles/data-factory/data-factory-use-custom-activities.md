@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Использование настраиваемых действий в конвейере фабрики данных Azure"
 	description="Узнайте, как создавать пользовательские действия и использовать их в конвейере фабрики данных Azure."
 	services="data-factory"
@@ -526,7 +526,7 @@
 		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
-		            "folderPath": "adftutorial/customactivityoutput",
+		            "folderPath": "adftutorial/customactivityoutput/",
 		            "partitionedBy": [
 		                {
 		                    "name": "slice",
@@ -615,7 +615,7 @@
 
 	- Для свойства **Concurrency** установлено значение **2**, чтобы 2 среза параллельно обрабатывались 2 виртуальными машинами в пуле пакетной службы Azure.
 	- в разделе действий содержится одно действие типа **DotNetActivity**;
-	- для **AssemblyName** установлено имя библиотеки DLL **MyActivities.dll**;
+	- Для **AssemblyName** установлено имя библиотеки DLL **MyDotnetActivity.dll**.
 	- для **EntryPoint** — **MyDotNetActivityNS.MyDotNetActivity**;
 	- Для параметра **PackageLinkedService** задано значение **AzureStorageLinkedService**, которое указывает на хранилище BLOB-объектов, содержащее ZIP-файл пользовательского действия. Если для входных и выходных файлов и ZIP-файла настраиваемого действия используются разные учетные записи службы хранилища Azure, необходимо создать другую связанную службу хранилища Azure. В этой статье предполагается использование одной и той же учетной записи службы хранилища Azure.
 	- Для **PackageFile** установлено значение **customactivitycontainer/MyDotNetActivity.zip**. Используется формат <контейнер\_для\_zip-файла>/<имя\_zip-файла.zip>.
@@ -896,4 +896,4 @@
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

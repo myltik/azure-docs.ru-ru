@@ -1,4 +1,4 @@
-<properties 
+.<properties 
     pageTitle="Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью портала Azure | Microsoft Azure" 
     description="Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью портала Azure" 
     services="sql-database" 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-management" 
-    ms.date="07/19/2016"
+    ms.date="08/29/2016"
     ms.author="sstein"/>
 
 # Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью портала Azure
@@ -49,6 +49,7 @@
 
 ## Дальнейшие действия   
 
+- После отработки отказа убедитесь, что для новой базы данных-источника настроены требования аутентификации ваших сервера и базы данных. Дополнительные сведения см. в разделе [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
 - Чтобы изучить восстановление после сбоя с помощью активной георепликации, включая предварительные и последующие действия и отработку аварийного восстановления, ознакомьтесь с разделом [Отработка аварийного восстановления](sql-database-disaster-recovery.md).
 - Прочитайте запись блога Александра Носова об активной георепликации: [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Новые возможности георепликации).
 - Сведения о проектировании облачных приложений для использования активной георепликации см. в разделе [Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
@@ -62,4 +63,4 @@
 [1]: ./media/sql-database-geo-replication-failover-portal/failover.png
 [2]: ./media/sql-database-geo-replication-failover-portal/secondaries.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Использование MapReduce и PowerShell с Hadoop | Microsoft Azure"
    description="Информация об использовании PowerShell для удаленного выполнения заданий MapReduce с помощью Hadoop в HDInsight."
    services="hdinsight"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/02/2016"
+   ms.date="08/29/2016"
    ms.author="larryfr"/>
 
-#Выполнение запросов Hive с помощью PowerShell с использованием Hadoop в HDInsight
+# Выполнение заданий MapReduce с помощью PowerShell с использованием Hadoop в HDInsight
 
 [AZURE.INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
@@ -35,11 +35,11 @@
 
 ##<a id="powershell"></a>Выполнение задания MapReduce с помощью Azure PowerShell
 
-Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название – Templeton) на кластере HDInsight.
+Azure PowerShell предоставляет *командлеты*, позволяющие удаленно запускать задания MapReduce в HDInsight. Внутренне это достигается с помощью выполнения вызовов REST для [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (прежнее название — Templeton) на кластере HDInsight.
 
 При выполнении заданий MapReduce в удаленном кластере HDInsight используются следующие командлеты:
 
-* **Login-AzureRmAccount** — выполняет проверку подлинности Azure PowerShell для подписки Azure.
+* **Login-AzureRmAccount** — выполняет аутентификацию Azure PowerShell для подписки Azure.
 
 * **New-AzureRmHDInsightMapReduceJobDefinition** — создает новое *определение задания*, используя заданную информацию MapReduce.
 
@@ -124,7 +124,7 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 		.\mapreducejob.ps1
     
-    При запуске сценария вам может быть предложено пройти проверку подлинности для вашей подписки Azure. Также вам будет предложено ввести сведения HTTPS/имя и пароль учетной записи администратора для кластера HDInsight.
+    При запуске сценария вам может быть предложено аутентифицироваться в подписке Azure. Также вам будет предложено ввести сведения HTTPS/имя и пароль учетной записи администратора для кластера HDInsight.
 
 3. По завершении задания выходные данные должны выглядеть примерно так:
 
@@ -183,4 +183,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

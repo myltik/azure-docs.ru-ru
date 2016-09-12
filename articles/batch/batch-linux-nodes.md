@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Узлы Linux в пулах пакетной службы Azure | Microsoft Azure"
 	description="Узнайте, как обрабатывать параллельные вычислительные рабочие нагрузки в пулах виртуальных машин Linux в пакетной службе Azure."
 	services="batch"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="06/03/2016"
+	ms.date="08/26/2016"
 	ms.author="marsma" />
 
 # Подготовка вычислительных узлов Linux в пулах пакетной службы Azure
@@ -198,7 +198,7 @@ ImageReference imageReference = new ImageReference(
 
 ## Список образов виртуальных машин
 
-В следующей таблице указаны образы виртуальных машин из Marketplace, которые совместимы с доступными агентами узлов пакетной службы на момент написания этой статьи. Важно отметить, что этот список не является окончательным, так как в любое время образы и агенты узлов могут добавляться или удаляться. Рекомендуем всегда использовать в службах и приложениях пакетной службы методы [list\_node\_agent\_skus][py_list_skus] \(Python) и [ListNodeAgentSkus][net_list_skus] \(.NET для пакетной службы) для определения и выбора доступных в настоящее время номеров SKU.
+В следующей таблице указаны образы виртуальных машин из Marketplace, которые совместимы с доступными агентами узлов пакетной службы на момент написания этой статьи. Важно отметить, что этот список не является окончательным, так как в любое время образы и агенты узлов могут добавляться или удаляться. Рекомендуем всегда использовать в службах и приложениях пакетной службы методы [list\_node\_agent\_skus][py_list_skus] (Python) и [ListNodeAgentSkus][net_list_skus] (.NET для пакетной службы) для определения и выбора доступных в настоящее время номеров SKU.
 
 > [AZURE.WARNING] Следующий список может меняться в любое время. При выполнении заданий пакетной службы следует всегда использовать методы **получения списка номеров SKU агентов узлов**, доступные в API-интерфейсах пакетной службы, для перечисления и выбора совместимых виртуальных машин и номеров SKU агентов узлов.
 
@@ -209,19 +209,20 @@ ImageReference imageReference = new ImageReference(
 | Canonical | UbuntuServer | 14\.04.2-LTS | последних | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.3-LTS | последних | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14\.04.4-LTS | последних | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 15\.10 | последних | batch.node.debian 8 |
+| Canonical | UbuntuServer | 14\.04.5-LTS | последних | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 16\.04.0-LTS | последних | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | последних | batch.node.debian 8 |
 | OpenLogic | CentOS | 7\.0 | последних | batch.node.centos 7 |
 | OpenLogic | CentOS | 7\.1. | последних | batch.node.centos 7 |
-| OpenLogic | CentOS | 7,2 | последних | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7\.1. | последних | batch.node.centos 7 |
+| OpenLogic | CentOS | 7,2 | последних | batch.node.centos 7 |
 | Oracle | Oracle-Linux | 7\.0 | последних | batch.node.centos 7 |
-| SUSE | SLES | 12 | последних | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | последних | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12 | последних | batch.node.opensuse 42.1 |
 | SUSE | openSUSE | 13\.2 | последних | batch.node.opensuse 13.2 |
 | SUSE | openSUSE-Leap | 42\.1 | последних | batch.node.opensuse 42.1 |
+| SUSE | SLES-HPC | 12 | последних | batch.node.opensuse 42.1 |
+| SUSE | SLES | 12-SP1 | последних | batch.node.opensuse 42.1 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | последних | batch.node.windows amd64 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | последних | batch.node.centos 7 |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | последних | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | последних | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | последних | batch.node.windows amd64 |
@@ -234,31 +235,54 @@ ImageReference imageReference = new ImageReference(
 В следующем фрагменте кода Python создается пользователь на каждом узле пула, который необходим для удаленного подключения. Затем выводятся сведения о подключении SSH для каждого узла.
 
 ```python
+import datetime
 import getpass
+import azure.batch.batch_service_client as batch
+import azure.batch.batch_auth as batchauth
+import azure.batch.models as batchmodels
+
+# Specify your own account credentials
+batch_account_name = ''
+batch_account_key = ''
+batch_account_url = ''
+
+# Specify the ID of an existing pool containing Linux nodes
+# currently in the 'idle' state
+pool_id = ''
 
 # Specify the username and prompt for a password
-username = "linuxuser"
+username = 'linuxuser'
 password = getpass.getpass()
 
-# Create the user that will be added to each node
-# in the pool
+# Create a BatchClient
+credentials = batchauth.SharedKeyCredentials(
+    batch_account_name,
+    batch_account_key
+)
+batch_client = batch.BatchServiceClient(
+        credentials,
+        base_url=batch_account_url
+)
+
+# Create the user that will be added to each node in the pool
 user = batchmodels.ComputeNodeUser(username)
 user.password = password
 user.is_admin = True
-user.expiry_time = (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
+user.expiry_time = \
+    (datetime.datetime.today() + datetime.timedelta(days=30)).isoformat()
 
 # Get the list of nodes in the pool
-nodes = client.compute_node.list(pool_id)
+nodes = batch_client.compute_node.list(pool_id)
 
 # Add the user to each node in the pool and print
 # the connection information for the node
 for node in nodes:
     # Add the user to the node
-    client.compute_node.add_user(pool_id, node.id, user)
+    batch_client.compute_node.add_user(pool_id, node.id, user)
 
     # Obtain SSH login information for the node
-    login = client.compute_node.get_remote_login_settings(pool_id,
-                                                          node.id)
+    login = batch_client.compute_node.get_remote_login_settings(pool_id,
+                                                                node.id)
 
     # Print the connection info for the node
     print("{0} | {1} | {2} | {3}".format(node.id,
@@ -287,15 +311,15 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 ### Учебник по пакетной службе (Python)
 
-Более подробные инструкции по работе с пакетной службой с использованием Python см. в статье [Приступая к работе с клиентом Python пакетной службы Azure](batch-python-tutorial.md). Сопутствующий ему [пример кода][github_samples_pyclient] включает в себя вспомогательную функцию `get_vm_config_for_distro`, которая предоставляет другой метод получения конфигурации виртуальной машины.
+Более подробные инструкции по работе с пакетной службой с использованием Python см. в статье [Приступая к работе с клиентом Python пакетной службы Azure](batch-python-tutorial.md). Сопутствующий [пример кода][github_samples_pyclient] включает в себя вспомогательную функцию `get_vm_config_for_distro`, которая предоставляет другой метод получения конфигурации виртуальной машины.
 
 ### Примеры кода Python для пакетной службы
 
-Ознакомьтесь с другими [примерами кода Python][github_samples_py] в репозитории [azure-batch-samples][github_samples] на портале GitHub для нескольких скриптов, в которых показано, как выполнять распространенные пакетные операции, такие как создание пула, задания и задачи. В файле [README][github_py_readme], прилагаемом к примерам кода Python, содержатся подробные сведения об установке необходимых пакетов.
+Ознакомьтесь с другими [примерами кода Python][github_samples_py] в репозитории [azure-batch-samples][github_samples] на портале GitHub для нескольких сценариев, в которых показано, как выполнять распространенные пакетные операции, такие как создание пула, задания и задачи. Файл [README][github_py_readme], прилагаемый к примерам кода Python, содержит подробные сведения об установке необходимых пакетов.
 
 ### Форум по Пакетной службе
 
-[Форум по пакетной службе Azure][forum] на сайте MSDN — отличное место, где можно обсудить пакетную службу и задать о ней вопросы. Изучайте полезные "прикрепленные" публикации и задавайте вопросы, возникающие во время сборки решений пакетной службы.
+На [форуме по пакетной службе Azure][forum] на сайте MSDN можно обсудить пакетную службу и задать вопросы о ней. Изучайте полезные "прикрепленные" публикации и задавайте вопросы, возникающие во время сборки решений пакетной службы.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
@@ -327,4 +351,4 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 
 [1]: ./media/batch-application-packages/app_pkg_01.png "Общая схема: пакеты приложений"
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

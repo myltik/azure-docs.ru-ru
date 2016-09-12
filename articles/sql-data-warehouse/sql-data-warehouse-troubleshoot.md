@@ -1,4 +1,4 @@
-<properties
+.<properties
    pageTitle="Устранение неполадок хранилища данных SQL Azure | Microsoft Azure"
    description="Диагностика и устранение неполадок хранилища данных SQL Azure."
    services="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/16/2016"
+   ms.date="08/30/2016"
    ms.author="sonyama;barbkess"/>
 
 # Устранение неполадок хранилища данных SQL Azure
@@ -24,9 +24,11 @@
 
 | Проблема | Способы устранения: |
 | :----------------------------------| :---------------------------------------------- |
-| Ошибка CTAIP | Эта ошибка может возникнуть, когда имя для входа создано в базе данных master SQL Server, но не создано в базе данных хранилища данных SQL. Если возникла эта ошибка, ознакомьтесь со статьей с [общими сведениями о безопасности][]. В этой статье объясняется, как создать имя для входа в базе данных master, а затем создать пользователя в базе данных хранилища данных SQL.|
+| Ошибка входа пользователя "NT AUTHORITY\\ANONYMOUS LOGON". (Microsoft SQL Server, ошибка: 18456) | Эта ошибка возникает, когда пользователь AAD пытается подключиться к базе данных master, в которой нет соответствующей учетной записи пользователя. Для устранения этой проблемы либо укажите хранилище данных SQL, к которому необходимо подключиться, во время подключения, либо добавьте учетную запись пользователя в базу данных master. Дополнительные сведения см. в разделе [Защита базы данных в хранилище данных SQL][].|
+|Субъект-сервер "MyUserName" не может получить доступ к базе данных master в текущем контексте безопасности. Не удается открыть пользовательскую базу данных по умолчанию. Вход в систему не выполнен. Пользователю "MyUserName" не удалось войти в систему. (Microsoft SQL Server, ошибка: 916) | Эта ошибка возникает, когда пользователь AAD пытается подключиться к базе данных master, в которой нет соответствующей учетной записи пользователя. Для устранения этой проблемы либо укажите хранилище данных SQL, к которому необходимо подключиться, во время подключения, либо добавьте учетную запись пользователя в базу данных master. Дополнительные сведения см. в разделе [Защита базы данных в хранилище данных SQL][].|
+| Ошибка CTAIP | Эта ошибка может возникнуть, когда имя для входа создано в базе данных master SQL Server, но не создано в базе данных хранилища данных SQL. Если возникла эта ошибка, ознакомьтесь со статьей с [общими сведениями о безопасности][]. В этой статье объясняется, как создать имя для входа и пользователя в базе данных master, а затем создать пользователя в базе данных хранилища данных SQL.|
 | Заблокировано брандмауэром |Базы данных SQL Azure защищены брандмауэрами на уровне сервера и базы данных. Это гарантирует, что доступ к базам данных возможен только с известных IP-адресов. Брандмауэры являются безопасными по умолчанию. Это означает, что перед подключением необходимо прямо разрешить доступ для IP-адреса или диапазона IP-адресов. Чтобы настроить брандмауэр для предоставления доступа, выполните указания в разделе о [настройке доступа брандмауэра сервера к IP-адресу клиента][] на странице, содержащей [указания по подготовке][].|
-| Не удается подключиться с помощью средства или драйвера | В хранилище данных SQL для запроса данных рекомендуется использовать [Visual Studio 2013 или Visual Studio 2015][]. Для подключения клиентов рекомендуется использовать [собственный клиент SQL Server 10 или SQL Server 11 (ODBC)][].|
+| Не удается подключиться с помощью средства или драйвера | В хранилище данных SQL для запроса данных рекомендуется использовать [SSMS][], [SSDT для Visual Studio 2015][] или [sqlcmd][]. Дополнительные сведения о необходимых драйверах и подключении к хранилищу данных SQL см. статьях [Драйверы для хранилища данных SQL Azure][] и [Подключение к хранилищу данных SQL Azure][].|
 
 
 ## Средства
@@ -72,7 +74,6 @@
 | Инструкция MERGE не поддерживается | Ознакомьтесь с [обходными решениями для инструкции MERGE][].|
 | Ограничения хранимых процедур | Ознакомьтесь с [ограничениями хранимых процедур][].|
 | Определяемые пользователем функции не поддерживают инструкции SELECT | Это текущее ограничение определяемых пользователем функций. Сведения о поддерживаемом синтаксисе см. в разделе документации об инструкции [CREATE FUNCTION][]. |
-<!--LocComment: страница не найдена, раздел "Ограничения хранимых процедур" поврежден. Я попыталась исправить ссылку в справочных материалах к статье -->
 
 ## Дальнейшие действия
 
@@ -89,8 +90,13 @@
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
+[Защита базы данных в хранилище данных SQL]: ./sql-data-warehouse-overview-manage-security.md
 [общими сведениями о безопасности]: ./sql-data-warehouse-overview-manage-security.md
+[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
+[SSDT для Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[Драйверы для хранилища данных SQL Azure]: ./sql-data-warehouse-connection-strings.md
+[Подключение к хранилищу данных SQL Azure]: ./sql-data-warehouse-connect-overview.md
 [Создание запроса в службу поддержки]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [масштабирования хранилища данных SQL]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
@@ -98,7 +104,6 @@
 [посвященной мониторингу запросов]: ./sql-data-warehouse-manage-monitor.md
 [указания по подготовке]: ./sql-data-warehouse-get-started-provision.md
 [настройке доступа брандмауэра сервера к IP-адресу клиента]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
-[Visual Studio 2013 или Visual Studio 2015]: ./sql-data-warehouse-query-visual-studio.md
 [Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
 [размерах таблиц]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Неподдерживаемые функции таблиц]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
@@ -117,16 +122,16 @@
 [UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [обходными решениями для инструкции MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[ограничениями хранимых процедур]: /sql-data-warehouse-develop-stored-procedures.md#limitations
+[ограничениями хранимых процедур]: ./sql-data-warehouse-develop-stored-procedures.md#limitations
 [Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
 [Обход требования PolyBase UTF-8]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
-<!--MSDN references-->
-[собственный клиент SQL Server 10 или SQL Server 11 (ODBC)]: https://msdn.microsoft.com/library/ms131415.aspx
+.<!--MSDN references-->
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
+[sqlcmd]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
 
-<!--Other Web references-->
+.<!--Other Web references-->
 [Блоги]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Блоги группы CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Запросы функций]: https://feedback.azure.com/forums/307516-sql-data-warehouse
@@ -135,4 +140,4 @@
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Видеоролики]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

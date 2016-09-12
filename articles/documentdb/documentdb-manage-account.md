@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Управление учетной записью DocumentDB на портале Azure | Microsoft Azure"
 	description="Узнайте, как управлять учетной записью DocumentDB на портале Azure. Изучите руководство по использованию портала Azure для просмотра, копирования, удаления учетной записи и доступа к ней."
 	keywords="Портал Azure, DocumentDB, Azure, Microsoft Azure"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="08/24/2016"
 	ms.author="anhoh"/>
 
 # Управление учетной записью DocumentDB
@@ -28,13 +28,13 @@
 ### Установка согласованности по умолчанию для учетной записи DocumentDB
 
 1. На [портале Azure](https://portal.azure.com/) перейдите к своей учетной записи DocumentDB.
-2. В колонке учетных записей щелкните **Согласованность по умолчанию**.
-3. В колонке **Согласованность по умолчанию** выберите новый уровень согласованности и нажмите кнопку **ОК**. ![Сеанс согласованности по умолчанию][5]
+2. В колонке учетной записи щелкните **Согласованность по умолчанию**.
+3. В колонке **Согласованность по умолчанию** выберите новый уровень согласованности и щелкните **Сохранить**. ![Сеанс согласованности по умолчанию][5]
 
 ## <a id="keys"></a>Просмотр, копирование и повторное создание ключей доступа
 При создании учетной записи DocumentDB служба создает два главных ключа доступа, которые можно использовать для проверки подлинности при доступе к учетной записи DocumentDB. Предоставляя два ключа, DocumentDB позволяет вам повторно создавать ключи без перерывов в работе учетной записи DocumentDB.
 
-На [портале Microsoft Azure](https://portal.azure.com/) откройте колонку **Ключи** в колонке **Учетная запись DocumentDB**, чтобы получить возможность просмотра, копирования и повторного создания ключей доступа, используемых для доступа к вашей учетной записи DocumentDB.
+На [портале Azure](https://portal.azure.com/) откройте колонку **Ключи** из меню ресурсов в колонке **Учетная запись DocumentDB**, чтобы получить возможность просмотра, копирования и повторного создания ключей доступа, используемых для доступа к вашей учетной записи DocumentDB.
 
 ![Снимок экрана портала Azure, колонка «Ключи»](./media/documentdb-manage-account/keys.png)
 
@@ -42,7 +42,7 @@
 
 В этой колонке также доступны ключи только для чтения. Чтение и запросы являются операциями только для чтения, а создание, удаление и замена — нет.
 
-### Просмотр и копирование ключа доступа на портале Azure
+### Копирование ключа доступа на портале Azure
 
 В колонке **Ключи** нажмите кнопку **Копировать** справа от того ключа, который требуется скопировать.
 
@@ -59,10 +59,12 @@
 1. Обновите ключ доступа в коде приложения, чтобы задать ссылку на дополнительный ключ доступа учетной записи DocumentDB.
 2. Повторно создайте главный ключ доступа для своей учетной записи DocumentDB. На [портале Azure](https://portal.azure.com/) перейдите к своей учетной записи DocumentDB.
 3. В колонке **Учетная запись DocumentDB** щелкните **Ключи**.
-4. В колонке **Ключи** выберите команду **Повторно создать первичный ключ** и нажмите кнопку **ОК**, чтобы подтвердить создание нового ключа. ![Повторное создание ключей доступа](./media/documentdb-manage-account/regenerate-keys.png)
+4. В колонке **Ключи** нажмите кнопку "Повторно создать", а затем кнопку **ОК**, чтобы подтвердить создание нового ключа. ![Повторное создание ключей доступа](./media/documentdb-manage-account/regenerate-keys.png)
 
 5. Убедившись, что новый ключ доступен для использования (примерно через 5 минут после повторного создания), обновите ключ доступа в коде приложения, чтобы задать ссылку на новый главный ключ доступа.
-6. Повторно создайте вторичный ключ доступа. ![Повторное создание ключей доступа](./media/documentdb-manage-account/regenerate-secondary-key.png)
+6. Повторно создайте дополнительный ключ доступа.
+
+    ![Повторное создание ключей доступа](./media/documentdb-manage-account/regenerate-secondary-key.png)
 
 
 > [AZURE.NOTE] Для использования нового ключа для доступа к учетной записи DocumentDB может потребоваться подождать несколько минут.
@@ -75,10 +77,10 @@
 
 1. На [портале Azure](https://portal.azure.com/) перейдите в учетную запись DocumentDB, которую необходимо удалить.
 2. В колонке **Учетная запись DocumentDB** щелкните **Дополнительно**, а затем выберите команду **Удалить учетную запись**. Или щелкните правой кнопкой мыши имя базы данных и выберите команду **Удалить учетную запись**.
-3. на появившейся выноске подтверждения введите имя учетной записи DocumentDB, чтобы подтвердить ее удаление.
+3. В появившейся колонке подтверждения введите имя учетной записи DocumentDB, чтобы подтвердить ее удаление.
 4. Нажмите кнопку **Удалить**.
 
-![Как удалить учетную запись DocumentDB на портале Azure](./media/documentdb-manage-account/delete-account-confirm.png)
+.![Как удалить учетную запись DocumentDB на портале Azure](./media/documentdb-manage-account/delete-account-confirm.png)
 
 ## <a id="next"></a>Дальнейшие действия
 
@@ -87,7 +89,7 @@
 Дополнительные сведения о DocumentDB можно найти в документации по Azure DocumentDB на сайте [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
 
-<!--Image references-->
+.<!--Image references-->
 [1]: ./media/documentdb-manage-account/documentdb_add_region-1.png
 [2]: ./media/documentdb-manage-account/documentdb_add_region-2.png
 [3]: ./media/documentdb-manage-account/documentdb_change_write_region-1.png
@@ -95,10 +97,10 @@
 [5]: ./media/documentdb-manage-account/documentdb_change_consistency-1.png
 [6]: ./media/documentdb-manage-account/chooseandsaveconsistency.png
 
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
+.<!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
 [consistency]: https://azure.microsoft.com/documentation/articles/documentdb-consistency-levels/
-[azureregions]: https://azure.microsoft.com/regions/#services
-[offers]: https://azure.microsoft.com/pricing/details/documentdb/
+[azureregions]: https://azure.microsoft.com/ru-RU/regions/#services
+[offers]: https://azure.microsoft.com/ru-RU/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

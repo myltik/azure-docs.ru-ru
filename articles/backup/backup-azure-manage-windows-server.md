@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Управление хранилищами и серверами служб восстановления Azure | Microsoft Azure"
 	description="Из этого руководства вы узнаете об управлении хранилищами и серверами служб восстановления Azure."
 	services="backup"
@@ -7,7 +7,7 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-<tags
+.<tags
 	ms.service="backup"
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
@@ -49,7 +49,7 @@
 - сведения об общем объеме занятого хранилища в Azure;
 - состояние задания архивации.
 
-![Задачи панели мониторинга архивации](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
+.![Задачи панели мониторинга архивации](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
 Если выбрать сведения на каждой из этих плиток, откроется соответствующая колонка, в которой можно управлять связанными задачами.
 
@@ -59,7 +59,7 @@
 - "Архивация". Здесь можно создать резервные копии новых файлов и папок (или виртуальных машин Azure) в хранилище служб восстановления.
 - "Удалить". Если хранилище служб восстановления больше не используется, его можно удалить для освобождения места. Элемент "Удалить" становится доступен только после удаления из хранилища всех защищенных серверов.
 
-![Задачи панели мониторинга архивации](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
+.![Задачи панели мониторинга архивации](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
 
 ## Управление оповещениями, связанными с архивацией
 Нажмите плитку **Оповещения, связанные с архивацией**, чтобы открыть колонку **Оповещения, связанные с архивацией** и управлять оповещениями.
@@ -81,11 +81,11 @@
 
 - Отфильтровать оповещения по уровню серьезности, состоянию и времени начала и окончания.
 
-    ![Фильтрация оповещений](./media/backup-azure-manage-windows-server/filter-alerts.png)
+    .![Фильтрация оповещений](./media/backup-azure-manage-windows-server/filter-alerts.png)
 
 - Настроить уровень серьезности, частоту и получателей оповещений, а также выключить или включить их.
 
-    ![Фильтрация оповещений](./media/backup-azure-manage-windows-server/configure-notifications.png)
+    .![Фильтрация оповещений](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
 Если в качестве частоты в области **Уведомлять** выбрано значение **Каждое оповещение**, сведения не группируются и представляются полностью в сообщениях электронной почты. Для каждого оповещения создается 1 уведомление. Это параметр по умолчанию. Кроме того, сразу же отправляется электронное письмо со сведениями о разрешении.
 
@@ -108,7 +108,7 @@
 
 Щелкните **Файлы и папки** на плитке "Архивные элементы".
 
-![Элемент "Архивируемые элементы"](./media/backup-azure-manage-windows-server/backup-items-tile.png)
+.![Элемент "Архивируемые элементы"](./media/backup-azure-manage-windows-server/backup-items-tile.png)
 
 Откроется колонка "Архивные элементы", содержащая архивные элементы, отфильтрованные по файлам и папкам.
 
@@ -118,7 +118,7 @@
 
 >[AZURE.NOTE] В колонке **Параметры** можно управлять файлами и папками. Для этого нужно выбрать **Защищенные элементы > Архивные элементы**, а затем — пункт **Папки и файлы** в раскрывающемся меню.
 
-![Архивируемые элементы из параметров](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
+.![Архивируемые элементы из параметров](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
 
 ## Управление заданиями архивации
 На панели мониторинга отображаются задания для локальной архивации (при архивации локального сервера в среду Azure) и архивации в Azure.
@@ -130,7 +130,7 @@
 
 Для управления заданиями архивации нажмите плитку **Задания архивации**. После этого откроется колонка "Задания архивации".
 
-![Архивируемые элементы из параметров](./media/backup-azure-manage-windows-server/backup-jobs.png)
+.![Архивируемые элементы из параметров](./media/backup-azure-manage-windows-server/backup-jobs.png)
 
 Сведения, доступные в этой колонке, можно изменять с помощью кнопки **Выбрать столбцы** в верхней части страницы.
 
@@ -150,7 +150,7 @@
 
 В колонке "Рабочие серверы" перечислены все доступные рабочие серверы. Щелкните сервер в списке, чтобы открыть сведения о нем.
 
-![Защищенные элементы](./media/backup-azure-manage-windows-server/production-server-list.png)
+.![Защищенные элементы](./media/backup-azure-manage-windows-server/production-server-list.png)
 
 ## Задачи агента службы архивации Microsoft Azure
 
@@ -158,7 +158,7 @@
 
 Откройте **агент службы архивации Microsoft Azure** (чтобы найти его, введите *Служба архивации Microsoft Azure* в строке поиска на своем компьютере).
 
-![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
+.![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
 В разделе **Действия** в правой части консоли агента службы архивации можно выполнять следующие задачи управления:
 
@@ -167,7 +167,7 @@
 - Выполнить архивацию сейчас
 - Изменить свойства
 
-![Действия в консоли агента службы архивации Microsoft Azure](./media/backup-azure-manage-windows-server/console-actions.png)
+.![Действия в консоли агента службы архивации Microsoft Azure](./media/backup-azure-manage-windows-server/console-actions.png)
 
 >[AZURE.NOTE] Чтобы **восстановить данные**, см. статью [Восстановление файлов на сервере Windows Server или клиентском компьютере Windows с помощью модели развертывания Resource Manager](backup-azure-restore-windows-server.md).
 
@@ -175,11 +175,11 @@
 
 1. В агенте службы архивации Microsoft Azure щелкните **Создать расписание архивации**.
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
 
 2. В **мастере архивации по расписанию** установите флажок **Изменить архивные элементы или время архивации** и нажмите кнопку **Далее**.
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 
 3. Если нужно добавить или изменить элементы, в окне **Выбор элементов для архивации** щелкните **Добавить элементы**.
 
@@ -187,19 +187,19 @@
 
 4. Выберите файлы и папки, для которых нужно создать резервные копии, и нажмите кнопку **ОК**.
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/add-items-modify.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/add-items-modify.png)
 
 5. Настройте **расписание резервного копирования** и нажмите кнопку **Далее**.
 
     Вы можете запланировать ежедневное (не более трех раз в день) или еженедельное резервное копирование.
 
-    ![Элементы для архивации Windows Server](./media/backup-azure-manage-windows-server/specify-backup-schedule-modify-close.png)
+    .![Элементы для архивации Windows Server](./media/backup-azure-manage-windows-server/specify-backup-schedule-modify-close.png)
 
     >[AZURE.NOTE] Дополнительные сведения о настройке расписания резервного копирования см. в [этой статье](backup-azure-backup-cloud-as-tape.md).
 
 6. Выберите **политику хранения** для резервных копий и нажмите кнопку **Далее**.
 
-    ![Элементы для архивации Windows Server](./media/backup-azure-manage-windows-server/select-retention-policy-modify.png)
+    .![Элементы для архивации Windows Server](./media/backup-azure-manage-windows-server/select-retention-policy-modify.png)
 
 7. Проверьте сведения в окне **Подтверждение** и нажмите кнопку **Готово**.
 
@@ -216,7 +216,7 @@
 
 2. Установите флажок **Разрешить регулирование уровня использования пропускной способности интернет-канала для операций архивации**.
 
-    ![Регулирование сети](./media/backup-azure-manage-windows-server/throttling-dialog.png)
+    .![Регулирование сети](./media/backup-azure-manage-windows-server/throttling-dialog.png)
 
 3. После включения регулирования укажите допустимую пропускную способность для передачи данных во время резервного копирования в **рабочие** и **нерабочие** часы.
 
@@ -228,31 +228,31 @@
 
 1. Откройте **агент службы архивации Microsoft Azure** (чтобы найти его, введите *Служба архивации Microsoft Azure* в строке поиска на своем компьютере).
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
 2. В агенте службы архивации Microsoft Azure щелкните **Создать расписание архивации**.
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
 
 3. В мастере архивации по расписанию установите флажок **Изменить архивные элементы или время архивации** и нажмите кнопку **Далее**.
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
 
 4. Щелкните **Параметры исключений**.
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/exclusion-settings.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/exclusion-settings.png)
 
 5. Щелкните **Добавить исключение**.
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/add-exclusion.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/add-exclusion.png)
 
 6. Выберите расположение и нажмите кнопку **ОК**.
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/exclusion-location.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/exclusion-location.png)
 
 7. Добавьте расширение файла в поле **Тип файла**.
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/exclude-file-type.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/exclude-file-type.png)
 
     Добавление расширения .mp3
 
@@ -260,13 +260,13 @@
 
     Чтобы добавить другое расширение, нажмите кнопку **Добавить исключение** и введите другое расширение имени файла (ниже показано добавление расширения JPEG).
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/exclude-jpg.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/exclude-jpg.png)
 
 8. После добавления всех расширений нажмите кнопку **ОК**.
 
 9. Продолжайте выполнять указания мастера архивации по расписанию, нажимая кнопку **Далее**, пока не откроется **страница подтверждения**. После этого нажмите кнопку **Готово**.
 
-    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/finish-exclusions.png)
+    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
 ## Часто задаваемые вопросы
 **ВОПРОС 1. В агенте службы архивации Azure для задания архивации отображается состояние "Завершено". Почему это сразу же не отражается на портале?**
@@ -279,11 +279,15 @@
 
 **ВОПРОС 3. В каком случае сообщение электронной почты не будет отправлено, если уведомления настроены?**
 
-ОТВЕТ 3. Если настроена почасовая отправка уведомлений, а оповещение возникает и устраняется в течение часа, сообщение не будет отправляться.
+ОТВЕТ 3. Ниже приведены случаи, когда уведомления не будут отправляться, чтобы уменьшить количество лишних сообщений.
+
+   - Настроена почасовая отправка уведомлений, а предупреждение возникает и устраняется в течение часа.
+   - Задание отменено.
+   - Второе задание резервного копирования не удалось выполнить, так как выполняется первое задание резервного копирования.
 
 ## Дальнейшие действия
 - [Восстановление Windows Server или клиента Windows из Azure](backup-azure-restore-windows-server.md)
 - Дополнительную информацию о службе архивации Azure см. в статье [Обзор службы архивации Azure](backup-introduction-to-azure-backup.md).
 - Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

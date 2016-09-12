@@ -1,4 +1,4 @@
-<properties 
+.<properties 
 	pageTitle="Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management" 
 	description="Узнайте, как защитить фоновые службы посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management" 
 	services="api-management" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # Защита фоновых служб посредством проверки подлинности с помощью сертификата клиента в службе Azure API Management
@@ -24,7 +24,7 @@
 
 ## <a name="prerequisites"> </a>Предварительные требования
 
-В этом руководстве описано, как настроить для экземпляра службы API Management проверку подлинности с помощью сертификата клиента при доступе из API к фоновой службе. Перед выполнением инструкций, приведенных в этом разделе, в фоновой службе необходимо настроить проверку подлинности на основе сертификата клиента ([чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью][]). Кроме того, нужно иметь доступ к сертификату, который следует отправить на портал издателя управления API, и его паролю.
+В этом руководстве описано, как настроить для экземпляра службы API Management проверку подлинности с помощью сертификата клиента при доступе из API к фоновой службе. Перед выполнением инструкций, приведенных в этом разделе, в фоновой службе необходимо настроить проверку подлинности на основе сертификата клиента. [Чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью][]. Кроме того, нужно иметь доступ к сертификату, который следует отправить на портал издателя управления API, и его паролю.
 
 ## <a name="step1"> </a>Отправка сертификата клиента
 
@@ -122,14 +122,13 @@
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Начинаем работу с API Management]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
 
 [Объект сертификата REST API службы управления API Azure ]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[Чтобы настроить проверку подлинности на основе сертификата в Веб-сайтах Azure, см. эту статью]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -141,4 +140,4 @@
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,4 +1,4 @@
-<properties
+.<properties
 	pageTitle="Что делать, если прерывание работы службы Azure влияет на хранилище ключей Azure | Microsoft Azure"
 	description="Узнайте, что делать, если прерывание работы службы Azure влияет на хранилище ключей Azure."
 	services="key-vault"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="08/26/2016"
 	ms.author="sumedhb;aglick"/>
 
 
@@ -46,4 +46,4 @@
  * backup
 * После восстановления размещения становятся доступными все типы запросов (т. е. чтение ___и___ запись).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,5 +1,5 @@
- <properties
-	pageTitle="Создание приложений Spark Scala с помощью подключаемого модуля HDInsight для IntelliJ IDEA | Microsoft Azure"
+ .<properties
+	pageTitle="Создание приложений Spark Scala с помощью средств HDInsight в наборе средств Azure для IntelliJ | Microsoft Azure"
 	description="Узнайте, как создать автономное приложение Spark для работы в кластерах HDInsight Spark"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/26/2016"
 	ms.author="nitinme"/>
 
 
-# Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux
+# Создание приложений Spark для кластера HDInsight Spark на платформе Linux с помощью средств HDInsight в наборе средств Azure для IntelliJ
 
-В этой статье приводятся пошаговые инструкции по разработке приложений Spark, написанных на языке Scala, и его отправка в кластер HDInsight Spark с помощью подключаемого модуля HDInsight для IntelliJ IDEA. Подключаемый модуль можно использовать различным образом:
+В этой статье приводятся пошаговые инструкции по разработке приложений Spark, написанных на языке Scala, и их отправке в кластер HDInsight Spark с помощью средств HDInsight в наборе средств Azure для IntelliJ. Эти средства можно использовать различным образом:
 
 * Для разработки и отправки приложений Scala Spark в кластер HDInsight Spark.
 * Для доступа к ресурсам кластера Azure HDInsight Spark.
@@ -38,9 +38,9 @@
 * Комплект разработчика Oracle Java. Его можно установить [отсюда](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * IntelliJ IDEA. В этой статье используется версия 15.0.1. Его можно установить [отсюда](https://www.jetbrains.com/idea/download/).
 
-## Установка подключаемого модуля средств HDInsight для IntelliJ IDEA
+## Установка средств HDInsight в наборе средств Azure для IntelliJ
 
-Подключаемый модуль средств HDInsight для IntelliJ IDEA доступен в составе набора средств Azure для IntelliJ. Инструкции по установке набора средств Azure см. в разделе [Установка набора средств Azure для IntelliJ](../azure-toolkit-for-intellij-installation.md).
+Средства HDInsight для IntelliJ доступны в составе набора средств Azure для IntelliJ. Инструкции по установке набора средств Azure см. в разделе [Установка набора средств Azure для IntelliJ](../azure-toolkit-for-intellij-installation.md).
 
 ## Запуск приложения Spark Scala в кластере HDInsight Spark
 
@@ -138,12 +138,12 @@
 
         ![Результат приложения Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
-    В следующем разделе вы узнаете, как получить доступ к выходным данным задачи, используя подключаемый модуль HDInsight для IntelliJ IDEA.
+    В следующем разделе вы узнаете, как получить доступ к выходным данным задачи, используя средства HDInsight в наборе средств Azure для IntelliJ.
 
 
-## Доступ к кластерам HDInsight Spark и управление ими с помощью подключаемого модуля HDInsight для IntelliJ
+## Доступ к кластерам HDInsight Spark и управление ими с помощью средств HDInsight в наборе средств Azure для IntelliJ
 
-С помощью подключаемого модуля HDInsight можно выполнять различные операции.
+С помощью средств HDInsight, которые являются частью набора средств Azure для IntelliJ, можно выполнять различные операции.
 
 ### Доступ к контейнеру хранилища для кластера
 
@@ -157,7 +157,7 @@
 
 4. Щелкните имя связанного с кластером контейнера хранилища. В правой области появится папка с именем **HVACOut**. Дважды щелкнув эту папку, вы увидите файлы **part-***. Откройте один из этих файлов для просмотра выходных данных приложения.
 
-### Переход к представлению заданий непосредственно в подключаемом модуле
+### Доступ к представлению заданий непосредственно из средств HDInsight
 
 1. В **обозревателе HDInsight** разверните имя кластера Spark и щелкните **Jobs** (Задания).
 
@@ -181,12 +181,12 @@
 
 ### Управление подписками Azure
 
-По умолчанию подключаемый модуль HDInsight содержит список кластеров Spark из всех ваших подписок Azure. При необходимости можно указать подписки, кластеры которых вас интересуют. В **обозревателе HDInsight** щелкните правой кнопкой мыши корневой узел **HDInsight** и выберите пункт **Управление подписками**. В диалоговом окне снимите флажки напротив подписок, доступ к которым вам не требуется, и нажмите кнопку **Закрыть**. Если вы хотите выйти из своей подписки Azure, нажмите кнопку **Выйти**.
+По умолчанию средства HDInsight содержат список кластеров Spark из всех ваших подписок Azure. При необходимости можно указать подписки, кластеры из которых вас интересуют. В **обозревателе HDInsight** щелкните правой кнопкой мыши корневой узел **HDInsight** и выберите пункт **Управление подписками**. В диалоговом окне снимите флажки напротив подписок, доступ к которым вам не требуется, и нажмите кнопку **Закрыть**. Если вы хотите выйти из своей подписки Azure, нажмите кнопку **Выйти**.
 
 
 ## Запуск приложения Spark Scala на локальном компьютере
 
-Подключаемый модуль HDInsight Tools для IntelliJ IDEA позволяет запускать приложения Spark Scala на локальной рабочей станции. Как правило, такие приложения не требуют доступа к ресурсам кластера, таким как контейнер хранилища, и могут запускаться и тестироваться локально.
+Средства HDInsight в наборе средств Azure для IntelliJ позволяют запускать приложения Spark Scala локально на рабочей станции. Как правило, такие приложения не требуют доступа к ресурсам кластера, таким как контейнер хранилища, и могут запускаться и тестироваться локально.
 
 ### Предварительные требования
 
@@ -224,9 +224,9 @@
 
 	![Результат локального запуска приложения Spark](./media/hdinsight-apache-spark-intellij-tool-plugin/hdi-spark-app-local-run-result.png)
 
-## Преобразования существующих приложений IntelliJ IDEA для использования подключаемого модуля HDInsight
+## Преобразование существующих приложений IntelliJ IDEA для использования средств HDInsight в наборе средств Azure для IntelliJ
 
-Существующие приложения Spark Scala, созданные в IntelliJ IDEA, можно преобразовать и сделать совместимыми с подключаемым модулем средствами HDInsight. В результате вы сможете использовать средство для отправки приложений в кластер HDInsight Spark. Для этого выполните следующие действия.
+Существующие приложения Spark Scala, созданные в IntelliJ IDEA, можно преобразовать и сделать совместимыми со средствами HDInsight в наборе средств Azure для IntelliJ. В результате вы сможете использовать средство для отправки приложений в кластер HDInsight Spark. Для этого выполните следующие действия.
 
 1. Для существующего приложения Spark Scala, созданного с помощью IntelliJ IDEA, откройте соответствующий файл IML.
 2. На корневом уровне вы увидите элемент **module** следующего вида.
@@ -237,7 +237,7 @@
 
 		<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
-4. Сохраните изменения. Ваше приложение станет совместимым с подключаемым модулем средства HDInsight. Это можно проверить, щелкнув имя проекта в обозревателе проектов правой кнопкой мыши. Во всплывающем меню должен появиться пункт **Submit Spark Application to HDInsight** (Отправить приложение Spark в HDInsight).
+4. Сохраните изменения. Ваше приложение станет совместимым со средствами HDInsight в наборе средств Azure для IntelliJ. Это можно проверить, щелкнув имя проекта в обозревателе проектов правой кнопкой мыши. Во всплывающем меню должен появиться пункт **Submit Spark Application to HDInsight** (Отправить приложение Spark в HDInsight).
 
 
 ## Устранение неполадок
@@ -298,9 +298,9 @@
 
 ### Средства и расширения
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely on HDInsight Spark Linux cluster (Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA)](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Использование подключаемого модуля средств HDInsight для Eclipse для создания приложений Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Использование средств HDInsight в наборе средств Azure для Eclipse для создания приложений Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -316,4 +316,4 @@
 
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->
