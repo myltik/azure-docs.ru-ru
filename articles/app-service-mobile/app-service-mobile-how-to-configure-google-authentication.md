@@ -70,7 +70,7 @@
 
 <!-- Anchors. -->
 
-.<!-- Images. -->
+<!-- Images. -->
 
 [0]: ./media/app-service-mobile-how-to-configure-google-authentication/mobile-app-google-redirect.png
 [1]: ./media/app-service-mobile-how-to-configure-google-authentication/mobile-app-google-settings.png

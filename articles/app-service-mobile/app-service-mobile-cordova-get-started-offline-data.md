@@ -209,7 +209,7 @@
 
 <!-- ##Summary -->
 
-.<!-- Images -->
+<!-- Images -->
 
 <!-- URLs. -->
 [Создание приложения Apache Cordova]: app-service-mobile-cordova-get-started.md

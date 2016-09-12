@@ -110,11 +110,11 @@
 [6]: ./media/sql-data-warehouse-manage-compute-portal/pause-database.png
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
-.<!--Article references-->
+<!--Article references-->
 [обзоре средств управления]: ./sql-data-warehouse-overview-manage.md
 [управлением вычислительной мощностью]: ./sql-data-warehouse-manage-compute-overview.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 
 <!--Other Web references-->
