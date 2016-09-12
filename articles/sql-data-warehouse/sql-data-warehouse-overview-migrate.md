@@ -38,7 +38,7 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Перенос схемы]: sql-data-warehouse-migrate-schema.md
 [Перенос данных]: sql-data-warehouse-migrate-data.md
 [Перенос кода]: sql-data-warehouse-migrate-code.md
@@ -47,7 +47,7 @@
 [Загрузка данных в хранилище данных Azure SQL]: sql-data-warehouse-overview-load.md
 [Справка по Transact-SQL]: sql-data-warehouse-overview-reference.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 
 <!--Other Web references-->

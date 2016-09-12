@@ -153,7 +153,7 @@ $GeoRestoredDatabase.status
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: sql-database-business-continuity.md
 [Создание запроса в службу поддержки для хранилища данных SQL]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Finalize a recovered database]: sql-database-recovered-finalize.md
@@ -164,7 +164,7 @@ $GeoRestoredDatabase.status
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 [Финализация восстановленной базы данных SQL Azure]: ./sql-database-recovered-finalize.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Other Web references-->

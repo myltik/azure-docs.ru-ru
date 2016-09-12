@@ -187,7 +187,7 @@
 [Update the app to reconnect your Mobile Apps backend]: #update-online-app
 [Next Steps]: #next-steps
 
-.<!-- Images -->
+<!-- Images -->
 [1]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/app-service-mobile-add-reference-sqlite-dialog.png
 [11]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/app-service-mobile-add-wp81-reference-sqlite-dialog.png
 [13]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/cpu-architecture.png
