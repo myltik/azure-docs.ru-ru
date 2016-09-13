@@ -3,7 +3,7 @@
    description="Power BI Embedded, добавление интерактивных отчетов Power BI в приложение бизнес-аналитики"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Начало работы с Microsoft Power BI Embedded
 
@@ -101,4 +101,4 @@
 - [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)
 - [Power BI Desktop;](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

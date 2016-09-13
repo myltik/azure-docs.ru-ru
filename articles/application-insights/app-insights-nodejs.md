@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/30/2016"
 	ms.author="awills"/>
 
 
@@ -26,7 +26,7 @@
 
 Пакет SDK автоматически собирает сведения о частоте входящих HTTP-запросов и ответы на них, счетчики производительности (ЦП, память, RPS) и необработанные исключения. Кроме того, вы можете добавить настраиваемые вызовы, чтобы отслеживать зависимости, метрики и другие события.
 
-![Пример диаграмм мониторинга производительности](./media/app-insights-asp-net-manual/10-perf.png)
+![Пример диаграмм мониторинга производительности](./media/app-insights-windows-services/10-perf.png)
 
 
 #### Перед началом работы
@@ -40,7 +40,7 @@
 
 Войдите на [портал Azure][portal] и создайте новый ресурс Application Insights. [Ресурс][roles] в Azure — это экземпляр службы. В этом ресурсе будет анализироваться и представляться телеметрия из вашего приложения.
 
-![Нажмите "Создать" и "Application Insights"](./media/app-insights-asp-net-manual/01-new-asp.png)
+![Нажмите "Создать" и "Application Insights"](./media/app-insights-windows-services/01-new-asp.png)
 
 Выберите "Другое" в качестве типа приложения. От выбранного типа приложения зависит содержимое по умолчанию столбцов ресурсов и свойств, отображаемых в [обозревателе метрик][metrics].
 
@@ -48,7 +48,7 @@
 
 Ключ идентифицирует ресурс, и вы установите его в пакет SDK для направления данных ресурсу.
 
-![Нажмите "Свойства", выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-asp-net-manual/02-props-asp.png)
+![Нажмите "Свойства", выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-windows-services/02-props-asp.png)
 
 
 ## <a name="sdk"></a>Установка пакета SDK в приложении
@@ -84,7 +84,7 @@ appInsights.setup("<instrumentation_key>").start();
 
 Поищите данные на странице "Обзор". Сначала вы увидите только одну или две точки. Например:
 
-![Щелкните плитки, чтобы увидеть больше данных](./media/app-insights-asp-net-manual/12-first-perf.png)
+![Щелкните плитки, чтобы увидеть больше данных](./media/app-insights-windows-services/12-first-perf.png)
 
 Щелкните любую диаграмму, чтобы увидеть более подробные метрики. [Дополнительные сведения о метриках.][perf]
 
@@ -212,10 +212,14 @@ server.on("listening", () => {
 });
 ```
 
+## Дальнейшие действия
+
+* [Навигация и панели мониторинга на портале Application Insights](app-insights-dashboards.md)
+* [Запись запросов аналитики для телеметрии(app-insights-analytics-tour.md)
 
 
 
-.<!--Link references-->
+<!--Link references-->
 
 [knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
@@ -224,4 +228,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

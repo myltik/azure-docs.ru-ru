@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/15/2016"
+	ms.date="08/31/2016"
 	ms.author="cabailey"/>
 
 # Ведение журнала хранилища ключей Azure #
@@ -43,7 +43,7 @@
 Для работы с этим учебником требуется:
 
 - Существующее хранилище ключей, которое вы используете.
-- Azure PowerShell, **начиная с версии 1.0.1**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`.
+- Azure PowerShell, **начиная с версии 1.0.1**. Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md). Если средство Azure PowerShell у вас установлено, но вы не знаете его версию, в консоли Azure PowerShell введите `(Get-Module azure -ListAvailable).Version`.
 - Достаточный объем хранилища в Azure для журналов хранилищ ключей.
 
 
@@ -51,15 +51,15 @@
 
 Запустите сеанс Azure PowerShell и войдите в учетную запись Azure, используя следующую команду:
 
-    Login-AzureRmAccount 
+    Login-AzureRmAccount
 
 Во всплывающем окне браузера введите имя пользователя и пароль учетной записи Azure. Azure PowerShell получит все подписки, связанные с этой учетной записью, и по умолчанию будет использовать первую из них.
 
-Если у вас есть несколько подписок, возможно, вам нужно будет указать ту, которая использовалась для создания хранилища ключей. Чтобы увидеть подписки для своей учетной записи, введите следующую команду.
+Если у вас есть несколько подписок, возможно, вам нужно будет указать ту, которая использовалась для создания хранилища ключей Azure. Чтобы увидеть подписки для своей учетной записи, введите следующую команду:
 
     Get-AzureRmSubscription
 
-Затем укажите подписку, связанную с хранилищем ключей, данные которого будут регистрироваться. Для этого введите следующую команду.
+Затем укажите подписку, связанную с хранилищем ключей, данные которого будут регистрироваться. Для этого введите следующую команду:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
@@ -75,7 +75,7 @@
 	$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name ContosoKeyVaultLogs -Type Standard_LRS -Location 'East Asia'
 
 
->[AZURE.NOTE]  Если вы планируете использовать существующую учетную запись хранения, для нее должна использоваться та же подписка, что и для хранилища ключей. Кроме того, она должна быть создана с помощью модели развертывания с использованием диспетчера ресурсов, а не классической модели развертывания.
+>[AZURE.NOTE]  Если вы планируете использовать существующую учетную запись хранения, для нее должна использоваться та же подписка, что и для хранилища ключей. Кроме того, она должна быть создана с помощью модели развертывания Resource Manager, а не классической модели развертывания.
 
 ## <a id="identify"></a>Определение хранилища ключей для журналов ##
 
@@ -86,21 +86,29 @@
 
 ## <a id="enable"></a>Включение ведения журналов ##
 
-Мы включим ведение журналов хранилища ключей с помощью командлета Set-AzureRmDiagnosticSetting и переменных, которые мы создали для новой учетной записи хранения и хранилища ключей. Мы также добавим флаг **-Enabled** для параметра **$true** и зададим категорию AuditEvent (единственная категория для ведения журнала хранилища ключей):
+Мы включим ведение журналов хранилища ключей с помощью командлета Set-AzureRmDiagnosticSetting и переменных, которые мы создали для новой учетной записи хранения и хранилища ключей. Мы также установим для флага **-Enabled** значение **$true** и зададим категорию AuditEvent (единственная категория для ведения журнала хранилища ключей):
 
-   
+
 	Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
-
 
 Результат будет выглядеть так:
 
-**Журналы**
+	StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
+	ServiceBusRuleId   :
+	StorageAccountName :
+		Logs
+		Enabled           : True
+		Category          : AuditEvent
+		RetentionPolicy
+		Enabled : False
+		Days    : 0
 
-**Enabled : True**
-
-**Category : AuditEvent**
 
 Это подтверждает включение регистрации данных для хранилища ключей и сохранение этих данных в учетной записи хранения.
+
+При необходимости можно также задать политику хранения для журналов, например политику, в соответствии с которой старые журналы будут автоматически удаляться. Например, задайте политику хранения, установив для флага **-RetentionEnabled** значение **$true**, а для параметра **-RetentionInDays** — значение **90**, чтобы автоматически удалять журналы, которые хранятся более 90 дней.
+
+	Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
 
 Регистрируются следующие данные:
 
@@ -129,8 +137,8 @@
 
 **resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=02/m=00/PT1H.json**
 
-**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json**
- 
+**resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json****
+
 
 Как видно из этих выходных данных, для BLOB-объектов используется следующее соглашение об именовании: **resourceId=<идентификатор ресурса ARM>/y=<год>/m=<месяц>/d=<день месяца>/h=<час>/m=<минута>/filename.json**
 
@@ -158,7 +166,7 @@
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 
-- Если у вас есть несколько групп ресурсов, но вы хотите загрузить журналы только для одной группы, используйте `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
+- Если у вас есть несколько групп ресурсов, но вы хотите загрузить журналы только для одной из них, используйте `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
 		Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 
@@ -168,9 +176,9 @@
 
 Теперь можно переходить к анализу содержимого журналов. Но перед этим мы рассмотрим еще два дополнительных параметра для команды Get-AzureRmDiagnosticSetting:
 
-- Запрос состояния параметров диагностики для ресурса хранилища ключей: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`.
- 
-- Отключение ведения журнала для ресурса хранилища ключей: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`.
+- Запрос состояния параметров диагностики для ресурса хранилища ключей: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
+
+- Отключение ведения журнала для ресурса хранилища ключей: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
 
 
 ## <a id="interpret"></a>Интерпретация журналов хранилища ключей ##
@@ -178,7 +186,7 @@
 Отдельные BLOB-объекты хранятся как текст в формате JSON. Вот пример записи журнала после выполнения команды `Get-AzureRmKeyVault -VaultName 'contosokeyvault'`:
 
 	{
-    	"records": 
+    	"records":
     	[
         	{
         	    "time": "2016-01-05T01:32:01.2691226Z",
@@ -204,7 +212,7 @@
 
 | Имя поля | Описание |
 | ------------- |-------------|
-| time | Дата и время (в формате UTC).|
+| Twitter в режиме реального | Дата и время (в формате UTC).|
 | resourceId | Идентификатор ресурса диспетчера ресурсов Azure. Для журналов хранилища ключей это всегда идентификатор ресурса хранилища ключей.|
 | operationName | Имя операции, как описано в следующей таблице.|
 | operationVersion | Запрошенная клиентом версия REST API.|
@@ -218,7 +226,7 @@
 | identity | Удостоверение из маркера, предоставляемое при выполнении запроса REST API. Обычно это «пользователь», «субъект-служба» или комбинация «пользователь + идентификатор приложения» при запросе с помощью командлета Azure PowerShell.|
 | properties | Это поле будет содержать разные сведения об операции (operationName). В большинстве случаев оно содержит сведения о клиенте (передаваемая клиентом строка useragent), точный URI запроса REST API и код состояния HTTP. Кроме того, когда объект возвращается в результате запроса (например, KeyCreate или VaultGet), это поле будет содержать URI ключа (как id), URI хранилища или URI секрета.|
 
- 
+
 
 
 Значения поля **operationName** отображаются в формате ObjectVerb. Например:
@@ -272,6 +280,6 @@
 
 Полный список командлетов Azure PowerShell 1.0 для хранилища ключей Azure см. в статье [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052.aspx) (Командлеты хранилища ключей Azure).
 
-Руководство по смене ключей и аудиту журналов с помощью хранилища ключей Azure см. в статье [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md) (Как настроить в хранилище ключей полную смену ключей и аудит).
+Руководство по смене ключей и аудиту журналов с помощью хранилища ключей Azure см. в статье [Как настроить полную смену ключей и аудит в хранилище ключей](key-vault-key-rotation-log-monitoring.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

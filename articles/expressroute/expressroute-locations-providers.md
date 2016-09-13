@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # Партнеры и одноранговые расположения ExpressRoute
@@ -31,7 +31,7 @@ ExpressRoute поддерживается во всех регионах и ра
 |---|---|---|
 |**Северная Америка**|Восточная часть США, западная часть США, восточная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США, центральная часть Канады, восточная часть Канады|Атланта, Чикаго, Даллас, Лас-Вегас, Лос-Анджелес, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон, округ Колумбия, Монреаль+, Квебек+, Торонто|
 |**Северная Америка**|Южная часть Бразилии|Сан-Паулу|
-|**Европа**|Северная Европа, Западная Европа|Амстердам, Дублин, Лондон, Ньюпорт (Уэльс)+, Париж|
+|**Европа**|Северная Европа, Западная Европа, запад Соединенного Королевства, юг Соединенного Королевства|Амстердам, Дублин, Лондон, Ньюпорт (Уэльс)+, Париж|
 |**Азия**|Восточная Азия, Юго-Восточная Азия|Гонконг, Сингапур|
 |**Япония**|Западная Япония, Восточная Япония|Осака, Токио|
 |**Австралия**|Восточная Австралия, Юго-Восточная Австралия|Мельбурн, Сидней|
@@ -80,7 +80,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Сиэтл;** | Equinix, Level 3 Communications, Megaport |
 | **Кремниевая долина** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Сингапур** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **Сидней** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Telstra Corporation, Verizon |
+| **Сидней** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Токио** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Торонто** | Cologix, Equinix, Zayo Group |
 | **Вашингтон, округ Колумбия** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
@@ -153,7 +153,7 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!--Image References-->
+.<!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

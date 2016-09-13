@@ -3,7 +3,7 @@
    description="Power BI Embedded, взаимодействие с отчетами с помощью интерфейса API JavaScript"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="jocaplan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/26/2016"
-   ms.author="jocaplan"/>
+   ms.author="mblythe"/>
 
 # Взаимодействие с отчетами Power BI с помощью интерфейса API JavaScript
 
@@ -46,13 +46,13 @@
   - Установка значений по умолчанию для страниц и фильтров (попробуйте воспользоваться [демонстрацией задания значений по умолчанию](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)).
 - Включение и выключение полноэкранного режима.
 
-[Дополнительные сведения о внедрении отчетов](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics).
+[Дополнительные сведения о внедрении отчетов.](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 
 ### Навигация по страницам отчета
 Интерфейс API JavaScript позволяет обнаруживать все страницы в отчете и задавать текущую страницу. Попробуйте воспользоваться [демонстрационным приложением навигации](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
-[Дополнительные сведения о навигации по страницам](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation).
+[Дополнительные сведения о навигации по страницам.](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### Фильтрация данных в отчете
 Интерфейс API JavaScript предоставляет базовые и расширенные возможности фильтрации для внедренных отчетов и страниц отчетов. Попробуйте [демонстрационное приложение фильтрации](http://azure-samples.github.io/powerbi-angular-client/#/scenario4) и ознакомьтесь с базовым кодом.
@@ -111,7 +111,7 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
   ]
 }
 ```
-[Дополнительные сведения о фильтрации](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters).
+[Дополнительные сведения о фильтрации.](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
 
 
 ### Обработка событий
@@ -124,7 +124,7 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
   - изменение страницы;
   - выбор данных (ожидается в ближайшее время).
 
-[Дополнительные сведения об обработке событий](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events).
+[Дополнительные сведения об обработке событий.](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
 
 
 ## Дальнейшие действия
@@ -137,4 +137,4 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
   - [Ember](https://github.com/Microsoft/powerbi-ember)
 - [Демонстрация в реальном времени](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

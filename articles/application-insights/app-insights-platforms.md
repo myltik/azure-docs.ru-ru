@@ -6,13 +6,13 @@
 	authors="OlegAnaniev-MSFT"
 	manager="douge"/>
 
-<tags
+.<tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="09/01/2016"
 	ms.author="awills"/>
 
 # Аналитические средства для разработчиков: языки, платформы, интеграция
@@ -22,8 +22,6 @@
 ## Языки
 
 + [C#|VB (.NET)](app-insights-asp-net.md)
-+ [C#|VB (Магазин Windows)](app-insights-windows-get-started.md)
-+ [C++ (Магазин Windows)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
 + [Веб-страницы JavaScript](app-insights-web-track-usage.md)
 + [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -37,7 +35,7 @@
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET — для приложений, которые уже доступны в Интернете](app-insights-monitor-performance-live-website-now.md)
-+ [ASP.NET 5](app-insights-asp-net-five.md)
++ [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 + [Веб-приложения и виртуальные машины Azure](../azure-portal/insights-perf-analytics.md)
 + [Облачные службы Azure](app-insights-cloudservices.md) — рабочие роли и веб-роли
@@ -47,12 +45,14 @@
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE — для приложений, которые уже доступны в Интернете](app-insights-java-live.md)
+* [Приложение Mac OS X](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
+* [Универсальное приложение Windows](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (HockeyApp)
 + [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-+ [C#|VB для Магазина Windows](app-insights-windows-get-started.md) (HockeyApp)
-+ [C++ для Магазина Windows](app-insights-windows-cpp.md) (HockeyApp)
+* [Приложение Windows Phone 8 и 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
+* [Приложение Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)
 + [Классические приложения, службы и рабочие роли Windows](app-insights-windows-desktop.md)
 + [Другие варианты](#projects)
 
@@ -84,4 +84,4 @@
 
 Если для языка или платформы, которые вы используете, не существует пакета SDK, возможно, вы захотите создать его. Просмотрите код существующих пакетов SDK, перечисленных в описании [проекта пакета SDK для Application Insights на GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->
