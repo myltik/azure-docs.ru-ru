@@ -220,7 +220,7 @@
 
 Ниже приведен пример веб-теста веб-приложения Azure с использованием ключа приложения.
 
-.![Пример секрета клиента](./media/app-insights-monitor-web-app-availability/110.png)
+![Пример секрета клиента](./media/app-insights-monitor-web-app-availability/110.png)
 
 1. Получите токен из Azure AD с помощью секрета клиента (AppKey).
 2. Извлеките токен носителя из ответа.

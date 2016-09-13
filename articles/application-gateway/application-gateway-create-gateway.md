@@ -73,7 +73,7 @@
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
+ *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
 
 Чтобы проверить, создан ли шлюз, используйте командлет **Get-AzureApplicationGateway**.
 

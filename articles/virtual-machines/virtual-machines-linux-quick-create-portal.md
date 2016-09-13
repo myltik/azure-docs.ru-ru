@@ -31,7 +31,7 @@
 
 2. В **Marketplace** щелкните элемент **Виртуальные машины**, а затем выберите в списке образов **Рекомендуемые приложения** пункт **Ubuntu Server 14.04 LTS**. Внизу страницы проверьте модель развертывания (должна быть указана модель `Resource Manager`) и нажмите кнопку **Создать**.
 
-    .![экран\_2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
+    ![экран\_2](../media/virtual-machines-linux-quick-create-portal/screen2.png)
 
 3. На странице **Основные сведения** укажите следующие данные:
     - имя виртуальной машины;
@@ -42,7 +42,7 @@
 
     Нажмите кнопку **ОК**, чтобы продолжить и выбрать размер виртуальной машины. Вы должны увидеть примерно следующее:
 
-    .![экран\_3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
+    ![экран\_3](../media/virtual-machines-linux-quick-create-portal/screen3.png)
 
 4. Выберите размер **DS1**, чтобы установить Ubuntu на твердотельном накопителе категории "Премиум", а затем нажмите кнопку **Выбрать** для настройки параметров.
 
@@ -54,15 +54,15 @@
 
 6. Проверьте параметры для новой виртуальной машины Ubuntu и нажмите кнопку **ОК**.
 
-    .![экран\_6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
+    ![экран\_6](../media/virtual-machines-linux-quick-create-portal/screen6.png)
 
 7. На портале откройте панель мониторинга, а затем в разделе **Сетевые интерфейсы** выберите нужный сетевой адаптер.
 
-    .![экран\_7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
+    ![экран\_7](../media/virtual-machines-linux-quick-create-portal/screen7.png)
 
 8. Откройте меню общедоступных IP-адресов в параметрах сетевого адаптера.
 
-    .![экран\_8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
+    ![экран\_8](../media/virtual-machines-linux-quick-create-portal/screen8.png)
 
 9. Подключитесь к общедоступному IP-адресу по протоколу SSH, используя открытый ключ SSH.
 

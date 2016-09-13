@@ -155,16 +155,16 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 ## Дальнейшие действия
 Общие сведения о загрузке см. в разделе [Загрузка данных в хранилище данных SQL][]. Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 
 [Загрузка данных в хранилище данных SQL]: ./sql-data-warehouse-overview-load.md
 [Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
 [таблицам в хранилище данных SQL]: ./sql-data-warehouse-tables-overview.md
 [Управление статистикой таблиц в хранилище данных SQL]: ./sql-data-warehouse-tables-statistics.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
 [синтаксису инструкции CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 

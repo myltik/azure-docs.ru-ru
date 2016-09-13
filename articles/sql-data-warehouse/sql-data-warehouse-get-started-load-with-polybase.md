@@ -255,7 +255,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 <!--Image references-->
 
 
-.<!--Article references-->
+<!--Article references-->
 [PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Управление статистикой в хранилище данных SQL]: ./sql-data-warehouse-tables-statistics.md

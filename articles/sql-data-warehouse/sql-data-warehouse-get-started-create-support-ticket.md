@@ -85,10 +85,10 @@
 
 <!--Image references--> 
 
-.<!--Article references--> 
+<!--Article references--> 
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 
-.<!--MSDN references--> 
+<!--MSDN references--> 
 
 <!--Other web references--> 
 [портал Azure]: https://portal.azure.com/

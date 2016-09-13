@@ -84,9 +84,9 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 
-.<!--MSDN references--> 
+<!--MSDN references--> 
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.com
 

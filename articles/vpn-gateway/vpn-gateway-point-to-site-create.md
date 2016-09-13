@@ -38,7 +38,7 @@
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-.![Схема подключения типа "точка — сеть"](./media/vpn-gateway-point-to-site-create/p2sclassic.png "точка — сеть")
+![Схема подключения типа "точка — сеть"](./media/vpn-gateway-point-to-site-create/p2sclassic.png "точка — сеть")
 
 ## О подключении типа "точка — сеть"
  
