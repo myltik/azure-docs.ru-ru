@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/28/2016" 
+	ms.date="09/01/2016" 
 	ms.author="mandia"/>
 
 # Что такое соединители и приложения API BizTalk
@@ -35,19 +35,19 @@
 
 
 ## Гибридные соединители 
-Гибридные соединители позволяют выйти на корпоративный уровень благодаря возможности подключения к системам [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) и WebSphere MQ.
+Гибридные соединители позволяют выйти на корпоративный уровень благодаря возможности подключения к системам [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) и WebSphere MQ.
 
 ## Службы EAI и EDI
 Для создания важных коммерческих приложений требуется не только подключение. Основываясь на фундаменте ведущей отраслевой платформы интеграции от корпорации Майкрософт — BizTalk Server — приложения API BizTalk предоставляют расширенные возможности интеграции, которые могут с легкостью использоваться в ваших веб-приложениях, мобильных приложениях и приложениях логики. Вот некоторые из этих возможностей интеграции: [проверка](app-service-logic-xml-validator.md), [извлечение](app-service-logic-xpath-extract.md), [преобразование](app-service-logic-transform-xml-documents.md), [кодировщики](app-service-logic-connector-jsonencoder.md), [управление торговыми партнерами](app-service-logic-connector-tpm.md) и поддержка форматов EDI, например [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) и [AS2](app-service-logic-connector-as2.md).
 
-Дополнительные ресурсы: [Соединители "бизнес–бизнес" и приложения API в службе приложений Microsoft Azure](app-service-logic-b2b-connectors.md); [Создание процесса B2B](app-service-logic-create-a-b2b-process.md); [Создание соглашения между торговыми партнерами](app-service-logic-create-a-trading-partner-agreement.md); [Отслеживание сообщений B2B](app-service-logic-track-b2b-messages.md).
+Дополнительные ресурсы: [соединители "бизнес — бизнес" и приложения API в службе приложений Microsoft Azure](app-service-logic-b2b-connectors.md); [создание процесса B2B](app-service-logic-create-a-b2b-process.md); [создание соглашения между торговыми партнерами](app-service-logic-create-a-trading-partner-agreement.md); [отслеживание сообщений B2B](app-service-logic-track-b2b-messages.md).
 
 
 ## Правила
-Бизнес-правила инкапсулируют политики и решения, которые управляют бизнес-процессами. Как правило, правила являются динамическими и изменяются со временем по разным причинам, например в результате изменения бизнес-планов, нормативов, и по многим другим причинам. [Правила BizTalk](app-service-logic-use-biztalk-rules.md) позволяют выделить эти политики из кода приложения и сделать процесс изменения проще и быстрее.
+Бизнес-правила инкапсулируют политики и решения, которые управляют бизнес-процессами. Как правило, правила являются динамическими и изменяются со временем по разным причинам, например в результате изменения бизнес-планов, нормативов, и по многим другим причинам. [Правила BizTalk](app-service-logic-use-biztalk-rules.md) позволяют выделить эти политики из кода приложения, а также упростить и ускорить процесс изменения.
 
 ## Список соединителей и приложений API
 В разделе [Список соединителей и приложений API](app-service-logic-connectors-list.md) можно найти полный список соединителей и приложений API, содержащихся в каждой категории, включая стандартные соединители, BizTalk EAI, соединители Premium и так далее.
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

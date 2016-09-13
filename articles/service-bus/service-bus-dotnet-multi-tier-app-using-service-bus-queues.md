@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="05/27/2016"
+	ms.topic="get-started-article"
+	ms.date="09/01/2016"
 	ms.author="sethm"/>
 
 # Многоуровневое приложение .NET, использующее очереди служебной шины Azure
@@ -462,4 +462,4 @@
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Настройка аналитики веб-приложения для ASP.NET с помощью Application Insights" 
+	pageTitle="Настройка аналитики веб-приложения для ASP.NET с помощью Application Insights | Microsoft Azure" 
 	description="Настройка средств аналитики производительности, доступности и использования для веб-сайта ASP.NET, размещенного локально или в Azure." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -30,7 +30,7 @@
 
 Существуют и другие статьи, к которым можно обратиться, если вас интересуют такие темы, как:
 
-* [инструментирование веб-приложения во время выполнения](app-insights-monitor-performance-live-website-now.md);
+* [инструментирование веб-приложения во время выполнения;](app-insights-monitor-performance-live-website-now.md)
 * [облачные службы Azure.](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> 1. Добавление пакета SDK для Application Insights
@@ -117,17 +117,17 @@ Application Insights отправляет данные телеметрии из
 2. Создает ресурс Application Insights на [портале Azure](https://portal.azure.com/). Здесь будут отображаться ваши данные. Команда извлекает *ключ инструментирования*, идентифицирующий ресурс.
 3. Вставляет ключ инструментирования в `ApplicationInsights.config`, чтобы пакет SDK мог отправлять данные телеметрии на портал.
 
-При необходимости вы можете выполнить эти действия вручную для проекта [ASP.NET 4](app-insights-asp-net-manual.md) или [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+При необходимости вы можете выполнить эти действия вручную для проекта [ASP.NET 4](app-insights-windows-services.md) или [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ### Обновление до будущих версий пакета SDK
 
-Чтобы установить [новый выпуск пакета SDK](app-insights-release-notes-dotnet.md), еще раз откройте диспетчер пакетов NuGet и выполните фильтрацию по установленным пакетам. Выберите элемент Microsoft.ApplicationInsights.Web, а затем — элемент "Обновление".
+Чтобы установить [новый выпуск пакета SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), еще раз откройте диспетчер пакетов NuGet и выполните фильтрацию по установленным пакетам. Выберите элемент Microsoft.ApplicationInsights.Web, а затем — элемент "Обновление".
 
 Если были выполнены какие-либо настройки файла ApplicationInsights.config, то, прежде чем выполнять обновление, сохраните его копию, а затем объедините изменения в новой версии.
 
 
 
-## Что дальше?
+## Дальнейшие действия
 
 | | 
 |---|---
@@ -135,4 +135,4 @@ Application Insights отправляет данные телеметрии из
 |**[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, эффективные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт данных телеметрии. |![Visual Studio](./media/app-insights-asp-net/62.png)
 |**[Добавление дополнительных данных](app-insights-asp-net-more.md)**<br/>Мониторинг использования, доступности, зависимостей и исключений. Интеграция трассировок из платформ ведения журналов. Написание пользовательской телеметрии. | ![Visual Studio](./media/app-insights-asp-net/64.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

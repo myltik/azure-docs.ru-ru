@@ -5,7 +5,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace"/>
 
 
@@ -28,12 +28,9 @@
 - [Шаблон диспетчера ресурсов Azure](application-gateway-create-gateway-arm-template.md)
 - [Интерфейс командной строки Azure](application-gateway-create-gateway-cli.md)
 
-<BR>
-
 Вы узнаете, как скачивать и изменять существующий шаблон Azure Resource Manager из GitHub, а также развертывать шаблон из GitHub, PowerShell и интерфейса командной строки Azure.
 
 Если вы развертываете шаблон ARM непосредственно из GitHub без изменений, перейдите к соответствующему разделу.
-
 
 ## Сценарий
 
@@ -46,15 +43,11 @@
 
 >[AZURE.NOTE] Приведенные значения представляют в этом шаблоне параметры. Чтобы настроить шаблон, можно обновить правила, прослушиватель и SSL, внеся необходимые изменения в файл azuredeploy.json.
 
-
-
 ![Сценарий](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
-
-
 
 ## Скачивание и использование шаблона диспетчера ресурсов Azure
 
-Вы можете скачать из GitHub уже существующий шаблон диспетчера ресурсов Azure (ARM), чтобы создать виртуальную сеть и две подсети, а также внести в него нужные изменения и применить. Для этого сделайте следующее.
+Вы можете скачать из GitHub уже существующий шаблон диспетчера ресурсов Azure (ARM), чтобы создать виртуальную сеть и две подсети, а также внести в него нужные изменения и применить. Для этого выполните следующие действия.
 
 1. Перейдите к этапу [Создание шлюза приложений](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create).
 2. Щелкните **azuredeploy.json** и нажмите кнопку **RAW**.
@@ -89,29 +82,29 @@
 10. Откройте сохраненный файл и измените значения параметров. Чтобы развернуть шлюз приложений в соответствии с задачами этого руководства, используйте следующие значения.
 
 		{
-		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 		{
-    	"location" : {
-        "value" : "West US"
-    	},
-    	"addressPrefix": {
-        "value": "10.0.0.0/16"
-    	},
-    	"subnetPrefix": {
-        "value": "10.0.0.0/24"
-    	},
-    	"skuName": {
-        "value": "Standard_Small"
-    	},
-    	"capacity": {
-        "value": 2
-    	},
-    	"backendIpAddress1": {
-        "value": "10.0.1.10"
-    	},
-    	"backendIpAddress2": {
-        "value": "10.0.1.11"
-    	}
+		"location" : {
+		"value" : "West US"
+		},
+		"addressPrefix": {
+		"value": "10.0.0.0/16"
+		},
+		"subnetPrefix": {
+		"value": "10.0.0.0/24"
+		},
+		"skuName": {
+		"value": "Standard_Small"
+		},
+		"capacity": {
+		"value": 2
+		},
+		"backendIpAddress1": {
+		"value": "10.0.1.10"
+		},
+		"backendIpAddress2": {
+		"value": "10.0.1.11"
+		}
 		}
 
 11. Сохраните файл. Вы можете проверить шаблон JSON и шаблон параметров с помощью таких веб-инструментов проверки JSON, как [JSlint.com](http://www.jslint.com/).
@@ -123,8 +116,6 @@
 ### Шаг 1.
 
 	Login-AzureRmAccount
-
-
 
 ### Шаг 2
 
@@ -149,43 +140,10 @@
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 
-		ResourceGroupName : AppgatewayRG
-		Location          : eastus
-		ProvisioningState : Succeeded
-		Tags              :
-		Permissions       :
-	                 Actions  NotActions
-	                 =======  ==========
-	                  *
-
-		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
-
 Запустите командлет **New-AzureRmResourceGroupDeployment**, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили ранее.
 
 	New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-
-Выходные данные командной строки будут выглядеть так:
-
-	DeploymentName    : testappgatewaydeployment
-	ResourceGroupName : appgatewayRG
-	ProvisioningState : Succeeded
-	Timestamp         : 9/19/2015 1:49:41 AM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-				Name             Type                       Value
-				===============  =========================  ==========
-				location         String                     East US
-				addressPrefix    String                     10.0.0.0/16
-				subnetPrefix     String                     10.0.0.0/24
-				skuName          String                     Standard_Small
-				capacity         Int                        2
-				backendIpAddress1  String                     10.0.1.10
-				backendIpAddress2  String                     10.0.1.11
-
-	Outputs           :
-
 
 ## Развертывание шаблона ARM с помощью интерфейса командной строки Azure
 
@@ -220,44 +178,13 @@
 
 	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
-Вот результат, ожидаемый для указанной выше команды:
-
-	azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-	info:    Executing command group deployment create
-	+ Initializing template configurations and parameters
-	+ Creating a deployment
-	info:    Created template deployment "TestAppgatewayDeployment"
-	+ Waiting for deployment to complete
-	data:    DeploymentName     : TestAppgatewayDeployment
-	data:    ResourceGroupName  : appgatewayRG
-	data:    ProvisioningState  : Succeeded
-	data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
-	data:    Mode               : Incremental
-	data:    Name               Type    Value
-	data:    -----------------  ------  --------------
-	data:    location           String  East US
-	data:    addressPrefix      String  10.0.0.0/16
-	data:    subnetPrefix       String  10.0.0.0/24
-	data:    skuName            String  Standard_Small
-	data:    capacity           Int     2
-	data:    backendIpAddress1  String  10.0.1.10
-	data:    backendIpAddress2  String  10.0.1.11
-	info:    group deployment create command OK
-
-**-g (или --resource-group)**. Имя группы ресурсов, в которой создается виртуальная сеть.
-
-**-f (или --template-file)**. Путь к файлу шаблона диспетчера ресурсов Azure.
-
-**-e (или --parameters-file)**. Путь к файлу параметров диспетчера ресурсов Azure.
-
 ## Развертывание шаблона ARM с помощью интерфейса кнопки развертывания
 
 Развертывание с помощью кнопки развертывания — еще один способ использования шаблонов ARM. Он позволяет быстро и удобно работать с шаблонами на портале Azure.
 
-
 ### Шаг 1
-Перейдите на страницу, посвященную [созданию шлюза приложений с использованием общедоступного IP-адреса](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/).
 
+Перейдите на страницу, посвященную [созданию шлюза приложений с использованием общедоступного IP-адреса](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/).
 
 ### Шаг 2
 
@@ -279,8 +206,6 @@
 
 В колонке "Настраиваемое развертывание" щелкните **Создать**.
 
-
-
 ## Дальнейшие действия
 
 Сведения о настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
@@ -292,4 +217,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->
