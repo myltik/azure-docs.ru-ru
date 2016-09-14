@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Добавление репозитория артефактов Git в лабораторию
@@ -51,9 +51,9 @@
 
 ###Подключение лаборатории к репозиторию GitHub
 
-1. Войдите на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Выполните вход на [портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Щелкните **Обзор**, а затем из списка выберите **DevTest Labs**.
+1. Щелкните **Обзор**, а затем выберите в списке **DevTest Labs**.
 
 1. Из списка лабораторий выберите нужную лабораторию.
 
@@ -117,8 +117,10 @@
     3. Введите сохраненный **персональный маркер доступа** в хранилище артефактов.
     4. Щелкните **Сохранить**.
 
-## Связанные записи в блогах
-- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) (Способы устранения сбоя артефактов в лабораториях для разработки и тестирования Azure)
-- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (Присоединение виртуальной машины к существующему домену AD с помощью шаблона ARM в лаборатории для разработки и тестирования Azure)
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-<!---HONumber=AcomDC_0803_2016-->
+## Связанные записи в блогах
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs (Способы устранения сбоя артефактов в лабораториях для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Присоединение виртуальной машины к существующему домену AD с помощью шаблона ARM в лаборатории для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+
+<!---HONumber=AcomDC_0831_2016-->

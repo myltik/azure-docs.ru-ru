@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Запросы к хранилищу данных SQL Azure (sqlcmd)
 
@@ -32,9 +32,12 @@
 
 + **Server (-S):** сервер в виде `<`имя сервера`>`.database.windows.net
 + **Database (-d)**. Имя базы данных.
-+ **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
-+ **Password (-P)** — пароль, связанный с пользователем.
 + **Enable Quoted Identifiers (-I)** — для подключения к экземпляру хранилища данных SQL необходимо включить заключенные в кавычки идентификаторы.
+
+Чтобы использовать проверку подлинности SQL Server, необходимо добавить параметры имени пользователя и пароля.
+
++ **User (-U)** — пользователь сервера в формате `<`Пользователь`>`.
++ **Password (-P)** — пароль, связанный с пользователем.
 
 Например, строка подключения может выглядеть так:
 
@@ -42,7 +45,17 @@
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] Параметр -I, который включает заключенные в кавычки идентификаторы, требуется для подключения к хранилищу данных SQL.
+Чтобы использовать встроенную проверку подлинности Azure Active Directory, необходимо добавить параметры Azure Active Directory.
+
++ **Проверки подлинности Azure Active Directory (-G):** — использовать Azure Active Directory для проверки подлинности.
+
+Например, строка подключения может выглядеть так:
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] Необходимо [включить проверку подлинности Azure Active Directory](sql-data-warehouse-authentication.md), чтобы выполнять проверку подлинности с помощью Active Directory.
 
 ## 2) Запрос
 
@@ -71,12 +84,12 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 
-.<!--MSDN references--> 
+<!--MSDN references--> 
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

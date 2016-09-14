@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2016"
+   ms.date="08/25/2016"
    ms.author="nitinme"/>
 
 # Приложения больших данных с открытым исходным кодом, которые работают с хранилищем озера данных Azure
@@ -37,8 +37,8 @@
 | [Apache Spark](http://spark.apache.org/) | HDInsight 3.4 |
 
 
-## См. также
+## Дополнительные материалы
 
 - [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0831_2016-->

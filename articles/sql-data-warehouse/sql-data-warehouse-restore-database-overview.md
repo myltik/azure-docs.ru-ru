@@ -59,7 +59,7 @@ order by run_id desc;
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: ./sql-database-business-continuity.md
 [локально избыточного (LRS)]: ../storage/storage-redundancy.md
 [Обзор]: ./sql-data-warehouse-restore-database-overview.md
@@ -67,7 +67,7 @@ order by run_id desc;
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 
 <!--Other Web references-->

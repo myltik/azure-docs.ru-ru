@@ -3,7 +3,7 @@
 	description="Ознакомьтесь с ответами на часто задаваемые вопросы, шаблонами и рекомендациями для службы управления API Azure." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="miaojiang" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+	ms.author="mijiang"/>
 
 # Часто задаваемые вопросы о службе управления API Azure
 
@@ -155,4 +155,4 @@ IP-адрес (или адреса в случае развертывания в
 
 Да!
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

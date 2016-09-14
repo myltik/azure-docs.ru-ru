@@ -316,7 +316,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-Обратите внимание, что ключевое слово ``Integrated Security=True`` строки подключения не используется для подключения к базе данных SQL Azure.
+Обратите внимание, что ключевое слово ``Integrated Security=True`` строки подключения не используется для подключения к базе данных SQL Azure. Обратите внимание, что при создании подключения ODBC потребуется удалить пробелы и задать для параметра Authentication значение ActiveDirectoryIntegrated.
 
 ### 7\.2. Подключение с использованием имени участника-пользователя и пароля Azure AD
 Чтобы подключиться к базе данных с помощью встроенной аутентификации и удостоверения Azure AD, ключевому слову аутентификации нужно присвоить пароль Active Directory. Строка подключения должна содержать ключевые слова для идентификатора пользователя (UID) и пароля (PWD), а также их значения. В следующем примере кода C# используется ADO .NET.
@@ -381,4 +381,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

@@ -29,7 +29,7 @@
 
   ![1\_RequestRefund][1]
 
-  1. Откройте страницу службы поддержки.
+  1. Откройте страницу службы поддержки: [https://support.microsoft.com/ru-RU/getsupport?tenant=ClassicCommercial&locale=ru-RU&supportregion=ru-RU&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/ru-RU/getsupport?tenant=ClassicCommercial&locale=ru-RU&supportregion=ru-RU&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
   2. В поле **Тип проблемы** выберите параметр **Управление клиентами**.
   3. В поле **Категория** выберите параметр **Утвердить или запросить возврат клиенту**.
   4. Нажмите кнопку **Отправить запрос**.
@@ -120,4 +120,4 @@
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

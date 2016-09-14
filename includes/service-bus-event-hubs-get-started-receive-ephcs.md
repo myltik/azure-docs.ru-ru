@@ -4,23 +4,27 @@
 
 Для использования класса [EventProcessorHost][] необходимо настроить [учетную запись хранения Azure][].
 
-1. Войдите на [классический портал Azure][] и в нижней части экрана нажмите кнопку **Создать**.
+1. Войдите на [портал Azure][] и щелкните **Создать** в левой верхней части экрана.
 
-2. Выберите **Службы данных**, **Хранилище**, **Быстрое создание**, а затем введите имя для своей учетной записи хранения. Выберите нужный регион и нажмите кнопку **Создать учетную запись хранения**.
+2. Щелкните **Данные+хранилище**, а затем щелкните **Учетная запись хранения**.
 
-    ![][11]
+    ![][1]
 
-3. Выберите созданную учетную запись хранения и нажмите кнопку **Управление ключами доступа**.
+3. В колонке **Создание учетной записи хранилища** введите имя учетной записи хранилища. Выберите подписку Azure, группу ресурсов и расположение для создания ресурса. Затем щелкните **Создать**.
 
-    ![][12]
+    ![][2]
 
-    Скопируйте первичный ключ доступа, чтобы использовать позже в этом руководстве.
+4. В списке учетных записей хранения выберите только что созданную учетную запись хранения.
+
+5. В колонке учетной записи хранения выберите **Ключи доступа**. Скопируйте значение **key1**, чтобы использовать позже в этом руководстве.
+
+	![][3]
 
 4. Создайте в Visual Studio новый проект Visual C# для классических приложений с помощью шаблона проекта **Консольное приложение**. Присвойте проекту имя **Получатель**.
 
     ![][14]
 
-5. В обозревателе решений щелкните правой кнопкой мыши решение и выберите **Управление пакетами NuGet для решения**.
+5. В обозревателе решений щелкните решение правой кнопкой мыши и выберите пункт **Управление пакетами NuGet для решения**.
 
 6. Щелкните вкладку **Обзор** и выполните поиск `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Убедитесь, что имя проекта (**Receiver**) указано в поле **Версии**. Щелкните **Установить** и примите условия использования.
 
@@ -122,16 +126,17 @@
 [Руководство по программированию концентраторов событий]: event-hubs-programming-guide.md
 [Обработка масштабированного события]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [обработки масштабируемого события]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[учетную запись хранения Azure]: ../storage/storage-create-storage-account-classic-portal.md
+[учетную запись хранения Azure]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[классический портал Azure]: http://manage.windowsazure.com
+[портал Azure]: https://portal.azure.com
 
 <!-- Images -->
 
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
+[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
+[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
+[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

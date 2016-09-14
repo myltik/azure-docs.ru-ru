@@ -31,7 +31,7 @@
 | ![Jinfonet][5] |**JReport**<br>JReport — встраиваемое решение бизнес-аналитики для предприятий. Решение позволяет пользователям создавать отчеты, панели мониторинга и выполнять анализ данных в облаке, работать с большими объемами данных и источниками транзакционных данных. Визуализируя данные, вы можете создавать собственные отчеты и исследовать данные для принятия решений на ходу.| [Веб-сайт][jinfonet_website]<br>[Информационный лист][jinfonet_datasheet]<br>[Twitter][jinfonet_twitter]<br>[YouTube][jinfonet_youtube] | [![Видео о Jreport](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_video.jpg)](https://www.youtube.com/watch?v=KYqh8TuMpds) |
 | ![LogiAnalytics][6] |**Logi Analytics**<br>Logi Analytics и хранилище данных SQL Azure позволяют вашей организации собирать и анализировать большие и очень разнообразные наборы данных, а затем сразу же принимать решения на их основе. | [Marketplace][logianalytics_marketplace]<br>[Веб-сайт][logianalytics_website]<br>[Информационный лист][logianalytics_datasheet]<br>[Twitter][logianalytics_twitter]<br>[YouTube][logianalytics_youtube] | [![Видео о LogiAnalytics](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_video.jpg)](https://www.youtube.com/watch?v=7U0Sfi3Ndpk) |
 | ![Looker][7] |**Looker BI**<br>Looker позволяет каждому сотруднику вашей компании исследовать и анализировать данные, от которых зависит ваш бизнес. Также решение предоставляет аналитику данных гибкий инструмент моделирования для управления данными и их организации. Компании смогли существенно изменить свою культуру благодаря средству Looker. | [Marketplace][looker_marketplace]<br>[Веб-сайт][looker_website]<br>[Информационный лист][looker_datasheet]<br>[Twitter][looker_twitter]<br>[YouTube][looker_youtube] | [![Видео о Looker](./media/sql-data-warehouse-partner-business-intelligence/looker_video.jpg)](https://www.youtube.com/watch?v=WwO4ADK8ZfA) |
-| ![Qlik][8] |**Qlikview**<br>Qlik обеспечивает платформоориентированный подход к визуальной аналитике на основе хранилища данных SQL Microsoft Azure. Используя функции корпоративного класса в рамках эластичного хранилища данных Майкрософт, Qlik позволяет целой организации уверенно принимать быстрые решения. Qlik обеспечивает прогнозы и ясность там, где это необходимо: в принятии решений. | [Marketplace][qlik_marketplace]<br>[Веб-сайт][qlik_website]<br>[Информационный лист][qlik_datasheet]<br>[Twitter][qlik_twitter]<br>[YouTube][qlik_youtube] | [![Видео о Qlikview](./media/sql-data-warehouse-partner-business-intelligence/qlik_video.jpg)](https://www.youtube.com/watch?v=sqILcEwlHSI) |
+| ![Qlik][8] |**Qlik Sense Enterprise**<br>Стимулирование обнаружения информации с помощью приложения для визуализации данных, которое может использовать кто угодно. С помощью Qlik Sense кто угодно в вашей организации сможет легко создавать гибкие, интерактивные визуализации и принимать разумные решения.| [Веб-сайт][qlik_website]<br>[Twitter][qlik_twitter]<br>[YouTube][qlik_youtube] | [![Видео о Qlikview](./media/sql-data-warehouse-partner-business-intelligence/qlik_video2.jpg)](https://www.youtube.com/watch?v=VJEDFE-07Hg) |
 | ![SiSense][9] |**SiSense**<br>SiSense — полноценное программное обеспечение бизнес-аналитики с инструментами, которые нужны компании для анализа и визуализации данных: эффективная база данных, возможность подключаться к разным источникам, простое извлечение данных и визуализация данных в браузере. Начните анализировать и визуализировать большие объемы данных с помощью SiSense BI and Analytics уже сегодня. | [Marketplace][sisense_marketplace]<br>[Веб-сайт][sisense_website]<br>[Информационный лист][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] | [![Видео о SiSense](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4) |
 | ![Tableau][10] |**Tableau**<br>Средство анализа Tableau поможет увидеть и понять данные из разных источников, от неструктурированных файлов до баз данных. Tableau имеет собственное, оптимизированное средство подключения к хранилищу данных SQL Microsoft Azure, которое поддерживает работу с актуальными данными и анализ в памяти. | [Marketplace][tableau_marketplace]<br>[Веб-сайт][tableau_website]<br>[Информационный лист][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] | [![Видео о Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
 | ![Targit][11] |**Targit**<br>Targit Decision Suite — это платформа бизнес-аналитики, которая объединяет актуальные панели мониторинга, аналитику, понятные отчеты, превосходные мобильные возможности и простые технологии работы с данными в одном, связанном решении. Targit дает компаниям мужество для действия. | [Marketplace][targit_marketplace]<br>[Веб-сайт][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] | [![Видео о Targit](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
@@ -59,12 +59,12 @@
 [12]: ./media/sql-data-warehouse-partner-business-intelligence/yellowfin_logo.png
 
 
-.<!--Article links-->
+<!--Article links-->
 [bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
 [dm_partners]: ./sql-data-warehouse-partner-data-management.md
 [di_partners]: ./sql-data-warehouse-partner-data-integration.md
 
-.<!--Website links -->
+<!--Website links -->
 [birst_website]: https://www.birst.com/
 [clearstory_website]: http://www.clearstorydata.com/
 [dell_statistica_website]: http://software.dell.com/MSFT_Stat_ref/
@@ -72,57 +72,58 @@
 [jinfonet_website]: http://www.jinfonet.com/product/jreport-designer
 [logianalytics_website]: http://www.logianalytics.com/
 [looker_website]: https://looker.com/partners/microsoft-azure/
-[qlik_website]: http://www.qlik.com/products/qlikview/getting-started
+[qlik_website]: http://www.qlik.com/us/products/qlik-sense/enterprise
 [sisense_website]: https://www.sisense.com/product/
 [tableau_website]: http://www.tableau.com/
 [targit_website]: https://www.targit.com/en/software/deployment/targitonazure
 [yellowfin_website]: http://www.yellowfinbi.com/
 
-.<!--ebook Links-->
+<!--Get Started Links-->
+[qlik_getstarted]: http://www.qlik.com/us/products/qlik-sense/getting-started
 
-.<!--Datasheet Links-->
-.<!--[birst_datasheet]:-->
+<!--Datasheet Links-->
+<!--[birst_datasheet]:-->
 [clearstory_datasheet]: http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
 [dell_statistica_datasheet]: https://software.dell.com/documents/statistica-data-miner-datasheet-69284.pdf
 [dundas_bi_datasheet]: http://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf
 [jinfonet_datasheet]: http://www.jinfonet.com/products/JReport%20Brief.pdf
 [logianalytics_datasheet]: https://www.logianalytics.com/datasheet/logi-info/
 [looker_datasheet]: https://info.looker.com/h/i/229169578-looker-for-microsoft-azure
-[qlik_datasheet]: http://www.qlik.com/en/resource-library/the-qlikview-product-family
+<!--[qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family-->
 [sisense_datasheet]: https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf
 [tableau_datasheet]: http://www.tableau.com/stories/workbook/azure-sql-data
-.<!--[targit_datasheet]:-->
+<!--[targit_datasheet]:-->
 [yellowfin_datasheet]: http://www.yellowfinbi.com/Document.i4?DocumentId=877299
 
-.<!--Marketplace Links -->
+<!--Marketplace Links -->
 [birst_marketplace]: https://azure.microsoft.com/en-gb/marketplace/partners/birst/birst/
-.<!--[clearstory_marketplace]:-->
+<!--[clearstory_marketplace]:-->
 [dell_statistica_marketplace]: https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner/
 [dundas_bi_marketplace]: https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/
-.<!--[jinfonet_marketplace]:-->
+<!--[jinfonet_marketplace]:-->
 [logianalytics_marketplace]: https://azure.microsoft.com/marketplace/partners/logi-analytics/logi-info-11/
 [looker_marketplace]: https://azure.microsoft.com/marketplace/partners/looker/looker-analytics-platform-326/
-[qlik_marketplace]: https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/
+<!--[qlik_marketplace]:https://azure.microsoft.com/marketplace/partners/qliktech-international-ab/qlikview/ -->
 [sisense_marketplace]: https://azure.microsoft.com/marketplace/partners/sisense/sisense-byol/
 [tableau_marketplace]: https://azure.microsoft.com/marketplace/partners/tableau/tableau-server/
 [targit_marketplace]: https://azure.microsoft.com/marketplace/partners/targit/targit-decision-suite/
 [yellowfin_marketplace]: https://azure.microsoft.com/marketplace/partners/yellowfin/yellowfin-for-azure-byol/
 
-.<!--Press links-->
-.<!--[birst_press]:-->
+<!--Press links-->
+<!--[birst_press]:-->
 [clearstory_press]: http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
-.<!--[dell_statistica_press]:-->
+<!--[dell_statistica_press]:-->
 [dundas_bi_press]: https://www.dundas.com/about/news/24-06-2015-dundas-data-visualization-provides-seamless-integration-with-microsoft-azure-and-azure-sql-data-warehouse
-.<!--[jinfonet_press]:-->
+<!--[jinfonet_press]:-->
 [logianalytics_press]: http://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
 [looker_press]: https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
-.<!--[qlik_press]:-->
-.<!--[sisense_press]:-->
+<!--[qlik_press]:-->
+<!--[sisense_press]:-->
 [tableau_press]: https://www.tableau.com/about/blog/2015/7/visualizing-data-cloud-microsoft-azure-tableau-online-40832
-.<!--[targit_press]:-->
-.<!--[yellowfin_press]:-->
+<!--[targit_press]:-->
+<!--[yellowfin_press]:-->
 
-.<!--YouTube links-->
+<!--YouTube links-->
 [birst_youtube]: https://www.youtube.com/user/BirstBI
 [clearstory_youtube]: https://www.youtube.com/user/ClearStoryData
 [dell_statistica_youtube]: https://www.youtube.com/user/DellSoftwareVideo
@@ -150,4 +151,4 @@
 [targit_twitter]: https://twitter.com/TARGIT
 [yellowfin_twitter]: https://twitter.com/YellowfinBI
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

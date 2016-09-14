@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
-	ms.author="v-vlivech"/>
+	ms.date="08/26/2016"
+	ms.author="v-livech"/>
 
 # Отключение паролей SSH в виртуальной машине Linux в настройках SSHD
 
@@ -43,7 +43,7 @@ SSHD — это SSH-сервер, работающий на виртуально
 
 ## Предварительные требования
 
-- [Создайте SSH-ключи в Linux и Mac для виртуальных машин Linux в Azure](link)
+- [Создайте SSH-ключи в Linux и Mac для виртуальных машин Linux в Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 - Учетная запись Azure
   - [Бесплатная пробная версия подписки](https://azure.microsoft.com/pricing/free-trial/)
   - [Портал Azure](http://portal.azure.com)
@@ -145,4 +145,4 @@ username@macbook$ sudo service sshd restart
 
 Теперь пароли на виртуальной машине отключены, что защищает ее от попыток входа методом подбора пароля. Благодаря тому, что разрешены только SSH-ключи, вы сможете выполнять вход быстрее и гораздо безопаснее.
 
-<!---HONumber=AcomDC_0323_2016-->
+<!---HONumber=AcomDC_0831_2016-->

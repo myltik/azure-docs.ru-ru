@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2016"
+	ms.date="08/31/2016"
 	ms.author="daleche"/>
 
 # Устранение неполадок подключения к базе данных SQL Azure
 
 При сбоях подключения к базе данных SQL Azure отображаются [сообщения об ошибке](sql-database-develop-error-messages.md). Эта статья представляет собой объединенный раздел, который поможет в устранении неполадок подключения к базе данных SQL Azure. В ней описываются [распространенные причины](#cause) проблем подключения, рекомендуется [инструмент устранения неполадок](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues), который поможет выявить проблему, и приводятся пошаговые инструкции по устранению [временных ошибок](#troubleshoot-transient-errors) и [постоянных или повторяющихся ошибок](#troubleshoot-the-persistent-errors). Наконец, в ней перечислены [все соответствующие статьи о проблемах подключения к базе данных SQL Azure](#all-topics-for-azure-sql-database-connection-problems).
 
-Если у вас возникли проблемы с подключением, попробуйте устранить неполадки с помощью описанных в этой статье методов.
+Если у вас возникли проблемы с подключением, попробуйте устранить неполадки с помощью описанных в этой статье методов. 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Причина:
@@ -63,12 +63,12 @@
 
 1.	Настройте [правила брандмауэра](sql-database-configure-firewall-settings.md), разрешив предоставление IP-адреса клиенту.
 2.	На всех брандмауэрах между клиентом и Интернетом откройте порт 1433 для входящих соединений. Дополнительные указания см. в статье [Настройка брандмауэра Windows для разрешения доступа к SQL Server](https://msdn.microsoft.com/library/cc646023.aspx).
-3.	Проверьте строку подключения и другие параметры подключения. См. раздел "Строка подключения" в [статье о проблемах подключения](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
+3.	Проверьте строку подключения и другие параметры подключения. Ознакомьтесь с разделом "Строка подключения" в [статье о проблемах подключения](sql-database-connectivity-issues.md#connections-to-azure-sql-database).
 4.	Проверьте работоспособность службы на панели мониторинга. Если вы считаете, что имеет место региональный сбой, выполните инструкции по восстановлению в новый регион из раздела [Восстановление после сбоя](sql-database-disaster-recovery.md).
 
-## Все разделы о проблемах подключения к базе данных SQL Azure
+## Все разделы о проблемах подключения к Базе данных SQL Azure
 
-В следующей таблице перечислены разделы о проблемах подключения, относящихся непосредственно к службе базы данных SQL Azure.
+В следующей таблице перечислены разделы о проблемах подключения, относящихся непосредственно к службе Базы данных SQL Azure.
 
 
 | &nbsp; | Название | Описание |
@@ -88,7 +88,7 @@
 
 - [Устранение проблем производительности базы данных SQL Azure](sql-database-troubleshoot-performance.md).
 - [Устранение проблем с разрешениями в базе данных SQL Azure](sql-database-troubleshoot-permissions.md).
-- [Все разделы о службе базы данных SQL Azure](sql-database-index-all-articles.md).
+- [Все разделы о службе Базы данных SQL Azure](sql-database-index-all-articles.md).
 - [Поиск документации по Microsoft Azure](http://azure.microsoft.com/search/documentation/).
 - [Просмотр последних обновлений для службы базы данных SQL Azure](http://azure.microsoft.com/updates/?service=sql-database).
 
@@ -101,4 +101,4 @@
 - [Схема обучения использованию базы данных SQL Azure](https://azure.microsoft.com/documentation/learning-paths/sql-database-training-learn-sql-database).
 - [Схема обучения использованию функций и инструментов эластичной базы данных](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0831_2016-->

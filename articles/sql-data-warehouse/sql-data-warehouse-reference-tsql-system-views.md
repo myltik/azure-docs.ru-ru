@@ -235,10 +235,10 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Общие справочные сведения о хранилище данных SQL]: sql-data-warehouse-overview-reference.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 
 <!--Other Web references-->

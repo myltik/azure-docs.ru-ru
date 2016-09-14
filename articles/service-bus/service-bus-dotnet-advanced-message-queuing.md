@@ -291,6 +291,15 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
+## Неподдерживаемые возможности и ограничения
+
+Следующие функции API-интерфейса Service Bus .NET при использовании AMQP не поддерживаются:
+
+ * Транзакции
+ * Отправка через место назначения передачи
+
+Дополнительные сведения см. в разделе [Неподдерживаемые функции, ограничения и различия в поведении](service-bus-amqp-dotnet.md#unsupported-features-restrictions-and-behavioral-differences).
+
 ## Сводка
 
 В этой статье показано, как получить доступ к функциям обмена сообщениями через брокер служебной шины (очереди и разделы публикации или подписки) из приложений .NET с помощью AMQP 1.0 и API служебной шины для .NET.
@@ -308,4 +317,4 @@ exit
 [портал Azure]: https://portal.azure.com
 [портала Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

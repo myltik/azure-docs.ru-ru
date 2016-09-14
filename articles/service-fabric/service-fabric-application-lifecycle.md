@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/11/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 
@@ -41,7 +41,7 @@
 
 См. [Начало работы с Reliable Actors](service-fabric-reliable-actors-get-started.md) и [Начало работы с Reliable Services](service-fabric-reliable-services-quick-start.md), чтобы ознакомиться с примерами.
 
-## Развертывание
+## Развернуть
 1. *Администратор приложения* изменяет приложение определенного типа для конкретного приложения, которое будет развернуто в кластере Service Fabric путем указания соответствующих параметров элемента **ApplicationType** в манифесте приложения.
 
 2. *Оператор* загружает пакет приложения в хранилище образов кластера при помощи [метода **CopyApplicationPackage**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage.aspx) или [командлета **Copy-ServiceFabricApplicationPackage**](https://msdn.microsoft.com/library/azure/mt125905.aspx). Пакет приложения содержит манифест приложения и коллекцию пакетов служб. Структура служб выполняет развертывание приложений из пакета приложений, размещенного в хранилище образов, который может представлять собой магазин больших двоичных объектов Azure или системную службу Service Fabric.
@@ -99,7 +99,7 @@
 
 5. При добавлении новых или удалении существующих узлов из кластера структура службы автоматически балансирует нагрузку запущенных приложений на всех узлах в кластере, чтобы достичь оптимальной производительности.
 
-## Remove
+## Удалить
 1. *Оператор* может удалить определенный экземпляр запущенной службы в кластере без удаления всего приложения при помощи [метода **DeleteServiceAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync.aspx), [командлета **Remove-ServiceFabricService**](https://msdn.microsoft.com/library/azure/mt126033.aspx) или [операции REST **Delete Service**](https://msdn.microsoft.com/library/azure/dn707687.aspx).
 
 2. *Оператор* может также удалить экземпляр приложения и все его службы при помощи [метода **DeleteApplicationAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync.aspx), [командлета **Remove-ServiceFabricApplication**](https://msdn.microsoft.com/library/azure/mt125914.aspx) или [операции REST **Delete Application**](https://msdn.microsoft.com/library/azure/dn707651.aspx).
@@ -121,4 +121,4 @@
 - [Обзор Testability](service-fabric-testability-overview.md)
 - [Пример жизненного цикла приложения на основе REST](service-fabric-rest-based-application-lifecycle-sample.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

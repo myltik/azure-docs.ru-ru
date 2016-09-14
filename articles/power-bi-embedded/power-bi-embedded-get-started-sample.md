@@ -24,11 +24,11 @@
 
  -	[Пример панели мониторинга веб-приложения](http://go.microsoft.com/fwlink/?LinkId=761493)
  -	[Справочник по API Power BI Embedded](https://msdn.microsoft.com/library/mt711493.aspx)
- -	[Пакет SDK Power BI Embedded для .NET](http://go.microsoft.com/fwlink/?LinkId=746472) \(доступен в NuGet)
+ -	[Пакет SDK Power BI Embedded для .NET](http://go.microsoft.com/fwlink/?LinkId=746472) (доступен в NuGet)
 
 
 
-> [AZURE.NOTE] Перед настройкой и запуском примера Power BI Embedded необходимо создать по крайней мере одну **коллекцию рабочей области** в подписке Azure. Сведения о создании **коллекции рабочей области** на портале Azure см. в статье [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md).
+> [AZURE.NOTE] Перед настройкой и запуском примера Power BI Embedded необходимо создать по крайней мере одну **коллекцию рабочих областей** в подписке Azure. Сведения о создании **коллекции рабочей области** на портале Azure см. в статье [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md).
 
 ## Настройка примера приложения
 
@@ -36,17 +36,17 @@
 
 1. Загрузите и распакуйте пример [Power BI Embedded — интеграция отчета в веб-приложение](http://go.microsoft.com/fwlink/?LinkId=761493) в GitHub.
 
-2. Откройте файл **PowerBI-embedded.sln** в Visual Studio.
+2. Откройте файл **PowerBI-embedded.sln** в Visual Studio. Может потребоваться выполнить команду **Update-Package** в консоли диспетчера пакетов NuGET, чтобы обновить пакеты, используемые в этом решении.
 
 3. Выполните сборку решения.
 
 4. Запустите консольное приложение **ProvisionSample**. В примере консольного приложения необходимо подготовить рабочую область и импортировать файл PBIX.
 
-5. Чтобы подготовить новую **рабочую область**, выберите вариант 5, **Provision a new workspace in an existing workspace collection** (Подготовить новую рабочую область в имеющуюся коллекцию рабочих областей).
+5. Чтобы подготовить новую **рабочую область**, выберите вариант 5, **Provision a new workspace in an existing workspace collection** (Подготовить новую рабочую область в имеющейся коллекции рабочих областей).
 
     ![](media\powerbi-embedded-get-started-sample\console-option-5.png)
 
-6. Введите имя **Коллекции рабочих областей** и **Ключ доступа**. Их можно получить на **портале Azure**. Дополнительные сведения о том, как получить **ключ доступа**, см. в разделе о [просмотре ключей доступа для API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) статьи "Приступая к работе с примером Microsoft Power BI Embedded".
+6. Введите имя **коллекции рабочих областей** и **ключ доступа**. Их можно получить на **портале Azure**. Дополнительные сведения о том, как получить **ключ доступа**, см. в разделе [Просмотр ключей доступа для вызова API Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) статьи "Начало работы с Microsoft Power BI Embedded".
 
     ![](media\powerbi-embedded-get-started-sample\azure-portal.png)
 
@@ -54,9 +54,9 @@
 
     ![](media\powerbi-embedded-get-started-sample\workspace-id.png)
 
-8. Чтобы импортировать файл PBIX в вашу **рабочую область**, выберите параметр **6. Импорт файла PBIX рабочего стола в существующую рабочую область**. Если у вас под рукой нет PBIX-файла, можете скачать [PBIX-файл примера анализа розничной торговли](http://go.microsoft.com/fwlink/?LinkID=780547).
+8. Чтобы импортировать PBIX-файл в свою **рабочую область**, выберите вариант **6. Импорт файла PBIX рабочего стола в существующую рабочую область**. Если у вас под рукой нет PBIX-файла, то вы можете скачать [PBIX-файл примера анализа розничной торговли](http://go.microsoft.com/fwlink/?LinkID=780547).
 
-9. При появлении запроса укажите понятное имя для вашего **Набора данных**.
+9. При появлении запроса укажите понятное имя для своего **набора данных**.
 
 Вы должны получить примерно следующий ответ:
 
@@ -67,7 +67,7 @@ Checking import state... Succeeded
 
 > [AZURE.NOTE] Если файл PBIX содержит подключения для прямых запросов, выберите вариант 7 для обновления строк подключения.
 
-На этом этапе у вас есть отчет PBIX Power BI, импортированный в **рабочую область**. Теперь рассмотрим, как запустить пример веб-приложения **Power BI Embedded**.
+На этом этапе у вас есть PBIX-файл отчета Power BI, импортированный в **рабочую область**. Теперь рассмотрим, как запустить пример веб-приложения **Power BI Embedded**.
 
 ## Запуск примера веб-приложения
 
@@ -86,11 +86,11 @@ Checking import state... Succeeded
     ```
 3. Запустите веб-приложение **EmbedSample**.
 
-После запуска веб-приложения **EmbedSample** в левой навигационной панели должно появиться меню **Отчеты**. Чтобы просмотреть импортированный отчет, разверните **Отчеты** и выберите отчет. Если вы импортировали [PBIX-файл с примером анализа данных о продажах](http://go.microsoft.com/fwlink/?LinkID=780547), пример веб-приложения будет выглядеть следующим образом:
+После запуска веб-приложения **EmbedSample** в левой навигационной панели должно появиться меню **Отчеты**. Чтобы просмотреть отчет, который был импортирован, разверните **Отчеты** и щелкните по отчету. Если вы импортировали [PBIX-файл примера анализа розничной торговли](http://go.microsoft.com/fwlink/?LinkID=780547), пример веб-приложения будет выглядеть следующим образом.
 
 ![](media\powerbi-embedded-get-started-sample\power-bi-embedded-sample-left-nav.png)
 
-После выбора отчета веб-приложение **EmbedSample** должно выглядеть примерно так:
+После щелчка по отчету веб-приложение **EmbedSample** должно выглядеть примерно так:
 
 ![](media\powerbi-embedded-get-started-sample\sample-web-app.png)
 
@@ -103,7 +103,7 @@ Checking import state... Succeeded
 > [AZURE.NOTE] В этом разделе приведены общие сведения о примере кода, которые показывают, как был написан этот код. Чтобы просмотреть полный пример, загрузите решение PowerBI-embedded.sln в Visual Studio.
 
 ### Модель
-Образец содержит следующие модели: **ReportsViewModel** и **ReportViewModel**.
+Пример содержит следующие модели: **ReportsViewModel** и **ReportViewModel**.
 
 **ReportsViewModel.cs**: представляет отчеты Power BI.
 
@@ -133,7 +133,7 @@ Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ### Просмотр
 **Представление** управляет отображением **отчетов** и **отчета** Power BI.
 
-**Reports.cshtml**: перебирает отчеты **Model.Reports**, чтобы создать **ActionLink**. **ActionLink** формируется следующим образом:
+**Reports.cshtml**: выполняет итерацию по отчетам **Model.Reports**, чтобы создать **ActionLink**. **ActionLink** формируется следующим образом:
 
 |Часть|Описание
 |---|---
@@ -245,4 +245,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 - [Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0831_2016-->

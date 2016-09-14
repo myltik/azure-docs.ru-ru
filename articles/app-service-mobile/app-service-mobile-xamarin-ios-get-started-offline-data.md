@@ -148,7 +148,7 @@
 * [How to use the Xamarin Component client for Azure Mobile Services]
  -->
 
-.<!-- Images -->
+<!-- Images -->
 
 <!-- URLs. -->
 [Создание приложения Xamarin iOS]: app-service-mobile-xamarin-ios-get-started.md

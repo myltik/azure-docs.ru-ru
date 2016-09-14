@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2016"
+   ms.date="08/24/2016"
    ms.author="magoedte;bwren" />
 
 # Выходные данные и сообщения Runbook в службе автоматизации Azure
@@ -48,30 +48,43 @@
 
 	Workflow Test-Runbook
 	{
-	   Write-Verbose "Verbose outside of function"
-	   Write-Output "Output outside of function"
-	   $functionOutput = Test-Function
+        Write-Verbose "Verbose outside of function" -Verbose
+        Write-Output "Output outside of function"
+        $functionOutput = Test-Function
+        $functionOutput
 
-	   Function Test-Function
-	   {
-	      Write-Verbose "Verbose inside of function"
-	      Write-Output "Output inside of function"
-	   }
-	}
+    Function Test-Function
+     {
+        Write-Verbose "Verbose inside of function" -Verbose
+        Write-Output "Output inside of function"
+      }
+    }
+
 
 Поток вывода для задания Runbook будет следующим:
 
-	Output outside of function
+	Output inside of function
+    Output outside of function
 
 Подробный поток для задания Runbook будет следующим:
 
 	Verbose outside of function
 	Verbose inside of function
 
+После публикации модуля Runbook и перед его запуском вам нужно включить подробное ведение журнала в параметрах модуля, чтобы получить выходной поток подробных сведений.
+
 ### Объявление типа выходных данных
 
 Рабочий процесс может указать тип выходных данных с помощью [атрибута OutputType](http://technet.microsoft.com/library/hh847785.aspx). Этот атрибут не оказывает влияния во время выполнения, но содержит указание об ожидаемых выходных данных Runbook для автора Runbook во время разработки. Так как набор инструментов для Runbook продолжает увеличиваться, растет и важность объявления типов выходных данных во время разработки. Поэтому рекомендуется включать это объявление во все создаваемые вами Runbook.
 
+Вот список с примерами типов выходных данных:
+
+-	System.String
+-	System.Int32
+-	System.Collections.Hashtable
+-	Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine
+
+  
 Следующий пример Runbook выводит строковый объект и включает в себя объявление типа выходных данных. Если Runbook выводит массив определенного типа, все равно следует указать его тип, а не массив типа.
 
 	Workflow Test-Runbook
@@ -81,6 +94,25 @@
 	   $output = "This is some string output."
 	   Write-Output $output
 	}
+
+Чтобы объявить тип выходных данных в графических модулях Runbook или графических модулях Runbook рабочего процесса PowerShell, в разделе **Входные и выходные данные** можно указать имя типа выходных данных. Мы рекомендуем использовать полное имя класса .NET, чтобы упростить идентификацию при использовании ссылок из родительского модуля. Таким образом все свойства этого класса предоставляются шине данных в модуле Runbook, обеспечивая более гибкие возможности их использования в рамках условной логики, ведения журнала, а также создания ссылок со значениями для других действий в модуле Runbook.<br> ![Runbook: раздел "Входные и выходные данные"](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
+
+В следующем примере с использованием двух графических модулей Runbook мы покажем, как это работает. При применении модульной схемы проектирования модулей Runbook один модуль используется в качестве *шаблона аутентификации Runbook* для управления аутентификацией в Azure с помощью учетной записи запуска от имени. Второй модуль Runbook (обычно он реализует основную логику для автоматизации сценария) выполняет *шаблон аутентификации Runbook*, а затем выводит результаты в **тестовую** область выходных данных. В обычных условиях этот модуль Runbook выполнял бы какие-то действия в отношении ресурса, используя выходные данные дочернего модуля Runbook.
+
+Ниже представлена основная логика модуля Runbook **AuthenticateTo-Azure**.<br> ![Runbook: пример шаблона аутентификации](media/automation-runbook-output-and-messages/runbook-authentication-template.png)
+
+Она включает тип выходных данных *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, который возвращает свойства профиля аутентификации.<br> ![Runbook: пример типа выходных данных](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
+
+Хотя этот модуль Runbook очень прост, в нем есть элемент конфигурации, о котором стоит здесь упомянуть. Последнее действие — выполнение командлета **Write-Output** и запись данных профиля в переменную $\_ с помощью выражения PowerShell для параметра **Inputobject**, который необходим для этого командлета.
+
+Для второго модуля (с именем *Тест ChildOutputType*) в нашем примере предусмотрены два действия.<br> ![Runbook: пример типа выходных данных дочернего модуля](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+
+Первое действие вызывает модуль Runbook **AuthenticateTo-Azure**, а второе — выполняет командлет **Write-Verbose** с использованием **источника данных** для **выходных данных действия** и значения **Context.Subscription.SubscriptionName** для **пути поля** (определяет выходные данные контекста из модуля **AuthenticateTo-Azure**).<br> ![Командлет Write-Verbose: источник данных параметров](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+
+Результат — имя подписки.<br> ![Runbook: результаты командлета Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
+
+Замечание о поведении элемента управления "Тип выходных данных". Когда вы вводите значение в поле "Тип выходных данных" в колонке свойств входных и выходных данных, щелкните рядом с элементом управления, чтобы он распознал эту запись.
+
 
 ## Потоки сообщений
 
@@ -182,15 +214,15 @@ Windows PowerShell использует [привилегированные пе
 
  3. В колонке "Модули Runbook" выберите графический модуль Runbook.
 
- 4. В колонке "Параметры" для выбранного модуля щелкните **Ведение журнала и трассировка**.
+ 4. В колонке "Параметры" для выбранного модуля Runbook щелкните **Ведение журнала и трассировка**.
 
- 5. В разделе "Записи ведения журнала" колонки "Ведение журнала и трассировка" щелкните **Включить**, чтобы включить подробное ведение журнала, а в колонке "Трассировка на уровне действий" измените уровень трассировки с **Базовой** на **Подробную** в зависимости от того, какой уровень трассировки вам требуется.<br>
+ 5. В разделе "Подробные записи в журнале" колонки "Ведение журнала и трассировка" щелкните **Включить**, чтобы включить подробное ведение журнала. Затем в колонке "Трассировка уровня действия" измените уровень трассировки с **базовой** на **подробную**, так как вам требуется именно такая трассировка.<br>
 
     ![Колонка ведения журналов и трассировки графической разработки](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ## Дальнейшие действия
 
-- Чтобы узнать больше о выполнении модулей Runbook, об отслеживании заданий Runbook и других технических деталях, см. раздел [Отслеживание задания Runbook](automation-runbook-execution.md).
-- Чтобы понять, как создавать и использовать дочерние модули Runbook, см. раздел [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md).
+- Чтобы узнать больше о выполнении модулей Runbook, отслеживании заданий Runbook и других технических деталях, ознакомьтесь с [отслеживанием задания Runbook](automation-runbook-execution.md).
+- Дополнительные сведения о создании и использовании дочерних модулей Runbook см. в статье [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

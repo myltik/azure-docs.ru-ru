@@ -1,9 +1,10 @@
-Azure Backup service has two types of vaults - the Backup vault and the Recovery Services vault.
+В службе архивации Azure используется два типа хранилища: в хранилище архивации и хранилище служб восстановления.
 
-| **Deployment** | **Portal** | **Vault** |
+| **Развертывание** | **Портал** | **Хранилище** |
 |-----------|------|-----|
-| Classic | [Classic](https://manage.windowsazure.com) | Backup vault |
-| Resource Manager(recommended) | [Azure](https://portal.azure.com) | Recovery Services vault |
+| Классический | [Классический](https://manage.windowsazure.com) | Хранилище службы архивации |
+| Resource Manager (рекомендуется) | [Таблицы Azure](https://portal.azure.com) | Хранилище служб восстановления |
 
-> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically-deployed servers and VMs.  
+> [AZURE.NOTE] С помощью хранилищ архивации невозможно защитить решения, развернутые с помощью Resource Manager. Тем не менее вы можете защитить серверы и виртуальные машины, развернутые с помощью классической модели, используя хранилище служб восстановления.
 
+<!---HONumber=AcomDC_0831_2016-->

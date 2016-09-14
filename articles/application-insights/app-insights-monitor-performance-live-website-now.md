@@ -283,11 +283,7 @@
 * [Добавьте телеметрию веб-клиента][usage], чтобы просматривать исключения в коде веб-страницы и вставлять вызовы трассировки.
 * [Добавьте пакет SDK для Application Insights в код веб-службы][greenbrown], чтобы иметь возможность вставлять вызовы трассировки и журналов в серверный код.
 
-## Видео
 
-#### Мониторинг производительности
-
-[AZURE.VIDEO app-insights-performance-monitoring]
 
 <!--Link references-->
 
@@ -300,4 +296,4 @@
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

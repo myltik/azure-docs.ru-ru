@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="08/30/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C: использование API Graph
@@ -35,7 +35,7 @@
 
 Теперь, когда у вас есть клиент B2C, необходимо создать приложение-службу с помощью командлетов Azure AD PowerShell. Для начала скачайте и установите [помощник по входу в Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). Затем скачайте и установите [64-разрядный модуль Azure Active Directory для Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
-> [AZURE.NOTE]
+> [AZURE.IMPORTANT]
 Чтобы использовать API Graph с вашим клиентом B2C, потребуется зарегистрировать выделенное приложение с помощью PowerShell. Следуйте указанным ниже инструкциям. Вам не удастся повторно использовать уже существующие приложения B2C, зарегистрированные на портале Azure.
 
 Установив модуль Powershell, откройте Powershell и подключитесь к клиенту B2C. После запуска команды `Get-Credential` отобразится запрос на ввод имени пользователя и пароля. Введите имя пользователя и пароль учетной записи администратора клиента B2C.
@@ -362,4 +362,4 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Если у вас есть вопросы о действиях, которые вы хотели бы выполнить с помощью API Graph для клиента B2C, оставьте комментарий к статье или отправьте заявку в репозиторий примеров кода GitHub.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

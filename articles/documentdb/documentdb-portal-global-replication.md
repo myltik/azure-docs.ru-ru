@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="08/26/2016"
 	ms.author="mimig"/>
 
 # Выполнение репликации глобальной базы данных DocumentDB с помощью портала Azure
@@ -31,11 +31,10 @@
 
 1. На панели быстрых переходов [портала Azure](https://portal.azure.com/) щелкните **Учетные записи DocumentDB**.
 2. В колонке **Учетная запись DocumentDB** выберите учетную запись базы данных для изменения.
-3. В колонке учетной записи щелкните в меню пункт **Добавление и удаление регионов**. ![Добавьте регионы, выбрав "Учетная запись DocumentDB" > "Добавление и удаление регионов".][1]
+3. В колонке учетной записи щелкните в меню пункт **Добавление и удаление регионов**.
+4. В колонке **Добавление и удаление регионов** выберите регионы для добавления или удаления и нажмите кнопку **ОК**. Добавление регионов оплачивается. Для получения дополнительной информации перейдите на [страницу цен](https://azure.microsoft.com/pricing/details/documentdb/) или см. статью [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md).
 
-5. В колонке **Добавление и удаление регионов** выберите регионы для добавления или удаления и нажмите кнопку **ОК**. Добавление регионов оплачивается. Для получения дополнительной информации перейдите на [страницу цен](https://azure.microsoft.com/pricing/details/documentdb/) или см. статью [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md).
-
-    ![Можно щелкать регионы на карте, чтобы добавить или удалить их.][2]
+    ![Можно щелкать регионы на карте, чтобы добавить или удалить их.][1]
 
 ### Выбор регионов глобальной базы данных
 
@@ -54,9 +53,9 @@ While all regions associated with your DocumentDB database account can serve rea
 1. In the **DocumentDB Account** blade, select the database account to modify.
 2. In the account blade, if the **All Settings** blade is not already opened, click **All Settings**.
 3. In the **All Settings** blade, click **Write Region Priority**.
-    ![Change the write region under DocumentDB Account > Settings > Add/Remove Regions][3]
+    ![Change the write region under DocumentDB Account > Settings > Add/Remove Regions][2]
 4. Click and drag regions to order the list of regions. The first region in the list of regions is the active write region.
-    ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][4]
+    ![Change the write region by reordering the region list under DocumentDB Account > Settings > Change Write Regions][3]
 -->
 
 ## <a id="next"></a>Дальнейшие действия
@@ -66,10 +65,9 @@ While all regions associated with your DocumentDB database account can serve rea
 Сведения о том, как функционирует репликация глобальной базы данных в DocumentDB, см. в статье [Глобальное распространение данных с помощью DocumentDB](documentdb-distribute-data-globally.md). Сведения о том, как программным путем выполнить репликацию данных в нескольких регионах, см. в статье [Разработка с помощью учетных записей DocumentDB в нескольких регионах](documentdb-developing-with-multiple-regions.md).
 
 <!--Image references-->
-[1]: ./media/documentdb-portal-global-replication/documentdb-account-blade.png
-[2]: ./media/documentdb-portal-global-replication/documentdb-add-region.png
-[3]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-1.png
-[4]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-2.png
+[1]: ./media/documentdb-portal-global-replication/documentdb-add-region.png
+[2]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-1.png
+[3]: ./media/documentdb-portal-global-replication/documentdb_change_write_region-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [bcdr]: https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/
@@ -77,4 +75,4 @@ While all regions associated with your DocumentDB database account can serve rea
 [azureregions]: https://azure.microsoft.com/regions/#services
 [offers]: https://azure.microsoft.com/pricing/details/documentdb/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

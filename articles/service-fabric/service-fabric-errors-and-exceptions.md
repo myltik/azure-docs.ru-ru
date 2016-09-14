@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/11/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Распространенные исключения и ошибки при работе с интерфейсами API FabricClient
@@ -44,4 +44,4 @@
 |InvalidSubjectName|Недопустимое имя субъекта.|
 |InvalidAllowedCommonNameList|Недопустимый формат строки списка общих имен. Это должен быть список с разделителями-запятыми.|
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

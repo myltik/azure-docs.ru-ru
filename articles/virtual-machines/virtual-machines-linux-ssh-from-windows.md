@@ -14,7 +14,7 @@ description="Узнайте, как создавать и использоват
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rasquill"/>
 
 #Использование SSH с Windows в Azure
@@ -161,11 +161,11 @@ description="Узнайте, как создавать и использоват
 
 	![linuxputtyconfig](./media/virtual-machines-linux-ssh-from-windows/linuxputtyconfig.png)
 
-4.	Перед выбором **Открыть** щелкните вкладку Подключение > SSH > Проверка подлинности, чтобы указать ключ. Ниже см. снимок экрана поля для заполнения.
+4.	Прежде чем выбрать **Открыть**, щелкните "Подключение" > SSH > вкладка "Проверка подлинности" и укажите закрытый ключ. Ниже см. снимок экрана поля для заполнения.
 
 	![linuxputtyprivatekey](./media/virtual-machines-linux-ssh-from-windows/linuxputtyprivatekey.png)
 
 5.	Щелкните **Открыть**, чтобы подключится к виртуальной машине.
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0831_2016-->

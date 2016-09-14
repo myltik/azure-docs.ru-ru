@@ -19,7 +19,7 @@
 # Аналитика в Application Insights
 
 
-[Аналитика](app-insights-analytics.md) — это эффективный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
+[Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
 * **[Просмотрите видео с вводной информацией](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Протестируйте аналитику на смоделированных данных](https://analytics.applicationinsights.io/demo)**, если ваше приложение еще не отправляет данные в Application Insights.
@@ -63,7 +63,6 @@
 
 
 
->[AZURE.NOTE] Мы рекомендуем начать со [знакомства с языком](app-insights-analytics-tour.md).
 
 
 
@@ -84,4 +83,10 @@
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0727_2016-->
+
+## Дальнейшие действия
+
+
+* Мы рекомендуем начать со [знакомства с языком](app-insights-analytics-tour.md).
+
+<!---HONumber=AcomDC_0831_2016-->

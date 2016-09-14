@@ -25,7 +25,7 @@
 - Отображение некоторой информации о пользователе.
 - Выход пользователя из приложения.
 
-**Passport** — промежуточный слой проверки подлинности для Node.js. Он имеет очень гибкую и модульную структуру, которая позволяет сравнительно незаметно размещать данный слой в любом приложении на основе Express или в веб-приложении Resitify. Полный набор стратегий поддерживает процесс проверки подлинности с помощью имени пользователя и пароля, Facebook, Twitter и проч. Мы разработали стратегию для Microsoft Azure Active Directory. Мы установим этот модуль, а затем добавим подключаемый модуль Microsoft Azure Active Directory `passport-azure-ad`.
+**Passport** — промежуточный слой проверки подлинности для Node.js. Он имеет очень гибкую и модульную структуру, которая позволяет сравнительно незаметно размещать данный слой в любом приложении на основе Express или в веб-приложении Resitify. Полный набор стратегий поддерживает процесс проверки подлинности с помощью имени пользователя и пароля, Facebook, Twitter и проч. Мы разработали стратегию для Microsoft Azure Active Directory. Мы установим этот модуль, а затем добавим подключаемый модуль Microsoft Azure Active Directory `passport-azure-ad`.
 
 Для этого необходимо:
 
@@ -47,21 +47,21 @@
 - Перейдите во вкладку **Приложения** и нажмите кнопку Добавить в нижней панели.
 - Следуйте инструкциям на экране, а затем создайте новое **веб-приложение и/или WebAPI**.
     - **Имя** приложения отображает его описание конечным пользователям.
-    -	**URL-адрес входа** — это базовый URL-адрес вашего приложения. Схема по умолчанию — http://localhost:3000/auth/openid/return``.
+    -	**URL-адрес входа** — это базовый URL-адрес вашего приложения. Схема по умолчанию — http://localhost:3000/auth/openid/return``.
     - **URI идентификатора приложения** — это уникальный идентификатор вашего приложения. Соглашение заключается в использовании `https://<tenant-domain>/<app-name>`, например, `https://contoso.onmicrosoft.com/my-first-aad-app`
 - После завершения регистрации Azure AD присваивает приложению уникальный идентификатор клиента. Это значение понадобится в следующих разделах, поэтому его стоит скопировать из вкладки «Настройка».
 
-## 2\. Добавление предварительных требований в ваш каталог
+## 2) Добавление предварительных требований в ваш каталог
 
 В командной строке сделайте текущей корневую папку, если это еще не было сделано, и выполните следующие команды:
 
 - `npm install express`
-- `npm install ejs`
-- `npm install ejs-locals`
-- `npm install restify`
-- `npm install mongoose`
-- `npm install bunyan`
-- `npm install assert-plus`
+- .`npm install ejs`
+- .`npm install ejs-locals`
+- .`npm install restify`
+- .`npm install mongoose`
+- .`npm install bunyan`
+- .`npm install assert-plus`
 - `npm install passport`
 
 - Кроме того, вам также потребуется `passport-azure-ad`:
@@ -214,7 +214,7 @@ app.configure(function() {
 app.get('/auth/openid',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    log.info('Authenitcation was called in the Sample');
+    log.info('Authentication was called in the Sample');
     res.redirect('/');
   });
 
@@ -414,4 +414,4 @@ exports.list = function(req, res){
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0831_2016-->

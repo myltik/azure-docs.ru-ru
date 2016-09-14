@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.date="09/01/2016"
+   ms.author="sonyama;barbkess"/>
 
 # Создание запроса в службу поддержки для хранилища данных SQL
  
@@ -38,15 +38,15 @@
 
     ![Тип запроса](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  По умолчанию для каждого экземпляра SQL Server (например, myserver.database.windows.net) предусмотрена следующая **квота на DTU**: 45 000. Эта квота является просто ограничением для безопасности. Вы можете увеличить квоту, отправив запрос в службу поддержки и указав *квоту* в качестве типа запроса. Чтобы вычислить потребности в DTU, вам нужно знать, что каждые 100 [DWU][] хранилища данных SQL используют 750 DTU. Следовательно, стандартная квота в 45 000 позволит вам создать базу данных до DW6000 (45 000/750) или несколько менее крупных баз данных с меньшим значением DWU. Если, например, вы хотите разместить две базы данных DW6000 на одном сервере SQL Server, следует запросить квоту DTU 90 000. Текущее потребление DTU можно просмотреть в колонке SQL Server на портале. В рамках квоты DTU учитываются как приостановленные базы данных, так и базы данных с отменой приостановки.
+    >[AZURE.NOTE]  По умолчанию для каждого экземпляра SQL Server (например, myserver.database.windows.net) предусмотрена следующая **квота на DTU**: 45 000. Эта квота является просто ограничением для безопасности. Вы можете увеличить квоту, отправив запрос в службу поддержки и указав *квоту* в качестве типа запроса. Чтобы вычислить потребности в DTU, умножьте 7,5 на общее необходимое количество [DWU][]. Например, вы хотите разместить две базы данных DW6000 на одном сервере SQL Server. Следует запросить квоту DTU 90 000. Текущее потребление DTU можно просмотреть в колонке SQL Server на портале. В рамках квоты DTU учитываются как приостановленные базы данных, так и базы данных с отменой приостановки.
 
 5. Выберите **подписку**, в которой размещена база данных с соответствующей проблемой.
 
-    ![Подписка](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
+    ![Подписки](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
 
 6. Выберите **хранилище данных SQL** в качестве ресурса.
 
-    ![Ресурс](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
+    ![Resource (Ресурс)](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 
 7. Выберите свой [план поддержки Azure][].
 
@@ -103,4 +103,4 @@
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [форум MSDN, посвященный хранилищу данных SQL Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

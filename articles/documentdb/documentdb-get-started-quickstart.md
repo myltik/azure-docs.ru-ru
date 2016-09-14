@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="anhoh"/>
 
 # Руководство по NoSQL. Создание консольного приложения DocumentDB на языке C#
@@ -25,7 +25,7 @@
 
 Добро пожаловать в руководство по NoSQL, посвященное пакету SDK для .NET в Azure DocumentDB. После создания проекта QuickStart и изучения этого руководства вы получите консольное приложение, которое создает ресурсы DocumentDB и отправляет запросы к ним.
 
-- **[QuickStart](#quickstart)**. Скачайте пример проекта, добавьте сведения о подключении, и вы сможете запустить приложение DocumentDB менее чем через 5 минут.
+- **[QuickStart](#quickstart)**. Скачайте пример проекта, добавьте сведения о подключении, и вы сможете запустить приложение DocumentDB менее чем через 10 минут.
 - **[Руководство](#tutorial)**. Создайте приложение QuickStart с нуля за 30 минут.
 
 ## Предварительные требования
@@ -36,7 +36,7 @@
 
 ## Быстрый запуск
 
-1. Скачайте пример проекта с портала [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
+1. Скачайте ZIP-архив образца проекта с [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip) или клонируйте репозиторий [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart).
 2. На портале Azure [создайте учетную запись DocumentDB](documentdb-create-account.md).
 3. В файле App.config замените значения EndpointUri и PrimaryKey значениями, полученными с [портала Azure](https://portal.azure.com/). Для этого перейдите к колонке **DocumentDB (NoSQL)**, затем щелкните **Имя учетной записи** и в меню ресурсов выберите пункт **Ключи**. ![Снимок экрана со значениями EndpointUri и PrimaryKey, которые нужно заменить в файле App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
 4. Создайте проект. В окне консоли отображается создание ресурсов, отправка запросов к ним и их очистка.
@@ -599,4 +599,4 @@ DocumentDB поддерживает удаление документов JSON.
 [documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->
