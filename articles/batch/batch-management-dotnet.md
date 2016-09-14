@@ -213,4 +213,4 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 [2]: ./media/batch-management-dotnet/portal-02.png
 [3]: ./media/batch-management-dotnet/portal-03.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0831_2016-->

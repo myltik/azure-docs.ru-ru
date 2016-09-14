@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="06/08/2016"
+	ms.date="08/08/2016"
 	ms.author="heidist"/>
 
 # Использование приложения Fiddler для оценки и тестирования интерфейсов API REST "Поиск Azure"
@@ -239,4 +239,4 @@
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

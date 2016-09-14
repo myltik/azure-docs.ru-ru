@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="08/25/2016" 
 	ms.author="stbaro"/>
 
 # Использование MongoChef с учетной записью DocumentDB с поддержкой протокола MongoDB
@@ -30,7 +30,7 @@
 
 1. Извлеките сведения о подключении DocumentDB с поддержкой протокола MongoDB. См. инструкции [здесь](documentdb-connect-mongodb-account.md).
 
-	![Снимок экрана, колонка строки подключения](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
+	![Снимок экрана, колонка строки подключения](./media/documentdb-mongodb-mongochef/ConnectionStringBlade.png)
 
 2. Щелкните **Подключиться**, чтобы открыть диспетчер подключений, и нажмите кнопку **Новое подключение**.
 
@@ -132,4 +132,4 @@
 
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0831_2016-->

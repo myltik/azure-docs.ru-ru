@@ -119,10 +119,10 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Справочные темы по хранилищу данных SQL]: sql-data-warehouse-overview-reference.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 
 <!--Other Web references-->

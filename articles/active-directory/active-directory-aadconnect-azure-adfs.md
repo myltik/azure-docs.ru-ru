@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Службы федерации Active Directory в Azure | Microsoft Azure"
 	description="Из этого документа вы узнаете, как развертывать AD FS в Azure, чтобы обеспечить высокую доступность."
-    keywords="введение в AD FS, Azure, обзор Azure AD Connect, AD FS в Azure, IAAS, AD FS"
+    keywords="Развертывание AD FS в azure, развертывание azure adfs, azure adfs, azure ad fs, развертывание adfs, развертывание ad fs, ad fs в azure, развертывание adfs в azure, развертывание AD FS в azure, adfs azure, введение в AD FS, Azure, AD FS в Azure, iaas, ADFS, перемещение adfs в azure"
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -302,5 +302,6 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 * [Настройка служб AD FS и управление ими с использованием Azure AD Connect](active-directory-aadconnectfed-whatis.md)
+* [Развертывание AD FS высокого уровня доступности в нескольких регионах Azure с помощью диспетчера трафика Azure](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!----HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

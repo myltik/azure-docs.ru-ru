@@ -44,7 +44,7 @@ Service Fabric позволяет указать два сертификата �
 
 После успешного завершения развертывания вы сможете использовать основной или дополнительный сертификат, чтобы выполнять операции управления в кластере.
 
-! [Снимок экрана выполняемого развертывания сертификата] [SecurityConfigurations_03]
+![Снимок экрана выполняемого развертывания сертификата][SecurityConfigurations_03]
 
 Ниже приведен снимок экрана колонки безопасности после завершения развертывания.
 
@@ -207,7 +207,12 @@ Get-ServiceFabricClusterHealth
 - [Настройка доступа на основе ролей для клиентов](service-fabric-cluster-security-roles.md)
 
 
-.<!--Image references-->
-[SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png [SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png [SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png [SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
+<!--Image references-->
+[SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
+[SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png
+[SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
+[SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
 
 <!---HONumber=AcomDC_0817_2016-->
+
+

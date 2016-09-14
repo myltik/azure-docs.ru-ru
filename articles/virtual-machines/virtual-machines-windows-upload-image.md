@@ -33,7 +33,7 @@
 
 - Располагаете **виртуальной машиной под управлением ОС Windows** — существует множество средств для создания виртуальных машин в локальной среде. Например, см. документацию по [установке роли Hyper-V и настройке виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx). Сведения о операционных системах Windows, поддерживаемых в Azure, см. в статье [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672) (Поддержка серверного ПО Майкрософт для виртуальных машин Microsoft Azure).
 
-- Убедитесь, что роли сервера, запущенные на виртуальной машине, совместимы с Sysprep. Дополнительные сведения см. в разделе [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep).
+- Убедитесь, что роли сервера, запущенные на виртуальной машине, совместимы с Sysprep. Дополнительные сведения см. в разделе [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Поддержка ролей сервера в Sysprep). Перед выполнением программы Sysprep выполните архивацию виртуальной машины.
 
 
 ## Проверка соответствия формата файла виртуальной машины
@@ -254,4 +254,4 @@
 
 Сведения об управлении виртуальной машиной с помощью Azure PowerShell см. в статье [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0831_2016-->

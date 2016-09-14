@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory B2C: создание клиента Azure Active Directory B2C | Microsoft Azure"
-	description="Раздел о том, как создать клиент Azure Active Directory B2C"
+	description="Инструкции по созданию клиента Azure Active Directory B2C"
 	services="active-directory-b2c"
 	documentationCenter=""
 	authors="swkrish"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.topic="article"
     ms.devlang="na"
-	ms.date="07/24/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C: создание клиента Azure AD B2C
@@ -42,7 +42,7 @@
 6. Ваш клиент создан и должен отобразиться в расширении Active Directory. Кроме того, теперь вы — глобальный администратор клиента. При необходимости можно добавить других глобальных администраторов.
 
     > [AZURE.IMPORTANT]
-	Если вы планируете использовать B2C клиент для рабочего приложения, см. статью, в которой [сравниваются рабочая версия и предварительная версия клиента B2C](active-directory-b2c-reference-tenant-type.md).
+	Если вы планируете использовать B2C клиент для рабочего приложения, см. статью, в которой [сравниваются рабочая версия и предварительная версия клиента B2C](active-directory-b2c-reference-tenant-type.md). Обратите внимание, что при удалении существующего клиента B2C и его повторном создании с тем же доменным именем могут возникнуть известные проблемы. Создавайте клиент B2C с другим доменным именем.
 
 ## Шаг 3. Переход к колонке функций B2C на портале Azure
 
@@ -79,4 +79,4 @@
 
 Сведения о том, как зарегистрировать приложение в Azure AD B2C и быстро создать простое приложение, см. в статье [Предварительная версия Azure Active Directory B2C: регистрация приложения](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

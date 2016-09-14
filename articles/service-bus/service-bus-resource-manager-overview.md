@@ -32,7 +32,7 @@
 - [Создание пространства имен служебной шины с очередью](service-bus-resource-manager-namespace-queue.md)
 - [Создание пространства имен служебной шины с разделом и подпиской](service-bus-resource-manager-namespace-topic.md)
 - [Создание пространства имен служебной шины с очередью и правилом авторизации](service-bus-resource-manager-namespace-auth-rule.md)
-- [Создание пространства имен служебной шины с концентратором событий и группой потребителей](service-bus-resource-manager-namespace-event-hub.md)
+- [Создание пространства имен концентратора событий с концентратором событий и группой потребителей](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 
 ## Развертывание с помощью PowerShell
 
@@ -253,4 +253,4 @@ Parameters        :
 [Развертывание ресурсов с использованием шаблонов Azure Resource Manager]: ../resource-group-template-deploy.md
 [шаблонов быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0831_2016-->

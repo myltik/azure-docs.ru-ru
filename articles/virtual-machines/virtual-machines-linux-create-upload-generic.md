@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 # Информация о нерекомендованных дистрибутивах #
@@ -25,7 +25,7 @@
 **Внимание!** Соглашение об уровне обслуживания для платформы Azure применяется для виртуальных машин с ОС Linux, только если используется один из [рекомендованных дистрибутивов](virtual-machines-linux-endorsed-distros.md). Все дистрибутивы Linux, представленные в коллекции образов Azure, — это рекомендованные дистрибутивы, уже имеющие необходимую конфигурацию.
 
 - [Linux в Azure — рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md)
-- [Поддержка образов Linux в Microsoft Azure](http://support2.microsoft.com/kb/2941892)
+- [Поддержка образов Linux в Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 Все дистрибутивы, работающие в Azure, должны соответствовать ряду предварительных требований для правильной работы на платформе. Эта статья далеко не исчерпывающая, так как каждый дистрибутив имеет свои отличия; вполне возможно, что даже при соблюдении всех изложенных ниже критериев, необходимо будет в значительной мере настраивать используемую систему Linux для ее надлежащей работы на платформе.
 
@@ -35,7 +35,7 @@
 - **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
 - **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-- **[SLES и openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
+- **[SLES и openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
 - **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
 
 Далее в этой статье приводятся общие рекомендации по работе с дистрибутивом Linux в Azure.
@@ -78,7 +78,7 @@
 
 Чтобы исправить это, вы можете изменить размер виртуальной машины с помощью консоли диспетчера Hyper-V или командлета Powershell [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx). Если вы работаете не в среде Windows, воспользуйтесь командой qemu-img для преобразования и изменения размера VHD.
 
-> [AZURE.NOTE] В команде qemu-img версии 2.2.1 и более поздних версиях есть ошибка, которая приводит к созданию неверного формата VHD. Эта ошибка будет устранена в следующем выпуске qemu-img. На данный момент рекомендуется использовать qemu-img версии 2.2.0 или более ранних версий. Справочные материалы: https://bugs.launchpad.net/qemu/+bug/1490611
+> [AZURE.NOTE] В команде qemu-img версии 2.2.1 и более поздних версиях есть ошибка, которая приводит к созданию неверного формата VHD. Эта проблема устранена в QEMU версии 2.6. Рекомендуется использовать qemu-img версии 2.2.0 или более ранних версий. Либо выполните обновление до версии 2.6 или выше. Справочные материалы: https://bugs.launchpad.net/qemu/+bug/1490611.
 
 
  1. Изменение размера VHD с непосредственным использованием таких инструментов, как `qemu-img` или `vbox-manage`, может привести к сбою загрузки VHD. Поэтому мы советуем сначала преобразовать VHD в образ необработанного диска. Если образ виртуальной машины уже был создан в качестве образа необработанного диска (по умолчанию для некоторых гипервизоров, например, KVM), вы можете пропустить этот шаг:
@@ -135,6 +135,7 @@
 - [storvsc: отключение WRITE SAME для драйверов RAID и адаптеров виртуальных узлов;](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 - [storvsc: исправление разыменования пустого указателя;](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 - [storvsc: ошибки кольцевого буфера могут привести к заморозке операций ввода-вывода.](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
+- [scsi\_sysfs: защита от двойного выполнения \_\_scsi\_remove\_device.](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 
 ## Агент Linux для Azure ##
@@ -154,7 +155,7 @@
 
 - Измените строку загрузки ядра в GRUB или GRUB2 для включения следующих параметров: Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки:
 
-		console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+		console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
 
 	Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки.
 
@@ -182,11 +183,6 @@
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-- В "/etc/sudoers" закомментируйте или удалите следующие строки, если они существуют:
-
-		Defaults targetpw
-		ALL    ALL=(ALL) ALL
-
 - На последнем этапе выполните следующие команды, чтобы отозвать виртуальную машину:
 
 		# sudo waagent -force -deprovision
@@ -197,4 +193,4 @@
 
 - Затем необходимо завершить работу виртуальной машины и передать виртуальный жесткий диск в Azure.
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0831_2016-->

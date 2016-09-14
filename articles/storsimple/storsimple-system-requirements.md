@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/26/2016"
+   ms.date="08/31/2016"
    ms.author="alkohli"/>
 
 # Программное обеспечение StorSimple, высокий уровень доступности и требования к сети
@@ -81,13 +81,24 @@
 
 > [AZURE.NOTE] В качестве IP-адресов устройств (источников) всегда должны устанавливаться все включенные сетевые интерфейсы. В качестве IP-адресов назначения должны устанавливаться [диапазоны IP-адресов центра обработки данных Azure](https://www.microsoft.com/ru-RU/download/confirmation.aspx?id=41653).
 
-
+#### Шаблоны URL-адресов для портала Azure
 | Шаблон URL-адреса | Компонент или функция | IP-адреса устройств |
 |------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` | Служба диспетчера StorSimple,<br>служба контроля доступа,<br>служебная шина Azure| Сетевые интерфейсы с поддержкой облака |
 |`https://*.backup.windowsazure.com`|Регистрация устройства| Только DATA 0|
 |`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Отзыв сертификатов |Сетевые интерфейсы с поддержкой облака |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Учетные записи хранения Azure и мониторинг | Сетевые интерфейсы с поддержкой облака |
+| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Серверы Центра обновления Майкрософт<br> | Только статические IP-адреса контроллеров |
+| `http://*.deploy.akamaitechnologies.com` |CDN Akamai |Только статические IP-адреса контроллеров |
+| `https://*.partners.extranet.microsoft.com/*` | Вспомогательный пакет | Сетевые интерфейсы с поддержкой облака |
+
+#### Шаблоны URL-адресов для портала Azure для государственных организаций
+| Шаблон URL-адреса | Компонент или функция | IP-адреса устройств |
+|------------------------------------------------------------------|---------------------------------------------------------------|-----------------------------------------|
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*` | Служба диспетчера StorSimple,<br>служба контроля доступа,<br>служебная шина Azure| Сетевые интерфейсы с поддержкой облака |
+|`https://*.backup.windowsazure.us`|Регистрация устройства| Только DATA 0|
+|`http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*`|Отзыв сертификатов |Сетевые интерфейсы с поддержкой облака |
+| `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` | Учетные записи хранения Azure и мониторинг | Сетевые интерфейсы с поддержкой облака |
 | `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com`| Серверы Центра обновления Майкрософт<br> | Только статические IP-адреса контроллеров |
 | `http://*.deploy.akamaitechnologies.com` |CDN Akamai |Только статические IP-адреса контроллеров |
 | `https://*.partners.extranet.microsoft.com/*` | Вспомогательный пакет | Сетевые интерфейсы с поддержкой облака |
@@ -280,4 +291,4 @@
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0831_2016-->

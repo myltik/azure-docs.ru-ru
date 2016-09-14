@@ -3,7 +3,7 @@
 	description="Рекомендации по машинному обучению Azure — интеграция JavaScript — документация" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="08/24/2016" 
 	ms.author="luisca"/>
 
 # Рекомендации по машинному обучению Azure — интеграция JavaScript
+
+> Этот документ относится к API рекомендаций, который будет считаться устаревшим с 31 декабря 2016 г. Вам следует использовать [когнитивную службу API рекомендаций](https://www.microsoft.com/cognitive-services/ru-RU/recommendations-api).
+
 
 В этом документе описан процесс интеграции веб-сайта с использованием JavaScript. JavaScript позволяет отправлять события получения данных и использовать рекомендации после построения модели рекомендации. Все операции, которые совершаются при помощи JS, можно выполнить непосредственно на сервере.
 
@@ -47,7 +50,7 @@
 
 ![Рисунок3][3]
 
-##2\. Предварительные требования
+##2) Предварительные требования
 
 1. Создайте новую модель при помощи интерфейсов API. Чтобы узнать, как это сделать, обратитесь к краткому руководству по началу работы.
 2. Закодируйте данные &lt;dataMarketUser&gt;:&lt;dataMarketKey&gt; при помощи base64. (Это будет использоваться для обычной проверки подлинности в целях включения кода JS для вызова интерфейсов API.)
@@ -166,7 +169,7 @@
 
 Параметры
 * event (строка) — purchase.
-* items (приобретено[] ) — массив, содержащий запись для каждого приобретенного элемента.<br><br>
+* items ( Purchased[] ) — массив, содержащий запись для каждого приобретенного элемента.<br><br> 
 Формат приобретенных элементов
 	* item (строка) — уникальный идентификатор элемента.
 	* count (целое число или строка) — количество приобретенных элементов.
@@ -187,9 +190,9 @@
 Параметры
 * event (строка) — userlogin.
 * user (строка) — уникальный идентификатор пользователя. 
-		<script>
-			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
-			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+		<script> 
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } 
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); 
 		</script>
 
 ##4\. Использование рекомендаций с помощью JavaScript
@@ -228,4 +231,4 @@
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!----HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0831_2016-->
