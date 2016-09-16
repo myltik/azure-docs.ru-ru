@@ -93,4 +93,4 @@
 -	[Схема обучения для DocumentDB.](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Иерархическая модель ресурсов и понятия DocumentDB.](documentdb-resources.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016--->

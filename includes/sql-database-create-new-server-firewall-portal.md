@@ -46,4 +46,4 @@ articles/sql-database/sql-database-configure-firewall-settings
 
 	>[AZURE.IMPORTANT] IP-адрес вашего клиента, скорее всего, будет периодически меняться. В таком случае вы не сможете получить доступ к серверу, пока не создадите новое правило брандмауэра. Проверьте свой IP-адрес с помощью поисковой системы [Bing](http://www.bing.com/search?q=my%20ip%20address). Затем добавьте один IP-адрес или диапазон IP-адресов. Подробные сведения см. в разделе [Управление существующими правилами брандмауэра с помощью портала Azure](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
 
-<!---HONumber=AcomDC_0912_2016-->
+<!----HONumber=AcomDC_0912_2016-->
