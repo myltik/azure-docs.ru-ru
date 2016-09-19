@@ -7,20 +7,20 @@
 	services="media-services" 
 	documentationCenter=""/>
 
-<tags 
+.<tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016"
+	ms.date="09/04/2016"
 	ms.author="juliako"/>
 
 
 #Управление учетными записями служб мультимедиа Azure с помощью PowerShell
 
 > [AZURE.SELECTOR]
-- [Портал](media-services-create-account.md)
+- [Портал](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
@@ -67,7 +67,7 @@
 
 Указывает имя этой службы мультимедиа.
 
-Псевдонимы |Имя
+Псевдонимы |Name (Имя)
 ---|---
 Обязательный? |Да
 Позиция? |1
@@ -504,4 +504,4 @@
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

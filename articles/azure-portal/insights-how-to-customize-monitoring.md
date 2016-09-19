@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Мониторинг метрик службы в Microsoft Azure | Microsoft Azure"
+	pageTitle="Обзор метрик в Microsoft Azure | Microsoft Azure"
 	description="Узнайте, как настроить диаграммы мониторинга в Azure."
 	authors="rboucher"
 	manager=""
@@ -16,7 +16,7 @@
 	ms.date="09/08/2015"
 	ms.author="robb"/>
 
-# Отслеживание метрик службы
+# Обзор метрик в Microsoft Azure
 
 Все службы Azure отслеживают ключевые метрики, которые позволяют контролировать работоспособность, производительность, доступность и использование служб. Эти метрики можно просмотреть на портале Azure. Кроме того, можно использовать [API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) или [пакет SDK для .NET](https://www.nuget.org/packages/Microsoft.Azure.Insights/) для программного доступа ко всем метрикам.
 
@@ -72,4 +72,4 @@
 * Используйте [приложения Application Insights для JavaScript и веб-страниц](../application-insights/app-insights-web-track-usage.md) для анализа браузеров, которые посещают веб-страницу.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

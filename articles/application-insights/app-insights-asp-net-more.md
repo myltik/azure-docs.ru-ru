@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Извлекайте больше пользы из Application Insights" 
+	pageTitle="Максимальная польза от Application Insights | Microsoft Azure" 
 	description="Начав работу с Application Insights, ознакомьтесь с этим списком доступных функций." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="douge"/>
 
-<tags 
+.<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/10/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>
 
 # Дополнительные данные телеметрии из Application Insights
@@ -60,16 +60,19 @@
 
 (Данный метод можно также использовать, чтобы [включить мониторинг производительности во время выполнения](app-insights-monitor-performance-live-website-now.md), даже если вы не инструментировали приложения в Visual Studio.)
 
+## Мониторинг на стороне клиента
 
-## Производительность браузера
+Вы установили пакет SDK, который отправляет телеметрию с серверной стороны вашего приложения. Теперь можно добавить мониторинг на стороне клиента. Он предоставит данные о пользователях, сеансах, просмотрах страниц, а также исключениях и сбоях, возникших в браузере. Вы также можете написать собственный код для отслеживания работы пользователей с вашим приложением вплоть до детализации щелчков мышью и нажатий клавиш.
 
-Добавьте фрагмент кода JavaScript Application Insights в свои веб-страницы, чтобы получать данные телеметрии из браузеров клиентов.
+Добавьте фрагмент кода JavaScript Application Insights на каждую веб-страницу, чтобы получать данные телеметрии из браузеров клиентов.
 
 1. В Azure откройте ресурс Application Insights для своего приложения.
 2. Выберите "Быстрый запуск" > "Monitor Client Side" (Мониторинг клиентской стороны) и скопируйте фрагмент кода.
 3. Вставьте его в заголовок каждой веб-страницы. Как правило, для этого его можно вставить в страницу с разметкой образца.
 
-.![Расширение в Azure](./media/app-insights-asp-net-more/100.png)
+![Расширение в Azure](./media/app-insights-asp-net-more/100.png)
+
+Обратите внимание, что код содержит ключ инструментирования, идентифицирующий ресурс приложения.
 
 ### Что вы получаете?
 
@@ -78,6 +81,27 @@
 * [Данные о производительности и использовании клиентов](app-insights-javascript.md) доступны в колонке "Браузеры".
 
 ![Расширение в Azure](./media/app-insights-asp-net-more/090.png)
+
+
+[Дополнительные сведения об отслеживании веб-страниц](app-insights-web-track-usage.md)
+
+
+
+## Отслеживание версии приложения
+
+Убедитесь, что в процессе сборки MSBuild создается `buildinfo.config`. Добавьте в CSPROJ-файл:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+При наличии данных сборки веб-модуль Application Insights автоматически добавляет **версию приложения** как свойство для каждого элемента телеметрии. Это позволяет применить фильтр по версии при [диагностическом поиске](app-insights-diagnostic-search.md) или [изучении метрик](app-insights-metrics-explorer.md).
+
+Обратите внимание, что номер версии сборки создается только MS Build, а не в процессе сборки в Visual Studio.
+
 
 ## Доступность веб-тестов
 
@@ -119,6 +143,6 @@
 |---|---|
 |[**Непрерывный экспорт**](app-insights-export-telemetry.md)<br/>Копирование всех данных телеметрии в хранилище, чтобы была возможность проанализировать их на свое усмотрение.|
 |**API доступа к данным**<br/>Ожидается в ближайшее время.|
-|[**Выборка**](app-insights-sampling.md)<br/>Снижает скорость передачи данных и помогает остаться в пределах своей ценовой категории.|.![Элемент выборки](./media/app-insights-asp-net-more/030.png)
+|[**Выборка**](app-insights-sampling.md)<br/>Снижает скорость передачи данных и помогает остаться в пределах своей ценовой категории.|![Элемент выборки](./media/app-insights-asp-net-more/030.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

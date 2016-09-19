@@ -7,7 +7,7 @@
  manager="timlt"
  editor=""/>
 
-<tags
+.<tags
  ms.service="iot-hub"
  ms.devlang="na"
  ms.topic="article"
@@ -26,10 +26,10 @@
 
 | Протокол | Порты |
 | -------- | ------- |
-| HTTPS | 443 |
+| MQTT | 8883 |
 | AMQP | 5671 |
 | AMQP через WebSocket | 443 |
-| MQTT | 8883 |
+| HTTPS | 443 |
 | LWM2M (Управление устройствами) | 5684 |
 
 После создания центра IoT в регионе Azure IP-адрес центра остается неизменным в течение всего времени существования центра. Однако для обеспечения качества обслуживания при перемещении корпорацией Майкрософт центра IoT в другую единицу масштабирования центру назначается новый IP-адрес.
@@ -59,4 +59,4 @@
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-tokens]: iot-hub-sas-tokens.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

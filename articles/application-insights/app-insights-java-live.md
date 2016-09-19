@@ -6,7 +6,7 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-<tags 
+.<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
@@ -33,10 +33,10 @@
     ![Нажмите кнопку "+" и выберите пункт "Application Insights"](./media/app-insights-java-live/01-create.png)
 3. Задайте тип приложения: веб-приложение Java.
 
-    ![Введите имя, выберите веб-приложение Java и нажмите кнопку "Создать"](./media/app-insights-java-live/02-create.png)
+    .![Введите имя, выберите веб-приложение Java и нажмите кнопку "Создать"](./media/app-insights-java-live/02-create.png)
 4. Найдите ключ инструментирования нового ресурса. Далее будет необходимо вставить его в проект кода.
 
-    ![В обзоре нового ресурса щелкните "Свойства" и скопируйте ключ инструментирования](./media/app-insights-java-live/03-key.png)
+    .![В обзоре нового ресурса щелкните "Свойства" и скопируйте ключ инструментирования](./media/app-insights-java-live/03-key.png)
 
 ## 2) Скачивание пакета SDK
 
@@ -107,9 +107,9 @@
 
 Вам может понадобиться [задать исключения для отправки исходящих данных](app-insights-ip-addresses.md).
 
-## 5\. Перезапуск веб-приложения
+## 6\. Перезапуск веб-приложения
 
-## 6\. Просмотр данных телеметрии в Application Insights
+## 7\. Просмотр данных телеметрии в Application Insights
 
 Вернитесь к ресурсу Application Insights на [портале Microsoft Azure](https://portal.azure.com).
 
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

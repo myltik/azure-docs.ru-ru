@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -34,11 +34,11 @@
 [Топологии Azure AD Connect.](active-directory-aadconnect-topologies.md) | Описание разных топологий и сценариев, поддерживаемых модулем синхронизации.
 **Настраиваемая конфигурация** |
 [Повторный запуск мастера установки](active-directory-aadconnectsync-installation-wizard.md) | Объясняет, какие есть варианты действий при повторном запуске мастера установки Azure AD Connect.
+[Знакомство с декларативной подготовкой](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| Описание модели конфигурации, которая называется декларативной подготовкой.
+[Знакомство с выражениями декларативной подготовки.](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Описание синтаксиса для выражений языка, используемого в декларативной подготовке.
 [Общие сведения о конфигурации по умолчанию](active-directory-aadconnectsync-understanding-default-configuration.md)| Описание стандартных правил и конфигурации по умолчанию. Также описывается, как правила используются при работе со стандартными сценариями.
 [Синхронизация Azure AD Connect: общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md) | Это продолжение предыдущей статьи, где описано взаимодействие конфигураций для пользователей и контактов, в частности в среде с несколькими лесами.
 [How to make a change to the default configuration (Изменение конфигурации по умолчанию)](active-directory-aadconnectsync-change-the-configuration.md) | Описывает типичные изменения конфигурации для потоков атрибутов.
-[Знакомство с декларативной подготовкой](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| Описание модели конфигурации, которая называется декларативной подготовкой.
-[Знакомство с выражениями декларативной подготовки.](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Описание синтаксиса для выражений языка, используемого в декларативной подготовке.
 [Рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | Ограничения поддержки и изменение стандартной конфигурации.
 [Службы синхронизации Azure AD Connect: настройка фильтрации](active-directory-aadconnectsync-configure-filtering.md) | Описывает возможности установки ограничений для синхронизации объектов с Azure AD. Содержит пошаговые рекомендации по настройке этих ограничений.
 **Функции и сценарии** |
@@ -64,4 +64,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

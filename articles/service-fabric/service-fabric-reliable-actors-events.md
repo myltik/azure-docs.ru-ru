@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/13/2016"
+   ms.date="08/30/2016"
    ms.author="amanbha"/>
 
 
@@ -63,7 +63,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
-В случае отработки отказа субъект может переключиться на другой процесс или узел. Прокси-сервер субъекта управляет активными подписками и подписывается на них повторно автоматически. Чтобы изменить интервал между подписками, используйте API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Для отмены подписки используйте API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
+В случае отработки отказа субъект может переключиться на другой процесс или узел. Прокси-сервер субъекта управляет активными подписками и автоматически повторно выполняет подписывание на них. Чтобы изменить интервал между повторными операциями подписывания, используйте API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Для отмены подписки используйте API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
 
 На стороне субъекта достаточно просто публиковать события, когда они происходят. При наличии подписчиков на событие субъекта среда выполнения будет отправлять им уведомление.
 
@@ -78,4 +78,4 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
  - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
  - [Пример кода](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

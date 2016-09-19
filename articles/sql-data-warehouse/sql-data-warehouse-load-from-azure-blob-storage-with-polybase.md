@@ -3,18 +3,18 @@
    description="Сведения об использовании технологии PolyBase для загрузки данных из хранилища больших двоичных объектов Azure в хранилище данных SQL. Описание загрузки нескольких таблиц из общедоступных данных в схему хранилища данных Contoso Retail."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
-<tags
+.<tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/25/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL (PolyBase)
@@ -370,7 +370,7 @@ GROUP BY p.[BrandName]
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
 [Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
 [Общие сведения о разработке для хранилища данных SQL]: sql-data-warehouse-overview-develop.md
@@ -380,15 +380,15 @@ GROUP BY p.[BrandName]
 [CTAS]: sql-data-warehouse-develop-ctas.md
 [label]: sql-data-warehouse-develop-label.md
 
-<!--MSDN references-->
+.<!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/ru-RU/library/dn935022.aspx
 [CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/ru-RU/library/dn935026.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
 [REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
 
-<!--Other Web references-->
+.<!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [загрузки полного хранилища данных Contoso Retail]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

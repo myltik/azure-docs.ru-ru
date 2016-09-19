@@ -3,7 +3,7 @@
    description="Сведения о безопасности на уровне строк в Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Безопасность на уровне строк в Power BI Embedded
 
@@ -99,7 +99,7 @@
 
 ![](media\power-bi-embedded-rls\pbi-embedded-rls-dashboard-13.png)
 
-## См. также
+## Дополнительные материалы
 [Безопасность на уровне строк в Power](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-admin-rls/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

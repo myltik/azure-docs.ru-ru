@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="09/01/2016" 
 	ms.author="awills"/>
 
 # API Application Insights для пользовательских событий и метрик 
@@ -46,7 +46,6 @@
 
 * Добавьте пакет SDK Application Insights в свой проект:
  * [проект ASP.NET;][greenbrown]
- * [проект Windows;][windows]
  * [проект Java;][java]
  * [JavaScript на каждой веб-странице.][client]
 
@@ -276,7 +275,6 @@
 
 * ASP.NET: [написание кода для перехвата исключений](app-insights-asp-net-exceptions.md)
 * J2EE: [исключения перехватываются автоматически](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Приложения Windows: [сбои перехватываются автоматически](app-insights-windows-crashes.md)
 * JavaScript: перехватываются автоматически. Если вы хотите отключить автоматический сбор, добавьте строку в фрагмент кода, который вставляется на веб-страницы:
 
     ```
@@ -314,7 +312,7 @@
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-Так вы сможете отфильтровать в колонке [поиска][diagnostic] все сообщения с нужным уровнем серьезности, относящиеся к определенной базе данных.
+Так вы сможете отфильтровать в колонке [Поиск][diagnostic] все сообщения с нужной степенью серьезности, относящиеся к определенной базе данных.
 
 ## Отслеживание зависимостей
 
@@ -353,7 +351,7 @@
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Обратите внимание, что эта функция является асинхронной для каналов в памяти и синхронной при использовании [постоянного канала](app-insights-windows-services.md#persistence-channel).
+Обратите внимание, что эта функция является асинхронной для каналов в памяти и синхронной при использовании [постоянного канала](app-insights-api-filtering-sampling.md#persistence-channel).
 
 
 ## Прошедшие проверку пользователи
@@ -542,7 +540,7 @@
 
     } // When operation is disposed, telemetry item is sent.
 
-Наряду с заданием контекста операции `StartOperation` создает элемент телеметрии указанного вами типа и отправляет его при удалении операции или при явном вызове `StopOperation`. При использовании типа телеметрии `RequestTelemetry` ее длительность задается как временной интервал между началом и остановкой.
+Наряду с определением контекста операции `StartOperation` создает элемент телеметрии указанного вами типа и отправляет его при удалении операции или при явном вызове `StopOperation`. При использовании типа телеметрии `RequestTelemetry` ее длительность задается как временной интервал между запуском и остановкой.
 
 Контексты операции не могут быть вложенными. Если контекст операции уже существует, то его идентификатор связан со всеми вложенными элементами, включая элемент, созданный с помощью StartOperation.
 
@@ -611,7 +609,7 @@
 
 **Для веб-клиентов JavaScript** [используйте инициализаторы телеметрии JavaScript](#js-initializer).
 
-**Чтобы добавить свойства для всей телеметрии**, включая данные из модулей стандартной коллекции, [реализуйте `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
+**Чтобы добавить свойства для всей телеметрии**, включая данные из модулей стандартной коллекции, [выполните `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## Выборка, фильтрация и обработка данных телеметрии 
@@ -620,7 +618,7 @@
 
 * [Добавьте свойства](app-insights-api-filtering-sampling.md#add-properties) в телеметрию, реализовав `ITelemetryInitializer`. Например, добавьте номера версий или значения, вычисленные на основе других свойств.
 * С помощью [фильтрации](app-insights-api-filtering-sampling.md#filtering) можно изменить или отменить телеметрию перед ее отправкой из пакета SDK. Для этого реализуйте `ITelemetryProcesor`. Она позволяет управлять тем, какие данные отправляются, а какие отклоняются. Однако при этом необходимо учитывать влияние на метрики. В зависимости от способа отклонения элементов можно потерять возможность перехода между связанными элементами.
-* [Выборки](app-insights-api-filtering-sampling.md#sampling) представляют собой упакованное решение для сокращения объема данных, отправляемых из приложения на портал. Выборка не влияет на отображаемые метрики и возможность диагностировать проблемы путем перехода между связанными элементами, например исключениями, запросами и просмотрами страниц.
+* [Выборка](app-insights-api-filtering-sampling.md#sampling) представляет собой упакованное решение для сокращения объема данных, отправляемых из приложения на портал. Выборка не влияет на отображаемые метрики и возможность диагностировать проблемы путем перехода между связанными элементами, например исключениями, запросами и просмотрами страниц.
 
 [Подробнее](app-insights-api-filtering-sampling.md)
 
@@ -747,17 +745,16 @@
 
 * [Базовый пакет SDK для ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Пакеты Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Пакет SDK для Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Пакет SDK для JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Все платформы](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Вопросы
 
 * *Могут ли создаваться исключения при вызовах Track\_()?*
     
-    Нет. Вам не нужно помещать их в предложения try-catch. Если пакет SDK сталкивается с проблемами, он добавляет в журнал сообщения, которые отображаются в консоли отладки и, если сообщения проходят, — в диагностическом поиске.
+    Отсутствует. Вам не нужно помещать их в предложения try-catch. Если пакет SDK сталкивается с проблемами, он добавляет в журнал сообщения, которые отображаются в консоли отладки и, если сообщения проходят, — в диагностическом поиске.
 
 
 
@@ -788,8 +785,7 @@
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

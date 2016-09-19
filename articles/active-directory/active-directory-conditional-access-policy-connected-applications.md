@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -154,7 +154,7 @@
 Если выбрать вариант **Для приложений браузера и собственных приложений**, то политика будет применяться при доступе к приложениям из:
 
 - браузеров (например, Edge в Windows 10, Safari в iOS и т. д.);
-- приложений, использующих библиотеку приложений Active Directory (ADAL) на любой платформе или API диспетчера учетных веб-записей (WAM) в Windows 10.
+- приложений, использующих библиотеку проверки подлинности Active Directory (ADAL) на любой платформе или API диспетчера учетных веб-записей (WAM) в Windows 10.
 
 >[AZURE.NOTE] Дополнительные сведения о поддержке браузеров, а также другие аспекты доступа конечных пользователей к приложениям, защищенным с помощью условного доступа на основе устройств, см. в статье [Условный доступ к Azure Active Directory](active-directory-conditional-access.md).
 
@@ -173,4 +173,4 @@
 
 - [Условный доступ к Azure Active Directory](active-directory-conditional-access.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

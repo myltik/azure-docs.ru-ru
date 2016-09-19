@@ -7,13 +7,13 @@
   manager="johnmac"
   editor="mimig"/>
 
-<tags
+.<tags
   ms.service="documentdb"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="08/30/2016"
+  ms.date="09/01/2016"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -120,9 +120,9 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 | Название мероприятия | Докладчик | Расположение | Дата | Хэш-тег |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Capital City .NET Users Group (Группа пользователей Capital City .NET)](https://www.meetup.com/tally-dot-net/events/233070827/) | Сантош Хари (Santosh Hari) | Таллахасси, шт. Флорида | 1 сентября 2016 г. | Недоступно |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Эндрю Лю (Andrew Liu) и Тара Джана (Tara Jana) | Атланта, штат Джорджия, США | 26–30 сентября 2016 г. | [#MSIgnite](https://twitter.com/MS_Ignite) |
 | [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | ПОДЛЕЖИТ УТОЧНЕНИЮ | Нью-Йорк, Нью-Йорк | 26-29 сентября 2016 г. | [#StrataConf](https://twitter.com/strataconf) |
+| [Capital City .NET Users Group (Группа пользователей Capital City .NET)](http://www.meetup.com/tally-dot-net/events/233768568/) | Сантош Хари (Santosh Hari) | Таллахасси, шт. Флорида | 3 ноября 2016 г. | Недоступно |
 
 
 *Вы являетесь докладчиком или организуете мероприятие? [Мы можем помочь!](mailto:askdocdb@microsoft.com) Узнайте как.*
@@ -229,7 +229,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 ## Связаться с командой
 
-![Группа](./media/documentdb-community/documentdb-team.png)
+.![Группа](./media/documentdb-community/documentdb-team.png)
 
 Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам решение NoSQL? Вы можете [запланировать встречу один на один с представителем команды разработчиков DocumentDB](http://www.askdocdb.com/). Также нам можно написать [письмо](mailto:askdocdb@microsoft.com) или отправить твит по адресу [@DocumentDB](https://twitter.com/DocumentDB).
 
@@ -268,4 +268,4 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

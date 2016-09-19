@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-<tags
+.<tags
      ms.service="iot-hub"
      ms.devlang="dotnet"
      ms.topic="article"
@@ -75,7 +75,7 @@
 
 1. В обозревателе решений щелкните правой кнопкой мыши проект, выберите пункт **Добавить**, а затем щелкните **Новый элемент**. Добавьте файл JSON с именем **template.json** в проект.
 
-2. Замените содержимое файла **template.json** следующим определением ресурса для добавления стандартного центра IoT в регион **Восток США**:
+2. Замените содержимое файла **template.json** следующим определением ресурса для добавления стандартного центра IoT в регион **Восток США** (текущий список регионов, поддерживающих центр IoT, см. на странице [Состояние Azure][lnk-status]).
 
     ```
     {
@@ -217,9 +217,10 @@
 - [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
 - [Управление центрами IoT через портал Azure][lnk-portal]
 
-<!-- Links -->
+.<!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
@@ -233,4 +234,4 @@
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

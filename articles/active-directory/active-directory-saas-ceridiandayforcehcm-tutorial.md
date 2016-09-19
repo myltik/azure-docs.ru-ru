@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@
 Чтобы настроить интеграцию Azure AD с Ceridian Dayforce HCM, вам потребуется:
 
 - подписка Azure AD;
-- подписка на Ceridian Dayforce HCM с поддержкой единого входа.
+- подписка Ceridian Dayforce HCM с поддержкой единого входа.
 
 
 > [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
@@ -57,19 +57,19 @@
 
 **Чтобы добавить Ceridian Dayforce HCM из коллекции, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	![Active Directory][1]
+	.![Active Directory][1]
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-	![Приложения][2]
+	.![Приложения][2]
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 
-	![Приложения][3]
+	.![Приложения][3]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -145,9 +145,9 @@
 
 	![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_03.png)
 
-3. На странице диалогового окна **Настроить параметры приложения** выполните следующие действия.
+3. На странице диалогового окна **Настройка параметров приложения** выполните следующие действия.
 
-	![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_04.png)
+	.![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_04.png)
 
 
     а. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Ceridian Dayforce HCM. Для рабочих сред используйте следующий формат URL-адреса: `https://sso.dayforcehcm.com/DayforcehcmNamespace`.
@@ -172,17 +172,17 @@
 
     - Скачанный файл сертификата
     - **URL-адрес издателя**;
-    - **URL-адрес единого входа SAML**; 
-    - **URL-адрес службы единого выхода**. 
+    - **URL-адрес единого входа SAML**;
+    - **URL-адрес службы единого выхода**.
 
 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
 
-	![Единый вход в Azure AD][10]
+	.![Единый вход в Azure AD][10]
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
 
-	![Единый вход в Azure AD][11]
+	.![Единый вход в Azure AD][11]
 
 
 
@@ -195,13 +195,13 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_09.png)
+	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_09.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_03.png)
+	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_03.png)
 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
@@ -209,7 +209,7 @@
 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_05.png)
+	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_05.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -219,7 +219,7 @@
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png)
+	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png)
 
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -233,11 +233,11 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_07.png)
+	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_07.png)
 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_08.png)
+	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_08.png)
 
     а. Запишите значение поля **Новый пароль**.
 
@@ -273,13 +273,13 @@
 
 1. В меню в верхней части страницы щелкните **Пользователи**.
 
-	![Назначение пользователя][203]
+	.![Назначение пользователя][203]
 
-1. Из списка пользователей выберите **Britta Simon**.
+1. В списке пользователей выберите **Britta Simon**.
 
 2. На панели инструментов внизу щелкните **Назначить**.
 
-	![Назначение пользователя][205]
+	.![Назначение пользователя][205]
 
 
 
@@ -312,4 +312,4 @@
 [204]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

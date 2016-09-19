@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/31/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Управление резервными копиями виртуальных машин Azure и их мониторинг
@@ -92,7 +92,7 @@
 
 2. Выберите виртуальную машину и нажмите кнопку **Остановить защиту** в нижней части страницы.
 
-    ![Остановить защиту](./media/backup-azure-manage-vms/stop-protection.png)
+    ![остановка защиты;](./media/backup-azure-manage-vms/stop-protection.png)
 
 3. По умолчанию служба архивации Azure не удаляет данные резервных копий, связанные с виртуальной машиной.
 
@@ -227,7 +227,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **Name**. Имя правила оповещения.
 
-**CustomEmail**. Укажите адрес электронной почты для отправки оповещений.
+**CustomEmail**. Это адрес электронной почты для отправки оповещений.
 
 **SendToServiceOwners**. Этот параметр отправляет оповещения всем администраторам и соадминистраторам подписки. Кроме того, его можно использовать в командлете **New-AzureRmAlertRuleEmail**.
 
@@ -242,4 +242,4 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 - [Восстановление виртуальных машин Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0907_2016-->

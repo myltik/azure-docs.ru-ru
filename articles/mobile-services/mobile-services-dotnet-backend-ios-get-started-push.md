@@ -26,7 +26,7 @@
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 > Аналогичные сведения для мобильных приложений см. в статье [Добавление push-уведомлений в приложение iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 
-В этом разделе показано, как добавить push-уведомления в [проект быстрого запуска](mobile-services-dotnet-backend-ios-get-started.md), чтобы ваша мобильная служба отправляла push-уведомление при каждой вставке записи. Сначала необходимо выполнить действия, описанные в статье [Приступая к работе с мобильными службами].
+В этой статье показано, как добавить push-уведомления в [проект быстрого запуска](mobile-services-dotnet-backend-ios-get-started.md), чтобы ваша мобильная служба отправляла push-уведомление при каждой вставке записи. Сначала необходимо выполнить действия, описанные в статье [Приступая к работе с мобильными службами].
 
 [AZURE.INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
 
@@ -81,7 +81,7 @@
 [Test the mobile service]: #test-the-service
 [Publish the mobile service to Azure]: #publish-mobile-service
 
-<!-- Images. -->
+.<!-- Images. -->
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
 [6]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png
 [7]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step7.png
@@ -130,6 +130,6 @@
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
-[Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
+[Send template-based notifications to subscribers]: ../notification-hubs-ios-xplat-localized-apns-push-notification.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

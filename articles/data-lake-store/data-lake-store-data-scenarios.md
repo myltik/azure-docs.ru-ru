@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/14/2016"
+   ms.date="09/06/2016"
    ms.author="nitinme"/>
 
 # Использование хранилища озера данных Azure для потребностей больших данных
@@ -145,4 +145,4 @@
 * Сначала с помощью [фабрики данных Azure переместите данные из Data Lake Store в хранилище данных SQL Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores).
 * После этого вы можете [интегрировать Power BI с хранилищем данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) для создания визуального представления данных.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/31/2016" 
+   ms.date="08/29/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Аудит в хранилище данных SQL Azure
@@ -93,7 +93,7 @@
 7. В разделе **ВЕДЕНИЕ ЖУРНАЛА ПО СОБЫТИЯМ** щелкните **УСПЕШНО** и **СБОЙ**, чтобы включить в журнал все события, или выберите отдельные категории событий.
 
 
-8. При настройке аудита для базы данных может потребоваться изменить строку подключения вашего клиента, чтобы убедиться в правильном сборе данных аудита. См. раздел [Изменение FDQN сервера в строке подключения](sql-data-warehouse-auditing-downlevel-clients.md) для подключений клиентов прежних версий.
+8. При настройке аудита для базы данных может потребоваться изменить строку подключения вашего клиента, чтобы убедиться в правильном сборе данных аудита. Ознакомьтесь с разделом [Изменение FDQN сервера в строке подключения](sql-data-warehouse-auditing-downlevel-clients.md), чтобы узнать больше о подключениях клиентов нижнего уровня.
 
 9. Нажмите кнопку **ОК**.
 
@@ -141,7 +141,7 @@
 [Анализ журналов и отчетов аудита]: #subheading-3
 
 
-<!--Image references-->
+.<!--Image references-->
 [1]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing.png
 [2]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-inherit.png
 [3]: ./media/sql-data-warehouse-auditing-overview/sql-data-warehouse-auditing-enable.png
@@ -151,4 +151,4 @@
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

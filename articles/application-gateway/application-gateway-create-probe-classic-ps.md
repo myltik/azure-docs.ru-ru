@@ -8,7 +8,7 @@
    editor=""
    tags="azure-service-management"
 />
-<tags  
+.<tags  
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -24,9 +24,9 @@
 - [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
 - [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
 
-<BR>
+.<BR>
 
-[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)].
+[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](application-gateway-create-probe-ps.md).
 
@@ -47,35 +47,13 @@
 
 В следующем примере создается шлюз приложений с использованием виртуальной сети testvnet1 и подсети subnet-1.
 
-
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
-
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
-
-
- *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
-
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 Чтобы проверить, создан ли шлюз, используйте командлет **Get-AzureApplicationGateway**.
 
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest
-	Name          : AppGwTest
-	Description   :
-	VnetName      : testvnet1
-	Subnets       : {Subnet-1}
-	InstanceCount : 2
-	GatewaySize   : Medium
-	State         : Stopped
-	VirtualIPs    : {}
-	DnsName       :
+	Get-AzureApplicationGateway AppGwTest
 
 >[AZURE.NOTE]  Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать значения Small, Medium или Large.
-
 
  Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут заданы после его запуска.
 
@@ -87,10 +65,9 @@
 
 В следующем примере все параметры шлюза приложений настраиваются и применяются к ресурсу шлюза приложений при помощи XML-файла.
 
-### Шаг 1  
+### Шаг 1
 
 Скопируйте следующий текст в Блокнот.
-
 
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
@@ -161,7 +138,6 @@
 
 >[AZURE.IMPORTANT] В элементе протокола HTTP или HTTPS учитывается регистр.
 
-
 Новый элемент конфигурации <Probe> добавляется для настройки пользовательских проверок работоспособности.
 
 Используются следующие параметры конфигурации:
@@ -183,7 +159,7 @@
 
 Получите XML-файл с помощью командлета Get-AzureApplicationGatewayConfig. Он экспортирует XML-файл конфигурации, который можно изменить, чтобы добавить параметры пробы.
 
-	get-AzureApplicationGatewayConfig -Name <application gateway name> -Exporttofile "<path to file>"
+	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
 ### Шаг 2
@@ -200,6 +176,7 @@
             <Timeout>15</Timeout>
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
+    </Probes>
 
 В разделе backendHttpSettings XML-файла добавьте имя пробы, как показано в следующем примере.
 
@@ -214,12 +191,11 @@
 
 Сохраните XML-файл.
 
-
 ### Шаг 3.
 
 Обновите конфигурацию шлюза приложений с использованием нового XML-файла, выполнив командлет **Set-AzureApplicationGatewayConfig**. Он команда обновит шлюз приложений с учетом новой конфигурации.
 
-	set-AzureApplicationGatewayConfig -Name <application gateway name> -Configfile "<path to file>"
+	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
 ## Дальнейшие действия
@@ -228,4 +204,4 @@
 
 Указания по настройке шлюза приложений для использования с внутренним балансировщиком нагрузки см. в статье [Создание шлюза приложений с внутренней подсистемой балансировщика нагрузки (ILB)](application-gateway-ilb.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

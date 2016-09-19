@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
-	ms.author="markvi;liviodlc"/>
+	ms.date="09/02/2016"
+	ms.author="markvi"/>
 
 #Указатель статей по управлению приложениями в Azure Active Directory
 
@@ -70,7 +70,7 @@
 | :---: | --- |
 | Общие сведения о принципах работы единого входа на основе паролей и краткий технический обзор | [Единый вход на основе пароля](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | Сводка сценариев совместного использования учетных записей и способов решения этих проблем с помощью Azure AD | [Совместное использование учетных записей в Azure AD](active-directory-sharing-accounts.md) |
-| Автоматическое изменение пароля для определенных приложений с определенной периодичностью | [Automated Password Rollover (preview) (Автоматическая смена пароля (предварительная версия))](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
+| Автоматическое изменение пароля для определенных приложений с определенной периодичностью | [Automated Password Rollover (preview) (Автоматическая смена пароля (предварительная версия))](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | Руководства по развертыванию и устранению неполадок для расширения управления паролями Azure AD с использованием Internet Explorer | [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md)<br /><br />[Устранение неполадок, связанных с расширением панели доступа для Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
 Функция единого входа на основе паролей доступна для всех выпусков Azure AD, и ее можно использовать для 10 приложений на пользователя. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) поддерживает неограниченное количество приложений. Если ваша организация использует [Azure AD уровня "Базовый"](https://azure.microsoft.com/pricing/details/active-directory/) или [Azure AD уровня "Премиум"](https://azure.microsoft.com/pricing/details/active-directory/), то вы можете [использовать группы для предоставления доступа к приложениям](#managing-access-to-applications). Автоматическая смена пароля — это функция [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -218,7 +218,7 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 
 Чтобы просмотреть, какие отчеты включены в различные выпуски Azure Active Directory, [щелкните здесь](active-directory-view-access-usage-reports.md#report-editions).
 
-##См. также
+##Дополнительные материалы
 
 [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 
@@ -228,4 +228,4 @@ Cloud App Discovery — это функция [Azure AD уровня "Преми
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

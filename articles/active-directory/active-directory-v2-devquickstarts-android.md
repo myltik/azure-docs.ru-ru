@@ -48,8 +48,9 @@ git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.g
 Создайте новое приложение на [портале регистрации приложений](https://apps.dev.microsoft.com) или выполните подробные инструкции по [регистрации приложения с использованием конечной точки версии 2.0](active-directory-v2-app-registration.md). Не забудьте:
 
 - Скопируйте назначенный вашему приложению **идентификатор приложения**. Он вскоре вам понадобится.
-- Добавьте для приложения **мобильную** платформу.
-- Скопируйте значение **URI перенаправления** с портала. Необходимо использовать стандартное значение `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+- Добавьте для приложения **мобильную** платформу.
+
+> Примечание. Портал регистрации приложений предоставляет значение **URI перенаправления**. Однако в этом примере необходимо использовать значение по умолчанию `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
 
 ## Скачивание сторонней библиотеки NXOAuth2 и создание рабочей области
@@ -70,7 +71,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 	![Создание нового проекта в Android Studio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample1.PNG)
 
-	![Целевые устройства Android](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
+	.![Целевые устройства Android](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
 
 	![Добавление действия для мобильных устройств](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
 
@@ -196,4 +197,4 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 Рекомендуем вам получать уведомления об инцидентах безопасности. Для этого посетите [Технический центр безопасности](https://technet.microsoft.com/security/dd252948) и подпишитесь на уведомления о советах безопасности.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0907_2016-->

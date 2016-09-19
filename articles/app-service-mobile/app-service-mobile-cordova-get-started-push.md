@@ -76,7 +76,7 @@
 
 1.  В обозревателе решений откройте файл `config.xml`, щелкните **Подключаемые модули** > **Настраиваемые**, выберите **Git** как источник установки, а затем в качестве источника введите `https://github.com/phonegap/phonegap-plugin-push`.
 
-	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	.![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
 
 2.  Щелкните стрелку рядом с источником установки.
 
@@ -234,11 +234,11 @@
 
 	Добавьте учетную запись Google на устройство Android, щелкнув **Приложения** > **Параметры** > **Добавить учетную запись**. Следуйте указаниям, чтобы использовать на устройстве имеющуюся учетную запись Google (рекомендуется) или создать новую.
 
-	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
+	.![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
 	Запустите приложение todolist, как ранее, и вставьте новый элемент списка дел. На этот раз в области уведомлений отображается значок уведомления. Вы можете открыть панель уведомлений, чтобы просмотреть полный текст уведомления.
 
-	![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
+	.![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
 
 ##Настройка и запуск проекта в iOS (необязательно)
 
@@ -369,7 +369,7 @@
 * [Серверный пакет SDK для ASP.NET]
 * [Серверный пакет SDK для Node.js]
 
-<!-- URLs -->
+.<!-- URLs -->
 [добавьте аутентификацию в приложение Apache Cordova]: app-service-mobile-cordova-get-started-users.md
 [ознакомительного проекта Apache Cordova]: app-service-mobile-cordova-get-started.md
 [ознакомительный проект Apache Cordova]: app-service-mobile-cordova-get-started.md
@@ -381,9 +381,9 @@
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [набор средств Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
-[центрах уведомлений]: ../notification-hubs/notification-hubs-overview.md
+[центрах уведомлений]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Пакет SDK для Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

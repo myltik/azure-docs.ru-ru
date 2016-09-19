@@ -49,7 +49,7 @@
 
 Чтобы создать проект мобильных приложений в Visual Studio, необходимо установить [пакет Azure SDK для .NET](https://azure.microsoft.com/downloads/) версии 2.8.1 или более поздней. После установки пакета SDK создайте новое приложение ASP.NET:
 
-1. Откройте диалоговое окно **Новый проект** (последовательно выберите *Файл* > **Создать** > **Проект**).
+1. Откройте диалоговое окно **Новый проект** (последовательно выберите *Файл* > **Создать** > **Проект**).
 
 2. Разверните раздел **Шаблоны** > **Visual C#** и выберите **Интернет**.
 
@@ -146,11 +146,11 @@
 
 2. Если появится запрос на выбор цели публикации, щелкните **служба приложений Microsoft Azure** > **Далее**, а затем (при необходимости) войдите с учетными данными Azure. Visual Studio загрузит параметры публикации из Azure и безопасно сохранит их.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
+	.![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
 
 3. Выберите свою **Подписку**, затем выберите **Тип ресурса** в разделе **Представление**, разверните **Мобильное приложение** и щелкните серверную часть мобильного приложения, затем щелкните **ОК**.
 
-	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
+	.![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
 
 4. Проверьте сведения в профиле публикации и нажмите кнопку **Опубликовать**.
 
@@ -386,7 +386,7 @@ SID является производным от идентификатора п
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-На этом этапе можно использовать клиент центров уведомлений для отправки push-уведомлений на зарегистрированные устройства. Дополнительные сведения см. в разделе [Добавление push-уведомлений в приложение](app-service-mobile-ios-get-started-push.md). Дополнительные сведения обо всем, что можно сделать с помощью концентраторов уведомлений, см. в статье [Общие сведения о концентраторах уведомлений]( ../notification-hubs/notification-hubs-overview.md).
+На этом этапе можно использовать клиент центров уведомлений для отправки push-уведомлений на зарегистрированные устройства. Дополнительные сведения см. в разделе [Добавление push-уведомлений в приложение](app-service-mobile-ios-get-started-push.md). Дополнительные сведения обо всем, что можно сделать с помощью концентраторов уведомлений, см. в статье [Общие сведения о концентраторах уведомлений](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ##<a name="tags"></a>Практическое руководство. Добавление тегов в установку устройства для принудительной отправки push-уведомлений
 
@@ -482,5 +482,4 @@ SID является производным от идентификатора п
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
 
-<!----HONumber=AcomDC_0817_2016-->
-
+<!---HONumber=AcomDC_0907_2016-->

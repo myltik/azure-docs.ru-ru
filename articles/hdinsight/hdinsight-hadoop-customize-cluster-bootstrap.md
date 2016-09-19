@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # Настройка кластеров HDInsight с помощью начальной загрузки
@@ -46,7 +46,7 @@
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
     
 - Использование пакета SDK для .NET
-- Использование шаблона ARM
+- Использование шаблона Azure Resource Manager
 
 Сведения об установке дополнительных компонентов в кластере HDInsight во время создания см. в разделах:
 
@@ -108,15 +108,15 @@
 	# oozie-site.xml configuration
 	$OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
-Дополнительные сведения см. в статье Азима Уддина (Azim Uddin) [Customizing HDInsight Cluster creation](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+Дополнительные сведения см. в статье Азима Уддина (Azim Uddin) [Customizing HDInsight Cluster provisioning](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx) (Дополнительная настройка при подготовке кластера HDInsight).
 
 ## Использование пакета SDK для .NET
 
 Ознакомьтесь с разделом [Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
-## Использование шаблона ARM Azure
+## Использование шаблона Resource Manager
 
-Начальную загрузку можно использовать в шаблоне ARM:
+В шаблоне Resource Manager можно использовать начальную загрузку:
 
     "configurations": {
         …
@@ -128,11 +128,11 @@
     }
 
 
-![Шаблон ARM настройки кластера HDInsight Hadoop с помощью начальной загрузки](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![hdinsight hadoop настройка кластера начальная загрузка шаблон azure resource manager](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 
 
-## См. также
+## Дополнительные материалы
 
 - В статье [Создание кластеров Hadoop в HDInsight][hdinsight-provision-cluster] приведены указания по созданию кластера HDInsight с использованием других настраиваемых параметров.
 - [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script]
@@ -261,4 +261,4 @@
 
     #endregion
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

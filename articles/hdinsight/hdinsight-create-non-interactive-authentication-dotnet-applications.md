@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/13/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 # Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности
@@ -25,7 +25,7 @@
 
 - идентификатор клиента для подписки Azure;
 - идентификатор клиента для приложения Azure Directory;
-- секретный ключ приложения Azure Directory.  
+- секретный ключ приложения Azure Directory.
 
 Основная процедура включает в себя следующие шаги:
 
@@ -36,7 +36,7 @@
 
 ##Предварительные требования
 
-- Кластер HDInsight. Его можно создать, следуя инструкциям в [руководстве по началу работы](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
+- Кластер HDInsight. Его можно создать, следуя инструкциям в [руководстве по началу работы](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 
 
@@ -115,11 +115,11 @@
     azure account show --json
 
       
-## См. также
+## Дополнительные материалы
 
 - [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 - [Создание приложения Active Directory и субъекта-службы с помощью портала](../resource-group-create-service-principal-portal.md)
 - [Проверка подлинности субъекта-службы в Azure Resource Manager](../resource-group-authenticate-service-principal.md)
 - [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

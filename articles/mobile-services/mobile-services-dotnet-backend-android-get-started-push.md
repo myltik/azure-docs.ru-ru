@@ -82,7 +82,7 @@
 
 + [Отправка подписчикам уведомлений на основе шаблонов] <br/>Узнайте о том, как использовать шаблоны для отправки push-уведомлений из мобильной службы без создания полезных данных для конкретных платформ на стороне сервера.
 
-Дополнительные сведения о мобильных службах и концентраторах уведомлений см. в следующих разделах.
+Дополнительные сведения о мобильных службах и центрах уведомлений см. в следующих разделах.
 
 * [Что такое Центры уведомлений?] <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
@@ -103,7 +103,7 @@
 [Test the app against the published mobile service]: #test-app
 [Next Steps]: #next-steps
 
-<!-- Images. -->
+.<!-- Images. -->
 
 <!-- URLs. -->
 [Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
@@ -114,6 +114,6 @@
 
 [Что такое Центры уведомлений?]: ../notification-hubs-overview.md
 [Рассылка широковещательных уведомлений подписчикам]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Отправка подписчикам уведомлений на основе шаблонов]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[Отправка подписчикам уведомлений на основе шаблонов]: ../notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

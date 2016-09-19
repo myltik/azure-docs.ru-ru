@@ -22,16 +22,10 @@
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][].
 
-Полный шаблон приведен в разделе [Event Hub and consumer group template][] \(Шаблон концентратора событий и группы потребителей) на сайте GitHub.
+Полный шаблон приведен в разделе [Event Hub and consumer group template][] (Шаблон концентратора событий и группы потребителей) на сайте GitHub.
 
->[AZURE.NOTE] Для скачивания и развертывания можно использовать указанные ниже шаблоны диспетчера ресурсов Azure.
->
->-    [Создание пространства имен служебной шины с очередью и правилом авторизации](service-bus-resource-manager-namespace-auth-rule.md)
->-    [Создание пространства имен служебной шины с очередью](service-bus-resource-manager-namespace-queue.md)
->-    [Создание пространства имен служебной шины с разделом и подпиской](service-bus-resource-manager-namespace-topic.md)
->-    [Создайте пространство имен служебной шины](service-bus-resource-manager-namespace.md)
->
->Чтобы узнать о новых шаблонах, посетите коллекцию [Шаблоны быстрого запуска Azure][] и выполните поиск по запросу "концентраторы событий".
+>[AZURE.NOTE]
+Чтобы узнать о новых шаблонах, посетите коллекцию [Шаблоны быстрого запуска Azure][] и выполните поиск по запросу "концентраторы событий".
 
 ## Что вы развернете?
 
@@ -156,14 +150,12 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
 Теперь, когда вы создали и развернули ресурсы с помощью диспетчера ресурсов Azure, узнайте, как управлять этими ресурсами, изучив следующие статьи:
 
-- [Управление служебной шиной Azure при помощи службы автоматизации Azure](service-bus-automation-manage.md)
-- [Управление концентраторами событий с помощью PowerShell](service-bus-powershell-how-to-provision.md)
 - [Управление ресурсами концентратора событий с помощью обозревателя служебной шины](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Создание шаблонов Azure Resource Manager]: ../resource-group-authoring-templates.md
-  [Шаблоны быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+  [Шаблоны быстрого запуска Azure]: https://azure.microsoft.com/documentation/templates/?term=event+hubs
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -16,11 +16,11 @@
 	ms.date="06/29/2016" 
 	ms.author="wesmc"/>
 
-# Использование концентраторов уведомлений для отправки локализованных экстренных новостей
+# Использование концентраторов уведомлений для передачи локализованных экстренных новостей
 
 > [AZURE.SELECTOR]
-- [C# в Магазине Windows](notification-hubs-windows-store-dotnet-send-localized-breaking-news.md)
-- [iOS](notification-hubs-ios-send-localized-breaking-news.md)
+- [C# в Магазине Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
+- [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 ##Обзор
 
@@ -187,7 +187,7 @@
         }
 
 
-##Отправка локализованных уведомлений из серверной части
+##Отправка уведомлений из серверной части
 
 [AZURE.INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
@@ -203,7 +203,7 @@
 [Send notifications from your back-end]: #send
 [Next Steps]: #next-steps
 
-<!-- Images. -->
+.<!-- Images. -->
 
 <!-- URLs. -->
 [Mobile Service]: /develop/mobile/tutorials/get-started
@@ -228,4 +228,4 @@
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

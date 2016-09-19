@@ -52,7 +52,7 @@
 
 | Проблема | Способы устранения: |
 | :----------------------------------| :---------------------------------------------- |
-| Msg 40847: не удалось выполнить операцию, так как сервер превысил допустимую квоту в 45 000 DTU. | Либо уменьшите значение [DWU][] создаваемой базы данных, либо [запросите увеличение квоты][].|
+| Сообщение 40847: не удалось выполнить операцию, так как сервер достиг допустимой квоты в 45 000 единиц транзакций базы данных (DTU). | Либо уменьшите значение [DWU][] создаваемой базы данных, либо [запросите увеличение квоты][].|
 | Анализ использования пространства | Сведения об использовании пространства в системе см. в разделе о [размерах таблиц][].|
 | Справка по управлению таблицами | Справочную информацию об управлении таблицами см. в статье, содержащей [общие сведения о таблицах][Overview]. Эта статья также включает в себя ссылки на разделы с более подробными сведениями о [типах данных таблиц][Data types], [распределении][Distribute], [индексировании][Index] и [секционировании таблицы][Partition], а также сведениями об [управлении статистикой таблиц][Statistics] и о [временных таблицах][Temporary].|
 
@@ -90,7 +90,7 @@
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [Защита базы данных в хранилище данных SQL]: ./sql-data-warehouse-overview-manage-security.md
 [общими сведениями о безопасности]: ./sql-data-warehouse-overview-manage-security.md
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
@@ -126,12 +126,12 @@
 [Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
 [Обход требования PolyBase UTF-8]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
-<!--MSDN references-->
+.<!--MSDN references-->
 [sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
-[sqlcmd]: https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
+[sqlcmd]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
 
-<!--Other Web references-->
+.<!--Other Web references-->
 [Блоги]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [Блоги группы CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Запросы функций]: https://feedback.azure.com/forums/307516-sql-data-warehouse
@@ -140,4 +140,4 @@
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Видеоролики]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

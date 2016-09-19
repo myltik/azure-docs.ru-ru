@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-<tags
+.<tags
      ms.service="iot-hub"
      ms.devlang="dotnet"
      ms.topic="article"
@@ -94,7 +94,7 @@
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. Добавьте следующий код в метод **CreateIoTHub** для описания центра IoT, а также создания и генерирования представления JSON:
+3. Добавьте в метод **CreateIoTHub** следующий код, чтобы описать центр IoT для создания и генерирования представления JSON (текущий список расположений, поддерживающих центр IoT, см. на странице [Состояние Azure][lnk-status]).
 
     ```
     var description = new
@@ -187,9 +187,10 @@
 - [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
 - [Управление центрами IoT через портал Azure][lnk-portal]
 
-<!-- Links -->
+.<!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
+[lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../resource-group-overview.md
@@ -202,4 +203,4 @@
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->
