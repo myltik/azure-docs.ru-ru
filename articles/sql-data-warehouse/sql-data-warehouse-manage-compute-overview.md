@@ -117,7 +117,7 @@
 
 <!--Image reference-->
 
-.<!--Article references-->
+<!--Article references-->
 [единиц использования хранилища данных (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [единиц использования хранилища данных(DWUs)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [единиц хранилища данных (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
@@ -148,7 +148,7 @@
 
 [Участник баз данных SQL]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 <!--Other Web references-->

@@ -59,7 +59,7 @@
 Ниже приведены шаги по созданию экземпляра виртуальной машины Майкрософт для обработки и анализа данных.
 
 1.	Перейдите к списку виртуальных машин на [портале Azure](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
-2.	 В нижней части страницы нажмите кнопку **Создать**. Откроется мастер.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+2.	 В нижней части страницы нажмите кнопку **Создать**. Откроется мастер![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 Мастеру, который используется для создания виртуальной машины Майкрософт для обработки и анализа данных, требуются **входные данные** для всех **5 шагов**, перечисленных в правой части этого рисунка. Ниже приведено описание входных данных, необходимых для настройки на каждом из шагов.
 
      **а. Основные сведения**.

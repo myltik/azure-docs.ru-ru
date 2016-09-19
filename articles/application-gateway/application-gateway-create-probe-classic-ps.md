@@ -8,7 +8,7 @@
    editor=""
    tags="azure-service-management"
 />
-.<tags  
+<tags  
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"

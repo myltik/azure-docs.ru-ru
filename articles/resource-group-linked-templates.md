@@ -7,7 +7,7 @@
    manager="timlt"
    editor="tysonn"/>
 
-.<tags
+<tags
    ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"

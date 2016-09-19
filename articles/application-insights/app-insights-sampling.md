@@ -6,7 +6,7 @@
 	authors="vgorbenko" 
 	manager="douge"/>
 
-.<tags 
+<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 

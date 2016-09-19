@@ -7,7 +7,7 @@
   manager="johnmac"
   editor="mimig"/>
 
-.<tags
+<tags
   ms.service="documentdb"
   ms.devlang="na"
   ms.topic="article"
@@ -229,7 +229,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 ## Связаться с командой
 
-.![Группа](./media/documentdb-community/documentdb-team.png)
+![Группа](./media/documentdb-community/documentdb-team.png)
 
 Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам решение NoSQL? Вы можете [запланировать встречу один на один с представителем команды разработчиков DocumentDB](http://www.askdocdb.com/). Также нам можно написать [письмо](mailto:askdocdb@microsoft.com) или отправить твит по адресу [@DocumentDB](https://twitter.com/DocumentDB).
 

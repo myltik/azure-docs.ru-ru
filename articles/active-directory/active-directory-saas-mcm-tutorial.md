@@ -63,11 +63,11 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    .![Приложения](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Приложения")
+    ![Приложения](./media/active-directory-saas-mcm-tutorial/tutorial_general_02.png "Приложения")
 
 4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    .![Добавление приложения](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Добавление приложения")
+    ![Добавление приложения](./media/active-directory-saas-mcm-tutorial/tutorial_general_03.png "Добавление приложения")
 
 5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -112,7 +112,7 @@
 
 3.  В диалоговом окне на странице "Настройка параметров приложения" выполните следующие действия.
 
-    .![Настройка URL-адреса приложения](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Настройка URL-адреса приложения")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Настройка URL-адреса приложения")
 
     а. В текстовое поле **URL-адрес входа** введите `https://myaba.co.uk/client-access/<company name>/saml.php`.
 	
@@ -126,30 +126,30 @@
 
 6.  На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
 
-    .![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_06.png "Настройка единого входа")
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
 
-	.![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Настройка единого входа")
+	![Настройка единого входа](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_07.png "Настройка единого входа")
 
 
 ### Создание тестового пользователя Azure AD
 
 Цель этого раздела — создать на классическом портале тестового пользователя с именем Britta Simon.
 
-.![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_00.png)
+![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_00.png)
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-    .![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_01.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_01.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_02.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_02.png)
 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
@@ -157,7 +157,7 @@
 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
 
-    .![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_04.png)
+    ![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_04.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -167,7 +167,7 @@
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_05.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_05.png)
 
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -181,11 +181,11 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_06.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_06.png)
 
 8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
     
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_07.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-mcm-tutorial/create_aaduser_07.png)
 
     а. Запишите значение поля **Новый пароль**.
 
@@ -216,13 +216,13 @@
 
 1. В меню в верхней части страницы щелкните **Пользователи**.
     
-	.![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Назначение пользователей")
+	![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_02.png "Назначение пользователей")
 
 1. В списке пользователей выберите **Britta Simon**.
 
 2. На панели инструментов внизу щелкните **Назначить**.
     
-	.![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Назначение пользователей")
+	![Назначение пользователей](./media/active-directory-saas-mcm-tutorial/assign_aaduser_03.png "Назначение пользователей")
 
 
 ### Проверка единого входа

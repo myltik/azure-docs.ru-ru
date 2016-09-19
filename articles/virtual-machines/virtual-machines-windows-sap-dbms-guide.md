@@ -331,7 +331,7 @@
 
 * [SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению][planning-guide]
 * [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию][deployment-guide]
-* [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД][dbms-guide] (этот документ)
+* [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД][dbms-guide] \(этот документ)
 * [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию и обеспечению высокого уровня доступности][ha-guide]
 
 Следующие примечания по SAP актуальны для развертывания SAP в Azure.
@@ -450,7 +450,7 @@ ___
 >
 > Для создания программного RAID-массива в Linux поддерживаются только MDADM и LVM (диспетчер логических томов). Дополнительные сведения см. в следующих статьях:
 >
-> * [Настройка программного RAID-массива в Linux][virtual-machines-linux-configure-raid] (для MDADM)
+> * [Настройка программного RAID-массива в Linux][virtual-machines-linux-configure-raid] \(для MDADM)
 > * [Настройка диспетчера логических томов на виртуальной машине Linux в Azure][virtual-machines-linux-configure-lvm]
 
 

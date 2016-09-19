@@ -84,7 +84,7 @@ FROM
 [sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
 [sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
-.<!--Image references-->
+<!--Image references-->
 
 <!--Link references-->
 

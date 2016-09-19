@@ -505,7 +505,7 @@ Microsoft Azure предлагает решение в формате IaaS (ин
 
 Еще одна интересная возможность — это создание образов виртуальных машин. Она позволяет заранее подготовить различные репозитории, из которых вы сможете быстро развернуть экземпляры виртуальных машин в соответствии с текущими потребностями.
 
-Дополнительные сведения о создании образов виртуальных машин можно найти в [этой][virtual-machines-windows-capture-image] (Windows) или [этой статье][virtual-machines-linux-capture-image] (Linux).
+Дополнительные сведения о создании образов виртуальных машин можно найти в [этой][virtual-machines-windows-capture-image] \(Windows) или [этой статье][virtual-machines-linux-capture-image] \(Linux).
 
 #### <a name="df49dc09-141b-4f34-a4a2-990913b30358"></a>Домены сбоя
 Домены сбоя представляют физическую единицу сбоя. Эта концепция тесно связана с физической инфраструктурой центров обработки данных, например физический блейд сервера или стойка может считаться доменом сбоя. Впрочем, между этими единицами нет однозначной прямой зависимости.
@@ -956,7 +956,7 @@ __Шаблон__
 
 __Интерфейс командной строки Azure__
 
-* Используйте _sysprep_ в Windows или _waagent -deprovision_ в Linux, чтобы подготовить к работе виртуальную машину. Узнайте, как [записать образ виртуальной машины Windows в модели развертывания с помощью Resource Manager][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] или как [записать образ виртуальной машины Linux для использования в качестве шаблона Resource Manager][virtual-machines-linux-capture-image-capture] (в Linux).
+* Используйте _sysprep_ в Windows или _waagent -deprovision_ в Linux, чтобы подготовить к работе виртуальную машину. Узнайте, как [записать образ виртуальной машины Windows в модели развертывания с помощью Resource Manager][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] или как [записать образ виртуальной машины Linux для использования в качестве шаблона Resource Manager][virtual-machines-linux-capture-image-capture] \(в Linux).
 * Переключитесь в режим Azure Resource Manager с помощью команды _azure config mode arm_.
 * Войдите в свою подписку с помощью команды _azure login_.
 * Выберите нужную подписку с помощью команды _azure account set `<subscription name or id`>_.
@@ -965,7 +965,7 @@ __Интерфейс командной строки Azure__
 
 __Шаблон__
 
-* Используйте _sysprep_ в Windows или _waagent -deprovision_ в Linux, чтобы подготовить к работе виртуальную машину. Узнайте, как [записать образ виртуальной машины Windows в модели развертывания с помощью Resource Manager][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] или как [записать образ виртуальной машины Linux для использования в качестве шаблона Resource Manager][virtual-machines-linux-capture-image-capture] (в Linux).
+* Используйте _sysprep_ в Windows или _waagent -deprovision_ в Linux, чтобы подготовить к работе виртуальную машину. Узнайте, как [записать образ виртуальной машины Windows в модели развертывания с помощью Resource Manager][virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture] или как [записать образ виртуальной машины Linux для использования в качестве шаблона Resource Manager][virtual-machines-linux-capture-image-capture] \(в Linux).
 * Отправьте виртуальный жесткий диск с помощью Powershell или Azure CLI.
 * Разверните виртуальную машину с помощью шаблона JSON, в котором указана ссылка на этот образ виртуального жесткого диска, как показано в [примере шаблона JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
 
@@ -1806,7 +1806,7 @@ SAProuter позволяет осуществлять взаимодействи
 * Решение SIOS DataKeeper Cluster Edition настроено так, что оно синхронно отражает содержимое тома дополнительного подключенного VHD исходной виртуальной машины в томе дополнительного подключенного VHD целевой виртуальной машины.
 * SIOS DataKeeper абстрагирует исходные и конечные локальные тома и предоставляет их отказоустойчивому кластеру Windows как один общий диск.
  
-Сведения о том, как установить отказоустойчивый кластер Windows с SIOS DataKeeper и SAP, см. в техническом документе [Clustering SAP ASCS/SCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] (Кластеризация экземпляра SAP ASCS или SCS с использованием отказоустойчивого кластера Windows Server в Azure с помощью SIOS DataKeeper).
+Сведения о том, как установить отказоустойчивый кластер Windows с SIOS DataKeeper и SAP, см. в техническом документе [Clustering SAP ASCS/SCS Instance using Windows Server Failover Cluster on Azure with SIOS DataKeeper][ha-guide-classic] \(Кластеризация экземпляра SAP ASCS или SCS с использованием отказоустойчивого кластера Windows Server в Azure с помощью SIOS DataKeeper).
 
 #### Высокая доступность экземпляра SAP (A)SCS в Linux
  

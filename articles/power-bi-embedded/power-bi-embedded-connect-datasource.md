@@ -7,7 +7,7 @@
    manager="NA"
    editor=""
    tags=""/>
-.<tags
+<tags
    ms.service="power-bi-embedded"
    ms.devlang="NA"
    ms.topic="article"

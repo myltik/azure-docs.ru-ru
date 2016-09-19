@@ -237,7 +237,7 @@
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
 
-.<!-- Images. -->
+<!-- Images. -->
 [1]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
 
 [14]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png

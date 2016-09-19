@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="event-hubs"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -60,11 +60,11 @@
 - [Анализ данных датчиков в Storm и HDInsight] — это полный учебник, в котором концентраторы событий, Storm и HBase используются для приема данных датчиков в кластере Hadoop.
 - [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight][] — это учебник по написанию конвейеров Storm на C#.
 
-.<!-- Images. -->
+<!-- Images. -->
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
-.<!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
+<!-- Links -->
+[классический портал Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Обзор концентраторов событий]: event-hubs-overview.md
 

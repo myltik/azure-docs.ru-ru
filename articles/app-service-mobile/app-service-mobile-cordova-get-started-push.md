@@ -76,7 +76,7 @@
 
 1.  В обозревателе решений откройте файл `config.xml`, щелкните **Подключаемые модули** > **Настраиваемые**, выберите **Git** как источник установки, а затем в качестве источника введите `https://github.com/phonegap/phonegap-plugin-push`.
 
-	.![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
+	![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
 
 2.  Щелкните стрелку рядом с источником установки.
 
@@ -161,7 +161,7 @@
 		pushRegistration.on('error', handleError);
 		}
 
-3. В приведенном выше коде замените значение `Your_Project_ID` числовым идентификатором проекта своего приложения, полученным на сайте [Google Developer Console] (для Android).
+3. В приведенном выше коде замените значение `Your_Project_ID` числовым идентификатором проекта своего приложения, полученным на сайте [Google Developer Console] \(для Android).
 
 ## Настройка и запуск приложения в Android (необязательно)
 
@@ -234,11 +234,11 @@
 
 	Добавьте учетную запись Google на устройство Android, щелкнув **Приложения** > **Параметры** > **Добавить учетную запись**. Следуйте указаниям, чтобы использовать на устройстве имеющуюся учетную запись Google (рекомендуется) или создать новую.
 
-	.![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
+	![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
 	Запустите приложение todolist, как ранее, и вставьте новый элемент списка дел. На этот раз в области уведомлений отображается значок уведомления. Вы можете открыть панель уведомлений, чтобы просмотреть полный текст уведомления.
 
-	.![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
+	![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
 
 ##Настройка и запуск проекта в iOS (необязательно)
 
@@ -369,7 +369,7 @@
 * [Серверный пакет SDK для ASP.NET]
 * [Серверный пакет SDK для Node.js]
 
-.<!-- URLs -->
+<!-- URLs -->
 [добавьте аутентификацию в приложение Apache Cordova]: app-service-mobile-cordova-get-started-users.md
 [ознакомительного проекта Apache Cordova]: app-service-mobile-cordova-get-started.md
 [ознакомительный проект Apache Cordova]: app-service-mobile-cordova-get-started.md

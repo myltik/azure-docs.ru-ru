@@ -7,7 +7,7 @@
 	services="media-services" 
 	documentationCenter=""/>
 
-.<tags 
+<tags 
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 

@@ -52,7 +52,7 @@
 
 * [Установщик Windows][windows-installer]
 
-* [TAR-файл Linux][linux-installer] (требуется Node.js и NPM) — для установки выполните команду `sudo npm install -g <path to downloaded tar file>`
+* [TAR-файл Linux][linux-installer] \(требуется Node.js и NPM) — для установки выполните команду `sudo npm install -g <path to downloaded tar file>`
 
 
 ## Вариант 3. Использование контейнера Docker

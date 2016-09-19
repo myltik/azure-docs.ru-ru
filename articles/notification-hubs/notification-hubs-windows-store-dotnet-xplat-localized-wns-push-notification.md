@@ -203,7 +203,7 @@
 [Send notifications from your back-end]: #send
 [Next Steps]: #next-steps
 
-.<!-- Images. -->
+<!-- Images. -->
 
 <!-- URLs. -->
 [Mobile Service]: /develop/mobile/tutorials/get-started

@@ -299,14 +299,14 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 	Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
 -->
 
-.<!-- Anchors. -->
+<!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
 [Register for notifications]: #register
 [Send notifications from your back-end]: #send
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
 
-.<!-- Images. -->
+<!-- Images. -->
 [1]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
 [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
 [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png

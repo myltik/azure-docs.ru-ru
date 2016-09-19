@@ -408,7 +408,7 @@ WhatToPedia — это стартап-компания, которая тест�
 [Subheading 5]: #subheading-5
 [Next steps]: #next-steps
 
-.<!--Image references-->
+<!--Image references-->
 [6]: ./media/search-dev-case-study-whattopedia/lightbulb.png
 [7]: ./media/search-dev-case-study-whattopedia/WhatToPedia-Search-Bageri.png
 [8]: ./media/search-dev-case-study-whattopedia/WhatToPedia-Stack.png

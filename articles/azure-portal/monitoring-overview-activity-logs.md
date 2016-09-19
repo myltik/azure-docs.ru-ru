@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-.<tags
+<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -48,7 +48,7 @@
 
 1. Перейдите к колонке **Журнал действий** с помощью меню в левой части портала.
 
-    .![Переход к журналу действий на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+    ![Переход к журналу действий на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Нажмите кнопку **Экспорт** в верхней части колонки.
 
     ![Кнопка экспорта на портале](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)

@@ -103,7 +103,7 @@
 [Test the app against the published mobile service]: #test-app
 [Next Steps]: #next-steps
 
-.<!-- Images. -->
+<!-- Images. -->
 
 <!-- URLs. -->
 [Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md

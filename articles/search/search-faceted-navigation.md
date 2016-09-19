@@ -345,7 +345,7 @@
 [Faceted navigation based on GeoPoints]: #geofacets
 [Try it out]: #tryitout
 
-.<!--Image references-->
+<!--Image references-->
 [1]: ./media/search-faceted-navigation/Facet-1-slide.PNG
 [2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
 [3]: ./media/search-faceted-navigation/Facet-3-schema.PNG

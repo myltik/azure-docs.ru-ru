@@ -177,13 +177,13 @@ $write.Dispose()
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
 [Загрузка данных с помощью PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
 [Управление статистикой таблиц в хранилище данных SQL]: ./sql-data-warehouse-tables-statistics.md
 [Общие сведения о переносе данных]: ./sql-data-warehouse-overview-migrate.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
 [copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx

@@ -831,7 +831,7 @@ if (error.code == MSErrorPreconditionFailed) {
 [Next Steps]: #next-steps
 [How to: Use MSQuery]: #query-object
 
-.<!-- Images. -->
+<!-- Images. -->
 
 <!-- URLs. -->
 [Быстрый запуск мобильного приложения Azure]: app-service-mobile-ios-get-started.md

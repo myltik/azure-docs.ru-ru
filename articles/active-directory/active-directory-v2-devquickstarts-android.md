@@ -48,7 +48,7 @@ git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.g
 Создайте новое приложение на [портале регистрации приложений](https://apps.dev.microsoft.com) или выполните подробные инструкции по [регистрации приложения с использованием конечной точки версии 2.0](active-directory-v2-app-registration.md). Не забудьте:
 
 - Скопируйте назначенный вашему приложению **идентификатор приложения**. Он вскоре вам понадобится.
-- Добавьте для приложения **мобильную** платформу.
+- Добавьте для приложения **мобильную** платформу.
 
 > Примечание. Портал регистрации приложений предоставляет значение **URI перенаправления**. Однако в этом примере необходимо использовать значение по умолчанию `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
@@ -71,7 +71,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 	![Создание нового проекта в Android Studio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample1.PNG)
 
-	.![Целевые устройства Android](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
+	![Целевые устройства Android](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
 
 	![Добавление действия для мобильных устройств](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
 

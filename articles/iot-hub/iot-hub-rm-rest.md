@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
      ms.service="iot-hub"
      ms.devlang="dotnet"
      ms.topic="article"
@@ -187,7 +187,7 @@
 - [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
 - [Управление центрами IoT через портал Azure][lnk-portal]
 
-.<!-- Links -->
+<!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/

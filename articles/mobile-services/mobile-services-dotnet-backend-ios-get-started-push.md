@@ -81,7 +81,7 @@
 [Test the mobile service]: #test-the-service
 [Publish the mobile service to Azure]: #publish-mobile-service
 
-.<!-- Images. -->
+<!-- Images. -->
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
 [6]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png
 [7]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step7.png

@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 
-.<tags
+<tags
    ms.service="sql-data-warehouse"
    ms.devlang="na"
    ms.topic="article"

@@ -227,7 +227,7 @@
 
 <!-- Anchors. -->
 
-.<!-- Images. -->
+<!-- Images. -->
 [0]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios1.png
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 

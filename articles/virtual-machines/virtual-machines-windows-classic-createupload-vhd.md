@@ -8,7 +8,7 @@
 	editor="tysonn"
 	tags="azure-service-management"/>
 
-.<tags
+<tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"

@@ -6,7 +6,7 @@
     authors="sethmanheim"
     manager="timlt"
     editor="" />
-.<tags 
+<tags 
     ms.service="event-hubs"
     ms.devlang="na"
     ms.topic="article"
