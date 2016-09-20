@@ -34,11 +34,11 @@
 	2.	В колонке **Создание** щелкните **Аналитика данных**.
 	3.	Щелкните **Фабрика данных** в колонке **Аналитика данных**.
 
-		.![Колонка "Создание"](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
+		 ![Колонка "Создание"](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
 2.	В колонке **Новая фабрика данных** введите **GetStartedDF** в поле «Имя».
 
-	.![Создать колонку "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
+	 ![Создать колонку "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
 	> [AZURE.IMPORTANT] Имя фабрики данных Azure должно быть глобально уникальным. Если появится сообщение об ошибке **Имя GetStartedDF фабрики данных недоступно**, измените это имя (например, на ваше\_имя\_GetStartedDF) и попробуйте создать ее снова. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](data-factory-naming-rules.md), чтобы узнать о правилах именования артефактов фабрики данных.
 	> 
@@ -52,10 +52,10 @@
 5.	В колонке **Создание фабрики данных** нажмите кнопку **Создать**.
 6.	Созданная фабрика данных появится на **начальной панели** портала Azure.
 
-	.![Статус создания фабрики данных](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
+	 ![Статус создания фабрики данных](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. Поздравляем! Вы успешно создали свою первую фабрику данных! Ее содержимое отобразится на соответствующей странице.
 
-	.![Колонка "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
+	 ![Колонка "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
 Прежде чем создавать конвейер, необходимо создать несколько сущностей фабрики данных. Сначала создайте связанные службы, чтобы связать хранилища данных и вычисления со своим хранилищем данных, и определите входные и выходные наборы данных, которые будут представлять входные и выходные данные в связанных хранилищах. Затем создайте конвейер с действием, в котором используются эти наборы данных.
 
@@ -76,9 +76,10 @@
 4. Замените **account name** именем вашей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 5. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
 
-	.![Кнопка "Развернуть"](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
+	 ![Кнопка "Развернуть"](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   После развертывания связанной службы окно **Draft-1** должно исчезнуть, а в представлении в виде дерева слева отобразится служба **AzureStorageLinkedService**. ![Связанная служба хранилища в меню](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   После развертывания связанной службы окно **Draft-1** должно исчезнуть, а в представлении в виде дерева слева отобразится служба **AzureStorageLinkedService**. 
+   	![Связанная служба хранилища в меню](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Создание связанной службы Azure HDInsight
@@ -202,7 +203,7 @@
 3. На панели команд нажмите кнопку **Развернуть**, чтобы развернуть только что созданный набор данных.
 4. Убедитесь, что набор данных успешно создан.
 
-	.![Иерархическое представление со связанными службами](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
+	 ![Иерархическое представление со связанными службами](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## Создание конвейера
 На этом шаге вы создадите свой первый конвейер с действием **HDInsightHive**. Срез входных данных создается ежемесячно (frequency: Month, interval: 1), срез выходных данных создается ежемесячно, свойство scheduler для действия также указывается ежемесячно. Параметры выходного набора данных (outputs) и планировщика действия (scheduler) должны совпадать. В настоящее время расписание активируется с помощью выходного набора данных, поэтому его необходимо создать, даже если действие не создает никаких выходных данных. Если действие не принимает никаких входных данных, входной набор данных можно не создавать. Свойства, используемые в следующем фрагменте JSON, описаны в конце этого раздела.
@@ -276,7 +277,7 @@
 2. Чтобы развернуть конвейер, нажмите кнопку **Развернуть** на панели команд. Так как время в свойствах **start** и **end** задано в прошлом, а для свойства **isPaused** задано значение false, конвейер (действие в конвейере) запускается сразу после развертывания.
 4. Убедитесь, что конвейер отображается в иерархической структуре.
 
-	.![Иерархическое представление с конвейером](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
+	 ![Иерархическое представление с конвейером](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 5. Поздравляем! Вы создали свой первый конвейер!
 
 ## Отслеживание конвейера
@@ -289,23 +290,23 @@
 	![Представление схемы](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
 8. Чтобы просмотреть все действия в конвейере, щелкните конвейер в схеме правой кнопкой мыши и выберите пункт "Открыть конвейер".
 
-	.![Откройте меню конвейера](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
+	 ![Откройте меню конвейера](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
 9. Убедитесь, что действие HDInsightHive отображается в конвейере.
   
-	.![Откройте представление конвейера](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
+	 ![Откройте представление конвейера](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
 	Чтобы перейти к предыдущему представлению, щелкните **Фабрики данных** в меню навигации вверху.
 10. В **представлении схемы** дважды щелкните набор данных **AzureBlobInput**. Убедитесь, что срез находится в состоянии **Готово**. Для отображения этого состояния может потребоваться несколько минут. Если это не произойдет через некоторое время, убедитесь, что входной файл (input.log) расположен в правильном контейнере (adfgetstarted) и папке (inputdata).
 
-	.![Срез входных данных в состоянии "Готово"](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
+	 ![Срез входных данных в состоянии "Готово"](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 11. Щелкните **X**, чтобы закрыть колонку **AzureBlobInput**.
 12. В **представлении схемы** дважды щелкните набор данных **AzureBlobOutput**. Вы увидите срез, который сейчас обрабатывается.
 
-	.![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
+	 ![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Как только обработка завершится, срез перейдет в состояние **Готово**.
 	>[AZURE.IMPORTANT] Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут).
 
-	.![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
+	 ![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
 10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.
  

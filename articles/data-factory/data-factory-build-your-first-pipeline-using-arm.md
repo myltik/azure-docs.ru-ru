@@ -240,13 +240,13 @@
 2.	В колонке **Фабрика данных** для своей фабрики данных щелкните элемент **Схема**. ![Плитка «Схема»](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	В **представлении схемы** вы увидите все конвейеры и наборы данных, используемые в этом руководстве.
 	
-	.![Представление схемы](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png)
+	 ![Представление схемы](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png)
 8. В представлении схемы дважды щелкните набор данных **AzureBlobOutput**. Вы увидите срез, который сейчас обрабатывается.
 
-	.![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+	 ![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 9. Как только обработка завершится, срез перейдет в состояние **Готово**. Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут).
 
-	.![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
+	 ![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
 10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.
 
 Инструкции по использованию колонок на портале Azure для мониторинга конвейера и наборов данных, созданных с помощью этого руководства, см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими](data-factory-monitor-manage-pipelines.md).

@@ -239,7 +239,7 @@
 
 3. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в центр.
 
-    .![Плитка "Использование" на портале Azure][43]
+     ![Плитка "Использование" на портале Azure][43]
 
 
 ## Дальнейшие действия
@@ -254,7 +254,7 @@
 
 В руководстве по [обработке сообщений, отправляемых с устройства в облако][lnk-process-d2c-tutorial], показано, как расширить решение IoT и обрабатывать такие сообщения в большом количестве.
 
-.<!-- Images. -->
+<!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png

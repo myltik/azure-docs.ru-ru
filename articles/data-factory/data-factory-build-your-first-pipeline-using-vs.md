@@ -43,7 +43,7 @@
 
 3. Введите **имя** проекта, **расположение** и имя **решения**, а затем нажмите кнопку **ОК**.
 
-	.![Обозреватель решений](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
+	 ![Обозреватель решений](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
 ## Создание связанных служб
 Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Это может быть, например, действие копирования, копирующее данные из исходного хранилища данных в целевое, или действие HDInsight Hive для выполнения скрипта Hive, преобразующего входные данные. Имя и параметры для фабрики данных вы укажете позднее, при публикации решения фабрики данных.
@@ -57,7 +57,7 @@
 5. В диалоговом окне **Добавление нового элемента** выберите в списке пункт **Связанные службы хранилища Azure** и нажмите кнопку **Добавить**.
 3. Замените **accountname** и **accountkey** на имя вашей учетной записи хранения Azure и ее ключ. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
-	.![Связанная служба хранилища Azure](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
+	 ![Связанная служба хранилища Azure](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 
 4. Сохраните файл **AzureStorageLinkedService1.json**.
 
@@ -263,7 +263,7 @@
 19. Когда отобразится диалоговое окно **Вход в учетную запись Майкрософт**, введите данные учетной записи с подпиской Azure и нажмите кнопку **Войти**.
 20. Вы должны увидеть следующее диалоговое окно:
 
-	.![Диалоговое окно "Опубликовать"](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
+	 ![Диалоговое окно "Опубликовать"](./media/data-factory-build-your-first-pipeline-using-vs/publish.png)
 
 21. На странице "Настройка фабрики данных" выполните следующие действия.
 	1. Выберите элемент **Создать фабрику данных**.
@@ -301,29 +301,29 @@
 	2. Выберите **FirstDataFactoryUsingVS** из списка фабрик данных.
 7. На домашней странице своей фабрики данных щелкните элемент **Схема**.
   
-	.![Плитка "Схема"](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
+	 ![Плитка "Схема"](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
 7. В представлении схемы вы увидите все конвейеры и наборы данных, используемые в этом руководстве.
 	
 	![Представление схемы](./media/data-factory-build-your-first-pipeline-using-vs/diagram-view-2.png)
 8. Чтобы просмотреть все действия в конвейере, щелкните конвейер в схеме правой кнопкой мыши и выберите пункт "Открыть конвейер".
 
-	.![Откройте меню конвейера](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-menu.png)
+	 ![Откройте меню конвейера](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-menu.png)
 9. Убедитесь, что действие HDInsightHive отображается в конвейере.
   
-	.![Откройте представление конвейера](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
+	 ![Откройте представление конвейера](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
 	Чтобы перейти к предыдущему представлению, щелкните **Фабрики данных** в меню навигации вверху.
 10. В **представлении схемы** дважды щелкните набор данных **AzureBlobInput**. Убедитесь, что срез находится в состоянии **Готово**. Для отображения этого состояния может потребоваться несколько минут. Если это не произойдет через некоторое время, убедитесь, что входной файл (input.log) расположен в правильном контейнере (adfgetstarted) и папке (inputdata).
 
-	.![Срез входных данных в состоянии "Готово"](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
+	 ![Срез входных данных в состоянии "Готово"](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
 11. Щелкните **X**, чтобы закрыть колонку **AzureBlobInput**.
 12. В **представлении схемы** дважды щелкните набор данных **AzureBlobOutput**. Вы увидите срез, который сейчас обрабатывается.
 
-	.![Выборка](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
+	 ![Выборка](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Как только обработка завершится, срез перейдет в состояние **Готово**.
 	>[AZURE.IMPORTANT] Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут).
 
-	.![Выборка](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
+	 ![Выборка](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
 	
 10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.
  
@@ -341,10 +341,10 @@
 1. В **Visual Studio** щелкните **Вид** в меню и нажмите кнопку **Обозреватель серверов**.
 2. В окне обозревателя серверов разверните элементы **Azure** и **Фабрика данных**. Когда отобразится окно **Выполните вход в Visual Studio**, введите данные **учетной записи**, связанной с вашей подпиской Azure, и нажмите кнопку **Продолжить**. Введите **пароль** и нажмите кнопку **Войти**. Visual Studio пытается получить сведения обо всех фабриках данных Azure в подписке. В окне **Data Factory Task List** (Список задач фабрики данных) будет отображено состояние операции.
 
-	.![Обозреватель серверов](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
+	 ![Обозреватель серверов](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
 3. Щелкните фабрику данных правой кнопкой мыши и выберите пункт **Export Data Factory to New Project** (Экспорт фабрики данных в новый проект), чтобы создать проект Visual Studio на основе имеющейся фабрики данных.
 
-	.![Экспорт фабрики данных](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
+	 ![Экспорт фабрики данных](./media/data-factory-build-your-first-pipeline-using-vs/export-data-factory-menu.png)
 
 ## Обновление средств фабрик данных для Visual Studio
 
@@ -447,7 +447,7 @@
 2. На странице **Configure data factory** (Настройка фабрики данных) выберите имеющуюся фабрику данных или укажите значения для создания новой, а затем нажмите кнопку **Далее**.
 3. На странице **Publish Items** (Публикация элементов) вы найдете раскрывающийся список **Select Deployment Config** (Выбор конфигурации развертывания) с доступными конфигурациями.
 
-	.![Выбор файла конфигурации](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+	 ![Выбор файла конфигурации](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
 
 4. Выберите нужный **файл конфигурации** и нажмите кнопку **Далее**.
 5. Убедитесь, что на странице **Сводка** отображается имя нужного JSON-файла, и нажмите кнопку **Далее**.

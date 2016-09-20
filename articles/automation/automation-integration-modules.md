@@ -199,6 +199,6 @@
 ## Дальнейшие действия
 
 - Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Мой первый модуль Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
-- Дополнительные сведения о создании модулей PowerShell см. в статье [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx) (Написание модуля Windows PowerShell).
+- Дополнительные сведения о создании модулей PowerShell см. в статье [Writing a Windows PowerShell Module(Написание модуля Windows PowerShell)](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx).
 
 <!---HONumber=AcomDC_0914_2016-->

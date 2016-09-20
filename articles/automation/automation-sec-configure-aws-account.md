@@ -7,7 +7,7 @@
    manager="jwhit"
    editor="tysonn"
    keywords="проверка подлинности aws, настройка aws"/>
-.<tags
+<tags
    ms.service="automation"
    ms.workload="tbd"
    ms.tgt_pltfrm="na"

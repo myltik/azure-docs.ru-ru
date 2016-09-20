@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"

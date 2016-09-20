@@ -349,7 +349,7 @@
 
 	Вы можете выполнять этот командлет до тех пор, пока не увидите срез со статусом **Ready** (Готово) или **Failed** (Сбой). Когда срез перейдет в состояние «Готово», проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов. Создание кластера HDInsight по требованию занимает некоторое время.
 
-	.![выходные данные](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
+	 ![выходные данные](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
 
 
 > [AZURE.IMPORTANT] В случае успешной обработки среза входной файл удаляется. Если вы хотите повторно обработать срез или еще раз выполнить инструкции из руководства, передайте входной файл (input.log) в папку inputdata в контейнере adfgetstarted.

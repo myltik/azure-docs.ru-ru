@@ -7,7 +7,7 @@
     manager="jhubbard"
     editor="cgronlun"/>
 
-.<tags
+<tags
     ms.service="machine-learning"
     ms.workload="data-services"
     ms.tgt_pltfrm="na"
@@ -47,7 +47,7 @@
 
     > [AZURE.NOTE] Чтобы открыть эксперимент в Студии машинного обучения, потребуется выполнить вход с использованием учетной записи Майкрософт. Если у вас еще нет рабочего пространства машинного обучения, создается бесплатное пробное рабочее пространство. [Узнайте, что входит в бесплатную пробную версию программы машинного обучения](https://azure.microsoft.com/pricing/details/machine-learning/)
 
-    .![](./media/machine-learning-sample-experiments/example-experiment.png)
+     ![](./media/machine-learning-sample-experiments/example-experiment.png)
 
 
 ## Использование шаблона в студии машинного обучения
