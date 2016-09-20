@@ -81,7 +81,7 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [миграции]: ./sql-data-warehouse-overview-migrate.md
 [разработки]: ./sql-data-warehouse-overview-develop.md
@@ -96,12 +96,12 @@
 [с помощью PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [создайте новую группу ресурсов]: ../resource-group-template-deploy-portal.md#create-resource-group
 
-.<!--MSDN references--> 
+<!--MSDN references--> 
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [созданию базы данных (хранилище данных SQL Azure)]: https://msdn.microsoft.com/library/mt204021.aspx
 
-.<!--Other Web references-->
+<!--Other Web references-->
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 [цен на хранилище данных SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [бесплатной пробной версии Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
