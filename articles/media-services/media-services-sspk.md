@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016"  
+	ms.date="09/06/2016"  
 	ms.author="xpouyat"/>
 
 #Лицензирование пакета для портирования клиента бесперебойной потоковой передачи Microsoft® Smooth Streaming
@@ -90,6 +90,7 @@
 - Alticast Corporation
 - Amazon Digital Services, Inc.
 - AVC Multimedia Software Co., Ltd.
+- Cavium, Inc.
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Fluendo S.A.
@@ -129,6 +130,7 @@
 - Filmflex Movies Limited
 - Fluendo S.A.
 - Gibson Innovations Limited
+- Haier Information Applicantion S.R.L
 - HANDAN BroadInfoCom Co., Ltd.
 - Homecast Co.,Ltd
 - Hon Hai Precision Industry Co., Ltd.
@@ -165,4 +167,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

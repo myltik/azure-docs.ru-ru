@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-quickstart"
-   ms.date="06/22/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab"/>
 
 # Изучение кратких руководств по решениям базы данных SQL Azure
@@ -71,4 +71,4 @@ Code First позволяет определить модель с помощь�
 
 [Изучение учебников по базе данных SQL Azure](sql-database-explore-tutorials.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

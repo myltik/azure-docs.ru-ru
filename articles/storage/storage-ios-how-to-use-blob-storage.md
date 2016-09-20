@@ -1,6 +1,6 @@
 <properties
     pageTitle="Использование хранилища BLOB-объектов Azure из iOS | Microsoft Azure"
-	description="Вы можете хранить неструктурированные данные в облаке в хранилище BLOB-объектов Azure (хранилище объектов)."
+	description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
     services="storage"
     documentationCenter="ios"
     authors="micurd"
@@ -52,7 +52,7 @@
 
 1. Прежде всего загрузите или клонируйте [репозиторий azure-storage-ios](https://github.com/azure/azure-storage-ios).
 
-2. Перейдите в *azure-storage-ios* -> *Lib* (Библиотеки) -> *Azure Storage Client Library* (Клиентская библиотека хранилища Azure) и откройте файл `AZSClient.xcodeproj` в программе Xcode.
+2. Перейдите в *azure-storage-ios* -> *Lib* (Библиотеки) -> *Azure Storage Client Library* (Клиентская библиотека хранилища Azure) и откройте файл `AZSClient.xcodeproj` в программе Xcode.
 
 3. В левой верхней части окна Xcode измените активную схему с Azure Storage Client Library (Клиентская библиотека хранилища Azure) на Framework (Платформа).
 
@@ -82,50 +82,7 @@
     // Include the following import statement to use blob APIs.
     #import <AZSClient/AZSClient.h>
 
-## Настройка приложения для доступа к хранилищу больших двоичных объектов
-
-Существует два способа проверки подлинности приложения при получении доступа к службам хранения:
-
-- Общий ключ — следует использовать только для тестирования.
-- Подписанный URL-адрес (SAS) — используется для рабочих приложений.
-
-### Общий ключ
-Проверка подлинности с помощью общего ключа означает, что приложение будет использовать имя и ключ учетной записи для доступа к службам хранилища. Чтобы продемонстрировать возможность использования хранилища BLOB-объектов из iOS, в этом руководстве мы выполним проверку подлинности с помощью общего ключа.
-
-> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ] Имя и ключ учетной записи, которые предоставляют полный доступ на чтение и запись к связанной учетной записи хранения, будут переданы каждому пользователю, который загружает ваше приложение. Такой подход **не** рекомендуется ввиду возможности компрометации ключа ненадежными клиентами.
-
-При выполнении проверки подлинности с помощью общего ключа вам нужно создать строку подключения. Строка подключения состоит из следующих элементов:
-
-- **DefaultEndpointsProtocol** — можно выбрать HTTP или HTTPS. Настоятельно рекомендуется использовать протокол HTTPS.
-- **AccountName** — имя вашей учетной записи хранения.
-- **AccountKey** — чтобы получить это значение, на [портале Azure](https://portal.azure.com) перейдите к вашей учетной записи хранения и щелкните значок **Ключи**. При использовании [классического портала Azure](https://manage.windowsazure.com) перейдите к вашей учетной записи хранения на портале и щелкните **Управление ключами доступа**.
-
-Вот как строка подключения будет выглядеть в приложении:
-
-    // Create a storage account object from a connection string.
-    AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here" error:&accountCreationError];
-
-### Подписанный URL-адрес (SAS)
-В приложении iOS проверку подлинности запроса клиента к хранилищу BLOB-объектов рекомендуется выполнять с использованием подписанного URL-адреса (SAS). SAS позволяет предоставлять клиенту доступ к ресурсу на указанный период времени и с указанным набором разрешений. Как владельцу учетной записи хранилища вам понадобится создать SAS для использования клиентами iOS. Для этого вам, скорее всего, нужно будет написать отдельную службу, которая создаст SAS и распространит ее между клиентами. В целях тестирования можно использовать Microsoft Azure Storage Explorer для создания SAS. При создании SAS можно указать не только интервал времени, в течение которого SAS будет действительным, но и разрешения, которые SAS предоставляет клиенту.
-
-В приведенном ниже примере показано, как в целях тестирования использовать Microsoft Azure Storage Explorer, чтобы создать SAS.
-
-1. Если это еще не сделано, [установите Microsoft Azure Storage Explorer](http://storageexplorer.com).
-
-2. Подключение к подписке.
-
-3. Щелкните в свою учетную запись хранилища и перейдите на вкладку "Действия" в нижнем левом углу. Щелкните "Get Shared Access Signature" (Получить подписанный URL-адрес), чтобы создать строку подключения для SAS.
-
-4. Ниже приведен пример строки подключения SAS, которая предоставляет разрешения на чтение и запись на уровне службы, контейнера и объекта для службы BLOB-объектов учетной записи хранения.
-
-        SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net
-
-6. Теперь вы можете получить ссылку на учетную запись в приложении iOS, используя строку подключения следующим образом.
-
-		// Get a reference to your Storage account
-    	AZSCloudStorageAccount *account = [AZSCloudStorageAccount accountFromConnectionString:@"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net" error:&accountCreationError];
-
-Как видите, при использовании SAS в приложении iOS вам не нужно предоставлять имя и ключ учетной записи. Дополнительные сведения о SAS см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](storage-dotnet-shared-access-signature-part-1.md).
+[AZURE.INCLUDE [storage-mobile-authentication-guidance](../../includes/storage-mobile-authentication-guidance.md)]
 
 ## Асинхронные операции
 > [AZURE.NOTE] Все методы, которые выполняют запрос к службе, являются асинхронными операциями. Из образцов кода понятно, что у этих методов есть обработчик завершения. Код внутри обработчика завершения выполняется **после** завершения запроса. Код за пределами обработчика завершения (следующий за ним) выполняется **во время** выполнения запроса.
@@ -412,4 +369,4 @@
 
 Если у вас есть вопросы по данной библиотеке, вы можете опубликовать их на нашем [форуме MSDN по Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) или на сайте [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Если у вас есть предложения по функциям службы хранилища Azure, вы можете опубликовать их на сайте [отзывов о службе хранилища Azure](https://feedback.azure.com/forums/217298-storage/).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

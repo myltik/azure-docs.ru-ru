@@ -95,7 +95,7 @@
 
 ## Шаг 4. Добавление образа в список пользовательских образов
 
-Чтобы добавить образ в список пользовательских образов, используйте командлет [Add-AzureVMImage])(https://msdn.microsoft.com/library/mt589167.aspx).
+Чтобы добавить образ в список пользовательских образов, используйте командлет [Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx).
 
 		Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 
@@ -104,4 +104,4 @@
 
 Теперь вы можете [создать пользовательскую виртуальную машину](virtual-machines-windows-classic-createportal.md) с помощью переданного образа.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

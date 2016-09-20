@@ -107,9 +107,9 @@
 
 Вам может понадобиться [задать исключения для отправки исходящих данных](app-insights-ip-addresses.md).
 
-## 5\. Перезапуск веб-приложения
+## 6\. Перезапуск веб-приложения
 
-## 6\. Просмотр данных телеметрии в Application Insights
+## 7\. Просмотр данных телеметрии в Application Insights
 
 Вернитесь к ресурсу Application Insights на [портале Microsoft Azure](https://portal.azure.com).
 
@@ -143,4 +143,4 @@
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

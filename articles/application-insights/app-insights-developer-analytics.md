@@ -40,9 +40,9 @@
 ![Цикл DevOps для веб-приложения](./media/app-insights-developer-analytics/040.png)
 
 * Разработчик отправляет код в репозиторий или выполняет слияние с главной ветвью. На этом рисунке показан репозиторий Git, но точно так же можно использовать [систему управления версиями Team Foundation](https://www.visualstudio.com/docs/tfvc/overview).
-* Изменения вызывают сборку и модульное тестирование. Служба сборки может находиться в [Visual Studio Team Services или на их локальном аналоге, Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview). 
-* После успешной сборки и модульного тестирования может быть [запущено автоматическое развертывание](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition). В качестве узла для веб-приложения может использоваться собственный веб-сервер или Microsoft Azure. 
-* Телеметрия из активного приложения, как с сервера, так и [из клиентских браузеров](app-insights-javascript.md) отправляется в [Application Insights](app-insights-overview.md). Там можно проанализировать как производительность приложения, так и характер его использования. Мощные [средства поиска](app-insights-analytics.md) помогут в диагностике проблем. [Оповещения](app-insights-alerts.md) сообщают вам о проблеме, как только она возникает. 
+* Изменения вызывают сборку и модульное тестирование. Служба сборки может находиться в [Visual Studio Team Services или на их локальном аналоге, Team Foundation Server](https://www.visualstudio.com/docs/vsts-tfs-overview).
+* После успешной сборки и модульного тестирования может быть [запущено автоматическое развертывание](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition). В качестве узла для веб-приложения может использоваться собственный веб-сервер или Microsoft Azure.
+* Телеметрия из активного приложения, как с сервера, так и [из клиентских браузеров](app-insights-javascript.md) отправляется в [Application Insights](app-insights-overview.md). Там можно проанализировать как производительность приложения, так и характер его использования. Мощные [средства поиска](app-insights-analytics.md) помогут в диагностике проблем. [Оповещения](app-insights-alerts.md) сообщают вам о проблеме, как только она возникает.
 * Данные анализа активной телеметрии используются в следующем цикле разработки.
 
 ### Приложения на устройствах и настольные приложения
@@ -71,10 +71,18 @@ HockeyApp также собирает сведения о производите
 3. Для приложений на устройствах:
  * Отправьте отладочную сборку в HockeyApp. Оттуда вы сможете отправить его команде пользователей для тестирования. При каждой последующей отправке сборок команда будет получать уведомления.
  * При настройке службы непрерывной сборки создайте определение выпуска, в котором будет добавлен шаг для отправки сборки в HockeyApp.
+
+### Аналитика и экспорта для телеметрии HockeyApp
+
+Чтобы ознакомиться с пользовательской телеметрией и телеметрией журналов, использующих функции аналитики и непрерывного экспорта Application Insights, [настройте мост](app-insights-hockeyapp-bridge-app.md).
+
+
+
+## Дальнейшие действия
  
 Ниже приведены подробные инструкции для различных типов приложений:
 
-* [Веб-приложение ASP.NET](app-insights-asp-net.md) 
+* [Веб-приложение ASP.NET](app-insights-asp-net.md)
 * [Устранение неполадок, а также вопросы и ответы по Application Insights для Java;](app-insights-java-get-started.md)
 * [Веб-приложение Node.js](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [Приложение iOS](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-ios)
@@ -84,4 +92,4 @@ HockeyApp также собирает сведения о производите
 * [Приложение Windows Phone 8 и 8.1](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81)
 * [Приложение Windows Presentation Foundation](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

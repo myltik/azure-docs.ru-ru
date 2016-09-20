@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/10/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
 # Создание кластеров Hadoop под управлением Windows в HDInsight с помощью портала Azure
@@ -39,7 +39,7 @@
 1. Войдите на [портал Azure](https://portal.azure.com).
 2. Щелкните **Создать**, **Аналитика данных**, а затем — **HDInsight**.
 
-    ![Создание нового кластера на портале Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Создание нового кластера на портале Azure")
+    ![Создание кластера на портале Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Создание кластера на портале Azure")
 
 3. Введите или выберите следующие значения:
 
@@ -91,9 +91,9 @@
 
 			>[AZURE.NOTE] База данных Azure SQL, используемая в качестве хранилища метаданных, должна обеспечивать подключение к другим службам Azure, в том числе Azure HDInsight. На панели мониторинга базы данных SQL Azure в правой части щелкните имя сервера. Это сервер, на котором работает экземпляр базы данных SQL. В представлении сервера щелкните **Настройка**, а затем **Службы Azure**, **Да** и **Сохранить**.
 
-			&nbsp;
+            &nbsp;
 
-			> [AZURE.IMPORTANT] Создавая метаданные, не используйте для базы данных имя, которое содержит тире и дефисы. Это может привести к сбою при создании кластера.
+            > [AZURE.IMPORTANT] When creating a metastore, do not use a database name that contains dashes or hyphens, as this can cause the cluster creation process to fail.
 		
   		* Щелкните **Действия сценария**, если хотите использовать настраиваемый сценарий для настройки кластера во время его создания. Дополнительную информацию о действиях сценариев см. в статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md). В колонке "Действия сценария" введите данные, как показано на снимке экрана.
   	
@@ -136,8 +136,8 @@
 
 ##Настройка кластеров
 
-- См. статью [Настройка кластеров HDInsight с помощью службы начальной загрузки](hdinsight-hadoop-customize-cluster-bootstrap.md).
-- См. статью [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md).
+- Ознакомьтесь с разделом [Настройка кластеров HDInsight с помощью службы начальной загрузки](hdinsight-hadoop-customize-cluster-bootstrap.md).
+- Ознакомьтесь с разделом [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md).
 
 ##Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
@@ -146,4 +146,4 @@
 * [Отправка заданий Hadoop программными средствами](hdinsight-submit-hadoop-jobs-programmatically.md) — узнайте, как программными средствами отправлять задания в HDInsight.
 * [Управление кластерами Hadoop в HDInsight с помощью портала Azure](hdinsight-administer-use-management-portal.md)
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Присоединение виртуальной машины Red Hat Enterprise Linux 7 к управляемому домену
 Эта статья покажет, как присоединить виртуальную машину Red Hat Enterprise Linux (RHEL) 7 к управляемому домену доменных служб Azure AD.
 
 ## Подготовка виртуальной машины Red Hat Enterprise Linux
-Вот как подготовить виртуальную машину RHEL 7 с помощью портала Azure:
+Вот как подготовить виртуальную машину RHEL 7 на портале Azure:
 
 1. Войдите на [портал Azure](https://portal.azure.com).
 
@@ -42,11 +42,11 @@
 
     ![Создание виртуальной машины — основные сведения](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)
 
-6. Затем щелкните **Дополнительная настройка**. Появится область с названием **Дополнительная настройка**. В этой области **Дополнительная настройка** щелкните элемент **Сети**, как показано на следующем снимке экрана.
+6. Затем щелкните **Необязательная конфигурация**. Появится область с названием **Дополнительная настройка**. В области **Необязательная конфигурация** щелкните **Сеть**.
 
     ![Создание виртуальной машины — настройка виртуальной сети](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-configure-vnet.png)
 
-7. Теперь появится панель с именем **Сеть**. В области **Сеть** щелкните **Виртуальная сеть**, чтобы выбрать виртуальную сеть, в которой нужно развернуть виртуальную машину Linux. Должна открыться область **Виртуальная сеть**. В области **Виртуальная сеть** выберите вариант **Использовать существующую виртуальную сеть**. Затем выберите виртуальную сеть, в которой доступны доменные службы Azure AD. В этом примере мы выбрали виртуальную сеть MyPreviewVNet.
+7. Откроется область **Сеть**. В области **Сеть** щелкните **Виртуальная сеть**, чтобы выбрать виртуальную сеть, в которой нужно развернуть виртуальную машину Linux. Откроется область **Виртуальная сеть**. В области **Виртуальная сеть** выберите вариант **Использовать существующую виртуальную сеть**. Затем выберите виртуальную сеть, в которой доступны доменные службы Azure AD. В этом примере мы выбрали виртуальную сеть MyPreviewVNet.
 
     ![Создание виртуальной машины — выбор виртуальной сети](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-select-vnet.png)
 
@@ -99,7 +99,7 @@
 
     ![realmd установлен](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-putty-realmd-installed.png)
 
-3. **Установите sssd:** пакет realmd зависит от sssd, когда выполняет операции присоединения к домену. В окне терминала PuTTY введите следующую команду.
+3. **Установите sssd:** пакету realmd требуется sssd, чтобы выполнять операции присоединения к домену. В окне терминала PuTTY введите следующую команду.
 
     sudo yum install sssd
 
@@ -149,17 +149,17 @@
 
 
 ## Проверка присоединения к домену
-Вы можете быстро проверить, присоединена ли виртуальная машина к управляемому домену. Для этого подключитесь к новой виртуальной машине, присоединенной к домену, используя ssh и учетную запись пользователя домена, а затем проверьте, правильно ли разрешается учетная запись.
+Вы можете быстро проверить, присоединена ли виртуальная машина к управляемому домену. Подключитесь к виртуальной машине, присоединенной к домену, используя SSH и учетную запись пользователя домена, а затем проверьте, правильно ли разрешена учетная запись.
 
-1. В окне терминала PuTTY введите следующую команду, чтобы подключиться к виртуальной машине, присоединенной к домену, с помощью SSH. Используйте учетную запись домена, которая принадлежит к управляемой учетной записи (в нашем примере это bob@CONTOSO100.COM).
+1. В окне терминала PuTTY введите следующую команду, чтобы подключиться к виртуальной машине, присоединенной к домену, с помощью SSH. Используйте учетную запись домена, которая принадлежит к управляемой учетной записи (в нашем примере — bob@CONTOSO100.COM).
 
     ssh -l bob@CONTOSO100.COM contoso-rhel.cloudapp.net
 
-2. В окне терминала PuTTY введите следующую команду, чтобы проверить, правильно ли инициализирована домашняя папка пользователя.
+2. Чтобы проверить, правильно ли инициализирована домашняя папка, в окне терминала PuTTY введите такую команду:
 
 	pwd
 
-3. В окне терминала PuTTY введите следующую команду, чтобы проверить, правильно ли определены группы для пользователя.
+3. Чтобы проверить, правильно ли определено членство в группе, в окне терминала PuTTY введите такую команду:
 
     id
 
@@ -172,9 +172,15 @@
 См. раздел, посвященный [устранению неполадок при присоединении к домену](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join).
 
 
-## Дополнительные сведения
-- [Вход в виртуальную машину под управлением ОС Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
-- [Installing Kerberos](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html) (Установка Kerberos)
-- [Red Hat Enterprise Linux 7: Windows Integration Guide](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html) (Red Hat Enterprise Linux 7: руководство по интеграции Windows)
+## Похожий контент
+- [Доменные службы Azure AD (предварительная версия) — приступая к работе](./active-directory-ds-getting-started.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+- [Присоединение виртуальной машины Windows Server к управляемому домену](active-directory-ds-admin-guide-join-windows-vm.md)
+
+- [Создание ключей SSH для виртуальных машин Linux в ОС Linux и Mac в Azure](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md)
+
+- [Installing Kerberos (Установка Kerberos)](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+
+- [Red Hat Enterprise Linux 7: Windows Integration Guide (Red Hat Enterprise Linux 7: руководство по интеграции Windows)](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
+
+<!---HONumber=AcomDC_0907_2016-->

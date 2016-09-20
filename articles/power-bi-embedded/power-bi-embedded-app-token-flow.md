@@ -3,7 +3,7 @@
    description="Аутентификация и авторизация в Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/26/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Аутентификация и авторизация в Power BI Embedded
 
@@ -93,4 +93,4 @@
 - [Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

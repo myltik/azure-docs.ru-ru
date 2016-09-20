@@ -81,7 +81,7 @@ Microsoft R Server в кластере HDInsight (предварительная
 
   Определение контекста вычислений Spark
 
-    mySparkCluster <- RxSpark(consoleOutput=TRUE)
+    mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
 
   Определение контекста вычислений
 
@@ -136,7 +136,7 @@ myPort <- 0
 bigDataDirRoot <- "/share"  
 
 # Define Spark compute context
-mySparkCluster <- RxSpark(consoleOutput=TRUE)
+mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
 
 # Set compute context
 rxSetComputeContext(mySparkCluster)
@@ -190,4 +190,4 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 - [Add RStudio Server to HDInsight Premium (Добавление RStudio Server в HDInsight "Премиум")](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Варианты контекста вычислений для R Server в HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

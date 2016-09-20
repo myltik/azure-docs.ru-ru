@@ -3,7 +3,7 @@
    description="В этой статье вы найдете самую актуальную информацию о новых возможностях службы Power BI Embedded."
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="mblythe"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/06/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Новые возможности Power BI Embedded
 
@@ -41,4 +41,4 @@
 -    Пользователи могут экспортировать данные визуализации в **CSV**-файл.
 -    Служба Power BI Embedded теперь поддерживает все языки и языковые стандарты, которые поддерживает платформа Microsoft Azure. Дополнительные сведения см. на странице [Microsoft Azure—Extent of Localization](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx) (Microsoft Azure — масштаб локализации).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

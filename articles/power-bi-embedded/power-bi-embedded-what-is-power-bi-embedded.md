@@ -3,7 +3,7 @@
    description="Power BI Embedded позволяет интегрировать отчеты Power BI в веб-приложения или мобильные приложения, позволяя обойтись без создания собственных решений визуализации данных для пользователей."
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="mblythe"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Что такое Microsoft Power BI Embedded?
 
@@ -71,4 +71,4 @@ Power BI Embedded — это **служба Azure**, которая позвол
 - [Типичные сценарии использования Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 - [Начало работы с Microsoft Power BI Embedded (предварительная версия)](power-bi-embedded-get-started.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

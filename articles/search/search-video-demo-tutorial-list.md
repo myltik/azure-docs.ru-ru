@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="05/17/2016"
+	ms.date="08/29/2016"
 	ms.author="heidist"/>
 
 #Поиск Azure: примеры кода, демоверсии, видео и учебники
@@ -45,7 +45,7 @@
 Вот некоторые учебники и видео по службе поиска Azure, получившие самые высокие оценки.
 
 - [Видео. Вводные сведения Microsoft Virtual Academy о службе поиска Azure](https://mva.microsoft.com/ru-RU/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps-10540?l=ADkxnd97_9304984382) — отличный ресурс для изучения службы поиска Azure.
-- [Видео. AzureCon 2015: практические советы по использованию службы поиска Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) — практические советы по масштабированию, оптимизации производительности, а также обеспечению эффективности кодирования при создании приложений для Интернета или сценариев для мобильных устройств. 
+- [Видео. AzureCon 2015: практические советы по использованию службы поиска Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) — практические советы по масштабированию, оптимизации производительности, а также обеспечению эффективности кодирования при создании приложений для Интернета или сценариев для мобильных устройств.
 - [Пример кода для клиентской библиотеки .NET](https://github.com/Azure-Samples/search-dotnet-getting-started) — это приложение ASP.NET MVC 5, использующее клиентскую библиотеку .NET для операций поиска.
 - [Учебник. Использование службы поиска Azure в .NET](search-howto-dotnet-sdk.md)|Настройка и запуск примера веб-приложения Visual Studio, интегрированного со службой поиска Azure.
 - [Учебник. Начало работы со службой поиска Azure на портале](search-get-started-portal.md) — пошаговое руководство с использованием исключительно функций портала для получения индексов и данных без написания кода. Это ценное учебное средство для получения сведений о выполнении стандартных задач на портале.
@@ -90,4 +90,4 @@
 [Учебник по созданию профиля повышения](search-get-started-scoring-profiles.md)|Тестовый выпуск профиля повышения с помощью консольного приложения.
 [Учебник по API REST управления службой поиска Azure](search-get-started-management-api.md)|Как использовать API REST управления для подготовки службы и управления ключами API администрирования или запросов.
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -3,7 +3,7 @@
    description="Сведения о безопасности на уровне строк в Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Безопасность на уровне строк в Power BI Embedded
 
@@ -83,7 +83,7 @@
 2.	**Файл** -> **Параметры и настройки** -> **DirectQuery** -> **Allow unrestricted measure in DirectQuery mode** (Разрешить неограниченный показатель в режиме DirectQuery).
 
 
-Дополнительные сведения о двунаправленной перекрестной фильтрации см. в техническом документе [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop] (Двунаправленная перекрестная фильтрации в службах SQL Server Analysis Services 2016 и Power BI Desktop) (http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx).
+Дополнительные сведения о двунаправленной перекрестной фильтрации см. в техническом документе [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop] \(Двунаправленная перекрестная фильтрации в службах SQL Server Analysis Services 2016 и Power BI Desktop) (http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx).
 
 Это последнее, что нужно сделать в Power BI Desktop. Но необходимо проделать еще некоторую работу, чтобы правила безопасности на уровне строк, которые мы определили, работали в Power BI Embedded. Пользователи проходят проверку подлинности и авторизацию в приложении, а для предоставления им доступа к определенному отчету Power BI Embedded используются маркеры приложений. В Power BI Embedded нет сведений о том, кем является конкретный пользователь. Для работы безопасности на уровне строк потребуется передать некоторый дополнительный контекст как часть вашего маркера приложения.
 -	**username** (необязательно) — используется с безопасностью на уровне строк. Это строка, с помощью которой можно идентифицировать пользователя при применении правил безопасности на уровне строк. См. статью Using Row Level Security with Power BI Embedded (Использование безопасности на уровне строк в Power BI Embedded).
@@ -99,7 +99,7 @@
 
 ![](media\power-bi-embedded-rls\pbi-embedded-rls-dashboard-13.png)
 
-## См. также
+## Дополнительные материалы
 [Безопасность на уровне строк в Power](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-admin-rls/)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0907_2016-->

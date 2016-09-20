@@ -25,7 +25,7 @@
 
 ## Получение ресурса Application Insights
 
-Для получения наилучших результатов [добавьте пакет SDK Application Insights к каждой роли приложения облачных служб](app-insights-cloudservices.md) или [к любому приложению, которое работает на вашей виртуальной машине](app-insights-get-started.md). Затем данные диагностики можно отправить для анализа и отображения того же ресурса Application Insights.
+Для получения наилучших результатов [добавьте пакет SDK Application Insights к каждой роли приложения облачных служб](app-insights-cloudservices.md) или [к любому приложению, которое работает на вашей виртуальной машине](app-insights-overview.md). Затем данные диагностики можно отправить для анализа и отображения того же ресурса Application Insights.
 
 Кроме того, если вы не хотите использовать пакет SDK (например, если приложение уже запущено), можно просто [создать новый ресурс Application Insights](app-insights-create-new-resource.md) на портале Azure. Выберите **Система диагностики Azure** в качестве типа приложения.
 
@@ -146,4 +146,4 @@
 * [Отправка данных диагностики Azure в Application Insights с помощью PowerShell](app-insights-powershell-azure-diagnostics.md)
 * [Файл конфигурации системы диагностики Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx)
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0907_2016-->

@@ -226,6 +226,6 @@
 
 <!-- Images -->
 
-[12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[12]: ./media/service-bus-event-hubs-get-started-receive-storm/create-storm1.png
+
+<!---HONumber=AcomDC_0907_2016-->

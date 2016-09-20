@@ -78,7 +78,7 @@
 Для доступа к данным из таблиц SQL Azure вам нужно определить клиентские классы данных, которые соответствуют таблицам в серверной части мобильного приложения. В примерах этого раздела используется таблица с именем *ToDoItem*, которая содержит следующие столбцы:
 
 - id
-- текст
+- text
 - complete
 
 Соответствующий типизированный клиентский объект выглядит так:
@@ -678,7 +678,7 @@
 
 ## Практическое руководство. Добавление push-уведомлений в приложение
 
-Подробные сведения см. в [этом обзоре](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps), где описывается, как центры уведомлений Microsoft Azure поддерживают разные виды push-уведомлений.
+Подробные сведения см. в [этом обзоре](../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps), в котором объясняется, как центры уведомлений Microsoft Azure поддерживают разные виды push-уведомлений.
 
 В [этом руководстве](app-service-mobile-android-get-started-push.md) описывается, как настроить отправку push-уведомлений при каждой вставке записи.
 
@@ -837,4 +837,4 @@
 [Добавление проверки подлинности в приложение Android]: app-service-mobile-android-get-started-users.md
 [Приступая к работе с аутентификацией]: app-service-mobile-android-get-started-users.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0907_2016-->

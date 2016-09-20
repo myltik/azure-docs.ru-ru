@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/06/2016"
 	ms.author="larryfr"/>
 
 # Настройка кластеров HDInsight под управлением Linux с помощью действия сценария
@@ -108,10 +108,11 @@
 
 ## Пример действий сценария
 
-Действия сценария можно использовать с портала Azure, из Azure PowerShell, Azure CLI или пакета SDK .NET HDInsight. В HDInsight доступны скрипты для установки следующих компонентов в кластерах HDInsight.
+Действия сценария можно использовать с портала Azure, из Azure PowerShell, Azure CLI или пакета SDK HDInsight для .NET. В HDInsight доступны скрипты для установки следующих компонентов в кластерах HDInsight.
 
 Имя | Скрипт
 ----- | -----
+**Добавление учетной записи хранения Azure** | https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh. См. раздел [Применение действия скрипта в работающем кластере](#apply-a-script-action-to-a-running-cluster).
 **Установка Hue** | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. См. статью [Установка и использование Hue в кластерах HDInsight](hdinsight-hadoop-hue-linux.md).
 **Установка R** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. См. статью [Установка и использование R в кластерах HDInsight](hdinsight-hadoop-r-scripts-linux.md).
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md).
@@ -122,7 +123,7 @@
 
 В этом разделе описывается, как можно использовать действия сценария при создании кластера HDInsight: с помощью портала Azure, шаблона Azure Resource Manager, командлетов PowerShell и пакета SDK для .NET.
 
-### Использование действия скрипта при создании кластера с помощью портала Azure
+### Использование действия сценария при создании кластера с портала Azure
 
 1. Начните создание кластера, как описано в разделе [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md#portal).
 
@@ -434,9 +435,9 @@
 
 ## Применение действия скрипта в работающем кластере
 
-В этом разделе описывается, как применять действия сценариев в работающем кластере HDInsight: с помощью портала Azure, командлетов PowerShell, кроссплатформенного Azure CLI и пакета SDK для .NET.
+В этом разделе описывается, как применять действия сценариев в работающем кластере HDInsight: с помощью портала Azure, командлетов PowerShell, кроссплатформенного Azure CLI и пакета SDK для .NET. Действие сохраняемого сценария, используемое в данном разделе, добавляет существующую учетную запись хранения Azure в работающий кластер. Вы также можете воспользоваться другими действиями сценария из раздела [Пример действий сценария](#example-script-action-scripts).
 
-### Применение действия скрипта в работающем кластере с помощью портала Azure
+### Применение действия сценария в работающем кластере с портала Azure
 
 1. На [портале Azure](https://portal.azure.com) выберите свой кластер HDInsight.
 
@@ -452,10 +453,14 @@
 
 5. В колонке "Добавление действия скрипта" введите следующие сведения.
 
-    * __Имя__: понятное имя для этого действия сценария. В этом примере — `Giraph`.
-    * __Универсальный код ресурса скрипта__: универсальный код ресурса (URI) для сценария. В этом примере — `https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`.
-    * __Головной__, __Рабочий__ и __Zookeeper__: отметьте флажками узлы, на которых должен применяться этот сценарий. В этом примере отмечены головной и рабочий узлы.
-    * __Параметры__: если сценарий принимает параметры, укажите их здесь.
+    * __Имя__: понятное имя для этого действия сценария. В этом примере — `Add Storage account`.
+    * __Универсальный код ресурса скрипта__: универсальный код ресурса (URI) для сценария. В этом примере — `https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`.
+    * __Головной__, __Рабочий__ и __Zookeeper__: отметьте флажками узлы, на которых должен применяться этот сценарий. В этом примере отмечены узлы "Головной", "Рабочий" и "Zookeeper".
+    * __Параметры__: если сценарий принимает параметры, укажите их здесь. В этом примере введите имя учетной записи хранения и ключ учетной записи хранения:
+
+		![действие сохраняемого сценария hdinsight добавляет учетную запись хранения в работающие кластеры](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-persisted-script-action-add-storage-account.png)
+
+		На снимке экрана `contosodata` является существующей учетной записью хранения Azure, а вторая строка — ключом учетной записи хранения.
     * __Сохраненное__: установите флажок для этой записи, если необходимо сохранить сценарий, чтобы он применялся на новых рабочих узлах при увеличении масштаба кластера.
 
 6. Наконец, нажмите кнопку __Создать__, чтобы применить сценарий к кластеру.
@@ -524,6 +529,9 @@
         data:    Operation ID:  b707b10e-e633-45c0-baa9-8aed3d348c13
         info:    hdinsight script-action create command OK
 
+### Применение действия сценария в работающем кластере с помощью REST API
+
+См. статью [Run Script Actions on a running cluster](https://msdn.microsoft.com/library/azure/mt668441.aspx) (Выполнение действий сценария в работающем кластере).
 ### Применение действия скрипта в работающем кластере с помощью пакета SDK HDInsight для .NET
 
 Пример использования пакета SDK для .NET для применения сценариев к кластеру см. на странице [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
@@ -630,7 +638,7 @@
 
 	![Снимок экрана операций](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	В этом расположении журналы упорядочены по узлам headnode, workdernode и zookeeper. Ниже приведены некоторые примеры.
+	В этом расположении журналы упорядочены по узлам headnode, workernode и zookeeper. Ниже приведены некоторые примеры.
 	* **Головной узел** — `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`.
 	* **Рабочий узел** — `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`.
 	* **Узел Zookeeper** — `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`.
@@ -698,4 +706,4 @@
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

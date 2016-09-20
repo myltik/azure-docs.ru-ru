@@ -33,7 +33,7 @@
 
 - Куда будут отправляться журналы диагностики (учетная запись хранения, концентраторы событий и (или) OMS Log Analytics).
 - Какие категории журналов будут отправляться.
-- Как долго будет храниться в учетной записи хранения каждая категория журналов (если указать здесь 0 дней, журналы будут храниться неограниченно долго). Если политики хранения заданы, но хранение журналов в учетной записи отключено (например, выбраны только варианты концентраторов событий или OMS), политики хранения не будут применены.
+- Как долго будет храниться в учетной записи хранения каждая категория журналов (если указать здесь 0 дней, журналы будут храниться неограниченно долго). В противном случае нужно указать значение от 1 до 2 147 483 647. Если политики хранения заданы, но хранение журналов в учетной записи отключено (например, выбраны только варианты концентраторов событий или OMS), политики хранения не будут применены.
 
 Эти параметры легко настраиваются в колонке диагностики для ресурса на портале Azure, а также с помощью Azure PowerShell, интерфейса командной строки или [REST API Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -50,13 +50,17 @@
 Чтобы включить журналы диагностики на портале Azure при создании некоторых типов ресурсов, сделайте следующее.
 
 1.	Нажмите кнопку **Создать** и выберите ресурс, который вас интересует.
-2.	Настроив основные параметры и выбрав размер, в колонке **Параметры** раздела **Мониторинг** выберите значение **Включено** и укажите учетную запись хранения для передачи журналов диагностики. Отправка диагностических данных в учетную запись хранения тарифицируется по стандартным расценкам на хранение и передачу данных. ![Включение журналов диагностики при создании ресурса](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
+2.	Настроив основные параметры и выбрав размер, в колонке **Параметры** раздела **Мониторинг** выберите значение **Включено** и укажите учетную запись хранения для передачи журналов диагностики. Отправка диагностических данных в учетную запись хранения тарифицируется по стандартным расценкам на хранение и передачу данных.
+
+    ![Включение журналов диагностики при создании ресурса](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3.	Нажмите **ОК**, чтобы создать ресурс.
 
 Чтобы включить журналы диагностики на портале Azure после создания ресурса, сделайте следующее.
 
 1.	Перейдите к колонке ресурса и откройте колонку **Диагностика**.
-2.	Щелкните **Включено** и выберите учетную запись хранения и (или) концентратор событий. ![Включение журналов диагностики после создания ресурса](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
+2.	Щелкните **Включено** и выберите учетную запись хранения и (или) концентратор событий.
+
+    ![Включение журналов диагностики после создания ресурса](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3.	В разделе **Журналы** выберите, какие **категории журналов** вы хотите собирать или передавать.
 4.	Щелкните **Сохранить**.
 
@@ -104,10 +108,35 @@ ServiceBusRuleID — это строка в таком формате: `{service
 | Хранилище озера данных | [Доступ к журналам диагностики Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Аналитика озера данных | [Доступ к журналам диагностики для Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Приложения логики | Нет схемы. |
+| Пакетная служба Azure | Нет схемы. |
+| Служба автоматизации Azure | Нет схемы. |
+
+## Поддерживаемые категории журнала для каждого типа ресурса
+
+|Тип ресурса|Категория|Отображаемое имя категории|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Журналы заданий|
+|Microsoft.Automation/automationAccounts|JobStreams|Потоки заданий|
+|Microsoft.Batch/batchAccounts|ServiceLog|Журналы служб|
+|Microsoft.DataLakeAnalytics/accounts|Аудит|Журналы аудита|
+|Microsoft.DataLakeAnalytics/accounts|Запросы|Журналы запросов|
+|Microsoft.DataLakeStore/accounts|Аудит|Журналы аудита|
+|Microsoft.DataLakeStore/accounts|Запросы|Журналы запросов|
+|Microsoft.KeyVault/vaults|AuditEvent|Журналы аудита|
+|Microsoft.Logic/workflows|WorkflowRuntime|События диагностики среды выполнения рабочего процесса|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Событие группы безопасности сети|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Счетчик правил группы безопасности сети|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Событие потока правил группы безопасности сети|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|События оповещения балансировщика нагрузки|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Состояние работоспособности балансировщика нагрузки|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Журнал доступа к шлюзу приложений|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Журнал производительности шлюза приложений|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Журнал брандмауэра шлюза приложений|
+|Microsoft.Search/searchServices|OperationLogs|Журналы операций|
 
 ## Дальнейшие действия
 - [Потоковая передача журналов диагностики в **концентраторы событий**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Изменение параметров диагностики с помощью REST API Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [Анализ журналов с помощью OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

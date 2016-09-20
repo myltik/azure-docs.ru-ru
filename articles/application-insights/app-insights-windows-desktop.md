@@ -19,7 +19,7 @@
 
 *Доступна только предварительная версия Application Insights.*
 
-С помощью [Visual Studio Application Insights](app-insights-get-started.md) и [HockeyApp](https://hockeyapp.net) можно отслеживать показатели использования и производительности развернутого приложения.
+С помощью [Visual Studio Application Insights](app-insights-overview.md) и [HockeyApp](https://hockeyapp.net) можно отслеживать показатели использования и производительности развернутого приложения.
 
 > [AZURE.IMPORTANT] Мы рекомендуем использовать [HockeyApp](https://hockeyapp.net) для распространения и мониторинга классических приложений и приложений для устройств. С помощью HockeyApp можно управлять распространением, тестированием в реальном времени и отзывами пользователей, а также отслеживать отчеты об использовании и сбоях. Вы также можете [экспортировать и запросить данные телеметрии с помощью аналитики](app-insights-hockeyapp-bridge-app.md).
 
@@ -89,4 +89,4 @@
 * [Написание запросов аналитики](app-insights-analytics.md)
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

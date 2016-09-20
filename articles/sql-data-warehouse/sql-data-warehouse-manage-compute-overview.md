@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="09/03/2016"
    ms.author="barbkess;sonyama"/>
 
 # Управление вычислительными ресурсами в хранилище данных SQL Azure (обзор)
@@ -98,17 +98,21 @@
 - [Возобновление работы вычислительных ресурсов с помощью PowerShell][]
 - [Возобновление работы вычислительных ресурсов с помощью API REST][]
 
+## Разрешения
+
+Для масштабирования базы данных потребуются разрешения, описанные в разделе [ALTER DATABASE][]. Для приостановки и возобновления работы потребуется разрешение [Участник баз данных SQL][], в частности, Microsoft.Sql/servers/databases/action.
+
 <a name="next-steps-bk"></a>
 
 ## Дальнейшие действия
 Приведенные ниже статьи помогут вам разобраться с некоторыми дополнительными ключевыми понятиями, связанными с производительностью:
 
 - [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL][]
-- [Overview of tables in SQL Data Warehouse][] \(Общие сведения о таблицах в хранилище данных SQL)
-- [Distributing tables in SQL Data Warehouse][] \(Распределение таблиц в хранилище данных SQL)
-- [Indexing tables in SQL Data Warehouse][] \(Индексирование таблиц в хранилище данных SQL)
+- [Overview of tables in SQL Data Warehouse (Общие сведения о таблицах в хранилище данных SQL)][]
+- [Distributing tables in SQL Data Warehouse (Распределение таблиц в хранилище данных SQL)][]
+- [Indexing tables in SQL Data Warehouse (Индексирование таблиц в хранилище данных SQL)][]
 - [Секционирование таблиц][]
-- [Managing statistics on tables in SQL Data Warehouse][] \(Управление статистикой с помощью таблиц в хранилище данных SQL)
+- [Managing statistics on tables in SQL Data Warehouse (Управление статистикой с помощью таблиц в хранилище данных SQL)][]
 - [Рекомендации][]
 
 <!--Image reference-->
@@ -134,17 +138,20 @@
 [Возобновление работы вычислительных ресурсов с помощью API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 
 [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL]: ./sql-data-warehouse-develop-concurrency.md
-[Overview of tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-overview.md
-[Distributing tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-distribute.md
-[Indexing tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-index.md
+[Overview of tables in SQL Data Warehouse (Общие сведения о таблицах в хранилище данных SQL)]: ./sql-data-warehouse-tables-overview.md
+[Distributing tables in SQL Data Warehouse (Распределение таблиц в хранилище данных SQL)]: ./sql-data-warehouse-tables-distribute.md
+[Indexing tables in SQL Data Warehouse (Индексирование таблиц в хранилище данных SQL)]: ./sql-data-warehouse-tables-index.md
 [Секционирование таблиц]: ./sql-data-warehouse-tables-partition.md
-[Managing statistics on tables in SQL Data Warehouse]: ./sql-data-warehouse-tables-statistics.md
+[Managing statistics on tables in SQL Data Warehouse (Управление статистикой с помощью таблиц в хранилище данных SQL)]: ./sql-data-warehouse-tables-statistics.md
 [Рекомендации]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
+[Участник баз данных SQL]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+
 <!--MSDN references-->
+[ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->
