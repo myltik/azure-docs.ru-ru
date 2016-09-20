@@ -4,7 +4,7 @@
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -21,11 +21,11 @@
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Используя пакет SDK Azure для Node.js, можно управлять учетными записями, заданиями и каталогами аналитики озера данных Azure. Для просмотра статей, посвященных управлению с помощью других средств, щелкните вкладку выделения выше.
+Используя пакет SDK Azure для Node.js, можно управлять учетными записями, заданиями и каталогами аналитики озера данных Azure. Для просмотра статей, посвященных управлению с помощью других средств, щелкните средство выбора вкладок выше.
 
 Сейчас он поддерживает:
 
-  *  **Node.js версии 0.10.0 или выше**;
+  *  **Node.js версии 0.10.0 или выше;**
   *  **версию REST API для учетной записи: 2015-10-01-preview**;
   *  **версию REST API для каталога: 2015-10-01-preview**;
   *  **версию REST API для задания: 2016-03-20-preview**.
@@ -138,9 +138,9 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## См. также
+## Дополнительные материалы
 
 - [Пакет Microsoft Azure SDK для Node.js](https://github.com/azure/azure-sdk-for-node)
 - [Пакет Microsoft Azure SDK для Node.js — управление хранилищем озера данных](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

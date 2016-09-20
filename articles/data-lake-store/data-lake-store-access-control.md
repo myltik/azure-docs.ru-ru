@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -286,17 +286,17 @@
 
 * [http://www.vanemery.com/Linux/ACL/POSIX\_ACL\_on\_Linux.html](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
 
-* [HDFS Permission Guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) (Руководство по разрешениям в HDFS)
+* [HDFS Permission Guide (Руководство по разрешениям в HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
-* [POSIX FAQ](http://www.opengroup.org/austin/papers/posix_faq.html) (POSIX: вопросы и ответы)
+* [POSIX FAQ (POSIX: вопросы и ответы)](http://www.opengroup.org/austin/papers/posix_faq.html)
 
 * [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
 
 * [POSIX 1003.1e 1997](http://users.suse.com/~agruen/acl/posix/Posix_1003.1e-990310.pdf)
 
-* [POSIX ACL on Linux](http://users.suse.com/~agruen/acl/linux-acls/online/) (ACL POSIX для Linux)
+* [POSIX ACL on Linux (ACL POSIX для Linux)](http://users.suse.com/~agruen/acl/linux-acls/online/)
 
-* [ACL: Using Access Control Lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: использование списков управления доступом в Linux)
+* [ACL: Using Access Control Lists on Linux (ACL: использование списков управления доступом в Linux)](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## Дополнительные материалы
 
@@ -304,4 +304,4 @@
 
 * [Начало работы с аналитикой озера данных Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->
