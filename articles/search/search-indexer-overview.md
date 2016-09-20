@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -36,7 +36,7 @@
 
 Вы можете создавать общедоступные индексаторы (например, Azure SQL или DocumentDB), а также управлять ими, используя следующие средства.
 
-- [Портал > мастер импорта данных](search-get-started-portal.md);
+- [Портал > мастер импорта данных;](search-get-started-portal.md)
 - [API REST службы](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 - [Пакет SDK для .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
@@ -54,10 +54,10 @@
 
 Индексатор извлекает данные из **источника данных**, который содержит такие сведения, как строка подключения. Сейчас поддерживаются следующие источники данных:
 
-- [база данных Azure SQL (или SQL Server на виртуальных машинах Azure)](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md);
+- [база данных Azure SQL (или SQL Server на виртуальных машинах Azure);](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
-- [хранилище BLOB-объектов Azure (предварительная версия)](search-howto-indexing-azure-blob-storage.md), которое используется для извлечения текста из документов в формате PDF, Office, HTML и XML;
-- [хранилище таблиц Azure (предварительная версия)](search-howto-indexing-azure-tables.md).
+- [Хранилище BLOB-объектов Azure (предварительная версия)](search-howto-indexing-azure-blob-storage.md), которое используется для извлечения текста из документов в формате PDF, Office, HTML и XML
+- [хранилище таблиц Azure (предварительная версия).](search-howto-indexing-azure-tables.md)
 
 Источники данных настраиваются и управляются независимо от индексаторов, которые их используют. Это означает, что источник данных может использоваться несколькими индексаторами для одновременной загрузки нескольких индексов.
 
@@ -76,4 +76,4 @@
 - [Индексирование BLOB-объектов в формате CSV с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-csv-blobs.md)
 - [Индексирование BLOB-объектов JSON с помощью индексатора BLOB-объектов службы поиска Azure](search-howto-index-json-blobs.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

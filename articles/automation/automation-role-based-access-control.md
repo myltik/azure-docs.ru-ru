@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/20/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;sngun"/>
 
 # Управление доступом на основе ролей в службе автоматизации Azure
@@ -44,23 +44,23 @@
 
 | **Тип ресурса** | **чтение** | **запись** | **Удалить** | **Другие действия** |
 |:--- |:---|:--- |:---|:--- |
-| Учетная запись службы автоматизации Azure | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | 
-| Ресурс сертификатов службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
-| Ресурс подключений службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | 
-| Ресурс типа подключения службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | 
-| Ресурс учетных данных службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
-| Ресурс расписания службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
-| Ресурс переменных службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
+| Учетная запись службы автоматизации Azure | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Ресурс сертификатов службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
+| Ресурс подключений службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Ресурс типа подключения службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | 
+| Ресурс учетных данных службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
+| Ресурс расписания службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
+| Ресурс переменных службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
 | Настройка требуемого состояния службы автоматизации | | | | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) |
 | Тип ресурсов гибридной рабочей роли Runbook | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | 
-| Задание службы автоматизации Azure | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | 
+| Задание службы автоматизации Azure | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | 
 | Поток заданий службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | | | 
-| Расписание заданий службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
-| Модуль службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
-| Runbook службы автоматизации Azure | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) |
+| Расписание заданий службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
+| Модуль службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | |
+| Runbook службы автоматизации Azure | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) |
 | Черновик Runbook службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) |
-| Задание тестирования черновика Runbook службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | 
-| Объект webhook службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) |
+| Задание тестирования черновика Runbook службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | 
+| Объект webhook службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) |
 
 ## Разрешения роли читателя
 
@@ -90,7 +90,7 @@
 | Ресурс переменных службы автоматизации | | | |
 | Настройка требуемого состояния службы автоматизации | | | | |
 | Тип ресурсов гибридной рабочей роли Runbook | | | | | 
-| Задание службы автоматизации Azure | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | 
+| Задание службы автоматизации Azure | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | .![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | 
 | Поток заданий службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | |  
 | Расписание заданий службы автоматизации | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | ![Зеленый индикатор](media/automation-role-based-access-control/green-checkmark.png) | | |
 | Модуль службы автоматизации | | | |
@@ -127,17 +127,17 @@
 
 ## Настройки RBAC для учетной записи службы автоматизации с помощью портала Azure
 
-1.	Войдите на [портал Azure](https://portal.azure.com/) и откройте учетную запись службы автоматизации в колонке "Учетные записи службы автоматизации".  
+1.	Войдите на [портал Azure](https://portal.azure.com/) и откройте учетную запись службы автоматизации в колонке "Учетные записи службы автоматизации".
 
 2.	Щелкните элемент управления **Доступ** в правом верхнем углу экрана. Откроется колонка **Пользователи**, в которую можно добавить новых пользователей, группы и приложения, чтобы управлять учетной записью службы автоматизации и просматривать имеющиеся роли, настраиваемые для этой учетной записи.
 
     ![Кнопка доступа](media/automation-role-based-access-control/automation-01-access-button.png)
 
->[AZURE.NOTE] **Администраторы подписки** уже существуют в качестве пользователей по умолчанию. Группа администраторов подписки Active Directory включает администраторов и соадминистраторов службы для подписки Azure. Администратор службы является владельцем подписки Azure и ее ресурсов, а также наследует роль владельца в учетных записях службы автоматизации. Это означает, что доступ к подписке **наследуется** для **администраторов и соадминистраторов службы** и **назначается** для всех остальных пользователей. Щелкните **Администраторы подписки**, чтобы посмотреть дополнительные сведения об их разрешениях.
+>[AZURE.NOTE] **Администраторы подписки** уже существуют в качестве пользователей по умолчанию. Группа администраторов подписки Active Directory включает администраторов и соадминистраторов службы в рамках подписки Azure. Администратор службы является владельцем подписки Azure и ее ресурсов, а также наследует роль владельца в учетных записях службы автоматизации. Это означает, что доступ к подписке **наследуется** для **администраторов и соадминистраторов службы** и **назначается** для всех остальных пользователей. Щелкните **Администраторы подписки**, чтобы посмотреть дополнительные сведения об их разрешениях.
 
 ### Добавление нового пользователя и назначение роли
 
-1.	В колонке "Пользователи" нажмите кнопку **Добавить**, чтобы открыть колонку **Добавить доступ**, в которой можно добавить пользователя, группу или приложение, а также назначить им роль.  
+1.	В колонке "Пользователи" нажмите кнопку **Добавить**, чтобы открыть колонку **Добавить доступ**, в которой можно добавить пользователя, группу или приложение, а также назначить им роль.
 
     ![Добавить пользователя](media/automation-role-based-access-control/automation-02-add-user.png)
 
@@ -145,7 +145,7 @@
 
     ![Выбрать роль](media/automation-role-based-access-control/automation-03-select-role.png)
 
-3.	Щелкните **Добавить пользователей**, чтобы открыть колонку **Добавление пользователей**. Если вы уже добавить пользователей, группы или приложения для управления подпиской, выберите пользователей для добавления доступа в открывшемся списке. Если пользователей в списке нет или нужный пользователь не указан, щелкните **Пригласить**, чтобы открыть колонку **Пригласить гостя**, где можно пригласить пользователя с электронным адресом действительной учетной записи Майкрософт, например Outlook.com, OneDrive или Xbox Live. Указав адрес электронной почты пользователя, щелкните **Выбрать**, чтобы добавить пользователя, а затем нажмите кнопку **ОК**.
+3.	Щелкните **Добавить пользователей**, чтобы открыть колонку **Добавление пользователей**. Если вы уже добавили пользователей, группы или приложения для управления подпиской, выберите пользователей для предоставления доступа в открывшемся списке. Если пользователей в списке нет или нужный пользователь не указан, щелкните **Пригласить**, чтобы открыть колонку **Пригласить гостя**, где можно пригласить пользователя с электронным адресом действительной учетной записи Майкрософт, например Outlook.com, OneDrive или Xbox Live. Указав адрес электронной почты пользователя, щелкните **Выбрать**, чтобы добавить пользователя, а затем нажмите кнопку **ОК**.
 
     ![Добавление пользователей](media/automation-role-based-access-control/automation-04-add-users.png)
  
@@ -231,4 +231,4 @@
 - Дополнительные сведения о различных способах запуска модуля Runbook см. в статье [Запуск модуля Runbook](automation-starting-a-runbook.md).
 - Сведения о различных типах модуля Runbook см. в статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

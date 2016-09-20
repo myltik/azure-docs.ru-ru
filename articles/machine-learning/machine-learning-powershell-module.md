@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -55,4 +55,4 @@
 
 Мы работаем над улучшением модуля PowerShell; он будет дополнен в течение этого периода предварительной версии. Обратите внимание на блог, посвященный [Cortana Analytics и машинному обучению](https://blogs.technet.microsoft.com/machinelearning/). В этом блоге публикуются новости и дополнительные сведения.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

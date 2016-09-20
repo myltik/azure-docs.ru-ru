@@ -6,10 +6,10 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags
+.<tags
 	ms.service="hdinsight"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -282,4 +282,4 @@
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

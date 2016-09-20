@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -71,11 +71,11 @@
 		
 	>Обратите внимание, что имя скрипта состоит из трех частей:
 		
-	>	1. Префикс имени, который состоит из имени приложения или имени, которое связано с приложением.
-	>	2. Дефис (-) для удобства чтения.
-	>	3. Уникальная строковая функция с именем приложения в качестве параметра.
+	>	1. A script name prefix, which shall include either the application name or a name relevant to the application.
+	>	2. A "-" for readability.
+	>	3. A unique string function with the application name as the parameter.
 
-	>	Например, в сохраненном списке действий скрипта приведенное выше имя будет выглядеть так: hue-install-v0-4wkahss55hlas. Пример полезных данных JSON см. здесь: [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
+	>	An example is the above ends up becoming: hue-install-v0-4wkahss55hlas in the persisted script action list. For a sample JSON payload, see [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json).
 
 - Все необходимые скрипты.
 
@@ -86,9 +86,9 @@
 Чтобы опубликовать приложение HDInsight:
 
 1. Войдите на [портал публикации Azure](https://publish.windowsazure.com/).
-2. Щелкните **Solution templates** (Шаблоны решений), чтобы создать шаблон решения.
-3. Щелкните **Create Dev Center account and join the Azure program** (Создать учетную запись центра разработчиков и присоединиться к программе Azure), чтобы зарегистрировать свою компанию, если это еще не сделано. См. статью [Создание учетной записи разработчика Майкрософт](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
-4. Щелкните **Define some Topologies to get Started** (Определить некоторые топологии и начать работу). Шаблон решения служит родительским элементом для всех своих топологий. В одном шаблоне предложений или решения можно определить сразу несколько топологий. Когда предложение переходит к стадии промежуточного развертывания, вместе с ним отправляются все его топологии. 
+2. Щелкните **Шаблоны решений**, чтобы создать шаблон решения.
+3. Щелкните **Create Dev Center account and join the Azure program** (Создать учетную запись центра разработчиков и присоединиться к программе Azure), чтобы зарегистрировать свою компанию, если вы еще этого не сделали. Дополнительные сведения см. в статье [Создание учетной записи разработчика Майкрософт](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
+4. Щелкните **Define some Topologies to get Started** (Определить некоторые топологии и начать работу). Шаблон решения служит родительским элементом для всех своих топологий. В одном шаблоне предложений или решения можно определить сразу несколько топологий. Когда предложение переходит к стадии промежуточного развертывания, вместе с ним отправляются все его топологии.
 5. Добавьте новую версию.
 6. Отправьте ZIP-файл, подготовленный на этапе работы с [пакетом приложения](#package-application).
 7. Щелкните **Request Certification** (Запросить сертификацию). Команда сертификации Майкрософт проверит файлы и выполнит сертификацию топологии.
@@ -99,5 +99,6 @@
 - [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md) — узнайте, как развернуть в HDInsight приложение HDInsight с отмененной публикацией.
 - [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md) — узнайте, как использовать действие скрипта для установки дополнительных приложений.
 - [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) — узнайте, как вызывать шаблоны Resource Manager для создания кластеров HDInsight.
+- [Использование пустых граничных узлов в HDInsight](hdinsight-apps-use-edge-node.md) — узнайте, как использовать пустой граничный узел для доступа к кластеру HDInsight, а также тестирования и размещения приложений HDInsight.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

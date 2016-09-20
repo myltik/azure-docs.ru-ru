@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -156,4 +156,4 @@
 - Для просмотра учебника с помощью других средств используйте вкладки-селекторы в верхней части страницы.
 - Сведения о том, как записывать диагностические данные в журнал, см. в статье [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md) (Доступ к журналам диагностики для Azure Data Lake Analytics).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

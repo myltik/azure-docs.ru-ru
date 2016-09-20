@@ -43,9 +43,9 @@ ExpressRoute поддерживается во всех регионах и ра
 
 |**Геополитический регион**|**Регионы Azure**|**Расположения ExpressRoute**|
 |---|---|---|---|
-|**Облако правительства США**|Правительство штата Айова, США, Правительство штата Вирджиния, США|Чикаго, Даллас+, Нью-Йорк, Вашингтон (округ Колумбия)|
+|**Облако правительства США**|Правительство штата Айова, США, Правительство штата Вирджиния, США|Чикаго, Даллас, Нью-Йорк, Вашингтон (округ Колумбия)|
 |**Китай**|Северный Китай, Восточный Китай|Пекин, Шанхай|
-|**Германия**|Центральная Германия, восточная Германия|Берлин, Франкфурт|
+|**Германия**|Центральная Германия, восточная Германия|Берлин+, Франкфурт|
 
 
 В стандартном номере SKU ExpressRoute подключение между геополитическими регионами не поддерживается. Для поддержки глобальных подключений необходимо включить надстройку ExpressRoute класса "Премиум". Подключение к национальным облачным средам не поддерживается. При необходимости вы можете работать с поставщиками услуг подключения.
@@ -65,7 +65,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Ченнай** | Tata Communications |
 | **Чикаго** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
 | **Даллас** | AT&T NetBond, Equinix, Level 3 Communications, Megaport |
-| **Дублин** | Colt |
+| **Дублин** | Colt, Telecity Group |
 | **Гонконг** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Лондон** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **Лас-Вегас** | Level 3 Communications+, Megaport
@@ -94,7 +94,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Расположение** |**Поставщики услуг** |
 |---------------|--------------------|
 | **Чикаго** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Даллас** | Equinix+, Verizon+ |
+| **Даллас** | Equinix, Verizon+ |
 | **Нью-Йорк** | Equinix, Level 3 Communications+, Verizon |
 | **Вашингтон, округ Колумбия** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
@@ -153,7 +153,7 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!--Image References-->
+.<!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/12/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
 
 
@@ -37,8 +37,6 @@
 **PORT** — это порт конечной точки, к которой требуется предоставить доступ. Для Swarm это порт 2375, а Для DC/OS используется порт 80. **USERNAME** — имя пользователя, указанное при развертывании кластера. **DNSPREFIX** — префикс DNS, указанный при развертывании кластера. **REGION** — регион, где расположена ваша группа ресурсов. **PATH\_TO\_PRIVATE\_KEY** [необязательно] — это путь к закрытому ключу, который соответствует открытому ключу, указанному во время создания кластера службы контейнеров. Используйте этот параметр с флагом -i.
 
 ```bash
-# ssh sample
-
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 > Для SSH-подключения используется порт 2200, а не стандартный порт 22.
@@ -48,8 +46,6 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 Чтобы создать туннель к связанным с DC/OS конечным точкам, выполните следующую команду:
 
 ```bash
-# ssh sample
-
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -66,8 +62,6 @@ sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.az
 Чтобы открыть туннель для конечной точки Swarm, выполните следующую команду:
 
 ```bash
-# ssh sample
-
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -120,4 +114,4 @@ export DOCKER_HOST=:2375
 - [Работа со службой контейнеров Azure и DC/OS](container-service-mesos-marathon-rest.md)
 - [Работа со службой контейнеров Azure и Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
 
 # Развертывание кластера службы контейнеров Azure
@@ -49,7 +49,7 @@
 Выберите тип оркестрации. Доступны следующие параметры.
 
 - **DC/OS** — выполняет развертывание кластера DC/OS.
-- **Swarm** — выполняет развертывание кластера Docker Swarm.
+- **Swarm ** — выполняет развертывание кластера Docker Swarm.
 
 Когда будете готовы продолжить, нажмите кнопку **ОК**.
 
@@ -115,8 +115,6 @@ azure config mode arm
 > [AZURE.NOTE] При выполнении этой команды оболочка запросит ввод значений параметров развертывания.
 
 ```bash
-# sample deployment
-
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
@@ -125,18 +123,14 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 Эта версия команды предполагает определение параметров в интерактивном режиме. Если вы хотите указать параметры (например, в виде строки в формате JSON), это можно сделать с помощью параметра `-p`. Например:
 
  ```bash
- # sample deployment
-
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
- ```
+```
 
 Кроме того, вы можете указать файл параметров в формате JSON, используя параметр `-e`.
 
- ```bash
- # sample deployment
-
+```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
- ```
+```
 
 Пример файла параметров с именем `azuredeploy.parameters.json` см. в шаблонах службы контейнеров Azure, размещенных на GitHub.
 
@@ -170,10 +164,8 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 После создания группы ресурсов можно создать кластер, используя следующую команду: Универсальный код ресурса (URI) нужного шаблона указывается в параметре `-TemplateUri`. При выполнении этой команды в PowerShell отобразится запрос на ввод значений параметров развертывания.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
- ```
+```
 
 ### Выбор параметров шаблона
 
@@ -182,8 +174,6 @@ New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESO
 Ниже показана полная версия команды, в которой указаны параметры. Вы можете указать собственные значения для имен ресурсов.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
@@ -195,4 +185,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 - [Работа со службой контейнеров Azure и DC/OS](container-service-mesos-marathon-rest.md)
 - [Работа со службой контейнеров Azure и Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

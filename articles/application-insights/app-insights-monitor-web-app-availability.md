@@ -72,7 +72,7 @@
 
 ## <a name="monitor"></a>3. Просмотр результатов веб-теста
 
-Результаты отображаются через 1–2 минуты в этом окне:
+Результаты отображаются через 1–2 минуты в колонке "Веб-тест".
 
 ![Сводка по результатам в домашнем разделе](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -220,7 +220,7 @@
 
 Ниже приведен пример веб-теста веб-приложения Azure с использованием ключа приложения.
 
-![Пример секрета клиента](./media/app-insights-monitor-web-app-availability/110.png)
+.![Пример секрета клиента](./media/app-insights-monitor-web-app-availability/110.png)
 
 1. Получите токен из Azure AD с помощью секрета клиента (AppKey).
 2. Извлеките токен носителя из ответа.
@@ -323,4 +323,4 @@
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

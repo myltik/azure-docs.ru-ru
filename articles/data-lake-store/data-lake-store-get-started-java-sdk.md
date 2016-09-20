@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Начало работы с хранилищем озера данных Azure с помощью Java
@@ -41,8 +41,7 @@
 * Пакет средств разработки для Java (JDK) 8 (с использованием Java версии 1.8).
 * IntelliJ или другая подходящая среда разработки Java. Это необязательный пункт, но мы рекомендуем его выполнить. В инструкциях ниже используется IntelliJ.
 * **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Настройте свою подписку Azure** для использования общедоступной предварительной версии Data Lake Store. См. [инструкции](data-lake-store-get-started-portal.md#signup).
-* **Создайте приложение Azure Active Directory**. Есть два способа проверки подлинности с помощью Azure Active Directory — **интерактивный** и **неинтерактивный**. Для этих способов предусмотрены разные предварительные требования.
+* **Создание приложения Azure Active Directory**. Есть два способа проверки подлинности с помощью Azure Active Directory — **интерактивный** и **неинтерактивный**. Для этих способов предусмотрены разные предварительные требования.
 	* **Для интерактивной проверки подлинности** в Azure Active Directory необходимо создать **собственное клиентское приложение**. После создания приложения необходимо получить следующие связанные с ним значения.
 		- Получите **идентификатор клиента** и **универсальный код ресурса (URI) перенаправления** для приложения.
 		- Настройка делегированных разрешений
@@ -280,4 +279,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

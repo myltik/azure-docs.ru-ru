@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -43,4 +43,4 @@
 
 В этом пошаговом руководстве используется упрощенная версия примера эксперимента [Двоичная классификация: прогнозирование кредитных рисков](http://go.microsoft.com/fwlink/?LinkID=525270) из [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -6,10 +6,10 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags
+.<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -256,8 +256,7 @@ HDInsight предоставляет доступ к распределенно�
 
 ###Выполнение запросов Hive с использованием неопределенной учетной записи хранения
 
-В этом пример показано, как получить список папки из учетной записи хранения, которая не была задана при создании.
-	$clusterName = "<имя\_кластера\_HDInsight>"
+В этом пример показано, как получить список папки из учетной записи хранения, которая не была задана при создании. $clusterName = "<имя\_кластера\_HDInsight>"
 
 	$undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
 	$undefinedContainer = "<UnboundedBlobContainerAssociatedWithTheStorageAccount>"
@@ -298,4 +297,4 @@ HDInsight предоставляет доступ к распределенно�
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->
