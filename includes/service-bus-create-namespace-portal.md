@@ -30,7 +30,7 @@
 
 	![Строка подключения][connection-string]
 
-.<!--Image references-->
+<!--Image references-->
 
 [create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
 [connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png

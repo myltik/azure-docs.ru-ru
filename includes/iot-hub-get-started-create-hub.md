@@ -30,7 +30,7 @@
     ![Колонка "Политики общего доступа"][5]
 
 
-.<!-- Images. -->
+<!-- Images. -->
 [1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
 [2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
 [3]: ./media/iot-hub-get-started-create-hub/create-iot-hub3.png
