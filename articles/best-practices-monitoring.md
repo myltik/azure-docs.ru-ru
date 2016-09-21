@@ -662,6 +662,6 @@ _Рис. 6. Секционирование данных в соответств�
 - [Как использовать очереди служебной шины](./service-bus/service-bus-dotnet-get-started-with-queues.md)
 - [Бизнес-аналитика SQL Server на виртуальных машинах Azure](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [Получение уведомлений об оповещениях](./azure-portal/insights-receive-alert-notifications.md) и [Мониторинг работоспособности службы](./azure-portal/insights-service-health.md)
-- [Application Insights](./application-insights/app-insights-get-started.md)
+- [Application Insights](./application-insights/app-insights-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0907_2016-->

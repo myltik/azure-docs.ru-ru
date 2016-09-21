@@ -104,7 +104,7 @@
 
 ### <a name="configure-cors"></a>Настройка CORS при необходимости
 
-Общий доступ к ресурсам независимо от источника – это способ предоставления веб-сайту доступа к веб-API на другом домене. Если вы используете мобильные службы Azure со связанным веб-сайтом, вам понадобится настроить CORS как часть переноса. Если вы обращаетесь к мобильным службам Azure только с мобильных устройств, вам не нужно настраивать CORS (за исключением редких случаев).
+Общий доступ к ресурсам независимо от источника — это способ предоставления веб-сайту доступа к веб-API на другом домене. Если вы используете мобильные службы Azure со связанным веб-сайтом, вам понадобится настроить CORS как часть переноса. Если вы обращаетесь к мобильным службам Azure только с мобильных устройств, вам не нужно настраивать CORS (за исключением редких случаев).
 
 Перенесенные параметры CORS доступны в параметре приложения **MS\_CrossDomainWhitelist**. Чтобы перенести сайт в средство CORS службы приложений, выполните следующие действия:
 
@@ -403,7 +403,7 @@
 [ведению журналов]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [пакет SDK Node.js для мобильных приложений]: https://github.com/azure/azure-mobile-apps-node
 [сравнению мобильных служб и службы приложений]: app-service-mobile-value-prop-migration-from-mobile-services.md
-[центрам уведомлений]: ../notification-hubs/notification-hubs-overview.md
+[центрам уведомлений]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [мониторинг производительности]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
 [создать резервную копию мобильной службы]: ../mobile-services/mobile-services-disaster-recovery.md
@@ -414,5 +414,4 @@
 [Веб-задания]: ../app-service-web/websites-webjobs-resources.md
 [примерами преобразования XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 
-<!---HONumber=AcomDC_0803_2016-->
-
+<!---HONumber=AcomDC_0907_2016-->

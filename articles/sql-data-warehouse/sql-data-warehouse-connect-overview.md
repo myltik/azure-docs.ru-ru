@@ -60,13 +60,13 @@
 [Запросы к хранилищу данных SQL Azure (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
 [Мониторинг рабочей нагрузки с помощью динамических административных представлений]: ./sql-data-warehouse-manage-monitor.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [ANSI\_NULLS]: https://msdn.microsoft.com/library/ms188048.aspx
 [QUOTED\_IDENTIFIERS]: https://msdn.microsoft.com/library/ms174393.aspx
 [DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
 [DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
-.<!--Other-->
+<!--Other-->
 [портал Azure]: https://portal.azure.com
 
 <!--Image references-->

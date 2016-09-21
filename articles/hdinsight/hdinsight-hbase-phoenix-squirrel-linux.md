@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/27/2016"
+   ms.date="09/02/2016"
    ms.author="jgao"/>
 
-# Использование Apache Phoenix с кластерами HBase под управлением Linux в HDinsight  
+# Использование Apache Phoenix с кластерами HBase под управлением Linux в HDInsight  
 
 Узнайте, как использовать [Apache Phoenix](http://phoenix.apache.org/) в HDInsight, а также как использовать SQLLine. Дополнительные сведения о Phoenix см. в разделе [Phoenix за 15 минут или меньше](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Для информации по грамматике Phoenix обратитесь к разделу [Грамматика Phoenix](http://phoenix.apache.org/language/index.html).
 
@@ -36,7 +36,7 @@
 
 **Определение имени узла Zookeeper**
 
-1. Откройте Ambari, перейдя по адресу **https://<ClusterName>.azurehdinsight.net**.
+1. Откройте Ambari, перейдя по адресу **https://<имя\_кластера>.azurehdinsight.net/**.
 2. Введите имя пользователя (кластера) HTTP и пароль для входа.
 3. В меню слева щелкните **Zookeeper**. Вы увидите 3 сервера **ZooKeeper Server**.
 4. Выберите один из серверов **ZooKeeper Server**. На панели сводки найдите **Имя узла**. Оно аналогично *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
@@ -71,7 +71,7 @@
 
 - [Обзор HDInsight HBase][hdinsight-hbase-overview]\: HBase — это NoSQL (нереляционная распределенная) база данных с открытым исходным кодом Apache, разработанная в рамках проекта Hadoop, которая обеспечивает произвольный доступ и строгую согласованность больших объемов неструктурированных и полуструктурированных данных.
 - [Подготовка кластеров HBase в виртуальной сети Azure][hdinsight-hbase-provision-vnet]\: благодаря интеграции виртуальной сети кластеры HBase могут быть развернуты в той же виртуальной сети, что и приложения, поэтому эти приложения могут напрямую обмениваться данными с HBase.
-- [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md): узнайте, как настроить репликацию HBase между двумя центрами обработки данных Azure. 
+- [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md): узнайте, как настроить репликацию HBase между двумя центрами обработки данных Azure.
 - [Анализ мнений Twitter с помощью HBase в HDInsight][hbase-twitter-sentiment]\: узнайте, как выполнять [анализ мнений](http://en.wikipedia.org/wiki/Sentiment_analysis) в режиме реального времени на основе больших данных, используя HBase в кластере Hadoop в HDInsight.
 
 [azure-portal]: https://portal.azure.com
@@ -95,4 +95,4 @@
 
  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0907_2016-->

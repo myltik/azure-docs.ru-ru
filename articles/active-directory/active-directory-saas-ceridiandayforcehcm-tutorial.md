@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -33,7 +33,7 @@
 Чтобы настроить интеграцию Azure AD с Ceridian Dayforce HCM, вам потребуется:
 
 - подписка Azure AD;
-- подписка на Ceridian Dayforce HCM с поддержкой единого входа.
+- подписка Ceridian Dayforce HCM с поддержкой единого входа.
 
 
 > [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
@@ -57,7 +57,7 @@
 
 **Чтобы добавить Ceridian Dayforce HCM из коллекции, выполните следующие действия:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**. 
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
 	![Active Directory][1]
 
@@ -145,7 +145,7 @@
 
 	![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_03.png)
 
-3. На странице диалогового окна **Настроить параметры приложения** выполните следующие действия.
+3. На странице диалогового окна **Настройка параметров приложения** выполните следующие действия.
 
 	![Настройка единого входа](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_04.png)
 
@@ -172,8 +172,8 @@
 
     - Скачанный файл сертификата
     - **URL-адрес издателя**;
-    - **URL-адрес единого входа SAML**; 
-    - **URL-адрес службы единого выхода**. 
+    - **URL-адрес единого входа SAML**;
+    - **URL-адрес службы единого выхода**.
 
 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
@@ -275,7 +275,7 @@
 
 	![Назначение пользователя][203]
 
-1. Из списка пользователей выберите **Britta Simon**.
+1. В списке пользователей выберите **Britta Simon**.
 
 2. На панели инструментов внизу щелкните **Назначить**.
 
@@ -312,4 +312,4 @@
 [204]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

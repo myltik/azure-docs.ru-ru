@@ -17,20 +17,17 @@
 	ms.date="08/16/2016"
 	ms.author="spelluru"/>
 
-# Создание первой фабрики данных Azure с помощью REST API фабрики данных
+# Руководство. Создание первой фабрики данных Azure с помощью REST API фабрики данных
 > [AZURE.SELECTOR]
-- [Обзор учебника](data-factory-build-your-first-pipeline.md)
-- [Редактор фабрики данных](data-factory-build-your-first-pipeline-using-editor.md)
-- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Шаблон диспетчера ресурсов](data-factory-build-your-first-pipeline-using-arm.md)
-- [Использование интерфейса REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Из этой статьи вы узнаете, как создать первую фабрику данных Azure с помощью REST API фабрики данных.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
 
-## Предварительные требования
-
-- Ознакомьтесь со статьей [Обзор руководства](data-factory-build-your-first-pipeline.md). Эта статья поможет вам понять основные принципы работы с фабрикой данных Azure.
+## Дополнительные требования
 - Установите на компьютер программу [curl](https://curl.haxx.se/dlwiz/). Она будет использоваться с командами REST для создания фабрики данных.
 - Следуя инструкциям в [этой статье](../resource-group-create-service-principal-portal.md), выполните следующее:
 	1. Создайте веб-приложение с именем **ADFGetStartedApp** в Azure Active Directory.
@@ -405,4 +402,4 @@ JSON-файл определяет набор данных с именем **Azu
 | [Мониторинг конвейеров и управление ими с помощью колонок портала Azure](data-factory-monitor-manage-pipelines.md) | В этой статье описываются мониторинг и отладка конвейеров, а также управление ими с помощью колонок портала Azure. |
 | [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) | В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. 
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

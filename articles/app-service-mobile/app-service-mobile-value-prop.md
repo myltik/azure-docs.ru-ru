@@ -103,4 +103,4 @@
 [Введение в среду службы приложения]: ../app-service-web/app-service-app-service-environment-intro.md
 [карте обучения]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

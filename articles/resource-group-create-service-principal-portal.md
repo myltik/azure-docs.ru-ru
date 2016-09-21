@@ -118,7 +118,7 @@
 
 1. Щелкните **Добавить приложение**.
 
-2. В списке выберите **API управления службами Microsoft Azure**. Затем щелкните значок завершения.
+2. В списке выберите пункт **API управления службами Microsoft Azure**. Затем щелкните значок завершения.
 
       ![выбор приложения](./media/resource-group-create-service-principal-portal/select-app.png)
 
@@ -208,4 +208,4 @@
 - Дополнительные сведения о настройке политик безопасности см. в статье [Контроль доступа на основе ролей Azure](./active-directory/role-based-access-control-configure.md).
 - Видеодемонстрация этих шагов представлена в статье [Включение программного управления ресурсов Azure с помощью Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

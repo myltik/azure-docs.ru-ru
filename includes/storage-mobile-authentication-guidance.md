@@ -1,40 +1,41 @@
-## Configure your application to access Azure Storage
+## Настройка приложения для доступа к хранилищу Azure
 
-There are two ways to authenticate your application to access Storage services:
+Существует два способа проверки подлинности приложения при получении доступа к службам хранения:
 
-- Shared Key: Use Shared Key for testing purposes only
-- Shared Access Signature (SAS): Use SAS for production applications
+- Общий ключ — следует использовать только для тестирования.
+- Подписанный URL-адрес (SAS) — используется для рабочих приложений.
 
-### Shared Key
-Shared Key authentication means that your application will use your account name and account key to access Storage services. For the purposes of quickly showing how to use this library, we will be using Shared Key authentication in this getting started.
+### Общий ключ
+Проверка подлинности с помощью общего ключа означает, что приложение будет использовать имя и ключ учетной записи для доступа к службам хранилища. Чтобы быстро показать, как использовать эту библиотеку, в данном руководстве по началу работы мы используем аутентификацию с общим ключом.
 
-> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ] Your account name and account key, which give full read/write access to the associated Storage account, will be distributed to every person that downloads your app. This is **not** a good practice as you risk having your key compromised by untrusted clients.
+> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ] Имя и ключ учетной записи, которые предоставляют полный доступ на чтение и запись к связанной учетной записи хранения, будут переданы каждому пользователю, который загружает ваше приложение. Такой подход **не** рекомендуется ввиду возможности компрометации ключа ненадежными клиентами.
 
-When using Shared Key authentication, you will create a [connection string](../articles/storage/storage-configure-connection-string.md). The connection string is comprised of:  
+При использовании аутентификации с общим ключом вам нужно создать [строку подключения](../articles/storage/storage-configure-connection-string.md). Строка подключения состоит из следующих элементов:
 
-- The **DefaultEndpointsProtocol** - you can choose HTTP or HTTPS. However, using HTTPS is highly recommended.
-- The **Account Name** - the name of your storage account
-- The **Account Key** - On the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to find this information.
-- (Optional) **EndpointSuffix** - This is used for storage services in regions with different endpoint suffixes, such as Azure China or Azure Governance.
+- **DefaultEndpointsProtocol** — можно выбрать HTTP или HTTPS. Настоятельно рекомендуется использовать протокол HTTPS.
+- **AccountName** — имя вашей учетной записи хранения.
+- **AccountKey** — чтобы получить это значение, на [портале Azure](https://portal.azure.com) перейдите к своей учетной записи хранения и щелкните значок **Ключи**.
+- (Необязательно) **EndpointSuffix** — это значение используется для служб хранилища в регионах с разными суффиксами конечных точек, например Azure China или Azure Governance.
 
-Here is an example of connection string using Shared Key authentication:
+Ниже приведен пример строки подключения, использующей аутентификацию с общим ключом.
 
 `"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"`
 
-### Shared Access Signatures (SAS)
-For a mobile application, the recommended method for authenticating a request by a client against the Azure Storage service is by using a Shared Access Signature (SAS). SAS allows you to grant a client access to a resource for a specified period of time, with a specified set of permissions.
-As the storage account owner, you'll need to generate a SAS for your mobile clients to consume. To generate the SAS, you'll probably want to write a separate service that generates the SAS to be distributed to your clients. For testing purposes, you can use the [Microsoft Azure Storage Explorer](http://storageexplorer.com) or the [Azure Portal](https://portal.azure.com) to generate a SAS. When you create the SAS, you can specify the time interval over which the SAS is valid, and the permissions that the SAS grants to the client.
+### Подписанный URL-адрес (SAS)
+В мобильном приложении аутентифицировать запрос клиента к службе хранилища Azure рекомендуется с помощью подписанного URL-адреса (SAS). SAS позволяет предоставлять клиенту доступ к ресурсу на указанный период времени и с указанным набором разрешений. В качестве владельца учетной записи хранения вам понадобится создать SAS для использования мобильными клиентами. Для этого вам, скорее всего, нужно будет написать отдельную службу, которая создаст SAS и распространит ее между клиентами. В целях тестирования для создания SAS можно использовать [Microsoft Azure Storage Explorer](http://storageexplorer.com) или [портал Azure](https://portal.azure.com). При создании SAS можно указать не только интервал времени, в течение которого SAS будет действительным, но и разрешения, которые SAS предоставляет клиенту.
 
-The following example shows how to use the Microsoft Azure Storage Explorer to generate a SAS.
+В приведенном ниже примере показано, как в целях тестирования использовать Microsoft Azure Storage Explorer, чтобы создать SAS.
 
-1. If you haven't already, [Install the Microsoft Azure Storage Explorer](http://storageexplorer.com)
+1. Если это еще не сделано, [установите Microsoft Azure Storage Explorer](http://storageexplorer.com).
 
-2. Connect to your subscription.
+2. Подключитесь к своей подписке.
 
-3. Click on your Storage account and click on the "Actions" tab at the bottom left. Click "Get Shared Access Signature" to generate a "connection string" for your SAS.
+3. Щелкните в свою учетную запись хранилища и перейдите на вкладку "Действия" в нижнем левом углу. Щелкните "Get Shared Access Signature" (Получить подписанный URL-адрес), чтобы создать строку подключения для SAS.
 
-4. Here is an example of a SAS connection string that grants read and write permissions at the service, container and object level for the blob service of the Storage account.
+4. Ниже приведен пример строки подключения SAS, которая предоставляет разрешения на чтение и запись на уровне службы, контейнера и объекта для службы BLOB-объектов учетной записи хранения.
 
   `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-As you can see, when using a SAS, you’re not exposing your account key in your application. You can learn more about SAS and best practices for using SAS by checking out [Shared Access Signatures: Understanding the SAS model](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
+Как видите, при использовании SAS в приложении вам не нужно предоставлять ключ учетной записи. Дополнительные сведения и рекомендации по использованию SAS см. в статье [Подписанные URL-адреса. Часть 1: общие сведения о модели SAS](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
+
+<!---HONumber=AcomDC_0907_2016-->

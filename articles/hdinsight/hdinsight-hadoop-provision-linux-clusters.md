@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="07/08/2016"
+   	ms.date="09/06/2016"
    	ms.author="jgao"/>
 
 
@@ -216,6 +216,8 @@ Azure HDInsight предлагает облачные решения для ра
 
 В некоторых случаях вам может понадобиться добавить дополнительный объем хранилища в кластер. Например, у вас есть несколько учетных записей хранения Azure для разных географических регионов или разных служб и вам нужно проанализировать их с помощью HDInsight.
 
+При создании кластера HDInsight или после создания кластера можно добавить учетные записи хранения. См. статью [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
+
 Дополнительные сведения о дополнительных хранилищах BLOB-объектов см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md). Дополнительные сведения о дополнительных хранилищах озера данных см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
@@ -297,4 +299,4 @@ Azure HDInsight предлагает облачные решения для ра
 | [Пакет SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Шаблоны Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

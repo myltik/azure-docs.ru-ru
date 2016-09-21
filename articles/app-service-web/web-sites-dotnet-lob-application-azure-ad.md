@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="08/31/2016" 
+	ms.date="09/01/2016" 
 	ms.author="cephalin"/>
 
 # Создание бизнес-приложения Azure с проверкой подлинности Azure Active Directory #
@@ -28,7 +28,8 @@
 Вы создадите простое бизнес-приложение по шаблону «создать-прочитать-обновить-удалить» (CRUD) в веб-приложениях службы приложений, которое отслеживает рабочие элементы с помощью следующих компонентов:
 
 - аутентификация пользователей в службе Azure Active Directory;
-- запросы пользователей и групп каталога с помощью [API Graph Azure Active Directory](http://msdn.microsoft.com/library/azure/hh974476.aspx).
+- запросы пользователей и групп каталога с помощью [API Graph Azure Active Directory](http://msdn.microsoft.com/library/azure/hh974476.aspx);
+- использование шаблона ASP.NET MVC *без аутентификации*.
 
 Дополнительные сведения о создании бизнес-приложения Azure с поддержкой управления доступом на основе ролей (RBAC) см. в разделе [Дальнейшее действие](#next).
 
@@ -42,7 +43,7 @@
 - Клиент Azure Active Directory с пользователями в различных группах
 - Разрешения на создание приложений в клиенте Azure Active Directory
 - Visual Studio 2013 с обновлением 4 или более поздней версии.
-- [Пакет Azure SDK версии 2.8.1 или более поздней](https://azure.microsoft.com/downloads/).
+- [Пакет Azure SDK версии 2.8.1 или более поздней.](https://azure.microsoft.com/downloads/)
 
 <a name="bkmk_deploy"></a>
 ## Создание и развертывание веб-приложения в Azure ##
@@ -142,19 +143,11 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/14-edit-parameters.png)
 
-14. Теперь, чтобы проверить наличие маркера проверки подлинности, используемого для доступа к API Graph Azure Active Directory, измените файл ~\\Controllers\\HomeController.cs, задав в нем следующий метод действия `Index()`.
-	<pre class="prettyprint">
-	public ActionResult Index()
-	{
-		return <mark>Content(Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]);</mark>
-	}
-	</pre>
+14. Теперь, чтобы проверить наличие маркера авторизации для доступа к API Graph Azure Active Directory, просто перейдите в браузере по адресу **https://&lt;*appname*>.azurewebsites.net/.auth/me**. Если вы настроили все правильно, вы увидите свойство `access_token` в ответе JSON.
 
-15. Чтобы опубликовать изменения, щелкните проект правой кнопкой и выберите **Опубликовать**. Снова щелкните **Опубликовать** в диалоговом окне.
+	Путь URL-адреса `~/.auth/me` управляется функцией проверки подлинности и авторизации в службе приложений, благодаря чему вы можете получать сведения о сеансе с проверкой подлинности. Дополнительные сведения см. в статье [Проверка подлинности и авторизация в службе приложений Azure](../app-service/app-service-authentication-overview.md).
 
-	![](./media/web-sites-dotnet-lob-application-azure-ad/15-publish-token-code.png)
-
-	Если маркер доступа отображается на домашней странице приложения, тогда приложение имеет доступ к API Graph Azure Active Directory. Изменения, внесенные в файл ~\\Controllers\\HomeController.cs, можно отменить.
+	>[AZURE.NOTE] `access_token` имеет срок действия. Тем не менее функция аутентификации и авторизации в службе приложений обеспечивает обновление маркера с использованием `~/.auth/refresh`. Дополнительные сведения об использовании этой функции см. в статье, посвященной [хранилищу маркеров службы приложений](https://cgillum.tech/2016/03/07/app-service-token-store/).
 
 В следующем разделе описываются действия, выполняемые с данными каталога.
 
@@ -194,29 +187,6 @@
 10.	Выберите созданную модель, щелкните **+** и **Добавить**, чтобы добавить контекст данных, а затем нажмите кнопку **Добавить**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
-
-9.	Откройте файл ~\\Controllers\\WorkItemsController.cs.
-
-13.	В начале методов `Create()` и `Edit(int? id)` добавьте следующий код, чтобы позже некоторые переменные были доступны в JavaScript. Чтобы исправить все ошибки, связанные с разрешением имен, щелкните каждую ошибку и нажмите клавиши `Ctrl`+`.`.
-
-		ViewData["token"] = Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
-		ViewData["tenant"] =
-			ClaimsPrincipal.Current.Claims
-			.Where(c => c.Type == "http://schemas.microsoft.com/identity/claims/tenantid")
-			.Select(c => c.Value).SingleOrDefault();
-
-	> [AZURE.NOTE] В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) (MVC 4, маркер защиты от подделки и утверждения), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
-
-	> - Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию необходим для маркера защиты от подделки.
-	> - Если Azure Active Directory является каталогом, синхронизированным с AD FS, то инструмент доверия AD FS по умолчанию также не отправляет утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, хотя AD FS можно настроить вручную для отправки такого утверждения.
-
-	> Мы займемся этой проблемой на следующем шаге.
-
-12.  В файле ~\\Global.asax добавьте следующую строку кода в метод `Application_Start()`. Чтобы исправить все ошибки, связанные с разрешением имен, щелкните каждую ошибку и нажмите клавиши `Ctrl`+`.`.
-
-		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
-	
-	`ClaimTypes.NameIdentifies` определяет утверждение `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, которое служба Azure Active Directory не предоставляет.
 
 14.	В файле ~\\Views\\WorkItems\\Create.cshtml (автоматически сформированный на основе шаблона элемент) найдите вспомогательный метод `Html.BeginForm` и добавьте следующие выделенные строки.
 	<pre class="prettyprint">
@@ -287,8 +257,11 @@
 			var maxResultsPerPage = 14;
 			var input = document.getElementById("AssignedToName");
 	
-			var token = "@ViewData["token"]";
-			var tenant = "@ViewData["tenant"]";
+			// Access token from request header, and tenantID from claims identity
+			var token = "@Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"]";
+			var tenant ="@(System.Security.Claims.ClaimsPrincipal.Current.Claims
+							.Where(c => c.Type == "http://schemas.microsoft.com/identity/claims/tenantid")
+							.Select(c => c.Value).SingleOrDefault())";
 	
 			var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 	
@@ -302,8 +275,21 @@
 	}
 	</pre>
 	
-	Обратите внимание, что `token` и `tenant` используются объектом `AadPicker` для выполнения вызовов API Graph Azure Active Directory. Объект `AadPicker` добавим позже.
-
+	Обратите внимание, что `token` и `tenant` используются объектом `AadPicker` при вызовах API Graph Azure Active Directory. Объект `AadPicker` добавим позже.
+	
+	>[AZURE.NOTE] Точно так же `token` и `tenant` можно получить с помощью `~/.auth/me` на стороне клиента, но это будет дополнительный вызов сервера. Например:
+	>  
+    >     $.ajax({
+    >         dataType: "json",
+    >         url: "/.auth/me",
+    >         success: function (data) {
+    >             var token = data[0].access_token;
+    >             var tenant = data[0].user_claims
+    >                             .find(c => c.typ === 'http://schemas.microsoft.com/identity/claims/tenantid')
+    >                             .val;
+    >         }
+    >     });
+	
 15. Внесите аналогичные изменения в файл ~\\Views\\WorkItems\\Edit.cshtml.
 
 15. Объект `AadPicker` определяется в сценарии, который необходимо добавить в проект. Щелкните папку ~\\Scripts правой кнопкой мыши, выберите **Добавить**, а затем щелкните **Файл JavaScript**. Ведите для имени файла значение `AadPickerLibrary` и нажмите кнопку **ОК**.
@@ -350,6 +336,17 @@
 
 	Существуют и более производительные способы управления файлами CSS и JavaScript в приложении. Однако для простоты используйте пакеты, предоставленные с каждым представлением.
 
+12. И наконец, в файле ~\\Global.asax добавьте следующую строку кода в метод `Application_Start()`. Чтобы исправить все ошибки, связанные с разрешением имен, щелкните каждую ошибку и нажмите клавиши `Ctrl`+`.`.
+
+		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
+	
+	> [AZURE.NOTE] Вам нужна эта строка кода, так как шаблон MVC по умолчанию использует оформление <code>[ValidateAntiForgeryToken]</code> в некоторых действиях. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) (MVC 4, маркер защиты от подделки и утверждения), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
+
+	> - Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию необходим для маркера защиты от подделки.
+	> - Если Azure Active Directory является каталогом, синхронизированным с AD FS, то инструмент доверия AD FS по умолчанию также не отправляет утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, хотя AD FS можно настроить вручную для отправки такого утверждения.
+
+	> `ClaimTypes.NameIdentifies` определяет утверждение `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, которое служба Azure Active Directory не предоставляет.
+
 20. Теперь опубликуйте изменения. Щелкните свой проект правой кнопкой мыши и выберите **Опубликовать**.
 
 21. Щелкните **Параметры**, убедитесь в наличии строки подключения к базе данных SQL, выберите **Обновить базу данных**, чтобы внести изменения в схему модели, и нажмите кнопку **Опубликовать**.
@@ -379,10 +376,10 @@
 - [Проверка подлинности и авторизация в службе приложений Azure](../app-service/app-service-authentication-overview.md)
 - [Проверка подлинности в приложении Azure с помощью локального каталога Active Directory](web-sites-authentication-authorization.md)
 - [Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией AD FS](web-sites-dotnet-lob-application-adfs.md)
-- [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/) (Проверка подлинности службы приложений и API Graph Azure AD)
+- [App Service Auth and the Azure AD Graph API (Проверка подлинности службы приложений и API Graph Azure AD)](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 - [Примеры и документация Microsoft Azure Active Directory](https://github.com/AzureADSamples)
 - [Поддерживаемые типы маркеров и утверждений](http://msdn.microsoft.com/library/azure/dn195587.aspx)
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

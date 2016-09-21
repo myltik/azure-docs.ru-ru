@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/02/2016"
 	ms.author="micurd"/>
 
 # Приступая к работе со служебной программой командной строки AzCopy
@@ -40,7 +40,7 @@ AzCopy — это служебная программа командной ст
 
 	AzCopy /Source:<source> /Dest:<destination> [Options]
 
-Откройте окно командной строки и перейдите к каталогу установки AzCopy на компьютере, где расположен исполняемый файл `AzCopy.exe`. При необходимости можно добавить место установки AzCopy к системному пути. По умолчанию программа AzCopy установлена в каталоге `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` (64-разрядная версия Windows) или `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy` (32-разрядная версия Windows).
+Откройте окно командной строки и перейдите к каталогу установки AzCopy на компьютере, где расположен исполняемый файл `AzCopy.exe`. При необходимости можно добавить место установки AzCopy к системному пути. По умолчанию инструмент AzCopy установлен в `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` или `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 В приведенных ниже примерах описаны разные сценарии копирования данных из хранилища больших двоичных объектов, файлов и таблиц Microsoft Azure (и обратно). Подробное объяснение параметров, используемых в каждом примере, см. в разделе [Общие сведения о параметрах](#azcopy-parameters).
 
@@ -866,4 +866,4 @@ AzCopy предназначен для максимального использ
 - [AzCopy: использование копирования больших двоичных объектов между разными учетными записями](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: отправка и скачивание файлов для больших двоичных объектов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0907_2016-->

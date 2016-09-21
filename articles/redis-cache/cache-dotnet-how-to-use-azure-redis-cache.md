@@ -219,7 +219,7 @@ Redis хранит большинство данных в строках Redis, 
 [Store ASP.NET session state in the cache]: #store-session
 
   
-.<!-- IMAGES -->
+<!-- IMAGES -->
 
 
 [StackExchangeNuget]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-stackexchange-redis.png

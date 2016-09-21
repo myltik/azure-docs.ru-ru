@@ -31,4 +31,4 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
    ![Вход](./media/azure-getting-started-portal-login/login.png)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!----HONumber=AcomDC_0912_2016-->

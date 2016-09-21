@@ -161,7 +161,7 @@
 		pushRegistration.on('error', handleError);
 		}
 
-3. В приведенном выше коде замените значение `Your_Project_ID` числовым идентификатором проекта своего приложения, полученным на сайте [Google Developer Console] (для Android).
+3. В приведенном выше коде замените значение `Your_Project_ID` числовым идентификатором проекта своего приложения, полученным на сайте [Google Developer Console] \(для Android).
 
 ## Настройка и запуск приложения в Android (необязательно)
 
@@ -381,9 +381,9 @@
 [Mobizen]: https://www.mobizen.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [набор средств Visual Studio для Apache Cordova]: https://www.visualstudio.com/ru-RU/features/cordova-vs.aspx
-[центрах уведомлений]: ../notification-hubs/notification-hubs-overview.md
+[центрах уведомлений]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Пакет SDK для Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Серверный пакет SDK для ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Серверный пакет SDK для Node.js]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

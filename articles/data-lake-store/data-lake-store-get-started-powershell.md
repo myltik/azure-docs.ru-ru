@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Начало работы с хранилищем озера данных Azure с помощью Azure PowerShell
@@ -34,7 +34,6 @@
 Перед началом работы с этим учебником необходимо иметь следующее:
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
-- **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
 
 
 ##Установка Azure PowerShell 1.0 или более поздней версии
@@ -43,7 +42,7 @@
 
 ## Создание учетной записи хранения озера данных Azure
 
-1. На рабочем столе откройте новое окно Windows PowerShell и выполните следующий фрагмент кода, чтобы войти в свою учетную запись Azure, задать подписку и зарегистрировать поставщик хранилища озера данных. При появлении запроса на вход введите учетные данные администратора или владельца подписки.
+1. На рабочем столе откройте новое окно Windows PowerShell и выполните следующий фрагмент кода, чтобы войти в свою учетную запись Azure, выбрать подписку и зарегистрировать поставщик Data Lake Store. Когда вам будет предложено войти, введите учетные данные администратора или владельца подписки.
 
         # Log in to your Azure account
 		Login-AzureRmAccount
@@ -141,4 +140,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

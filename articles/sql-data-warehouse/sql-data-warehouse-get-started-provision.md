@@ -92,7 +92,7 @@
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
  
-.<!--MSDN references-->
+<!--MSDN references-->
 [sp\_set\_firewall\_rule (база данных SQL Azure)]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp\_set\_database\_firewall\_rule (база данных SQL Azure)]: https://msdn.microsoft.com/library/dn270010.aspx
 

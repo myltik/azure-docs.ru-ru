@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="juliako"/>
 
 # Изменение типа зарезервированных единиц
@@ -27,7 +27,7 @@
 
 ## Обзор
 
-Чтобы получить дополнительные сведения о масштабировании обработки мультимедиа, ознакомьтесь с этим [обзором](media-services-scale-media-processing-overview.md).
+>[AZURE.IMPORTANT] Обязательно ознакомьтесь с этим [обзором](media-services-scale-media-processing-overview.md), чтобы получить дополнительные сведения о масштабировании обработки мультимедиа.
 
 ## Масштабирование обработки мультимедиа
 
@@ -57,4 +57,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

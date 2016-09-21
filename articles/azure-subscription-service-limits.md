@@ -63,6 +63,7 @@
 - [Службы мультимедиа](#media-services-limits)
 - [Mobile Engagement;](#mobile-engagement-limits)
 - [Мобильные службы](#mobile-services-limits)
+- [Мониторинг](#monitoring-limits).
 - [Multi-Factor Authentication](#multi-factor-authentication)
 - [Сеть](#networking-limits)
 - [Служба концентратора уведомлений](#notification-hub-service-limits)
@@ -219,6 +220,10 @@
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
+### Мониторинг ограничений
+
+[AZURE.INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+
 ### Ограничения служб концентратора уведомлений
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -305,4 +310,4 @@
 
 [Размеры для облачных служб](cloud-services/cloud-services-sizes-specs.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

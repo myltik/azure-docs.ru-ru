@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Безопасные push-уведомления посредством центров уведомлений Azure"
+	pageTitle="Безопасные push-уведомления для концентраторов уведомлений Azure"
 	description="Узнайте, как отправлять безопасные push-уведомления в приложение iOS из Azure. Примеры кода написаны на Objective-C и C#."
 	documentationCenter="ios"
 	authors="wesmc7777"
@@ -16,12 +16,12 @@
 	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
-#Безопасные push-уведомления посредством центров уведомлений Azure
+#Безопасные push-уведомления для концентраторов уведомлений Azure
 
 > [AZURE.SELECTOR]
-- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
-- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
-- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
+- [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
 
 ##Обзор
@@ -158,4 +158,4 @@
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

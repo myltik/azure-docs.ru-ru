@@ -215,7 +215,7 @@ server.on("listening", () => {
 ## Дальнейшие действия
 
 * [Навигация и панели мониторинга на портале Application Insights](app-insights-dashboards.md)
-* [Запись запросов аналитики для телеметрии(app-insights-analytics-tour.md)
+* [Знакомство с аналитикой в Application Insights](app-insights-analytics-tour.md)
 
 
 
@@ -228,4 +228,4 @@ server.on("listening", () => {
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->
