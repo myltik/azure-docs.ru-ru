@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/24/2016"
+   ms.date="09/01/2016"
    ms.author="rickbyh"/>
 
 # Проверка подлинности и авторизация в базе данных SQL: предоставление доступа 
@@ -40,7 +40,7 @@
 Одной учетной записи Azure Active Directory также можно предоставить права администратора. Эта учетная запись может быть отдельным пользователем Azure AD или группой Azure AD, в которую входит несколько пользователей Azure AD. Администратора Azure AD необходимо настраивать, только если вы хотите использовать проверку подлинности Windows для учетных записей Azure AD при подключении к базе данных SQL. Дополнительные сведения о настройке доступа Azure Active Directory см. в разделах [Подключение к базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md) и [Поддержка SSMS в Azure AD MFA для базы данных SQL и хранилища данных SQL](sql-database-ssms-mfa-authentication.md).
 
 ### Настройка брандмауэра
-Если настроить брандмауэр на уровне сервера, то учетная запись подписчика Базы данных SQL Azure и учетная запись Azure Active Directory смогут подключаться к виртуальной базе данных master и всем пользовательским базам данных. Брандмауэр серверного уровня можно настроить на портале. После подключения также можно настроить дополнительные правила брандмауэра уровня сервера с помощью инструкции Transact-SQL [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx). Дополнительные сведения о настройке брандмауэра см. в статье [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md).
+Если настроен брандмауэр уровня сервера, то учетная запись подписчика Базы данных SQL Azure и учетная запись Azure Active Directory смогут подключаться к базе данных master и всем пользовательским базам данных. Брандмауэр серверного уровня можно настроить на портале. После подключения также можно настроить дополнительные правила брандмауэра уровня сервера с помощью инструкции Transact-SQL [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx). Дополнительные сведения о настройке брандмауэра см. в статье [Практическое руководство. Настройка брандмауэра базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md).
 
 ### Путь доступа администратора
 
@@ -144,13 +144,13 @@ GRANT ALTER ANY USER TO Mary;
 
 [Защита Базы данных SQL](sql-database-security.md)
 
-[Creating a Table (Tutorial)](https://msdn.microsoft.com/library/ms365315.aspx) (Руководство: создание таблицы)
+[Creating a Table (Tutorial) (Руководство: создание таблицы)](https://msdn.microsoft.com/library/ms365315.aspx)
 
-[Inserting and Updating Data in a Table (Tutorial)](https://msdn.microsoft.com/library/ms365309.aspx) (Руководство: вставка и обновление данных в таблице)
+[Inserting and Updating Data in a Table (Tutorial) (Руководство: вставка и обновление данных в таблице)](https://msdn.microsoft.com/library/ms365309.aspx)
 
-[Reading the Data in a Table (Tutorial)](https://msdn.microsoft.com/library/ms365310.aspx) (Руководство: чтение данных из таблицы)
+[Reading the Data in a Table (Tutorial) (Руководство: чтение данных из таблицы)](https://msdn.microsoft.com/library/ms365310.aspx)
 
-[Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx) (Создание представлений и хранимых процедур)
+[Creating views and stored procedures (Создание представлений и хранимых процедур)](https://msdn.microsoft.com/library/ms365311.aspx)
 
 [Granting Access to a Database Object (Предоставление доступа к объекту базы данных)](https://msdn.microsoft.com/library/ms365327.aspx)
 
@@ -161,4 +161,4 @@ GRANT ALTER ANY USER TO Mary;
 
 [Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589.aspx)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

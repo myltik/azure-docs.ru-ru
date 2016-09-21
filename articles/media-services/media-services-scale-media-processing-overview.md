@@ -57,7 +57,14 @@
 
 ##Дальнейшие действия
 
-[Масштабирование обработки мультимедиа с помощью портала Azure](media-services-portal-scale-media-processing.md)
+Выполните задачу масштабирования обработки мультимедиа с помощью одной из следующих технологий:
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encoding-units.md)
+- [Портал](media-services-portal-scale-media-processing.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ##Схемы обучения работе со службами мультимедиа
 
@@ -67,4 +74,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->

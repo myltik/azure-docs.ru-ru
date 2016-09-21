@@ -28,6 +28,8 @@
 
 ![Архитектура][Architecture]
 
+> Примечание. С появлением [поддержки ILB в среде службы приложений](app-service-environment-with-internal-load-balancer.md) вы можете закрыть доступ к среде службы приложений из промежуточной подсети, чтобы она была доступна только для частной сети.
+
 ## Настройка среды службы приложений ##
 Инструкции по настройке среды службы приложений см. в соответствующей [документации](app-service-web-how-to-create-an-app-service-environment.md). После создания среды службы приложений можно создать в ней [веб-приложения](app-service-web-overview.md), [приложения API](../app-service-api/app-service-api-apps-why-best-platform.md) и [мобильные приложения](../app-service-mobile/app-service-mobile-value-prop.md), которые будут защищены WAF, который мы настроим в следующем разделе.
 
@@ -99,4 +101,4 @@ Barracuda WAF использует TCP-порт 8000 для настройки �
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

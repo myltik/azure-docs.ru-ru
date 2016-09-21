@@ -3,7 +3,7 @@
    description="Узнайте, как использовать Power BI Embedded с REST. "
    services="power-bi-embedded"
    documentationCenter=""
-   authors="tsmatsuz"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/02/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Использование Power BI Embedded с REST
 
@@ -451,4 +451,4 @@ RequestId: d4099022-405b-49d3-b3b7-3c60cf675958
 ## Дополнительные материалы
 - [Аутентификация и авторизация в Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

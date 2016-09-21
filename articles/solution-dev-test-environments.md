@@ -3,9 +3,9 @@
    description="Узнайте, как с помощью шаблонов диспетчера ресурсов Azure быстро и согласованно создавать и удалять среды разработки и тестирования."
    services="azure-resource-manager"
    documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
-   editor=""/>
+   authors="tfitzmac"
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="01/22/2016"
-   ms.author="jdial"/>
+   ms.author="tomfitz"/>
 
 # Среды разработки и тестирования в Microsoft Azure
 
@@ -361,4 +361,4 @@
 - [Назначение тегов](resource-group-using-tags.md) отдельным ресурсам или группам ресурсов для каждой среды. Вы можете добавить тег «Environment» для групп ресурсов и присвоить ему значение, соответствующее имени конкретной среды. Теги особенно помогут, когда требуется организовать ресурсы для выставления счетов или управления.
 - Отслеживайте предупреждения и счета для ресурсов, включенных в группу ресурсов, с помощью [портала Azure](https://portal.azure.com).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

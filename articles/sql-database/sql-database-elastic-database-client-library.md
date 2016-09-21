@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/24/2016"
+    ms.date="09/06/2016"
     ms.author="ddove"/>
 
 # Создание масштабируемых облачных баз данных
 
-Масштабирование баз данных можно легко выполнить с помощью средств и функций масштабирования для базы данных SQL Azure. В частности, для создания и управления масштабируемыми базами данных можно использовать **клиентскую библиотеку эластичных баз данных**. Она позволяет легко разрабатывать сегментированные приложения с сотнями — или даже тысячами — баз данных SQL Azure.
+Масштабирование баз данных можно легко выполнить с помощью средств и функций масштабирования для базы данных SQL Azure. В частности, для создания и управления масштабируемыми базами данных можно использовать **клиентскую библиотеку эластичных баз данных**. Она позволяет легко разрабатывать сегментированные приложения с сотнями — или даже тысячами — баз данных SQL Azure. Затем можно использовать [задания обработки эластичных БД](sql-database-elastic-jobs-powershell.md), чтобы упростить управление этими базами данных.
 
 Чтобы установить библиотеку, перейдите по ссылке [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
@@ -62,9 +62,9 @@
 
 [Теперь исходный код клиентской библиотеки эластичной базы данных является открытым!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
 
-Используйте [эластичные запросы](sql-database-elastic-query-overview.md).
+Используйте [запросы к эластичной БД](sql-database-elastic-query-overview.md).
 
-Библиотека доступна на [GitHub](https://github.com/Azure/elastic-db-tools) с открытым исходным кодом.
+Библиотека с открытым кодом доступна на сайте [GitHub](https://github.com/Azure/elastic-db-tools).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -73,4 +73,4 @@
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0907_2016-->

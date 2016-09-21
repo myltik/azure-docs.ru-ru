@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/07/2016"
 	ms.author="andkjell"/>
 
 
@@ -24,7 +24,7 @@
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvsearch.png)
 
-Вкладка "Metaverse Search" (Поиск в метавселенной) удобна для устранения проблем, связанных с данными. В верхней половине можно создать запрос из нескольких атрибутов. Создав требуемый запрос, щелкните **Search** (Поиск). Результат будет отображаться в нижней сетке. Чтоб выбрать, какие столбцы должны отображаться, можно настроить **Column Settings** (Параметры столбцов).
+На вкладке "Metaverse Search" (Поиск в метавселенной) можно устранять проблемы, связанные с данными. В верхней половине можно создать запрос из нескольких атрибутов. Создав требуемый запрос, щелкните **Search** (Поиск). Результат отображается в нижней сетке. Чтоб выбрать, какие столбцы должны отображаться, можно настроить **Column Settings** (Параметры столбцов).
 
 В результатах поиска выберите объект и щелкните **Properties** (Свойства), чтобы просмотреть [свойства объекта метавселенной](active-directory-aadconnectsync-service-manager-ui-connectors.md#metaverse-object-properties).
 
@@ -33,4 +33,4 @@
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0907_2016-->

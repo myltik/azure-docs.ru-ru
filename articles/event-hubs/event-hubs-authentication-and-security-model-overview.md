@@ -101,57 +101,17 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 В отсутствие проверки подлинности SAS для отдельных групп потребителей можно использовать ключи SAS для защиты всех групп потребителей общим ключом. Такой подход позволяет приложению получать данные от любых групп потребителей концентратора событий.
 
-### Создание удостоверений службы, проверяющих сторон и правил в ACS
-
-ACS поддерживает несколько способов создания удостоверений службы, проверяющих сторон и правил, но проще всего это можно сделать с помощью [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Например:
-
-1. Создайте удостоверение службы для **EventHubSender**. Эта операция возвращает имя созданного удостоверения службы и его ключ:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
-	```
-
-2. Предоставьте **EventHubSender** право на отправку утверждений в концентратор событий:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
-	```
-
-3. Создайте удостоверение службы для получателя группы потребителей Consumer Group 1:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
-	```
-
-4. Предоставьте `consumergroup1receiver` право на прослушивание утверждений группе **ConsumerGroup1**:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
-	```
-
-5. Создайте удостоверение службы для получателя группы потребителей **Consumer Group 2**:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
-	```
-
-6. Предоставьте `consumergroup2receiver` право на прослушивание утверждений группе **ConsumerGroup2**:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
-	```
-
 ## Дальнейшие действия
 
 Чтобы узнать больше о концентраторах событий, посетите следующие разделы:
 
 - [Обзор концентраторов событий]
-- Полный [пример приложения, использующего концентраторы событий].
 - [Решение для обмена сообщениями в очереди] при помощи очередей служебной шины.
+- Полный [пример приложения, использующего концентраторы событий].
 
 [Обзор концентраторов событий]: event-hubs-overview.md
 [пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Решение для обмена сообщениями в очереди]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0907_2016-->

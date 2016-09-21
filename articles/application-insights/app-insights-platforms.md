@@ -37,7 +37,7 @@
 + [ASP.NET — для приложений, которые уже доступны в Интернете](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
-+ [Веб-приложения и виртуальные машины Azure](../azure-portal/insights-perf-analytics.md)
++ [Веб-приложения и виртуальные машины Azure](app-insights-azure-web-apps.md)
 + [Облачные службы Azure](app-insights-cloudservices.md) — рабочие роли и веб-роли
 + [CRM Online от Microsoft Dynamics.](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
@@ -84,4 +84,4 @@
 
 Если для языка или платформы, которые вы используете, не существует пакета SDK, возможно, вы захотите создать его. Просмотрите код существующих пакетов SDK, перечисленных в описании [проекта пакета SDK для Application Insights на GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -34,7 +34,7 @@
 | [Участник BizTalk](#biztalk-contributor) | Может управлять службами BizTalk |
 | [Участник базы данных ClearDB MySQL](#cleardb-mysql-db-contributor) | Может создавать базы данных ClearDB MySQL |
 | [Участник](#contributor) | Может управлять всем, кроме доступа |
-| [Участник фабрики данных](#data-factory-contributor) | Может управлять фабриками данных |
+| [Участник фабрики данных](#data-factory-contributor) | Вы можете создавать фабрики данных и дочерние ресурсы внутри их, а также управлять ими. |
 | [Пользователь DevTest Labs](#devtest-labs-user) | Может просматривать все, а также подключать, запускать, перезагружать виртуальные машины и завершать их работу |
 | [Участник учетной записи DocumentDB](#documentdb-account-contributor) | Может управлять учетными записями DocumentDB |
 | [Участник учетной записи интеллектуальных систем](#intelligent-systems-account-contributor) | Может управлять учетными записями интеллектуальных систем |
@@ -151,12 +151,12 @@
 | Microsoft.Authorization/*/Write | Не может создавать роли и назначения ролей |
 
 ### Участник фабрики данных
-Может управлять фабриками данных
+Создание фабрик данных и дочерних ресурсов внутри их, а также управление ими.
 
 | **Действия** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Чтение ролей и назначений ролей |
-| Microsoft.DataFactory/dataFactories/* | Управление фабриками данных |
+| Microsoft.DataFactory/dataFactories/* | Создание фабрик данных и дочерних ресурсов внутри их, а также управление ими. |
 | Microsoft.Insights/alertRules/* | Создание правил оповещения и управление ими |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Получение данных о работоспособности ресурсов |
 | Microsoft.Resources/deployments/* | Создание развертываний группы ресурсов и управление ими |
@@ -534,4 +534,4 @@
 - [Создание отчета по журналу изменений доступа](role-based-access-control-access-change-history-report.md). Отслеживание изменения назначений ролей в RBAC.
 - [Устранение неполадок при управлении доступом на основе ролей](role-based-access-control-troubleshooting.md). Рекомендации по устранению распространенных проблем.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0907_2016-->

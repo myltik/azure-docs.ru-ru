@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/29/2016"
+   	ms.date="09/14/2016"
    	ms.author="jgao"/>
 
 # Установка приложений HDInsight
@@ -27,7 +27,7 @@
 
 >[AZURE.NOTE] В настоящее время Datameer поддерживается в кластерах Azure HDInsight версии 3.2.
 
-В указаниях, приведенных в данной статье, используется портал Azure. Вы можете экспортировать шаблон Azure Resource Manager с портала или получить его копию от поставщиков, а затем использовать Azure PowerShell и интерфейс командной строки Azure для его развертывания. Дополнительные сведения см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+В этой статье используется портал Azure. Вы можете экспортировать шаблон Azure Resource Manager с портала или получить его копию у поставщиков, а затем развернуть его с помощью Azure PowerShell и интерфейса командной строки Azure. Дополнительные сведения см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## Предварительные требования
 
@@ -72,7 +72,7 @@
 
     - **Тип кластера**: если вы не знаете, что выбрать, выберите **Hadoop**. Это наиболее популярный тип кластера.
     - **Операционная система**: выберите **Linux**.
-    - **Версия**: если вы не знаете, что выбрать, используйте версию по умолчанию. Дополнительную информацию см. в статье [Версии кластеров HDInsight](hdinsight-component-versioning.md).
+    - **Версия**: используйте версию по умолчанию, если вы не знаете, что нужно выбрать. Дополнительную информацию см. в статье [Версии кластеров HDInsight](hdinsight-component-versioning.md).
     - **Уровень кластера**: Azure HDInsight предлагает облачные решения для работы с большими данными в двух категориях: "Стандартный" и "Премиум". Дополнительные сведения см. в статье [Уровни кластера](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
 6. Щелкните **Приложения**, выберите необходимое опубликованное приложение и нажмите кнопку **Выбрать**.
 6. Щелкните **Учетные данные** и введите пароль для пользователя с правами администратора. Необходимо также ввести **Имя пользователя SSH** и **ПАРОЛЬ** или **ОТКРЫТЫЙ КЛЮЧ**, которые будут использоваться для проверки подлинности пользователя SSH. Мы рекомендуем использовать открытый ключ. Нажмите кнопку **Выбрать** внизу страницы, чтобы сохранить учетные данные конфигурации.
@@ -116,10 +116,11 @@
 
 ## Дальнейшие действия
 
-- [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md) — узнайте, как развернуть в HDInsight приложение HDInsight с отмененной публикацией.
+- [Установка пользовательских приложений HDInsight](hdinsight-apps-install-custom-applications.md) — узнайте, как развернуть в HDInsight неопубликованное приложение HDInsight.
 - [Публикация приложений HDInsight в Azure Marketplace](hdinsight-apps-publish-applications.md) — узнайте, как опубликовать пользовательские приложения HDInsight в Azure Marketplace.
 - [Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx) (Установка приложения HDInsight) — сведения об определении приложений HDInsight.
 - [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md) — узнайте, как использовать действие скрипта для установки дополнительных приложений.
-- [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md) — узнайте, как вызывать шаблоны Resource Manager для создания кластеров HDInsight.
+- [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) — узнайте, как вызывать шаблоны Resource Manager для создания кластеров HDInsight.
+- [Использование пустых граничных узлов в HDInsight](hdinsight-apps-use-edge-node.md) — узнайте, как использовать пустой граничный узел для доступа к кластеру HDInsight, а также тестирования и размещения приложений HDInsight.
 
-<!----HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

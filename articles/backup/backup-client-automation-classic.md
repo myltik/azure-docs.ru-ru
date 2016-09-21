@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="markgal;jimpark;nkolli;trinadhk"/>
+	ms.date="09/01/2016"
+	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
 
 
 # Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью PowerShell
@@ -95,7 +95,7 @@ PS C:\> MARSAgentInstaller.exe /?
 ## Регистрация в службе архивации Azure
 Перед регистрацией в службе резервного копирования Azure убедитесь, что соблюдены [необходимые условия](backup-configure-vault.md). Необходимо следующее:
 
-- Действующая подписка на Azure
+- Действующая подписка Azure
 - Хранилище архивов
 
 Чтобы скачать учетные данные хранилища, выполните командлет **Get-AzureRMBackupVaultCredentials** в консоли Azure PowerShell. Сохраните данные в удобном расположении, например в папке *C:\\Downloads*.
@@ -599,4 +599,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 - [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 - [Резервное копирование серверов Windows](backup-configure-vault.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0907_2016-->

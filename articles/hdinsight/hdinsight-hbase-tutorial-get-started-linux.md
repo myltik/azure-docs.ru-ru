@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -183,7 +183,7 @@ HBase включает несколько методов загрузки дан
 
 		{"status":"ok","version":"v1"}
 
-	Ниже приведены параметры, используемые в этой команде.
+	Ниже приведены параметры, используемые в этой команде:
 
 	* **-u** — имя пользователя и пароль, используемый для аутентификации запроса.
 	* **-G** — указывает, что это запрос GET.
@@ -325,4 +325,4 @@ SSH может также использоваться для туннелиро
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

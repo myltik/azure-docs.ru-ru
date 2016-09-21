@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
 # Вход и выход веб-приложения с использованием Azure AD
@@ -21,11 +21,11 @@
 
 Здесь мы используем Passport для следующего:
 
-- Вход пользователя в приложение с помощью Azure AD и модели приложения версии 2.0.
+- Вход пользователя в приложение с помощью Azure AD.
 - Отображение некоторой информации о пользователе.
 - Выход пользователя из приложения.
 
-**Passport** — промежуточный слой проверки подлинности для Node.js. Он имеет очень гибкую и модульную структуру, которая позволяет сравнительно незаметно размещать данный слой в любом приложении на основе Express или в веб-приложении Resitify. Полный набор стратегий поддерживает процесс проверки подлинности с помощью имени пользователя и пароля, Facebook, Twitter и проч. Мы разработали стратегию для Microsoft Azure Active Directory. Мы установим этот модуль, а затем добавим подключаемый модуль Microsoft Azure Active Directory `passport-azure-ad`.
+**Passport** — промежуточный слой проверки подлинности для Node.js. Он имеет очень гибкую и модульную структуру, которая позволяет сравнительно незаметно размещать данный слой в любом приложении на основе Express или в веб-приложении Resitify. Полный набор стратегий поддерживает процесс проверки подлинности с помощью имени пользователя и пароля, Facebook, Twitter и проч. Мы разработали стратегию для Microsoft Azure Active Directory. Мы установим этот модуль, а затем добавим подключаемый модуль Microsoft Azure Active Directory `passport-azure-ad`.
 
 Для этого необходимо:
 
@@ -36,7 +36,7 @@
 
 Код в этом учебнике размещен на портале [GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS). Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) или клонировать ее:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
 Готовое приложение также приводится в конце этого руководства.
 
@@ -47,7 +47,7 @@
 - Перейдите во вкладку **Приложения** и нажмите кнопку Добавить в нижней панели.
 - Следуйте инструкциям на экране, а затем создайте новое **веб-приложение и/или WebAPI**.
     - **Имя** приложения отображает его описание конечным пользователям.
-    -	**URL-адрес входа** — это базовый URL-адрес вашего приложения. Схема по умолчанию — http://localhost:3000/auth/openid/return``.
+    -	**URL-адрес входа** — это базовый URL-адрес вашего приложения. Схема по умолчанию — http://localhost:3000/auth/openid/return``.
     - **URI идентификатора приложения** — это уникальный идентификатор вашего приложения. Соглашение заключается в использовании `https://<tenant-domain>/<app-name>`, например, `https://contoso.onmicrosoft.com/my-first-aad-app`
 - После завершения регистрации Azure AD присваивает приложению уникальный идентификатор клиента. Это значение понадобится в следующих разделах, поэтому его стоит скопировать из вкладки «Настройка».
 
@@ -71,7 +71,7 @@
 Будет выполнена установка библиотек, которые зависят от passport-azure-ad.
 
 ## 3\. Настройка приложения для использования стратегии passport-node-js
-Здесь мы настроим промежуточный слой Express для использования протокола проверки подлинности OpenID Connect. Кроме всего прочего, Passport будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
+Здесь мы настроим промежуточный слой Express для использования протокола проверки подлинности OpenID Connect.  Кроме всего прочего, Passport будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
 -	Сначала откройте файл `config.js` в корневом каталоге проекта, а затем укажите параметры конфигурации приложения в разделе `exports.creds`.
     -	`clientID:` — это **идентификатор приложения**, присвоенный приложению на портале регистрации.
@@ -205,7 +205,7 @@ app.configure(function() {
 
 // Our Auth routes (Section 3)
 
-// POST /auth/openid
+// GET /auth/openid
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in OpenID authentication will involve redirecting
 //   the user to their OpenID provider.  After authenticating, the OpenID
@@ -286,12 +286,12 @@ app.get('/logout', function(req, res){
 
 ```JavaScript
 
-// Простое ПО промежуточного слоя для маршрутизации, позволяющее пользователю пройти проверку подлинности. (Раздел 4)
+// Simple route middleware to ensure user is authenticated. (Section 4)
 
-//   Используйте это ПО промежуточного слоя маршрутизации для всех ресурсов, которые необходимо защитить.  Если
-//   запрос пройдет проверку подлинности (обычно с помощью постоянного сеанса входа),
-//   запрос будет продолжен. В противном случае, пользователь будет перенаправлен на
-//   страницу входа.
+//   Use this route middleware on any resource that needs to be protected.  If
+//   the request is authenticated (typically via a persistent login session),
+//   the request will proceed.  Otherwise, the user will be redirected to the
+//   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login')
@@ -414,4 +414,4 @@ exports.list = function(req, res){
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0907_2016-->
