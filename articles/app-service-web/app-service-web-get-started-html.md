@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2016" 
+	ms.date="09/16/2016" 
 	ms.author="cephalin"
 />
 	
 # Развертывание первого веб-приложения в Azure за пять минут
 
-Это руководство поможет вам развернуть ваше первое веб-приложение в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md). В службе приложений можно создавать веб-приложения, [серверные части мобильных приложений](/documentation/learning-paths/appservice-mobileapps/) и [приложения API](../app-service-api/app-service-api-apps-why-best-platform.md).
+Это руководство поможет вам развернуть простое веб-приложение HTML+CSS в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md). В службе приложений можно создавать веб-приложения, [серверные части мобильных приложений](/documentation/learning-paths/appservice-mobileapps/) и [приложения API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
 Вы сможете выполнять следующие задачи:
 
 - создавать веб-приложения в службе приложений Azure;
-- развертывать примеры кода (ASP.NET, PHP, Node.js, Java или Python);
-- просматривать код, выполняющийся в рабочей среде в реальном времени;
-- обновлять веб-приложение так же, как вы [отправляете фиксации Git](https://git-scm.com/docs/git-push).
+- Развертывать в них код HTML и CSS.
+- Просматривать страницы, выполняющиеся в рабочей среде в реальном времени.
+- Обновлять содержимое так же, как вы [отправляете фиксации Git](https://git-scm.com/docs/git-push).
 
 ## Предварительные требования
 
@@ -43,7 +43,7 @@
 
 2. В меню слева щелкните **Создать** > **Интернет+мобильные устройства** > **Веб-приложение**.
 
-    ![начало создания первого веб-приложения в Azure](./media/app-service-web-get-started/create-web-app-portal.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
 
 3. В колонке создания приложения укажите следующие параметры нового приложения.
 
@@ -53,27 +53,27 @@
 
     Заполненная колонка создания приложения должна выглядеть так:
 
-    ![настройка первого веб-приложения в Azure](./media/app-service-web-get-started/create-web-app-settings.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
 
 3. Нажмите внизу кнопку **Создать**. Чтобы следить за ходом выполнения, щелкните вверху значок **Уведомление**.
 
-    ![уведомление о создании приложения для первого веб-приложения в Azure](./media/app-service-web-get-started/create-web-app-started.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
 
 4. Когда развертывание завершится, вы получите следующее уведомление. Щелкните его, чтобы открыть колонку с информацией о развертывании.
 
-    ![сообщение о завершении развертывания для первого веб-приложения в Azure](./media/app-service-web-get-started/create-web-app-finished.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
 
 5. В колонке **Развертывание прошло успешно** щелкните ссылку **Ресурс**, чтобы открыть колонку нового веб-приложения.
 
-    ![ссылка на ресурс для первого веб-приложения в Azure](./media/app-service-web-get-started/create-web-app-resource.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## Развертывание кода в веб-приложении
+## Развертывание содержимого в веб-приложении
 
-Давайте попробуем развернуть код в Azure с помощью Git.
+Теперь давайте развернем какое-нибудь содержимое в Azure с помощью Git.
 
 5. В колонке веб-приложения прокрутите вниз до пункта **Параметры развертывания** (либо найдите его с помощью поиска). Щелкните этот пункт.
 
-    ![параметры развертывания первого веб-приложения в Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
 6. Щелкните **Выбор источника** > **Локальный репозиторий Git** > **ОК**.
 
@@ -83,24 +83,15 @@
 
 7. В колонке веб-приложения прокрутите вниз до пункта **Свойства** (либо найдите его с помощью поиска). Щелкните этот пункт. Нажмите кнопку **Копировать** рядом с полем **URL-адрес Git**.
 
-    ![колонка свойств для первого веб-приложения в Azure](./media/app-service-web-get-started/deploy-web-app-properties.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
-    Теперь можно приступить к развертыванию кода с помощью Git.
+    Теперь можно приступить к развертыванию содержимого с помощью GIT.
 
 1. В командной строке перейдите в рабочий каталог (`CD`) и клонируйте пример приложения следующим образом:
 
-        git clone <github_sample_url>
+        git clone https://github.com/Azure-Samples/app-service-web-html-get-started.git
 
-    ![Клонирование примера кода для первого веб-приложения в Azure](./media/app-service-web-get-started/html-git-clone.png)
-
-    В качестве значения для *lt;пример\_url-адреса\_github>* используйте один из следующих URL-адресов в зависимости от выбранной платформы:
-
-    - HTML+CSS+JS: [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git);
-    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git);
-    - PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git);
-    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git);
-    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git);
-    - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git).
+    ![Клонирование примера кода для первого веб-приложения в Azure](./media/app-service-web-get-started-languages/html-git-clone.png)
 
 2. Перейдите в репозиторий примера приложения. Например:
 
@@ -114,15 +105,13 @@
 
         git push azure master
 
-    ![Отправка кода в первое веб-приложение в Azure](./media/app-service-web-get-started/html-git-push.png)
-
-    Если используется одна из языковых платформ, выходные данные будут отличаться. Это происходит потому, что команда `git push` не только помещает код в Azure, но и активирует задачи развертывания в подсистеме развертывания. Если в корневом каталоге проекта (репозитория) содержится файл package.json (Node.js) или файл requirements.txt (Python) либо если в проекте ASP.NET содержится файл packages.config, скрипт развертывания сможет автоматически восстановить необходимые пакеты. Вы также можете [включить расширение Composer](web-sites-php-mysql-deploy-use-git.md#composer) для автоматической обработки файлов composer.json в приложении PHP.
+    ![Отправка кода в первое веб-приложение в Azure](./media/app-service-web-get-started-languages/html-git-push.png)
 
 Вот и все! Ваш код теперь выполняется в Azure. В браузере перейдите по адресу http://*&lt;appname>*.azurewebsites.net, чтобы увидеть работу приложения в реальном времени.
 
 ## Внесение изменений в приложение
 
-Теперь с помощью Git можно в любой момент передать на рабочий сайт изменения из корневого каталога проекта (репозитория). Для этого нужно выполнить те же действия, что и при первом развертывании кода. Например, каждый раз, когда вам нужно отправить новое изменение, протестированное локально, просто выполните следующие команды из корневого каталога проекта (репозитория):
+Теперь с помощью Git можно в любой момент передать на рабочий сайт изменения из корневого каталога проекта (репозитория). Для этого нужно выполнить те же действия, что и при первом развертывании содержимого. Например, каждый раз, когда вам нужно отправить новое изменение, протестированное локально, просто выполните следующие команды из корневого каталога проекта (репозитория):
 
     git add .
     git commit -m "<your_message>"
