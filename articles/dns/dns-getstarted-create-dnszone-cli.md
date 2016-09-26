@@ -42,25 +42,25 @@
 
 Список команд поставщика сети для интерфейса командной строки можно вызвать с помощью следующей команды:
 
-	Azure network
+    azure network
 
 ### 2) Переключение режима интерфейса командной строки
 
 Azure DNS использует диспетчер ресурсов Azure. Обязательно переключите интерфейс командной строки (CLI) в режим использования команд ARM.
 
-	Azure config mode arm
+    azure config mode arm
 
 ### 3) Вход в учетную запись Azure
 
 Вам будет предложено указать свои учетные данные для проверки подлинности. Обратите внимание, что вы можете использовать только учетные записи ORGID.
 
-    Azure login -u "username"
+    azure login -u "username"
 
 ### 4\. Выбор подписки
 
 Выберите подписку Azure.
 
-    Azure account set "subscription name"
+    azure account set "subscription name"
 
 ### 5\. Создание группы ресурсов
 
@@ -68,14 +68,14 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 Если используется существующая группа ресурсов, можно пропустить этот шаг.
 
-    Azure group create -n myresourcegroup --location "West US"
+    azure group create -n myresourcegroup --location "West US"
 
 
 ### 6\. регистрация;
 
 Служба Azure DNS управляется поставщиком ресурсов Microsoft.Network. Вашу подписку Azure необходимо зарегистрировать, чтобы использовать этот поставщик ресурсов, прежде чем работать с Azure DNS. Эта операция выполняется один раз для каждой подписки.
 
-	Azure provider register --namespace Microsoft.Network
+    azure provider register --namespace Microsoft.Network
 
 
 ## Шаг 2. Создание зоны DNS
@@ -91,7 +91,7 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 Пример можно использовать для создания своей зоны DNS. Просто замените указанные значения собственными.
 
-    Azure network dns zone create myresourcegroup contoso.com
+    azure network dns zone create myresourcegroup contoso.com
 
 ### Создание зоны DNS и тегов
 
@@ -99,7 +99,7 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 Пример ниже можно использовать для создания зоны DNS и тегов. Просто замените указанные значения собственными.
 
-	Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+    azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Просмотр записей
 
