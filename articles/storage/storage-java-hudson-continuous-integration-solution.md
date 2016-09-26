@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
@@ -47,7 +47,7 @@ Hudson обеспечивает непрерывную интеграцию пр
 
     Если у вас нет решения Hudson, его можно запустить следующим образом:
 
-    1. На компьютере с поддержкой Java загрузите WAR-файл Hudson из http://hudson-ci.org/.
+    1. На компьютере с поддержкой Java загрузите WAR-файл Hudson из <http://hudson-ci.org/>.
     2. В командной строке, открытой на папке с WAR-файлом Hudson, запустите этот файл. Например, если вы загрузили версию 3.1.2:
 
         `java -jar hudson-3.1.2.war`

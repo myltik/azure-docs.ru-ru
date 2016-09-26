@@ -436,6 +436,6 @@ API управления службой обеспечивает програм�
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[облачной службой]: https://azure.microsoft.com/ru-RU/documentation/services/cloud-services/
+[облачной службой]: https://azure.microsoft.com/documentation/services/cloud-services/
 
 <!---HONumber=AcomDC_0914_2016-->

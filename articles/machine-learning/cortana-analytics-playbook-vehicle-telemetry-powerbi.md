@@ -82,7 +82,7 @@
 
 Загрузить приложение можно так:
 
-1.	Щелкните узел PowerBI в представлении схемы и на панели свойств перейдите по ссылке **Download Real-time Dashboard Application** (Скачать приложение панели мониторинга в реальном времени).![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard-new1.png)
+1.	Щелкните узел PowerBI в представлении схемы и на панели свойств перейдите по ссылке **Download Real-time Dashboard Application** (Скачать приложение панели мониторинга в реальном времени)![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard-new1.png)
 2.	Извлеките и сохраните приложение на локальном компьютере. ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/4-real-time-dashboard-application.png)
 
 3.	Запустите приложение **RealtimeDashboardApp.exe**.
@@ -307,7 +307,7 @@
 **Скачайте файл конструктора PowerBI.**
 
 -	Предварительно настроенный файл конструктора PowerBI входит в состав развертывания.
--	Щелкните узел PowerBI в представлении схемы и в области свойств щелкните ссылку **Download the PowerBI designer file** (Скачать файл конструктора PowerBI).![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+-	Щелкните узел PowerBI в представлении схемы и в области свойств щелкните ссылку **Download the PowerBI designer file** (Скачать файл конструктора PowerBI)![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 
 -	Сохраните файл на локальном компьютере.
 

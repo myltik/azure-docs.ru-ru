@@ -30,7 +30,7 @@
 
 3.  В колонке **Пользователи и группы** выберите **Все пользователи**.
 
-    ![Открытие колонки "Все пользователи"](./media/active-directory-users-assign-role-azure-portal/create-users-opru-RUers-blade.png)
+    ![Открытие колонки "Все пользователи"](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
 
 4. В колонке **Пользователи и группы — Все пользователи** выберите пользователя из списка.
 

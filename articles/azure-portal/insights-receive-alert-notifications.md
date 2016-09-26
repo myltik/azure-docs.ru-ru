@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-.<tags
+<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -34,17 +34,17 @@
 
 3. Выберите команду **Добавить оповещение**.
 
-	.![Добавление оповещения](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+	![Добавление оповещения](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. Правилу оповещения можно дать имя и выбрать описание, которое будет отображаться в уведомлении по электронной почте.
 
 5. Если вы выбрали раздел **Метрики** нужно задать условия и пороговое значение для метрики. Это период времени, который Azure использует для отслеживания и построения графика активности оповещения.
 
-	.![Условие и пороговое значение](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+	![Условие и пороговое значение](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. Вы также можете выбрать **События** и получать уведомление, когда происходит определенное событие.
 
-	.![События](./media/insights-receive-alert-notifications/Insights_Events.png)
+	![События](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Наконец, можно отправить уведомление по электронной почте ответственным администраторам.
 
@@ -54,7 +54,7 @@
 
 После создания правила оповещения на графике будет показан порог оповещения в сравнении со значением метрики за предыдущий день.
 
-.![События](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
+![События](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
 
 Конечно, это правило оповещения можно изменить и **Отключить**, а затем **Включить** его снова, если нужно временно прекратить получение соответствующих уведомлений.

@@ -187,7 +187,11 @@
 
 Параметры
 * event (строка) — userlogin.
-* user (строка) — уникальный идентификатор пользователя. <script> if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+* user (строка) — уникальный идентификатор пользователя.
+		<script>
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+		</script>
 
 ##4\. Использование рекомендаций с помощью JavaScript
 Код, использующий рекомендацию, запускается через то же событие JavaScript на веб-странице клиента. Ответ на рекомендацию включает идентификаторы рекомендуемых элементов, их имена и рейтинги. Рекомендуется использовать этот параметр только для отображения списка рекомендуемых элементов. Более сложная обработка (например, добавление метаданных элемента) должна выполняться при интеграции на стороне сервера.

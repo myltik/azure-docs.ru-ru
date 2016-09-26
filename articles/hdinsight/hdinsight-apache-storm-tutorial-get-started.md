@@ -9,7 +9,7 @@
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-.<tags
+<tags
    ms.service="hdinsight"
    ms.devlang="java"
    ms.topic="article"

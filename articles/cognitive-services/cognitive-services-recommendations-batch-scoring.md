@@ -8,7 +8,7 @@
 	manager="jhubbard"
 	editor="cgronlun"/>
 
-.<tags
+<tags
 	ms.service="cognitive-services"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"

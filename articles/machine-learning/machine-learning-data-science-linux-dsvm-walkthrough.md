@@ -185,7 +185,7 @@
 
 В левом меню щелкните **Параметры**. Укажите значение в поле **Идентификатор рабочей области**. ![2](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
 
-Выберите вкладку **Маркеры авторизации** в верхнем меню и укажите значение в поле **Primary Authorization Token** (Основной маркер авторизации).![3](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
+Выберите вкладку **Маркеры авторизации** в верхнем меню и укажите значение в поле **Primary Authorization Token** (Основной маркер авторизации)![3](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
 
 Загрузите пакет **AzureML** и укажите маркер и идентификатор рабочей области в качестве значений переменных в сеансе R на ВМ для обработки и анализа данных.
 

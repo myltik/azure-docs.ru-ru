@@ -178,16 +178,16 @@
 
 Дополнительные сведения о концентраторах событий см. в следующих источниках:
 
-- [Azure Event Hubs Archive][] (Архив концентраторов событий Azure)
+- [Azure Event Hubs Archive][] \(Архив концентраторов событий Azure)
 - Полный [пример приложения, использующего концентраторы событий][].
 - Пример [развертывания обработки событий при помощи концентраторов событий][].
-- [Event Hubs overview][] (Общие сведения о концентраторах событий Azure)
+- [Event Hubs overview][] \(Общие сведения о концентраторах событий Azure)
  
 
 [портал Azure]: https://portal.azure.com/
 [Azure Event Hubs Archive]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-create-storage-account/
+[About Azure storage accounts]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [Visual Studio Code]: https://code.visualstudio.com/
 [Event Hubs overview]: event-hubs-overview.md
 [пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

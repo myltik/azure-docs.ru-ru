@@ -7,7 +7,7 @@
 	manager="femila"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -47,7 +47,7 @@
 Выбрав приложение, щелкните вкладку **Настройка**, чтобы настроить политику условного доступа.
 
 
-  .![Правила доступа на основе устройств](./media/active-directory-conditional-access-policy-connected-applications/02.png "Правила доступа на основе устройств")
+  ![Правила доступа на основе устройств](./media/active-directory-conditional-access-policy-connected-applications/02.png "Правила доступа на основе устройств")
 
 
  
@@ -62,7 +62,7 @@
 
 3. **Принудительное выполнение приложения** — клиентские приложения (собственные приложения или приложения браузера), для которых необходимо выполнять оценку политики.
 
-  .![Правила доступа на основе устройств](./media/active-directory-conditional-access-policy-connected-applications/03.png "Правила доступа на основе устройств")
+  ![Правила доступа на основе устройств](./media/active-directory-conditional-access-policy-connected-applications/03.png "Правила доступа на основе устройств")
  
 
 ## Выбор пользователей, к которым будет применяться политика 
@@ -75,7 +75,7 @@
 
 - **Группы** — применяется для ограничения области только теми пользователями, которые являются членами группы или групп.
 
-.![Применить к](./media/active-directory-conditional-access-policy-connected-applications/11.png "Применить к")
+![Применить к](./media/active-directory-conditional-access-policy-connected-applications/11.png "Применить к")
 
 
 Установив флажок **Исключение**, можно исключить пользователей из этой политики при доступе к приложению. Эта функция полезна, когда вам необходимо временно разрешить доступ к приложению для определенных пользователей. Например, используйте этот параметр, если отдельные пользователи имеют устройства, которые не готовы для применения к ним политики условного доступа (еще не зарегистрированы, больше не соответствуют требованиям и т. д.).
@@ -97,7 +97,7 @@
 
 Добавление поддержки Mac ожидается в ближайшее время.
 
-  .![Устройства](./media/active-directory-conditional-access-policy-connected-applications/04.png "Приложения")
+  ![Устройства](./media/active-directory-conditional-access-policy-connected-applications/04.png "Приложения")
 
 
 
@@ -122,7 +122,7 @@
 
 - если они помечены в Azure AD службой System Center Configuration Manager 2016 как "соответствующие требованиям".
 
- .![Правила устройства](./media/active-directory-conditional-access-policy-connected-applications/06.png "Правила устройства")
+ ![Правила устройства](./media/active-directory-conditional-access-policy-connected-applications/06.png "Правила устройства")
  
 
 Персональные устройства Windows соответствуют требованиям, если они помечены в каталоге службой Microsoft Intune или сторонней системой управления мобильными устройствами (MDM), интегрированной с Azure AD, как **соответствующие требованиям**.
@@ -134,7 +134,7 @@
 
 Если выбрать определенные платформы устройств, то вы сможете выбрать один или несколько параметров, включая Android, iOS, Windows Mobile (телефоны и планшеты Windows 8.1) и Windows (все прочие устройства Windows, включая все устройства Windows 10). В этом случае оценка политики выполняется только для выбранных платформ. Если попытка доступа осуществляется с устройства, которое не входит в этот выбор, то оценка политики в отношении устройства не выполняется. Такое устройство получает доступ, если пользователь его также получил.
 
-.![Правила устройства](./media/active-directory-conditional-access-policy-connected-applications/07.png "Правила устройства")
+![Правила устройства](./media/active-directory-conditional-access-policy-connected-applications/07.png "Правила устройства")
   
 
 ## Выбор типа клиентских приложений, для которого будет выполняться оценка политики 
@@ -148,7 +148,7 @@
 - Только для собственных приложений
 
 
-.![Приложения](./media/active-directory-conditional-access-policy-connected-applications/08.png "Приложения")
+![Приложения](./media/active-directory-conditional-access-policy-connected-applications/08.png "Приложения")
 
 
 Если выбрать вариант **Для приложений браузера и собственных приложений**, то политика будет применяться при доступе к приложениям из:

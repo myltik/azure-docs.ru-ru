@@ -30,7 +30,7 @@
 
 3.  В колонке **Пользователи и группы** выберите **Пользователи**.
 
-    ![Открытие колонки "Пользователи"](./media/active-directory-users-delete-user-azure-portal/create-users-opru-RUers-blade.png)
+    ![Открытие колонки "Пользователи"](./media/active-directory-users-delete-user-azure-portal/create-users-open-users-blade.png)
 
 4. В колонке **Пользователи и группы — Пользователи** выберите пользователя из списка.
 

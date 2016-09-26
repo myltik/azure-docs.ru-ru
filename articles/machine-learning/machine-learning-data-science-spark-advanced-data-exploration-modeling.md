@@ -305,7 +305,7 @@ datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
 
 ![Распределение суммы чаевых](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-distribution.png)
 
-.![Сумма чаевых в зависимости от количества пассажиров](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-passenger-count.png)
+![Сумма чаевых в зависимости от количества пассажиров](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-passenger-count.png)
 
 ![Сумма чаевых в зависимости от тарифа](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)
 

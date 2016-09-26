@@ -8,7 +8,7 @@
 	authors="mumian"
 	documentationCenter=""/>
 
-.<tags
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -103,7 +103,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 	В кластере HDInsight доступен веб-интерфейс Storm.
 
-	.![HDInsight, storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	![HDInsight, storm, масштабирование, перераспределение](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
 

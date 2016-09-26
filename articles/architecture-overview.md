@@ -83,6 +83,6 @@
 
 Корпорацией Майкрософт было издано несколько постеров и инфографиков по теме проектирования архитектуры. В их числе можно назвать [Создание облачных приложений для работы в реальных условиях](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) и [Масштабирование приложений с использованием облачных служб](https://azure.microsoft.com/documentation/infographics/cloud-services/).
 
-.![Инфографика архитектуры Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
+![Инфографика архитектуры Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
 <!---HONumber=AcomDC_0914_2016-->

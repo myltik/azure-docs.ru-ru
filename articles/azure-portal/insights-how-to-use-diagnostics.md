@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Включение мониторинга и диагностики в Microsoft Azure | Microsoft Azure "
 	description="Узнайте, как настроить диагностику ресурсов в Azure."
 	authors="rboucher"
@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-.<tags
+<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

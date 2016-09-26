@@ -61,7 +61,7 @@
 Ниже приведены шаги по созданию экземпляра виртуальной машины Linux для обработки и анализа данных.
 
 1.	Перейдите к списку виртуальных машин на [портале Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2.	 В нижней части страницы нажмите кнопку **Создать**. Откроется мастер.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+2.	 В нижней части страницы нажмите кнопку **Создать**. Откроется мастер![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 В следующих разделах приведены входные данные для всех шагов мастера (номера см. справа на предыдущем рисунке) по созданию виртуальной машины Майкрософт для обработки и анализа данных. Ниже приведено описание входных данных, необходимых для настройки на каждом из шагов.
 
   	а. **Основные сведения**:

@@ -407,7 +407,7 @@ XUF99EW9OIQOMV7Q7 | Семейный седан
 1.	Щелкните узел PowerBI в представлении схемы и на панели свойств перейдите по ссылке Download Real-time Dashboard Application (Скачать приложение панели мониторинга в реальном времени). ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Рис. 17. Указания по настройке панели мониторинга Power BI*
 2.	Извлеките его и сохраните локально. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Рис. 18. Папка RealtimeDashboardApp*
 3.	Запустите приложение RealtimeDashboardApp.exe.
-4.	Укажите действительные учетные данные Power BI, войдите и нажмите кнопку «Принять».![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png)
+4.	Укажите действительные учетные данные Power BI, войдите и нажмите кнопку «Принять»![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19a-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png) ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19b-vehicle-telematics-realtimedashboardapp-sign-in-to-powerbi.png)
 
 *Рис. 19. RealtimeDashboardApp: вход в Power BI*
 

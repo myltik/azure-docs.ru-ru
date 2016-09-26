@@ -34,7 +34,7 @@
 
 3.  В колонке **Пользователи и группы** выберите **Пользователи** и щелкните **Добавить**.
 
-    ![Выбор команду "Добавить"](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
+    ![Выбор команду "Добавить"](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
 
 4. В колонке **Пользователь** в поле **Имя** введите отображаемое имя, а в поле **Имя пользователя** — имя для входа пользователя.
 
@@ -42,15 +42,15 @@
 
 6. При необходимости выберите **Профиль**, чтобы добавить имя, фамилию, должность и название отдела пользователя.
 
-		![Opening the user profile](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
+		![Opening the user profile](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
 
 	- Выберите **Группы**, чтобы добавить пользователя в одну или несколько групп.
 
-		![Добавление пользователя в группы](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
+		![Добавление пользователя в группы](./media/active-directory-users-create-external-azure-portal/create-users-user-groups.png)
 
 	- Выберите **Роль в организации**, чтобы назначить пользователю роль из списка **Роли**. Дополнительные сведения о ролях пользователей и администраторов см. в разделе [Назначение ролей администратора в Azure AD](active-directory-assign-admin-roles.md).
 
-		![Назначение роли для пользователя](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
+		![Назначение роли для пользователя](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
 
 7. Нажмите кнопку **Создать**.
 

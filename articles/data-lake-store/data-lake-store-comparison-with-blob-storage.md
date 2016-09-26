@@ -7,7 +7,7 @@
    manager="jhubbard"
    editor="cgronlun"/>
 
-.<tags
+<tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"

@@ -22,7 +22,7 @@
 
 Дополнительные сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager][].
 
-Дополнительные сведения о практиках и шаблонах соглашений об именовании ресурсов Azure см. в разделе [Recommended naming conventions for Azure resources][] (Рекомендуемые соглашения об именовании ресурсов Azure).
+Дополнительные сведения о практиках и шаблонах соглашений об именовании ресурсов Azure см. в разделе [Recommended naming conventions for Azure resources][] \(Рекомендуемые соглашения об именовании ресурсов Azure).
 
 Полный шаблон для создания концентратора событий и включения архива приведен [на сайте GitHub][].
 
@@ -286,7 +286,7 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
-  [Recommended naming conventions for Azure resources]: https://azure.microsoft.com/ru-RU/documentation/articles/guidance-naming-conventions/
+  [Recommended naming conventions for Azure resources]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
   [на сайте GitHub]: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive]
 
 <!---HONumber=AcomDC_0914_2016-->

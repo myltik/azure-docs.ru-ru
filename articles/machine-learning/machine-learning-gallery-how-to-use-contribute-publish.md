@@ -7,7 +7,7 @@
 	manager="jhubbard"
 	editor="cgronlun"/>
 
-.<tags
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
@@ -151,7 +151,7 @@
 ## Нам очень интересно ваше мнение!
 Мы хотим, чтобы Коллекция развивалась нашими пользователями и для наших пользователей. Вставьте значок справа от сообщения, чтобы дать нам знать, что вам нравится или не нравится в Коллекции.
 
-.![Отзыв](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
+![Отзыв](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
 ## Часто задаваемые вопросы
 **Хотелось бы внести изменения в рабочий процесс эксперимента, отправленного в Коллекцию. Как это можно сделать?**

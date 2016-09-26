@@ -1,4 +1,4 @@
-.<properties
+<properties
 	pageTitle="Azure Insights: примеры команд для Azure Insights | Microsoft Azure"
 	description="Примеры команд для доступа к функциям мониторинга Azure Insights. Azure Insights — это служба Microsoft Azure, которая позволяет выполнять автоматическое масштабирование облачных служб, виртуальных машин и веб-приложений, отправлять оповещения и осуществлять вызов URL-адресов на основе значений настроенных данных телеметрии."
 	authors="kamathashwin"

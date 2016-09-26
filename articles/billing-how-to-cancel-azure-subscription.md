@@ -9,7 +9,7 @@
 	tags="billing"
 	/>
 
-.<tags
+<tags
 	ms.service="billing"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -40,7 +40,7 @@
 
 5. Щелкните ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png), чтобы закрыть диалоговое окно и вернуться к странице подписки.
 
-	> [AZURE.NOTE] Если вы случайно отменили подписку с оплатой по мере пользования, то можете выполнить описанные [здесь](https://azure.microsoft.com/ru-RU/documentation/articles/billing-subscription-become-disable/) инструкции, чтобы повторно ее активировать.
+	> [AZURE.NOTE] Если вы случайно отменили подписку с оплатой по мере пользования, то можете выполнить описанные [здесь](https://azure.microsoft.com/documentation/articles/billing-subscription-become-disable/) инструкции, чтобы повторно ее активировать.
 
 > [AZURE.NOTE] Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
 

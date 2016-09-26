@@ -6,7 +6,7 @@
  authors="Thraka"
  manager="timlt"
  editor=""/>
-.<tags
+<tags
  ms.service="cloud-services"
  ms.devlang="na"
  ms.topic="article"

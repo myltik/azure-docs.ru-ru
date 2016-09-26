@@ -8,7 +8,7 @@
 	editor=""
     tags="azure-portal"/>
 
-.<tags
+<tags
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"

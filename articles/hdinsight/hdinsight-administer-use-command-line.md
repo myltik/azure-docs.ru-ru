@@ -8,7 +8,7 @@
 	tags="azure-portal"
 	documentationCenter=""/>
 
-.<tags
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"

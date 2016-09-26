@@ -46,11 +46,11 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    .![Приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Приложения")
+    ![Приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC700994.png "Приложения")
 
 4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    .![Добавление приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Добавление приложения")
+    ![Добавление приложения](./media/active-directory-saas-tinfoil-security-tutorial/IC749321.png "Добавление приложения")
 
 5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -78,7 +78,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-tinfoil-security-tutorial/IC798968.png "Настройка единого входа")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес ответа Tinfoil Security** введите свой URL-адрес службы Assertion Consumer Service (ACS) для Tinfoil Security (например, *https://www.tinfoilsecurity.com/saml/consume*"), а затем нажмите кнопку **Далее*.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес ответа Tinfoil Security** введите свой URL-адрес службы Assertion Consumer Service (ACS) для Tinfoil Security (например, *https://www.tinfoilsecurity.com/saml/consume*"), а затем нажмите кнопку **Далее**.
 
     >[AZURE.NOTE] URL-адрес ACS можно получить из метаданных Tinfoil Security (https://www.tinfoilsecurity.com/saml/metadata).
 

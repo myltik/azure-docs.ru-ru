@@ -7,7 +7,7 @@
    manager="jhubbard" 
    editor="cgronlun"/>
  
-.<tags
+<tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
    ms.topic="article"
@@ -63,7 +63,7 @@
 
 1. В колонке **Параметры** учетной записи Data Lake Analytics щелкните **Журналы диагностики**.
 
-	.![Просмотр ведения журнала диагностики](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Просмотр журналов диагностики")
+	![Просмотр ведения журнала диагностики](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Просмотр журналов диагностики")
 
 2. В колонке **Журналы диагностики** должны отображаться журналы, упорядоченные по категориям **Журналы аудита** и **Журналы запросов**.
 	* В журналы запросов записываются все запросы API к учетной записи Data Lake Analytics.
