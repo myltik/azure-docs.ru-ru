@@ -4,11 +4,11 @@
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
- manager="paulettm"
+ manager="jhubbard"
  editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags
+.<tags
  ms.service="hdinsight"
  ms.devlang="dotnet"
  ms.topic="article"
@@ -146,7 +146,7 @@ Power BI позволяет визуально представлять данн
 
 2. Нажмите кнопку **Завершить**, чтобы остановить топологию.
 
-    ![Кнопка "Завершить" в сводке топологии](./media/hdinsight-storm-power-bi-topology/killtopology.png)
+    .![Кнопка "Завершить" в сводке топологии](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
 ## Удаление кластера
 
@@ -158,4 +158,4 @@ Power BI позволяет визуально представлять данн
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 
@@ -68,7 +68,7 @@
 
 Библиотека Microsoft Avro содержит служебную программу создания кода, которая позволяет создавать типы C# автоматически на основе ранее определенной схемы JSON. Эта служебная программа создания кода не распространяется в виде двоичного исполняемого файла, но ее можно легко построить с помощью следующей процедуры.
 
-1. Загрузите ZIP-файл с последней версией исходного кода пакета SDK для HDInsight со страницы <a href="http://hadoopsdk.codeplex.com/SourceControl/latest" target="_blank">Microsoft .NET SDK для Hadoop</a>. (Щелкните значок **Загрузить**.)
+1. Загрузите ZIP-файл с последней версией исходного кода пакета SDK для HDInsight со страницы <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK для Hadoop</a>. (Щелкните значок **Download** (Скачать), а не вкладку **Downloads** (Загрузки).)
 
 2. Извлеките пакет SDK для HDInsight в каталог на подключенном к Интернету компьютере с установленной платформой .NET Framework 4 для загрузки пакетов NuGet необходимых зависимостей. Далее подразумевается, что исходный код извлечен в папку C:\\SDK.
 
@@ -1403,4 +1403,4 @@
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

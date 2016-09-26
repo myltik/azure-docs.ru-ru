@@ -6,7 +6,7 @@
    authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
-<tags
+.<tags
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -75,4 +75,4 @@
 
 Чтобы узнать, как создать шлюз приложений с маршрутизацией содержимого на основе URL-адресов, за дополнительной информацией обратитесь к статье [Создание шлюза приложений с помощью маршрутизации на основе URL-адресов](application-gateway-create-url-route-arm-ps.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

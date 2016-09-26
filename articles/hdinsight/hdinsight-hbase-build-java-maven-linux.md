@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2016"
+	ms.date="09/14/2016"
 	ms.author="larryfr"/>
 
 #Использование Maven для выполнения сборки приложений Java, которые используют HBase с HDInsight (Hadoop) под управлением Linux
@@ -52,7 +52,7 @@
 
 	* __pom.xml__ — это модель объекта проекта ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)), которая содержит информацию и подробности конфигурации, использующиеся при сборке проекта;
 
-	* __src__ — каталог, в котором содержится каталог __main/java/com/microsoft/examples__, в котором будет создаваться приложение.
+	* __src__ — каталог, в котором содержится каталог __main/java/com/microsoft/examples__, в котором будет создаваться приложение.
 
 3. Удалите файл __src/test/java/com/microsoft/examples/apptest.java__, так как он не используется в этом примере.
 
@@ -343,7 +343,7 @@
 
 3. После завершения выполнения команды в каталоге __hbaseapp/target__ будет находиться файл с именем __hbaseapp-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE] Файл __hbaseapp-1.0-SNAPSHOT.jar__ относится к типу «uber jar» (другое название — «fat jar») и содержит все зависимости, необходимые для работы приложения.
+	> [AZURE.NOTE] Файл __hbaseapp-1.0-SNAPSHOT.jar__ относится к типу «uber jar» (другое название — «fat jar») и содержит все зависимости, необходимые для работы приложения.
 
 ##Передача JAR-файла и запуск заданий
 
@@ -390,4 +390,4 @@
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

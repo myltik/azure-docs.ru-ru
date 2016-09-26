@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="onewth"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -297,4 +297,4 @@
 
 Чтобы узнать, как возможности текстовой аналитики, например тональность, можно использовать в программе-роботе, ознакомьтесь с примером [Emotional Bot](http://docs.botframework.com/ru-RU/bot-intelligence/language/#example-emotional-bot) на сайте Bot Framework.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -58,7 +58,7 @@
 
 4. В диалоговом окне **Создать службу приложений** щелкните **Добавить учетную запись** (а затем в раскрывающемся списке выберите **Добавить учетную запись**), чтобы войти в учетную запись Azure.
 
-5. После этого перейдите на страницу "Настройка" веб-приложения. Нажмите кнопку **Создать**, чтобы создать группу ресурсов и план службы приложений. Чтобы продолжить, щелкните **Explore additional services** (Анализ дополнительных служб).
+5. После этого перейдите на страницу "Настройка" веб-приложения. Нажмите кнопку **Создать**, чтобы создать группу ресурсов и план службы приложений. Чтобы продолжить, щелкните **Обзор дополнительных служб Azure**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)
 
@@ -382,4 +382,4 @@
 
 [Protect the Application with SSL and the Authorize Attribute]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

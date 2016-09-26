@@ -46,10 +46,9 @@
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Задайте подписку Azure для текущего сеанса. Замените все содержимое внутри кавычек, включая знаки < и >, правильными именами.
+Задайте подписку Azure для текущего сеанса. Замените все содержимое внутри кавычек, включая знаки < и >, правильным именем.
 
-	$subscr="<subscription name>"
-	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+	Select-AzureRmSubscription –SubscriptionName "<subscription name>"
 
 >[AZURE.NOTE] Регистрация — однократное действие, но, прежде чем выполнять миграцию, вам нужно зарегистрироваться. Если вы не зарегистрируетесь, отобразится такое сообщение об ошибке:
 
@@ -71,10 +70,9 @@
 
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Задайте подписку Azure для текущего сеанса. Замените все содержимое внутри кавычек, включая знаки < и >, правильными именами.
+Задайте подписку Azure для текущего сеанса. Замените все содержимое внутри кавычек, включая знаки < и >, правильным именем.
 
-	$subscr="<subscription name>"
-	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
+	Select-AzureSubscription –SubscriptionName "<subscription name>"
 
 ## Шаг 4. Проверка наличия достаточного числа ядер виртуальной машины Azure Resource Manager в регионе Azure текущего развертывания или виртуальной сети
 
@@ -189,4 +187,4 @@ Get-AzureRmVMUsage -Location "<Your VNET or Deployment's Azure region"
 - [Техническое руководство по поддерживаемому платформой переносу из классической модели в модель Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 - [Клонирование классической виртуальной машины в Azure Resource Manager с помощью сценариев PowerShell](virtual-machines-windows-migration-scripts.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

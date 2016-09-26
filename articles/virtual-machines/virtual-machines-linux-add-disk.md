@@ -15,7 +15,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.date="04/29/2016"
+	ms.date="09/06/2016"
 	ms.author="rclaus"/>
 
 # Добавление диска к виртуальной машине Linux
@@ -277,4 +277,4 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 - Ознакомьтесь с рекомендациями по [оптимизации производительности виртуальной машины Linux](virtual-machines-linux-optimization.md), чтобы правильно настроить виртуальную машину Linux.
 - Увеличьте емкость хранилища, добавив дополнительные диски, и [настройте RAID](virtual-machines-linux-configure-raid.md) для повышения производительности.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

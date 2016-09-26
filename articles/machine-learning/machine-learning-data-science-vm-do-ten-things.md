@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -311,8 +311,8 @@ DSVM уже поставляется с набором клиентских ср
 
 Отправить данные из локального файла в виртуальной машине можно также с помощью обозревателя хранилищ Azure.
 
-- Чтобы передать данные в контейнер, выберите целевой контейнер и нажмите кнопку **Upload** (Передать). ![](./media/machine-learning-data-science-vm-do-ten-things/storage-accounts.png)
-- Щелкните знак **…** справа от поля **Files** (Файлы), выберите в файловой системе один или несколько файлов для передачи и нажмите кнопку **Upload** (Передать), чтобы начать их передачу. ![](./media/machine-learning-data-science-vm-do-ten-things/upload-files-to-blob.png)
+- Чтобы передать данные в контейнер, выберите целевой контейнер и нажмите кнопку **Upload** (Передать).![](./media/machine-learning-data-science-vm-do-ten-things/storage-accounts.png)
+- Щелкните знак **…** справа от поля **Files** (Файлы), выберите в файловой системе один или несколько файлов для передачи и нажмите кнопку **Upload** (Передать), чтобы начать их передачу.![](./media/machine-learning-data-science-vm-do-ten-things/upload-files-to-blob.png)
 
 
 **Чтение данных из BLOB-объекта Azure: модуль чтения AML**
@@ -907,4 +907,4 @@ Azure DocumentDB — это база данных NoSQL в облаке. Она
 ## Сводка
 Это только часть задач, которые можно выполнить на виртуальной машине Майкрософт для обработки и анализа данных. На самом деле существует множество вещей, позволяющих сделать ее эффективной аналитической средой.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -77,10 +77,10 @@
 
 ##Попробуйте сами
 
-Почему бы не попробовать. Щелкните [здесь](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive), чтобы развернуть собственное полностью работоспособное приложение логики с применением функций AS2 Logic Apps.
+Почему бы не попробовать. Щелкните [здесь](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/), чтобы развернуть собственное полностью работоспособное приложение логики с применением функций AS2 Logic Apps.
 
 ## Дальнейшие действия
 
 [Узнайте больше о пакете интеграции Enterprise.](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.")
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

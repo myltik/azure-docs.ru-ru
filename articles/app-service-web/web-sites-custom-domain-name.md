@@ -154,7 +154,7 @@
 <a name="cname"></a>
 ### Создание записи CNAME
 
-Если вы используете запись CNAME для сопоставления с именем домена по умолчанию приложения Azure, не нужно создавать дополнительную запись CNAME, как при использовании записи A.
+Если вы используете запись CNAME для сопоставления с доменным именем по умолчанию приложения Azure, то не нужно создавать дополнительную запись типа TXT, как при использовании записи A.
 
 >[AZURE.IMPORTANT] Не создавайте запись CNAME для корневого домена (т. е. "корневую запись"). Дополнительные сведения см. в статье [Why can't a CNAME record be used at the root domain](http://serverfault.com/questions/613829/why-cant-a-cname-record-be-used-at-the-apex-aka-root-of-a-domain) (Использование записи CNAME для корневого домена). Чтобы сопоставить корневой домен с приложением Azure, используйте [запись А](#a).
 
@@ -249,4 +249,4 @@
 <!-- Images -->
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

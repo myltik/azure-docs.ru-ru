@@ -132,7 +132,7 @@
 
 | Имя псевдонима | Описание |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Поддерживаемые типы ресурса: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Поддерживаемые типы ресурса: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles. |
 | {resourceType}/sku.family | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
 | {resourceType}/sku.capacity | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
 | Microsoft.Compute/virtualMachines/imagePublisher | |
@@ -255,7 +255,7 @@
 
 ### Контроль служб: выбор каталога служб
 
-В представленном ниже примере показано, как использовать источник. В нем указано, что допускаются только службы типа Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\*. Остальные службы не отклоняются.
+В представленном ниже примере показано, как использовать источник. В нем указано, что допускаются только службы типа Microsoft.Resources/*, Microsoft.Compute/*, Microsoft.Storage/*, Microsoft.Network/*. Остальные службы не отклоняются.
 
     {
       "if" : {
@@ -414,6 +414,27 @@
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
+### Создание определения политики с помощью интерфейса командной строки Azure
+
+Можно создать новое определение политики с помощью интерфейса командной строки Azure (Azure CLI) и команды определения политики, как показано ниже. Приведенные ниже примеры создают политику, разрешающую использовать только ресурсы в Северной и Западной Европе.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    
+    
+
+Вместо встроенного указания политики можно указать путь к файлу JSON, содержащему политику, как показано ниже.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
+
 
 ## Применение политики
 
@@ -456,17 +477,46 @@
 
 Аналогично вы можете получать, изменять или удалять назначения политик с помощью командлетов Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment и Remove-AzureRmPolicyAssignment, соответственно.
 
+### Назначение политики с помощью интерфейса командной строки Azure
+
+Политику, созданную выше, можно применить к требуемой области с помощью интерфейса командной строки Azure и команды назначения политики, как показано ниже.
+
+    azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+Область — это указанное имя группы ресурсов. Если значение параметра policy-definition-id неизвестно, то его можно получить с помощью интерфейса командной строки Azure, как показано ниже.
+
+    azure policy definition show <policy-name>
+
+Если вы хотите удалить приведенное выше назначение политики, это можно сделать следующим образом.
+
+    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+С помощью команд policy definition show, policy definition set и policy definition delete можно соответственно получить, изменить или удалить определения политики.
+
+Аналогичным образом с помощью команд policy assignment show, policy assignment set и policy assignment delete можно получить, изменить или удалить назначения политики.
+
 ##События аудита политики
 
-После применения политики вы начнете видеть связанные с ней события. Для получения этих данных вы можете перейти на портал или использовать PowerShell.
+После применения политики вы начнете видеть связанные с ней события. Для получения этих данных вы можете перейти на портал, воспользоваться PowerShell или интерфейсом командной строки Azure.
 
-Чтобы просмотреть все события, связанные с эффектом запрета, вы можете использовать следующую команду.
+### Просмотр событий аудита политики с помощью PowerShell
+
+Чтобы просмотреть все события, связанные с эффектом запрета, вы можете использовать следующую команду PowerShell.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 Чтобы просмотреть все события, связанные с эффектом аудита, вы можете использовать следующую команду.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
-    
 
-<!---HONumber=AcomDC_0810_2016-->
+### Просмотр событий аудита политики с помощью интерфейса командной строки Azure
+
+Чтобы просмотреть все события в группе ресурсов, связанные с эффектом запрета, вы можете использовать следующую команду интерфейса командной строки.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/deny/action")"
+
+Чтобы просмотреть все события, связанные с эффектом аудита, вы можете использовать следующую команду интерфейса командной строки.
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/audit/action")"
+
+<!---HONumber=AcomDC_0914_2016-->

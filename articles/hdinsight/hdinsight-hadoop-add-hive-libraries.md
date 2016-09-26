@@ -4,7 +4,7 @@ description="Узнайте, как добавлять библиотеки Hive
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -88,4 +88,4 @@ __Требования__
 
 В этом документе вы узнали, как добавлять библиотеки Hive, содержащиеся в JAR-файлах, в кластер HDInsight во время его создания. Дополнительные сведения о работе с Hive см. в статье [Использование Hive с HDInsight](hdinsight-use-hive.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

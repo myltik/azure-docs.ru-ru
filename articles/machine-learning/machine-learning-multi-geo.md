@@ -4,7 +4,7 @@
    services="machine-learning"
    documentationCenter=""
    authors="tedway"
-   manager="paulettm"
+   manager="jhubbard"
    editor="rmca14"
    tags=""/>
 
@@ -53,10 +53,10 @@
 
 Задайте вопрос на [форуме по Машинному обучению Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=MachineLearning).
 
-<!--Image references-->
+.<!--Image references-->
 [1]: ./media/machine-learning-multi-geo/multi-geo_1.png
 [2]: ./media/machine-learning-multi-geo/multi-geo_2.png
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

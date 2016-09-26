@@ -9,7 +9,7 @@
 	tags="billing"
 	/>
 
-<tags
+.<tags
 	ms.service="billing"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -22,7 +22,7 @@
 
 >[AZURE.NOTE] Срок плана поддержки Azure — 6 месяцев, а корпорация Майкрософт требует непрерывного соблюдения финансовых обязательств на его протяжении. При досрочной отмене оставшееся обязательство не аннулируется, а предоплаченные суммы не возмещаются. Если подписка отменена по ошибке и ее нужно активировать повторно, обратитесь за помощью в [службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Если отменить подписку, все службы будут немедленно удалены. Обязательно создайте резервную копию данных, которые вы хотите сохранить, до отмены.
+В случае отмены подписки данные будут храниться еще 90 дней в соответствии с [политикой хранения корпорации Майкрософт](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Дополнительные сведения см. в [центре управления безопасностью корпорации Майкрософт](https://www.microsoft.com/ru-RU/TrustCenter/Privacy/You-are-in-control-of-your-data).
 
 1. Выполните вход в [Центр учетных записей Azure](https://account.windowsazure.com/subscriptions) в качестве администратора учетной записи.
 
@@ -40,6 +40,8 @@
 
 5. Щелкните ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png), чтобы закрыть диалоговое окно и вернуться к странице подписки.
 
+	> [AZURE.NOTE] Если вы случайно отменили подписку с оплатой по мере пользования, то можете выполнить описанные [здесь](https://azure.microsoft.com/ru-RU/documentation/articles/billing-subscription-become-disable/) инструкции, чтобы повторно ее активировать.
+
 > [AZURE.NOTE] Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -43,9 +43,9 @@
 
 | &nbsp; | Статья | Фрагмент обновленного текста |
 | --: | :-- | :-- |
-| 8 | [Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета .NET SDK фабрики данных](data-factory-create-data-factories-programmatically.md) | **Вход без всплывающего диалогового окна** Приведенный выше образец кода запускает диалоговое окно для ввода учетных данных Azure. Если требуется выполнить вход программным образом без применения диалогового окна, см. раздел "Проверка подлинности субъекта-службы в Azure Resource Manager" (resource-group-authenticate-service-principal.md authenticate-service-principal-with-certificate---powershell). **Пример** Создайте метод GetAuthorizationHeaderNoPopup, как показано ниже. public static string GetAuthorizationHeaderNoPopup() { var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings "ActiveDirectoryTenantId" ); var context = new AuthenticationContext(authority.AbsoluteUri); var credential = new ClientCredential(ConfigurationManager.AppSettings "AdfClientId" , ConfigurationManager.AppSettings "AdfClientSecret" ); AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings "WindowsManagementUri" , credential).Result; |
+| 8 | [Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета .NET SDK фабрики данных](data-factory-create-data-factories-programmatically.md) | **Вход без всплывающего диалогового окна** Приведенный выше образец кода запускает диалоговое окно для ввода учетных данных Azure. Если требуется выполнить вход программным образом без применения диалогового окна, см. раздел "Проверка подлинности субъекта-службы в Azure Resource Manager" (resource-group-authenticate-service-principal.md authenticate-service-principal-with-certificate---powershell). ** Пример** Создайте метод GetAuthorizationHeaderNoPopup, как показано ниже. public static string GetAuthorizationHeaderNoPopup() { var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings "ActiveDirectoryTenantId" ); var context = new AuthenticationContext(authority.AbsoluteUri); var credential = new ClientCredential(ConfigurationManager.AppSettings "AdfClientId" , ConfigurationManager.AppSettings "AdfClientSecret" ); AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings "WindowsManagementUri" , credential).Result; |
 | 9 | [Перемещение данных с помощью действия копирования](data-factory-data-movement-activities.md) | **Поддерживаемые форматы файлов** Действие копирования может копировать файлы "как есть" из одного файлового хранилища данных в другое (это такие хранилища, как большой двоичный объект Azure, файловая система и распределенная файловая система Hadoop (HDFS)). Для этого нужно пропустить раздел формата (data-factory-create-datasets.md) в определениях наборов входных и выходных данных. Это позволяет эффективно копировать данные без какой-либо сериализации или десериализации. Кроме того, действие копирования позволяет читать файлы таких форматов (и делать в них записи): текстовый формат, AVRO, ORC и JSON. Вот некоторые примеры действий копирования, доступных для вас: / копирование данных в текстовом формате (CSV) из большого двоичного объекта Azure и запись в SQL Azure; / копирование файлов в текстовом формате (CSV) из локальной файловой системы и запись в большой двоичный объект Azure в формате AVRO; / копирование данных в базе данных SQL Azure и запись в локальную систему HDFS в формате ORC, **.a name="global"../a.Глобально доступное перемещение данных** Хотя фабрика данных Azure доступна только в западной и восточной части США, а также в Северной Европе, служба, на базе которой реализовано действие копирования, доступна в указанных ниже географических регионах по всему миру.|
-| 10 | [Перемещение данных из источника OData с помощью фабрики данных Azure](data-factory-odata-connector.md) | **Использование проверки подлинности Windows при получении доступа к локальному источнику OData**{ "name": "inputLinkedService", "properties": { "type": "OData", "typeProperties": { "url": ".endpoint of on-premises OData source e.g. Dynamics CRM.", "authenticationType": "Windows", "username": "domain\\user", "password": "password", "gatewayName": "mygateway" } } } |
+| 10 | [Перемещение данных из источника OData с помощью фабрики данных Azure](data-factory-odata-connector.md) | ** Использование проверки подлинности Windows при получении доступа к локальному источнику OData**{ "name": "inputLinkedService", "properties": { "type": "OData", "typeProperties": { "url": ".endpoint of on-premises OData source e.g. Dynamics CRM.", "authenticationType": "Windows", "username": "domain\\user", "password": "password", "gatewayName": "mygateway" } } } |
 
 
 
@@ -162,4 +162,4 @@
 | 66 | [Фабрика данных Azure — правила именования](data-factory-naming-rules.md) | Описывает правила именования для сущностей фабрик данных. |
 | 67 | [Устранение неполадок фабрики данных](data-factory-troubleshoot.md) | Узнайте, как устранять неполадки при использовании фабрики данных Azure. |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

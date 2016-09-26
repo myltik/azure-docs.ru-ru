@@ -7,13 +7,13 @@
   manager="johnmac"
   editor="mimig"/>
 
-<tags
+.<tags
   ms.service="documentdb"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="09/01/2016"
+  ms.date="09/12/2016"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -229,7 +229,7 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 ## Связаться с командой
 
-![Группа](./media/documentdb-community/documentdb-team.png)
+.![Группа](./media/documentdb-community/documentdb-team.png)
 
 Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам решение NoSQL? Вы можете [запланировать встречу один на один с представителем команды разработчиков DocumentDB](http://www.askdocdb.com/). Также нам можно написать [письмо](mailto:askdocdb@microsoft.com) или отправить твит по адресу [@DocumentDB](https://twitter.com/DocumentDB).
 
@@ -265,7 +265,8 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
  [Михаил Матеев](https://twitter.com/mihailmateev) | [![Михаил Матеев](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) |
  [Ларри Маккероне (Larry Maccherone)](https://twitter.com/lmaccherone) | [![Ларри Маккероне (Larry Maccherone)](./media/documentdb-community/wizard-larry-maccherone.jpg)](https://twitter.com/lmaccherone) 
  [Ховард Эдидин (Howard Edidin)](https://twitter.com/hsedidin) | [![Ховард Эдидин (Howard Edidin)](./media/documentdb-community/wizard-howard-edidin.jpg)](https://twitter.com/hsedidin) 
+ [Сантош Хари (Santosh Hari)](https://twitter.com/_s_hari) | [![Сантош Хари (Santosh Hari)](./media/documentdb-community/wizard-santosh-hari.jpg)](https://twitter.com/_s_hari) 
 
 Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

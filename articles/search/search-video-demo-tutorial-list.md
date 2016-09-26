@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -90,4 +90,4 @@
 [Учебник по созданию профиля повышения](search-get-started-scoring-profiles.md)|Тестовый выпуск профиля повышения с помощью консольного приложения.
 [Учебник по API REST управления службой поиска Azure](search-get-started-management-api.md)|Как использовать API REST управления для подготовки службы и управления ключами API администрирования или запросов.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

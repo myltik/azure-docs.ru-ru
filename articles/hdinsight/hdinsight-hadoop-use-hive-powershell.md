@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/16/2016"
+   ms.date="09/07/2016"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с помощью PowerShell
@@ -41,7 +41,7 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 При выполнении запросов Hive на удаленном кластере HDInsight используются следующие командлеты:
 
-* **Add-AzureRmAccount** — выполняет проверку подлинности Azure PowerShell для подписки Azure.
+* **Add-AzureRmAccount** — выполняет аутентификацию Azure PowerShell для подписки Azure.
 
 * **New-AzureRmHDInsightHiveJobDefinition** — создает новое *определение задания* с использованием заданных операторов HiveQL.
 
@@ -188,4 +188,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

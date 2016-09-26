@@ -3,7 +3,7 @@
 	description="Процесс перехода к средствам разработки на основе Azure Resource Manager для кластеров HDInsight"
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="nitinme"
 	documentationCenter=""/>
 
@@ -137,11 +137,11 @@ __Отображение данных кластера__
 Ниже перечислены новые командлеты, доступные только в режиме ARM.
 
 **Командлеты, связанные с действиями сценариев:**
-- **Get AzureRmHDInsightPersistedScriptAction**: возвращает список сохраняемых действий сценария для кластера, упорядоченный в хронологическом порядке, или получает сведения об указанном сохраняемом действии сценария. 
-- **Get AzureRmHDInsightScriptActionHistory**: возвращает журнал действий сценария для кластера, перечисленных в обратном хронологическом порядке, или получает сведения о действии сценария, выполненном ранее. 
+- **Get AzureRmHDInsightPersistedScriptAction**: возвращает список сохраняемых действий сценария для кластера, упорядоченный в хронологическом порядке, или получает сведения об указанном сохраняемом действии сценария.
+- **Get AzureRmHDInsightScriptActionHistory**: возвращает журнал действий сценария для кластера, перечисленных в обратном хронологическом порядке, или получает сведения о действии сценария, выполненном ранее.
 - **Remove-AzureRmHDInsightPersistedScriptAction**: удаляет из кластера HDInsight сохраняемое действие сценария.
 - **Set-AzureRmHDInsightPersistedScriptAction**: назначает выполненное ранее действие сценария сохраняемым действием сценария.
-- **Submit-AzureRmHDInsightScriptAction**: отправляет новое действие сценария в кластер Azure HDInsight. 
+- **Submit-AzureRmHDInsightScriptAction**: отправляет новое действие сценария в кластер Azure HDInsight.
 
 Дополнительные сведения об использовании см. в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -271,7 +271,7 @@ __Отображение данных кластера__
 		//Service principal auth
 		//This will log the application in as itself, rather than on behalf of a specific user.
 		//For details, including how to set up the application, see:
-		//   https://azure.microsoft.com/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
+		//   https://azure.microsoft.com/ru-RU/documentation/articles/hdinsight-create-non-interactive-authentication-dotnet-applications/
 		 
 		var authFactory = new AuthenticationFactory();
 		 
@@ -375,4 +375,4 @@ __Отображение данных кластера__
 
 		client.Clusters.Delete(resourceGroup, dnsname);
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0914_2016-->

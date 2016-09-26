@@ -19,21 +19,41 @@
 
 В следующей таблице приведено описание и ссылки на справочную страницу для каждого из основных командлетов в планировщике Azure.
 
+Чтобы установить решение Azure PowerShell и связать его с подпиской Azure, см. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+
+Дополнительные сведения о [командлетах Azure Resource Manager](https://msdn.microsoft.com/library/mt125356(v=azure.200).aspx) см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
+
 |Командлет|Описание командлета|
 |---|---|
-|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/library/azure/dn722516.aspx)**|Получает список заданий планировщика или конкретное задание планировщика.|
-|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn722471.aspx)**|Получает коллекции заданий планировщика.|
-|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/library/azure/dn722514.aspx)**|Получает журнал задания планировщика.|
-|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/library/azure/dn722505.aspx)**|Получает доступные расположения планировщика.|
-|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/library/azure/dn722492.aspx)**|Создает задание планировщика с действием HTTP.|
-|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn759640.aspx)**|Создает коллекцию заданий планировщика.|
-|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/library/azure/dn722518.aspx)**|Создает задание планировщика с действием хранилища.|
-|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/library/azure/dn722477.aspx)**|Удаляет задание планировщика.|
-|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn722530.aspx)**|Удаляет коллекцию заданий планировщика.|
-|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/library/azure/dn722474.aspx)**|Обновляет задание планировщика с действием HTTP.|
-|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/library/azure/dn759626.aspx)**|Обновляет коллекцию заданий планировщика.|
-|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/library/azure/dn722476.aspx)**|Обновляет задание планировщика с действием хранилища.|
+[Disable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490133(v=azure.200).aspx) |Отключает коллекцию заданий. 
+[Enable-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490135(v=azure.200).aspx) |Включает коллекцию заданий.
+[Get-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490125(v=azure.200).aspx) |Получает задания планировщика.
+[Get-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490132(v=azure.200).aspx) |Получает коллекции заданий.
+[Get-AzureRmSchedulerJobHistory](https://msdn.microsoft.com/library/mt490126(v=azure.200).aspx) |Получает журнал заданий.
+[New-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490136(v=azure.200).aspx) |Создает задание HTTP.
+[New-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490141(v=azure.200).aspx) |Создает коллекцию заданий.
+[New-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490134(v=azure.200).aspx) |Создает задание очереди служебной шины.
+[New-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490142(v=azure.200).aspx) |Создает задание раздела служебной шины.
+[New-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490127(v=azure.200).aspx) |Создает задание очереди хранилища. 
+[Remove-AzureRmSchedulerJob](https://msdn.microsoft.com/library/mt490140(v=azure.200).aspx) |Удаляет задание планировщика.  
+[Remove-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490131(v=azure.200).aspx) |Удаляет коллекцию заданий. 
+[Set-AzureRmSchedulerHttpJob](https://msdn.microsoft.com/library/mt490130(v=azure.200).aspx) |Изменяет задание HTTP планировщика.
+[Set-AzureRmSchedulerJobCollection](https://msdn.microsoft.com/library/mt490129(v=azure.200).aspx) |Изменяет коллекцию заданий. 
+[Set-AzureRmSchedulerServiceBusQueueJob](https://msdn.microsoft.com/library/mt490143(v=azure.200).aspx) |Изменяет задание очереди служебной шины.  
+[Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137(v=azure.200).aspx) |Изменяет задание раздела служебной шины. 
+[Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128(v=azure.200).aspx) |Изменяет задание очереди хранилища.   
 
+Для получения более подробных сведений можно выполнить следующие командлеты:
+
+```
+Get-Help <cmdlet name> -Detailed
+```
+```
+Get-Help <cmdlet name> -Examples
+```
+```
+Get-Help <cmdlet name> -Full
+```
 
 ## См. также
 
@@ -54,4 +74,4 @@
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

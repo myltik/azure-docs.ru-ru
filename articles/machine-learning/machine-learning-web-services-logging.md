@@ -4,10 +4,10 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="raymondlaghaeian" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
-<tags
+.<tags
 	ms.service="machine-learning"
 	ms.devlang="na"
 	ms.topic="article"
@@ -44,4 +44,4 @@
 
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

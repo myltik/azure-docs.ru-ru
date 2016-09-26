@@ -48,10 +48,10 @@
 
 Установите соответствующий агент для сервера узла.
 
-платформа | Установить
+Платформа | Установить
 ---|---
 Сервер IIS | [Установите монитор состояний на сервере](app-insights-monitor-performance-live-website-now.md) или [обновите свое приложение до .NET Framework 4.6 или более поздней версии](http://go.microsoft.com/fwlink/?LinkId=528259) и установите в нем пакет [SDK Application Insights](app-insights-asp-net.md).
-Веб-приложение Azure | [Расширение для Application Insights](../azure-portal/insights-perf-analytics.md)
+Веб-приложение Azure | [Расширение для Application Insights](app-insights-azure-web-apps.md)
 Веб-сервер Java | [Веб-приложения Java](app-insights-java-agent.md)
 Веб-страницы | [Монитор JavaScript](app-insights-javascript.md) (без дополнительной настройки, кроме мониторинга веб-страниц).
 Облачная служба Azure | [Используйте задачу при запуске](app-insights-cloudservices.md#dependencies) или [установите платформу .NET Framework 4.6 или более поздней версии](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
@@ -154,4 +154,4 @@
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

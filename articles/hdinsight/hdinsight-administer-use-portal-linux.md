@@ -4,11 +4,11 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags
+.<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -36,14 +36,14 @@
 
 	- В меню слева щелкните **Создать**, чтобы создать новый кластер.
 	
-		![Кнопка создания кластера HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
+		.![Кнопка создания кластера HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
 	- В меню слева щелкните **Кластеры HDInsight**, чтобы просмотреть список существующих кластеров.
 	
-		![Кнопка кластера HDInsight на портале Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
+		.![Кнопка кластера HDInsight на портале Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
         Если в меню слева нет пункта **HDInsight**, щелкните **Обзор** и выберите **Кластеры HDInsight**.
 
-        ![Кнопка обозревателя кластера на портале Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-browse-button.png)
+        .![Кнопка обозревателя кластера на портале Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-browse-button.png)
 
 ##Создание кластеров
 
@@ -60,7 +60,7 @@ HDInsight работает со множеством компонентов Hado
 
 	**Меню и основная информация**:
 
-	![Основная информация о кластере HDInsight на портале Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
+	.![Основная информация о кластере HDInsight на портале Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
 	
 	- **Параметры** и **Все параметры**: отображают колонку **Параметры** кластера, которая содержит подробные сведения о конфигурации кластера.
 	- **Панель мониторинга**, **Панель мониторинга кластера** и **URL-адрес: три способа перехода к панели мониторинга кластера, которая для кластеров под управлением Linux представляет собой веб-интерфейс Ambari.
@@ -78,11 +78,11 @@ HDInsight работает со множеством компонентов Hado
 
 	**Использование**:
 	
-	![Использование кластера HDInsight на портале Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-cluster-usage.png)
+	.![Использование кластера HDInsight на портале Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-cluster-usage.png)
 	
 5. Щелкните **Параметры**.
 
-	![Использование кластера HDInsight на портале Azure](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.cluster.settings.png)
+	.![Использование кластера HDInsight на портале Azure](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.cluster.settings.png)
 
 	- **Журналы аудита**:
     - **Быстрый запуск**: отображение сведений, необходимых для начала работы с HDInsight.
@@ -162,7 +162,7 @@ HDInsight работает со множеством компонентов Hado
 
 	В кластере HDInsight доступен веб-интерфейс Storm.
 
-	![hdinsight, storm, масштабирование, перераспределение](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)
+	.![hdinsight, storm, масштабирование, перераспределение](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.storm.rebalance.png)
 
 	Ниже приведен пример использования команды CLI для повторной балансировки топологии Storm:
 
@@ -180,7 +180,7 @@ HDInsight работает со множеством компонентов Hado
 3. В верхнем меню щелкните **Параметры** и выберите пункт **Масштабирование кластера**.
 4. В поле **Количество рабочих узлов** укажите нужное количество. Максимальное количество узлов кластера зависит от типа подписки Azure. Чтобы увеличить лимит, обратитесь в службу поддержки по вопросам выставления счетов. Сведения о затратах будут отражать внесенные изменения количества узлов.
 
-	![hdinsight, hadoop, hbase, storm, spark, масштабирование](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.png)
+	.![hdinsight, hadoop, hbase, storm, spark, масштабирование](./media/hdinsight-administer-use-portal-linux/hdinsight.portal.scale.cluster.png)
 
 ##Приостановка и завершение работы кластеров
 
@@ -286,7 +286,7 @@ Ambari изменит пароль на всех узлах в кластере.
 1. Войдите в веб-интерфейс Ambari с помощью учетных данных пользователя кластера HDInsight. Имя пользователя по умолчанию — **admin**. URL-адрес — **https://&lt;HDInsight\_имя\_кластера>azurehdinsight.net**.
 2. Откройте представление Hive, как показано на снимке экрана ниже:
 
-	![Представление Hive в HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
+	.![Представление Hive в HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
 3. В верхнем меню щелкните **Query** (Запрос).
 4. Введите запрос Hive в **редактор запросов**, а затем нажмите кнопку **Execute** (Выполнить).
 
@@ -333,4 +333,4 @@ Ambari изменит пароль на всех узлах в кластере.
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

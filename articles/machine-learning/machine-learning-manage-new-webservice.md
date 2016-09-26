@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="vDonGlover"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -97,4 +97,4 @@
 * **Top Web Service By Call** (Самые активные веб-службы по вызовам): отображает четыре веб-службы, которые осуществляют больше всего вызовов, оплачиваемых в соответствии c планом.
 * **Top Web Services by Compute Hrs** (Самые активные веб-службы по часам вычислений): отображает четыре веб-службы, которые используют больше всего вычислительных ресурсов, оплачиваемых в соответствии c планом.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

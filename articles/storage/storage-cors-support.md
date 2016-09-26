@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 
 # Поддержка общего доступа к ресурсам независимо от источника (CORS) для служб хранилища Azure
@@ -195,4 +195,4 @@
 
 [Спецификация общего доступа к ресурсам, независимо от источника W3C](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

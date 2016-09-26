@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -25,7 +25,7 @@
 
 **Предварительные требования:**
 
-* Прежде чем приступать к изучению этого учебника, необходимо оформить подписку Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Прежде чем приступать к изучению этого руководства, необходимо оформить подписку Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Кластер Apache Spark. Инструкции см. в разделе [Создание кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows рекомендуем воспользоваться [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -201,7 +201,7 @@
 
 	* **Имя шаблона** — **zeppelinnotebook**. Это просто понятное имя для шаблона.
 
-	* **Шаблон URL-адреса** — **\*hn0\*** . Определяет шаблон, который соответствует внутреннему полному доменному имени конечной точки размещения записных книжек Zeppelin. Поскольку записные книжки Zeppelin доступны только в узле headnode0 кластера, а конечной точкой обычно является `http://hn0-<string>.internal.cloudapp.net`, использование шаблона **hn0** обеспечит переадресацию запроса в конечную точку Zeppelin.
+	* **Шаблон URL-адреса** — ***hn0***. Определяет шаблон, который соответствует внутреннему полному доменному имени конечной точки размещения записных книжек Zeppelin. Поскольку записные книжки Zeppelin доступны только в узле headnode0 кластера, а конечной точкой обычно является `http://hn0-<string>.internal.cloudapp.net`, использование шаблона **hn0** обеспечит переадресацию запроса в конечную точку Zeppelin.
 
 		![шаблон FoxyProxy](./media/hdinsight-apache-spark-use-zeppelin-notebook/foxypattern.png)
 
@@ -387,4 +387,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2016"
+	ms.date="09/06/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Часто задаваемые вопросы о конкурсах Microsoft Cortana Intelligence
@@ -115,4 +115,4 @@
 
 Заявки пользователей сохраняются только в целях оценки для определения решений победителей. Подробнее об этом см. в наших [условиях](http://aka.ms/comptermsandconditions).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

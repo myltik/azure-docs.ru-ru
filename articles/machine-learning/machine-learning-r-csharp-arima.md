@@ -4,10 +4,10 @@
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="yijichen" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
-<tags 
+.<tags 
 	ms.service="machine-learning" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
@@ -134,8 +134,8 @@
 [3]: ./media/machine-learning-r-csharp-arima/arima-img3.png
 
 
-<!-- Module References -->
+.<!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

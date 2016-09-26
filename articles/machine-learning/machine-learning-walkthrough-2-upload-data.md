@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -69,7 +69,7 @@
 1.	Введите имя для набора данных. В этом пошаговом руководстве мы назовем его "UCI German Credit Card Data".
 1.	Для типа данных выберите **Универсальный CSV-файл без заголовка (.nh.csv)**.
 1.	При желании добавьте описание.
-1.	Нажмите кнопку **ОК**.  
+1.	Нажмите кнопку **ОК**.
 
 ![Передача набора данных][1]
 
@@ -84,4 +84,4 @@
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

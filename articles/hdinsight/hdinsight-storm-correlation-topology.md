@@ -4,7 +4,7 @@
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
- manager="paulettm"
+ manager="jhubbard"
  editor="cgronlun"
  tags="azure-portal"/>
 
@@ -167,7 +167,7 @@
 
 	> [AZURE.NOTE] Если **представление топологии Storm** не открывается автоматически, выполните следующие действия:
 	>
-	> 1. В **обозревателе решений** разверните **Azure**, а затем — **HDInsight**.
+	> 1. В **обозревателе решений ** разверните **Azure**, а затем — **HDInsight**.
 	>
 	> 2. Щелкните правой кнопкой мыши кластер Storm, в котором запущена топология, а затем выберите **Просмотреть топологии Storm**.
 
@@ -204,4 +204,4 @@
 Другие примеры топологий для Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->

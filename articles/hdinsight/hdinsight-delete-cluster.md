@@ -4,10 +4,10 @@ description="Сведения о различных способах удале�
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
-<tags
+.<tags
 ms.service="hdinsight"
 ms.devlang="na"
 ms.topic="article"
@@ -48,4 +48,4 @@ ms.author="larryfr"/>
     
 Замените __CLUSTERNAME__ именем кластера HDInsight.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

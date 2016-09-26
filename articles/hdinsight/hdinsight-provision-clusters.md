@@ -5,7 +5,7 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -42,7 +42,7 @@
 |-----|------|--------|
 |Hadoop| Головной узел (2), узел данных (от 1)|![Узлы кластера HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
 |HBase|Головной сервер (2), региональный сервер (от 1), основной узел или узел Zookeeper (3)|![Узлы кластера HDInsight HBase](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
-|Storm|Узел Nimbus (2), сервер супервизора (от 1), узел Zookeeper (3)|![Узлы кластера HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
+|Storm|Узел Nimbus (2), сервер супервизора (от 1), узел Zookeeper (3)|.![Узлы кластера HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
 |Spark|Головной узел (2), рабочий узел (от 1), узел Zookeeper (3) (кат. "Бесплатный" для размера виртуальной машины Zookeeper A1)|![Узлы кластера HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
 > [AZURE.IMPORTANT] Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
@@ -100,7 +100,7 @@
 
 В процессе настройки необходимо задать учетную запись хранения Azure и контейнер для хранения BLOB-объектов. В некоторых сценариях создания учетную запись и контейнер потребуется подготовить заранее. Кластер будет использовать этот контейнер в качестве хранилища по умолчанию. Вы также можете указать дополнительные учетные записи хранения Azure (связанные хранилища), к которым кластер получит доступ. Кластер также сможет получать доступ к любым контейнерам хранилища BLOB-объектов, настроенным с полным общим доступом для чтения или общим доступом для чтения только на уровне больших двоичных объектов. Подробнее см. в разделе [Управление доступом к ресурсам службы хранилища Azure](../storage/storage-manage-access-to-resources.md).
 
-![Хранилище HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
+.![Хранилище HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
 >[AZURE.NOTE] Большие двоичные объекты группируются в контейнерах хранилища BLOB-объектов следующим образом.
 
@@ -121,7 +121,7 @@
 
 Кластер HDInsight должен находиться в том же расположении Azure, что и его учетная запись хранения, используемая по умолчанию.
 
-![Регионы Azure](./media/hdinsight-provision-clusters/Azure.regions.png)
+.![Регионы Azure](./media/hdinsight-provision-clusters/Azure.regions.png)
 
 Просмотреть поддерживаемые регионы можно в раскрывающемся списке **Регион** на странице [Цены на HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
@@ -137,7 +137,7 @@
 
 При настройке кластера на портале Azure размер узла можно выбрать в колонке __Ценовая категория для узлов__. Здесь также отображаются расценки на узлы разных размеров. На следующем снимке экрана показаны варианты для кластера Hadoop под управлением Linux.
 
-![Размеры узла виртуальной машины HDInsight](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
+.![Размеры узла виртуальной машины HDInsight](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
 В таблицах ниже перечислены все размеры, поддерживаемые кластерами HDInsight, и предоставляемые ими возможности.
 
@@ -279,4 +279,4 @@
 | [Пакет SDK для .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Шаблоны диспетчера ресурсов Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

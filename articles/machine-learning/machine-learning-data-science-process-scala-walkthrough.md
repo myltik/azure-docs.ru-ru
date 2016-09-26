@@ -4,10 +4,10 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
-<tags
+.<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
@@ -43,7 +43,7 @@
 
 -	Для выполнения дальнейших действия требуется кластер Azure HDInsight 3.4 Spark 1.6. Создайте его, выполнив инструкции в статье [Начало работы. Создание кластера Apache Spark в HDInsight на платформе Linux и выполнение интерактивных запросов с помощью SQL Spark](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Укажите тип и версию кластера с помощью меню **Выберите тип кластера**.
 
-![Настройка типа кластера HDInsight](./media/machine-learning-data-science-process-scala-walkthrough/spark-cluster-on-portal.png)
+.![Настройка типа кластера HDInsight](./media/machine-learning-data-science-process-scala-walkthrough/spark-cluster-on-portal.png)
 
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -56,7 +56,7 @@
 
 Записную книжку Jupyter можно запустить с портала Azure. На панели мониторинга найдите кластер Spark и щелкните его, чтобы войти на страницу управления кластером. Затем щелкните **Панели мониторинга кластера** и выберите элемент **Записная книжка Jupyter**, чтобы открыть записную книжку, связанную с кластером Spark.
 
-![Панель мониторинга кластера и записные книжки Jupyter](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-on-portal.png)
+.![Панель мониторинга кластера и записные книжки Jupyter](./media/machine-learning-data-science-process-scala-walkthrough/spark-jupyter-on-portal.png)
 
 Также можно получить доступ к записным книжкам Jupyter по адресу https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Параметр *clustername* необходимо заменить именем своего кластера. Для доступа к записным книжкам Jupyter требуется пароль учетной записи администратора.
 
@@ -345,11 +345,11 @@ fare\_amount|passenger\_count|tip\_amount|tipped
 
 **Выходные данные:**
 
-![Гистограмма суммы чаевых](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-histogram.png)
+.![Гистограмма суммы чаевых](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-histogram.png)
 
-![Сумма чаевых в зависимости от количества пассажиров](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-passenger-count.png)
+.![Сумма чаевых в зависимости от количества пассажиров](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-passenger-count.png)
 
-![Сумма чаевых в зависимости от тарифа](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-fare-amount.png)
+.![Сумма чаевых в зависимости от тарифа](./media/machine-learning-data-science-process-scala-walkthrough/plot-tip-amount-by-fare-amount.png)
 
 
 ## Создание и преобразование признаков, а также последующая подготовка данных для ввода в функции моделирования
@@ -669,7 +669,7 @@ ROC для тестовых данных — 0,9827381497557599.
 
 **Выходные данные:**
 
-![Кривая ROC вероятности выплаты чаевых](./media/machine-learning-data-science-process-scala-walkthrough/plot-roc-curve-tip-or-not.png)
+.![Кривая ROC вероятности выплаты чаевых](./media/machine-learning-data-science-process-scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
 
 ### Создание модели классификации случайного леса
@@ -893,7 +893,7 @@ R-sqr для тестовых данных — 0,5960320470835743.
 
 **Выходные данные:**
 
-![Сумма чаевых: соотношение фактической и прогнозируемой суммы](./media/machine-learning-data-science-process-scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+.![Сумма чаевых: соотношение фактической и прогнозируемой суммы](./media/machine-learning-data-science-process-scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 
 ### Создание модели регрессии GBT
@@ -1164,4 +1164,4 @@ Test R-sqr — 0,6226484708501209
 
 В статье [Оценка моделей машинного обучения, созданных с помощью Spark](machine-learning-data-science-spark-model-consumption.md) показана процедура использования кода Scala для автоматической загрузки и оценки новых наборов данных с помощью встроенных моделей машинного обучения Spark с последующим сохранением в хранилище BLOB-объектов Azure. Чтобы включить автоматическое использование, просто замените код Python кодом Scala, следуя инструкциям в этой статье.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

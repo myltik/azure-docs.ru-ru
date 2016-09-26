@@ -19,7 +19,10 @@
 
 # Управление сетевыми группами безопасности с помощью портала предварительной версии
 
-[AZURE.INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
+> [AZURE.SELECTOR]
+- [Портал](virtual-network-manage-nsg-arm-portal.md)
+- [PowerShell](virtual-network-manage-nsg-arm-ps.md)
+- [Интерфейс командной строки Azure](virtual-network-manage-nsg-arm-cli.md)
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -184,4 +187,4 @@
 
 - [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

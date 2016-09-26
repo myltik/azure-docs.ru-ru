@@ -14,14 +14,10 @@
    ms.tgt_pltfrm="vm-windows"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="06/16/2016"
+   ms.date="09/09/2016"
    ms.author="delhan"/>
 
 # Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Windows в Azure
-
-> [AZURE.SELECTOR]
-- [Классический](../articles/virtual-machines/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
-- [Диспетчер ресурсов](../articles/virtual-machines/virtual-machines-windows-restart-resize-error-troubleshooting.md)
 
 Когда вы запускаете остановленную виртуальную машину Azure или изменяете размер существующей виртуальной машины Azure, часто возникает ошибка выделения ресурсов. Это происходит, когда кластер или регион не имеют доступных ресурсов или не поддерживают запрашиваемый размер виртуальной машины.
 
@@ -76,6 +72,6 @@
 
 ## Дальнейшие действия
 
-При возникновении проблем во время создания новой виртуальной машины Windows в Azure см. статью, посвященную [устранению неполадок в развертывании](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+При возникновении проблем во время создания виртуальной машины Windows в Azure см. статью, посвященную [устранению неполадок в развертывании](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

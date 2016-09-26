@@ -4,10 +4,10 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
-<tags
+.<tags
    ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
@@ -123,4 +123,4 @@ Data Lake Store позволяет управлять доступом к хра
 - [Начало работы с Azure Data Lake Store с помощью портала Azure](data-lake-store-get-started-portal.md)
 - [Защита данных в хранилище озера данных](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

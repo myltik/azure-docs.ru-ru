@@ -7,7 +7,7 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-<tags
+.<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
@@ -65,8 +65,8 @@
 * [Отслеживайте метрики службы](insights-how-to-customize-monitoring.md), чтобы убедиться, что служба доступна и отвечает на запросы.
 * [Включите отслеживание и диагностику](insights-how-to-use-diagnostics.md), чтобы собирать подробные метрики о службе с высокой частотой.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
-* [Отслеживайте производительность приложения](insights-perf-analytics.md), чтобы точно понять, как ваш код работает в облаке.
+* [Отслеживайте производительность приложения](../application-insights/app-insights-azure-web-apps.md), чтобы точно понять, как ваш код работает в облаке.
 * [Просматривайте журналы событий и аудита](insights-debugging-with-events.md), чтобы знать обо всем, что произошло в службе.
 * [Отслеживайте работоспособность службы](insights-service-health.md), чтобы знать, когда производительность Azure снизилась или работа службы нарушилась.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

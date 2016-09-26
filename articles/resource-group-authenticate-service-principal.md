@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="07/18/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам
@@ -23,177 +23,235 @@
 - [Интерфейс командной строки Azure](resource-group-authenticate-service-principal-cli.md)
 - [Портал](resource-group-create-service-principal-portal.md)
 
-При наличии приложения или сценария, которому требуется доступ к ресурсам, вы, вероятно, не захотите, чтобы этот процесс осуществлялся под вашими учетными данными. Учетная запись может иметь другие разрешения, которые можно назначить процессу, что, в свою очередь, может повлечь за собой изменение обязанностей, предусмотренных заданием. Вместо этого для приложения можно создать удостоверение, содержащее учетные данные проверки подлинности и назначения ролей. Эта учетная запись будет использоваться при каждом запуске приложения. В этой статье показано, как настроить использование собственных учетных данных и удостоверения для приложения с помощью [Azure PowerShell](powershell-install-configure.md).
-
-Кроме этого, в этой статье вы создадите два объекта — приложение Active Directory (AD) и субъект-службу. Приложение AD содержит учетные данные (идентификатор приложения и пароль или сертификат), а субъект-служба — назначение роли. Приложение AD позволяет создать множество субъектов-служб. В этой статье описывается однотенантное приложение, используемое в пределах одной организации. Обычно однотенантная архитектура используется для создания бизнес-приложений в рамках организации. Если приложение будет использоваться несколькими организациями, необходимо применить мультитенантную архитектуру. Обычно такая архитектура используется для создания приложений "программное обеспечение как услуга" (SaaS). Сведения о настройке мультитенантного приложения см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](resource-manager-api-authentication.md).
-
-При работе с Active Directory необходимо разобраться с многими понятиями. Более подробное описание приложений и субъектов-служб см. в разделе [Объекты приложений и объекты субъектов-служб](./active-directory/active-directory-application-objects.md). Дополнительные сведения об аутентификации Active Directory см. в статье [Сценарии проверки подлинности в Azure AD](./active-directory/active-directory-authentication-scenarios.md).
+При наличии приложения или скрипта, которому требуется доступ к ресурсам, вы, вероятно, не захотите, чтобы этот процесс осуществлялся под вашими учетными данными. Ваша учетная запись может иметь другие разрешения, необходимые для приложения, и использование ваших учетных данных приложением при изменении обязанностей будет нежелательным. Вместо этого для приложения можно создать удостоверение, содержащее учетные данные проверки подлинности и назначения ролей. При каждом запуске приложения выполняется автоматическая проверка подлинности с этими учетными данными. В этой статье показано, как настроить использование собственных учетных данных и удостоверения для приложения с помощью [Azure PowerShell](powershell-install-configure.md).
 
 В PowerShell доступно два варианта проверки подлинности для приложения AD:
 
  - пароль
  - на основе сертификата.
 
-Если после настройки приложения AD понадобится выполнять вход в Azure с другой платформы программирования (например, Python, Ruby или Node.js), рекомендуется использовать проверку подлинности на основе пароля. Прежде чем решить, какой тип проверки подлинности использовать (сертификат или пароль), просмотрите примеры проверки подлинности на разных платформах в разделе [Примеры приложений](#sample-applications).
+В этой статье показано, как применить оба варианта в PowerShell. Если вам нужно выполнять вход в Azure с платформы для программирования (например, Python, Ruby или Node.js), мы советуем использовать проверку подлинности на основе пароля. Прежде чем решить, какой тип проверки подлинности использовать (сертификат или пароль), просмотрите примеры проверки подлинности на разных платформах в разделе [Примеры приложений](#sample-applications).
 
-## Получение идентификатора клиента
+## Основные понятия Active Directory
 
-При каждом входе в приложение AD в качестве субъекта-службы необходимо указать идентификатор клиента каталога. Клиент — это экземпляр Active Directory. Идентификатор клиента понадобится нам при проверке подлинности, поэтому мы получим это значение сейчас.
+В этой статье вы создадите два объекта: приложение Active Directory (AD) и субъект-службу. Приложение AD является глобальным представлением вашего приложения. Оно содержит учетные данные (идентификатор приложения, а также пароль или сертификат). Субъект-служба — это локальное представление вашего приложения в Active Directory. Она содержит назначение роли. В этой статье описывается однотенантное приложение, используемое в пределах одной организации. Обычно однотенантная архитектура используется для создания бизнес-приложений в рамках организации. В однотенантном приложении содержится одно приложение AD и один субъект-служба.
+
+Вы, возможно, зададитесь вопросом, зачем нужно использовать оба объекта. Этот подход более рационален, когда речь идет о мультитенантных приложениях. Обычно в качестве мультитенантного приложения используется приложение на базе модели "программное обеспечение как услуга" (SaaS). Такое приложение работает в нескольких разных подписках. Мультитенантное приложение содержит одно приложение AD и несколько субъектов-служб (по одной на каждую учетную запись Active Directory, предоставляющую доступ к приложению). Сведения о настройке мультитенантного приложения см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](resource-manager-api-authentication.md).
+
+## Необходимые разрешения
+
+Для работы с этой статьей у вас должен быть достаточный уровень разрешений в подписке в Azure Active Directory и Azure. В частности, вы должны иметь право на создание приложения в Active Directory и назначение роли субъекту-службе.
+
+В Active Directory ваша учетная запись должна иметь права администратора (например, **глобального администратора** или **администратора пользователей**). Если вашей учетной записи назначена роль **пользователя**, вам нужно отправить запрос администратору на повышение уровня ваших разрешений.
+
+В вашей подписке учетная запись должна иметь доступ `Microsoft.Authorization/*/Write`, который предоставляется с ролью [владельца](./active-directory/role-based-access-built-in-roles.md#owner) или [администратора доступа пользователей](./active-directory/role-based-access-built-in-roles.md#user-access-administrator). Если вашей учетной записи назначена роль **участника**, вы получите сообщение об ошибке при попытке назначить роль субъекту-службе. Как и в предыдущем случае, администратор вашей подписки должен предоставить вам достаточный уровень разрешений для доступа.
+
+Теперь перейдите к соответствующему разделу, чтобы выполнить проверку подлинности на основе [пароля](#create-service-principal-with-password) или [сертификата](#create-service-principal-with-certificate).
+
+## Создание субъекта-службы с использованием пароля
+
+В этом разделе содержатся инструкции, которые помогут вам:
+
+- создать приложение AD с паролем;
+- создать субъект-службу;
+- назначить роль "Читатель" субъекту-службе.
+
+Чтобы быстро выполнить эти шаги, можно использовать три следующих командлета.
+
+     $app = New-AzureRmADApplication -DisplayName "{app-name}" -HomePage "https://{your-domain}/{app-name}" -IdentifierUris "https://{your-domain}/{app-name}" -Password "{your-password}"
+     New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+     New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+
+Давайте остановимся на этих шагах подробнее, чтобы разобраться со всей процедурой.
 
 1. Войдите в свою учетную запись.
 
         Add-AzureRmAccount
 
-2. Если у вас только одна подписка, используйте команду:
+1. Создайте новое приложение Active Directory. Для этого укажите отображаемое имя, универсальный код ресурса (URI), описывающий приложение, коды URI, идентифицирующие приложение, и пароль для его идентификации.
 
-        $tenant = (Get-AzureRmSubscription).TenantId
-    
-     При наличии нескольких подписок выберите подписку, которую вы хотите использовать для приложения AD. Выберите подписку Active Directory. Дополнительные сведения см. в статье [Администрирование каталога Azure AD](./active-directory/active-directory-administer.md).
+        $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org/exampleapp" -IdentifierUris "https://www.contoso.org/exampleapp" -Password "<Your_Password>"
 
-        $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+     Для однотенантных приложений коды URI не проверяются.
+     
+     Если ваша учетная запись не имеет [требуемых разрешений](#required-permissions) для Active Directory, вы увидите сообщение об ошибке с текстом "Authentication\_Unauthorized" (Аутентификация отклонена) или "No subscription found in the context" (В этом контексте подписки не обнаружены).
 
-Теперь перейдите к разделу ниже, чтобы использовать проверку подлинности на основе [пароля](#create-service-principal-with-password) или [сертификата](#create-service-principal-with-certificate).
+1. Проверьте новый объект приложения.
 
-## Создание субъекта-службы с использованием пароля
-
-В этом разделе описано создание приложения AD и субъекта-службы с использованием пароля.
-
-1. Создайте новое приложение Active Directory. Для этого укажите отображаемое имя для вашего приложения, URI страницы, описывающей его (ссылка не проверяется), коды URI, идентифицирующие приложение, и пароль для его удостоверения.
-
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -Password "<Your_Password>"
-
-     Проверьте новый объект приложения.
-
-        $azureAdApplication
+        $app
         
-     Обратите внимание на свойство **ApplicationId**, которое требуется для создания субъектов-служб, назначений ролей и получения маркера доступа.
+     Обратите внимание на свойство **ApplicationId**, которое требуется для создания субъектов-служб, назначения ролей и получения маркера доступа.
 
         DisplayName             : exampleapp
+        ObjectId                : c95e67a3-403c-40ac-9377-115fa48f8f39
+        IdentifierUris          : {https://www.contoso.org/example}
+        HomePage                : https://www.contoso.org
         Type                    : Application
         ApplicationId           : 8bc80782-a916-47c8-a47e-4d76ed755275
-        ApplicationObjectId     : c95e67a3-403c-40ac-9377-115fa48f8f39
         AvailableToOtherTenants : False
-        AppPermissions          : {}
-        IdentifierUris          : {https://www.contoso.org/example}
+        AppPermissions          : 
         ReplyUrls               : {}
-
-
-     Из приложения AD необходимо создать субъект-службу и назначить ей роль.
 
 2. Создайте субъект-службу для приложения, передав идентификатор приложения Active Directory.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 
-3. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере вы предоставите субъекту-службе разрешение на чтение всех ресурсов в подписке. Для параметра **ServicePrincipalName** укажите значение **ApplicationId** или **IdentifierUris**, которое использовалось при создании приложения. Дополнительные сведения о контроле доступа на основе ролей см. в статье [Контроль доступа на основе ролей Azure](./active-directory/role-based-access-control-configure.md). Чтобы назначить роль, требуется доступ `Microsoft.Authorization/*/Write`, который предоставляется с помощью роли [Владелец](./active-directory/role-based-access-built-in-roles.md#owner) или [Администратор доступа пользователей](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+3. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере показано, как назначить субъекту-службе роль **читателя**, которая дает разрешение на чтение всех ресурсов в подписке. Сведения о других ролях см. в статье [RBAC: встроенные роли](./active-directory/role-based-access-built-in-roles.md). Для параметра **ServicePrincipalName** укажите значение **ApplicationId**, которое использовалось при создании приложения.
 
-        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
 
-Вот и все! Приложение AD и субъект-служба настроены. В следующем разделе показано, как с помощью PowerShell выполнить вход, используя учетные данные. Если вы хотите использовать учетные данные в коде приложения, выполнять действия, описанные ниже, не требуется. Вы можете перейти к разделу [Примеры приложений](#sample-applications), где приведены примеры входа с использованием идентификатора приложения и пароля.
+    Если у вашей учетной записи нет достаточных разрешений для назначения ролей, вы получите сообщение об ошибке. В нем будет указано, что у вашей учетной записи **нет разрешения на выполнение действия Microsoft.Authorization/roleAssignments/write в области /subscriptions/{guid}**.
+
+Вот и все! Приложение AD и субъект-служба настроены. В следующем разделе показано, как выполнить вход с помощью учетных данных через PowerShell. Если вы хотите использовать свои учетные данные в коде приложения, вы можете перейти к [примерам приложений](#sample-applications).
 
 ### Предоставление учетных данных с помощью PowerShell
 
 Теперь следует войти в систему от имени приложения для выполнения операций.
 
-1. Создайте новый объект **PSCredential**, содержащий ваши учетные данные, выполнив команду **Get-Credential**. Для выполнения следующей команды вам потребуется значение **ApplicationId** или **IdentifierUris**. Убедитесь, что они доступны.
+1. Создайте объект **PSCredential**, который содержит ваши учетные данные, выполнив команду **Get-Credential**. Для выполнения следующей команды требуется значение **ApplicationId**. Убедитесь, что оно доступно.
 
         $creds = Get-Credential
 
-2. Появится запрос на ввод ваших учетных данных. В качестве имени пользователя используйте значение **ApplicationId** или **IdentifierUris**, которое применялось при создании приложения. Укажите пароль, который вы задали при создании учетной записи.
+2. Появится запрос на ввод ваших учетных данных. В качестве имени пользователя используйте значение **ApplicationId**, которое применялось при создании приложения. Укажите пароль, который вы задали при создании учетной записи.
 
      ![введите учетные данные](./media/resource-group-authenticate-service-principal/arm-get-credential.png)
 
-4. Выполните вход от имени субъекта-службы. Для этого укажите, что учетная запись является субъектом-службой, и предоставьте объект учетных данных. Вам потребуется идентификатор клиента, полученный при работе с разделом [Получение идентификатора клиента](#get-tenant-id).
+2. При каждом входе в приложение AD в качестве субъекта-службы необходимо указать идентификатор клиента каталога. Клиент — это экземпляр Active Directory. Если у вас только одна подписка, используйте команду:
+
+        $tenant = (Get-AzureRmSubscription).TenantId
+    
+     При наличии нескольких подписок выберите ту, где расположена ваша учетная запись Active Directory. Дополнительные сведения см. в статье [Связь между подписками Azure и службой Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
+
+        $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+
+4. Выполните вход от имени субъекта-службы. Для этого укажите, что учетная запись является субъектом-службой, и предоставьте объект учетных данных.
 
         Add-AzureRmAccount -Credential $creds -ServicePrincipal -TenantId $tenant
         
      После этого субъект-служба для созданного вами приложения Active Directory пройдет проверку подлинности.
 
-5. Сохраните профиль, чтобы повторно использовать текущий маркер доступа в следующем сеансе.
+### Сохранение маркера доступа для быстрого входа
+
+Чтобы не вводить учетные данные субъекта-службы каждый раз при входе, вы можете сохранить маркер доступа.
+
+1. Сохраните профиль, чтобы повторно использовать текущий маркер доступа в следующем сеансе.
 
         Save-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
         
-     Вы можете открыть профиль и изучить его содержимое. Обратите внимание, что он содержит маркер доступа.
+     Откройте профиль и изучите его содержимое. Обратите внимание, что он содержит маркер доступа.
         
-6. В следующий раз, когда потребуется выполнить код от имени субъекта-службы, вместо входа с проверкой подлинности можно просто загрузить профиль.
+2. Вместо выполнения входа вручную просто загрузите профиль.
 
         Select-AzureRmProfile -Path c:\Users\exampleuser\profile\exampleSP.json
         
-> [AZURE.NOTE] Маркер доступа имеет ограниченный срок действия, поэтому сохраненный профиль будет работать только в пределах этого срока.
+> [AZURE.NOTE] Маркер доступа имеет ограниченный срок действия, поэтому сохраненный профиль работает только в пределах этого срока.
         
 ## Создание субъекта-службы с использованием сертификата
 
-В этом разделе описывается создание приложения AD и субъекта-службы с использованием сертификата.
+В этом разделе содержатся инструкции, которые помогут вам:
 
-1. Создать самозаверяющий сертификат. Если используется **Windows 10 или Windows Server 2016 Technical Preview**, выполните следующую команду.
+- создать самозаверяющий сертификат;
+- создать приложение AD с сертификатом;
+- создать субъект-службу;
+- назначить роль "Читатель" субъекту-службе.
+
+Чтобы быстро выполнить эти шаги с помощью Azure PowerShell 2.0 в Windows 10 или Windows Server 2016 Technical Preview, см. следующие командлеты.
+
+    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
+    $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+    $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+    New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+
+Давайте остановимся на этих шагах подробнее, чтобы разобраться со всей процедурой. В этой статье также показано, как выполнить задачи, используя более ранние версии Azure PowerShell или операционных систем.
+
+### Создание самозаверяющего сертификата
+
+Версия PowerShell, доступная в Windows 10 и Windows Server 2016 Technical Preview, включает обновленный командлет **New-SelfSignedCertificate** для создания самозаверяющего сертификата. В операционных системах более ранних версий используется командлет New-SelfSignedCertificate, но он не предоставляет параметры, необходимые для этой статьи. Вместо этого необходимо импортировать модуль для создания сертификата. В этой статье демонстрируются оба подхода к созданию сертификата на базе той версии операционной системы, которая установлена на вашем компьютере.
+
+- Если используется **Windows 10 или Windows Server 2016 Technical Preview**, выполните следующую команду для создания самозаверяющего сертификата.
 
         $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
-     Эта переменная содержит сведения о сертификате, в том числе отпечаток.
-     
-        Directory: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
-
-        Thumbprint                                Subject
-        ----------                                -------
-        724213129BD2B950BB3F64FAB0C877E9348B16E9  CN=exampleapp
-
-     В **других** версиях операционной системы Windows командлет **New-SelfSignedCertificate** недоступен. Вместо него скачайте сценарий PowerShell [генератора самозаверяющих сертификатов](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) и выполните следующие команды для создания сертификата. Если сертификат был создан с помощью командлета New-SelfSignedCertificate, выполнять это действие не нужно.
+- Если вы **не используете Windows 10 или Windows Server 2016 Technical Preview**, скачайте сценарий [генератора самозаверяющих сертификатов](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) из центра сценариев Microsoft. Извлеките содержимое сценария и импортируйте требуемый командлет.
      
         # Only run if you could not use New-SelfSignedCertificate
-        Import-Module -Name c:\New-SelfSignedCertificateEx.ps1
-        New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
-        $cert = Get-ChildItem -Path cert:\CurrentUser\My* -DnsName exampleapp
+        Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+    
+     Затем создайте сертификат.
+    
+        $cert = New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
 
-2. Получите из сертификата значение ключа.
+Теперь у вас есть сертификат, и вы можете приступить к созданию приложения AD.
+
+### Создание приложения Active Directory и субъекта-службы
+
+1. Получите из сертификата значение ключа.
 
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-4. Создайте приложение в каталоге.
+2. Войдите в учетную запись Azure.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
+        Add-AzureRmAccount
+
+3. Создайте новое приложение Active Directory. Для этого укажите отображаемое имя, универсальный код ресурса (URI), описывающий приложение, коды URI, идентифицирующие приложение, и пароль для его идентификации.
+
+     Если у вас установлена версия Azure PowerShell 2.0 (выпуск за август 2016 г. или позднее), выполните следующий командлет:
+
+        $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
+    
+    Если у вас установлена версия Azure PowerShell 1.0, выполните следующий командлет:
+    
+        $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyValue $keyValue -KeyType AsymmetricX509Cert  -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
+    
+    Для однотенантных приложений коды URI не проверяются.
+    
+    Если ваша учетная запись не имеет [требуемых разрешений](#required-permissions) для Active Directory, вы увидите сообщение об ошибке с текстом "Authentication\_Unauthorized" (Аутентификация отклонена) или "No subscription found in the context" (В этом контексте подписки не обнаружены).
         
     Проверьте новый объект приложения.
 
-        $azureAdApplication
+        $app
 
-    Обратите внимание на свойство **ApplicationId**, которое требуется для создания субъектов-служб, назначений ролей и получения маркеров доступа.
+    Обратите внимание на свойство **ApplicationId**, которое требуется для создания субъектов-служб, назначения ролей и получения маркеров доступа.
 
         DisplayName             : exampleapp
-        Type                    : Application
-        ApplicationId           : 1975a4fd-1528-4086-a992-787dbd23c46b
-        ApplicationObjectId     : 9665e5f3-84b7-4344-92e2-8cc20ad16a8b
-        AvailableToOtherTenants : False
-        AppPermissions          : {}
+        ObjectId                : c95e67a3-403c-40ac-9377-115fa48f8f39
         IdentifierUris          : {https://www.contoso.org/example}
-        ReplyUrls               : {}    
+        HomePage                : https://www.contoso.org
+        Type                    : Application
+        ApplicationId           : 8bc80782-a916-47c8-a47e-4d76ed755275
+        AvailableToOtherTenants : False
+        AppPermissions          : 
+        ReplyUrls               : {}
 
 
 5. Создайте субъект-службу для приложения, передав идентификатор приложения Active Directory.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 
-6. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере вы предоставите субъекту-службе разрешение на чтение всех ресурсов в подписке. Для параметра **ServicePrincipalName** укажите значение **ApplicationId** или **IdentifierUris**, которое использовалось при создании приложения. Дополнительные сведения о контроле доступа на основе ролей см. в статье [Контроль доступа на основе ролей Azure](./active-directory/role-based-access-control-configure.md). Чтобы назначить роль, требуется доступ `Microsoft.Authorization/*/Write`, который предоставляется с помощью роли [Владелец](./active-directory/role-based-access-built-in-roles.md#owner) или [Администратор доступа пользователей](./active-directory/role-based-access-built-in-roles.md#user-access-administrator).
+6. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере показано, как назначить субъекту-службе роль **читателя**, которая дает разрешение на чтение всех ресурсов в подписке. Сведения о других ролях см. в статье [RBAC: встроенные роли](./active-directory/role-based-access-built-in-roles.md). Для параметра **ServicePrincipalName** укажите значение **ApplicationId**, которое использовалось при создании приложения.
 
-        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+
+    Если у вашей учетной записи нет достаточных разрешений для назначения ролей, вы получите сообщение об ошибке. В нем будет указано, что у вашей учетной записи **нет разрешения на выполнение действия Microsoft.Authorization/roleAssignments/write в области /subscriptions/{guid}**.
 
 Вот и все! Приложение AD и субъект-служба настроены. В следующем разделе показано, как с помощью PowerShell выполнить вход с использованием сертификата.
 
 ### Предоставление сертификата с помощью автоматизированного сценария PowerShell
 
-Для проверки подлинности в сценарии укажите, что учетная запись является субъектом-службой и предоставьте отпечаток сертификата, идентификатор приложения и идентификатор клиента. Эти значения уже содержатся в переменных **$azureAdApplication.ApplicationId**, **$cert.Thumbprint** и **$tenant**. Чтобы автоматизировать сценарий, эти значения можно сохранить как переменные среды, которые можно получить во время выполнения, или добавить в сценарий.
+При каждом входе в приложение AD в качестве субъекта-службы необходимо указать идентификатор клиента каталога. Клиент — это экземпляр Active Directory. Если у вас только одна подписка, используйте команду:
 
-    Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint 000000 -ApplicationId 000000 -TenantId 0000000
+    $tenant = (Get-AzureRmSubscription).TenantId
+    
+При наличии нескольких подписок выберите ту, где расположена ваша учетная запись Active Directory. Дополнительные сведения см. в статье [Администрирование каталога Azure AD](./active-directory/active-directory-administer.md).
+
+    $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+
+Для проверки подлинности в сценарии укажите, что учетная запись является субъектом-службой и предоставьте отпечаток сертификата, идентификатор приложения и идентификатор клиента. Чтобы автоматизировать сценарий, эти значения можно сохранить как переменные среды, которые можно получить во время выполнения, или добавить в сценарий.
+
+    Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
 
 После этого субъект-служба для созданного вами приложения Active Directory пройдет проверку подлинности.
-
-Чтобы получить идентификатор приложения, используйте следующую команду:
-
-    (Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example").ApplicationId
-        
-Чтобы получить отпечаток сертификата, используйте следующую команду:
-
-    (Get-ChildItem -Path cert:\CurrentUser\My* -DnsName exampleapp).Thumbprint
-
-Сведения о получении идентификатора клиента см. в разделе [Получение идентификатора клиента](#get-tenant-id).
 
 ## Примеры приложений
 
@@ -227,5 +285,7 @@
 ## Дальнейшие действия
   
 - Подробные инструкции по интеграции приложения в Azure для управления ресурсами см. в [руководстве разработчика по авторизации с помощью API Azure Resource Manager](resource-manager-api-authentication.md).
+- Более подробное описание приложений и субъектов-служб см. в разделе [Объекты приложений и объекты субъектов-служб](./active-directory/active-directory-application-objects.md).
+- Дополнительные сведения об аутентификации Active Directory см. в статье [Сценарии проверки подлинности в Azure AD](./active-directory/active-directory-authentication-scenarios.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor=""/>
 
 <tags 
@@ -191,7 +191,7 @@ Azure Search management REST API является программной аль�
 [Explore the application]: #explore
 [Next Steps]: #next-steps
 
-<!--Image references-->
+.<!--Image references-->
 [5]: ./media/search-get-started-management-api/Azure-Search-MGMT-AD-Service.PNG
 [6]: ./media/search-get-started-management-api/Azure-Search-MGMT-AD-App.PNG
 [7]: ./media/search-get-started-management-api/Azure-Search-MGMT-AD-App-prop.PNG
@@ -208,4 +208,4 @@ Azure Search management REST API является программной аль�
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -3,7 +3,7 @@
 	description="HDInsight поддерживает несколько версий кластеров Hadoop, которые могут быть развернуты в любое время. См. поддерживаемые версии платформы данных HortonWorks Data Platform (HDP) и Hadoop."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="mumian"
 	documentationCenter=""/>
 
@@ -167,4 +167,4 @@ Azure HDInsight поддерживает несколько версий кла�
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

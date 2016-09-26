@@ -4,7 +4,7 @@
 	services="search, sql-database,  storage, web-sites" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
-	manager="paulettm"/>
+	manager="jhubbard"/>
 
 <tags 
 	ms.service="search" 
@@ -408,7 +408,7 @@ WhatToPedia — это стартап-компания, которая тест�
 [Subheading 5]: #subheading-5
 [Next steps]: #next-steps
 
-<!--Image references-->
+.<!--Image references-->
 [6]: ./media/search-dev-case-study-whattopedia/lightbulb.png
 [7]: ./media/search-dev-case-study-whattopedia/WhatToPedia-Search-Bageri.png
 [8]: ./media/search-dev-case-study-whattopedia/WhatToPedia-Stack.png
@@ -421,4 +421,4 @@ WhatToPedia — это стартап-компания, которая тест�
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

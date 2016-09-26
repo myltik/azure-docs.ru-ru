@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/29/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с Syncplicity
@@ -46,15 +46,15 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Приложения](./media/active-directory-saas-syncplicity-tutorial/IC700994.png "Приложения")
+    .![Приложения](./media/active-directory-saas-syncplicity-tutorial/IC700994.png "Приложения")
 
 4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Добавление приложения](./media/active-directory-saas-syncplicity-tutorial/IC749321.png "Добавление приложения")
+    .![Добавление приложения](./media/active-directory-saas-syncplicity-tutorial/IC749321.png "Добавление приложения")
 
 5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-syncplicity-tutorial/IC749322.png "Добавление приложения из коллекции")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-syncplicity-tutorial/IC749322.png "Добавить приложение из коллекции")
 
 6.  В **поле поиска** введите **Syncplicity**.
 
@@ -108,7 +108,7 @@
 
 8.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Подтверждение](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "Подтверждение")
+    .![Подтверждение](./media/active-directory-saas-syncplicity-tutorial/IC769554.png "Подтверждение")
 
 ##Настройка подготовки учетных записей пользователей
   
@@ -152,7 +152,7 @@
 
 2.  На странице интеграции с приложением **Syncplicity** нажмите кнопку **Назначить пользователей**.
 
-    ![Назначить пользователей](./media/active-directory-saas-syncplicity-tutorial/IC769557.png "Назначить пользователей")
+    ![Назначение пользователей](./media/active-directory-saas-syncplicity-tutorial/IC769557.png "Назначение пользователей")
 
 3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
@@ -160,4 +160,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0914_2016-->
