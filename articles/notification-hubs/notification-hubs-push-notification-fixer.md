@@ -226,6 +226,7 @@
 <!-- LINKS -->
 [Обзор центров уведомлений]: notification-hubs-push-notification-overview.md
 [Учебники по началу работы]: notification-hubs-windows-store-dotnet-get-started.md
+[учебники по началу работы]: notification-hubs-windows-store-dotnet-get-started.md
 [Руководстве по использованию шаблонов]: https://msdn.microsoft.com/library/dn530748.aspx
 [руководство по APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [руководство по GCM]: http://developer.android.com/google/gcm/adv.html
