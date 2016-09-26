@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-    ms.date="06/28/2016"
+    ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 # Установка и использование R на кластерах HDInsight Hadoop
@@ -99,7 +99,7 @@ R совместим с хранилищем больших двоичных о�
 Обратитесь к статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). В этом примере показано, как установить Spark с помощью пакета SDK для .NET. Необходимо изменить сценарий для использования [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
 
 
-## См. также
+## Дополнительные материалы
 
 - [Установка и использование R на кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 - [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md). Общие сведения о создании кластеров HDInsight
@@ -114,4 +114,4 @@ R совместим с хранилищем больших двоичных о�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-apache-spark-jupyter-spark-sql.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

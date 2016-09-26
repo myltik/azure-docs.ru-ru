@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -283,7 +283,7 @@ Spark SQL позволяет использовать Spark для выполн�
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Задает универсальный код ресурса для выполняемого сценария.</td></tr>
 	<tr>
 	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Параметры</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Параметры, необходимые для скрипта. В приведенном образце скрипта не требуется задавать параметры, поэтому этот параметр не указан в приведенном выше фрагменте кода.
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Параметры, необходимые для скрипта. В приведенном примере сценария не требуется задавать параметры, поэтому этот параметр не указан в приведенном выше фрагменте кода.
 	</td></tr>
 	</table>
 
@@ -303,7 +303,7 @@ Spark SQL позволяет использовать Spark для выполн�
 Обратитесь к статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell).
 
 
-## См. также
+## Дополнительные материалы
 
 - [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md). Создание кластеров HDInsight.
 - [Приступая к работе с Apache Spark в HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). Начало работы с Spark в HDInsight.
@@ -318,4 +318,4 @@ Spark SQL позволяет использовать Spark для выполн�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -145,4 +145,4 @@
 * Сначала с помощью [фабрики данных Azure переместите данные из Data Lake Store в хранилище данных SQL Azure](../data-factory/data-factory-data-movement-activities.md#supported-data-stores).
 * После этого вы можете [интегрировать Power BI с хранилищем данных SQL Azure](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) для создания визуального представления данных.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

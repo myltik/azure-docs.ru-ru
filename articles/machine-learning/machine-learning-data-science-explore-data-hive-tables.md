@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"  />
 
 <tags
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/13/2016"
+	ms.author="bradsev" />
 
 # Просмотр данных в таблицах Hive с помощью запросов Hive 
 
 В этом документе представлено несколько примеров сценариев Hive, которые используются для анализа данных в таблицах Hive в кластере HDInsight Hadoop.
 
-**Меню** ниже содержит ссылки на разделы, описывающие использование средств для просмотра данных из различных сред хранения.
+Следующее **меню** содержит ссылки на статьи, описывающие использование средств для просмотра данных из различных сред хранения.
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -29,7 +29,7 @@
 
 * Создали учетную запись хранения Azure. Инструкции можно найти в статье [Создание учетной записи хранения в Azure](../hdinsight-get-started.md#storage).
 * Подготовили настраиваемый кластер Hadoop с помощью службы HDInsight. Инструкции см. в статье [Настройка кластеров Azure HDInsight Hadoop для расширенного процесса обработки аналитических данных](machine-learning-data-science-customize-hadoop-cluster.md).
-* Отправили данные в таблицы Hive, которые находятся в кластерах Azure HDInsight Hadoop. Если данные не загружены, необходимо предварительно загрузить их в таблицы Hive, воспользовавшись инструкциями из раздела [Создание данных и их загрузка в таблицы Hive](machine-learning-data-science-move-hive-tables.md).
+* Отправили данные в таблицы Hive, которые находятся в кластерах Azure HDInsight Hadoop. Если данные не загружены, необходимо предварительно загрузить их в таблицы Hive, воспользовавшись инструкциями из статьи [Создание и загрузка данных в таблицы Hive из хранилища больших двоичных объектов Azure](machine-learning-data-science-move-hive-tables.md).
 * Включили удаленный доступ к кластеру. Инструкции можно найти в разделе [Доступ к головному узлу в кластере Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 * Инструкции по отправке запросов Hive см. в разделе [Отправка запросов Hive](machine-learning-data-science-move-hive-tables.md#submit).
 
@@ -78,4 +78,4 @@
 
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

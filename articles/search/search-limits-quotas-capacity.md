@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -97,4 +97,4 @@ Resource (Ресурс)|Free|базовая;|S1|S2|S3 (предваритель�
 - Максимум 2 ключа администратора на одну службу.
 - Максимум 50 ключей запросов на одну службу.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

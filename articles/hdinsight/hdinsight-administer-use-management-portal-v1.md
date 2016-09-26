@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -114,7 +114,7 @@ HDInsight работает со множеством компонентов Hado
 
 ##Создание самозаверяющего сертификата
 
-Для выполнения любых операций в кластере с использованием пакета SDK .NET необходимо создать в рабочей станции самозаверяющий сертификат и отправить его в подписку Azure. Выполнить данную операцию достаточно всего один раз. Один и тот же сертификат можно устанавливать и на других машинах в течение всего срока его действия.
+Для выполнения любых операций в кластере с использованием пакета SDK для .NET необходимо создать на рабочей станции самозаверяющий сертификат и передать его в подписку Azure. Выполнить данную операцию достаточно всего один раз. Один и тот же сертификат можно устанавливать и на других машинах в течение всего срока его действия.
 
 **Создание самозаверяющего сертификата**
 
@@ -199,4 +199,4 @@ HDInsight работает со множеством компонентов Hado
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

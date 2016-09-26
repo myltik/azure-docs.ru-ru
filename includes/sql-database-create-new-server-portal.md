@@ -13,17 +13,13 @@ articles/sql-database/sql-database-get-started-tutorial.md
 Следуйте приведенным ниже инструкциям, чтобы создать на портале Azure логический сервер базы данных SQL Azure.
 
 1. Если вы еще этого не сделали, подключитесь к [порталу Azure](http://portal.azure.com).
-2. Щелкните **Создать**, введите **База данных SQL** и выберите **База данных SQL (новый логический сервер)**.
+2. Щелкните **Создать**, **Данные+хранилище** и найдите элемент **База данных SQL**.
 
-      ![Новый логический сервер](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
+      ![База данных SQL 1](./media/sql-database-get-started/sql-database-new-database-1.png)
 
-3. Выберите **базу данных SQL (новый логический сервер)**.
+3. Щелкните **База данных SQL**, чтобы открыть колонку "База данных SQL".
 
-      ![Новый логический сервер](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
-
-4. Щелкните **Создать**, чтобы открыть шаблон для создания пустого логического сервера, на котором можно размещать отдельные базы данных и пул эластичных баз данных.
-
-      ![Новый логический сервер](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
+      ![Новый логический сервер](./media/sql-database-get-started/sql-database-new-database-2.png)
 
 5. Укажите значения для следующих свойств сервера:
 
@@ -44,4 +40,4 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
        ![Новый логический сервер](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

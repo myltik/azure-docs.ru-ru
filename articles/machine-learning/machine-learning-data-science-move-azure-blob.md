@@ -4,7 +4,7 @@
 	services="machine-learning,storage"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -34,7 +34,7 @@
 
 Для выполнения указаний в этом документе у вас должна быть подписка Azure, учетная запись хранения и соответствующий ключ к хранилищу данных для этой учетной записи. Чтобы отправлять и скачивать данные, необходимо знать имя учетной записи хранения Azure и ее ключ.
 
-- Сведения о настройке подписки Azure см. на странице [Бесплатная пробная версия на один месяц](https://azure.microsoft.com/pricing/free-trial/).
+- Сведения о настройке подписки Azure см. на странице [30-дневной бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
 - Указания по созданию учетной записи хранения и получению учетной записи и сведений о ключах см. в разделе [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

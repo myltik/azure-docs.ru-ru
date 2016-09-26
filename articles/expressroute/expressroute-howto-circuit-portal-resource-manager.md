@@ -59,6 +59,7 @@
 
 	![Настройка уровня SKU и измерения данных](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
+>[AZURE.IMPORTANT] Имейте в виду, что "Расположение пиринга" указывает [физическое расположение](expressroute-locations.md) пиринга с корпорацией Майкрософт. Оно **не** связано со свойством Location, которое ссылается на географический регион, в котором находится поставщик сетевых ресурсов Azure. Хотя они не связаны, рекомендуется выбрать поставщик сетевых ресурсов, находящийся недалеко от расположения пиринга канала.
 
 ### 3\. Просмотр каналов и свойств
 
@@ -153,4 +154,4 @@
 - [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-portal-resource-manager.md)
 - [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

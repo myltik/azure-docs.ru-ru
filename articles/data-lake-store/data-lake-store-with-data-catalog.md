@@ -4,7 +4,7 @@
    services="data-lake-store,data-catalog" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -26,7 +26,7 @@
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
+- **Настройте свою подписку Azure** для использования общедоступной предварительной версии Data Lake Store. См. [инструкции](data-lake-store-get-started-portal.md#signup).
 
 - **Учетная запись хранилища озера данных Azure**. Следуйте инструкциям в разделе [Приступая к работе с хранилищем озера данных Azure на портале Azure](data-lake-store-get-started-portal.md). Давайте в целях этого учебника создадим учетную запись хранилища данных озера и назовем ее **datacatalogstore**.
 
@@ -88,10 +88,10 @@
 	* [Создание заметок к источникам данных](../data-catalog/data-catalog-how-to-annotate.md)
 	* [Создание документации по источникам данных](../data-catalog/data-catalog-how-to-documentation.md)
 
-## См. также
+## Дополнительные материалы
 
 * [Создание заметок к источникам данных](../data-catalog/data-catalog-how-to-annotate.md)
 * [Создание документации по источникам данных](../data-catalog/data-catalog-how-to-documentation.md)
 * [Интеграция хранилища озера данных с другими службами Azure](data-lake-store-integrate-with-other-services.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

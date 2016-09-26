@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath,gokuma"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -25,9 +25,9 @@
 
 ## Предварительные требования
 
-1. Вам потребуется учетная запись Azure и кластер HDInsight Spark. Чтобы выполнить инструкции этого руководства, вам потребуется кластер HDInsight 3.4 Spark 1.6. Дополнительные сведения о требованиях, необходимых для выполнения задач, описание данных о поездках в такси по Нью-Йорку за 2013 г. и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark см. в статье [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Обзор анализа и обработки данных с помощью Spark в Azure HDInsight). Записная книжка **machine-learning-data-science-spark-data-exploration-modeling.ipynb** с примером кода, который используется в этом разделе, доступна на [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+1. Вам потребуется учетная запись Azure и кластер HDInsight Spark. Чтобы выполнить инструкции этого руководства, вам потребуется кластер HDInsight 3.4 Spark 1.6. Дополнительные сведения о требованиях, необходимых для выполнения задач, описание данных о поездках в такси по Нью-Йорку за 2013 г. и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark см. в статье [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Обзор анализа и обработки данных с помощью Spark в Azure HDInsight). Записная книжка **machine-learning-data-science-spark-data-exploration-modeling.ipynb** с примером кода, который используется в этом разделе, доступна на [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
-2. Вам также необходимо создать модели машинного обучения, которые будут оцениваться. Для этого выполните действия, описанные в статье [Data exploration and modeling with Spark](machine-learning-data-science-spark-data-exploration-modeling.md) (Исследование и моделирование данных с помощью Spark).
+2. Вам также необходимо создать модели машинного обучения, которые будут оцениваться. Для этого выполните действия, описанные в статье [Исследование и моделирование данных с помощью Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -104,16 +104,16 @@ datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 Ядра PySpark и Spark, предоставляемые с записными книжками Jupyter, имеют предустановленный контекст, поэтому вам не требуется явно настраивать контексты Spark или Hive перед началом работы с разрабатываемым приложением; они доступны по умолчанию. а именно:
 
-- sc для Spark; 
+- sc для Spark;
 - sqlContext для Hive.
 
 Ядро PySpark предоставляет несколько "волшебных команд". Это специальные команды, которые можно вызывать с %%. В этих примерах кода используются две подобные команды.
 
 - **%%local** Указывает, что код в последующих строках будет выполнен локально. В качестве кода должен быть указан корректный код Python.
-- **%%sql -o <variable name>** Выполняет запрос Hive к sqlContext. Если передан параметр -o, результат запроса сохраняется в контексте %%local Python в качестве таблицы данных Pandas.
+- **%%sql -o <имя\_переменной>** выполняет запрос Hive к sqlContext. Если передан параметр -o, результат запроса сохраняется в контексте %%local Python в качестве таблицы данных Pandas.
  
 
-Дополнительные сведения о ядрах для записных книжек Jupyter и предустановленных волшебных командах с оператором %% (например, %%local), которые они предоставляют, см. в статье [Ядра, доступные для использования с записными книжками Jupyter с кластерами HDInsight Spark на платформе Linux в HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Дополнительные сведения о ядрах для записных книжек Jupyter и предустановленных магических командах с оператором %% (например, %%local), которые они предоставляют, см. в статье [Ядра, доступные для использования записными книжками Jupyter с кластерами Apache Spark в HDInsight на платформе Linux](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 
 ## Прием данных и создание очищенного фрейма данных
@@ -458,9 +458,9 @@ datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 С помощью кода, описанного в этом разделе, можно загрузить сохраненные в хранилище BLOB-объектов Azure модели классификации и регрессии с применением метода увеличивающихся деревьев принятия решений, оценить их эффективность с помощью стандартных показателей классификации и регрессии, а затем сохранить результаты в том же хранилище.
 
-**spark.mllib** предусматривает использование метода увеличивающихся деревьев принятия решений в моделях двоичной классификации и регрессии с применением как непрерывных, так и категориальных признаков.
+**spark.mllib** предусматривает использование метода деревьев с градиентным повышением (GBT) в моделях двоичной классификации и регрессии с применением как непрерывных, так и категориальных признаков.
 
-[Увеличивающиеся деревья принятия решений](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) — это метод, заключающийся в использовании комитета деревьев принятия решений. Этот метод предусматривает итеративное обучение деревьев принятия решений, что позволяет свести потери к минимуму. С его помощью можно обрабатывать категориальные признаки, а также определять нелинейные зависимости и взаимодействия признаков. Этот метод не требует масштабирования признаков. Кроме того, его можно использовать для создания модели мультиклассовой классификации.
+[Деревья с градиентным повышением](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) — это совокупности деревьев принятия решений. Этот метод предусматривает итеративное обучение деревьев принятия решений, что позволяет свести потери к минимуму. С его помощью можно обрабатывать категориальные признаки, а также определять нелинейные зависимости и взаимодействия признаков. Этот метод не требует масштабирования признаков. Кроме того, его можно использовать для создания модели мультиклассовой классификации.
 
 
 	# SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
@@ -529,25 +529,25 @@ datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 **ВЫХОДНЫЕ ДАННЫЕ:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS\_2016-05-0317\_22\_38.953814.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22\_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD\_2016-05-0317\_22\_58.878949
+linearRegFileLoc: LinearRegressionWithSGD_2016-05-0317_22\_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification\_2016-05-0317\_23\_15.939247.txt
+randomForestClassificationFileLoc: RandomForestClassification_2016-05-0317_23\_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression\_2016-05-0317\_23\_31.459140.txt
+randomForestRegFileLoc: RandomForestRegression_2016-05-0317_23\_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification\_2016-05-0317\_23\_49.648334.txt
+BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-0317_23\_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_56.860740.txt
+BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23\_56.860740.txt
 
 
 
 ## Использование моделей Spark через веб-интерфейс
 
-В кластере Spark реализован механизм, который позволяет отправлять пакетные задания или интерактивные запросы удаленно через интерфейс REST с помощью компонента Livy. Livy включен по умолчанию в кластере Spark в HDInsight. Дополнительные сведения о Livy см. в статье [Удаленная отправка заданий Spark с помощью Livy в кластерах Spark в HDInsight (Linux)](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
+В кластере Spark реализован механизм, который позволяет отправлять пакетные задания или интерактивные запросы удаленно через интерфейс REST с помощью компонента Livy. Livy включен по умолчанию в кластере Spark в HDInsight. Дополнительные сведения о Livy см. в статье [Удаленная отправка заданий Spark в кластер Apache Spark в HDInsight на платформе Linux с помощью Livy](../hdinsight/hdinsight-apache-spark-livy-rest-interface.md).
 
-Вы можете использовать Livy, чтобы удаленно отправить запрос на выполнение пакетного задания оценки файла, сохраненного в большом двоичном объекте Azure, а затем записать результаты в другой большой двоичный объект. Чтобы сделать это, необходимо загрузить скрипт Python из [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) в большой двоичный объект кластера Spark. Используйте **обозреватель хранилищ Microsoft Azure** или **AzCopy**, чтобы скопировать скрипт в большой двоичный объект кластера. В нашем случае мы загрузили скрипт в ***wasb:///example/python/ConsumeGBNYCReg.py***.
+Вы можете использовать Livy, чтобы удаленно отправить запрос на выполнение пакетного задания оценки файла, сохраненного в большом двоичном объекте Azure, а затем записать результаты в другой большой двоичный объект. Чтобы сделать это, необходимо загрузить сценарий Python из [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) в большой двоичный объект кластера Spark. Используйте **Microsoft Azure Storage Explorer** или **AzCopy**, чтобы скопировать сценарий в большой двоичный объект кластера. В нашем случае мы передали сценарий в ***wasb:///example/python/ConsumeGBNYCReg.py***.
 
 
 >[AZURE.NOTE] Необходимые ключи доступа можно найти на портале для учетной записи хранения, связанной с кластером Spark.
@@ -599,7 +599,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_
 
 Если вы не хотите иметь дело с кодом, используйте [приложения логики Azure](https://azure.microsoft.com/documentation/services/app-service/logic/), чтобы вызвать пакетную оценку Spark. Для этого определите действие HTTP в **конструкторе приложений логики** и настройте соответствующие параметры.
 
-- На портале Azure создайте приложение логики, выбрав **+Создать** -> **Интернет + мобильные устройства** -> **Приложение логики**. 
+- На портале Azure создайте приложение логики, выбрав **+Создать** -> **Интернет + мобильные устройства** -> **Приложение логики**.
 - Введите имя приложения логики и плана служб приложений, чтобы открыть **конструктор приложений логики**.
 - Выберите действие HTTP и введите параметры, показанные на рисунке ниже.
 
@@ -608,6 +608,6 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression\_2016-05-0317\_23\_
 
 ## Что дальше? 
 
-**Перекрестная проверка и очистка гиперпараметров**. Сведения об обучении моделей с помощью перекрестной проверки и очистки гиперпараметров см. в статье [Расширенное исследование и моделирование данных в Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md).
+**Перекрестная проверка и очистка гиперпараметров**. Сведения об обучении моделей с помощью перекрестной проверки и очистки гиперпараметров см. в статье [Расширенное исследование и моделирование данных с помощью Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="09/14/2016" 
 	ms.author="nitinme"/>
 
 
@@ -33,7 +33,7 @@
 
 Прежде чем приступать к созданию приложения, рассмотрим структуру данных и тип анализа, который мы будем использовать в отношении данных.
 
-В этой статье мы используем пример файла с данными **HVAC.csv**, который по умолчанию доступен на всех кластерах HDInsight по следующему пути: **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**. Скачайте и откройте CSV-файл, чтобы получить моментальный снимок данных.
+В этой статье мы используем пример файла данных **HVAC.csv**, доступный в учетной записи хранения Azure, которую вы связали с кластером HDInsight. В этой учетной записи хранения файл находится в папке **\\HdiSamples\\HdiSamples\\SensorSampleData\\hvac**. Скачайте и откройте CSV-файл, чтобы получить моментальный снимок данных.
 
 ![Моментальный снимок данных системы кондиционирования](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Моментальный снимок данных системы кондиционирования")
 
@@ -232,7 +232,7 @@
 
 * [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely on HDInsight Spark Linux cluster](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) (Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA)
+* [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
 * [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
@@ -262,4 +262,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
     tags="azure-portal"/>
 
@@ -28,7 +28,7 @@
 
 ##Предварительные требования
 
-- **Подписка на Azure**. См. [Получение бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)
+- **Подписка на Azure**. Ознакомьтесь с разделом [Получение бесплатной пробной версии Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - **Кластер HDInsight на основе Linux**. См. [Приступая к работе с Hadoop с Hive в HDInsight на платформе Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -236,4 +236,4 @@ GraySort — это измерение производительности с�
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

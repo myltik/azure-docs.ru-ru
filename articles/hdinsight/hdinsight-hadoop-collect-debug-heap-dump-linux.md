@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -121,4 +121,4 @@
 
 8. После перезапуска служб используйте кнопку **Действия службы** для **отключения режима обслуживания**. Эта Ambari для возобновления наблюдения за оповещениями для службы.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -57,7 +57,7 @@
 - **Две виртуальные сети Azure с настроенными VPN-подключением и службой DNS**. Инструкции см. в разделах [Настройка VPN-подключения между двумя виртуальными сетями Azure][hdinsight-hbase-replication-vnet] и [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-replication-dns].
 
 
-	Перед выполнением скриптов PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета:
+	Перед выполнением сценариев PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета.
 
 		Add-AzureAccount
 
@@ -314,4 +314,4 @@
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -49,7 +49,7 @@ HDInsight предоставляет несколько скриптов для 
 **Установка R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Установка и использование R в кластерах HDInsight][hdinsight-install-r].
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
 — **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
-| **Предварительная загрузка библиотек Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. См. статью [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
+| **Предварительная загрузка библиотек Hive** | https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1. Ознакомьтесь со статьей [Добавление библиотек Hive в кластеры HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 
 ## Вызов сценариев с помощью портала Azure
@@ -315,7 +315,7 @@ HDInsight предоставляет несколько скриптов для 
 См. статью [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script].
 
 
-## См. также
+## Дополнительные материалы
 
 - В статье [Создание кластеров Hadoop в HDInsight][hdinsight-provision-cluster] приведены указания по созданию кластера HDInsight с использованием других настраиваемых параметров.
 - [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script]
@@ -333,4 +333,4 @@ HDInsight предоставляет несколько скриптов для 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

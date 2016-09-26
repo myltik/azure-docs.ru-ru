@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="09/09/2016"
 	ms.author="nitinme"/>
 
 
@@ -43,6 +43,8 @@
 * IntelliJ IDEA. В этой статье используется версия 15.0.1. Его можно установить [отсюда](https://www.jetbrains.com/idea/download/).
  
 * Средства HDInsight в наборе средств Azure для IntelliJ. Средства HDInsight для IntelliJ доступны в составе набора средств Azure для IntelliJ. Инструкции по установке набора средств Azure см. в разделе [Установка набора средств Azure для IntelliJ](../azure-toolkit-for-intellij-installation.md).
+
+* Войдите в подписку Azure из IntelliJ IDEA. Следуйте указаниям, приведенным [здесь](hdinsight-apache-spark-intellij-tool-plugin.md#log-into-your-azure-subscription).
  
 * При запуске приложения Spark Scala для удаленной отладки на компьютере Windows может возникнуть исключение, описанное в [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) и связанное с отсутствием в Windows файла WinUtils.exe. Чтобы обойти эту ошибку, [скачайте этот исполняемый файл отсюда](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe), например, в папку **C:\\WinUtils\\bin**. После этого добавьте переменную среды **HADOOP\_HOME** и присвойте ей значение **C\\WinUtils**.
 
@@ -103,19 +105,19 @@
 
 	![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-	* В левой области выберите пункт **HDInsight**.
-	* В правой области выберите пункт **Spark on HDInsight (Scala)** (Spark в HDInsight (Scala)).
+	* В левой области выберите **HDInsight**.
+	* В правой области выберите **Spark on HDInsight (Scala)** (Spark в HDInsight (Scala)).
 	* Нажмите кнопку **Далее**.
 
 2. В следующем окне укажите сведения о проекте.
 
 	* Введите имя и расположение проекта.
-	* Для **пакета SDK проекта** следует указать версию Java выше седьмой.
-	* Для **пакета SDK для Scala** щелкните **Создать**, **Загрузить**, а затем выберите версию Scala. **Не используйте версию 2.11.x**. В этом примере используется версия **2.10.6**.
+	* Для **пакета SDK проекта** требуется версия Java выше седьмой.
+	* Для **пакета SDK для Scala** щелкните **Create** (Создать), а затем **Download** (Скачать), после чего выберите версию Scala. **Не используйте версию 2.11.x**. В этом примере используется версия **2.10.6**.
 
 		![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-version.png)
 
-	* Для **пакета SDK для Spark** скачайте и используйте пакет SDK [отсюда](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Можно также использовать [репозиторий Spark Maven](http://mvnrepository.com/search?q=spark), однако для этого у вас должен быть установлен нужный репозиторий Maven для разработки приложений Spark. (Например, при использовании потоковой передачи Spark необходимо убедиться, что установлена часть Spark Streaming. Кроме того, убедитесь, что используется репозиторий, помеченный как Scala 2.10, — не используйте репозиторий, помеченный как Scala 2.11).
+	* Для **пакета SDK для Spark** скачайте и используйте пакет SDK [отсюда](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409). Можно также использовать [репозиторий Spark Maven](http://mvnrepository.com/search?q=spark), однако убедитесь, что у вас установлен нужный репозиторий Maven для разработки приложений Spark. (Например, при использовании потоковой передачи Spark необходимо убедиться, что установлена часть Spark Streaming. Кроме того, убедитесь, что используется репозиторий, помеченный как Scala 2.10, — не используйте репозиторий, помеченный как Scala 2.11).
 
 		![Создание приложения Spark Scala](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
 
@@ -124,11 +126,11 @@
 3. Проект Spark автоматически создаст артефакт. Чтобы просмотреть артефакт, выполните описанные ниже действия.
 
 	1. В меню **File** («Файл») выберите пункт **Project Structure** («Структура проекта»).
-	2. В диалоговом окне **Project Structure** (Структура проекта) выберите пункт **Артефакты**, чтобы просмотреть созданный артефакт по умолчанию.
+	2. В диалоговом окне **Project Structure** (Структура проекта) щелкните **Artifacts** (Артефакты), чтобы просмотреть созданный по умолчанию артефакт.
 
 		![Создание JAR-файла](./media/hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
 
-	Кроме того, можно создать свой собственный артефакт, щелкнув значок**+**, выделенный на рисунке выше.
+	Кроме того, можно создать свой собственный артефакт, щелкнув значок **+**, выделенный на рисунке выше.
 
 4. В диалоговом окне **Project Structure** (Структура проекта) щелкните **Project** (Проект). Если задан **пакет SDK проекта** версии 1.8, убедитесь, что параметр **Project language level** (Уровень языка проекта) имеет значение **7 - Diamonds, ARM, multi-catch, etc** (7 — Diamonds, ARM, множественный перехват и т. п.).
 
@@ -346,4 +348,4 @@
 
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

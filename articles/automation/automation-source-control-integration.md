@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Интеграция системы управления версиями в службе автоматизации Azure | Microsoft Azure"
+    pageTitle=" Интеграция системы управления версиями в службе автоматизации Azure | Microsoft Azure"
     description="В этой статье описывается интеграция системы управления версиями с GitHub в службе автоматизации Azure."
     services="automation"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="infrastructure-services"
-    ms.date="05/23/2016"
+    ms.date="09/12/2016"
     ms.author="magoedte;sngun" />
 
 # Интеграция системы управления версиями в службе автоматизации Azure
@@ -33,7 +33,7 @@
 
 ## Шаг 2. Настройка системы управления версиями в службе автоматизации Azure
 
-1. В колонке "Учетная запись автоматизации" на портале Azure щелкните **Настроить систему управления версиями**. 
+1. В колонке "Учетная запись автоматизации" на портале Azure щелкните **Настроить систему управления версиями**.
  
     ![Настройка системы управления версиями](media/automation-source-control-integration/automation_01_SetUpSourceControl.png)
 
@@ -66,7 +66,7 @@
 
 6. После настройки системы управления версиями в вашей учетной записи службы автоматизации будут созданы следующие ресурсы службы автоматизации: два [ресурса-контейнера переменных](automation-variables.md).
       
-    * Переменная **Microsoft.Azure.Automation.SourceControl.Connection** содержит значения строки подключения, как показано ниже.  
+    * Переменная **Microsoft.Azure.Automation.SourceControl.Connection** содержит значения строки подключения, как показано ниже.
 
     |**Параметр** |**Значение** |
     |:---|:---|
@@ -75,7 +75,7 @@
     | Значение | {"Branch":<*Имя ветви*>,"RunbookFolderPath":<*Путь к папке с модулями Runbook*>,"ProviderType":<*Для GitHub значение равно 1*>,"Repository":<*Имя репозитория*>,"Username":<*Имя пользователя GitHub*>} | <br>
 
 
-    * Переменная **Microsoft.Azure.Automation.SourceControl.OAuthToken** содержит надежно зашифрованное значение OAuthToken.  
+    * Переменная **Microsoft.Azure.Automation.SourceControl.OAuthToken** содержит надежно зашифрованное значение OAuthToken.
 
     |**Параметр** |**Значение** |
     |:---|:---|
@@ -85,7 +85,7 @@
 
     ![Переменные](media/automation-source-control-integration/automation_04_Variables.png)
 
-    * **Система управления версиями службы автоматизации** будет добавлена в вашу учетную запись GitHub в виде авторизованного приложения. Чтобы просмотреть приложение, на домашней странице GitHub последовательно выберите **profile** (Профиль) > **Settings** (Параметры) > **Applications** (Приложения). Это приложение позволяет службе автоматизации Azure синхронизировать репозиторий GitHub с учетной записью службы автоматизации.  
+    * **Система управления версиями службы автоматизации** будет добавлена в вашу учетную запись GitHub в виде авторизованного приложения. Чтобы просмотреть приложение, на домашней странице GitHub последовательно выберите **profile** (Профиль) > **Settings** (Параметры) > **Applications** (Приложения). Это приложение позволяет службе автоматизации Azure синхронизировать репозиторий GitHub с учетной записью службы автоматизации.
 
     ![Приложение Git](media/automation-source-control-integration/automation_05_GitApplication.png)
 
@@ -97,7 +97,7 @@
 
 Возврат модуля Runbook позволяет перенести изменения, внесенные в модуль Runbook в службе автоматизации Azure, в репозиторий системы управления версиями. Для возврата модуля Runbook сделайте следующее:
 
-1. Находясь в своей учетной записи службы автоматизации, [создайте новый текстовый модуль Runbook](automation-first-runbook-textual.md) или [измените существующий](automation-edit-textual-runbook.md). Этот модуль может быть модулем Runbook рабочего процесса PowerShell или сценария PowerShell.  
+1. Находясь в своей учетной записи службы автоматизации, [создайте новый текстовый модуль Runbook](automation-first-runbook-textual.md) или [измените существующий](automation-edit-textual-runbook.md). Этот модуль может быть модулем Runbook рабочего процесса PowerShell или сценария PowerShell.
 
 2. Завершив изменение модуля Runbook, сохраните его и щелкните **Возврат** в колонке **Правка**.
 
@@ -128,7 +128,7 @@
 
 Кнопка синхронизации в колонке "Синхронизация репозитория" позволяет извлечь все модули Runbook из папки с модулями в вашем репозитории в учетную запись службы автоматизации. Один репозиторий можно синхронизировать с несколькими учетными записями службы автоматизации. Для синхронизации модуля Runbook сделайте следующее.
 
-1. В учетной записи службы автоматизации, где настроена система управления версиями, откройте колонку **Интеграция системы управления версиями/Синхронизация репозитория** и нажмите кнопку **Синхронизация**. Когда появится запрос на подтверждение, щелкните **Да**.  
+1. В учетной записи службы автоматизации, где настроена система управления версиями, откройте колонку **Интеграция системы управления версиями/Синхронизация репозитория** и нажмите кнопку **Синхронизация**. Когда появится запрос на подтверждение, щелкните **Да**.
 
     ![Кнопка "Синхронизация"](media/automation-source-control-integration/automation_10_SyncButtonwithMessage.png)
 
@@ -157,8 +157,8 @@
 ## Дальнейшие действия
 
 Дополнительные сведения об интеграции системы управления версиями см. в следующих ресурсах:
-- [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-- [Vote for your favorite source control system](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
-- [Azure Automation: Integrating Runbook Source Control using Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+- [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)
+- [Vote for your favorite source control system](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)
+- [Azure Automation: Integrating Runbook Source Control using Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

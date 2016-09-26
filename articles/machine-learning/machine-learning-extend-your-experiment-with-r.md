@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -17,7 +17,7 @@
 	ms.author="garye" />
 
 
-#Расширение возможностей эксперимента с помощью R
+# Расширение возможностей эксперимента с помощью R
 
 Вы можете расширить функциональные возможности Студии машинного обучения Microsoft Azure с помощью языка R, используя модуль [Выполнение сценария R][execute-r-script].
 
@@ -29,7 +29,7 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##Вывод списка всех установленных пакетов
+## Вывод списка всех установленных пакетов
 
 Список установленных пакетов может меняться. Чтобы получить полный актуальный список установленных пакетов, включая описание каждого пакета, введите следующий код в модуле [Выполнение сценария R][execute-r-script]\:
 
@@ -40,8 +40,11 @@
 
 ![](./media/machine-learning-extend-your-experiment-with-r/download-package-list.png)
 
+<!--
+For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
+-->
 
-##Импорт пакетов
+## Импорт пакетов
 
 Вы также можете импортировать пакеты, которые еще не установлены из промежуточного репозитория Студии машинного обучения Microsoft Azure, с помощью следующих команд в модуле [Выполнение сценария R][execute-r-script] и ZIP-архива пакета:
 
@@ -50,9 +53,8 @@
 
 `my_favorite_package.zip` здесь содержит ZIP-архив вашего пакета.
 
-
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="09/13/2016"
 	ms.author="v-shysun"/>
 
-# Перенос баз данных между серверами, между подписками, в службу Azure и из нее
+# Перенос баз данных между серверами, между подписками, в среду Azure и из нее
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 ##Перенос базы данных на другой сервер в пределах одной подписки
@@ -31,4 +31,4 @@
 ## Создание копии базы данных для использования за пределами Azure
 - [Экспортируйте файл BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

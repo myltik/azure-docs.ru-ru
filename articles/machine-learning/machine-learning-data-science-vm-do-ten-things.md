@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -907,4 +907,4 @@ Azure DocumentDB — это база данных NoSQL в облаке. Она
 ## Сводка
 Это только часть задач, которые можно выполнить на виртуальной машине Майкрософт для обработки и анализа данных. На самом деле существует множество вещей, позволяющих сделать ее эффективной аналитической средой.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -32,7 +32,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписку на Azure**: См. [Получение бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Подписка на Azure**. Ознакомьтесь с разделом [Получение бесплатной пробной версии Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Консоль Azure**: См. [Установка и настройка консоли Azure](../xplat-cli-install.md)
 	
@@ -695,4 +695,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

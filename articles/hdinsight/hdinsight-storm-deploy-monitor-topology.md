@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -129,7 +129,7 @@
 
 1. В **обозревателе решений** щелкните правой кнопкой мыши проект и выберите **Отправить в Storm в HDInsight**.
 
-	> [AZURE.NOTE] При появлении запроса введите учетные данные входа для своей подписки Azure. Если у вас несколько подписок, воспользуйтесь той, что содержит Storm в кластере HDInsight.
+	> [AZURE.NOTE] При появлении запроса введите учетные данные входа для своей подписки Azure. Если у вас несколько подписок, воспользуйтесь той, что содержит ваш кластер Storm в HDInsight.
 
 2. Выберите Storm в кластере HDInsight из раскрывающегося списка **Кластер Storm** и выберите **Отправить**. Вы можете отслеживать выполнение отправки в окне **Выходные данные**.
 
@@ -157,7 +157,7 @@
 
 Базовый универсальный код ресурса для интерфейса REST API в кластерах HDInsight — **https://&lt;clustername>.azurehdinsight.net/stormui/api/v1/**, где **clustername** — это имя Storm в кластере HDInsight.
 
-###Проверка подлинности
+###Аутентификация
 
 Для запросов REST API необходимо использовать **обычную проверку подлинности** с помощью имени и пароля администратора кластера HDInsight.
 
@@ -181,4 +181,4 @@
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2016"
+   ms.date="09/12/2016"
    ms.author="bwren" />
 
 # Типы модулей Runbook в службе автоматизации Azure
@@ -104,4 +104,4 @@ Runbook рабочих процессов PowerShell представляют с
 - Чтобы понять различия между PowerShell и рабочими процессами PowerShell для модулей Runbook, см. раздел [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md).
 - Дополнительные сведения о создании и импорте модуля Runbook см. в разделе [Создание или импорт модуля Runbook](automation-creating-importing-runbook.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

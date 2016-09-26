@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="09/09/2016" 
 	ms.author="jgao"/>
 
 # Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase в HDInsight
@@ -95,9 +95,9 @@
 
 1. Войдите на сайт [приложений Twitter](https://apps.twitter.com/). Перейдите по ссылке **Войти сейчас**, если у вас нет учетной записи Twitter.
 2. Щелкните **Создать новое приложение**.
-3. Введите **имя**, **описание** и **веб-сайт**. Имя приложения Twitter должно быть уникальным. Поле "Веб-сайт" на самом деле не используется. В нем не обязательно указывать действительный URL-адрес. 
+3. Введите **имя**, **описание** и **веб-сайт**. Имя приложения Twitter должно быть уникальным. Поле "Веб-сайт" на самом деле не используется. В нем не обязательно указывать действительный URL-адрес.
 4. Установите значок **Да, я согласен** и нажмите кнопку **Создать приложение Twitter**.
-5. Выберите вкладку **Разрешения**. Разрешение по умолчанию: **Только для чтения**. Этого разрешения достаточно для данного учебника. 
+5. Выберите вкладку **Разрешения**. Разрешение по умолчанию: **Только для чтения**. Этого разрешения достаточно для данного учебника.
 6. Перейдите на вкладку **Ключи и токены доступа**.
 7. Нажмите кнопку **Создать маркер доступа**.
 8. Нажмите кнопку **Проверить OAuth** в правом верхнем углу страницы.
@@ -140,24 +140,29 @@
 
 **Создание приложения потоковой передачи**
 
-1. Откройте **Visual Studio** и создайте консольное приложение Visual C# под названием **TweetSentimentStreaming**. 
+1. Откройте **Visual Studio** и создайте консольное приложение Visual C# под названием **TweetSentimentStreaming**.
 2. В **консоли диспетчера пакетов** выполните следующие команды:
 
-		Install-Package Microsoft.HBase.Client
-		Install-Package TweetinviAPI
-    Эти команды установят [пакет SDK для HBase .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/), представляющий собой клиентскую библиотеку для доступа к кластеру HBase, и пакет [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/), который используется для доступа к API Twitter.
-3. В **обозревателе решений** добавьте **System.Configuration** в ссылку.
-4. Добавьте в проект **HBaseWriter.cs** новый файл класса, а затем замените код следующим:
+		Install-Package Microsoft.HBase.Client -version 0.4.2.0
+		Install-Package TweetinviAPI -version 1.0.0.0
 
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Text;
-        using System.IO;
-        using System.Threading;
-        using Microsoft.HBase.Client;
-        using Tweetinvi.Core.Interfaces;
-        using org.apache.hadoop.hbase.rest.protobuf.generated;
+	Эти команды установят [пакет SDK для HBase .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/), представляющий собой клиентскую библиотеку для доступа к кластеру HBase, и пакет [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/), который используется для доступа к API Twitter.
+
+	> [AZURE.NOTE] Пример, использованный в этой статье, был проверен с помощью указанной выше версии. Вы можете удалить параметр -version и установить последнюю версию.
+
+3. В **обозревателе решений** добавьте **System.Configuration** в ссылку.
+4. Добавьте в проект **HBaseWriter.cs** новый файл класса, а затем замените код следующим.
+
+		using System;
+		using System.Collections.Generic;
+		using System.IO;
+		using System.Linq;
+		using System.Text;
+		using System.Threading;
+		using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
+		using org.apache.hadoop.hbase.rest.protobuf.generated;
+		using Microsoft.HBase.Client;
+		using Tweetinvi.Models;
 
         namespace TweetSentimentStreaming
         {
@@ -167,7 +172,12 @@
                 const string CLUSTERNAME = "https://<Enter Your Cluster Name>.azurehdinsight.net/";
                 const string HADOOPUSERNAME = "admin"; //the default name is "admin"
                 const string HADOOPUSERPASSWORD = "<Enter the Hadoop User Password>";
+
                 const string HBASETABLENAME = "tweets_by_words";
+				const string COUNT_ROW_KEY = "~ROWCOUNT";
+				const string COUNT_COLUMN_NAME = "d:COUNT";
+        		
+				long rowCount = 0;
 
                 // Sentiment dictionary file and the punctuation characters
                 const string DICTIONARYFILENAME = @"..\..\dictionary.tsv";
@@ -198,9 +208,12 @@
                         TableSchema tableSchema = new TableSchema();
                         tableSchema.name = HBASETABLENAME;
                         tableSchema.columns.Add(new ColumnSchema { name = "d" });
-                        client.CreateTableAsync(tableSchema).Wait;
+						client.CreateTableAsync(tableSchema).Wait();
                         Console.WriteLine("Table "{0}" is created.", HBASETABLENAME);
                     }
+
+					// Read current row count cell
+            		rowCount = GetRowCount();
 
                     // Load sentiment dictionary from a file
                     LoadDictionary();
@@ -214,6 +227,38 @@
                 {
                     threadRunning = false;
                 }
+
+				private long GetRowCount()
+				{
+					try
+					{
+						RequestOptions options = RequestOptions.GetDefaultOptions();
+						options.RetryPolicy = RetryPolicy.NoRetry;
+						var cellSet = client.GetCellsAsync(HBASETABLENAME, COUNT_ROW_KEY, null, null, options).Result;
+						if (cellSet.rows.Count != 0)
+						{
+							var countCol = cellSet.rows[0].values.Find(cell => Encoding.UTF8.GetString(cell.column) == COUNT_COLUMN_NAME);
+							if (countCol != null)
+							{
+								return Convert.ToInt64(Encoding.UTF8.GetString(countCol.data));
+							}
+						}
+					}
+					catch(Exception ex)
+					{
+						if (ex.InnerException.Message.Equals("The remote server returned an error: (404) Not Found.", StringComparison.OrdinalIgnoreCase))
+						{
+							return 0;
+						}
+						else
+						{
+							throw ex;
+						}
+						
+					}
+
+					return 0;
+				}
 
                 // Enqueue the Tweets received
                 public void WriteTweet(ITweet tweet)
@@ -367,14 +412,14 @@
             }
         }
 
-6. Задайте константы в коде выше, в частности **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** и DICTIONARYFILENAME. DICTIONARYFILENAME содержит имя и расположение файла direction.tsv. Этот файл можно скачать по ссылке **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Если вы хотите изменить имя таблицы HBase, вам необходимо соответствующим образом изменить имя таблицы в веб-приложении.
+6. Задайте константы в коде выше, в том числе **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** и DICTIONARYFILENAME. DICTIONARYFILENAME содержит имя и расположение файла direction.tsv. Этот файл можно скачать по ссылке **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Если вы хотите изменить имя таблицы HBase, вам необходимо соответствующим образом изменить имя таблицы в веб-приложении.
 
-7. Откройте файл **Program.cs** и замените код следующим:
+7. Откройте файл **Program.cs** и замените код следующим.
 
         using System;
         using System.Diagnostics;
         using Tweetinvi;
-        using Tweetinvi.Core.Parameters;
+        using Tweetinvi.Models;
 
         namespace TweetSentimentStreaming
         {
@@ -400,7 +445,7 @@
                         {
                             HBaseWriter hbase = new HBaseWriter();
                             var stream = Stream.CreateFilteredStream();
-                            stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90)); //Geo .GenerateLocation(-180, -90, 180, 90));
+                            stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90)); 
 
                             var tweetCount = 0;
                             var timer = Stopwatch.StartNew();
@@ -441,13 +486,13 @@
             }
         }
 
-8. Задайте константы, в частности **TWITTERAPPACCESSTOKEN**, **TWITTERAPPACCESSTOKENSECRET**, **TWITTERAPPAPIKEY** и **TWITTERAPPAPISECRET**.
+8. Задайте константы, в том числе **TWITTERAPPACCESSTOKEN**, **TWITTERAPPACCESSTOKENSECRET**, **TWITTERAPPAPIKEY** и **TWITTERAPPAPISECRET**.
 
 Чтобы запустить службу потоковой передачи, нажмите клавишу **F5**. Далее представлен снимок экрана консольного приложения:
 
 ![hdinsight.hbase.twitter.sentiment.streaming.service][img-streaming-service]
     
-Оставьте консольное приложение потоковой передачи запущенным, пока вы занимаетесь разработкой веб-приложения. Это даст возможность собрать больше данных. Чтобы просмотреть данные, добавленные в таблицу, можно использовать оболочку HBase. См. статью [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Windows в HDInsight](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
+Оставьте консольное приложение потоковой передачи запущенным, пока вы занимаетесь разработкой веб-приложения. Это даст возможность собрать больше данных. Чтобы просмотреть данные, добавленные в таблицу, можно использовать оболочку HBase. Ознакомьтесь со статьей [Руководство по HBase. Приступая к работе с Apache HBase на Hadoop под управлением Windows в HDInsight](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
 
 
 ## Визуализация мнений в режиме реального времени
@@ -463,15 +508,15 @@
 	- Категория шаблона: **Visual C# или веб-сайт**
 	- Шаблон: **веб-приложение ASP.NET**
 	- Имя: **TweetSentimentWeb**
-	- Расположение: **C:\\Tutorials** 
+	- Расположение: **C:\\Tutorials**
 4. Нажмите кнопку **ОК**.
-5. В разделе **Выбор шаблона** щелкните **MVC**. 
-6. В **Microsoft Azure** щелкните **Manage Subscriptions** (Управление подписками).
+5. В разделе **Выбор шаблона** щелкните **MVC**.
+6. В **Microsoft Azure** щелкните **Управление подписками**.
 7. В окне **Управление подписками Microsoft Azure** щелкните **Вход**.
 8. Введите учетные данные Azure. Сведения о вашей подписке Azure появятся на вкладке **Учетные записи**.
 9. Нажмите кнопку **Закрыть**, чтобы закрыть окно **Управление подписками Microsoft Azure**.
 10. В окне **Новый проект ASP.NET — TweetSentimentWeb** нажмите кнопку **ОК**.
-11. В окне **Настройка параметров сайта Microsoft Azure** выберите ближайший к вам **регион**. Указывать сервер базы данных не нужно. 
+11. В окне **Настройка параметров сайта Microsoft Azure** выберите ближайший к вам **регион**. Указывать сервер базы данных не нужно.
 12. Нажмите кнопку **ОК**.
 
 **Установка пакетов Nuget**
@@ -597,7 +642,7 @@
 
 4. В классе **HBaseReader** измените значения констант следующим образом:
 
-	- **CLUSTERNAME**: имя кластера HBase, например, *https://<HBaseClusterName>.azurehdinsight.net/*. 
+	- **CLUSTERNAME**: имя кластера HBase, например *https://<имя\_кластера\_HBase>.azurehdinsight.net/*.
     - **HADOOPUSERNAME**: имя пользователя Hadoop в кластере HBase. Имя по умолчанию — *admin*.
     - **HADOOPUSERPASSWORD**: пароль пользователя Hadoop в кластере HBase.
     - **HBASETABLENAME** = "tweets\_by\_words".
@@ -899,7 +944,7 @@
 
 1. В **обозревателе решений** разверните элемент **TweetSentimentWeb**.
 2. Щелкните правой кнопкой мыши элемент **Скрипты**, выберите пункт **Добавить** и щелкните **Файл JavaScript**.
-3. В поле **Имя элемента** введите «twitterStream.js».
+3. В поле **Имя элемента** введите **twitterStream.js**.
 4. Скопируйте следующий код и вставьте его в файл:
 
 		var liveTweetsPos = [];
@@ -1099,7 +1144,7 @@
 
 **Изменение файла layout.cshtml**
 
-1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент \__**Layout.cshtml**.
+1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент \_**Layout.cshtml**.
 2. Замените содержимое на приведенное ниже:
 
 		<!DOCTYPE html>
@@ -1218,7 +1263,7 @@
 2. Нажмите клавишу **F5**, чтобы запустить веб-приложение.
 
 	![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
-2. Введите в текстовом поле ключевое слово и нажмите кнопку **Go** (Найти). В зависимости от того, какие данные собраны в таблице HBase, некоторые ключевые слова, возможно, не будут найдены. Попробуйте использовать распространенные ключевые слова, такие как «нравится», «xbox» и «playstation». 
+2. Введите в текстовом поле ключевое слово и нажмите кнопку **Go** (Найти). В зависимости от того, какие данные собраны в таблице HBase, некоторые ключевые слова, возможно, не будут найдены. Попробуйте использовать распространенные ключевые слова, такие как «нравится», «xbox» и «playstation».
 3. Переключитесь между категориями **Positive** (Положительное), **Neutral** (Нейтральное) и **Negative** (Отрицательное), чтобы сравнить мнения.
 4. Дайте службе потоковой передачи поработать еще час, а затем выполните поиск по тому же ключевому слову и сравните результаты.
 
@@ -1230,7 +1275,7 @@
 Из этого учебника вы узнали, как получать твиты, анализировать мнения на их основе, сохранять полученные оценки мнений в HBase и представлять данные по мнениям пользователей Twitter на Картах Bing в режиме реального времени. Дополнительные сведения см. на следующих ресурсах:
 
 - [Приступая к работе с HDInsight][hdinsight-get-started]
-- [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md) 
+- [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md)
 - [Анализ данных Twitter с помощью Hadoop в HDInsight][hdinsight-analyze-twitter-data]
 - [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-delay-data]
 - [Разработка программ MapReduce на Java для HDInsight][hdinsight-develop-mapreduce]
@@ -1276,4 +1321,4 @@
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_0511_2016-->
+<!---HONumber=AcomDC_0914_2016-->

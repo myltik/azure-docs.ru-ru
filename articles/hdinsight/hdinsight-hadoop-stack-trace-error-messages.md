@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter="NA"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -38,4 +38,4 @@
 * [Включение дампов кучи для служб Hadoop в HDInsight под управлением Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Заметки о выпуске для компонентов Hadoop в Azure HDInsight](hdinsight-release-notes.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0914_2016-->

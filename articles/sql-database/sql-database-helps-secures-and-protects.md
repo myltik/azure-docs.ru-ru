@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="06/23/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
    
 # Безопасность и защита благодаря Базе данных SQL
@@ -47,7 +47,7 @@
 
 ## Дальнейшие действия
 
-Вы можете получить [бесплатную подписку Azure](https://azure.microsoft.com/get-started/) и [создать первую Базу данных SQL Azure](sql-database-get-started.md).
+Вы можете получить [бесплатную подписку Azure](https://azure.microsoft.com/get-started/) и [создать первую базу данных SQL Azure](sql-database-get-started.md).
 
 ## Дополнительные ресурсы
 
@@ -55,4 +55,4 @@
  
 Вы можете ознакомиться с [техническим обзором Базы данных SQL](sql-database-technical-overview.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0914_2016-->

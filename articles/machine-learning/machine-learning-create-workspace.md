@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -107,4 +107,4 @@
 [классический портал Microsoft Azure]: https://manage.windowsazure.com/
 [классическому порталу Microsoft Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

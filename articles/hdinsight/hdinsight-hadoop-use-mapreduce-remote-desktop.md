@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -25,7 +25,7 @@
 
 ##<a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * Кластер HDInsight на платформе Windows (Hadoop в HDInsight).
 
@@ -96,4 +96,4 @@
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

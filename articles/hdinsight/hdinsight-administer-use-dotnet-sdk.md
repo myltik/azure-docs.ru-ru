@@ -3,7 +3,7 @@
 	description="Узнайте, как осуществлять управление кластерами Hadoop в HDInsight с помощью пакета SDK для HDInsight .NET."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	tags="azure-portal"
 	authors="mumian"
 	documentationCenter=""/>
@@ -289,4 +289,4 @@
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

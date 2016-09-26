@@ -4,7 +4,7 @@
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor=""
    tags="azure-portal"/>
 
@@ -27,7 +27,7 @@
 
 ##Просмотр подсчетов и показателей на портале 
 
-1. Войдите на [портал Azure](https://portal.azure.com). 
+1. Войдите на [портал Azure](https://portal.azure.com).
 
 2. Откройте служебную панель службы поиска Azure. Плитки для службы можно найти на домашней странице или загрузить их в службу, нажав «Обзор» на панели быстрого перехода. В разделе [Создать службу](search-create-service-portal.md) приведены пошаговые инструкции.
 
@@ -59,4 +59,4 @@
 
  
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0914_2016-->

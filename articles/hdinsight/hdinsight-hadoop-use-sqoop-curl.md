@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -53,7 +53,7 @@ Curl используется для демонстрации возможнос
 
         {"status":"ok","version":"v1"}
 
-    Ниже приведены параметры, используемые в этой команде.
+    Ниже приведены параметры, используемые в этой команде:
 
     * **-u** — имя пользователя и пароль, используемый для аутентификации запроса.
     * **-G** — указывает, что это запрос GET.
@@ -65,7 +65,7 @@ Curl используется для демонстрации возможнос
 
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /tutorials/usesqoop/data --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasbs:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
 
-    Ниже приведены параметры, используемые в этой команде.
+    Ниже приведены параметры, используемые в этой команде:
 
     * **-d** — так как `-G` не используется, запрос по умолчанию использует метод POST. `-d` задает значения данных, отправляемые в запросе.
 
@@ -150,4 +150,4 @@ Curl используется для демонстрации возможнос
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->
