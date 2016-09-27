@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
-# Доменные службы Azure AD *(предварительная версия)* — включение синхронизации паролей в доменные служб Azure AD
+# Включение синхронизации паролей с доменными службами Azure AD
 В предыдущих задачах вы включили доменные службы Azure AD для вашего клиента Azure AD. Следующая задача — включить необходимые хэши учетных данных, чтобы синхронизировать проверку подлинности NTLM и Kerberos с доменными службами Azure AD. Когда синхронизация учетных данных настроена, пользователи могут входить в управляемый домен с помощью учетных данных организации.
 
 Этапы настройки различаются в зависимости от того, является ли ваша организация только облачным клиентом Azure AD или для нее настроена синхронизация локального каталога с помощью Azure AD Connect.
@@ -45,7 +45,7 @@
 
 2. Выберите вкладку **Профиль** на этой странице.
 
-3. Щелкните плитку **Изменение пароля** на этой странице.
+3. Щелкните плитку **Изменить пароль** на этой странице.
 
     ![Создание виртуальной сети для доменных служб Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
@@ -61,11 +61,11 @@
 
 ## Похожий контент
 
-- [Доменные службы Azure AD (предварительная версия) — включение синхронизации паролей в доменные службы Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-
 - [Как изменить свой пароль](../active-directory/active-directory-passwords-update-your-own-password.md)
 
 - [Приступая к работе с компонентами управления паролями](../active-directory/active-directory-passwords-getting-started.md)
+
+- [Доменные службы Azure AD (предварительная версия) — включение синхронизации паролей в доменные службы Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 - [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 
@@ -73,4 +73,4 @@
 
 - [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain (Присоединение виртуальной машины Red Hat Enterprise Linux к управляемому домену доменных служб Azure AD)](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

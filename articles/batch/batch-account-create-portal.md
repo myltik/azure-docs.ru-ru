@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/26/2016"
+	ms.date="09/21/2016"
 	ms.author="marsma"/>
 
 # Создание учетной записи пакетной службы Azure на портале Azure
@@ -28,11 +28,11 @@
 
 1. Выполните вход на [портал Azure][azure_portal].
 
-2. Щелкните **Создать** > **Виртуальные машины** > **Пакетная служба**.
+2. Щелкните **Создать** > **Среда выполнения приложений** > **Пакетная служба**.
 
 	![Пакетная служба в Marketplace][marketplace_portal]
 
-3. Отобразится колонка **Новая учетная запись пакетной службы**. Все элементы колонки описаны ниже в пунктах *а* – *е*.
+3. Отобразится колонка **Создать учетную запись пакетной службы**. Описания каждого элемента колонки приведены ниже в пунктах *а* – *е*.
 
     ![Создание учетной записи Пакетной службы][account_portal]
 
@@ -100,7 +100,7 @@
 
 Помимо портала Azure, создавать учетные записи пакетной службы и управлять ими можно с помощью следующих средств:
 
-* [командлеты PowerShell для пакетной службы](batch-powershell-cmdlets-get-started.md);
+* [командлеты PowerShell для пакетной службы;](batch-powershell-cmdlets-get-started.md)
 * [Интерфейс командной строки Azure](../xplat-cli-install.md)
 * [Библиотека .NET для управления пакетной службой](batch-management-dotnet.md)
 
@@ -125,4 +125,4 @@
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [quotas]: ./media/batch-account-create-portal/quotas.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

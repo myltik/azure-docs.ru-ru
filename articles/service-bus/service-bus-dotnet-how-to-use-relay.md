@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="09/16/2016"
 	ms.author="sethm"/>
 
 
@@ -43,13 +43,12 @@
 
 ## Получение пакета NuGet для служебной шины
 
-[Пакет NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus) — это самый простой способ получить интерфейс API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины. Для установки пакета NuGet в приложении выполните следующие действия:
+[Пакет NuGet для служебной шины](https://www.nuget.org/packages/WindowsAzure.ServiceBus) — это самый простой способ получить интерфейс API служебной шины и настроить свое приложение с учетом всех зависимостей служебной шины. Для установки пакета NuGet в проекте сделайте следующее:
 
 1.  В обозревателе решений щелкните правой кнопкой мыши **Ссылки**, затем выберите команду **Управление пакетами NuGet**.
-2.  Выполните поиск по фразе «служебная шина» и выберите элемент **Служебная шина Microsoft Azure**. Нажмите кнопку **Установить**, чтобы выполнить установку, а затем закройте следующее диалоговое окно.
+2.  Выполните поиск по фразе "служебная шина" и выберите элемент **Служебная шина Microsoft Azure**. Нажмите кнопку **Установить**, чтобы выполнить установку, а затем закройте следующее диалоговое окно.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
-
 
 ## Использование служебной шины для предоставления и получения веб-службы SOAP с TCP
 
@@ -60,7 +59,7 @@
 Прежде чем выполнить описанные ниже действия, сделайте следующее, чтобы настроить свою среду:
 
 1.  В Visual Studio создайте в рамках решения консольное приложение, содержащее два проекта, Client и Service.
-2.  Добавьте пакет NuGet "Служебная шина Microsoft Azure" в оба проекта. Это добавит в проекты все необходимые ссылки на сборки.
+2.  Добавьте пакет NuGet "Служебная шина Microsoft Azure" в оба проекта. Он добавит в проекты все необходимые ссылки на сборки.
 
 ### Создание службы
 
@@ -101,7 +100,7 @@ class ProblemSolver : IProblemSolver
 
 ### Программная настройка узла службы
 
-После создания контракта и его реализации можно разместить службу. Размещение происходит внутри объекта [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), который отвечает за управление экземплярами службы и в котором размещаются конечные точки, прослушивающие сообщения. Приведенный ниже код настраивает для службы обычную локальную конечную точку и конечную точку служебной шины для параллельного представления внутренних и внешних конечных точек. Замените строку *namespace* именем своего пространства имен, а *yourKey* — ключом SAS, полученным на предыдущем шаге настройки.
+После создания контракта и его реализации можно разместить службу. Размещение происходит внутри объекта [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), который отвечает за управление экземплярами службы и в котором размещаются конечные точки, прослушивающие сообщения. Приведенный ниже код настраивает для службы обычную локальную конечную точку и конечную точку служебной шины для параллельного представления внутренних и внешних конечных точек. Замените строку *namespace* именем своего пространства имен, а *yourKey* — ключом SAS, полученным на предыдущем шаге настройки.
 
 ```
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
@@ -114,7 +113,7 @@ sh.AddServiceEndpoint(
    typeof(IProblemSolver), new NetTcpRelayBinding(),
    ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver"))
     .Behaviors.Add(new TransportClientEndpointBehavior {
-          TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", "yourKey")});
+          TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", "<yourKey>")});
 
 sh.Open();
 
@@ -124,7 +123,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-В этом примере вы создаете две конечных точки в рамках одного и того же исполнения контракта. Одна из них является локальной, а вторая проецируется с помощью служебной шины. Основным различием между ними являются привязки ([NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) для локальной и [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) для конечной точки служебной шины) и адреса. Для локальной конечной точки используется локальный сетевой адрес с отдельным портом. Адрес конечной точки служебной шины включает в себя строку `sb`, имя вашего пространства имен и путь solver. Результатом является универсальный код ресурса (URI) `sb://[serviceNamespace].servicebus.windows.net/solver`, определяющий конечную точку службы как конечную точку службы TCP служебной шины с полным внешним DNS-именем. Если в функции `Main` приложения **Service** вместо заполнителей использовать код так, как показано выше, будет создана функциональная служба. Если нужно, чтобы ваша служба прослушивала только служебную шину, удалите объявление локальной конечной точки.
+В этом примере вы создаете две конечных точки в рамках одного и того же исполнения контракта. Одна из них является локальной, а вторая проецируется с помощью служебной шины. Основным различием между ними являются привязки ([NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) для локальной и [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) для конечной точки служебной шины) и адреса. Для локальной конечной точки используется локальный сетевой адрес с отдельным портом. Адрес конечной точки служебной шины включает в себя строку `sb`, имя вашего пространства имен и путь solver. Результатом является универсальный код ресурса (URI) `sb://[serviceNamespace].servicebus.windows.net/solver`, определяющий конечную точку службы как конечную точку службы TCP служебной шины с полным внешним DNS-именем. Если в функции `Main` приложения **Service** вместо заполнителей использовать код, будет создана функциональная служба. Если нужно, чтобы ваша служба прослушивала только служебную шину, удалите объявление локальной конечной точки.
 
 ### Настройка узла службы в файле App.config
 
@@ -138,7 +137,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-Определения конечных точек перемещаются в файл App.config. Обратите внимание, что пакет NuGet уже добавил в файл App.config ряд определений, являющихся необходимыми расширениями настройки служебной шины. Следующий пример, который является точным эквивалентом кода, приведенного выше, должен появиться прямо под элементом **system.serviceModel**. В этом примере кода предполагается, что пространство имен C# вашего проекта называется **Service**. Замените заполнители на пространство имен служб и ключ SAS.
+Определения конечных точек перемещаются в файл App.config. Пакет NuGet уже добавил в файл App.config ряд определений, являющихся необходимыми расширениями настройки служебной шины. Следующий пример, который является точным эквивалентом кода, приведенного выше, должен появиться прямо под элементом **system.serviceModel**. В этом примере кода предполагается, что пространство имен C# вашего проекта называется **Service**. Замените заполнители на пространство имен служб и ключ SAS.
 
 ```
 <services>
@@ -157,7 +156,7 @@ sh.Close();
         <behavior name="sbTokenProvider">
             <transportClientEndpointBehavior>
                 <tokenProvider>
-                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
+                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="<yourKey>" />
                 </tokenProvider>
             </transportClientEndpointBehavior>
         </behavior>
@@ -183,7 +182,7 @@ var cf = new ChannelFactory<IProblemSolverChannel>(
     new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver")));
 
 cf.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior
-            { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","yourKey") });
+            { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","<yourKey>") });
 
 using (var ch = cf.CreateChannel())
 {
@@ -219,7 +218,7 @@ using (var ch = cf.CreateChannel())
         <behavior name="sbTokenProvider">
             <transportClientEndpointBehavior>
                 <tokenProvider>
-                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="yourKey" />
+                    <sharedAccessSignature keyName="RootManageSharedAccessKey" key="<yourKey>" />
                 </tokenProvider>
             </transportClientEndpointBehavior>
         </behavior>
@@ -239,4 +238,4 @@ using (var ch = cf.CreateChannel())
   [Примеры Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [обзор примеров служебной шины]: service-bus-samples.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

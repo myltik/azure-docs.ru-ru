@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/10/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -43,4 +43,4 @@
 
 В этом пошаговом руководстве используется упрощенная версия примера эксперимента [Двоичная классификация: прогнозирование кредитных рисков](http://go.microsoft.com/fwlink/?LinkID=525270) из [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -19,28 +19,20 @@
 
 # Руководство. Создание первой фабрики данных Azure с помощью Azure PowerShell
 > [AZURE.SELECTOR]
+- [Обзор и предварительные требования](data-factory-build-your-first-pipeline.md)
 - [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+Из этой статьи вы узнаете, как создать свою первую фабрику данных с помощью Azure PowerShell.
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
+## Предварительные требования
 
-## Дополнительные требования
-Помимо предварительных требований, перечисленных в разделе "Обзор руководства", необходимо:
-
-- **Azure PowerShell**. Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+- Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования**.
+- Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 - В этой статье рассматриваются не все командлеты фабрики данных (необязательный раздел). Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных](https://msdn.microsoft.com/library/dn820234.aspx).
-
-Если вы используете Azure PowerShell **более ранней версии, чем 1.0**, используйте командлеты, описанные [здесь](https://msdn.microsoft.com/library/azure/dn820234.aspx). Перед использованием командлетов фабрики данных также потребуется выполнить следующие команды.
- 
-1. Откройте Azure PowerShell и выполните следующие команды. Не закрывайте Azure PowerShell, пока выполняются описанные в руководстве инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
-	1. Выполните командлет `Add-AzureAccount` и введите имя пользователя и пароль, которые вы используете для входа на портал Azure.
-	2. Выполните командлет `Get-AzureSubscription`, чтобы просмотреть все подписки для этой учетной записи.
-	3. Выполните командлет `Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext`, чтобы выбрать подписку, с которой вы собираетесь работать. Замените **NameOfAzureSubscription** именем своей подписки Azure.
-4. Переключитесь в режим Azure Resource Manager, так как командлеты фабрики данных Azure доступны только в этом режиме: `Switch-AzureMode AzureResourceManager`.
 
 ## Создание фабрики данных
 
@@ -49,25 +41,25 @@
 1. Откройте Azure PowerShell и выполните следующую команду. Не закрывайте Azure PowerShell, пока выполняются описанные в руководстве инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
 	- Выполните командлет `Login-AzureRmAccount` и введите имя пользователя и пароль, которые вы используете для входа на портал Azure.
 	- Выполните командлет `Get-AzureRmSubscription`, чтобы просмотреть все подписки для этой учетной записи.
-	- Выполните командлет `Select-AzureRmSubscription <Name of the subscription>`, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которая используется на портале Azure.
-3. Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup**, выполнив следующую команду.
+	- Выполните командлет `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext`, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которая используется на портале Azure.
+3. Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup**, выполнив следующую команду:
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-	Некоторые действия, описанные в этом руководстве, предполагают, что вы используете группу ресурсов с именем ADFTutorialResourceGroup. Если вы используете другую группу ресурсов, укажите ее вместо ADFTutorialResourceGroup.
+	Некоторые действия, описанные в этом учебнике, предполагают, что вы используете группу ресурсов с именем ADFTutorialResourceGroup. Если вы используете другую группу ресурсов, укажите ее вместо ADFTutorialResourceGroup.
 4. Выполните командлет **New-AzureRmDataFactory**, чтобы создать фабрику данных с именем **FirstDataFactoryPSH**.
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
 
-Обратите внимание на следующее.
+Обратите внимание на следующие моменты.
  
 - Имя фабрики данных Azure должно быть глобально уникальным. Если появится сообщение об ошибке **Имя FirstDataFactoryPSH фабрики данных недоступно** измените это имя (например, на ваше\_имя\_FirstDataFactoryPSH). Используйте это имя вместо ADFTutorialFactoryPSH при выполнении шагов в этом руководстве. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](data-factory-naming-rules.md), чтобы узнать о правилах именования артефактов фабрики данных.
 - Чтобы создать экземпляры фабрики данных, вы должны быть администратором или участником подписки Azure.
 - В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.
 - Если появится сообщение об ошибке **Подписка не зарегистрирована для использования пространства имен Microsoft.DataFactory**, выполните одно из следующих действий и повторите попытку публикации.
 
-	- В Azure PowerShell выполните следующую команду, чтобы зарегистрировать поставщик фабрики данных Azure:
+	- Чтобы зарегистрировать поставщик фабрики данных Azure, выполните следующую команду в Azure PowerShell:
 		
 			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
@@ -112,7 +104,7 @@
 
 		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
 
-	Если вы закроете Azure PowerShell во время выполнения описанных в руководстве инструкций, при следующем запуске Azure PowerShell вам нужно будет запустить командлет **Get-AzureRmDataFactory**, чтобы выполнить инструкции, описанные в руководстве.
+	Если вы закроете Azure PowerShell, не завершив выполнение описанных в руководстве инструкций, при следующем запуске Azure PowerShell вам нужно будет запустить командлет **Get-AzureRmDataFactory**, чтобы выполнить эти инструкции.
 
 ### Создание связанной службы Azure HDInsight
 На этом шаге вы свяжете используемый по запросу кластер HDInsight с фабрикой данных. Кластер HDInsight автоматически создается в среде выполнения и удаляется после завершения обработки и простоя в течение указанного времени. Вместо используемого по запросу кластера HDInsight можно использовать собственный кластер HDInsight. Дополнительные сведения см. в статье [Связанные службы вычислений](data-factory-compute-linked-services.md).
@@ -141,7 +133,7 @@
 	| TimeToLive (срок жизни) | Указывает, сколько времени может простаивать кластер HDInsight, прежде чем он будет удален. |
 	| linkedServiceName (имя связанной службы) | Указывает имя учетной записи хранения, в которой будут храниться журналы, создаваемые HDInsight. |
 
-	Обратите внимание на следующее.
+	Обратите внимание на следующие моменты.
 	
 	- С помощью JSON-файла фабрика данных создает кластер HDInsight **под управлением Windows**. Можно также создать кластер HDInsight **под управлением Linux**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 	- Вместо кластера HDInsight по запросу можно использовать **собственный кластер HDInsight**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
@@ -197,7 +189,7 @@
 	| frequency и interval | Для свойства frequency задано значение Month, а для свойства interval — значение 1. Это означает, что срезы входных данных доступны ежемесячно. | 
 	| external | Это свойство имеет значение true, если входные данные не создаются службой фабрики данных. | 
 
-2. Выполните следующую команду в Azure PowerShell, чтобы создать набор данных фабрики данных.
+2. Чтобы создать набор данных фабрики данных, выполните следующую команду в Azure PowerShell:
 
 		New-AzureRmDataFactoryDataset $df -File .\InputTable.json
 
@@ -227,7 +219,7 @@
 
 	JSON-файл определяет набор данных с именем **AzureBlobOutput**, представляющий выходные данные для действия в конвейере. Кроме того, файл указывает, что результаты хранятся в контейнере больших двоичных объектов **adfgetstarted** и в папке **partitioneddata**. В разделе **availability** указывается частота, с которой будет создаваться выходной набор данных (ежемесячно).
 
-2. Выполните следующую команду в Azure PowerShell, чтобы создать набор данных фабрики данных.
+2. Чтобы создать набор данных фабрики данных, выполните следующую команду в Azure PowerShell:
 
 		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
@@ -307,15 +299,15 @@
 
 2. Выполните командлет **Get-AzureRmDataFactorySlice**, чтобы получить сведения обо всех срезах в таблице **EmpSQLTable** (выходной таблице конвейера).
 
-		Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
+		Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
 
 	Обратите внимание, здесь указывается то же значение StartDateTime, что и в JSON конвейера. Вы должны увидеть результат, аналогичный приведенному ниже.
 
 		ResourceGroupName : ADFTutorialResourceGroup
 		DataFactoryName   : FirstDataFactoryPSH
 		DatasetName       : AzureBlobOutput
-		Start             : 2/1/2014 12:00:00 AM
-		End               : 3/1/2014 12:00:00 AM
+		Start             : 4/1/2016 12:00:00 AM
+		End               : 4/2/2016 12:00:00 AM
 		RetryCount        : 0
 		State             : InProgress
 		SubState          :
@@ -325,7 +317,7 @@
 
 3. Выполните командлет **Get-AzureRmDataFactoryRun**, чтобы получить сведения о действиях, выполняемых для конкретного среза.
 
-		Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
+		Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
 
 	Вы должны увидеть результат, аналогичный приведенному ниже.
 		
@@ -336,8 +328,8 @@
 		ProcessingStartTime : 12/18/2015 4:50:33 AM
 		ProcessingEndTime   : 12/31/9999 11:59:59 PM
 		PercentComplete     : 0
-		DataSliceStart      : 2/1/2014 12:00:00 AM
-		DataSliceEnd        : 3/1/2014 12:00:00 AM
+		DataSliceStart      : 4/1/2016 12:00:00 AM
+		DataSliceEnd        : 4/2/2016 12:00:00 AM
 		Status              : AllocatingResources
 		Timestamp           : 12/18/2015 4:50:33 AM
 		RetryAttempt        : 0
@@ -349,10 +341,13 @@
 
 	Вы можете выполнять этот командлет до тех пор, пока не увидите срез со статусом **Ready** (Готово) или **Failed** (Сбой). Когда срез перейдет в состояние «Готово», проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов. Создание кластера HDInsight по требованию занимает некоторое время.
 
-	 ![выходные данные](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
+	![выходные данные](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
 
 
-> [AZURE.IMPORTANT] В случае успешной обработки среза входной файл удаляется. Если вы хотите повторно обработать срез или еще раз выполнить инструкции из руководства, передайте входной файл (input.log) в папку inputdata в контейнере adfgetstarted.
+> [AZURE.IMPORTANT] 
+Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут). Таким образом, конвейер обработает срез **примерно через 30 минут**.
+> 
+> В случае успешной обработки среза входной файл удаляется. Если вы хотите повторно обработать срез или еще раз выполнить инструкции из руководства, передайте входной файл (input.log) в папку inputdata в контейнере adfgetstarted.
 
 ## Сводка 
 Следуя инструкциям из этого руководства, вы создали фабрику данных Azure для обработки данных путем выполнения сценария Hive в кластере Hadoop HDInsight. Вы использовали редактор фабрики данных на портале Azure для выполнения следующих действий:
@@ -365,7 +360,7 @@
 4.	Создание **конвейера** с действием **HDInsight Hive**.
 
 ## Дальнейшие действия
-В этой статье описывается создание конвейера с помощью действия преобразования (действие HDInsight), которое по требованию выполняет сценарий Hive в кластере Azure HDInsight. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в руководстве [Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+В этой статье описывается создание конвейера с помощью действия преобразования (действие HDInsight), которое по требованию выполняет сценарий Hive в кластере Azure HDInsight. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в статье [Учебник. Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## См. также
 | Раздел | Описание |
@@ -378,4 +373,4 @@
 | [Мониторинг конвейеров и управление ими с помощью колонок портала Azure](data-factory-monitor-manage-pipelines.md) | В этой статье описываются мониторинг и отладка конвейеров, а также управление ими с помощью колонок портала Azure. |
 | [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) | В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. 
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

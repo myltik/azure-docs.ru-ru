@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Проверка подлинности Windows и сервер Azure Multi-Factor Authentication" 
-	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности Windows и сервера Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Проверка подлинности Windows и сервер Azure Multi-Factor Authentication"
+	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности Windows и сервера Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Проверка подлинности Windows и сервер Azure Multi-Factor Authentication
 
@@ -31,13 +31,13 @@
 
 
 >[AZURE.NOTE]Для обеспечения безопасности служб терминалов в Windows Server 2012 R2 эта функция не поддерживается.
- 
+
 
 
 
 ## Для защиты приложения с помощью проверки подлинности Windows используйте следующую процедуру.
 
-1. На сервере Azure Multi-Factor Authentication щелкните значок проверки подлинности Windows.![Проверка подлинности Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
+1. На сервере Azure Multi-Factor Authentication щелкните значок проверки подлинности Windows. ![Проверка подлинности Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Установите флажок «Включить проверку подлинности Windows». По умолчанию этот флажок не установлен.
 3. На вкладке «Приложения» администратор может настроить одно или несколько приложений для проверки подлинности Windows.
 4. Выберите сервер или приложение — укажите, включен ли сервер или приложение. Нажмите кнопку ОК.
@@ -49,4 +49,4 @@
 10. Выберите подсеть, если необходимо указать диапазон IP-адресов с помощью подсети. Введите начальный IP-адрес подсети и выберите соответствующую маску сети в раскрывающемся списке.
 11. Нажмите кнопку «ОК».
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

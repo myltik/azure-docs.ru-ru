@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication" 
-	description="В этом документе описывается, как приступить к работе с сервером Azure MFA и заменить старую версию агента PhoneFactor." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication"
+	description="В этом документе описывается, как приступить к работе с сервером Azure MFA и заменить старую версию агента PhoneFactor."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication
 
@@ -63,10 +63,4 @@
 <li>Чтобы установить веб-службу мобильного приложения на веб-сервер, откройте командную строку от имени администратора и запустите файл MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi. Обратите внимание, что теперь у виртуального каталога по умолчанию будет имя MultiFactorAuthMobileAppWebService, а не PhoneFactorPhoneAppWebService. Если вы хотите использовать предыдущее имя, измените имя виртуального каталога на этапе установки. Вы можете выбрать более короткое имя. Так пользователям было проще вводить его на своих мобильных устройствах. Если во время установки вы не хотите изменять имя каталога по умолчанию, щелкните значок мобильного приложения на сервере Multi-Factor Authentication и измените URL-адрес веб-службы мобильного приложения.</li>
 <li>Перейдите в папку установки веб-службы мобильного приложения (например, C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) и отредактируйте файл web.config. Скопируйте значения в разделах appSettings и applicationSettings из исходного файла web.config, резервная копия которого была создана до появления нового файла web.config. Если при установке пакета SDK для веб-службы вы оставили новое имя виртуального каталога по умолчанию, измените URL-адрес в разделе applicationSettings так, чтобы он указывал на правильное расположение. Если в предыдущем файле web.config были изменены еще какие-то значения по умолчанию, внесите такие же изменения в новый файл web.config.</li></ol>
 
-
- 
-
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

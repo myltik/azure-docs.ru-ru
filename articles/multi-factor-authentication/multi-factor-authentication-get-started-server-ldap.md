@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Проверка подлинности LDAP и сервер Azure Multi-Factor Authentication" 
-	description="Приведенные на этой странице сведения о Azure Multi-Factor Authentication помогут развернуть проверку подлинности LDAP и сервер Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Проверка подлинности LDAP и сервер Azure Multi-Factor Authentication"
+	description="Приведенные на этой странице сведения о Azure Multi-Factor Authentication помогут развернуть проверку подлинности LDAP и сервер Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
-# Проверка подлинности LDAP и сервер Azure Multi-Factor Authentication 
+# Проверка подлинности LDAP и сервер Azure Multi-Factor Authentication
 
 
 По умолчанию в сервере Azure Multi-Factor Authentication настроен импорт или синхронизация пользователей из Active Directory. Однако его можно настроить на привязку к другим каталогам LDAP, например к каталогу ADAM или конкретному контроллеру домена Active Directory. При настройке подключения к каталогу через LDAP сервер Azure Multi-Factor Authentication можно настроить так, чтобы он функционировал в качестве прокси-сервера LDAP для и выполнял проверку подлинности. Он также позволяет использовать привязку LDAP в качестве целевого объекта RADIUS для предварительной проверки подлинности пользователей в случае применения проверки подлинности IIS или для основной проверки подлинности на пользовательском портале Azure Multi-Factor Authentication.
@@ -33,7 +33,7 @@
 Для настройки проверки подлинности LDAP установите сервер Azure Multi-Factor Authentication на сервере Windows. Выполните перечисленные ниже действия.
 
 1. На сервере Azure Multi-Factor Authentication щелкните значок проверки подлинности LDAP в левом меню.
-2. Установите флажок «Включить проверку подлинности LDAP».![Проверка подлинности LDAP](./media/multi-factor-authentication-get-started-server-ldap/ldap2.png)
+2. Установите флажок «Включить проверку подлинности LDAP». ![Проверка подлинности LDAP](./media/multi-factor-authentication-get-started-server-ldap/ldap2.png)
 3. На вкладке «Клиенты» измените значение для TCP-порта и SSL-порта, если службу LDAP в службе Azure Multi-Factor Authentication необходимо привязать к нестандартным портам для прослушивания запросов LDAP, поступающих от клиентов, которые будут настроены.
 4. Если между клиентом и сервером Azure Multi-Factor Authentication планируется использовать LDAPS, то на сервере, на котором работает упомянутый сервер, необходимо установить сертификат SSL. Нажмите кнопку «Обзор» рядом с полем сертификата SSL и выберите установленный сертификат, который будет использоваться для безопасного соединения.
 5. Нажмите кнопку «Добавить».
@@ -43,7 +43,7 @@
 9. Если Azure Multi-Factor Authentication настроена на получение проверок подлинности LDAP, данная служба должна передавать эти проверки в каталог LDAP. Таким образом, на вкладке «Целевой объект» отображается единственный неактивный параметр использования целевого объекта LDAP. Для настройки подключения каталога LDAP щелкните значок интеграции каталогов.
 10. На вкладке «Параметры» щелкните переключатель «Использовать определенную конфигурацию LDAP».
 11. Нажмите кнопку «Изменить…».
-12. В диалоговом окне «Изменение конфигурации LDAP» заполните поля сведениями, нужными для подключения к каталогу LDAP. Поля описаны в приведенной ниже таблице. Примечание. Эта информация есть также в файле справки по серверу Azure Multi-Factor Authentication.![Интеграция каталогов](./media/multi-factor-authentication-get-started-server-ldap/ldap.png)
+12. В диалоговом окне «Изменение конфигурации LDAP» заполните поля сведениями, нужными для подключения к каталогу LDAP. Поля описаны в приведенной ниже таблице. Примечание. Эта информация есть также в файле справки по серверу Azure Multi-Factor Authentication. ![Интеграция каталогов](./media/multi-factor-authentication-get-started-server-ldap/ldap.png)
 13. Проверьте LDAP-подключение. Для этого нажмите кнопку «Тест».
 14. Если проверка LDAP-подключения оказалась успешной, нажмите кнопку «ОК».
 15. Перейдите на вкладку «Фильтры». Сервер предварительно настроен на загрузку контейнеров, групп безопасности и пользователей из Active Directory. В случае привязки к другому каталогу LDAP, скорее всего, будет необходимо изменить отображаемые фильтры. Для получения дополнительных сведений о фильтрах щелкните ссылку «Справка».
@@ -63,4 +63,4 @@
 - Для времени ожидания LDAP установите значение в диапазоне 30–60 секунд, чтобы оставалось время на проверку учетных данных пользователя с каталогом LDAP, выполнение двухфакторной проверки подлинности, получение ответа и отправку ответа на запрос на доступ LDAP.
 - При использовании LDAPS устройство или сервер, отправляющий запросы LDAP, должен доверять сертификату SSL, установленному на сервере Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

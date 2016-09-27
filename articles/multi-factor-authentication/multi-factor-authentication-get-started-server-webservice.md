@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Приступая к работе с веб-службой мобильного приложения сервера Azure Multi-Factor Authentication" 
-	description="Приложение Azure Multi-Factor Authentication предлагает возможность дополнительной проверки подлинности по внештатному каналу. Это позволяет серверу Azure Multi-Factor Authentication отправлять push-уведомления пользователям." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Приступая к работе с веб-службой мобильного приложения сервера Azure Multi-Factor Authentication"
+	description="Приложение Azure Multi-Factor Authentication предлагает возможность дополнительной проверки подлинности по внештатному каналу. Это позволяет серверу Azure Multi-Factor Authentication отправлять push-уведомления пользователям."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Приступая к работе с веб-службой мобильного приложения сервера Azure Multi-Factor Authentication
 
@@ -58,11 +58,11 @@
 ### Установка веб-службы мобильного приложения
 
 <ol>
-<li>Откройте проводник на сервере, на котором установлен сервер Azure Multi-Factor Authentication, и перейдите в папку установки сервера Azure Multi-Factor Authentication (например, C:\Program Files\Azure Multi-Factor Authentication). Выберите соответствующий файл установки AuthenticationPhoneAppWebServiceSetup службы Azure Multi-Factor Authentication для 32- или 64-разрядной версии сервера, на который будет установлена веб-служба мобильного приложения. Скопируйте файл установки на сервер с выходом в Интернет.</li> 
+<li>Откройте проводник на сервере, на котором установлен сервер Azure Multi-Factor Authentication, и перейдите в папку установки сервера Azure Multi-Factor Authentication (например, C:\Program Files\Azure Multi-Factor Authentication). Выберите соответствующий файл установки AuthenticationPhoneAppWebServiceSetup службы Azure Multi-Factor Authentication для 32- или 64-разрядной версии сервера, на который будет установлена веб-служба мобильного приложения. Скопируйте файл установки на сервер с выходом в Интернет.</li>
 
 <li>На веб-сервере с выходом в Интернет файл установки необходимо запускать с правами администратора. Самый простой способ сделать это&#160;— открыть командную строку от имени администратора и перейти в расположение, в которое был скопирован файл установки.</li>  
 
-<li>Запустите файл установки Multi-Factor AuthenticationMobileAppWebServiceSetup и при необходимости измените сайт и замените имя виртуального каталога коротким именем, например «PA». Рекомендуется использовать короткое имя виртуального каталога, так как пользователи должны вводить URL-адрес веб-службы мобильного приложения в мобильное устройство во время активации.</li> 
+<li>Запустите файл установки Multi-Factor AuthenticationMobileAppWebServiceSetup и при необходимости измените сайт и замените имя виртуального каталога коротким именем, например «PA». Рекомендуется использовать короткое имя виртуального каталога, так как пользователи должны вводить URL-адрес веб-службы мобильного приложения в мобильное устройство во время активации.</li>
 
 <li>После завершения установки файла Azure Multi-Factor AuthenticationMobileAppWebServiceSetup перейдите в расположение C:\inetpub\wwwroot\PA (или в соответствующий каталог на основе имени виртуального каталога) и измените файл web.config.</li>  
 
@@ -72,7 +72,7 @@
 
 <li>Если веб-сайт, с которого выполнялась установка пользовательского портала (например, веб-сайт по умолчанию), еще не связан с публично подписанным сертификатом, установите сертификат на сервере, если он на нем еще не установлен, затем откройте диспетчер IIS и привяжите сертификат к веб-сайту.</li>  
 
-<li>Откройте веб-браузер на любом компьютере и перейдите по URL-адресу на страницу, с которой была установлена веб-служба мобильного приложения (например, https://www.publicwebsite.com/PA). Убедитесь, что не отображаются предупреждения или ошибки сертификата.</li> 
+<li>Откройте веб-браузер на любом компьютере и перейдите по URL-адресу на страницу, с которой была установлена веб-служба мобильного приложения (например, https://www.publicwebsite.com/PA). Убедитесь, что не отображаются предупреждения или ошибки сертификата.</li>
 
 ### Настройка параметров мобильного приложения на сервере Azure Multi-Factor Authentication
 Теперь, когда веб-служба мобильного приложения установлена, необходимо настроить сервер Azure Multi-Factor Authentication для работы с порталом.
@@ -88,6 +88,5 @@
 
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
- 
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

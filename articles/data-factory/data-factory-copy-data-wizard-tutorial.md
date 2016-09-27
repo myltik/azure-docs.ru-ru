@@ -13,21 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/01/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных
 > [AZURE.SELECTOR]
-- [Обзор учебника](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Редактор фабрики данных](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Использование интерфейса REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
 
 Работая с этим руководством, вы с помощью мастера копирования фабрики данных создадите конвейер с действием копирования в фабрике данных. Сначала создайте фабрику данных с помощью портала Azure,. Затем с помощью мастера копирования создайте связанные службы фабрики данных, наборы данных и конвейер с действием копирования, который копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure. Дополнительные сведения о действии копирования см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
 
-> [AZURE.IMPORTANT] Прежде чем начинать работу с этим руководством, изучите статью [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните все необходимые действия.
+> [AZURE.IMPORTANT] Прежде чем начать работу с этим руководством, изучите статью [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните все **необходимые действия**.
 
 ## Создание фабрики данных
 На этом шаге с помощью портала Azure создается фабрика данных с именем **ADFTutorialDataFactory**.
@@ -40,7 +41,7 @@
 	1. Введите **ADFTutorialDataFactory** в поле **Имя**.
 	
   		![Создать колонку "Фабрика данных"](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)
-	2. Щелкните **ИМЯ ГРУППЫ РЕСУРСОВ** и выполните одно из следующих действий.
+	2. Щелкните **Имя группы ресурсов** и выполните следующие действия.
 		1. Щелкните **Создать новую группу ресурсов**.
 		2. В колонке **Создать новую группу ресурсов** введите **ADFTutorialResourceGroup** в поле **имени** группы ресурсов и щелкните **ОК**.
 
@@ -88,7 +89,10 @@
 	3. Нажмите кнопку **Далее**.
 
 	![Средство копирования — выбор входного файла или папки](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. На странице **File format settings** (Параметры формата файла) выберите значения **по умолчанию** и нажмите кнопку **Далее**.
+7. На странице **Choose the input file or folder** (Выбор входного файла или папки) нажмите кнопку **Далее**. Не устанавливайте флажок **Binary copy** (Двоичное копирование).
+
+	![Средство копирования — выбор входного файла или папки](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png)
+8. На странице **File format settings** (Параметры формата файла) выберите значения **по умолчанию** и нажмите кнопку **Далее**.
 
 	![Средство копирования — параметры формата файла](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)
 8. На странице целевого хранилища данных щелкните элемент **База данных SQL Azure** и нажмите кнопку **Далее**.
@@ -102,11 +106,12 @@
 
 	![Средство копирования — сопоставление таблиц](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
 10. На странице **Сопоставление схем** нажмите кнопку **Далее**.
+11. На странице **Performance settings** (Параметры производительности) нажмите кнопку **Далее**.
 11. Просмотрите сведения на странице **Сводка** и нажмите кнопку **Готово**. Мастер создаст две связанные службы, два набора данных (входной и выходной) и один конвейер в фабрике данных (из которой вы запустили мастер копирования).
 12. На странице **Развертывание прошло успешно** перейдите по ссылке **Click here to monitor copy pipeline** (Щелкните, чтобы отслеживать конвейер копирования).
 
 	![Средство копирования — развертывание выполнено](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)
-13. Чтобы получить сведения о способах отслеживания созданного вами конвейера, изучите инструкции в статье [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md).
+13. Чтобы получить сведения о способах отслеживания созданного вами конвейера, изучите инструкции в статье [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md). Щелкните значок **обновления** в списке **Activity windows** (Окна действий), чтобы просмотреть срез.
 
 	![Приложение мониторинга](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png)
  
@@ -120,4 +125,4 @@
 | [Наборы данных](data-factory-create-datasets.md) | Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure.
 | [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) | В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. 
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->
