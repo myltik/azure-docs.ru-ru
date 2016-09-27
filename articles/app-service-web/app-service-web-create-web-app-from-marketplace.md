@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service-web"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"

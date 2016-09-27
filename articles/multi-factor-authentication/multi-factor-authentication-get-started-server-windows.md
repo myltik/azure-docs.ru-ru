@@ -37,7 +37,7 @@
 
 ## Для защиты приложения с помощью проверки подлинности Windows используйте следующую процедуру.
 
-1. На сервере Azure Multi-Factor Authentication щелкните значок проверки подлинности Windows.![Проверка подлинности Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
+1. На сервере Azure Multi-Factor Authentication щелкните значок проверки подлинности Windows. ![Проверка подлинности Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Установите флажок «Включить проверку подлинности Windows». По умолчанию этот флажок не установлен.
 3. На вкладке «Приложения» администратор может настроить одно или несколько приложений для проверки подлинности Windows.
 4. Выберите сервер или приложение — укажите, включен ли сервер или приложение. Нажмите кнопку ОК.

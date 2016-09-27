@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""/>
 
-.<tags
+<tags
    ms.service="service-fabric"
    ms.devlang="dotNet"
    ms.topic="get-started-article"
@@ -41,7 +41,7 @@
 
     Настройка кластера занимает несколько минут. После завершения установки вы увидите примерно такой результат:
 
-    .![Результат установки кластера][cluster-setup-success]
+    ![Результат установки кластера][cluster-setup-success]
 
     Теперь вы можете попробовать развернуть приложение в кластере.
 
@@ -86,7 +86,7 @@
 
 7. Чтобы увидеть приложение в действии, откройте браузер и перейдите по адресу [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Вы должны увидеть следующее:
 
-    .![Пользовательский интерфейс развернутого приложения][deployed-app-ui]
+    ![Пользовательский интерфейс развернутого приложения][deployed-app-ui]
 
     Приложение WordCount очень простое. Оно состоит из клиентского кода JavaScript, создающего случайные пятизначные «слова», которые затем ретранслируются в приложение с помощью веб-API ASP.NET. Служба с отслеживанием состояния фиксирует количество подсчитанных слов. Все слова делятся на разделы по первому символу. Исходный код для приложения WordCount можно найти в статье [с примерами для начала работы](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
 
@@ -103,7 +103,7 @@
 
     Если вы развернули только приложение WordCount, должен отобразиться примерно такой результат:
 
-    .![Запрос всех развернутых приложений в PowerShell][ps-getsfapp]
+    ![Запрос всех развернутых приложений в PowerShell][ps-getsfapp]
 
 2. Перейдите на следующий уровень, запросив набор служб, включенных в приложение WordCount.
 
@@ -111,7 +111,7 @@
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
     ```
 
-    .![Список служб для приложения в PowerShell][ps-getsfsvc]
+    ![Список служб для приложения в PowerShell][ps-getsfsvc]
 
     Приложение состоит из двух служб — веб-интерфейса и службы с отслеживанием состояния, которая управляет словами.
 
@@ -121,7 +121,7 @@
     Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
     ```
 
-    .![Просмотр разделов службы в PowerShell][ps-getsfpartitions]
+    ![Просмотр разделов службы в PowerShell][ps-getsfpartitions]
 
     Набор использованных команд (например, все команды PowerShell для Service Fabric) доступен для любого локального или удаленного кластера, к которому вы можете подключиться.
 
@@ -146,7 +146,7 @@
 
     Когда начнется обновление, в окне PowerShell должен отобразиться примерно такой результат:
 
-    .![Ход обновления в PowerShell][ps-appupgradeprogress]
+    ![Ход обновления в PowerShell][ps-appupgradeprogress]
 
 3. Если обновление будет продолжаться, вам может быть проще отслеживать его состояние из обозревателя Service Fabric. Откройте окно браузера и перейдите по адресу [http://localhost:19080/Explorer](http://localhost:19080/Explorer). В дереве слева разверните узел **Приложения** и последовательно выберите **WordCount** и **fabric:/WordCount**. На вкладке с основными сведениями отобразится состояние обновления во всех доменах обновления кластера.
 
@@ -180,7 +180,7 @@
 
     Кроме того, приложение можно удалить в меню **ДЕЙСТВИЯ** Service Fabric Explorer или в контекстном меню в представлении списка приложений в области слева.
 
-    .![Удаление приложения в обозревателе Service Fabric][sfe-delete-application]
+    ![Удаление приложения в обозревателе Service Fabric][sfe-delete-application]
 
 2. Удалив приложение из кластера, вы можете отменить регистрацию приложения WordCount версии 1.0.0 и 2.0.0. Это действие удаляет пакеты приложения, в том числе их коды и конфигурацию, из хранилища образов кластера.
 
@@ -228,7 +228,7 @@
 - Все описанные в этой статье действия, выполняемые в локальном кластере, можно также выполнять в [кластере Azure](service-fabric-cluster-creation-via-portal.md).
 - В этой статье описано простое обновление. Чтобы узнать больше о преимуществах и гибкости обновлений Service Fabric, см. [документацию по обновлению](service-fabric-application-upgrade.md).
 
-.<!-- Images -->
+<!-- Images -->
 
 [cluster-setup-success]: ./media/service-fabric-get-started-with-a-local-cluster/LocalClusterSetup.png
 [extracted-app-package]: ./media/service-fabric-get-started-with-a-local-cluster/ExtractedAppPackage.png

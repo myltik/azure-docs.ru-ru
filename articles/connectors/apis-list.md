@@ -133,7 +133,7 @@
 [youtubedoc]: ./connectors-create-api-youtube.md "Подключается к YouTube и может взаимодействовать с видео и каналами."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Подключается к SparkPost и может использоваться для обмена данными."
 
-.<!--Icon references-->
+<!--Icon references-->
 [Azure-Blobicon]: ./media/apis-list/azureblob.png
 [Azure~Functionsicon]: ./media/apis-list/function.png
 [Boxicon]: ./media/apis-list/box.png

@@ -7,7 +7,14 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ** ms.devlang="na" ms.topic="get-started-article" ms.date="09/16/2016" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="09/16/2016" 
+	ms.author="spelluru"/>
 
 # Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных
 > [AZURE.SELECTOR]
@@ -28,7 +35,7 @@
 
 1.	После входа на [портал Azure](https://portal.azure.com) щелкните **Создать** в левом верхнем углу, выберите **Анализ данных** в колонке **Создать**, затем щелкните **Фабрика данных** в колонке **Анализ данных**.
 
-	.![Создать -> Фабрика данных](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
+	![Создать -> Фабрика данных](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 
 6. В колонке **Создать фабрику данных** выполните следующие действия.
 	1. Введите **ADFTutorialDataFactory** в поле **Имя**.
@@ -38,7 +45,7 @@
 		1. Щелкните **Создать новую группу ресурсов**.
 		2. В колонке **Создать новую группу ресурсов** введите **ADFTutorialResourceGroup** в поле **имени** группы ресурсов и щелкните **ОК**.
 
-			.![Создать группу ресурсов](./media/data-factory-copy-data-wizard-tutorial/create-new-resource-group.png)
+			![Создать группу ресурсов](./media/data-factory-copy-data-wizard-tutorial/create-new-resource-group.png)
 
 		Некоторые действия, описанные в этом учебнике, предполагают, что для группы ресурсов используется имя **ADFTutorialResourceGroup**. Сведения о группах ресурсов см. в разделе [Использование групп ресурсов для управления ресурсами Azure](../resource-group-overview.md).
 7. В колонке **Создать фабрику данных** убедитесь, что выбран пункт **Добавить в начальную панель**.
@@ -46,7 +53,7 @@
 
 	Имя фабрики данных Azure должно быть глобально уникальным. При возникновении ошибки **Имя ADFTutorialDataFactory фабрики данных недоступно** измените это имя (например, на ваше\_имя\_ADFTutorialDataFactory) и попробуйте создать ее снова. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](data-factory-naming-rules.md), чтобы узнать о правилах именования артефактов фабрики данных.
 	 
-	.![Имя фабрики данных недоступно](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)
+	![Имя фабрики данных недоступно](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)
 	
 	> [AZURE.NOTE] В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.
 
@@ -97,7 +104,7 @@
 	5. Нажмите кнопку **Далее**.
 9. На странице **Сопоставление таблицы** выберите **emp** в поле **Назначение** раскрывающегося списка, щелкните **стрелку вниз** (необязательно), чтобы отобразить схему и просмотреть данные.
 
-	.![Средство копирования — сопоставление таблиц](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
+	![Средство копирования — сопоставление таблиц](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
 10. На странице **Сопоставление схем** нажмите кнопку **Далее**.
 11. На странице **Performance settings** (Параметры производительности) нажмите кнопку **Далее**.
 11. Просмотрите сведения на странице **Сводка** и нажмите кнопку **Готово**. Мастер создаст две связанные службы, два набора данных (входной и выходной) и один конвейер в фабрике данных (из которой вы запустили мастер копирования).
