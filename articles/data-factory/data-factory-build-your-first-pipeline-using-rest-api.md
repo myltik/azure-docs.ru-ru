@@ -19,15 +19,17 @@
 
 # Руководство. Создание первой фабрики данных Azure с помощью REST API фабрики данных
 > [AZURE.SELECTOR]
+- [Обзор и предварительные требования](data-factory-build-your-first-pipeline.md)
 - [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
+Из этой статьи вы узнаете, как создать первую фабрику данных Azure с помощью REST API фабрики данных.
 
-## Дополнительные требования
+## Предварительные требования
+- Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования**.
 - Установите на компьютер программу [curl](https://curl.haxx.se/dlwiz/). Она будет использоваться с командами REST для создания фабрики данных.
 - Следуя инструкциям в [этой статье](../resource-group-create-service-principal-portal.md), выполните следующее:
 	1. Создайте веб-приложение с именем **ADFGetStartedApp** в Azure Active Directory.
@@ -39,7 +41,7 @@
 	1. Выполните командлет **Login-AzureRmAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.
 	2. Выполните командлет **Get-AzureRmSubscription**, чтобы просмотреть все подписки для этой учетной записи.
 	3. Выполните командлет **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription.| Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription. 
-3. Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup**, выполнив следующую команду в PowerShell.
+3. Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup**, выполнив следующую команду в PowerShell:
 
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -94,7 +96,7 @@
 | TimeToLive (срок жизни) | Указывает, сколько времени может простаивать кластер HDInsight, прежде чем он будет удален. |
 | linkedServiceName (имя связанной службы) | Указывает имя учетной записи хранения, в которой будут храниться журналы, создаваемые HDInsight. |
 
-Обратите внимание на следующее:
+Обратите внимание на следующие моменты.
 
 - С помощью вышеупомянутого файла JSON фабрика данных создает кластер HDInsight **под управлением Windows**. Можно также создать кластер HDInsight **под управлением Linux**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 - Вместо кластера HDInsight по запросу можно использовать **собственный кластер HDInsight**. Дополнительные сведения см. в разделе [Связанная служба Azure HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
@@ -261,9 +263,9 @@ JSON-файл определяет набор данных с именем **Azu
 
 		Write-Host $results
 
-Обратите внимание на следующее:
+Обратите внимание на следующие моменты.
  
-- Имя фабрики данных Azure должно быть глобально уникальным. Если в результатах отобразится сообщение об ошибке **Имя FirstDataFactoryREST фабрики данных недоступно**, выполните такие действия:
+- Имя фабрики данных Azure должно быть глобально уникальным. Если в результатах отобразится сообщение об ошибке **Имя FirstDataFactoryREST фабрики данных недоступно**, сделайте следующее:
 	1. Измените имя (например, на ваше\_имя\_FirstDataFactoryREST) в файле **datafactory.json**. Ознакомьтесь со статьей [Фабрика данных Azure — правила именования](data-factory-naming-rules.md), чтобы узнать о правилах именования артефактов фабрики данных.
 	2. В первой команде, где переменной **$cmd** присваивается значение, замените FirstDataFactoryREST на новое имя и выполните команду.
 	3. Выполните следующие две команды, чтобы вызвать REST API для создания фабрики данных и вывода результатов операции.
@@ -271,7 +273,7 @@ JSON-файл определяет набор данных с именем **Azu
 - В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.
 - Если появится сообщение об ошибке **Подписка не зарегистрирована для использования пространства имен Microsoft.DataFactory**, выполните одно из следующих действий и повторите попытку публикации.
 
-	- В Azure PowerShell выполните следующую команду, чтобы зарегистрировать поставщик фабрики данных Azure:
+	- Чтобы зарегистрировать поставщик фабрики данных Azure, выполните следующую команду в Azure PowerShell:
 		
 			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
@@ -370,6 +372,10 @@ JSON-файл определяет набор данных с именем **Azu
     	    (convertFrom-Json $results2).RemoteException
 	}
 
+
+> [AZURE.IMPORTANT] 
+Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут). Таким образом, конвейер обработает срез **примерно через 30 минут**.
+
 Запускайте командлет Invoke-Command, пока не увидите срез в состоянии **Готово** или **Сбой**. Когда срез перейдет в состояние «Готово», проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов. Создание кластера HDInsight по требованию занимает некоторое время.
 
 ![выходные данные](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
@@ -402,4 +408,4 @@ JSON-файл определяет набор данных с именем **Azu
 | [Мониторинг конвейеров и управление ими с помощью колонок портала Azure](data-factory-monitor-manage-pipelines.md) | В этой статье описываются мониторинг и отладка конвейеров, а также управление ими с помощью колонок портала Azure. |
 | [Мониторинг конвейеров фабрики данных Azure и управление ими с помощью нового приложения по мониторингу и управлению](data-factory-monitor-manage-app.md) | В этой статье описывается мониторинг и отладка конвейеров, а также управление ими с помощью приложения мониторинга и управления. 
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

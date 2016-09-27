@@ -3,7 +3,7 @@
 	description="В этом руководстве подробно описаны все этапы создания канала, который получает на вход динамический односкоростной поток данных и преобразует его в мультискоростной, с помощью портала Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
+	authors="anilmur" 
 	manager="erikre" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/06/2016"
-	ms.author="juliako"/>
+	ms.author="juliako;juliako"/>
 
 
 #Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с несколькими скоростями на портале Azure
@@ -183,7 +183,7 @@
 	
 	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 	
-	Если оставить установленным флажок **Publish this event now** (Опубликовать это событие), для события будут созданы URL-адреса публикации.
+	Если оставить установленным флажок **Publish this live event now** (Опубликовать это динамическое событие), для события будут созданы URL-адреса публикации.
 	
 	Когда вы будете готовы к потоковой передаче события, щелкните **Start** (Начать).
 
@@ -240,4 +240,4 @@
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

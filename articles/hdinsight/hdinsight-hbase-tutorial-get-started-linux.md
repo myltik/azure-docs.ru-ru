@@ -39,17 +39,17 @@
 
 ## Создание кластера HBase
 
-Следующая процедура предполагает использование шаблона Azure ARM для создания кластера HBase. Описание параметров, используемых в процедуре, и других методов создания кластеров см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Следующая процедура предполагает использование шаблона Azure Resource Manager для создания кластера HBase. Описание параметров, используемых в процедуре, и других методов создания кластеров см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Щелкните следующие изображение, чтобы открыть шаблон ARM на портале Azure. Шаблон ARM расположен в общедоступном контейнере больших двоичных объектов.
+1. Щелкните следующее изображение, чтобы открыть шаблон на портале Azure. Шаблон хранится в общедоступном контейнере больших двоичных объектов.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 2. В колонке **Параметры** заполните следующие поля.
 
     - **Имя кластера**: введите имя создаваемого кластера HBase.
     - **Имя для входа и пароль кластера**: имя для входа по умолчанию — **admin**.
-    - **Имя пользователя SSH и пароль**: по умолчанию используется имя **sshuser**. Это имя можно изменить.
+    - **Имя пользователя SSH и пароль**. По умолчанию используется имя **sshuser**. Это имя можно изменить.
      
     Все остальные параметры являются необязательными.
     
@@ -188,7 +188,7 @@ HBase включает несколько методов загрузки дан
 	* **-u** — имя пользователя и пароль, используемый для аутентификации запроса.
 	* **-G** — указывает, что это запрос GET.
 
-2. Для получения списка существующих таблиц HBase используйте следующую команду:
+2. Для получения списка имеющихся таблиц HBase используйте следующую команду:
 
 		curl -u <UserName>:<Password> \
 		-G https://<ClusterName>.azurehdinsight.net/hbaserest/
@@ -247,7 +247,7 @@ SSH может также использоваться для туннелиро
 4. На экране "Основные параметры вашего сеанса PuTTY" введите следующие значения:
 
 	- **Имя узла**: адрес SSH вашего сервера HDInsight в поле «Имя узла» (или «IP-адрес»). Адрес SSH — это имя кластера с суффиксом **-ssh.azurehdinsight.net**. Например, *mycluster-ssh.azurehdinsight.net*.
-	- **Порт**: 22. Порт SSH в головном узле 0 — 22.
+	- **Порт**: 22. Для основного головного узла используется порт SSH 22.
 5. В разделе **Категория** в левой части диалогового окна последовательно разверните узлы **Подключение** и **SSH**, а затем щелкните **Туннели**.
 6. Введите следующую информацию в форме "Параметры, управляющие перенаправлением портов SSH":
 
@@ -325,4 +325,4 @@ SSH может также использоваться для туннелиро
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

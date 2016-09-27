@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Назначение лицензий для службы Microsoft Azure Multi-Factor Authentication" 
-	description="Из этой статьи вы узнаете, как назначать лицензии для службы Microsoft Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Назначение лицензий для службы Microsoft Azure Multi-Factor Authentication"
+	description="Из этой статьи вы узнаете, как назначать лицензии для службы Microsoft Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Назначение пользователям лицензии Azure MFA, Azure AD Premium или Enterprise Mobility
 
@@ -33,4 +33,4 @@
 7. **Щелкните** кнопку с галочкой, чтобы сохранить изменения. ![Назначение лицензий](./media/multi-factor-authentication-get-started-assign-licenses/assign4.png)
 8. Появится сообщение о том, сколько лицензий назначено и сколько не удалось назначить. Нажмите кнопку **ОК**. ![Назначение лицензий](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

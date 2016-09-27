@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai;annahar"/>
 
 # Настройка пиринга виртуальных сетей с использованием шаблонов Resource Manager
 
@@ -27,9 +27,9 @@
 
 Чтобы настроить пиринг виртуальных сетей с использованием шаблонов Resource Manager, сделайте следующее.
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 
-    Примечание. Командлет PowerShell для управления пирингом виртуальных сетей включен в выпуск [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+    > [AZURE.NOTE] Командлет PowerShell для управления пирингом виртуальных сетей включен в выпуск [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. Ниже показано определение пирингового соединения между виртуальными сетями (от VNet1 к VNet2) на основе описанного выше сценария. Скопируйте приведенное ниже содержимое и вставьте его в файл VNetPeeringVNet1.json.
 
@@ -58,7 +58,7 @@
             }
         ]
         }
-    
+
 3. Ниже показано определение пирингового соединения между виртуальными сетями (от VNet2 к VNet1) на основе описанного выше сценария. Скопируйте приведенное ниже содержимое и вставьте его в файл VNetPeeringVNet2.json.
 
         {
@@ -105,7 +105,7 @@
 
     > [AZURE.NOTE] Замените имя группы ресурсов и файла шаблона соответствующим образом.
 
-    Ниже приведен пример на основе приведенного выше сценария.
+    Ниже приведен пример на основе описанного выше сценария.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet1.json -DeploymentDebugLogLevel all
 
@@ -161,9 +161,9 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
-Чтобы настроить пиринг виртуальных сетей в рамках подписок, сделайте следующее.
+Чтобы настроить пиринговую связь между виртуальными сетями в рамках подписок, сделайте следующее:
 
-1. Войдите в Azure, используя учетную запись привилегированного пользователя A для подписки A, и запустите следующий командлет:
+1. Войдите в Azure, используя учетную запись привилегированного пользователя A в подписке A, и запустите следующий командлет:
 
         New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet5
 
@@ -178,7 +178,7 @@
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet3.json -DeploymentDebugLogLevel all
 
     Вот как будет выглядеть файл JSON:
-    
+
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -204,11 +204,11 @@
             }
         ]
         }
-   
+
 4. Затем в рамках сеанса пользователя В выполните следующий командлет:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet5.json -DeploymentDebugLogLevel all
-   
+
 	Вот как будет выглядеть файл JSON:
 
         {
@@ -236,14 +236,14 @@
             }
         ]
         }
- 
+
  	Когда в нашем примере пиринг будет настроен, вы сможете устанавливать подключение между любыми виртуальными машинами, входящими в эти две виртуальные сети, в разных подписках.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
 1. В этом сценарии можно развернуть представленный ниже шаблон, чтобы настроить пиринг виртуальных сетей. Необходимо присвоить свойству AllowForwardedTraffic значение True, чтобы разрешить виртуальному сетевому устройству в пиринговой сети отправлять и принимать трафик.
 
-	Ниже приведен шаблон для настройки пирингового соединения от сети HubVNet к сети VNet1. Обратите внимание, что свойству AllowForwardedTraffic присвоено значение True.
+	Ниже приведен шаблон для настройки пирингового соединения от сети HubVNet к сети VNet1. Обратите внимание, что свойству AllowForwardedTraffic присвоено значение false.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -272,7 +272,7 @@
         ]
         }
 
-2. Ниже приведен шаблон для настройки пирингового соединения от сети VNet1 к сети HubVnet. Обратите внимание, что для свойства AllowForwardedTraffic задано значение True.
+2. Ниже приведен шаблон для настройки пирингового соединения от сети VNet1 к сети HubVnet. Обратите внимание, что свойству AllowForwardedTraffic присвоено значение true.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -303,4 +303,57 @@
 
 3. Настроив пиринговую связь, ознакомьтесь с этой [статьей](virtual-network-create-udr-arm-ps.md). Из нее вы узнаете, как настроить пользовательский маршрут для перенаправления трафика VNet1 через виртуальное устройство. Указывая адрес следующего прыжка в маршруте, вы можете выбрать IP-адрес виртуального устройства в пиринговой виртуальной сети HubVNet.
 
-<!---HONumber=AcomDC_0810_2016-->
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+Чтобы настроить пиринг между виртуальными сетями из разных моделей развертывания, выполните следующие действия:
+1. Ниже показано определение пирингового соединения между виртуальными сетями (от VNET1 к VNET2) в этом сценарии. Для настройки пиринга между классической виртуальной сетью и виртуальной сетью Azure Resource Manager требуется только одно соединение.
+
+    Укажите идентификатор подписки классической виртуальной сети или VNET2 и измените MyResouceGroup на имя группы соответствующего ресурса.
+
+    { "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", "contentVersion": "1.0.0.0", "parameters": { }, "variables": { }, "resources": [ { "apiVersion": "2016-06-01", "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings", "name": "VNET1/LinkToVNET2", "location": "[resourceGroup().location]", "properties": { "allowVirtualNetworkAccess": true, "allowForwardedTraffic": false, "allowGatewayTransit": false, "useRemoteGateways": false, "remoteVirtualNetwork": { "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]" } } } ] }
+
+2. Чтобы развернуть файл шаблона, выполните следующий командлет для создания или обновления развертывания.
+
+        New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
+
+        Output shows:
+
+        DeploymentName          : VnetPeering
+        ResourceGroupName       : MyResourceGroup
+        ProvisioningState       : Succeeded
+        Timestamp               : XX/XX/YYYY 5:42:33 PM
+        Mode                    : Incremental
+        TemplateLink            :
+        Parameters              :
+        Outputs                 :
+        DeploymentDebugLogLevel : RequestContent, ResponseContent
+
+3. После успешного завершения развертывания можно выполнить следующий командлет, чтобы просмотреть состояние пиринга.
+
+        Get-AzureRmVirtualNetworkPeering -VirtualNetworkName VNET1 -ResourceGroupName MyResourceGroup -Name LinkToVNET2
+
+        Output shows:
+
+        Name                             : LinkToVNET2
+        Id                               : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResource
+                                   Group/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeering
+                                   s/LinkToVNET2
+        Etag                             : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ResourceGroupName                : MyResourceGroup
+        VirtualNetworkName               : VNET1
+        PeeringState                     : Connected
+        ProvisioningState                : Succeeded
+        RemoteVirtualNetwork             : {
+                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/M
+                                   yResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
+                                   }
+        AllowVirtualNetworkAccess        : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
+
+Когда пиринг будет настроен между классической виртуальной сетью и виртуальной сетью Resource Manager, вы сможете подключать любую виртуальную машину в VNET1 к виртуальной машине в VNET2 и наоборот.
+
+<!---HONumber=AcomDC_0921_2016-->

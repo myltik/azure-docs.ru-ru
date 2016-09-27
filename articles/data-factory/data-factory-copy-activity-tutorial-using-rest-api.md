@@ -7,28 +7,26 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-<tags 
+.<tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/17/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Руководство. Создание конвейера с действием копирования с помощью REST API
 > [AZURE.SELECTOR]
-- [Обзор учебника](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Редактор фабрики данных](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Использование интерфейса REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Использование API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
 
 В этом руководстве рассматривается создание и мониторинг фабрики данных Azure с помощью REST API. Конвейер в фабрике данных копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure с помощью действия копирования.
-
-Действие копирования перемещает данные в фабрике данных Azure. Это действие выполняется с помощью глобально доступной службы, обеспечивающей безопасное, надежное и масштабируемое копирование данных между разными хранилищами. Дополнительные сведения о действии копирования см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
 
 > [AZURE.NOTE] 
 В этой статье рассматриваются не все REST API фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по REST API фабрики данных](https://msdn.microsoft.com/library/azure/dn906738.aspx).
@@ -36,7 +34,7 @@
 
 ## Предварительные требования
 
-- Дополнительные сведения см. в статье [Обзор руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Прочтите [обзор руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования**.
 - Установите на компьютер программу [curl](https://curl.haxx.se/dlwiz/). Она будет использоваться с командами REST для создания фабрики данных.
 - Следуя инструкциям в [этой статье](../resource-group-create-service-principal-portal.md), выполните следующее:
 	1. Создайте веб-приложение с именем **ADFCopyTutorialApp** в Azure Active Directory.
@@ -136,7 +134,7 @@
 
 Определение JSON определяет набор данных с именем **AzureBlobInput**, представляющий входные данные для действия в конвейере. Кроме того, он указывает, что входные данные размещаются в файле **emp.txt**, который находится в контейнере больших двоичных объектов **adftutorial**.
 
- Обратите внимание на следующее:
+ Обратите внимание на следующие моменты.
 
 - для параметра **type** набора данных задано значение **AzureBlob**;
 - Для **linkedServiceName** задано значение **AzureStorageLinkedService**.
@@ -192,13 +190,13 @@
 
 Определение JSON определяет набор данных с именем **AzureSqlOutput**, представляющий выходные данные для действия в конвейере. Кроме того, он указывает, что результаты сохраняются в таблице **emp**, которая содержится в базе данных, представленной AzureSqlLinkedService. В разделе **availability** указывается, что выходной набор данных будет создаваться ежечасно (frequency — hour, interval — 1).
 
-Обратите внимание на следующее:
+Обратите внимание на следующие моменты.
 
 - Для параметра **type** набора данных задано значение **AzureSQLTable**.
 - **LinkedServiceName** имеет значение **AzureSqlLinkedService**.
 - **Tablename** имеет значение **emp**.
 - В таблице emp в базе данных есть три столбца: **ID**, **FirstName** и **LastName**. ID — это столбец для идентификаторов, поэтому здесь вам нужно указать только значения **FirstName** и **LastName**.
-- Параметр **availability** имеет значение **hourly** (параметру **frequency** присваивается значение **hour**, а параметру **interval** — значение **1**). Служба фабрики данных каждый час создает срез выходных данных в таблице **emp** в базе данных SQL Azure.
+- Параметр **availability** имеет значение **hourly** (параметру **frequency** присваивается значение **hour**, а параметру **interval** — значение **1**). Служба фабрики данных каждый час создает срез выходных данных в таблице **emp** в базе данных SQL Azure.
 
 ### pipeline.json
 
@@ -245,13 +243,13 @@
 	}
 
 
-Обратите внимание на следующее:
+Обратите внимание на следующие моменты.
 
 - В разделе действий доступно только одно действие, **тип** которого имеет значение **CopyActivity**.
 - Для входных данных действия задано значение **AzureBlobInput**, а для выходных данных — **AzureSqlOutput**.
 - В разделе **transformation** в качестве типа источника указан **BlobSource**, а в качестве типа приемника указан **SqlSink**.
 
-Замените значение свойства **start** текущей датой, а значение свойства **end** — датой следующего дня. Можно указать только часть даты и пропустить временную часть указанной даты и времени. Например, "2015-02-03", что эквивалентно "2015-02-03T00:00:00Z"
+Замените значение свойства **start** текущей датой, а значение свойства **end** — датой следующего дня. Можно указать только часть даты и пропустить временную часть указанной даты и времени. Например, "2015-02-03", что эквивалентно "2015-02-03T00:00:00Z"
 
 Даты начала и окончания должны быть в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. Время **окончания** указывать не обязательно, однако в этом примере мы будем его использовать.
 
@@ -300,7 +298,7 @@
 
 		Write-Host $results
 
-Обратите внимание на следующее:
+Обратите внимание на следующие моменты.
  
 - Имя фабрики данных Azure должно быть глобально уникальным. Если в результатах отобразится сообщение об ошибке **Имя ADFCopyTutorialDF фабрики данных недоступно**, сделайте следующее:
 	1. Измените имя (например, на ваше\_имя\_ADFCopyTutorialDF) в файле **datafactory.json**.
@@ -493,4 +491,4 @@
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

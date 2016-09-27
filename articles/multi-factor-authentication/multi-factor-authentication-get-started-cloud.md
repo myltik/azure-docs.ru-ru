@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Приступая к работе с Microsoft Azure Multi-Factor Authentication в облаке" 
-	description="Эта страница посвящена службе Microsoft Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure MFA в облаке." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Приступая к работе с Microsoft Azure Multi-Factor Authentication в облаке"
+	description="Эта страница посвящена службе Microsoft Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure MFA в облаке."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+.<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Приступая к работе с Azure Multi-Factor Authentication в облаке
 В этой статье вы узнаете, как приступить к работе с Azure Multi-Factor Authentication в облаке.
@@ -33,7 +33,7 @@
 2. [Создайте поставщик Azure Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md) и назначьте его своему каталогу или [пользователям лицензии](multi-factor-authentication-get-started-assign-licenses.md).
 
 > [AZURE.NOTE]  Лицензии доступны пользователям, у которых есть Azure MFA, Azure AD Premium или Enterprise Mobility Suite (EMS). MFA входит в состав Azure AD Premium и EMS. Если у вас есть необходимые лицензии, вам не нужно создавать поставщик проверки подлинности.
-		
+
 
 ## Включение многофакторной проверки подлинности для пользователей
 Чтобы включить многофакторную проверку подлинности для пользователя, достаточно просто изменить состояние пользователя с "Выключено" на "Включено". Дополнительные сведения о состояниях пользователей см. в статье [User States in Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md) (Состояния пользователей в Azure Multi-Factor Authentication).
@@ -65,7 +65,7 @@
 - Отключено
 
 > [AZURE.IMPORTANT]  Имейте в виду, что при непосредственном изменении состояния с "Отключено" на "Принудительно" устаревшие клиенты проверки подлинности перестанут работать, так как пользователь не прошел регистрацию многофакторной проверки подлинности и не получил [пароль приложения](multi-factor-authentication-whats-next.md#app-passwords). Если вы используете устаревший клиент проверки подлинности и вам требуются пароли приложения, рекомендуется переключаться с состояния "Отключено" на состояние "Включено". Это позволит пользователям пройти регистрацию и получить пароли.
-		
+
 		$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
 		$st.RelyingParty = "*"
 		$st.State = “Enabled”
@@ -73,7 +73,7 @@
 		Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
 Для массового включения пользователей можно использовать PowerShell. В настоящее время на портале Azure невозможно массово включать пользователей и необходимо выбирать каждого пользователя отдельно. Это может быть сложно, если у вас много пользователей. Создав сценарий PowerShell с помощью кода выше, можно перебрать список пользователей и включить их. Пример:
-    
+
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
     {
@@ -90,4 +90,4 @@
 ## Дальнейшие действия
 Теперь, когда многофакторная проверка подлинности в облаке настроена, можно настроить и выполнить развертывание. См. статью [Настройка Azure Multi-Factor Authentication.]
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

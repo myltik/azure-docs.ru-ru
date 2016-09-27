@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Приступая к работе с сервером Azure Multi-Factor Authentication" 
-	description="Эта страница посвящена работе со службой Azure Multi-Factor Authentication. Она содержит информацию о том, как начать работу с сервером Azure MFA." 
+	pageTitle="Приступая к работе с сервером Azure Multi-Factor Authentication"
+	description="Эта страница посвящена работе со службой Azure Multi-Factor Authentication. Она содержит информацию о том, как начать работу с сервером Azure MFA."
 	services="multi-factor-authentication"
-	keywords="сервер проверки подлинности, страница активации приложения многофакторной проверки подлинности azure, загрузка сервера проверки подлинности" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	keywords="сервер проверки подлинности, страница активации приложения многофакторной проверки подлинности azure, загрузка сервера проверки подлинности"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Приступая к работе с сервером Azure Multi-Factor Authentication
 
@@ -69,7 +69,7 @@
 
 
 Требования к серверу Azure Multi-Factor Authentication|Описание|
-:------------- | :------------- | 
+:------------- | :------------- |
 Оборудование|<li>200 МБ места на жестком диске</li><li>32- или 64-разрядный процессор</li><li>не менее 1 ГБ ОЗУ</li>
 Программное обеспечение|<li>Windows Server 2008 или более новая версия, если узел работает под управлением серверной ОС</li><li>Windows 7 или более поздняя версия, если узел работает под управлением клиентской ОС</li><li>Microsoft .NET Framework 4.0</li><li>IIS 7.0 или более поздняя версия, если вы устанавливаете SDK для пользовательского портала или веб-службы</li>
 
@@ -106,8 +106,7 @@ IP-подсеть|Маска сети|Диапазон IP-адресов
 1. Дважды щелкните исполняемый файл, чтобы начать установку.
 2. На экране "Выбор папки для установки" убедитесь, что выбрана правильная папка, и нажмите кнопку "Далее".
 3. После завершения установки нажмите кнопку "Готово". Запустится мастер настройки.
-4. На экране приветствия мастера настройки установите флажок **Пропустить использование мастера настройки проверки подлинности** и нажмите кнопку **Далее**. После этого окно мастера закроется и запустится сервер.
-![Облако](./media/multi-factor-authentication-get-started-server/skip2.png)
+4. На экране приветствия мастера настройки установите флажок **Пропустить использование мастера настройки проверки подлинности** и нажмите кнопку **Далее**. После этого окно мастера закроется и запустится сервер. ![Облако](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. На странице, с которой вы загрузили сервер, нажмите кнопку **Создать учетные данные для активации**. Скопируйте эти данные в соответствующие поля на сервере Azure MFA и нажмите кнопку **Activate** (Активировать).
 
@@ -175,7 +174,7 @@ IP-подсеть|Маска сети|Диапазон IP-адресов
 Дополнительные сведения о настройке приведены в таблице ниже.
 
 Метод|Описание
-:------------- | :------------- | 
+:------------- | :------------- |
 [Пользовательский портал](multi-factor-authentication-get-started-portal.md)| Сведения об установке и настройке пользовательского портала, включая развертывание и самостоятельную регистрацию пользователей.
 [Служба федерации Active Directory](multi-factor-authentication-get-started-adfs.md)|Сведения о настройке Azure Multi-Factor Authentication с AD FS.
 [Проверка подлинности RADIUS](multi-factor-authentication-get-started-server-radius.md)| Сведения об установке и настройке сервера Azure Multi-Factor Authentication с использованием RADIUS.
@@ -186,4 +185,4 @@ IP-подсеть|Маска сети|Диапазон IP-адресов
 [Синхронизация с Active Directory Windows Server](multi-factor-authentication-get-started-server-dirint.md)|Сведения об установке и настройке синхронизации между Active Directory и сервером Azure Multi-Factor Authentication.
 [Развертывание веб-службы мобильных приложений сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Сведения об установке и настройке веб-службы сервера Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

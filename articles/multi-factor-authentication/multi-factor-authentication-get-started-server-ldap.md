@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Проверка подлинности LDAP и сервер Azure Multi-Factor Authentication" 
-	description="Приведенные на этой странице сведения о Azure Multi-Factor Authentication помогут развернуть проверку подлинности LDAP и сервер Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Проверка подлинности LDAP и сервер Azure Multi-Factor Authentication"
+	description="Приведенные на этой странице сведения о Azure Multi-Factor Authentication помогут развернуть проверку подлинности LDAP и сервер Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
-# Проверка подлинности LDAP и сервер Azure Multi-Factor Authentication 
+# Проверка подлинности LDAP и сервер Azure Multi-Factor Authentication
 
 
 По умолчанию в сервере Azure Multi-Factor Authentication настроен импорт или синхронизация пользователей из Active Directory. Однако его можно настроить на привязку к другим каталогам LDAP, например к каталогу ADAM или конкретному контроллеру домена Active Directory. При настройке подключения к каталогу через LDAP сервер Azure Multi-Factor Authentication можно настроить так, чтобы он функционировал в качестве прокси-сервера LDAP для и выполнял проверку подлинности. Он также позволяет использовать привязку LDAP в качестве целевого объекта RADIUS для предварительной проверки подлинности пользователей в случае применения проверки подлинности IIS или для основной проверки подлинности на пользовательском портале Azure Multi-Factor Authentication.
@@ -63,4 +63,4 @@
 - Для времени ожидания LDAP установите значение в диапазоне 30–60 секунд, чтобы оставалось время на проверку учетных данных пользователя с каталогом LDAP, выполнение двухфакторной проверки подлинности, получение ответа и отправку ответа на запрос на доступ LDAP.
 - При использовании LDAPS устройство или сервер, отправляющий запросы LDAP, должен доверять сертификату SSL, установленному на сервере Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -18,26 +18,23 @@
 
 # Руководство. Создание фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure
 > [AZURE.SELECTOR]
+- [Обзор и предварительные требования](data-factory-build-your-first-pipeline.md)
 - [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+Из этой статьи вы узнаете, как создать свою первую фабрику данных с помощью шаблона Azure Resource Manager.
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)]
-
-## Дополнительные требования
-Кроме необходимых компонентов, перечисленных в разделе с предварительными требованиями, установите следующее:
-
-- **Установите Azure PowerShell**. Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+## Предварительные требования
+- Прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) и выполните **предварительные требования**.
+- Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 - Сведения о шаблонах Azure Resource Manager см. в статье [Создание шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
 
 ## Создание шаблона Resource Manager
 
-Создайте в папке **C:\\ADFGetStarted** файл JSON с именем **ADFTutorialARM.json** со следующим содержимым:
-
-Этот шаблон позволяет создавать следующие сущности фабрики данных:
+В этом разделе вы создадите такие сущности фабрики данных:
 
 1. **Фабрика данных** с именем **TutorialDataFactoryARM**. Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Это может быть, например, действие копирования, копирующее данные из исходного хранилища данных в целевое, или действие HDInsight Hive для выполнения скрипта Hive, преобразующего входные данные.
 2. Две **связанные службы**: **StorageLinkedService** и **HDInsightOnDemandLinkedService**. Эти связанные службы связывают учетную запись хранения Azure и кластер Azure HDInsight по запросу с фабрикой данных. В этом примере учетная запись хранения Azure содержит входные и выходные данные для конвейера. Для выполнения скрипта Hive, указанного в действии конвейера, в этом примере используется связанная служба HDInsight. Определите, какие данные хранилища и службы вычислений используются в сценарии, и свяжите эти службы с фабрикой данных, создав связанные службы.
@@ -45,8 +42,9 @@
 
 Щелкните вкладку **С помощью редактора фабрики данных**, чтобы перейти к статье с подробными сведениями о свойствах JSON, используемых в этом шаблоне.
 
-> [AZURE.IMPORTANT] Измените значения переменных **storageAccountName** и **storageAccountKey**. Измените значение переменной **dataFactoryName**, так как имя должно быть уникальным.
+Создайте в папке **C:\\ADFGetStarted** файл JSON с именем **ADFTutorialARM.json** со следующим содержимым:
 
+> [AZURE.IMPORTANT] Измените значения переменных **storageAccountName** и **storageAccountKey**. Измените значение переменной **dataFactoryName**, так как имя должно быть уникальным.
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -226,9 +224,10 @@
 
 ## Создание фабрики данных
 
-1. Откройте **Azure PowerShell** и выполните следующие команды.
-	- Выполните командлет **Login-AzureRmAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.
-	- Чтобы выбрать подписку, в которой требуется создать фабрику данных, выполните команду Get-AzureRmSubscription -SubscriptionName <имя подписки> | Set-AzureRmContext.
+1. Запустите **Azure PowerShell** и выполните следующие команды:
+	- Выполните командлет `Login-AzureRmAccount` и введите имя пользователя и пароль, которые вы используете для входа на портал Azure.
+	- Выполните командлет `Get-AzureRmSubscription`, чтобы просмотреть все подписки для этой учетной записи.
+	- Выполните командлет `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext`, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которая используется на портале Azure.
 1. Чтобы развернуть сущности фабрики данных с помощью шаблона Resource Manager, созданного на шаге 1, выполните следующую команду.
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
@@ -240,13 +239,13 @@
 2.	В колонке **Фабрика данных** для своей фабрики данных щелкните элемент **Схема**. ![Плитка «Схема»](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	В **представлении схемы** вы увидите все конвейеры и наборы данных, используемые в этом руководстве.
 	
-	 ![Представление схемы](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png)
+	.![Представление схемы](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png)
 8. В представлении схемы дважды щелкните набор данных **AzureBlobOutput**. Вы увидите срез, который сейчас обрабатывается.
 
-	 ![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Как только обработка завершится, срез перейдет в состояние **Готово**. Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут).
+	.![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+9. Как только обработка завершится, срез перейдет в состояние **Готово**. Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут). Таким образом, конвейер обработает срез **примерно через 30 минут**.
 
-	 ![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
+	![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)
 10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.
 
 Инструкции по использованию колонок на портале Azure для мониторинга конвейера и наборов данных, созданных с помощью этого руководства, см. в статье [Мониторинг конвейеров фабрики данных Azure и управление ими](data-factory-monitor-manage-pipelines.md).
@@ -302,4 +301,4 @@
 
   
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,10 +1,10 @@
 <properties
-    pageTitle=";Холодный"; уровень хранилища Azure для больших двоичных объектов | Microsoft Azure"
+    pageTitle="";Холодный"; уровень хранилища Azure для больших двоичных объектов | Microsoft Azure"
     description="Уровни хранилища BLOB-объектов Azure обеспечивают экономичное хранение данных объектов в зависимости от схемы доступа. ";Холодный"; уровень хранилища оптимизирован для данных, доступ к которым осуществляется нечасто."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
+    authors="michaelhauss"
+    manager="vamshik"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>
 
 
 # Хранилище BLOB-объектов Azure: "горячий" и "холодный" уровни хранилища
@@ -340,4 +340,4 @@ AzCopy — это программа командной строки Windows, п
 
 [Обозреватель службы хранилища Microsoft Azure](http://storageexplorer.com/)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -19,8 +19,8 @@
 # Настройка подключения типа "точка — сеть" к виртуальной сети с помощью PowerShell
 
 > [AZURE.SELECTOR]
-- [PowerShell — Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Портал — классическая модель](vpn-gateway-point-to-site-create.md)
+- [Resource Manager — PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Классическая модель — классический портал](vpn-gateway-point-to-site-create.md)
 
 Конфигурация типа "точка — сеть" позволяет создать безопасное подключение к виртуальной сети с отдельного клиентского компьютера. Это эффективное решение для подключения к виртуальной сети из удаленного расположения, например, если вы находитесь дома или на конференции либо если подключение к виртуальной сети требуется всего нескольким клиентам.
 
@@ -111,7 +111,7 @@
 
 		New-AzureRmResourceGroup -Name $RG -Location $Location
 
-2. Создайте конфигурации подсети для виртуальной сети, присвоив им имена *FrontEnd*, *BackEnd* и *GatewaySubnet*. Эти префиксы должны быть частью объявленного выше адресного пространства виртуальной сети.
+2. Создайте конфигурации подсети для виртуальной сети, присвоив им имена *FrontEnd*, *BackEnd* и *GatewaySubnet*. Эти префиксы должны быть частью объявленного адресного пространства виртуальной сети.
 
 		$fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
 		$besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
@@ -150,7 +150,7 @@
 
 ## Часть 4. Создание VPN-шлюза
 
-Настройте и создайте шлюз для своей виртуальной сети. Параметр *-GatewayType* должен иметь значение **Vpn**, а параметр *-VpnType* — **RouteBased**. Это может занять до 45 минут.
+Настройте и создайте шлюз для своей виртуальной сети. Параметр *-GatewayType* должен иметь значение **Vpn**, а параметр *-VpnType*— **RouteBased**. Это может занять до 45 минут.
 
 		New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 		-Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
@@ -189,8 +189,8 @@
 Установите сертификат клиента на каждый компьютер, который будет подключаться к виртуальной сети. Этот сертификат требуется для проверки подлинности. Установку сертификата клиента можно выполнить автоматически или вручную. Описанные ниже шаги помогут вам экспортировать и установить сертификат клиента вручную.
 
 1. Для экспорта сертификата клиента можно использовать команду *certmgr.msc*. Щелкните правой кнопкой мыши сертификат, который надо экспортировать, выберите элемент **Все задачи** и нажмите кнопку **Экспорт**.
-2. Экспортируйте сертификат клиента с закрытым ключом. Это *PFX* -файл. Обязательно запишите или запомните пароль (ключ), который задали для этого сертификата.
-3. Скопируйте *PFX* -файл на клиентский компьютер. На клиентском компьютере дважды щелкните *PFX* -файл, чтобы установить его. В окне запроса введите пароль. Не меняйте место установки.
+2. Экспортируйте сертификат клиента с закрытым ключом. Это *PFX*-файл. Обязательно запишите или запомните пароль (ключ), который задали для этого сертификата.
+3. Скопируйте *PFX*-файл на клиентский компьютер. На клиентском компьютере дважды щелкните *PFX*-файл, чтобы установить его. В окне запроса введите пароль. Не меняйте место установки.
 
 
 ## Часть 8. Подключение к Azure
@@ -238,7 +238,7 @@
 
 	![на основе сертификата.](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png "на основе сертификата.")
 	
-2. В приведенном ниже примере укажите имя сертификата и сведения о ключе как значения переменных. Подставьте собственные значения.
+2. Укажите имя сертификата и сведения о ключе как значения переменных. Подставьте собственные значения, как показано в следующем примере.
 
 		$P2SRootCertName2 = "ARMP2SRootCert2.cer"
 		$MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
@@ -311,4 +311,4 @@
 
 Вы можете добавить виртуальную машину в виртуальную сеть. Инструкции см. в статье [Создание виртуальной машины под управлением Windows на портале Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

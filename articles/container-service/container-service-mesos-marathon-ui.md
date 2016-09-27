@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/19/2016"
    ms.author="nepeters"/>
 
 # Управление контейнерами через веб-интерфейс
@@ -53,7 +53,7 @@ Host Port (Порт узла) | 80
 
 ![Пользовательский интерфейс нового приложения: вкладка "Общие"](media/dcos/dcos4.png)
 
- ![Пользовательский интерфейс нового приложения: контейнер Docker](media/dcos/dcos5.png)
+.![Пользовательский интерфейс нового приложения: контейнер Docker](media/dcos/dcos5.png)
 
 ![Пользовательский интерфейс нового приложения: обнаружение служб и портов](media/dcos/dcos6.png)
 
@@ -101,4 +101,4 @@ Host Port (Порт узла) | 80
 
 > [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->
