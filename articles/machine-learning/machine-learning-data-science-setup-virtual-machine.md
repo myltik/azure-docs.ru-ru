@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"  />
 
 <tags
@@ -26,13 +26,13 @@
 
 Прежде чем создавать в Azure виртуальную машину, определитесь с тем, какой у нее должен быть размер, чтобы успешно обрабатывать данные в рамках своих проектов. У небольших машин меньше памяти и ядер ЦП, чем у больших, но они менее дорогие. Сведения о ценах и типах машин см. на странице <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Цены на виртуальные машины</a>.
 
-1. Войдите на <a href="https://manage.windowsazure.com" target="_blank">классический портал Azure</a> и в левом нижнем углу нажмите кнопку **Создать**. Откроется новое окно. Последовательно выберите элементы **СРЕДА ВЫПОЛНЕНИЯ ПРИЛОЖЕНИЙ** -> **ВИРТУАЛЬНАЯ МАШИНА** -> **ИЗ КОЛЛЕКЦИИ**.
+1. Войдите на <a href="https://manage.windowsazure.com" target="_blank">классический портал Azure</a> и в левом нижнем углу нажмите кнопку **Создать**. Откроется новое окно. Последовательно выберите элементы **СРЕДА ВЫПОЛНЕНИЯ ПРИЛОЖЕНИЙ** -> **ВИРТУАЛЬНАЯ МАШИНА** -> **ИЗ КОЛЛЕКЦИИ**.
 
 	![Создание рабочей области][24]
 
 2. Выберите один из образов:
 
-	* Центр обработки данных Windows Server 2012 R2;
+	* Центр обработки данных Windows Server 2012 R2
 	* Режим Windows Server Essentials (Windows Server 2012 R2).
 
 	Затем, чтобы перейти на следующую страницу конфигурации, щелкните в правом нижнем углу стрелку вправо.
@@ -145,4 +145,4 @@ Chrome:
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

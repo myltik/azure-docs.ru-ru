@@ -4,7 +4,7 @@
    services="data-lake-store,stream-analytics" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -28,7 +28,7 @@
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
+- **Настройте свою подписку Azure** для использования общедоступной предварительной версии Data Lake Store. См. [инструкции](data-lake-store-get-started-portal.md#signup).
 
 - **Учетная запись хранения Azure** Контейнер больших двоичных объектов из этой учетной записи будет использоваться для ввода данных для задания Stream Analytics. Для работы с этим учебником необходимо создать учетную запись хранилища с именем **datalakestoreasa**, а в ней — контейнер с именем **datalakestoreasacontainer**. После создания контейнера отправьте в него образец файла данных. Его можно получить из [репозитория Git озера данных Azure](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Чтобы отправить данные в контейнер больших двоичных объектов, можно использовать различные клиенты, например [обозреватель хранилищ Azure](http://storageexplorer.com/).
 
@@ -125,8 +125,8 @@
 
 В области обозревателя данных можно увидеть, что выходные данные записаны в папку, указанную в параметрах выходных данных Data Lake Store (`streamanalytics/job/output/{date}/{time}`).
 
-## См. также
+## Дополнительные материалы
 
 * [Создание кластера HDInsight для работы с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

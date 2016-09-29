@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -41,7 +41,7 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 При выполнении заданий Pig на удаленном кластере HDInsight используются следующие командлеты:
 
-* **Login-AzureRmAccount** — выполняет проверку подлинности Azure PowerShell для подписки Azure.
+* **Login-AzureRmAccount** — выполняет аутентификацию Azure PowerShell для подписки Azure.
 
 * **New-AzureRmHDInsightPigJobDefinition** — создает новое *определение задания* с использованием заданных операторов Pig Latin.
 
@@ -162,4 +162,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

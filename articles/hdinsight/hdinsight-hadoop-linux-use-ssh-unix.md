@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
 
 #Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X
@@ -128,7 +128,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 * **Имя пользователя** — имя пользователя SSH, указанное при создании кластера.
 
-В следующем примере выполняется подключение к головному узлу 0 кластера **mycluster** с именем пользователя **me**.
+В следующем примере выполняется подключение к основному головному узлу **mycluster** с именем пользователя **me**:
 
 	ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -140,7 +140,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Если вы подключаетесь с помощью адреса для подключения к головному узлу и порт не указан, то по умолчанию SSH будет использовать порт 22, который подключается к головному узлу 0 в кластере HDInsight. При использовании порта 23 выполняется подключение к головному узлу 1. Дополнительные сведения о головных узлах см. в статье [Доступность и надежность кластеров Hadoop в HDInsight](hdinsight-high-availability-linux.md).
+Если вы подключаетесь с помощью адреса для подключения к головному узлу и порт не указан, то по умолчанию SSH будет использовать порт 22, который подключается к основному головному узлу в кластере HDInsight. При использовании порта 23 выполняется подключение к дополнительному головному узлу. Дополнительные сведения о головных узлах см. в статье [Доступность и надежность кластеров Hadoop в HDInsight](hdinsight-high-availability-linux.md).
 
 ###Подключение к рабочим узлам
 
@@ -195,9 +195,9 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
     > [AZURE.NOTE] При использовании пароля для аутентификации сеанса SSH появится запрос на повторный ввод пароля. При использовании ключа SSH подключение завершается без запросов.
 
-4. После установки сеанса строка терминала изменится с `username@hn0-clustername` на `username@wk0-clustername`, чтобы указать, что вы подключены к рабочему узлу. Все команды на этом этапе выполняются на рабочем узле.
+4. После установки сеанса строка терминала изменится с `username@hn#-clustername` на `username@wk#-clustername`, чтобы указать, что вы подключены к рабочему узлу. Все команды на этом этапе выполняются на рабочем узле.
 
-4. После выполнения всех действий на рабочем узле закройте сеанс рабочего узла с помощью команды `exit`. Таким образом вы вернетесь к запросу `username@hn0-clustername`.
+4. После выполнения всех действий на рабочем узле закройте сеанс рабочего узла с помощью команды `exit`. Таким образом вы вернетесь к запросу `username@hn#-clustername`.
 
 ##Добавление дополнительных учетных записей
 
@@ -247,4 +247,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

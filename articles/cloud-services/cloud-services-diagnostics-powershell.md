@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -83,7 +83,7 @@ Visual Studio Online использует аналогичный подход д
 
 Если в конфигурации диагностики нет элемента StorageAccount, в командлет необходимо передать параметр StorageAccountName. Если параметр StorageAccountName указан, командлет использует учетную запись хранения, указанную в этом параметре, а не в файле конфигурации диагностики.
 
-Если учетная запись хранения диагностики и облачная служба относятся к разным подпискам, в командлет необходимо явным образом передать параметры StorageAccountName и StorageAccountKey. Параметр StorageAccountKey не требуется, если учетная запись хранения диагностических данных входит в ту же подписку, так как при включении расширения диагностики командлет автоматически запрашивает и устанавливает значение ключа. Если же учетная запись хранения диагностических данных входит в другую подписку, командлет не сможет получить ключ автоматически, а значит, его необходимо явно указать с помощью параметра StorageAccountKey.
+Если учетная запись хранения диагностики и облачная служба относятся к разным подпискам, то в командлет необходимо явным образом передать параметры StorageAccountName и StorageAccountKey. Параметр StorageAccountKey не требуется, если учетная запись хранения диагностики входит в ту же подписку, так как при включении расширения системы диагностики командлет автоматически запрашивает и устанавливает значение ключа. Если же учетная запись хранения диагностики входит в другую подписку, то командлет не сможет получить ключ автоматически, а значит, его необходимо явно указать с помощью параметра StorageAccountKey.
 
 	$webrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WebRole" -DiagnosticsConfigurationPath $webrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
 	$workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "WorkerRole" -DiagnosticsConfigurationPath $workerrole_diagconfigpath -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key
@@ -125,6 +125,6 @@ Visual Studio Online использует аналогичный подход д
 
 - Дополнительные рекомендации по использованию диагностики Azure и других методов для устранения неполадок см. в статье [Включение диагностики в облачных службах и виртуальных машинах Azure](cloud-services-dotnet-diagnostics.md).
 - В статье [Схема конфигурации диагностики](https://msdn.microsoft.com/library/azure/dn782207.aspx) поясняются различные параметры XML-конфигураций для расширения диагностики.
-- Сведения о включении расширения диагностики для виртуальных машин см. в статье [Создание виртуальной машины Windows с мониторингом и диагностикой с помощью шаблона диспетчера ресурсов Azure](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)  
+- Сведения о включении расширения диагностики для виртуальных машин см. в статье [Создание виртуальной машины Windows с мониторингом и диагностикой с помощью шаблона диспетчера ресурсов Azure](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/16/2016"
+   ms.date="09/07/2016"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с Hadoop в HDInsight с помощью Curl
@@ -29,7 +29,7 @@ Curl используется для демонстрации возможнос
 
 ##<a id="prereq"></a>Предварительные требования
 
-Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 * Hadoop в кластере HDInsight (на платформе Linux или Windows)
 
@@ -53,7 +53,7 @@ Curl используется для демонстрации возможнос
 
         {"status":"ok","version":"v1"}
 
-    Ниже приведены параметры, используемые в этой команде.
+    Ниже приведены параметры, используемые в этой команде:
 
     * **-u** — имя пользователя и пароль, используемый для аутентификации запроса.
     * **-G** — указывает, что это запрос GET.
@@ -70,7 +70,7 @@ Curl используется для демонстрации возможнос
 
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'wasbs:///example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="wasbs:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
 
-    Ниже приведены параметры, используемые в этой команде.
+    Ниже приведены параметры, используемые в этой команде:
 
     * **-d** — так как `-G` не используется, запрос по умолчанию использует метод POST. `-d` задает значения данных, отправляемые в запросе.
 
@@ -80,7 +80,7 @@ Curl используется для демонстрации возможнос
 
         * **statusdir** — каталог, в который будет записано состояние этого задания.
 
-    Эти инструкции выполняют следующие действия.
+    Эти операторы выполняют следующие действия.
 
     * **DROP TABLE**: удаление таблицы и файла данных, если таблица уже существует.
 
@@ -130,7 +130,7 @@ Curl используется для демонстрации возможнос
 
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="wasbs:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
 
-    Эти инструкции выполняют следующие действия.
+    Эти операторы выполняют следующие действия.
 
     * **CREATE TABLE IF NOT EXISTS**: создание таблицы, если она до этого не существовала. Так как ключевое слово **EXTERNAL** не было использовано, данная таблица будет внутренней. То есть она хранится в хранилище данных Hive, и ею полностью управляет Hive.
 
@@ -192,4 +192,4 @@ Curl используется для демонстрации возможнос
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

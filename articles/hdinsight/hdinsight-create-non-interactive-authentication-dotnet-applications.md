@@ -2,7 +2,7 @@
 	pageTitle="Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности | Microsoft Azure"
 	description="Узнайте, как создавать приложения .NET HDInsight с неинтерактивной проверкой подлинности."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -122,4 +122,4 @@
 - [Проверка подлинности субъекта-службы в Azure Resource Manager](../resource-group-authenticate-service-principal.md)
 - [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

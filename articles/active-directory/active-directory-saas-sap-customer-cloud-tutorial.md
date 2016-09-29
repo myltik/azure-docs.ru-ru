@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="09/09/2016"
 	ms.author="jeedes"/>
 
 
@@ -49,7 +49,7 @@
 ## Описание сценария
 В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
 
-Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
+Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление SAP Cloud for Customer из коллекции
 2. Настройка и проверка единого входа в Azure AD
@@ -97,7 +97,7 @@
 Чтобы настроить и проверить единый вход Azure AD в SAP Cloud for Customer, вам потребуется выполнить действия в следующих стандартных блоках:
 
 1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)**. Требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
 3. **[Создание тестового пользователя SAP Cloud for Customer](#creating-an-sap-business-bydesign-test-user)** требуется для создания пользователя Britta Simon в SAP Cloud for Customer, связанного с соответствующим пользователем в Azure AD.
 4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
 5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
@@ -225,11 +225,11 @@
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_03.png)
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу щелкните **Добавить пользователя**.
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_04.png)
 
-5. На странице диалогового окна **Тип учетной записи пользователя** сделайте следующее: ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png)
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_05.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -237,7 +237,7 @@
 
     c. Нажмите кнопку **Далее**.
 
-6.  На странице с диалоговым окном **Профиль пользователя** выполните следующие действия: ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png)
+6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_06.png)
 
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -249,11 +249,11 @@
 
     д. Нажмите кнопку **Далее**.
 
-7. На диалоговой странице **Получение временного пароля** нажмите кнопку **Создать**.
+7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_07.png)
 
-8. На диалоговой странице **Получение временного пароля** выполните следующие действия.
+8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-sapcloudforcustomer-tutorial/create_aaduser_08.png)
 
@@ -289,7 +289,7 @@
 
 	![Назначение пользователя][203]
 
-4. Из списка пользователей выберите **Britta Simon**.
+4. В списке пользователей выберите **Britta Simon**.
 
 5. На панели инструментов внизу щелкните **Назначить**.
 
@@ -327,4 +327,4 @@
 [204]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapcloudforcustomer-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

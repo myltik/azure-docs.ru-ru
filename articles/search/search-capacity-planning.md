@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -118,4 +118,4 @@
 
 Стоимость каждой единицы поиска определяется в зависимости от уровня. Стоимость каждой единицы поиска меньше для уровня "Базовый", чем для уровня "Стандартный". Расценки для каждого уровня см. в разделе [Сведения о ценах](https://azure.microsoft.com/pricing/details/search/).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

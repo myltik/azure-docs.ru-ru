@@ -34,17 +34,17 @@
 
 3. Выберите команду **Добавить оповещение**.
 
-	.![Добавление оповещения](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
+	![Добавление оповещения](./media/insights-receive-alert-notifications/Insights_AddAlert.png)
 
 4. Правилу оповещения можно дать имя и выбрать описание, которое будет отображаться в уведомлении по электронной почте.
 
 5. Если вы выбрали раздел **Метрики** нужно задать условия и пороговое значение для метрики. Это период времени, который Azure использует для отслеживания и построения графика активности оповещения.
 
-	.![Условие и пороговое значение](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
+	![Условие и пороговое значение](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. Вы также можете выбрать **События** и получать уведомление, когда происходит определенное событие.
 
-	.![События](./media/insights-receive-alert-notifications/Insights_Events.png)
+	![События](./media/insights-receive-alert-notifications/Insights_Events.png)
 
 7. Наконец, можно отправить уведомление по электронной почте ответственным администраторам.
 
@@ -54,7 +54,7 @@
 
 После создания правила оповещения на графике будет показан порог оповещения в сравнении со значением метрики за предыдущий день.
 
-.![События](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
+![События](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
 
 
 Конечно, это правило оповещения можно изменить и **Отключить**, а затем **Включить** его снова, если нужно временно прекратить получение соответствующих уведомлений.
@@ -65,8 +65,8 @@
 * [Отслеживайте метрики службы](insights-how-to-customize-monitoring.md), чтобы убедиться, что служба доступна и отвечает на запросы.
 * [Включите отслеживание и диагностику](insights-how-to-use-diagnostics.md), чтобы собирать подробные метрики о службе с высокой частотой.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
-* [Отслеживайте производительность приложения](insights-perf-analytics.md), чтобы точно понять, как ваш код работает в облаке.
+* [Отслеживайте производительность приложения](../application-insights/app-insights-azure-web-apps.md), чтобы точно понять, как ваш код работает в облаке.
 * [Просматривайте журналы событий и аудита](insights-debugging-with-events.md), чтобы знать обо всем, что произошло в службе.
 * [Отслеживайте работоспособность службы](insights-service-health.md), чтобы знать, когда производительность Azure снизилась или работа службы нарушилась.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

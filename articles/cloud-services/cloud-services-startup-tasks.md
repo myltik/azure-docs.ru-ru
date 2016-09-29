@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 
@@ -44,7 +44,7 @@ ms.author="adegeo"/>
 
 2. Все задачи запуска выполняются в соответствии с их атрибутом **taskType**.
     - **Простые** задачи (simple) выполняются синхронно, по одной.
-    - **Фоновые** задачи (background) и задачи **переднего плана** (foreground) запускаются асинхронно, параллельно с задачей запуска.  
+    - **Фоновые** задачи (background) и задачи **переднего плана** (foreground) запускаются асинхронно, параллельно с задачей запуска.
        
     > [AZURE.WARNING] Службы IIS могут не быть полностью настроены на этапе выполнения задач запуска в процессе запуска, поэтому данные, относящиеся к роли, могут быть недоступны. Для задач запуска, требующих данные, относящиеся к роли, следует использовать [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
 
@@ -105,7 +105,7 @@ EXIT /B 0
 
 **taskType** — указывает способ выполнения задачи запуска.
 
-- **simple** Задачи выполняются синхронно, поочередно и в порядке, указанном в файле [ServiceDefinition.csdef]. Если одна задача запуска **simple** завершается **errorlevel**, равным нулю, выполняется следующая задача запуска **simple**. Если больше нет задач запуска **simple** для выполнения, запускается сама роль.   
+- **simple** Задачи выполняются синхронно, поочередно и в порядке, указанном в файле [ServiceDefinition.csdef]. Если одна задача запуска **simple** завершается **errorlevel**, равным нулю, выполняется следующая задача запуска **simple**. Если больше нет задач запуска **simple** для выполнения, запускается сама роль.
 
     > [AZURE.NOTE] Если задача **simple** завершается ненулевым **errorlevel**, экземпляр будет заблокирован. Последующие задачи запуска **simple** не запустятся, как и сама роль.
 
@@ -163,4 +163,4 @@ EXIT /B 0
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

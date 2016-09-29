@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="08/26/2016"
+	ms.date="09/08/2016"
 	ms.author="marsma" />
 
 # Подготовка вычислительных узлов Linux в пулах пакетной службы Azure
 
 Пакетная служба Azure позволяет выполнять параллельные вычислительные рабочие нагрузки на виртуальных машинах Linux и Windows. В этой статье описывается создание пулов вычислительных узлов Linux в пакетной службе с помощью клиентских библиотек [Python][py_batch_package] и [.NET][api_net].
 
-> [AZURE.NOTE] Поддержка Linux в пакетной службе в настоящее время находится в статусе предварительной версии. Некоторые аспекты функции, описанные здесь, могут быть изменены до выхода общедоступной версии. [Пакеты приложений](batch-application-packages.md) в настоящее время не поддерживаются на вычислительных узлах Linux.
+> [AZURE.NOTE] [Application packages](batch-application-packages.md) сейчас не поддерживаются на вычислительных узлах Linux.
 
 ## Конфигурация виртуальной машины
 
@@ -349,6 +349,4 @@ tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://azure.microsoft.com/pricing/details/virtual-machines/
 
-[1]: ./media/batch-application-packages/app_pkg_01.png "Общая схема: пакеты приложений"
-
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

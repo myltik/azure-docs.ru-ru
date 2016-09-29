@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="rastala"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -33,9 +33,9 @@
 
 Эксперименты, рассматриваемые в этом учебнике, можно найти в коллекции Cortana Intelligence:
 
-[Predict Book Reviews](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1) (Прогнозирование оценок в обзоре книг).
+[Predict Book Reviews (Прогнозирование оценок в обзоре книг).](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
-[Predict Book Reviews - Predictive Experiment](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1) (Прогнозирование оценок в обзоре книг — прогнозной эксперимент).
+[Predict Book Reviews - Predictive Experiment (Прогнозирование оценок в обзоре книг — прогнозной эксперимент).](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## Шаг 1. Очистка и предварительная обработка набора текстовых данных
 
@@ -95,4 +95,4 @@
 
 Дополнительные сведения о модулях текстовой аналитики см. в [документации MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

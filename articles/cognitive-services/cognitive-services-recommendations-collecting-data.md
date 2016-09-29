@@ -4,7 +4,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -151,4 +151,4 @@ API-интерфейс рекомендаций узнает на основан
 
 После создания модели нужно выполнить [автономную оценку](cognitive-services-recommendations-buildtypes.md), чтобы проверить, насколько хорошо будет работать модель.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/24/2016"
+   ms.date="09/12/2016"
    ms.author="bwren" />
 
 # Изучение рабочего процесса Windows PowerShell
@@ -276,4 +276,4 @@ InlineScript использует описанный ниже синтаксис
 
 - Чтобы начать работу с модулями Runbook рабочих процессов PowerShell, см. инструкции в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

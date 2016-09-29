@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Многофакторная линейная регрессия | Microsoft Azure" 
-	description="Многомерная линейная регрессия" 
+	description="Многофакторная линейная регрессия" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jaymathe" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -17,7 +17,7 @@
 	ms.author="jaymathe"/>
 
 
-#Многомерная линейная регрессия   
+#Многофакторная линейная регрессия   
  
 
  
@@ -117,4 +117,4 @@
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -5,7 +5,7 @@
 	services="cognitive-services"
 	documentationCenter=""
 	authors="luiscabrer"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -64,4 +64,4 @@ API поддерживает такие же сценарии и потоки п
 
 Мы хотим максимально упростить этот переход для вас. Мы можем помочь вам переместить старые модели из учетной записи DataMarket в новую подписку API рекомендаций Azure Cognitive Services. Свяжитесь с нами по адресу [mlapi@microsoft.com](mailto://mlapi@microsoft.com). Чтобы связать ваши модели с новой учетной записью, нам понадобятся ваши идентификаторы подписки DataMarket и Cognitive Services.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

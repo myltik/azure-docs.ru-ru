@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -31,7 +31,7 @@
 
     Для выполнения скриптов Windows PowerShell необходимо запустить Azure PowerShell с правами администратора и задать политику выполнения *RemoteSigned*. См. раздел [Выполнение скриптов Windows PowerShell][powershell-script].
 
-    Перед выполнением скриптов Windows PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета:
+    Перед выполнением сценариев Windows PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета.
 
         Login-AzureRmAccount
 
@@ -565,4 +565,4 @@ Twitter использует протокол OAuth для обеспечени�
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

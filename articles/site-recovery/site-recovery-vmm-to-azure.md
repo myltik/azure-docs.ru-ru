@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/23/2016"
+	ms.date="09/16/2016"
 	ms.author="raynew"/>
 
 # Репликация виртуальных машин Hyper-V из облачных сред VMM в Azure с помощью Azure Site Recovery на портале Azure | Microsoft Azure
@@ -571,4 +571,4 @@ Site Recovery предоставляет планировщик ресурсов
 
 Настроив и запустив развертывание, вы можете ознакомиться с [дополнительными сведениями](site-recovery-failover.md) о различных типах обработки отказа.
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

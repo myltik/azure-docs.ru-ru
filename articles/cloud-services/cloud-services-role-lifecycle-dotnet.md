@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 # Адаптируйте жизненный цикл веб-роли или рабочей роли в .NET
@@ -33,9 +33,9 @@ ms.author="adegeo"/>
 
      Если исключение возникает в одном из методов жизненного цикла, Azure генерирует событие [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) и процесс завершается. После перевода вашей роли в автономный режим Azure перезапустит ее. При возникновении необработанного исключения не вызывается событие [Stopping](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) и метод **OnStop**.
 
-Если ваша роль не запускается или зацикливается между состояниями инициализации, занятости и остановки, возможно ваш код вызывает необработанное исключение в одном из событий жизненного цикла при каждом перезапуске роли. В этом случае следует использовать событие [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx), которое определит причину исключения и соответствующим образом ее обработает. Кроме того, ваша роль могла возвращаться из метода [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), что приводит к ее перезапуску. Узнать больше о состоянии развертывания можно в разделе [Распространенные проблемы, которые вызывают повторное использование ролей](https://msdn.microsoft.com/library/azure/gg465402.aspx).
+Если ваша роль не запускается или зацикливается между состояниями инициализации, занятости и остановки, возможно ваш код вызывает необработанное исключение в одном из событий жизненного цикла при каждом перезапуске роли. В этом случае следует использовать событие [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx), которое определит причину исключения и соответствующим образом ее обработает. Кроме того, ваша роль могла возвращаться из метода [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx), что приводит к ее перезапуску. Узнать больше о состоянии развертывания можно в разделе [Распространенные проблемы, которые вызывают повторное использование ролей](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-> [AZURE.NOTE] Если для разработки приложения вы используете [средства Azure для Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx), шаблоны проекта роли автоматически расширят класс **RoleEntryPoint** в файлах WebRole.cs и WorkerRole.cs.
+> [AZURE.NOTE] Если для разработки приложения вы используете **средства Azure для Microsoft Visual Studio**, то шаблоны проекта роли автоматически расширяют класс **RoleEntryPoint** в файлах *WebRole.cs* и *WorkerRole.cs*.
 
 ## Метод OnStart
 
@@ -80,4 +80,4 @@ public override bool OnStart()
 ## Дальнейшие действия
 Узнайте, как [создать пакет облачной службы](cloud-services-model-and-package.md).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -218,7 +218,7 @@ Azure HDInsight предлагает облачные решения для ра
 
 При создании кластера HDInsight или после создания кластера можно добавить учетные записи хранения. См. статью [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
-Дополнительные сведения о дополнительных хранилищах BLOB-объектов см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md). Дополнительные сведения о дополнительных хранилищах озера данных см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Дополнительные сведения о дополнительных хранилищах BLOB-объектов см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md). Дополнительные сведения о дополнительном Data Lake Store см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
 ## Использование метахранилища Hive/Oozie
@@ -285,6 +285,10 @@ Azure HDInsight предлагает облачные решения для ра
 
 > Компонент Cascading не поддерживается службой HDInsight и на него не распространяется техническая поддержка Майкрософт. Списки поддерживаемых компонентов см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md)
 
+## Использование граничного узла
+
+ Пустой граничный узел — это виртуальная машина Linux, на которой установлены и настроены те же клиентские инструменты, что и на головных узлах. Граничный узел можно использовать для доступа к кластеру, а также тестирования и размещения клиентских приложений. Дополнительные сведения см. в разделе [Использование пустых граничных узлов в HDInsight](hdinsight-apps-use-edge-node.md).
+ 
 ## Способы создания кластера
 
 В этой статье мы рассмотрели основные сведения о создании кластера HDInsight под управлением Linux. Приведенная ниже таблица поможет вам получить дополнительные сведения о создании кластера с помощью метода, который наилучшим образом соответствует вашим потребностям.
@@ -299,4 +303,4 @@ Azure HDInsight предлагает облачные решения для ра
 | [Пакет SDK для .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
 | [Шаблоны Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

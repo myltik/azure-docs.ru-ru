@@ -34,7 +34,7 @@
 При деактивации субъекта происходит следующее:
 
 - Если субъект не используется в течение некоторого периода времени, он удаляется из таблицы активных субъектов.
-- Вызывается метод `OnDeactivateAsync` (он может быть переопределен в реализации субъекта). Это приводит к сбросу все таймеров для субъекта.
+- Вызывается метод `OnDeactivateAsync` (он может быть переопределен в реализации субъекта). Это приводит к сбросу все таймеров для субъекта. Операции с субъектом, такие как изменение состояния, не должны вызываться из этого метода.
 
 > [AZURE.TIP] Среда выполнения субъектов Service Fabric генерирует некоторые [события, связанные с активацией и деактивацией субъектов](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Они полезны при диагностике и мониторинге производительности.
 
@@ -129,4 +129,4 @@ await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

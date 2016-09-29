@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Устранение неполадок с заданиями аналитики озера данных Azure с помощью портала Azure | Azure" 
-   description="Узнайте, как использовать портал Azure для устранения неполадок с заданиями аналитики озера данных." 
+   description="Узнайте, как использовать портал Azure для устранения неполадок с заданиями аналитики озера данных. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -103,11 +103,11 @@
 8. Щелкните **Отправить задание**.
 
 
-##См. также
+##Дополнительные материалы
 
 - [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md)
 - [Начало работы с аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Начало работы с аналитикой озера данных Azure и U-SQL с помощью Visual Studio](data-lake-analytics-u-sql-get-started.md)
 - [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->
