@@ -3,7 +3,7 @@
 	description="Узнайте, как можно быстро запускать веб-приложения в службе приложений, развернув пример приложения. Начните с разработки настоящего приложения — и сразу же получите результаты." 
 	services="app-service\web"
 	documentationCenter=""
-	authors="cephalin"
+	authors="andkjelln"
 	manager="wpickett"
 	editor=""
 />
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="09/16/2016" 
-	ms.author="cephalin"
+	ms.author="andkjell"
 />
 	
 # Развертывание первого веб-приложения в Azure за пять минут
