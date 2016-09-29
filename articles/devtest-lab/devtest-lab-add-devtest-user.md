@@ -3,7 +3,7 @@
 	description="Сведения о добавлении владельцев и пользователей в Azure DevTest Labs с помощью портала Azure или PowerShell"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
-	authors="tomarcher"
+	authors="andkjell"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/12/2016"
-	ms.author="tarcher"/>
+	ms.author="andkjell"/>
 
 # Добавление владельцев и пользователей в Azure DevTest Labs
 
