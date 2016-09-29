@@ -358,7 +358,8 @@
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-Время для прочтения примера таблицы — 6, 492000 секунд Число извлеченных строк и столбцов = (84952, 21)
+Время для прочтения примера таблицы — 6, 492000 секунд  
+Число извлеченных строк и столбцов = (84952, 21)
 
 #### Описательная статистика
 
@@ -688,7 +689,9 @@
 
 ### Ссылки
 
-• [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
+• [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sql-walkthrough/sql-walkthrough_26_1.png
