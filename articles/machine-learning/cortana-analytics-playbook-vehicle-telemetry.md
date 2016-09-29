@@ -3,7 +3,7 @@
 	description="Используйте возможности Cortana Intelligence, чтобы получить прогнозы и актуальную информацию об исправности и манере вождения автомобиля в режиме реального времени." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="andkjell" 
 	manager="jhubbard" 
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/12/2016" 
-	ms.author="bradsev" />
+	ms.author="andkjell" />
 
 
 # Сборник решений аналитики телеметрии автомобиля
