@@ -3,7 +3,7 @@
 	description="Узнайте, как настроить единый вход Azure Active Directory в Blackboard Learn — Shibboleth."
 	services="active-directory"
 	documentationCenter=""
-	authors="jeevansd"
+	authors="andkjell"
 	manager="femila"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/10/2016"
-	ms.author="jeedes"/>
+	ms.author="andkjell"/>
 
 
 # Руководство. Интеграция Azure Active Directory с Blackboard Learn — Shibboleth
