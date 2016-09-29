@@ -3,7 +3,7 @@
 	description="Пример приложения, использующего пакет SDK Azure Python для демонстрации функции архива концентраторов событий."
 	services="event-hubs"
 	documentationCenter=""
-	authors="djrosanova"
+	authors="andkjell"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="darosa;sethm"/>
+	ms.author="andkjell"/>
 
 # Пошаговое руководство. Использование архива концентраторов событий с Python
 
