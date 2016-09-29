@@ -97,7 +97,7 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 <!-- URLs. -->
 [Быстрый запуск мобильного приложения Azure]: app-service-mobile-cordova-get-started.md
 [Приступая к работе с проверкой подлинности]: app-service-mobile-cordova-get-started-users.md
-[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
+[Добавление проверки подлинности в приложение]: app-service-mobile-cordova-get-started-users.md
 
 [портал Azure]: https://portal.azure.com/
 [пакета SDK JavaScript для мобильных приложений Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
