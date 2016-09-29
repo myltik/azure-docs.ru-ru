@@ -3,7 +3,7 @@
 	description="API обнаружения аномалий — это встроенный в Машинное обучение Microsoft Azure пример API, который обнаруживает аномалии в данных временных рядов и предоставляет результаты в виде числовых значений, равномерно распределенных по времени." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="alokkirpal" 
+	authors="andkjell" 
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="multiple" 
 	ms.date="07/22/2016" 
-	ms.author="alokkirpal"/>
+	ms.author="andkjell"/>
 
 
 # Служба обнаружения аномалий в машинном обучении#
