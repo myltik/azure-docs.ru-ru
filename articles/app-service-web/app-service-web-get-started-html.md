@@ -3,7 +3,7 @@
 	description="Узнайте, как можно быстро запускать веб-приложения в службе приложений, развернув пример приложения. Начните с разработки настоящего приложения — и сразу же получите результаты." 
 	services="app-service\web"
 	documentationCenter=""
-	authors="andkjelln"
+	authors="andkjell"
 	manager="wpickett"
 	editor=""
 />
