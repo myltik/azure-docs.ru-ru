@@ -4,7 +4,7 @@
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -174,4 +174,4 @@ __Чтобы построить uberjar и развернуть в HDInsight__, 
 * [Использование Python для потоковой передачи заданий MapReduce.](hdinsight-hadoop-streaming-python.md)
 * [Использование определяемых пользователем функций Python (UDF) в Pig и Hive.](hdinsight-python.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0914_2016-->

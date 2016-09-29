@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Начало работы с поставщиком Microsoft Azure Multi Factor Authentication" 
-	description="Из этой статьи вы узнаете, как создать поставщик Azure Multi Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Начало работы с поставщиком Microsoft Azure Multi Factor Authentication"
+	description="Из этой статьи вы узнаете, как создать поставщик Azure Multi Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -26,7 +26,7 @@
 Поставщик Azure Multi Factor Authentication требуется, если вы хотите загрузить пакет SDK.
 
 > [AZURE.IMPORTANT]  Если вы хотите загрузить пакет SDK, необходимо создать поставщик Azure Multi Factor Authentication, даже если у вас уже есть лицензии Azure MFA, Azure AD Premium или EMS. Если вы создаете поставщик Azure Multi Factor Authentication для этой цели и у вас уже есть лицензии, поставщик нужно создавать с моделью лицензий **для каждого пользователя**, а затем привязать его к каталогу, который содержит лицензии Azure MFA, Azure AD Premium или EMS. В таком случае с вас не будет взиматься плата, пока количество уникальных пользователей пакета SDK не превысит количество лицензий, которыми вы владеете.
- 
+
 Ниже показано, как создать поставщик Azure Multi Factor Authentication.
 
 ## Создание поставщика Azure Multi Factor Authentication
@@ -49,4 +49,4 @@
 		- Средства синхронизации Azure AD Connect, AAD Sync или DirSync требуются только при синхронизации локальной среды Active Directory с каталогом Azure AD. Если вы используете только один несинхронизированный каталог Azure AD, синхронизация не требуется. ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
 5. После нажатия кнопки "Создать" будет создан поставщик Multi-Factor Authentication и появится сообщение **Поставщик Multi-Factor Authentication успешно создан**. Нажмите кнопку **ОК**. ![Создание поставщика MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

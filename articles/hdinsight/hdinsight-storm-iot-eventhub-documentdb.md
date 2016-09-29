@@ -4,7 +4,7 @@
  services="hdinsight,documentdb,notification-hubs"
  documentationCenter=""
  authors="Blackmist"
- manager="paulettm"
+ manager="jhubbard"
  editor="cgronlun"/>
 
 <tags
@@ -58,4 +58,4 @@ ms.author="larryfr"/>
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

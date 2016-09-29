@@ -19,8 +19,7 @@
 
 # Учебник. Создание первого конвейера для обработки данных с помощью кластера Hadoop 
 > [AZURE.SELECTOR]
-- [Обзор учебника](data-factory-build-your-first-pipeline.md)
-- [Редактор фабрики данных](data-factory-build-your-first-pipeline-using-editor.md)
+- [Использование портала Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Шаблон диспетчера ресурсов](data-factory-build-your-first-pipeline-using-arm.md)
@@ -226,4 +225,4 @@
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Шаблон диспетчера ресурсов](data-factory-build-your-first-pipeline-using-arm.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

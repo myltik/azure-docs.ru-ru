@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -151,7 +151,7 @@
 ## Нам очень интересно ваше мнение!
 Мы хотим, чтобы Коллекция развивалась нашими пользователями и для наших пользователей. Вставьте значок справа от сообщения, чтобы дать нам знать, что вам нравится или не нравится в Коллекции.
 
-.![Отзыв](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
+![Отзыв](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
 ## Часто задаваемые вопросы
 **Хотелось бы внести изменения в рабочий процесс эксперимента, отправленного в Коллекцию. Как это можно сделать?**
@@ -200,4 +200,4 @@
 
 **[ПЕРЕЙТИ К КОЛЛЕКЦИИ >>](http://gallery.cortanaintelligence.com)**
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
-   ms.author="ganesr"/>
+   ms.date="09/14/2016"
+   ms.author="ganesr;cherylmc"/>
 
 # Создание и изменение канала ExpressRoute
 
@@ -32,15 +32,34 @@
 
 ## Перед началом работы
 
-- Нужна последняя версия модулей Azure PowerShell. Последнюю версию модулей PowerShell можно скачать из раздела PowerShell на [странице скачивания Azure](https://azure.microsoft.com/downloads/). Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+### 1\. Ознакомьтесь со статьями о предварительных условиях и процедурах
 
-- Не забудьте изучить [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.
+Не забудьте изучить [предварительные требования](expressroute-prerequisites.md) и [рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.
+
+
+### 2) Установите последние версии модулей Azure PowerShell 
+
+Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+
+### 3\. Войдите в учетную запись Azure и выберите подписку
+
+1. В командной строке Windows PowerShell с повышенными привилегиями выполните следующий командлет.
+
+		Add-AzureAccount
+2. В появившемся окне входа выполните вход в свою учетную запись.
+
+3. Получите список своих подписок.
+
+		Get-AzureSubscription
+4. Выберите подписку, которую нужно использовать.
+	
+		Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## Создание и предоставление канала ExpressRoute
 
 ### 1\. Импорт модулей PowerShell для ExpressRoute
 
- Чтобы приступить к использованию командлетов ExpressRoute, нужно импортировать модули Azure и ExpressRoute в сеанс PowerShell. Для этого выполните следующие команды.
+ Чтобы приступить к использованию командлетов ExpressRoute, нужно импортировать модули Azure и ExpressRoute в сеанс PowerShell (если вы еще не сделали это). Импортируйте модули из расположения, в которое они были установлены на локальном компьютере. В зависимости от метода установки модулей их расположение может отличаться от показанного в следующем примере. При необходимости измените пример.
 
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
@@ -313,4 +332,4 @@
 - [Создание и изменение маршрутизации для канала ExpressRoute](expressroute-howto-routing-classic.md)
 - [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

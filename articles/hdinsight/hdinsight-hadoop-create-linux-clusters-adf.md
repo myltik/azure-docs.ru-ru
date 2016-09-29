@@ -5,7 +5,7 @@
    documentationCenter=""
    tags="azure-portal"
    authors="mumian"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -438,4 +438,4 @@
 - [Документация по HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 - [Документация по фабрике данных](https://azure.microsoft.com/documentation/services/data-factory/)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

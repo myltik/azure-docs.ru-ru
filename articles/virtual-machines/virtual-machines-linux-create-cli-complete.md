@@ -121,7 +121,7 @@ azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
 Создайте пробу работоспособности балансировщика нагрузки.
 
 ```bash
-azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
 ```
 
 Проверьте балансировщик нагрузки, пулы IP-адресов и правила NAT с помощью средства синтаксического анализа JSON.
@@ -788,7 +788,7 @@ info:    network lb rule create command OK
 Проба работоспособности периодически проверяет, соответствующим ли образом работают и отвечают на запросы виртуальные машины, которые расположены за балансировщиком нагрузки. Если это не так, они выводятся из эксплуатации, чтобы пользователи не могли их использовать. Можно определить пользовательские проверки для пробы работоспособности, указав интервалы и значения времени ожидания. Дополнительную информацию о пробах работоспособности см. в статье [Проверки балансировщика нагрузки](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
-azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "http" -f healthprobe.aspx -i 15 -c 4
+azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
 ```
 
 Выходные данные:
@@ -800,7 +800,7 @@ warn:    Using default probe port: 80
 + Updating load balancer "TestLB"
 data:    Name                            : HealthProbe
 data:    Provisioning state              : Succeeded
-data:    Protocol                        : Http
+data:    Protocol                        : Tcp
 data:    Port                            : 80
 data:    Interval in seconds             : 15
 data:    Number of probes                : 4
@@ -928,14 +928,13 @@ azure network lb show -g TestRG -n TestLB --json | jq '.'
   "probes": [
     {
       "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/probes/HealthProbe",
-      "protocol": "Http",
-      "port": 80,
-      "intervalInSeconds": 15,
-      "numberOfProbes": 4,
-      "requestPath": "healthprobe.aspx",
+      "name": "HealthProbe",
       "provisioningState": "Succeeded",
-      "name": "HealthProbe"
+      "numberOfProbes": 4,
+      "intervalInSeconds": 15,
+      "port": 80,
+      "protocol": "Tcp",
+      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/probes/HealthProbe"
     }
   ]
 }
@@ -1273,4 +1272,4 @@ azure group deployment create -f TestRG.json -g NewRGFromTemplate
 
 Теперь вы готовы приступить к работе с несколькими сетевыми компонентами и виртуальными машинами. Используя этот пример среды, можно создать приложение на основе представленных здесь основных компонентов.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

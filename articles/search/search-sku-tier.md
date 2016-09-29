@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""
     tags="azure-portal"/>
 
@@ -101,4 +101,4 @@ SKU: допустимое число индексов|3|5|50|200|200|1000
 - [Создание службы поиска Azure с помощью портала Azure](search-create-service-portal.md)
 - [Планирование емкости в Поиске Azure](search-capacity-planning.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0914_2016-->

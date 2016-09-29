@@ -4,7 +4,7 @@ description="Список портов, которые используются 
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -143,4 +143,4 @@ ms.author="larryfr"/>
 | Broker | Рабочие узлы | 9092 | [Сетевой протокол Kafka](http://kafka.apache.org/protocol.html) | Используется для связи с клиентами |
 | &nbsp; | Узлы Zookeeper | 2181 | &nbsp; | Порт, используемый клиентами для подключения к ZooKeeper |
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

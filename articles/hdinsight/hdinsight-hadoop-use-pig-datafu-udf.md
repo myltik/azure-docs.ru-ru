@@ -4,7 +4,7 @@ description="DataFu — это коллекция библиотек, предн
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -109,4 +109,4 @@ DataFu можно скачать и установить из репозитор
 
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

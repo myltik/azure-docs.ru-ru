@@ -5,7 +5,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -100,4 +100,4 @@
 
 Также предоставляются полные пошаговые руководства, которые демонстрируют все этапы процесса для **конкретных сценариев**. Они перечислены с описаниями эскизов в статье [Пошаговые руководства по процессу обработки и анализа данных](data-science-process-walkthroughs.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

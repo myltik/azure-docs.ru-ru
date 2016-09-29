@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Приступая к работе со службой Azure Multi-Factor Authentication" 
-	description="Выберите подходящее решение многофакторной проверки подлинности, выяснив, что является объектом защиты и где находятся пользователи. После этого выберите облако, сервер Multi-Factor Authentication или службы AD FS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Приступая к работе со службой Azure Multi-Factor Authentication"
+	description="Выберите подходящее решение многофакторной проверки подлинности, выяснив, что является объектом защиты и где находятся пользователи. После этого выберите облако, сервер Multi-Factor Authentication или службы AD FS."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 #Выбор решения многофакторной безопасности
 
@@ -30,7 +30,7 @@
 Чтобы выяснить, какое решение многофакторной проверки подлинности вам нужно, сначала определите, что вы пытаетесь защитить с помощью второго метода проверки подлинности. Это приложение в службе Azure? Или это система удаленного доступа, к примеру? Определив объект, который необходимо защитить, мы четко увидим, где именно нужно активировать многофакторную проверку подлинности.
 
 
-Что вы пытаетесь защитить| Multi-Factor Authentication в облаке|Сервер Multi-Factor Authentication 
+Что вы пытаетесь защитить| Multi-Factor Authentication в облаке|Сервер Multi-Factor Authentication
 ------------- | :-------------: | :-------------: |
 Собственные приложения корпорации Майкрософт|* |* |
 Приложения SaaS в коллекции приложений|* |* |
@@ -47,10 +47,10 @@
 
 
 Местонахождение пользователей| Решение
-------------- | :------------- | 
+------------- | :------------- |
 Azure Active Directory| Multi-Factor Authentication в облаке|
-Azure AD и локальная служба AD с использованием федерации в AD FS| Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication 
-Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect без синхронизации паролей|Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication 
+Azure AD и локальная служба AD с использованием федерации в AD FS| Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication
+Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect без синхронизации паролей|Доступны оба варианта — Multi-Factor Authentication в облаке и сервер Multi-Factor Authentication
 Azure AD и локальная служба AD с использованием DirSync, Azure AD Sync, Azure AD Connect с синхронизацией паролей|Multi-Factor Authentication в облаке
 Локальная служба Active Directory|Сервер Multi-Factor Authentication
 
@@ -60,25 +60,25 @@ Azure AD и локальная служба AD с использованием D
 ------------- | :-------------: | :-------------: |
 Уведомление от мобильного приложения в качестве второго фактора | ● | ● |
 Код подтверждения мобильного приложения в качестве второго фактора | ● | ●
-Телефонный вызов в качестве второго фактора | ● | ● 
+Телефонный вызов в качестве второго фактора | ● | ●
 Одностороннее SMS в качестве второго фактора | ● | ●
-Двустороннее SMS в качестве второго фактора | | ● 
-Маркеры оборудования в качестве второго фактора | | ● 
+Двустороннее SMS в качестве второго фактора | | ●
+Маркеры оборудования в качестве второго фактора | | ●
 Пароли приложений для клиентов, не поддерживающих Multi-Factor Authentication | ● |  
-Администраторский контроль над методами проверки подлинности | ● | ● 
+Администраторский контроль над методами проверки подлинности | ● | ●
 Режим ПИН-кода | | ●
 Предупреждение о мошенничестве | ● | ●
-Отчеты Multi-Factor Authentication | ● | ● 
-Разовый обход | | ● 
-Настраиваемые приветствия для телефонных вызовов | ● | ● 
-Настройка идентификатора вызывающей стороны для телефонных звонков | ● | ● 
-Надежные IP-адреса | ● | ● 
+Отчеты Multi-Factor Authentication | ● | ●
+Разовый обход | | ●
+Настраиваемые приветствия для телефонных вызовов | ● | ●
+Настройка идентификатора вызывающей стороны для телефонных звонков | ● | ●
+Надежные IP-адреса | ● | ●
 Запоминание данных MFA для доверенных устройств | ● |  
-Условный доступ | ● | ● 
-Кэш | | ● 
+Условный доступ | ● | ●
+Кэш | | ●
 
 Определившись с вариантом (облачная многофакторная проверка подлинности или локальный сервер Multi-Factor Authentication), можно начинать настройку и использование службы Azure Multi-Factor Authentication. **Выберите значок, соответствующий вашему сценарию.**
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

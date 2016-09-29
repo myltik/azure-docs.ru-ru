@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="09/07/2016"
 	ms.author="tamram"/>
 	
 # Использование службы хранилища Azure в приложениях Магазина Windows
@@ -63,7 +63,7 @@
 
 ![store-apps-storage-package-manager][store-apps-storage-package-manager]
 
-Используйте следующую команду для направления диспетчера пакетов к определенному месту в вашем компьютере:
+Используйте следующую команду для направление диспетчера пакетов к определенному месту в вашем компьютере:
 
     Install-Package Microsoft.Data.OData.WindowsStore -Source "C:\Program Files (x86)\Microsoft WCF Data Services\5.0\bin\NuGet"
 
@@ -87,4 +87,4 @@
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0914_2016-->

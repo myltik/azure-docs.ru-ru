@@ -5,7 +5,7 @@
 	documentationCenter=""
 	tags="azure-portal"
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -45,7 +45,7 @@
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Кластер HDInsight**. Инструкции по различным способам создания таких кластеров см. в разделе [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md).
-- **Рабочая станция с Azure PowerShell**.
+- **Рабочая станция с Azure PowerShell.**.
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -1000,4 +1000,4 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0914_2016-->

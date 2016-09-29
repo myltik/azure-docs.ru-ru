@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/25/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Управление хранилищем озера данных Azure с помощью пакета SDK Azure для Node.js
@@ -34,7 +34,13 @@
 
   *  **Node.js версии 0.10.0 или выше;**
   *  **версию REST API для учетной записи: 2015-10-01-preview;**
-  *  **версию REST API для файловой системы: 2015-10-01-preview**.
+  *  **версию REST API для файловой системы: 2015-10-01-preview.**
+
+##Предварительные требования
+
+Перед началом работы с этой статьей необходимо иметь следующее:
+
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Функции
 
@@ -141,4 +147,4 @@ filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, functio
 - [Пакет Microsoft Azure SDK для Node.js](https://github.com/azure/azure-sdk-for-node)
 - [Пакет Microsoft Azure SDK для Node.js — управление аналитикой озера данных](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

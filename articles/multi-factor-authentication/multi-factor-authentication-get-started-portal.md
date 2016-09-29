@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Развертывание пользовательского портала для сервера Azure Multi-Factor Authentication" 
-	description="Эта страница посвящена службе Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure Multi-Factor Authentication и пользовательским порталом." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Развертывание пользовательского портала для сервера Azure Multi-Factor Authentication"
+	description="Эта страница посвящена службе Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure Multi-Factor Authentication и пользовательским порталом."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Развертывание пользовательского портала для сервера Azure Multi-Factor Authentication
 
@@ -101,7 +101,7 @@
 Сервер Azure Multi-Factor Authentication предоставляет несколько параметров для пользовательского портала. Следующая таблица содержит список этих параметров и объяснение их использования.
 
 Параметры пользовательского портала|Описание|
-:------------- | :------------- | 
+:------------- | :------------- |
 URL-адрес пользовательского портала| Позволяет ввести URL-адрес размещения портала.
 Основная проверка подлинности| Позволяет указать тип проверки подлинности при входе в систему на портале. Проверка подлинности Windows, Radius или LDAP.
 Разрешить пользователям входить в систему|Позволяет пользователю ввести имя пользователя и пароль на странице входа для пользовательского портала. Если этот параметр не выбран, поля будут недоступны.
@@ -187,6 +187,4 @@ URL-адрес пользовательского портала| Позволя
 
 На этом самостоятельная регистрация пользователя завершена. Пользователь вошел в пользовательский портал. В будущем пользователи могут войти на портал в любой момент для изменения своих номеров телефонов, ПИН-кодов, методов проверки подлинности и секретных вопросов, если это разрешено администраторами.
 
- 
-
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

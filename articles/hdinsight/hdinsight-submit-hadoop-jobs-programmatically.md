@@ -2,7 +2,7 @@
 	pageTitle="Отправка заданий Hadoop в HDInsight | Microsoft Azure"
 	description="Вы узнаете, как отправлять задания Hadoop в HDInsight для платформы Azure."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 # Отправка заданий Hadoop в HDInsight
@@ -26,4 +26,4 @@
 - [Использование Sqoop в HDInsight](hdinsight-use-sqoop.md)
 - [Использование Oozie в HDInsight](hdinsight-use-oozie.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

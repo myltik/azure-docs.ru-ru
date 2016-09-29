@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/19/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Руководство. Создание конвейера с действием копирования с помощью API .NET
 > [AZURE.SELECTOR]
-- [Обзор учебника](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Редактор фабрики данных](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Использование интерфейса REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Использование API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
 
 В этом руководстве описывается создание и мониторинг фабрики данных Azure с помощью API .NET. Конвейер в фабрике данных копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure с помощью действия копирования.
@@ -34,7 +34,7 @@
 В этой статье рассматриваются не все API-интерфейсы .NET фабрики данных. Подробные сведения о пакете SDK для .NET в фабрике данных см. в [справочнике по API-интерфейсам .NET фабрики данных](https://msdn.microsoft.com/library/mt415893.aspx).
 
 ## Предварительные требования
-- [Ознакомьтесь с руководством и выполните предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Ознакомьтесь с [обзором руководства](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) и выполните **предварительные требования**.
 - Visual Studio 2012, 2013 или 2015
 - Скачайте и установите пакет [Azure .NET SDK](http://azure.microsoft.com/downloads/).
 - Azure PowerShell. Далее, чтобы установить Azure PowerShell на локальном компьютере, следуйте указаниям в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md). С помощью Azure PowerShell вы создадите приложение Azure Active Directory.
@@ -458,4 +458,4 @@
 
  
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

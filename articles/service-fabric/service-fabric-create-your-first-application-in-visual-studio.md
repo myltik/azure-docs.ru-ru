@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/26/2016"
    ms.author="ryanwi"/>
 
 # Создание первого приложения Azure Service Fabric в Visual Studio
@@ -110,6 +110,14 @@
 
     ![Информация в средстве просмотра диагностических событий после аварийного переключения][diagnostic-events-viewer-detail-post-failover]
 
+## Переключение режима кластера
+
+По умолчанию кластер локальной разработки запускается как кластер из 5 узлов, что подходит для отладки служб, развернутых на нескольких узлах. Тем не менее развертывание приложения в таком кластере разработки может занять некоторое время. Чтобы быстро вносить изменения кода, не запуская приложение на 5 узлах, можно переключиться в режим кластера разработки с 1 узлом. Для выполнения кода в кластере с одним узлом щелкните правой кнопкой мыши диспетчер локального кластера на панели задач и выберите **Switch Cluster Mode -> 1 Node** (Переключить режим кластера -> 1 узел).
+
+![Переключение режима кластера][switch-cluster-mode]
+
+После изменения режима кластер разработки перезапустится, и будут удалены все приложения, подготовленные или работающие на кластере.
+
 ## Очистка.
 
   Прежде чем завершить работу, важно помнить, что локальный кластер работает по-настоящему. Если остановить работу отладчика, будет удален экземпляр приложения и отменена регистрация типа приложения. Но кластер при этом будет работать в фоновом режиме. Доступно несколько вариантов управления кластером.
@@ -138,5 +146,6 @@
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

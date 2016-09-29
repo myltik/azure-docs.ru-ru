@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,deguhath"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -1164,4 +1164,4 @@ Test R-sqr — 0,6226484708501209
 
 В статье [Оценка моделей машинного обучения, созданных с помощью Spark](machine-learning-data-science-spark-model-consumption.md) показана процедура использования кода Scala для автоматической загрузки и оценки новых наборов данных с помощью встроенных моделей машинного обучения Spark с последующим сохранением в хранилище BLOB-объектов Azure. Чтобы включить автоматическое использование, просто замените код Python кодом Scala, следуя инструкциям в этой статье.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0914_2016-->

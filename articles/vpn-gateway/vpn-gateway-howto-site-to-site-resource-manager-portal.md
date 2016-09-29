@@ -20,9 +20,9 @@
 # Создание виртуальной сети с подключением типа "сеть — сеть" с помощью портала Azure
 
 > [AZURE.SELECTOR]
-- [Портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Классический портал Azure](vpn-gateway-site-to-site-create.md)
-- [PowerShell — Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager — портал Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager — PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Классическая модель — классический портал](vpn-gateway-site-to-site-create.md)
 
 
 В этой статье мы покажем вам, как создать виртуальную сеть, соединенную с локальной сетью через VPN-подключение типа "сеть — сеть", используя **модель развертывания с помощью Azure Resource Manager** и портал Azure. Подключения типа "сеть — сеть" можно использовать для распределенных и гибридных конфигураций.
@@ -154,4 +154,4 @@ VPN-подключение можно проверить на портале и�
 
 - Сведения о BGP см. в статьях [Обзор использования BGP с VPN-шлюзами Azure](vpn-gateway-bgp-overview.md) и [Настройка BGP на VPN-шлюзах Azure с помощью Azure Resource Manager и PowerShell](vpn-gateway-bgp-resource-manager-ps.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev,hangzh-msft,wguo123"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -103,7 +103,7 @@
 	       --If the master key exists, do nothing
 	END CATCH;
 
-**Создайте рабочую область машинного обучения Azure, используя подписку Azure.** Инструкции можно найти в статье [Создание рабочей области машинного обучения Azure](machine-learning-create-workspace.md).
+**Создайте рабочую область Машинного обучения Azure, используя подписку Azure.** Инструкции можно найти в статье [Создание рабочей области машинного обучения Azure](machine-learning-create-workspace.md).
 
 ## <a name="getdata"></a>Загрузка данных в хранилище данных SQL
 
@@ -439,7 +439,7 @@
 |2 | 6198803 |
 |3 | 1932223 |
 |0 | 82264625 |
-|4\. | 85765 |
+|4 | 85765 |
 
 ### Изучение: вычисление и сравнение расстояния поездок
 
@@ -969,4 +969,4 @@
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

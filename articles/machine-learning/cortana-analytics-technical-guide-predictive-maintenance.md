@@ -4,7 +4,7 @@
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="fboylu"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="09/13/2016"
 	ms.author="fboylu" />
 
 # Техническое руководство по шаблону решения Cortana Intelligence для прогнозируемого обслуживания в аэрокосмических и других компаниях
@@ -266,10 +266,10 @@ Power BI подключается к базе данных Azure SQL в каче
 
 ## **Средства для оценки затрат**
 
-Следующие два средства помогут вам лучше оценить общие затраты, задействованные в выполнении шаблона решения для прогнозируемого обслуживания в аэрокосмических компаниях в вашей подписке:
+Следующие два инструмента помогут вам лучше оценить общие затраты, задействованные в выполнении шаблона решения для прогнозируемого обслуживания в аэрокосмических компаниях в вашей подписке:
 
 -   [Средство оценки затрат Azure Microsoft (в сети)](https://azure.microsoft.com/pricing/calculator/)
 
 -   [Средство оценки затрат Azure Microsoft (на рабочем столе)](http://www.microsoft.com/download/details.aspx?id=43376)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->

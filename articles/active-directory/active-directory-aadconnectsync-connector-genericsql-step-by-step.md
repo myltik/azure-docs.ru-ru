@@ -52,7 +52,7 @@
 6. В базе данных SQL могут быть обнаружены только некоторые типы атрибутов. В частности, нельзя обнаружить тип ссылочного атрибута. Для типа объекта Group необходимо изменить значения OwnerID и MemberID на ссылку. ![Соединитель 6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector6.png)
 7. Для атрибутов, выбранных как ссылочные атрибуты на предыдущем этапе, теперь требуется тип объекта, ссылкой на который они являются. В нашем случае это тип объекта User. ![Соединитель 7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector7.png)
 8. На странице "Глобальные параметры" выберите **Watermark** (Водяной знак) в качестве стратегии изменений. В поле формата даты и времени введите **гггг-ММ-дд ЧЧ:мм:сс**. ![Соединитель 8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector8.png)
-9. В разделе **Configure Partitions** (Настройка разделов) выберите оба типа объектов. ![Соединитель 9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
+9. На странице **Configure Partitions and Hierarchies** (Настройка секций и иерархий) выберите оба типа объектов. ![Соединитель 9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
 10. На странице **Select Object Types** (Выбор типов объектов) и **Select Attributes** (Выбор атрибутов) выберите оба типа объектов и все атрибуты. На странице **Configure Anchors** (Настройка привязки) нажмите кнопку **Finish** (Готово).
 
 ## Создание профилей выполнения
@@ -170,4 +170,4 @@ ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0914_2016-->

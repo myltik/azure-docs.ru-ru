@@ -68,8 +68,8 @@
 * [Получайте уведомления](insights-receive-alert-notifications.md), когда метрика достигает порогового значения.
 * [Включите отслеживание и диагностику](insights-how-to-use-diagnostics.md), чтобы собирать подробные метрики о службе с высокой частотой.
 * [Автоматически масштабируйте число экземпляров](insights-how-to-scale.md), чтобы служба всегда была доступна.
-* [Отслеживайте производительность приложения](insights-perf-analytics.md), чтобы точно понять, как ваш код работает в облаке.
+* [Отслеживайте производительность приложения](../application-insights/app-insights-azure-web-apps.md), чтобы точно понять, как ваш код работает в облаке.
 * Используйте [приложения Application Insights для JavaScript и веб-страниц](../application-insights/app-insights-web-track-usage.md) для анализа браузеров, которые посещают веб-страницу.
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../application-insights/app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="06/21/2016" 
+    ms.date="09/11/2016" 
     ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с Thoughtworks Mingle
@@ -68,7 +68,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции с приложением **Thoughtworks Mingle** классического портала Azure AD щелкните **Настройка единого входа**, чтобы открыть соответствующее диалоговое окно.
+1.  На странице интеграции с приложением **Thoughtworks Mingle** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Настройка единого входа")
 
@@ -76,7 +76,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Настройка единого входа")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес клиента Thoughtworks Mingle** введите свой URL-адрес, используя следующий шаблон " *http://company.mingle.thoughtworks.com* ", а затем нажмите кнопку **Далее**.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес клиента Thoughtworks Mingle** введите свой URL-адрес, используя шаблон *http://company.mingle.thoughtworks.com*", а затем нажмите кнопку **Далее*.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785155.png "Настройка URL-адреса приложения")
 
@@ -141,7 +141,7 @@
 
 2.  На странице интеграции с приложением **Thoughtworks Mingle** нажмите кнопку **Назначить пользователей**.
 
-    ![Назначение пользователей](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785164.png "Назначить пользователей")
+    ![Назначить пользователей](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785164.png "Назначить пользователей")
 
 3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
@@ -149,4 +149,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0914_2016-->

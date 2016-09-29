@@ -1,10 +1,10 @@
 <properties
    pageTitle="Анализ журналов веб-сайта с помощью аналитики озера данных Azure | Azure"
-   description="Информация об анализе журналов веб-сайта с помощью аналитики озера данных Azure."
+   description="Информация об анализе журналов веб-сайта с помощью аналитики озера данных Azure. "
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -188,7 +188,7 @@
 3.  Дважды щелкните файл **UnsuccessfulResponsees.log**.
 4.  Кроме того, вы можете дважды щелкнуть выходной файл в графическом представлении задания для перехода непосредственно к выходным данным.
 
-## См. также
+## Дополнительные материалы
 
 Для начала работы с аналитикой озера данных с использованием различных средств см. следующие статьи.
 
@@ -196,10 +196,10 @@
 - [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Начало работы с аналитикой озера данных с помощью пакета SDK .NET.](data-lake-analytics-get-started-net-sdk.md)
 
-Другие темы по разработке:
+Другие ресурсы по разработке
 
 - [Разработка сценариев U-SQL с помощью средств озера данных для Visual Studio.](data-lake-analytics-data-lake-tools-get-started.md)
 - [Начало работы с языком U-SQL в службе аналитики озера данных Azure.](data-lake-analytics-u-sql-get-started.md)
 - [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных.](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

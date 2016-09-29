@@ -347,11 +347,11 @@ Application Insights предоставляет три типа оповещен
  * [Устранение неполадок][qna]
  * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Предложения
+ * [Получение поддержки Developer](app-insights-get-dev-support.md)
+* Ваши предложения:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Блог:
  * [Блог Application Insights](https://azure.microsoft.com/blog/tag/application-insights)
-
 
 
 
@@ -388,4 +388,4 @@ Application Insights предоставляет три типа оповещен
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0914_2016-->

@@ -18,6 +18,10 @@
 
 # Сброс пароля для пользователя
 
+> [AZURE.SELECTOR]
+- [Портал Azure](active-directory-users-reset-password-azure-portal.md)
+- [Классический портал Azure](active-directory-create-users-reset-password.md)
+
 Отвечаете ли вы на запрос пользователя, которому необходимо сбросить пароль после блокировки, или просто выполняете рутинные процедуры по обеспечению безопасности, иногда вам может потребоваться сбросить пароль пользователя. В Azure Active Directory (Azure AD) это очень просто.
 
   1. Откройте свой каталог.
@@ -35,4 +39,4 @@
 - [Управление паролями в Azure AD](active-directory-manage-passwords.md)
 - [Управление группами в Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0914_2016-->

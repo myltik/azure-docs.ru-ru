@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/23/2016"
-	ms.author="tamram"/>
+	ms.date="09/20/2016"
+	ms.author="gusapost;tamram"/>
 
 
 # Приступая к работе с хранилищем таблиц Azure с помощью .NET
@@ -57,7 +57,7 @@
 
 Добавьте в начало файла `program.cs` следующие инструкции `using`:
 
-	using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
 	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
@@ -81,13 +81,13 @@
 	// Retrieve the storage account from the connection string.
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 	    CloudConfigurationManager.GetSetting("StorageConnectionString"));
-	
+
 	// Create the table client.
 	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 	// Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
-		
+
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
@@ -137,7 +137,7 @@
 
 Вы можете вставить пакет сущностей в таблицу в одной операции записи. Некоторые другие примечания к пакетным операциям:
 
--  Можно выполнять операции обновления, удаления и вставки в одной пакетной операции.
+-  Можно выполнять операции обновления, удаления и вставки в одной операции пакета.
 -  Одна пакетная операция может включать до 100 сущностей.
 -  У всех сущностей в одной пакетной операции должен быть одинаковый ключ раздела.
 -  Хотя запрос можно выполнить как пакетную операцию, он должен быть единственной операцией в пакете.
@@ -227,9 +227,9 @@
             entity.Email, entity.PhoneNumber);
     }
 
-## Получение отдельной сущности
+## Извлечение одной сущности
 
-Можно написать запрос для получения отдельной сущности. В следующем примере кода с помощью объекта **TableOperation** задается клиент Ben Smith. Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в **TableResult.Result** является объектом **CustomerEntity**. Указание ключа раздела и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы таблиц.
+Можно написать запрос для получения отдельной сущности. В следующем примере кода с помощью объекта **TableOperation** задается клиент Ben Smith. Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в **TableResult.Result** является объектом **CustomerEntity**. Указание ключа раздела и ключа строки в запросе — самый быстрый способ извлечь одну сущность из службы таблиц.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -469,4 +469,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

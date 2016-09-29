@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -32,7 +32,7 @@
 
 ##Предварительные требования
 
-- Вы должны были подготовить кластер Hadoop в Azure HDInsight. Для получения инструкций см. раздел [Подготовка кластеров HDInsight][hdinsight-provision]. 
+- Вы должны были подготовить кластер Hadoop в Azure HDInsight. Для получения инструкций см. раздел [Подготовка кластеров HDInsight][hdinsight-provision].
 - У вас должен быть установлен Microsoft Excel 2013 или Microsoft Excel 2010.
 - У вас должен быть [Microsoft Hive ODBC драйвер](http://www.microsoft.com/download/details.aspx?id=40886) для импорта данных из Hive в Excel.
 
@@ -61,4 +61,4 @@
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0914_2016-->

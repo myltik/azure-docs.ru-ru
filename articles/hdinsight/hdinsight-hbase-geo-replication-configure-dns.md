@@ -4,7 +4,7 @@
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
 
 <tags
@@ -44,7 +44,7 @@
 
 - **Рабочая станция с Azure PowerShell.**.
 
-	Перед выполнением скриптов PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета:
+	Перед выполнением сценариев PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета.
 
 		Add-AzureAccount
 
@@ -222,4 +222,4 @@ DNS-сервер в каждой виртуальной сети может ра
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0914_2016-->
