@@ -113,4 +113,4 @@
 - [Создание базы данных SQL и управление ею с помощью C#](sql-database-elastic-pool-manage-csharp.md)
 - [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0907_2016--->

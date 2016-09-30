@@ -51,4 +51,4 @@
 ## Задача 5. Включение синхронизации паролей в доменные службы Azure AD
 Следующая задача конфигурации — [включить синхронизацию паролей в доменные службы Azure AD](active-directory-ds-getting-started-password-sync.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0706_2016--->

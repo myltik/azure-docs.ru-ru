@@ -42,4 +42,4 @@
 
 4. Щелкните значок галочки ![значок галочки](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Создан том с указанными настройками.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0914_2016---->

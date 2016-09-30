@@ -83,4 +83,4 @@
 - Узнайте о преимуществах использования [пулов эластичных БД](sql-database-elastic-pool.md).
 - Узнайте, как [создавать веб-приложения, которые подключаются к базе данных SQL в серверной части](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0706_2016--->

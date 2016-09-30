@@ -117,4 +117,4 @@
 
 - Если вас интересует автоматизация развертываний, см. статью [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md).
 
-<!---HONumber=AcomDC_0912_2016--->
+<!---HONumber=AcomDC_0912_2016---->
