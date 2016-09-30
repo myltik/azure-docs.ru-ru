@@ -101,6 +101,7 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 [портал Azure]: https://portal.azure.com/
 [пакета SDK JavaScript для мобильных приложений Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
-[Query object documentation]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
+[документации по объектам запросов]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
 
 <!---HONumber=AcomDC_0914_2016-->
+

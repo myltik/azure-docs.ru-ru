@@ -149,4 +149,4 @@
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
 * [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Функции Azure: путешествие) в блоге группы разработчиков службы приложений Azure. В этой статье рассказывается история создания функций Azure.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!----HONumber=AcomDC_0914_2016-->
