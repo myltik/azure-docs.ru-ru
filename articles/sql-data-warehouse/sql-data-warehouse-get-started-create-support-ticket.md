@@ -103,4 +103,4 @@
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [форум MSDN, посвященный хранилищу данных SQL Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0907_2016---->

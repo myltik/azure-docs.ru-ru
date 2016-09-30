@@ -58,4 +58,4 @@
 ## Задача 3. Включение доменных служб Azure AD
 Следующая задача конфигурации — [включить доменные службы Azure AD](active-directory-ds-getting-started-enableaadds.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0921_2016--->

@@ -94,4 +94,4 @@
 ## Задача 4. Обновление настроек DNS для виртуальной сети Azure
 Следующая задача — [обновление параметров DNS для виртуальной сети Azure](active-directory-ds-getting-started-dns.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0706_2016--->
