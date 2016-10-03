@@ -217,13 +217,13 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 В функции C# можно выполнить привязку одного из следующих типов:
 
 * `TextReader`
-* .`Stream`
-* .`ICloudBlob`
-* .`CloudBlockBlob`
-* .`CloudPageBlob`
-* .`CloudBlobContainer`
-* .`CloudBlobDirectory`
-* .`IEnumerable<CloudBlockBlob>`
+* `Stream`
+* `ICloudBlob`
+* `CloudBlockBlob`
+* `CloudPageBlob`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `IEnumerable<CloudBlockBlob>`
 * `IEnumerable<CloudPageBlob>`
 * другие типы, десериализованные с помощью [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb).
 
@@ -355,7 +355,7 @@ public static void Run(string myBlob, TraceWriter log)
 * `Stream`;
 * `CloudBlobStream` (только для выходных данных);
 * `ICloudBlob`;
-* `CloudBlockBlob`;
+* `CloudBlockBlob`
 * `CloudPageBlob`.
 
 #### Пример кода C# с выходными данными большого двоичного объекта
@@ -459,6 +459,21 @@ public class Person
     public string RowKey { get; set; }
     public string Name { get; set; }
 }
+```
+
+Следующий пример кода F# также используется с предыдущим файлом *function.json* для чтения одной сущности таблицы.
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(myQueueItem: string, personEntity: Person) =
+    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
 Следующий пример кода Node также используется с предыдущим файлом *function.json* для чтения одной сущности таблицы.
@@ -567,6 +582,47 @@ public class Person
 
 ```
 
+#### Пример таблиц службы хранилища: создание сущностей таблицы на языке F#
+
+В следующем примере с файлами *function.json* и *run.fsx* показано, как записывать сущности таблицы на языке F#.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnection",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```fsharp
+[<CLIMutable>]
+type Person = {
+  PartitionKey: string
+  RowKey: string
+  Name: string
+}
+
+let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+    for i = 1 to 10 do
+        log.Info(sprintf "Adding Person entity %d" i)
+        tableBinding.Add(
+            { PartitionKey = "Test"
+              RowKey = i.ToString()
+              Name = "Name" + i.ToString() })
+```
+
 #### Пример таблиц службы хранилища: создание сущности таблицы на платформе Node
 
 В следующем примере с файлами *function.json* и *run.csx* показано, как записывать сущности таблицы на платформе Node.
@@ -607,4 +663,4 @@ module.exports = function (context, myQueueItem) {
 
 [AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

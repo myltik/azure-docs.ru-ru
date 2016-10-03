@@ -15,7 +15,7 @@
 	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure" 
-	ms.date="06/28/2016" 
+	ms.date="09/19/2016" 
 	ms.author="iainfou" 
 />
 
@@ -39,6 +39,6 @@
 
 
 ## Дальнейшие действия
-При проблемах с подключением к виртуальной машине см. статьи [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md) и [Подробная диагностика подключений к удаленному рабочему столу виртуальной машины Azure под управлением Windows](virtual-machines-windows-detailed-troubleshoot-rdp.md). При проблемах с доступом к приложению, выполняющемуся в виртуальной машине, см. статью [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-windows-troubleshoot-app-connection.md).
+При проблемах с подключением к виртуальной машине ознакомьтесь со статьями [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md) и [Подробная диагностика подключений к удаленному рабочему столу виртуальной машины Azure под управлением Windows](virtual-machines-windows-detailed-troubleshoot-rdp.md). При проблемах с доступом к приложению, выполняющемуся в виртуальной машине, ознакомьтесь со статьей [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-windows-troubleshoot-app-connection.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

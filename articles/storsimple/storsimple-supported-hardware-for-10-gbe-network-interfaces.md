@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/25/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Поддерживаемое оборудование для сетевых интерфейсов 10 GbE на устройстве StorSimple
@@ -36,7 +36,7 @@
 |S. Нет. |Убедитесь,|Модель|
 |---|---|---|
 | 1\.|Cisco|SFP-H10GB-CU1M|
-| 2\.|Cisco|SFP-H10GB-CU2M|
+| 2)|Cisco|SFP-H10GB-CU2M|
 | 3\.|Cisco|SFP-H10GB-CU3M|
 | 4\.|Tripp-Lite|N820-05M (OM3)|
 
@@ -45,7 +45,7 @@
 |S. Нет.|Убедитесь,|Модель|
 |---|---|---|
 | 1\. |Cisco|N3K-C3172PQ-10GE|
-| 2\. |Cisco|N3K-C3048-ZM-F|
+| 2) |Cisco|N3K-C3048-ZM-F|
 | 3\. |Cisco|N5K-C5596UP-FA|
 
 ## Список устройств, протестированных на местах
@@ -77,7 +77,7 @@ Mellanox проверила следующие подключаемые прие
 | S. Нет. | Speed | Модель | Описание | Убедитесь, |
 |--------|-------|-----------------------|--------------------------------------------------------|-----------------------|
 | 1\. | 10 GbE| CAB-SFP-SFP-1M | Пассивный медный кабель SFP + 10 Гбит/с, 1 м | Arista |
-| 2\. | 10 GbE| CAB-SFP-SFP-2M | Пассивный медный кабель SFP + 10 Гбит/с, 2 м | Arista |
+| 2) | 10 GbE| CAB-SFP-SFP-2M | Пассивный медный кабель SFP + 10 Гбит/с, 2 м | Arista |
 | 3\. | 10 GbE| CAB-SFP-SFP-3M | Пассивный медный кабель SFP + 10 Гбит/с, 3 м | Arista |
 | 4\. | 10 GbE| CAB-SFP-SFP-5M | Пассивный медный кабель SFP + 10 Гбит/с, 5 м | Arista |
 | 5\. | 10 GbE| Cisco SFP-H10GBCU1M | Кабель SFP + Cisco | Cisco |
@@ -119,8 +119,8 @@ Mellanox проверила следующие подключаемые прие
 | S. Нет. | Speed | Модель | Описание | Убедитесь, |
 |--------|-------|-------------|---------------------------------------------------------------------|-------------|
 | 1\. | 10GbE | 516733-B21 | Коммутатор HP ProCurve 6120XG 10GbE Ethernet Blade Switch | HP |
-| 2\. | 10GbE | 538113-B21 | Переходный модуль (PTM) HP 10GbE | HP |
-| 3\. | 10GbE | EN4093 | Масштабируемый модуль коммутатора IBM PureFlex System Fabric EN4093 10 Gigabit | IBM |
+| 2) | 10GbE | 538113-B21 | Переходный модуль (PTM) HP 10GbE | HP |
+| 3) | 10GbE | EN4093 | Масштабируемый модуль коммутатора IBM PureFlex System Fabric EN4093 10 Gigabit | IBM |
 | 4\. | 1GbE | 3020 | Колонка коммутатора Cisco Catalyst 3020 1GbE | Cisco |
 | 5\. | 1GbE | 3020X | Колонка коммутатора Cisco Catalyst 3020X 1GbE | Cisco |
 | 6\. | 1GbE | 438030-B21 | Модуль коммутатора HP 1GbE — GbE2c Layer 2/3 Ethernet Blade Switch | HP |
@@ -130,4 +130,4 @@ Mellanox проверила следующие подключаемые прие
 
 [Дополнительные сведения об аппаратных компонентах и состоянии StorSimple](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

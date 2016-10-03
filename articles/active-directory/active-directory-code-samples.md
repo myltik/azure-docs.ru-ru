@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Примеры кода Azure Active Directory
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Для добавления проверки подлинности и авторизации в веб-приложения и веб-интерфейсы API можно использовать Microsoft Azure Active Directory (Azure AD). Этот раздел перенаправит вас к примерам кода, в которых показано, как это можно сделать, и фрагментам кода, которые можно использовать в приложениях. На странице примеров кода находятся разделы с подробными файлами сведений, которые предоставят справку по требованиям, установке и настройке. Код указан с комментариями, чтобы можно было понять важные разделы.
+Для добавления проверки подлинности и авторизации в веб-приложения и веб-интерфейсы API можно использовать Microsoft Azure Active Directory (Azure AD). Этот раздел перенаправит вас к примерам кода, в которых показано, как это можно сделать, и фрагментам кода, которые можно использовать в приложениях. На странице примеров кода приведены ссылки на статьи с подробными сведениями о требованиях, установке и настройке. Код указан с комментариями, чтобы можно было понять важные разделы.
 
 Чтобы понять основной сценарий для каждого типа примера, см. раздел «Сценарии проверки подлинности в Azure AD».
 
@@ -52,7 +52,7 @@
 | JavaScript, C#/.NET | [SinglePageApp-DotNet](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | Использование ADAL для JavaScript и Azure AD для обеспечения безопасности одностраничного приложения на AngularJS с серверным веб-интерфейсом API, реализованным на ASP.NET.
 
 
-## Из собственного приложения к веб-интерфейсу API
+## Из нативного приложения к веб-интерфейсу API
 
 В этих примерах кода показано, как создавать собственные клиентские приложения, которые вызывают веб-интерфейсы API, защищенные Azure AD. Они используют [библиотеку проверки подлинности Azure AD (ADAL)](active-directory-authentication-libraries.md) и [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 
@@ -83,7 +83,7 @@
 | C#/.NET | [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity) | Вызовите веб-API с разрешениями приложения.
 | C#/.NET | [WebApp-WebAPI-OAuth2-UserIdentity-Dotnet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | Добавление авторизации с помощью [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) в существующее приложение, чтобы оно могло выполнять вызовы веб-интерфейса API.
 | JavaScript | [WebAPI-Nodejs](https://github.com/Azure-Samples/active-directory-node-webapi) | Настройка службы API REST, интегрированной с Azure AD, для защиты API. Включает сервер Node.js с веб-интерфейсом API.
-| C#/.NET | [WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-multitenant-openidconnect) | Мультитенантное веб-приложение MVC, которое использует OpenID Connect (ПО промежуточного слоя ASP.Net OpenID Connect OWIN) для проверки подлинности пользователей Azure AD.  Использует код авторизации для вызова Graph API.
+| C#/.NET | [WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-multitenant-openidconnect) | Мультитенантное веб-приложение MVC, которое использует OpenID Connect (ПО промежуточного слоя ASP.Net OpenID Connect OWIN) для проверки подлинности пользователей Azure AD. Использует код авторизации для вызова Graph API.
 
 ## Из серверного приложения или управляющей программы в веб-интерфейс API
 
@@ -141,7 +141,7 @@ PHP | [Образец приложения PHP для API Graph Azure AD](http:/
 | C#/.NET | [Защита приложения Магазина Windows и веб-службы REST с помощью Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) | Создание простого ресурса веб-интерфейса API и приложения клиента Магазина Windows с помощью [Azure AD и библиотеки проверки подлинности Azure AD (ADAL](active-directory-authentication-libraries.md)).
 | C#/.NET| [Использование API Graph для запроса Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-graphapi-web) | Настройка приложения .NET для использования Graph API Azure AD для доступа к данным из каталога клиента Azure AD.
 
-## См. также
+## Дополнительные материалы
 
 ##### Другие ресурсы
 
@@ -151,4 +151,4 @@ PHP | [Образец приложения PHP для API Graph Azure AD](http:/
 
 [Библиотека вспомогательных методов для Azure AD Graph API](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

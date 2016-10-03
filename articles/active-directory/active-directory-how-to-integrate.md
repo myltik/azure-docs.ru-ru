@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/16/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Интеграция с Azure Active Directory
@@ -90,4 +90,4 @@ Azure Active Directory предоставляет организациям фу�
 
 [Вход пользователей с помощью в Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

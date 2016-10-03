@@ -3,8 +3,8 @@
     description="Узнайте, как использовать службу хранилища очередей в Azure. Примеры написаны на C++."
     services="storage"
     documentationCenter=".net"
-    authors="robinsh"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager=jahogg""
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/03/2016"
-    ms.author="dineshm"/>
+    ms.date="09/20/2016"
+    ms.author="dineshm;robinsh"/>
 
 # Использование хранилища очередей из C++  
 
@@ -228,6 +228,7 @@
 	queue.delete_queue_if_exists();  
 
 ## Дальнейшие действия
+
 Теперь, когда вы ознакомились с основными сведениями о хранилище очередей, используйте следующие ссылки для получения дополнительных сведений о хранилище Azure.
 
 -	[Использование хранилища BLOB-объектов из C++](storage-c-plus-plus-how-to-use-blobs.md)
@@ -236,4 +237,4 @@
 -	[Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
 -	[Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

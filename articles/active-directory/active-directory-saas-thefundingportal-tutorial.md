@@ -219,7 +219,7 @@
 
 ### Создание тестового пользователя The Funding Portal
 
-В этом разделе описано, как создать пользователя Britta Simon в приложении The Funding Portal. В этом разделе описано, как создать пользователя Britta Simon в приложении The Funding Portal. Если вы не знаете, как добавить пользователя Britta Simon в The Funding Portal, обратитесь в службу поддержки The Funding Portal с просьбой добавить тестового пользователя и включить единый вход. Отправьте запрос по адресу info@regenteducation.com.
+В этом разделе описано, как создать пользователя Britta Simon в приложении The Funding Portal. Если вы не знаете, как добавить пользователя Britta Simon в The Funding Portal, обратитесь в службу поддержки The Funding Portal с просьбой добавить тестового пользователя и включить единый вход. Отправьте запрос по адресу info@regenteducation.com.
 
 ### Назначение тестового пользователя Azure AD
 
@@ -282,4 +282,4 @@
 [204]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-thefundingportal-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

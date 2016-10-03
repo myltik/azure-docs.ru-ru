@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/24/2016"
+   ms.date="09/16/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Подключение к Базе данных SQL или хранилищу данных SQL c использованием проверки подлинности Azure Active Directory
@@ -312,7 +312,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 Чтобы подключиться к базе данных с помощью встроенной проверки подлинности и удостоверения Azure AD, ключевое слово проверки подлинности в строке подключения к базе данных должно иметь значение «Active Directory Integrated». В следующем примере кода C# используется ADO .NET.
 
 	string ConnectionString =
-	@"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated;";
+	@"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
@@ -322,7 +322,7 @@ Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 Чтобы подключиться к базе данных с помощью встроенной аутентификации и удостоверения Azure AD, ключевому слову аутентификации нужно присвоить пароль Active Directory. Строка подключения должна содержать ключевые слова для идентификатора пользователя (UID) и пароля (PWD), а также их значения. В следующем примере кода C# используется ADO .NET.
 
 	string ConnectionString =
-	  @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
+	  @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Password; Initial Catalog=testdb;  UID=bob@contoso.onmicrosoft.com; PWD=MyPassWord!";
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
@@ -381,4 +381,4 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 [12]: ./media/sql-database-aad-authentication/12connect-using-pw-auth.png
 [13]: ./media/sql-database-aad-authentication/13connect-to-db.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/23/2016"
+	ms.date="09/21/2016"
 	ms.author="jroth" />
 
 # Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)
@@ -25,7 +25,8 @@
 
 В этом разделе показано, как подключиться к экземпляру SQL Server, выполняемому на виртуальной машине Azure. Сначала рассматриваются некоторые [общие сценарии подключения](#connection-scenarios), а затем предоставляются [подробные инструкции по настройке подключений SQL Server на виртуальной машине Azure](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]  
+Классическая модель развертывания. Версию этой статьи для классической модели развертывания см. в разделе [Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)](virtual-machines-windows-classic-sql-connect.md).
 
 Если вы предпочитаете полное пошаговое руководство по подготовке и подключению, то см. статью [Подготовка виртуальной машины SQL Server на портале Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
@@ -46,6 +47,8 @@
 
 Если это не было сделано во время подготовки, то можно настроить SQL Server и виртуальные машины вручную, выполнив [действия по настройке подключения вручную, описанные в этой статье](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm).
 
+>[AZURE.NOTE] Образ виртуальной машины выпуска SQL Server Express не включает протокол TCP/IP автоматически, Для выпуска Express необходимо [включить протокол TCP/IP вручную](#configure-sql-server-to-listen-on-the-tcp-protocol) в диспетчере конфигурации SQL Server после создания виртуальной машины.
+
 После этого любой клиент с доступом к Интернету может подключиться к экземпляру SQL Server, указав общедоступный IP-адрес виртуальной машины или имя DNS, назначенное этому IP-адресу. Если порт SQL Server — 1433, необходимо указать его в строке подключения.
 
 	"Server=sqlvmlabel.eastus.cloudapp.azure.com;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
@@ -64,6 +67,8 @@
 
 Если вы используете портал для подготовки образа виртуальной машины SQL Server с помощью Resource Manager, надлежащие правила брандмауэра для обмена данными в виртуальной сети будут настроены при выборе варианта подключения SQL **Частное**. Если это не было сделано во время подготовки, можно настроить SQL Server и виртуальные машины вручную, выполнив [действия по настройке подключения вручную, описанные в этой статье](#steps-for-manually-configuring-sql-server-connectivity-in-an-azure-vm). Однако если вы собираетесь настроить доменную среду и проверку подлинности Windows, не нужно выполнять описанные в этой статье действия по настройке проверки подлинности SQL и входа в систему. Также не нужно настраивать правила групп безопасности сети для доступа через Интернет.
 
+>[AZURE.NOTE] Образ виртуальной машины выпуска SQL Server Express не включает протокол TCP/IP автоматически, Для выпуска Express необходимо [включить протокол TCP/IP вручную](#configure-sql-server-to-listen-on-the-tcp-protocol) в диспетчере конфигурации SQL Server после создания виртуальной машины.
+
 Если вы настроили DNS в своей виртуальной сети, то сможете подключиться к экземпляру SQL Server, указав имя узла виртуальной машины SQL Server в строке подключения. В следующем примере также предполагается, что настроена проверка подлинности Windows, а пользователю предоставили доступ к экземпляру SQL Server.
 
 	"Server=mysqlvm;Integrated Security=true"
@@ -80,6 +85,7 @@
 - [Настройка SQL Server для прослушивания через протокол TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
 - [Настройка SQL Server для аутентификации в смешанном режиме](#configure-sql-server-for-mixed-mode-authentication)
 - [Создание имен входа для аутентификации SQL Server](#create-sql-server-authentication-logins)
+- [Настройка правила для входящего трафика группы безопасности сети](#configure-a-network-security-group-inbound-rule-for-the-vm)
 - [Настройка имени DNS для общедоступного IP-адреса](#configure-a-dns-label-for-the-public-ip-address)
 - [Подключение к ядру СУБД с другого компьютера](#connect-to-the-database-engine-from-another-computer)
 
@@ -93,8 +99,8 @@
 
 Инструкции по подготовке и действия по подключению приведены в статье [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-[Ознакомьтесь со схемой обучения](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) по использованию SQL Server на виртуальных машинах Azure.
+[Ознакомьтесь со схемой обучения](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) по использованию SQL Server в виртуальных машинах Azure.
 
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!----HONumber=AcomDC_0629_2016--->
+<!---HONumber=AcomDC_0921_2016-->

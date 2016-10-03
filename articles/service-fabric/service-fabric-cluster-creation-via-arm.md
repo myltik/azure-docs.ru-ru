@@ -63,7 +63,7 @@ Service Fabric использует сертификаты X.509 для защи
 
 ```powershell
 
-	PS C:\Users\vturecek> New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
+	New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
 	WARNING: The output object type of this cmdlet will be modified in a future release.
 	
 	ResourceGroupName : mycluster-keyvault
@@ -80,7 +80,7 @@ Service Fabric использует сертификаты X.509 для защи
 
 ```powershell
 
-	PS C:\Users\vturecek> New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
+	New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
 	
 	
 	Vault Name                       : myvault
@@ -156,7 +156,7 @@ Service Fabric использует сертификаты X.509 для защи
 Команда `Invoke-AddCertToKeyVault` в этом модуле PowerShell автоматически форматирует закрытый ключ сертификата в строку JSON и передает ее в хранилище ключей. Используйте его для добавления сертификата кластера и всех дополнительных сертификатов приложения в хранилище ключей. Просто повторите этот шаг для всех дополнительных сертификатов, которые необходимо установить в кластере.
 
 ```powershell
-PS C:\Users\vturecek> Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 	
 	Switching context to SubscriptionId <guid>
 	Ensuring ResourceGroup mycluster-keyvault in West US
@@ -488,4 +488,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 [assign-users-to-roles-button]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles-button.png
 [assign-users-to-roles-dialog]: ./media/service-fabric-cluster-creation-via-arm/assign-users-to-roles.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev;fashah;garye" />
 
 
@@ -23,7 +23,7 @@
 В этом документе показано, как создавать характеристики для данных, которые хранятся в виртуальной машине SQL Server в Azure, и помогают алгоритмам эффективнее обучаться. Это можно сделать с помощью SQL или с использованием языка программирования, например Python. Здесь показаны оба варианта.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-Это **меню** содержит ссылки на статьи, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса обработки и анализа данных группы TDSP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) .
+Это **меню** содержит ссылки на статьи, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 > [AZURE.NOTE] Для практического примера можно использовать [Набор данных о такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/) и статью IPNB под названием [Структурирование данных Нью-Йорка с помощью IPython Notebook и SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), содержащую полное пошаговое руководство.
 
@@ -32,7 +32,7 @@
 В этой статье предполагается, что вы:
 
 * Создали учетную запись хранения Azure. Инструкции можно найти в статье [Создание учетной записи хранения в Azure](../hdinsight-get-started.md#storage).
-* Сохранили данные в SQL Server. Если вы еще не сделали это, см. раздел [Перемещение данных в Базу данных SQL Azure для машинного обучения Azure](machine-learning-data-science-move-sql-azure.md) с инструкциями по перемещению данных.
+* Сохранили данные в SQL Server. Если вы еще не сделали это, см. статью [Перемещение данных в базу данных SQL Azure для машинного обучения Azure](machine-learning-data-science-move-sql-azure.md) с инструкциями по перемещению данных.
 
 
 ##<a name="sql-featuregen"></a>Создание характеристик с помощью SQL
@@ -95,10 +95,7 @@
 Вышеуказанные характеристики на основе расположения можно в дальнейшем использовать для создания дополнительных количественных характеристик, как было описано ранее.
 
 
-> [AZURE.TIP] Можно программным путем вставлять записи с использованием выбранного языка. Для повышения эффективности записи данные можно вставлять блоками. [См. пример такого решения с использованием pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
- 
-
-> [AZURE.TIP] Другой вариант – вставить данные в базу данных с использованием [служебной программы BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> [AZURE.TIP] Можно программным путем вставлять записи с использованием выбранного языка. Для повышения эффективности записи данные можно вставлять блоками. [См. пример такого решения с использованием pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). Другой вариант – вставить данные в базу данных с использованием [служебной программы BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
 ###<a name="sql-aml"></a>Подключение к службе машинного обучения Azure
 
@@ -125,4 +122,4 @@
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016--->

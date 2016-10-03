@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Как использовать управляемую службу кэша Azure
@@ -65,7 +65,7 @@
 
 >Инструкции по установке и использованию Azure PowerShell см. в разделе [Установка и настройка Microsoft Azure PowerShell][].
 
-Вызовите командлет [Add-AzureAccount][] и введите адрес электронной почты и пароль, связанные с вашей учетной записью. Подписка выбирается по умолчанию, она отображается после вызова командлета [Add-AzureAccount][]. Чтобы сменить подписку, вызовите командлет [Select-AzureSubscription][].
+Вызовите командлет [Add-AzureAccount][] и введите адрес электронной почты и пароль, связанные с вашей учетной записью. Подписка выбирается по умолчанию и отображается после вызова командлета [Add-AzureAccount][]. Чтобы сменить подписку, вызовите командлет [Select-AzureSubscription][].
 
 >Если вы настроили Azure PowerShell сертификатом для своей учетной записи, этот шаг можно пропустить. Дополнительные сведения о подключении Azure PowerShell к своей учетной записи Azure см. в разделе [Установка и настройка Azure PowerShell][].
 
@@ -485,4 +485,4 @@
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

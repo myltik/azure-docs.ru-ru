@@ -2,6 +2,6 @@
 
 * [Создание первой функции Azure](../articles/azure-functions/functions-create-first-azure-function.md)
 * [Справочник разработчика по функциям Azure](../articles/azure-functions/functions-reference.md)
-* Справочник разработчика по [C#](../articles/azure-functions/functions-reference-csharp.md) или [Node](../articles/azure-functions/functions-reference-node.md)
+* Справочник разработчика по [C#](../articles/azure-functions/functions-reference-csharp.md), [F#](../articles/azure-functions/functions-reference-fsharp.md) или [Node](../articles/azure-functions/functions-reference-node.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Интеграция локальных удостоверений с Azure Active Directory." 
-	description="В этой статье объясняется, что такое служба Azure AD Connect и зачем ее использовать." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Интеграция локальных удостоверений с Azure Active Directory."
+	description="В этой статье объясняется, что такое служба Azure AD Connect и зачем ее использовать."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Построение Multi-Factor Authentication в пользовательских приложениях (SDK)
 
-> [AZURE.IMPORTANT]  Если вы хотите скачать пакет SDK, необходимо создать поставщик Azure Multi-Factor Authentication, даже если у вас уже есть лицензии Azure MFA, AAD Premium или EMS. Если вы создаете поставщик Azure Multi-Factor Authentication для этой цели и у вас уже есть лицензии, поставщик нужно создать с использованием модели лицензий **для каждого пользователя**, а затем привязать его к каталогу, который содержит лицензии Azure MFA, Azure AD Premium или EMS. В таком случае с вас не будет взиматься плата, пока количество уникальных пользователей пакета SDK не превысит количество лицензий, которыми вы владеете.
+> [AZURE.IMPORTANT]  Если вы хотите скачать пакет SDK, необходимо создать поставщик Azure Multi-Factor Authentication, даже если у вас уже есть лицензии Azure MFA, AAD Premium или EMS. Если вы создаете поставщик Azure Multi Factor Authentication для этой цели и у вас уже есть лицензии, поставщик нужно создавать с моделью лицензий **для каждого пользователя**, а затем привязать его к каталогу, который содержит лицензии Azure MFA, Azure AD Premium или EMS. В таком случае с вас не будет взиматься плата, пока количество уникальных пользователей пакета SDK не превысит количество лицензий, которыми вы владеете.
 
 Пакет средств разработки программного обеспечения (SDK) для Azure Multi-Factor Authentication позволяет встроить процедуру проверки телефонного вызова и текстового сообщения прямо в процессы входа или обработки транзакции приложений в клиенте Azure AD.
 
@@ -33,7 +33,7 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 
 
 
-## Загрузка пакета SDK для Azure Multi-Factor Authentication 
+## Загрузка пакета SDK для Azure Multi-Factor Authentication
 
 Для скачивания пакета SDK для Azure Multi-Factor Authentication требуется [поставщик Azure Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md). Для этого нужна полная версия подписки Azure, даже если у вас уже есть лицензии Azure MFA, AAD Premium или Enterprise Mobility Suite. Чтобы скачать пакет SDK, необходимо перейти на портал управления Multi-Factor Authentication непосредственно с помощью поставщика Multi-Factor Authentication или щелкнув ссылку **Перейти на портал** на странице параметров службы MFA.
 
@@ -101,11 +101,11 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 
 Ниже приведен код веб-клиента для демонстрационной страницы.
 
-	
+
 	<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
-	
+
 	<!DOCTYPE html>
-	
+
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head runat="server">
 	<title>Multi-Factor Authentication Demo</title>
@@ -113,21 +113,21 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 	<body>
 	<h1>Azure Multi-Factor Authentication Demo</h1>
 	<form id="form1" runat="server">
-	
+
 	<div style="width:auto; float:left">
 	Username:&nbsp;<br />
 	Password:&nbsp;<br />
 	</div>
-	
+
 	<div">
 	<asp:TextBox id="username" runat="server" width="100px"/><br />
 	<asp:Textbox id="password" runat="server" width="100px" TextMode="password" /><br />
 	</div>
-	
+
 	<asp:Button id="btnSubmit" runat="server" Text="Log in" onClick="btnSubmit_Click"/>
-	
+
 	<p><asp:Label ID="lblResult" runat="server"></asp:Label></p>
-	
+
 	</form>
 	</body>
 	</html>
@@ -143,13 +143,13 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 	using System.Web;
 	using System.Web.UI;
 	using System.Web.UI.WebControls;
-	
+
 	public partial class _Default : System.Web.UI.Page
 	{
 	    protected void Page_Load(object sender, EventArgs e)
 	    {
 	    }
-	
+
 	    protected void btnSubmit_Click(object sender, EventArgs e)
 	    {
 	        // Step 1: Validate the username and password
@@ -161,23 +161,23 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 	        else
 	        {
 	            // Step 2: Perform multi-factor authentication
-	
+
 	            // Add call details from the user database.
 	            PfAuthParams pfAuthParams = new PfAuthParams();
 	            pfAuthParams.Username = username.Text;
 	            pfAuthParams.Phone = "9134884271";
 	            pfAuthParams.Mode = pf_auth.MODE_STANDARD;
-	            
-	            // Specify a client certificate 
+
+	            // Specify a client certificate
 	            // NOTE: This file contains the private key for the client
-	            // certificate. It must be stored with appropriate file 
+	            // certificate. It must be stored with appropriate file
 	            // permissions.
 	            pfAuthParams.CertFilePath = "c:\\cert_key.p12";
-	
+
 	            // Perform phone-based authentication
 	            int callStatus;
 	            int errorId;
-	
+
 	            if(pf_auth.pf_authenticate(pfAuthParams, out callStatus, out errorId))
 	            {
 	                lblResult.ForeColor = System.Drawing.Color.Green;
@@ -189,8 +189,8 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 	                lblResult.Text = " Multi-Factor Authentication failed.";
 	            }
 	        }
-	
+
 	    }
 	}
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

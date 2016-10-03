@@ -40,8 +40,7 @@
 		$context = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey[0].Value
 
 		$blobContainerName = "<name of blob container for app backups>"
-		$token = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1)
-		$sasUrl = $context.BlobEndPoint + $blobContainerName + $token
+		$sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
 ## Установка Azure PowerShell 1.3.2 или более поздней версии
 
@@ -153,4 +152,4 @@
 		$backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
 		$backup | Remove-AzureRmWebAppBackup -Overwrite
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

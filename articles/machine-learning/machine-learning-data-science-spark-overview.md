@@ -3,7 +3,7 @@
 	description="Набор средств Spark MLlib предоставляет широкие возможности моделирования машинного обучения в распределенной среде HDInsight."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun"  />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Общие сведения об обработке и анализе данных с помощью платформы Spark в Azure HDInsight
 
@@ -37,7 +37,11 @@
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+<!-- -->
+
 > [AZURE.NOTE] О том, как использовать Scala вместо Python для выполнения задач по полной обработке и анализу данных, см. в статье [Обработка и анализ данных с использованием Scala и Spark в Azure](machine-learning-data-science-process-scala-walkthrough.md).
+
+<!-- -->
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -146,4 +150,4 @@
 
 **Перекрестная проверка и очистка гиперпараметров**. Сведения об обучении моделей с помощью перекрестной проверки и очистки гиперпараметров см. в статье [Расширенное исследование и моделирование данных с помощью Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

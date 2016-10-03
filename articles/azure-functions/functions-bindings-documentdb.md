@@ -68,6 +68,29 @@
 	    document.text = "This has changed.";
 	}
 
+#### Пример входного кода Azure DocumentDB для триггера очереди F#
+
+Используя пример файла function.json выше, входная привязка DocumentDB извлечет документ с идентификатором, который соответствует строке сообщения очереди, и передаст его в параметр document. Если этот документ не найден, параметр document будет иметь значение null. При выходе из функции документу присваивается новое значение text.
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- "This has changed."
+
+Вам потребуется `project.json` файл, в котором используется NuGet для определения пакетов `FSharp.Interop.Dynamic` и `Dynamitey` как зависимостей пакета, следующим образом:
+
+	{
+	  "frameworks": {
+	    "net46": {
+	      "dependencies": {
+	        "Dynamitey": "1.0.2",
+	        "FSharp.Interop.Dynamic": "3.0.0"
+	      }
+	    }
+	  }
+	}
+
+С помощью NuGet файл извлекает зависимости и создает на них ссылки в сценарии.
+
 #### Пример входного кода Azure DocumentDB для триггера очереди Node.js
  
 Используя приведенный выше пример файла function.json, входная привязка DocumentDB извлечет документ с идентификатором, который соответствует строке сообщения очереди, и передаст его в свойство привязки `documentIn`. В функциях Node.js обновленные документы не отправляются обратно в коллекцию. Тем не менее для поддержки обновлений входную привязку можно передать непосредственно в выходную привязку DocumentDB с именем `documentOut`. В этом примере кода значение свойства text входного документа обновляется и устанавливается в качестве выходного документа.
@@ -131,6 +154,12 @@
 	}
  
 
+#### Пример выходного кода Azure DocumentDB для триггера очереди F#
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- (sprintf "I'm running in an F# function! %s" myQueueItem)
+
 #### Пример выходного кода Azure DocumentDB для триггера очереди C#
 
 
@@ -178,6 +207,27 @@
 	    };
 	}
 
+Или эквивалентный код F#:
+
+	open FSharp.Interop.Dynamic
+	open Newtonsoft.Json
+
+	type Employee = {
+	    id: string
+	    name: string
+	    employeeId: string
+	    address: string
+	}
+
+	let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+	    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+	    let employee = JObject.Parse(myQueueItem)
+	    employeeDocument <-
+	        { id = sprintf "%s-%s" employee?name employee?employeeId
+	          name = employee?name
+	          employeeId = employee?id
+	          address = employee?address }
+
 Выходные данные примера:
 
 	{
@@ -191,4 +241,4 @@
 
 [AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

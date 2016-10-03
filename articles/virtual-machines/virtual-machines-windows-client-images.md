@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Использование образов клиента Windows для разработки и тестирования | Microsoft Azure"
+   pageTitle="Использование образов клиента Windows в сценариях разработки и тестирования | Microsoft Azure"
    description="Узнайте, как использовать преимущества подписки Visual Studio для развертывания Windows 7, 8 или 10 в Azure в сценариях разработки и тестирования."
    services="virtual-machines-windowse"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="08/31/2016"
    ms.author="iainfou"/>
 
-# Использование клиента Windows в Azure для разработки и тестирования
+# Использование клиента Windows в Azure для сценариев разработки и тестирования
 
 В сценариях разработки и тестирования Azure можно использовать Windows 7, Windows 8 или Windows 10 при условии, что у вас есть соответствующая подписка Visual Studio (прежнее название — MSDN). В этой статье описываются требования к доступности при запуске клиента Windows в Azure и использовании образов из коллекции Azure.
 
@@ -57,4 +57,4 @@
 ## Дальнейшие действия
 Теперь вы можете развернуть виртуальные машины с помощью [PowerShell](virtual-machines-windows-ps-create.md), [шаблонов Resource Manager](virtual-machines-windows-ps-template.md) или [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

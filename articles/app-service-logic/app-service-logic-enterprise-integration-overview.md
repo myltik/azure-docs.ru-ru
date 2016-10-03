@@ -65,6 +65,6 @@
 - [Схемы](./app-service-logic-enterprise-integration-schemas.md "Узнайте о схемах интеграции Enterprise.")
 - [Проверка сообщений XML](./app-service-logic-enterprise-integration-xml.md "Узнайте, как проверять сообщения XML с помощью приложений логики.")
 - [Преобразование XML-файла](./app-service-logic-enterprise-integration-transform.md "Узнайте о картах интеграции Enterprise.")
-- [Соединители интеграции Enterprice](../connectors/apis-list.md "Узнайте о соединителях пакета интеграции Enterprise.")
+- [Корпоративные соединители интеграции](../connectors/apis-list.md "Узнайте о соединителях пакета интеграции Enterprise.")
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Типы конечной точки версии 2.0
 Конечная точка версии 2.0 поддерживает проверку подлинности для различных архитектур современных приложений, которая основана на стандартных отраслевых протоколах [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) и [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). В этом документе кратко описаны типы приложений, которые можно создавать независимо от используемого языка или платформы. Он поможет вам изучить базовые сценарии, прежде чем [перейти непосредственно к коду](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [AZURE.NOTE]
-	Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
+	Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
 
 ## Основные сведения
 Каждое приложение, использующее конечную точку 2.0, необходимо зарегистрировать на сайте [apps.dev.microsoft.com](https://apps.dev.microsoft.com). В процессе регистрации для приложения будет собрано и назначено несколько значений:
@@ -118,4 +118,4 @@ Accept: application/json
 
 Сценарий связанных веб-API может поддерживаться с помощью предоставления учетных данных носителя маркера JWT OAuth 2.0 или [потока "On-Behalf-Of"](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Однако поток "On-Behalf-Of" еще не реализован в конечной точке версии 2.0. Чтобы увидеть его в общедоступной службе Azure AD, изучите [пример кода "On-Behalf-Of" на GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

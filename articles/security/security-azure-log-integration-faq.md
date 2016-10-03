@@ -113,7 +113,9 @@ XML-файл события содержит метаданные, как пок
 
 После внесения изменений проверьте учетную запись хранения, чтобы убедиться, что собираются именно те события, которые необходимы.
 
+Если у вас есть вопросы о службе интеграции журналов Azure, отправьте электронное сообщение на адрес [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com).
+
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

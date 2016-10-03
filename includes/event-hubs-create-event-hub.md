@@ -4,7 +4,7 @@
 
 2. Щелкните **Данные + аналитика**, затем щелкните **Концентраторы событий**.
 
-	![][9]
+	![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 
 3. В колонке **Создание пространства имен** укажите имя пространства имен. Система немедленно проверяет, доступно ли оно.
 
@@ -16,23 +16,23 @@
 
 6. В списке пространств имен концентраторов событий щелкните созданное пространство имен.
 
-	![][2]
+	![](./media/event-hubs-create-event-hub/create-event-hub2.png)
 
 7. В колонке пространства имен щелкните **Концентраторы событий**.
 
-	![][3]
+	![](./media/event-hubs-create-event-hub/create-event-hub3.png)
 
 8. Щелкните **Добавить концентратор событий** в верхней части колонки.
 
-	![][4]
+	![](./media/event-hubs-create-event-hub/create-event-hub4.png)
 
 3. Введите имя концентратора событий, а затем щелкните **Создать**.
 
-	![][5]
+	![](./media/event-hubs-create-event-hub/create-event-hub5.png)
 
 4. В списке концентраторов событий щелкните имя только что созданного концентратора событий.
 
-	![][6]
+	![](./media/event-hubs-create-event-hub/create-event-hub6.png)
 
 5. В колонке пространства имен (не в конкретной колонке концентратора событий) щелкните **Политики общего доступа**, а затем нажмите щелкните **RootManageSharedAccessKey**.
 
@@ -40,18 +40,10 @@
 
 5. Нажмите кнопку копирования, чтобы скопировать строку подключения **RootManageSharedAccessKey** в буфер обмена. Сохраните эту строку. Она вам понадобится позже.
 
-	![][8]
+	![](./media/event-hubs-create-event-hub/create-event-hub8.png)
 
-Теперь концентратор событий создан, и у вас есть строки подключения, необходимые для отправки и приема событий.
-
-[2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
-[3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
-[4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
-[5]: ./media/event-hubs-create-event-hub/create-event-hub5.png
-[6]: ./media/event-hubs-create-event-hub/create-event-hub6.png
-[8]: ./media/event-hubs-create-event-hub/create-event-hub8.png
-[9]: ./media/event-hubs-create-event-hub/create-event-hub9.png
+Теперь концентратор событий создан, и у вас есть строки подключения, необходимые для отправки и приема событий. 
 
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

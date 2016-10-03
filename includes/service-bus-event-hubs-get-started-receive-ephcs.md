@@ -8,33 +8,33 @@
 
 2. Щелкните **Данные+хранилище**, а затем щелкните **Учетная запись хранения**.
 
-    ![][1]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
 
 3. В колонке **Создание учетной записи хранилища** введите имя учетной записи хранилища. Выберите подписку Azure, группу ресурсов и расположение для создания ресурса. Затем щелкните **Создать**.
 
-    ![][2]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png)
 
 4. В списке учетных записей хранения выберите только что созданную учетную запись хранения.
 
 5. В колонке учетной записи хранения выберите **Ключи доступа**. Скопируйте значение **key1**, чтобы использовать позже в этом руководстве.
 
-	![][3]
+	![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png)
 
 4. Создайте в Visual Studio новый проект Visual C# для классических приложений с помощью шаблона проекта **Консольное приложение**. Присвойте проекту имя **Получатель**.
 
-    ![][14]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png)
 
 5. В обозревателе решений щелкните решение правой кнопкой мыши и выберите пункт **Управление пакетами NuGet для решения**.
 
 6. Щелкните вкладку **Обзор** и выполните поиск `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Убедитесь, что имя проекта (**Receiver**) указано в поле **Версии**. Щелкните **Установить** и примите условия использования.
 
-    ![][13]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png)
 
 	Visual Studio скачает, установит и добавит ссылку на [пакет концентратора событий служебной шины Azure EventProcessorHost NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) со всеми его зависимостями.
 
 7. Щелкните правой кнопкой мыши проект **Получатель**, выберите пункт **Добавить**, а затем **Класс**. Присвойте новому классу имя **SimpleEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс.
 
-	![][15]
+	![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
 
 8. Добавьте в начало файла SimpleEventProcessor.cs следующие инструкции:
 
@@ -130,13 +130,4 @@
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [портал Azure]: https://portal.azure.com
 
-<!-- Images -->
-
-[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
-[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
-[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
-[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
-
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

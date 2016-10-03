@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2016"
+	ms.date="09/16/2016"
 	ms.author="nisoneji"/>
 
 
@@ -164,4 +164,4 @@ InMage Scout в Azure Site Recovery обеспечивает репликаци�
 
 Вы можете задать любые вопросы на [форуме по Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

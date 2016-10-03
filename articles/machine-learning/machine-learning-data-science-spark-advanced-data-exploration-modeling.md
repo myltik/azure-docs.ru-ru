@@ -3,7 +3,7 @@
 	description="Используйте кластер HDInsight Spark для анализа данных, обучения бинарной классификации и моделей регрессии; при этом используются перекрестная проверка и оптимизация гиперпараметров."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun"  />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Расширенное исследование и моделирование данных с помощью Spark 
 
@@ -49,7 +49,7 @@
 
 ## Предварительные требования
 
-Вам потребуется учетная запись Azure и кластер HDInsight Spark. Чтобы выполнить инструкции этого руководства, вам потребуется кластер HDInsight 3.4 Spark 1.6. Дополнительные сведения о требованиях, необходимых для выполнения задач, описание данных о поездках в такси по Нью-Йорку за 2013 г. и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark см. в статье [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Обзор анализа и обработки данных с помощью Spark в Azure HDInsight). Записная книжка **machine-learning-data-science-spark-data-exploration-modeling.ipynb** с примером кода, который используется в этом разделе, доступна на [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Вам потребуется учетная запись Azure и кластер HDInsight Spark. Чтобы выполнить инструкции этого руководства, вам потребуется кластер HDInsight 3.4 Spark 1.6. Дополнительные сведения о требованиях, необходимых для выполнения задач, описание данных о поездках в такси по Нью-Йорку за 2013 г. и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark см. в статье [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Обзор анализа и обработки данных с помощью Spark в Azure HDInsight). Записная книжка **machine-learning-data-science-spark-data-exploration-modeling.ipynb** с примером кода, который используется в этом разделе, доступна на [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -1464,7 +1464,7 @@ R-sqr = 0.740751197012
 PythonRDD[122] at RDD at PythonRDD.scala:43
 
 
-**Распечатайте путь к файлам модели для использования в записной книжке данных потребления. ** Чтобы использовать и оценивать независимые наборы данных, необходимо скопировать и вставить имена файлов в "Записную книжку данных потребления".
+**Распечатайте путь к файлам модели для использования в записной книжке данных потребления.** Чтобы использовать и оценивать независимые наборы данных, необходимо скопировать и вставить имена файлов в "Записную книжку данных потребления".
 
 
 	# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
@@ -1496,4 +1496,4 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 
 **Использование модели**. Дополнительные сведения об оценке и анализе моделей классификации и регрессии, созданных в этой статье, см. в разделе [Оценка моделей машинного обучения, созданных с помощью Spark](machine-learning-data-science-spark-model-consumption.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

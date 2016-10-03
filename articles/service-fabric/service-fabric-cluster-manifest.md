@@ -27,8 +27,8 @@
 Сюда входит целый ряд параметров кластера, как показано в следующем фрагменте кода JSON.
 
     "name": "SampleCluster",
-    "clusterManifestVersion": "1.0.0",
-    "apiVersion": "2015-01-01-alpha",
+    "clusterConfigurationVersion": "1.0.0",
+    "apiVersion": "2016-09-26",
 
 Для кластера Service Fabric можно задать любое понятное имя, присвоив его переменной **name**. Можно изменить **clusterManifestVersion** в соответствии с вашей конфигурацией. Это следует сделать перед обновлением конфигурации Service Fabric. Для переменной **apiVersion** можно оставить значение по умолчанию.
 
@@ -68,24 +68,30 @@
 |upgradeDomain|Домены обновления описывают наборы узлов, которые почти одновременно завершают работу, чтобы выполнить обновления Service Fabric. Так как они не ограничены какими-либо физическими требованиями, вы можете выбрать узлы, которые следует назначить тем или иным доменам обновления.| 
 
 
-## Параметры диагностики
-В разделе **diagnosticsFileShare** можно настроить параметры, чтобы включить диагностику и устранение неполадок узлов и кластера, как показано в следующем фрагменте кода.
-
-    "diagnosticsFileShare": {
-        "etlReadIntervalInMinutes": "5",
-        "uploadIntervalInMinutes": "10",
-        "dataDeletionAgeInDays": "7",
-        "etwStoreConnectionString": "file:c:\ProgramData\SF\FileshareETW",
-        "crashDumpConnectionString": "file:c:\ProgramData\SF\FileshareCrashDump",
-        "perfCtrConnectionString": "file:c:\ProgramData\SF\FilesharePerfCtr"
-    },
-
-Эти переменные помогают собирать журналы трассировки событий Windows, аварийные дампы и данные счетчиков производительности. Прочитайте статьи [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) и [Трассировка событий Windows](https://msdn.microsoft.com/library/ms751538.aspx), чтобы больше узнать о журналах трассировки событий Windows. [Аварийные дампы](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) как для узла, так и для кластера Service Fabric, можно перенаправить в папку **crashDumpConnectionString**. Данные [счетчиков производительности](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) для кластера можно перенаправить в папку **perfCtrConnectionString** на вашем компьютере.
-
-
-## Раздел **properties** кластера
+## **Свойства** кластера
 
 Раздел **properties** в файле ClusterConfig.JSON используется для настройки кластера следующим образом.
+
+### **diagnosticsStore**
+В разделе **diagnosticsStore** можно настроить параметры, чтобы включить диагностику и устранение неполадок узлов и кластера, как показано в следующем фрагменте кода.
+
+    "diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "FileShare",
+        "IsEncrypted": "false",
+        "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
+    }
+
+Переменная **metadata** представляет собой описание диагностики кластера и может быть задана в соответствии с вашей конфигурацией. Эти переменные помогают собирать журналы трассировки событий Windows, аварийные дампы и данные счетчиков производительности. Прочитайте статьи [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) и [Трассировка событий Windows](https://msdn.microsoft.com/library/ms751538.aspx), чтобы больше узнать о журналах трассировки событий Windows. Все журналы, в том числе [аварийные дампы](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) и данные [счетчиков производительности](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx), можно перенаправить в папку **perfCtrConnectionString** на вашем компьютере. Для хранения данных диагностики можно также использовать **AzureStorage**. Ниже приведен фрагмент кода.
+
+	"diagnosticsStore": {
+        "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
+        "dataDeletionAgeInDays": "7",
+        "storeType": "AzureStorage",
+        "IsEncrypted": "false",
+        "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
+    }
 
 ### **security** 
 Раздел **security** необходим для защиты автономного кластера Service Fabric. В следующем фрагменте кода показана часть этого раздела.
@@ -127,7 +133,7 @@
         "isPrimary": true
     }]
 
-**name** — понятное имя этого конкретного типа узла. Чтобы создать узел данного типа, потребуется назначить понятное имя этого типа переменной **nodeTypeRef** данного узла, как указано в разделе [Узлы в кластере](#clusternodes) выше. Для каждого типа узла можно определить различные конечные точки для подключения к этому кластеру. Для этих конечных точек подключения можно выбрать любой номер порта, если он не конфликтует с другими конечными точками в данном кластере. В кластере с несколькими типами узлов будет один тип первичного узла, для которого **isPrimary** имеет значение *true*. Для остальных узлов **isPrimary** будет иметь значение *false*. Прочитайте статью Чтение [Рекомендации по планированию загрузки кластера Service Fabric](service-fabric-cluster-capacity.md), чтобы больше узнать о значениях **nodeTypes** и **reliabilityLevel** и соответствующей емкости кластера, а также о том, в чем заключается разница между типами первичных и вторичных узлов.
+**name** — понятное имя этого конкретного типа узла. Чтобы создать узел данного типа, потребуется назначить понятное имя этого типа переменной **nodeTypeRef** данного узла, как указано в разделе [Узлы в кластере](#clusternodes) выше. Для каждого типа узла можно определить различные конечные точки для подключения к этому кластеру. Для этих конечных точек подключения можно выбрать любой номер порта, если он не конфликтует с другими конечными точками в данном кластере. В кластере с несколькими типами узлов будет один тип первичного узла, для которого **isPrimary** имеет значение *true*. Для остальных узлов **isPrimary** будет иметь значение *false*. Прочитайте статью [Рекомендации по планированию загрузки кластера Service Fabric](service-fabric-cluster-capacity.md), чтобы больше узнать о значениях **nodeTypes** и **reliabilityLevel** и соответствующей емкости кластера, а также о том, в чем заключается разница между типами первичных и вторичных узлов.
 
 
 ### **fabricSettings**
@@ -143,11 +149,11 @@
             "value": "C:\ProgramData\SF\Log"
     }]
 
-Обратите внимание, что если настроить только корневой каталог данных, то корневой каталог файлов журнала будет помещен на один уровень ниже корневого каталога данных.
+Рекомендуется использовать несистемный диск (без ОС) в качестве FabricDataRoot и FabricLogRoot, так как он обеспечивает большую надежность и независимость от сбоев операционной системы. Обратите внимание, что если настроить только корневой каталог данных, то корневой каталог файлов журнала будет помещен на один уровень ниже корневого каталога данных.
 
 
 ## Дальнейшие действия
 
 Завершив настройку файла ClusterConfig.JSON в соответствии с конфигурацией автономного кластера, вы можете развернуть этот кластер, следуя указаниям в статье [Создание кластера Azure Service Fabric в локальной системе или облаке](service-fabric-cluster-creation-for-windows-server.md), а затем перейти к [визуализации кластера с помощью Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,8 +3,8 @@
     description="Узнайте, как использовать API-интерфейсов перечисления в клиентской библиотеке для службы хранилища Microsoft Azure для C++ для получения списка контейнеров, больших двоичных объектов, очередей, таблиц и сущностей."
     documentationCenter=".net"
     services="storage"
-    authors="tamram"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager="jahogg"
     editor="tysonn"/>
 <tags
     ms.service="storage"
@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/24/2016"
-    ms.author="dineshm"/>
+    ms.date="09/20/2016"
+    ms.author="dineshm;tamram"/>
 
 # Перечисление ресурсов хранилища Azure в C++
 
@@ -184,4 +184,4 @@ API-интерфейсы отложенного перечисления вкл�
 -	[Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Документация по хранилищу Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,8 +3,8 @@
 	description="Узнайте о том, как использовать службу очередей Azure из Python для создания и удаления очередей, а также для вставки, получения и удаления сообщений."
 	services="storage"
 	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="emgerner"/>
+	ms.date="09/20/2016"
+	ms.author="cbrooks;robinsh"/>
 
 # Использование хранилища очередей из Python
 
@@ -109,4 +109,4 @@
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

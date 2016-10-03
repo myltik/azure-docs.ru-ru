@@ -286,4 +286,4 @@
 - При наличии проблем с развертыванием ознакомьтесь с информацией об [устранении неполадок развертывания групп ресурсов с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
 - Узнайте, как управлять созданной виртуальной машиной, прочитав статью об [управлении виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

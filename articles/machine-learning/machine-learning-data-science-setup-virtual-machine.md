@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="xibingao;bradsev" />
 
 # Настройка виртуальной машины Azure как сервера IPython Notebook для расширенной аналитики
@@ -26,7 +26,7 @@
 
 Прежде чем создавать в Azure виртуальную машину, определитесь с тем, какой у нее должен быть размер, чтобы успешно обрабатывать данные в рамках своих проектов. У небольших машин меньше памяти и ядер ЦП, чем у больших, но они менее дорогие. Сведения о ценах и типах машин см. на странице <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Цены на виртуальные машины</a>.
 
-1. Войдите на <a href="https://manage.windowsazure.com" target="_blank">классический портал Azure</a> и в левом нижнем углу нажмите кнопку **Создать**. Откроется новое окно. Последовательно выберите элементы **СРЕДА ВЫПОЛНЕНИЯ ПРИЛОЖЕНИЙ** -> **ВИРТУАЛЬНАЯ МАШИНА** -> **ИЗ КОЛЛЕКЦИИ**.
+1. Войдите на <a href="https://manage.windowsazure.com" target="_blank">классический портал Azure</a> и в левом нижнем углу нажмите кнопку **Создать**. Откроется новое окно. Последовательно выберите элементы **СРЕДА ВЫПОЛНЕНИЯ ПРИЛОЖЕНИЙ** -> **ВИРТУАЛЬНАЯ МАШИНА** -> **ИЗ КОЛЛЕКЦИИ**.
 
 	![Создание рабочей области][24]
 
@@ -145,4 +145,4 @@ Chrome:
 [28]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

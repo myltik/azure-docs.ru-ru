@@ -12,11 +12,15 @@
  ms.tgt_pltfrm="na"
  ms.devlang="multiple"
  ms.topic="article"
- ms.date="08/24/2016"
+ ms.date="09/15/2016"
  ms.author="casoper"/>
 
 
 # Управление сроком хранения содержимого BLOB-объекта в службе хранилища Azure в Azure CDN
+
+> [AZURE.SELECTOR]
+- [Веб-приложения и облачные службы Azure, ASP.NET или IIS](cdn-manage-expiration-of-cloud-service-content.md)
+- [Служба BLOB-объектов в службе хранилища Azure](cdn-manage-expiration-of-blob-content.md)
 
 [Служба BLOB-объектов](../storage/storage-introduction.md#blob-storage) в [службе хранилища Azure](../storage/storage-introduction.md) — это один из возможных источников на основе Azure, интегрированных с Azure CDN. Любое общедоступное содержимое BLOB-объекта может кэшироваться в Azure CDN до истечения его срока жизни (TTL). Срок жизни определяется [заголовком *Cache-Control*](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9), указанным в HTTP-ответе службы хранилища Azure.
 
@@ -108,4 +112,4 @@ class Program
 - [Изучите дополнительные сведения о заголовке *Cache-Control*.](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 - [Узнайте, как управлять сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

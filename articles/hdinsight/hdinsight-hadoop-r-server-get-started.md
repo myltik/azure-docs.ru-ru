@@ -4,7 +4,7 @@
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
-   manager="paulettem"
+   manager="jhubbard"
    editor="cgronlun"
 />
 
@@ -410,4 +410,4 @@
 
 Общую информацию об использовании шаблонов Azure Resource Manager см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight с помощью шаблонов ARM](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

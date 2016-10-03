@@ -19,12 +19,12 @@
 
 # Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных 
 > [AZURE.SELECTOR]
-- [Обзор учебника](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Редактор фабрики данных](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Использование интерфейса REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Использование API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
 
 В этом учебнике вы создадите фабрику данных с конвейером, чтобы скопировать данные из хранилища BLOB-объектов в базу данных SQL.
@@ -62,7 +62,7 @@
 5. Закройте все колонки, нажав **X**.
 
 ## Предоставление службам Azure доступа к серверу SQL 
-Убедитесь, что настройка **Разрешить доступ к службам Azure** имеет состояние **ВКЛ** для вашего сервера Azure SQL Server, чтобы служба фабрики данных могла иметь доступ к серверу Azure SQL Server. Чтобы проверить и при необходимости включить этот параметр, сделайте следующее:
+Убедитесь, что настройка **Разрешить доступ к службам Azure** имеет состояние **ВКЛ** для вашего сервера Azure SQL Server, чтобы служба фабрики данных могла иметь доступ к серверу Azure SQL Server. Чтобы проверить и при необходимости включить этот параметр, сделайте следующее.
 
 1. Щелкните раздел **ОБЗОР** слева и выберите пункт **Серверы SQL**.
 2. Выберите **свой сервер** и нажмите **ПАРАМЕТРЫ** в колонке **SQL SERVER**.
@@ -94,20 +94,18 @@
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Если на вашем компьютере установлен SQL Server 2012/2014**, следуйте инструкциям в статье [Шаг 2. Подключение к базе данных SQL управляющей базы данных SQL Azure при помощи SQL Server Management Studio][sql-management-studio] для подключения к серверу Azure SQL Server и запуска скрипта SQL. В этой статье для настройки брандмауэра сервера Azure SQL Server используется [портал Azure](http://manage.windowsazure.com), а не [портал Azure другой версии](https://portal.azure.com).
+	**Если на вашем компьютере установлен SQL Server 2012/2014**, следуйте инструкциям в статье [Шаг 2. Подключение к базе данных SQL управляющей базы данных SQL Azure при помощи SQL Server Management Studio][sql-management-studio] для подключения к серверу Azure SQL Server и запуска скрипта SQL. В этой статье для настройки брандмауэра сервера Azure SQL Server используется [классический портал Azure](http://manage.windowsazure.com), а не [новый портал Azure](https://portal.azure.com).
 
 	Если клиенту не разрешен доступ к серверу Azure SQL Server, то следует настроить брандмауэр вашего сервера Azure SQL Server, чтобы разрешить доступ с вашей машины (IP-адрес). В [этой статье](../sql-database/sql-database-configure-firewall-settings.md) описано, как настроить брандмауэр для сервера Azure SQL Server.
 
+Необходимые условия выполнены. Щелкните вкладку в верхней части, чтобы использовать для работы с руководством следующие средства:
 
-Выполните следующее:
-
-- Щелкните ссылку [Редактор фабрики данных](data-factory-copy-activity-tutorial-using-azure-portal.md) вверху, чтобы пройти учебник, используя редактор фабрики данных, который является компонентом портала Azure.
-- Щелкните ссылку [Использование PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) вверху, чтобы пройти учебник с помощью Azure PowerShell.
-- Щелкните ссылку [Использование Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), чтобы изучить руководство с применением Visual Studio 2013.
-
-## Действие копирования
-Дополнительные сведения о действии копирования в фабрике данных Azure см. в статье [Действия перемещения данных](data-factory-data-movement-activities.md).
-
+- Портал Azure
+- Visual Studio
+- PowerShell
+- Интерфейс REST API
+- .NET API
+- Мастер копирования
 
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -118,4 +116,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database/sql-database-get-started.md
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="lakasa;robinsh"/>
 
 
 # Шифрование на стороне клиента для службы хранилища Microsoft Azure
@@ -248,7 +248,7 @@
 
 - [Шифрование и расшифровка BLOB-объектов в хранилище Microsoft Azure с помощью хранилища ключей Azure](storage-encrypt-decrypt-blobs-key-vault.md)
 - Скачайте [клиентскую библиотеку службы хранилища Azure для пакета NuGet для .NET](https://www.nuget.org/packages/WindowsAzure.Storage).
-- Скачайте пакеты NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) и [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) для хранилища ключей Azure.
+- Скачайте пакеты NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) и [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) для хранилища ключей Azure.  
 - Просмотрите [документацию по хранилищу ключей Azure](../key-vault/key-vault-whatis.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

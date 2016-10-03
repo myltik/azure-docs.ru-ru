@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="felixwu"
-	editor=""
+	editor="tysonn"
 	tags="storage"/>
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="genli"/>
+	ms.date="09/20/2016"
+	ms.author="minet;genli;robinsh"/>
 
 # Устранение неполадок при удалении учетных записей хранения Azure, контейнеров или виртуальных жестких дисков
 
@@ -108,4 +108,4 @@
 - [Удаление учетной записи хранения](storage-create-storage-account.md#delete-a-storage-account)
 - [Приостановка заблокированной аренды хранилища BLOB-объектов в Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

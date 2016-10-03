@@ -3,7 +3,7 @@
 	description="Расширенный процесс аналитики и технологии в действии"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh-msft,wguo123"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -933,7 +933,9 @@
 
 ## Ссылки
 
-• [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•	[Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/) 
+•	[FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)
+•	[NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [1]: ./media/machine-learning-data-science-process-sqldw-walkthrough/sql-walkthrough_26_1.png
@@ -969,4 +971,4 @@
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

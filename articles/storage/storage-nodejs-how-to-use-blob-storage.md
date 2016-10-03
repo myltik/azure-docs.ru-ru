@@ -83,9 +83,7 @@
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
 	    if(!error){
-	      // Container exists and allows
-	      // anonymous read access to blob
-	      // content and metadata within this container
+	      // Container exists and is private
 	    }
 	});
 
@@ -103,7 +101,9 @@
 
 	blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
 	    if(!error){
-	      // Container exists and is private
+	      // Container exists and allows
+	      // anonymous read access to blob
+	      // content and metadata within this container
 	    }
 	});
 
@@ -142,7 +142,7 @@
 
 Чтобы загрузить данные в blob-блок, используйте следующие команды:
 
-* **createBlockBlobFromLocalFile** — создает новый blob-блок и отправляет содержимое файла;
+* **createBlockBlobFromLocalFile** — создает новый blob-блок и отправляет содержимое файла;
 
 * **createBlockBlobFromStream** — создает новый блочный BLOB-объект и загружает содержимое потока
 
@@ -415,4 +415,4 @@ ACL реализуется с помощью массива политик до�
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Справочник по пакету SDK службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

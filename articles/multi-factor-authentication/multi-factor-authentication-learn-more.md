@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Библиотека Azure Multi-Factor Authentication — дополнительные сведения" 
-	description="На этой странице приведены ссылки на дополнительные материалы для службы Azure Multi-Factor Authentication. Здесь доступны дополнительные темы, касающиеся службы Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Библиотека Azure Multi-Factor Authentication — дополнительные сведения"
+	description="На этой странице приведены ссылки на дополнительные материалы для службы Azure Multi-Factor Authentication. Здесь доступны дополнительные темы, касающиеся службы Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Дополнительные сведения о службе Azure Multi-Factor Authentication
 
@@ -35,7 +35,4 @@
 
 [Построение Multi-Factor Authentication в пользовательских приложениях (SDK)](https://msdn.microsoft.com/library/azure/dn249464.aspx)
 
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -9,12 +9,12 @@ editor=""
 tags="connectors"/>
 
 <tags
-ms.service="multiple"
+ms.service="logic-apps"
 ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="05/18/2016"
+ms.workload="integration"
+ms.date="09/19/2016"
 ms.author="mandia"/>
 
 # Начало работы с соединителем Twilio
@@ -25,8 +25,8 @@ ms.author="mandia"/>
 
 С помощью Twilio вы можете:
 
-- формировать бизнес-процессы на основе данных, получаемых из Twilio; 
-- использовать действия для получения сообщений, вывода списка сообщений и выполнения многих других задач. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, новое полученное сообщение Twilio можно использовать в рабочем процессе служебной шины. 
+- формировать бизнес-процессы на основе данных, получаемых из Twilio;
+- использовать действия для получения сообщений, вывода списка сообщений и выполнения многих других задач. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, новое полученное сообщение Twilio можно использовать в рабочем процессе служебной шины.
 
 Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
@@ -62,7 +62,7 @@ ms.author="mandia"/>
 
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|MessageId|строка|Да|path|Нет|Идентификатор сообщения|
+|MessageId|string|Да|path|Нет|Идентификатор сообщения|
 
 ### Ответ
 |Имя|Описание|
@@ -80,8 +80,8 @@ ms.author="mandia"/>
 | Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
 |Кому|string|Нет|запрос|Нет|На номер телефона|
-|Из|строка|Нет|запрос|Нет|С номера телефона|
-|DateSent|строка|Нет|запрос|Нет|Отображение только сообщений, отправленных в указанную дату (в формате GMT), заданную в виде ГГГГ-ММ-ДД. Пример: DateSent = 2009-07-06. Можно также указать неравенство, например DateSent < = ГГГГ-ММ-ДД для сообщений, отправленных в полночь или до полуночи указанной даты, и DateSent > = ГГГГ-ММ-ДД для сообщений, отправленных в полночь или после полуночи указанной даты.|
+|Из|string|Нет|запрос|Нет|С номера телефона|
+|DateSent|string|Нет|запрос|Нет|Отображение только сообщений, отправленных в указанную дату (в формате GMT), заданную в виде ГГГГ-ММ-ДД. Пример: DateSent = 2009-07-06. Можно также указать неравенство, например DateSent < = ГГГГ-ММ-ДД для сообщений, отправленных в полночь или до полуночи указанной даты, и DateSent > = ГГГГ-ММ-ДД для сообщений, отправленных в полночь или после полуночи указанной даты.|
 |PageSize|целое число|Нет|запрос|50|Количество ресурсов, возвращаемых на каждой странице списка. Значение по умолчанию — 50.|
 |Страница|целое число|Нет|запрос|0|Номер страницы. Значение по умолчанию — 0.|
 
@@ -119,10 +119,10 @@ ms.author="mandia"/>
 |---|---|---|
 |from|string|Да|
 |значение|string|Да|
-|текст|строка|Да|
+|текст|string|Да|
 |media\_url|array|Нет|
-|status\_callback|строка|Нет|
-|messaging\_service\_sid|строка|Нет|
+|status\_callback|string|Нет|
+|messaging\_service\_sid|string|Нет|
 |application\_sid|string|Нет|
 |max\_price|string|Нет|
 
@@ -132,25 +132,25 @@ ms.author="mandia"/>
 |Имя свойства | Тип данных |Обязательно|
 |---|---|---|
 |текст|string|Нет|
-|from|строка|Нет|
-|значение|строка|Нет|
-|status|строка|Нет|
-|sid|строка|Нет|
-|account\_sid|строка|Нет|
+|from|string|Нет|
+|значение|string|Нет|
+|status|string|Нет|
+|sid|string|Нет|
+|account\_sid|string|Нет|
 |api\_version|string|Нет|
-|num\_segments|строка|Нет|
-|num\_media|строка|Нет|
-|date\_created|строка|Нет|
-|date\_sent|строка|Нет|
-|date\_updated|строка|Нет|
+|num\_segments|string|Нет|
+|num\_media|string|Нет|
+|date\_created|string|Нет|
+|date\_sent|string|Нет|
+|date\_updated|string|Нет|
 |direction|string|Нет|
-|error\_code|строка|Нет|
+|error\_code|string|Нет|
 |error\_message|string|Нет|
-|price|строка|Нет|
+|price|string|Нет|
 |price\_unit|string|Нет|
-|uri|строка|Нет|
+|uri|string|Нет|
 |subresource\_uris|array|Нет|
-|messaging\_service\_sid|строка|Нет|
+|messaging\_service\_sid|string|Нет|
 
 #### MessageList: модель ответа для операции вывода списка сообщений
 
@@ -160,11 +160,11 @@ ms.author="mandia"/>
 |page|целое число|Нет|
 |page\_size|целое число|Нет|
 |num\_pages|целое число|Нет|
-|uri|строка|Нет|
-|first\_page\_uri|строка|Нет|
-|next\_page\_uri|строка|Нет|
+|uri|string|Нет|
+|first\_page\_uri|string|Нет|
+|next\_page\_uri|string|Нет|
 |total|целое число|Нет|
-|previous\_page\_uri|строка|Нет|
+|previous\_page\_uri|string|Нет|
 
 #### IncomingPhoneNumberList: модель ответа для операции вывода списка сообщений
 
@@ -174,16 +174,16 @@ ms.author="mandia"/>
 |page|целое число|Нет|
 |page\_size|целое число|Нет|
 |num\_pages|целое число|Нет|
-|uri|строка|Нет|
-|first\_page\_uri|строка|Нет|
-|next\_page\_uri|строка|Нет|
+|uri|string|Нет|
+|first\_page\_uri|string|Нет|
+|next\_page\_uri|string|Нет|
 
 
 #### AddIncomingPhoneNumberRequest: модель запроса для операции добавления входящего номера
 
 |Имя свойства | Тип данных |Обязательно|
 |---|---|---|
-|PhoneNumber|строка|Да|
+|PhoneNumber|string|Да|
 |AreaCode|string|Нет|
 |FriendlyName|string|Нет|
 
@@ -193,13 +193,13 @@ ms.author="mandia"/>
 |Имя свойства | Тип данных |Обязательно|
 |---|---|---|
 |phone\_number|string|Нет|
-|friendly\_name|строка|Нет|
-|sid|строка|Нет|
-|account\_sid|строка|Нет|
-|date\_created|строка|Нет|
-|date\_updated|строка|Нет|
+|friendly\_name|string|Нет|
+|sid|string|Нет|
+|account\_sid|string|Нет|
+|date\_created|string|Нет|
+|date\_updated|string|Нет|
 |capabilities|не определено|Нет|
-|status\_callback|строка|Нет|
+|status\_callback|string|Нет|
 |status\_callback\_method|string|Нет|
 |api\_version|string|Нет|
 
@@ -217,13 +217,13 @@ ms.author="mandia"/>
 |Имя свойства | Тип данных |Обязательно|
 |---|---|---|
 |phone\_number|string|Нет|
-|friendly\_name|строка|Нет|
+|friendly\_name|string|Нет|
 |lata|string|Нет|
-|latitude|строка|Нет|
+|latitude|string|Нет|
 |longitude|string|Нет|
 |postal\_code|string|Нет|
-|rate\_center|строка|Нет|
-|region|строка|Нет|
+|rate\_center|string|Нет|
+|region|string|Нет|
 |MMS|Логическое|Нет|
 |SMS|Логическое|Нет|
 |voice|Логическое|Нет|
@@ -233,14 +233,14 @@ ms.author="mandia"/>
 
 |Имя свойства | Тип данных |Обязательно|
 |---|---|---|
-|категория|строка|Нет|
-|usage|строка|Нет|
-|usage\_unit|строка|Нет|
-|description|строка|Нет|
+|category|string|Нет|
+|usage|string|Нет|
+|usage\_unit|string|Нет|
+|description|string|Нет|
 |price|number|Нет|
 |price\_unit|string|Нет|
-|count|строка|Нет|
-|count\_unit|строка|Нет|
+|count|string|Нет|
+|count\_unit|string|Нет|
 |start\_date|string|Нет|
 |end\_date|string|Нет|
 
@@ -248,4 +248,4 @@ ms.author="mandia"/>
 ## Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0921_2016-->

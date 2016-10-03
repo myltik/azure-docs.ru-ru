@@ -3,7 +3,7 @@
 	description="В этой статье показаны возможности исследования и моделирования данных с помощью набора средств Spark MLlib."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Исследование и моделирование данных с помощью Spark
 
@@ -39,7 +39,7 @@
 
 ## Предварительные требования
 
-Вам потребуется учетная запись Azure и кластер HDInsight Spark. Чтобы выполнить инструкции этого руководства, вам потребуется кластер HDInsight 3.4 Spark 1.6. Дополнительные сведения о требованиях, необходимых для выполнения задач, описание данных о поездках в такси по Нью-Йорку за 2013 г. и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark см. в статье [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Обзор процедуры анализа и обработки данных с помощью Spark в Azure HDInsight). Записная книжка **machine-learning-data-science-spark-data-exploration-modeling.ipynb** с примером кода, который используется в этом разделе, доступна на [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
+Вам потребуется учетная запись Azure и кластер HDInsight Spark. Чтобы выполнить инструкции этого руководства, вам потребуется кластер HDInsight 3.4 Spark 1.6. Дополнительные сведения о требованиях, необходимых для выполнения задач, описание данных о поездках в такси по Нью-Йорку за 2013 г. и инструкции по выполнению кода из записной книжки Jupyter в кластере Spark см. в статье [Overview of Data Science using Spark on Azure HDInsight](machine-learning-data-science-spark-overview.md) (Обзор анализа и обработки данных с помощью Spark в Azure HDInsight). Записная книжка **machine-learning-data-science-spark-data-exploration-modeling.ipynb** с примером кода, который используется в этом разделе, доступна на [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark).
 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -190,7 +190,7 @@ Spark может считывать данные и записывать их в
 Этот код и последующие фрагменты используют волшебную команду SQL для запроса примера и локальную волшебную команду для графического представления данных.
 
 - **SQL magic (`%%sql`)** Ядро HDInsight PySpark позволяет легко выполнять встроенные запросы HiveQL к sqlContext. Аргумент (-o VARIABLE\_NAME) сохраняет выходные данные запроса SQL в формате Pandas DataFrame на сервере Jupyter. Это означает, что они будут доступны в локальном режиме.
-- Магическая команда **`%%local`** используется для локального выполнения кода на сервере Jupyter, который представляет собой головной узел кластера HDInsight. Как правило, команда `%%local` используется в комбинации с магической командой `%%sql` с параметром -o. Параметр -o сохраняет выходные данные запроса SQL локально, после чего волшебная команда %%local активирует следующий набор фрагментов кода, который выполняется локально с выходными данными запросов SQL, сохраненными на локальном компьютере.
+- Магическая команда **`%%local`** используется для локального выполнения кода на сервере Jupyter, который представляет собой головной узел кластера HDInsight. Как правило, магическая команда `%%local` используется в комбинации с командой `%%sql` с параметром -o. Параметр -o сохраняет выходные данные запроса SQL локально, после чего волшебная команда %%local активирует следующий набор фрагментов кода, который выполняется локально с выходными данными запросов SQL, сохраненными на локальном компьютере.
 
 После выполнения кода выходные данные будут визуализированы автоматически.
 
@@ -1105,4 +1105,4 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 
 **Перекрестная проверка и очистка гиперпараметров**. Сведения об обучении моделей с помощью перекрестной проверки и очистки гиперпараметров см. в статье [Расширенное исследование и моделирование данных с помощью Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

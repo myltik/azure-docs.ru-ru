@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/28/2016"
+      ms.date="09/16/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Краткое руководство по API Graph Azure AD
@@ -59,7 +59,7 @@ API Graph Azure Active Directory обеспечивает программный
 
 ![Обозреватель API Graph Azure AD](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**Загрузка Graph Explorer**. Чтобы загрузить этот инструмент, перейдите по адресу [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Выберите **Использовать демонстрационную компанию**, чтобы запустить Graph Explorer для обработки данных из примера клиента. Учетные данные для использования демонстрационной компании не требуются. Вы также можете щелкнуть **Войти** и выполнить вход с использованием учетных данных Azure AD, чтобы запустить Graph Explorer для работы с вашим клиентом. При запуске Graph Explorer для своего собственного клиента вам или вашему администратору потребуется предоставить согласие в процессе входа. Если у вас есть подписка Office 365, это означает, что у вас также имеется клиент Azure AD. Учетные данные, используемые для входа в Office 365, в действительности являются учетными записями Azure AD, и эти учетные данные можно использовать в Graph Explorer.
+**Загрузка Graph Explorer**. Чтобы загрузить этот инструмент, перейдите по адресу [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Выберите **Использовать демонстрационную компанию**, чтобы запустить Graph Explorer для обработки данных из примера клиента. Учетные данные для использования демонстрационной компании не требуются. Вы также можете щелкнуть **Войти** и выполнить вход с использованием учетных данных Azure AD, чтобы запустить Graph Explorer для работы с вашим клиентом. При запуске Graph Explorer для своего собственного клиента вам или вашему администратору потребуется предоставить согласие в процессе входа. Если у вас есть подписка Office 365, у вас также есть клиент Azure AD. Учетные данные, используемые для входа в Office 365, в действительности являются учетными записями Azure AD, и эти учетные данные можно использовать в Graph Explorer.
 
 **Выполнение запроса**. Для выполнения запроса введите запрос в текстовом поле запроса и нажмите кнопку **ПОЛУЧИТЬ** или клавишу **ВВОД**. Результаты появятся в поле ответа. Например, с помощью `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.6` можно получить список всех объектов групп в демонстрационном каталоге.
 
@@ -120,4 +120,4 @@ Content-Type: application/json
 - Узнайте больше о [API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 - Дополнительная информация: [Azure AD Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0921_2016-->

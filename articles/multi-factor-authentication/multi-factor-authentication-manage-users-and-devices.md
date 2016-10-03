@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Отчеты Azure Multi-Factor Authentication" 
-	description="Эта статья содержит информацию о том, как изменить параметры пользователя (например, чтобы от пользователей требовалось повторно проходить проверку)." 
-	documentationCenter="" 
-	services="multi-factor-authentication" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Отчеты Azure Multi-Factor Authentication"
+	description="Эта статья содержит информацию о том, как изменить параметры пользователя (например, чтобы от пользователей требовалось повторно проходить проверку)."
+	documentationCenter=""
+	services="multi-factor-authentication"
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Управление параметрами пользователей в облаке с помощью Azure Multi-Factor Authentication
 
@@ -86,4 +86,4 @@
 9. Щелкните "Сохранить".
 10. Нажмите кнопку Close (Закрыть).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

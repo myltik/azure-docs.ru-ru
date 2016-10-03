@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Создание паролей приложений на портале Azure для службы Azure Multi-Factor Authentication" 
-	description="Эта страница содержит сведения о том, как пользователи могут создавать дополнительные пароли на портале Azure." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="Создание паролей приложений на портале Azure для службы Azure Multi-Factor Authentication"
+	description="Эта страница содержит сведения о том, как пользователи могут создавать дополнительные пароли на портале Azure."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Создание паролей приложений на портале Azure для службы Azure Multi-Factor Authentication
 
@@ -32,6 +32,4 @@
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

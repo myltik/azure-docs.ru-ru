@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # Настройка шлюза приложений для разгрузки SSL с помощью классической модели развертывания
@@ -33,7 +33,7 @@
 
 Чтобы настроить разгрузку SSL в шлюзе приложений, выполните перечисленные ниже действия в указанном порядке:
 
-1. [Создание нового шлюза приложений](#create-a-new-application-gateway)
+1. [Создание шлюза приложений](#create-an-application-gateway)
 2. [Загрузка SSL-сертификатов](#upload-ssl-certificates)
 3. [Настройка шлюза](#configure-the-gateway)
 4. [Настройка конфигурации шлюза](#set-the-gateway-configuration)
@@ -45,57 +45,27 @@
 
 Для создания шлюза используйте командлет **New-AzureApplicationGateway**, подставив в него свои значения. Выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
 
-В данном примере командлет показан в первой строке, а затем выходные данные.
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+Чтобы проверить, создан ли шлюз, используйте командлет **Get-AzureApplicationGateway**.
 
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
+В примере параметры *Description* (Описание), *InstanceCount* (Количество экземпляров) и *GatewaySize* (Размер шлюза) являются необязательными. Значение параметра *InstanceCount* (Количество экземпляров) по умолчанию — 2, максимальное значение — 10. Значение *GatewaySize* (Размер шлюза) по умолчанию — Medium (Средний). Также доступны значения Small (Маленький) и Large (Большой). Параметры *VirtualIPs* и *DnsName* отображаются без значений, поскольку шлюз еще не запущен. Эти значения будут определены после запуска шлюза.
 
-Чтобы проверить создание шлюза, используйте командлет **Get-AzureApplicationGateway**.
-
-В примере параметры *Description* (Описание), *InstanceCount* (Количество экземпляров) и *GatewaySize* (Размер шлюза) являются необязательными. Значение параметра *InstanceCount* (Количество экземпляров) по умолчанию — 2, максимальное значение — 10. Значение *GatewaySize* (Размер шлюза) по умолчанию — Medium (Средний). Также доступны значения Small (Маленький) и Large (Большой). Параметры *VirtualIPs* и *DnsName* отображаются без значений, поскольку шлюз еще не запущен. Эти значения будут заданы после его запуска.
-
-В данном примере командлет показан в первой строке, а затем выходные данные.
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest
-
-	VERBOSE: 4:39:39 PM - Begin Operation:
-	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed
-	Operation: Get-AzureApplicationGateway
-	Name: AppGwTest
-	Description:
-	VnetName: testvnet1
-	Subnets: {Subnet-1}
-	InstanceCount: 2
-	GatewaySize: Medium
-	State: Stopped
-	VirtualIPs:
-	DnsName:
-
+	Get-AzureApplicationGateway AppGwTest
 
 ## Загрузка SSL-сертификатов
 
 Чтобы загрузить на шлюз приложений сертификаты сервера в формате *pfx*, используйте командлет **Add-AzureApplicationGatewaySslCertificate**. Имя сертификата выбирается пользователем и должно быть уникальным в пределах шлюза приложений. В операциях управления сертификатами в шлюзе приложений сертификат указывается по имени.
 
-В данном примере командлет показан в первой строке, а затем выходные данные. Подставьте в пример свои собственные значения.
+В следующем примере приведен командлет; замените значения в нем собственными.
 
-	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
-
-	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
-	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   21fdc5a0-3bf7-2c12-ad98-192e0dd078ef
+	Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
 
 Затем проверьте загрузку сертификата. Используйте командлет **Get AzureApplicationGatewayCertificate**.
 
 В данном примере командлет показан в первой строке, а затем выходные данные.
 
-	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest
+	Get-AzureApplicationGatewaySslCertificate AppGwTest
 
 	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
 	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -123,14 +93,13 @@
 
 Чтобы настроить конфигурацию SSL-сертификатов, протокол в элементе **HttpListener** следует изменить на *Https* (с учетом регистра). К **HttpListener** добавляется элемент **SslCert** со значением, соответствующим имени, которое использовалось выше при передаче SSL-сертификатов. Внешний порт следует изменить на 443.
 
-**Включение сходства на основе файлов cookie**. Шлюз приложений можно настроить так, чтобы запросы от клиентского сеанса всегда направлялись на одну виртуальную машину в веб-ферме. Это делается путем внедрения файлов cookie сеанса, что позволяет шлюзу перенаправлять трафик соответствующим образом. Чтобы включить сходство на основе файлов cookie, присвойте параметру **CookieBasedAffinity** в элементе **BackendHttpSettings** значение *Enabled*.
+**Включение сходства на основе файлов cookie**. Шлюз приложений можно настроить так, чтобы запросы от клиентского сеанса всегда направлялись на одну виртуальную машину в веб-ферме. Это делается с помощью внедрения файлов cookie сеанса, что позволяет шлюзу перенаправлять трафик соответствующим образом. Чтобы включить сходство на основе файлов cookie, присвойте параметру **CookieBasedAffinity** в элементе **BackendHttpSettings** значение *Enabled*.
 
 
 
 Настроить конфигурацию можно либо путем создания объекта конфигурации, либо с помощью XML-файла конфигурации. Чтобы создать конфигурацию с помощью XML-файла конфигурации, используйте следующий пример.
 
 **Пример XML-конфигурации**
-
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -182,14 +151,7 @@
 
 Теперь шлюз приложений необходимо настроить. Для этого можно использовать командлет **Set-AzureApplicationGatewayConfig** с объектом конфигурации или с XML-файлом конфигурации.
 
-
-	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
-
-	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
-	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
+	Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 ## Запуск шлюза
 
@@ -198,15 +160,7 @@
 
 **Примечание.** На выполнение командлета **Start-AzureApplicationGateway** может потребоваться до 15–20 минут.
 
-
-	PS C:\> Start-AzureApplicationGateway AppGwTest
-
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
-	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
-
+	Start-AzureApplicationGateway AppGwTest
 
 ## Проверка состояния шлюза
 
@@ -214,7 +168,7 @@
 
 В данном примере показан рабочий шлюз приложений, готовый к приему трафика.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
 	Name          : AppGwTest2
 	Description   :
@@ -235,4 +189,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

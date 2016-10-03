@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/22/2016"
+   ms.date="09/16/2016"
    ms.author="jeffstok"/>
 
 
@@ -28,7 +28,7 @@
 ## Предварительные требования
 
 * Кластер Azure HDInsight, на котором установлен R Server. Инструкции см. в разделе [Приступая к работе с R Server в кластерах HDInsight](hdinsight-hadoop-r-server-get-started.md).
-* Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows рекомендуем воспользоваться [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows мы рекомендуем [Cygwin](http://www.redhat.com/services/custom/cygwin/) (с [параметром OpenSSH](https://www.youtube.com/watch?v=CwYSvvGaiWU)) или [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 
 ## Установка RStudio в кластере с помощью пользовательского скрипта
@@ -79,7 +79,7 @@
 			
 		Замените **ИМЯ\_ПОЛЬЗОВАТЕЛЯ** именем пользователя SSH для кластера HDInsight, а **ИМЯ\_КЛАСТЕРА** — именем кластера HDInsight. Вы также можете использовать ключ SSH вместо пароля, добавив `-i id_rsa_key`
 
-	* В клиенте Windows создайте туннель SSH PuTTY.
+	* Если вы используете клиент Windows и PuTTY, выполните следующие действия:
 
 		1.  Откройте PuTTY и введите информацию о подключении. Если вы не знакомы с PuTTY, обратитесь к разделу [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md), чтобы узнать, как пользоваться PuTTY с HDInsight.
 		2.  В разделе **Категории** в левой части диалогового окна последовательно разверните **Подключение**, **SSH** и выберите **Туннели**.
@@ -126,4 +126,4 @@
 
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

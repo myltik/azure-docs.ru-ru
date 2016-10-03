@@ -3,8 +3,8 @@
 	description="Узнайте, как отправлять, перечислять, скачивать и удалять файлы с помощью хранилища файлов Azure из Python."
 	services="storage"
 	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="emgerner"/>
+	ms.date="09/20/2016"
+	ms.author="minet;robinsh"/>
 
 # Использование хранилища файлов Azure из Python
 
-[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Обзор
 
@@ -100,4 +102,4 @@
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

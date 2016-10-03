@@ -4,13 +4,13 @@
 
 1. Создайте в Visual Studio новый проект Visual C# для классических приложений с помощью шаблона проекта **Консольное приложение**. Назовите проект **Sender**.
 
-	![][7]
+	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
 
 2. В обозревателе решений щелкните решение правой кнопкой мыши и выберите пункт **Управление пакетами NuGet для решения**.
 
 3. Щелкните вкладку **Обзор** и выполните поиск по строке `Microsoft Azure Service Bus`. Убедитесь, что имя проекта (**Sender**) указано в поле **Версии**. Щелкните **Установить** и примите условия использования.
 
-	![][8]
+	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
 
 	Visual Studio скачает, установит и добавит ссылку на [пакет NuGet библиотеки служебной шины Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
@@ -65,9 +65,4 @@
 	SendingRandomMessages();
 	```
 
-
-<!-- Images -->
-[7]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png
-
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

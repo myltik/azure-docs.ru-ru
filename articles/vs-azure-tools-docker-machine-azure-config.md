@@ -3,7 +3,7 @@
    description="Описывается использование машины Docker для создания узлов Docker в Azure."
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas" />
+   ms.author="mlearned" />
 
 # Создание узлов Docker в Azure с помощью машины Docker
 
-Для запуска контейнеров [Docker](https://www.docker.com/) требуется виртуальная машина узла с запущенной управляющей программой Docker. В этом разделе описывается использование команды [docker-machine](https://docs.docker.com/machine/) для создания новых виртуальных машин Linux, настроенных с помощью управляющей программы Docker, запущенной в Azure.
+Для запуска контейнеров [Docker](https://www.docker.com/) требуется виртуальная машина узла с запущенной управляющей программой Docker. В этой статье описывается использование команды [docker-machine](https://docs.docker.com/machine/), которая используется для создания новых виртуальных машин Linux, настроенных с помощью управляющей программы Docker, запущенной в Azure.
 
 **Примечание.**
 - *Для выполнения действий, описанных в этой статье, требуется машина Docker версии 0.7.0 или более поздней версии*.
@@ -27,10 +27,10 @@
 
 Создавайте виртуальные машины узла Docker в Azure с помощью команды `docker-machine create`, используя драйвер `azure`.
 
-Для драйвера Azure потребуется ваш идентификатор подписки. Для получения подписки Azure можно воспользоваться [интерфейсом командной строки Azure](xplat-cli-install.md) или [порталом Azure](https://portal.azure.com).
+Для драйвера Azure потребуется ваш идентификатор подписки. Для получения идентификатора подписки Azure можно воспользоваться [интерфейсом командной строки Azure](xplat-cli-install.md) или [порталом Azure](https://portal.azure.com).
 
 **Использование портала Azure**
-- Выберите подписки из левой области навигации и скопируйте в идентификатор подписки.
+- В области навигации слева выберите "Подписки" и скопируйте идентификатор подписки.
 
 **Использование Azure CLI**
 - Введите ```azure account list``` и скопируйте идентификатор подписки.
@@ -109,4 +109,4 @@ PS C:\> docker-machine ip MyDockerHost
 
 Сведения о разработке приложений .NET Core с помощью Visual Studio см. в разделе [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) (Инструменты Docker для Visual Studio).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

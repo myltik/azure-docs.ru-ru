@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="09/20/2016"
 	ms.author="glenga"/>
 
 # Создание приложения списка лидеров с помощью внутреннего сервера .NET мобильных служб Azure
@@ -144,7 +144,7 @@ PlayerRank содержит внешний ключ к Player. У каждого
 
 Контроллер является производным от **TableController<T>**. Этот класс наследует **ApiController**, но он специализирован для мобильных служб Azure.
 
-- Маршрутизация. Маршрут по умолчанию для **TableController** — `/tables/{table_name}/{id}`, где *table\_name* совпадает с именем сущности. Поэтому маршрут для контроллера Player — */tables/player/{id}*. Это соглашение о маршрутизации выполняет согласование **TableController** с [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) мобильных служб.
+- Маршрутизация. Маршрут по умолчанию для **TableController** — `/tables/{table_name}/{id}`, где *table\_name* совпадает с именем сущности. Поэтому маршрут для контроллера Player — */tables/player/{id}*. Это соглашение о маршрутизации выполняет согласование **TableController** с [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) мобильных служб.
 - Доступ к данным. Для операций баз данных класс **TableController** использует интерфейс **IDomainManager**, который определяет абстракцию для доступа к данным. Для формирования шаблонов используется параметр **EntityDomainManager**, который является конкретной реализацией интерфейса **IDomainManager**, заключающего в оболочку контекст EF.
 
 Теперь добавьте второй контроллер для сущностей PlayerRank. Выполните те же действия, но выберите класс модели PlayerRank. Используйте тот же класс контекста данных, а не создавайте новый. Назовите контроллер PlayerContoller.
@@ -765,4 +765,4 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 [Добавление push-уведомлений]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

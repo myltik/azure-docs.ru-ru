@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="07/07/2016" 
+	ms.date="09/20/2016" 
 	ms.author="robmcm;asirveda"/>
 
 # Новые возможности набора средств Azure для IntelliJ
@@ -73,4 +73,4 @@
 
 [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -4,7 +4,7 @@
    services="HDInsight"
    documentationCenter=""
    authors="jeffstokes72"
-   manager="paulettem"
+   manager="jhubbard"
    editor="cgronlun"
 />
 
@@ -83,4 +83,4 @@ Microsoft Server R в кластере Azure HDInsight (предваритель
 - [Add RStudio Server to HDInsight Premium (Добавление RStudio Server в HDInsight Premium)](hdinsight-hadoop-r-server-install-r-studio.md)
 - [Azure Storage options for R Server on HDInsight Premium (Параметры хранилища Azure для R Server в HDInsight Premium)](hdinsight-hadoop-r-server-storage.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

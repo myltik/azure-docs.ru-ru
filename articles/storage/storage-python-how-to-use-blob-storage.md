@@ -3,8 +3,8 @@
 	description="Хранение неструктурированных данных в облаке в хранилище BLOB-объектов Azure."
 	services="storage"
 	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	authors="tamram"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-    ms.date="07/26/2016"
-	ms.author="jehine"/>
+    ms.date="09/20/2016"
+	ms.author="jwillis;tamram"/>
 
 # Использование хранилища больших двоичных объектов Azure из Python
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] <br/> [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Обзор
 
@@ -127,4 +129,4 @@
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет SDK для службы хранилища Microsoft Azure для Python]: https://github.com/Azure/azure-storage-python
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

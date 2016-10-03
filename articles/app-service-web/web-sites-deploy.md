@@ -194,7 +194,7 @@ Visual Studio поддерживает все три способа развер
 * [Подготовка веб-приложения к работе с базой данных SQL](app-service-web-arm-with-sql-database-provision.md)
 * [Предсказуемые подготовка и развертывание микрослужб в Azure](app-service-deploy-complex-application-predictably.md)
 * [Создание реальных облачных приложений в Azure — полная автоматизация](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Глава электронной книги, в которой объясняется, как пример приложения, показанный в электронной книге, использует скрипты Windows PowerShell для создания тестовой среды Azure и выполнения в ней развертывания. Ссылки на дополнительную документацию по Azure PowerShell см. в разделе [Ресурсы](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources).
-* [Использование скриптов Windows PowerShell для публикации в средах разработки и тестирования](http://msdn.microsoft.com/library/dn642480.aspx). Здесь объясняется, как использовать сценарии развертывания Windows PowerShell, которые создает Visual Studio.
+* [Использование скриптов Windows PowerShell для публикации в средах разработки и тестирования](../vs-azure-tools-publishing-using-powershell-scripts.md). Здесь объясняется, как использовать сценарии развертывания Windows PowerShell, которые создает Visual Studio.
 
 ###<a name="api"></a>Автоматизация развертывания с помощью API управления .NET
 
@@ -234,4 +234,4 @@ Visual Studio поддерживает все три способа развер
 
  
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

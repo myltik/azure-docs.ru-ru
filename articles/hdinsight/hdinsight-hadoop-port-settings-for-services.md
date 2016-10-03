@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="08/30/2016"
+ms.date="09/13/2016"
 ms.author="larryfr"/>
 
 # Порты и универсальные коды ресурсов (URI), используемые кластерами HDInsight
@@ -36,9 +36,9 @@ ms.author="larryfr"/>
 
 | служба | Порт | Протокол | Описание |
 | ---- | ---------- | -------- | ----------- | ----------- |
-| sshd | 22 | SSH | Подключение клиентов к SSHD на головном узле 0. См. статью [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
+| sshd | 22 | SSH | Подключает клиенты к sshd на основном головном узле. См. статью [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
 | sshd | 22 | SSH | Подключение клиентов к SSHD на граничном узле (только HDInsight Premium). См. статью [Приступая к работе с R Server в HDInsight (предварительная версия)](hdinsight-hadoop-r-server-get-started.md). |
-| sshd | 23 | SSH | Подключение клиентов к SSHD на головном узле 1. См. статью [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
+| sshd | 23 | SSH | Подключает клиенты к sshd на дополнительном головном узле. См. статью [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md). |
 | Ambari | 443 | HTTPS | Веб-интерфейс Ambari. См. статью [Управление кластерами HDInsight с помощью веб-интерфейса Ambari](hdinsight-hadoop-manage-ambari.md). |
 | Ambari | 443 | HTTPS | REST API Ambari. См. статью [Управление кластерами HDInsight с помощью REST API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). |
 | WebHCat | 443 | HTTPS | REST API HCatalog. См. статьи [Выполнение заданий Hive с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-Pig-curl.md), [Выполнение заданий Pig с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-Pig-curl.md) и [Выполнение заданий MapReduce с помощью Curl с использованием Hadoop в HDInsight](hdinsight-hadoop-use-mapreduce-curl.md). |
@@ -75,7 +75,7 @@ ms.author="larryfr"/>
 | Узел данных | Все рабочие узлы | 30075 | HTTPS | Веб-интерфейс для просмотра состояния, журналов и т. д. |
 | Узел данных | Все рабочие узлы | 30010 | &nbsp; | Передача данных |
 | Узел данных | Все рабочие узлы | 30020 | IPC | Операции с метаданными |
-| Вторичный узел имен | Головные узлы | 50090 | HTTP | Контрольная точка для метаданных узла имен |
+| Дополнительный узел имен | Головные узлы | 50090 | HTTP | Контрольная точка для метаданных узла имен |
 
 ### Порты YARN
 
@@ -143,4 +143,4 @@ ms.author="larryfr"/>
 | Broker | Рабочие узлы | 9092 | [Сетевой протокол Kafka](http://kafka.apache.org/protocol.html) | Используется для связи с клиентами |
 | &nbsp; | Узлы Zookeeper | 2181 | &nbsp; | Порт, используемый клиентами для подключения к ZooKeeper |
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

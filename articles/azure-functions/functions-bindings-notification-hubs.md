@@ -87,6 +87,13 @@
 	    context.done();
 	};
 
+## Пример кода для центра уведомлений Azure для триггера таймера F#
+
+В этом примере отправляется уведомление для [регистрации шаблона](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md), содержащее свойства `location` и `message`.
+
+	let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
+	    notification = dict [("location", "Redmond"); ("message", "Hello from F#!")]
+
 ## Пример кода для центра уведомлений Azure для триггера очереди C#
 
 В этом примере отправляется уведомление для [регистрации шаблона](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md), содержащее свойство `message`.
@@ -157,4 +164,4 @@
 
 [AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

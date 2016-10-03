@@ -4,7 +4,7 @@
 	keywords="Поток данных, кэш Redis, очередь служебной шины"
 	services="stream-analytics"
 	authors="ryancrawcour"
-	manager="paulettm"
+	manager="jhubbard"
     documentationCenter=""
 	/>
 
@@ -202,6 +202,7 @@ Azure Stream Analytics обеспечивает быстрое разверты�
 
 - [Справочник разработчика по функциям Azure](../azure-functions/functions-reference.md)
 - [Справочник разработчика C# по функциям Azure](../azure-functions/functions-reference-csharp.md)
+- [Справочник разработчика F# по функциям Azure](../azure-functions/functions-reference-fsharp.md)
 - [Справочник разработчика NodeJS по функциям Azure](../azure-functions/functions-reference.md)
 - [Триггеры и привязки в функциях Azure](../azure-functions/functions-triggers-bindings.md)
 - [Как отслеживать кэш Redis для Azure](../redis-cache/cache-how-to-monitor.md)
@@ -214,4 +215,4 @@ Azure Stream Analytics обеспечивает быстрое разверты�
 [use-rediscache]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md
 [functions-getstarted]: ../azure-functions/functions-create-first-azure-function.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Состояние пользователей в службе Microsoft Azure Multi-Factor Authentication" 
-	description="Сведения о состоянии пользователей в Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Состояние пользователей в службе Microsoft Azure Multi-Factor Authentication"
+	description="Сведения о состоянии пользователей в Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Состояние пользователей в службе Azure Multi-Factor Authentication
 
 Учетные записи пользователей в службе Azure Multi-Factor Authentication имеют три различных состояния:
 
-Состояние | Описание |Затронутые приложения, не использующие браузер| Примечания 
+Состояние | Описание |Затронутые приложения, не использующие браузер| Примечания
 :-------------: | :-------------: |:-------------: |:-------------: |
 Отключено | Состояние по умолчанию для нового пользователя, не зарегистрированного в многофакторной проверке подлинности.|Нет|Пользователь не использует многофакторную проверку подлинности.
 Включено |Пользователь зарегистрирован в многофакторной проверке подлинности.|Нет. Они будут продолжать работать, пока не завершится регистрация.|Пользователь включен, но не завершил процесс регистрации. Ему будет предложено завершить процесс при следующем входе в систему.
@@ -33,34 +33,34 @@
 --------------------------------------------------------------------------------
 1.  Войдите на **классический портал Azure** с учетной записью администратора.
 2.  В левой части щелкните **Active Directory**.
-3.  В разделе **Каталог** выберите каталог нужного пользователя. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+3.  В разделе **Каталог** щелкните каталог пользователя, которого нужно включить. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/directory1.png)
 4.  В верхней части щелкните **Пользователи**.
-5.  В нижней части страницы щелкните **Управление многофакторной проверкой подлинности**. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+5.  В нижней части страницы щелкните **Управление Multi-Factor Auth**. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/manage1.png)
 6.  Откроется новая вкладка браузера. Вы сможете просмотреть состояние пользователя. ![Щелкните каталог](./media/multi-factor-authentication-get-started-user-states/userstate1.png)
 
 ###Изменения состояния "отключено" на "включено"
 1.  Войдите на **классический портал Azure** с учетной записью администратора.
 2.  В левой части щелкните **Active Directory**.
-3.  В разделе **Каталог** выберите каталог нужного пользователя. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+3.  В разделе **Каталог** щелкните каталог пользователя, которого нужно включить. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/directory1.png)
 4.  В верхней части щелкните **Пользователи**.
-5.  В нижней части страницы щелкните **Управление многофакторной проверкой подлинности**. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/manage1.png)
-6.  Откроется новая вкладка браузера. Найдите пользователя, для которого нужно включить многофакторную проверку подлинности. Возможно, потребуется изменить представление в верхней части страницы. Для состояния должно быть установлено значение **отключено**. ![Включение пользователя](./media/multi-factor-authentication-get-started-cloud/enable1.png)
+5.  В нижней части страницы щелкните **Управление Multi-Factor Auth**. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+6.  Откроется новая вкладка браузера. Найдите пользователя, для которого нужно включить многофакторную проверку подлинности. Возможно, потребуется изменить представление в верхней части страницы. Для состояния должно быть установлено значение **Отключено.** ![Включение пользователя](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 7.  Установите **флажок** рядом с именем пользователя.
 7.  В правой части окна щелкните **Включить**. ![Включение пользователя](./media/multi-factor-authentication-get-started-cloud/user1.png)
 8.  Щелкните **Включить проверку Multi-Factor Auth**. ![Включение пользователя](./media/multi-factor-authentication-get-started-cloud/enable2.png)
-9.  Обратите внимание, что состояние пользователя изменилось с **отключено** на **включено**. ![Включение пользователей](./media/multi-factor-authentication-get-started-cloud/user.png)
+9.  Следует отметить, что состояние пользователя изменилось с **Отключено** на **Включено**. ![Включение пользователей](./media/multi-factor-authentication-get-started-cloud/user.png)
 10.  После включения рекомендуется уведомить пользователей по электронной почте. В сообщении также следует рассказать, как использовать приложения, не использующие браузер, чтобы пользователя не заблокировали.
 
 ### Изменения состояния "включено" или "применено" на "отключено"
 1.  Войдите на **классический портал Azure** с учетной записью администратора.
 2.  В левой части щелкните **Active Directory**.
-3.  В разделе **Каталог** выберите каталог нужного пользователя. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/directory1.png)
+3.  В разделе **Каталог** щелкните каталог пользователя, которого нужно включить. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/directory1.png)
 4.  В верхней части щелкните **Пользователи**.
-5.  В нижней части страницы щелкните **Управление многофакторной проверкой подлинности**. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/manage1.png)
+5.  В нижней части страницы щелкните **Управление Multi-Factor Auth**. ![Щелкните каталог](./media/multi-factor-authentication-get-started-cloud/manage1.png)
 6.  Откроется новая вкладка браузера. Найдите пользователя, которого нужно отключить. Возможно, потребуется изменить представление в верхней части страницы. Убедитесь, что состояние пользователя — **включено** или **применено**.
 7.  Установите **флажок** рядом с именем пользователя.
 7.  В правой части окна щелкните **Отключить**. ![Отключение пользователя](./media/multi-factor-authentication-get-started-user-states/userstate2.png)
 8.  Вам будет предложено подтвердить действие. Щелкните **Да**. ![Отключение пользователя](./media/multi-factor-authentication-get-started-user-states/userstate3.png)
 9.  Вы должны увидеть, что изменение успешно применено. Нажмите кнопку **Закрыть**. ![Отключение пользователя](./media/multi-factor-authentication-get-started-user-states/userstate4.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

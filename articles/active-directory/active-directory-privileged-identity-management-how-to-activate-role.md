@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2016"
+   ms.date="09/16/2016"
    ms.author="kgremban"/>
 
 # Как активировать и деактивировать роли в компоненте управления привилегированными пользователями Azure AD
@@ -31,10 +31,7 @@
 
 1. Выполните вход на [портал Azure](https://portal.azure.com/).
 2. Щелкните свое имя пользователя в правом верхнем углу портала Azure и выберите каталог, с которым будете работать.
-3. Последовательно выберите элементы **Создать** > **Безопасность + удостоверения** > **Управление привилегированными пользователями Azure AD**.
-
-    ![Включение управления привилегированными пользователями на портале][1]
-
+3. Выберите **Другие службы** и в текстовом поле "Фильтр" введите **Azure AD Privileged Identity Management**.
 4. Установите флажок **Закрепить на панели мониторинга** и нажмите кнопку **Создать**. Откроется приложение Privileged Identity Management.
 
 ## Активация роли
@@ -72,4 +69,4 @@
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 [2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

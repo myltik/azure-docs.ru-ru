@@ -3,7 +3,7 @@
 	description="Узнайте, как выполнить обновление до последней версии Azure Authenticatior."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
+	authors="kgremban"
 	manager="femila"
 	editor="curtland"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/22/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Microsoft Authenticator
 
@@ -137,4 +137,4 @@
 
 ![Кнопка "Удалить"](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

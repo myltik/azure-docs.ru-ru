@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Рекомендации по безопасности для использования Azure MFA" 
-	description="Этот документ содержит рекомендации по использованию Azure MFA с учетными записями Azure" 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Рекомендации по безопасности для использования Azure MFA"
+	description="Этот документ содержит рекомендации по использованию Azure MFA с учетными записями Azure"
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Рекомендации по безопасности для использования Azure Multi-Factor Authentication с учетными записями Azure AD
 
@@ -31,7 +31,7 @@
 ![EMS](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 Первым рекомендуемым шагом для внедрения Azure MFA в облаке с помощью Azure AD Premium или Enterprise Mobility Suite является назначение лицензий пользователям. Azure Multi-Factor Authentication входит в эти наборы, поэтому вашей организации не требуются дополнительные компоненты для распространения многофакторной проверки подлинности для всех пользователей.
- 
+
 При настройке службы Multi-Factor Authentication необходимо учесть следующие моменты:
 
 - Вам не нужно создавать поставщик Multi-Factor Authentication. Azure AD Premium и Enterprise Mobility Suite поставляются уже с Azure Multi-Factor Authentication. Если вы создадите поставщик проверки подлинности, с вас может взиматься двойная плата.
@@ -102,7 +102,7 @@
 Используйте приведенный ниже список, чтобы узнать дополнительные сведения и рекомендации для каждого компонента, который будет развернут локально.
 
 Метод|Описание
-:------------- | :------------- | 
+:------------- | :------------- |
 [Служба федерации Active Directory](multi-factor-authentication-get-started-adfs.md)|Сведения о настройке Azure Multi-Factor Authentication с AD FS.
 [Проверка подлинности RADIUS](multi-factor-authentication-get-started-server-radius.md)| Сведения об установке и настройке сервера Azure Multi-Factor Authentication с использованием RADIUS.
 [Проверка подлинности IIS](multi-factor-authentication-get-started-server-iis.md)|Сведения об установке и настройке сервера Azure Multi-Factor Authentication с IIS.
@@ -111,7 +111,7 @@
 [Шлюз удаленных рабочих столов и сервер Azure Multi-Factor Authentication, использующие проверку подлинности RADIUS](multi-factor-authentication-get-started-server-rdg.md)| Сведения об установке и настройке сервера Azure Multi-Factor Authentication со шлюзом удаленных рабочих столов и проверкой подлинности RADIUS.
 [Синхронизация с Active Directory Windows Server](multi-factor-authentication-get-started-server-dirint.md)|Сведения об установке и настройке синхронизации между Active Directory и сервером Azure Multi-Factor Authentication.
 [Развертывание веб-службы мобильных приложений сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Сведения об установке и настройке веб-службы сервера Azure Multi-Factor Authentication.
-[Дополнительная конфигурация VPN с Azure Multi-Factor Authentication](multi-factor-authentication-advanced-vpn-configurations.md)|Сведения о настройке устройств Cisco ASA, Citrix Netscaler и Juniper/Pulse Secure VPN с помощью LDAP или RADIUS. 
+[Дополнительная конфигурация VPN с Azure Multi-Factor Authentication](multi-factor-authentication-advanced-vpn-configurations.md)|Сведения о настройке устройств Cisco ASA, Citrix Netscaler и Juniper/Pulse Secure VPN с помощью LDAP или RADIUS.
 
 
 ## дополнительные ресурсы.
@@ -121,4 +121,4 @@
 - [Первоначальная настройка службы Azure Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md)
 - [Часто задаваемые вопросы о службе Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

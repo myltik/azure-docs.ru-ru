@@ -3,7 +3,7 @@
 	description="Сведения об оценке моделей обучения, сохраненных в хранилище BLOB-объектов Azure."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,deguhath,gokuma"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/14/2016"
-	ms.author="deguhath;bradsev" />
+	ms.author="deguhath;bradsev;gokuma" />
 
 # Оценка моделей машинного обучения, созданных с помощью Spark 
 
@@ -610,4 +610,4 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23\_56
 
 **Перекрестная проверка и очистка гиперпараметров**. Сведения об обучении моделей с помощью перекрестной проверки и очистки гиперпараметров см. в статье [Расширенное исследование и моделирование данных с помощью Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

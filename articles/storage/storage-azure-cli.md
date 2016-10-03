@@ -4,7 +4,8 @@
     services="storage"
     documentationCenter="na"
     authors="tamram"
-    manager="carmonm"/>
+    manager="carmonm"
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -12,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/02/2016"
-    ms.author="micurd"/>
+    ms.date="09/20/2016"
+    ms.author="micurd;tamram"/>
 
 # Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure
 
@@ -94,7 +95,7 @@
 
 ### Подключение к подписке Azure
 
-Хотя большинство команд хранилища могут работать без подписки Azure, рекомендуем вам подключить свою подписку через интерфейс командной строки Azure. Чтобы настроить Azure CLI для работы с подпиской, следуйте инструкциям в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
+Хотя большинство команд хранилища могут работать без подписки Azure, рекомендуем вам подключить свою подписку через интерфейс командной строки Azure (Azure CLI). Чтобы настроить Azure CLI для работы с подпиской, следуйте инструкциям в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
 
 ### Создание новой учетной записи хранения
 
@@ -221,4 +222,4 @@
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

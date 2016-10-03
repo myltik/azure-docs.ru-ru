@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Шифрование и расшифровка BLOB-объектов в службе хранилища Microsoft Azure с помощью хранилища ключей Azure | Microsoft Azure"
-   description="В этом учебнике описан пошаговый процесс шифрования и расшифровки большого двоичного объекта с помощью шифрования на стороне клиента для службы хранилища Microsoft Azure с хранилищем ключей Azure."
-   services="storage"
-   documentationCenter=""
-   authors="adhurwit"
-   manager=""
-   editor="tysonn"/>
+	pageTitle="Шифрование и расшифровка BLOB-объектов в службе хранилища Microsoft Azure с помощью хранилища ключей Azure | Microsoft Azure"
+	description="В этом учебнике описан пошаговый процесс шифрования и расшифровки большого двоичного объекта с помощью шифрования на стороне клиента для службы хранилища Microsoft Azure с хранилищем ключей Azure."
+	services="storage"
+	documentationCenter=""
+	authors="adhurwit"
+	manager=""
+	editor="tysonn"/>
 
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="03/31/2016"
-   ms.author="lakasa"/>
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="09/20/2016"
+	ms.author="lakasa;robinsh"/>
 
 # Шифрование и расшифровка BLOB-объектов в хранилище Microsoft Azure с помощью хранилища ключей Azure
 
@@ -235,4 +235,4 @@
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=AcomDC_0406_2016-->
+<!---HONumber=AcomDC_0921_2016-->

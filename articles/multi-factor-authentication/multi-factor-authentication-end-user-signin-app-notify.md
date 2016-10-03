@@ -1,21 +1,21 @@
 
-<properties 
-	pageTitle="Вход в мобильные приложения с помощью уведомлений службы Azure Multi-Factor Authentication" 
-	description="На этой странице описана процедура входа пользователей с помощью уведомлений мобильного приложения при работе со службой Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Вход в мобильные приложения с помощью уведомлений службы Azure Multi-Factor Authentication"
+	description="На этой странице описана процедура входа пользователей с помощью уведомлений мобильного приложения при работе со службой Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Вход в мобильные приложения с помощью уведомлений службы Azure Multi-Factor Authentication
 
@@ -38,7 +38,4 @@
 
 <li>После этого вы войдете в систему.</li>
 
-
- 
-
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

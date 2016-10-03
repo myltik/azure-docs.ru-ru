@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 # Установка и использование Solr на кластерах HDInsight Hadoop
@@ -106,7 +106,7 @@
 
 		curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
 
-	В результате создается запрос к __collection1__ на получение всех документов, соответствующих условию __*: *__ (в строке запроса принимает вид *%3A*), с возвратом ответа в формате JSON. Ответ должен выглядеть примерно так:
+	В результате создается запрос к __collection1__ на получение всех документов, соответствующих условию __\*:\*__ (в строке запроса принимает вид \*%3A\*), с возвратом ответа в формате JSON. Ответ должен выглядеть примерно так:
 
 			"response": {
 			    "numFound": 2,
@@ -166,13 +166,25 @@
 
 Установив туннель SSH, выполните следующие действия, чтобы начать использовать панель мониторинга Solr.
 
-1. Определите имя головного узла:
+1. Определите имя основного головного узла:
 
-    1. В браузере перейдите на страницу https://CLUSTERNAME.azurehdinsight.net. При появлении запроса укажите имя пользователя и пароль администратора, чтобы войти на сайт.
+    1. Используйте SSH, чтобы подключиться к кластеру через порт 22. Например, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` где __USERNAME__ — это имя пользователя SSH, а __CLUSTERNAME__ — имя кластера.
+
+        Дополнительные сведения об использовании SSH см. в следующих документах:
+
+        * [Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+        * [Использование SSH с Hadoop на основе Linux в HDInsight из Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
     
-    2. В меню в верхней части страницы выберите __Узлы__.
+    3. Чтобы получить полное имя узла, используйте следующую команду:
+
+            hostname -f
+
+        Вы получите приблизительно такой результат:
+
+            hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
     
-    3. Выберите запись, которая начинается с __hn0__. В верхней части открывшейся страницы будет отображено имя узла. Имя узла имеет следующий формат: __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. Это имя узла нужно использовать при подключении к панели мониторинга Solr.
+        Это имя узла, которое будет использоваться дальше.
     
 1. В окне браузера введите адрес __http://HOSTNAME:8983/solr/#/__, где __HOSTNAME\_\_ — это имя, определенное на предыдущих этапах.
 
@@ -311,4 +323,4 @@
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->
