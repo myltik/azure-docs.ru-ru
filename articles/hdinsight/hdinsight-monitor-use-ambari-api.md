@@ -37,7 +37,7 @@
 
     [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-- [cURL][curl] (необязательно). Для установки см. раздел [выпусков и скачиваемых файлов cURL][curl-download].
+- [cURL][curl] \(необязательно). Для установки см. раздел [выпусков и скачиваемых файлов cURL][curl-download].
 
 	>[AZURE.NOTE] При использовании команды cURL в Windows для значений параметров указывайте двойные кавычки вместо одинарных.
 

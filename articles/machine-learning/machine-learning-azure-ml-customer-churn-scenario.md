@@ -221,11 +221,11 @@ AUC обычно используется в качестве меры ценн�
 
 [2] Статья из Википедии. [Точность](http://en.wikipedia.org/wiki/Accuracy_and_precision).
 
-[3] [CRISP-DM 1.0: пошаговое руководство по интеллектуальному анализу данных] (http://www.the-modeling-agency.com/crisp-dm.pdf)
+[3] [CRISP-DM 1.0: пошаговое руководство по интеллектуальному анализу данных](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn).
 
-[5] [Шаблон модели оттока клиентов Telco] (http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) в [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com/).  
+[5] [Шаблон модели оттока клиентов Telco](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) в [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com/).  
 ##Приложение
 
 ![][10]

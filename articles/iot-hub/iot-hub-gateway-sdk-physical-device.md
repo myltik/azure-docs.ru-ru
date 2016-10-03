@@ -78,10 +78,10 @@
 
 Перед началом выполнения описанных ниже действий убедиться, что устройство Edison может подключаться к беспроводной сети. Чтобы настроить устройство Edison, его необходимо подключить к главному компьютеру. Intel предоставляет руководства по началу работы для следующих операционных систем:
 
-- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] (Начало работы с макетной платой Intel Edison на 64-разрядной версии Windows).
-- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] (Начало работы с макетной платой Intel Edison на 32-разрядной версии Windows).
-- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] (Начало работы с макетной платой Intel Edison на Mac OS X).
-- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] (Начало работы с платой Intel® Edison на ОС Linux).
+- [Get Started with the Intel Edison Development Board on Windows 64-bit][lnk-setup-win64] \(Начало работы с макетной платой Intel Edison на 64-разрядной версии Windows).
+- [Get Started with the Intel Edison Development Board on Windows 32-bit][lnk-setup-win32] \(Начало работы с макетной платой Intel Edison на 32-разрядной версии Windows).
+- [Get Started with the Intel Edison Development Board on Mac OS X][lnk-setup-osx] \(Начало работы с макетной платой Intel Edison на Mac OS X).
+- [Getting Started with the Intel® Edison Board on Linux][lnk-setup-linux] \(Начало работы с платой Intel® Edison на ОС Linux).
 
 Чтобы настроить устройство Edison и ознакомиться с ним, выполните все шаги, описанные в этих статьях по началу работы, кроме последнего шага ("Выбор IDE"), который не требуется для данного учебника. В процессе настройки устройства Edison должны быть выполнены следующие действия:
 

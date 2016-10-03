@@ -30,12 +30,12 @@
 
 <table>
 <tr><td>**Скачать пакет SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-<tr><td>**Документация по интерфейсам API**</td><td>[Справочная документация по API Node.js] (http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
-<tr><td>**Инструкции по установке пакета SDK**</td><td>[Инструкции по установке] (http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Документация по интерфейсам API**</td><td>[Справочная документация по API Node.js](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**Инструкции по установке пакета SDK**</td><td>[Инструкции по установке](http://azure.github.io/azure-documentdb-node/)</td></tr>
 <tr><td>**Участие в разработке пакета SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-<tr><td>**Примеры**</td><td>[Примеры кода Node.js] (documentdb-nodejs-samples.md)</td></tr>
+<tr><td>**Примеры**</td><td>[Примеры кода Node.js](documentdb-nodejs-samples.md)</td></tr>
 <tr><td>**Руководство по началу работы**</td><td>[Приступая к работе с пакетом SDK для Node.js](documentdb-nodejs-get-started.md)</td></tr>
-<tr><td>**Руководство по работе веб-приложений**</td><td>[Создание веб-приложения Node.js с использованием DocumentDB] (documentdb-nodejs-application.md)</td></tr>
+<tr><td>**Руководство по работе веб-приложений**</td><td>[Создание веб-приложения Node.js с использованием DocumentDB](documentdb-nodejs-application.md)</td></tr>
 <tr><td>**Текущая поддерживаемая платформа**</td><td>[Node.js вер. 0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js вер. 0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js вер. 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 

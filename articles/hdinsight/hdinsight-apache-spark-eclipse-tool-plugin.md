@@ -235,7 +235,7 @@
 	* В правой области выберите **Spark on HDInsight Local Run Sample (Scala)** (Пример локального запуска Spark в HDInsight (Scala)).
 	* Нажмите кнопку **Далее**.
 
-2. Чтобы предоставить сведения о проекте, выполните шаги 3–6, как описано в предыдущем разделе [Настройка проекта приложения Spark Scala для кластера HDInsight Spark] (#set-up-a-spark-scala-application-project-for-an-hdinsight-spark кластера).
+2. Чтобы предоставить сведения о проекте, выполните шаги 3–6, как описано в предыдущем разделе [Настройка проекта приложения Spark Scala для кластера HDInsight Spark](#set-up-a-spark-scala-application-project-for-an-hdinsight-spark кластера).
 
 3. Шаблон добавляет пример кода (**LogQuery**) в папку **src**, который можно запустить локально на компьютере.
 

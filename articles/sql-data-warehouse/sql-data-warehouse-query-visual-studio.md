@@ -32,7 +32,7 @@
 
 + Существующее хранилище данных SQL. Чтобы создать его, см. статью [Создание хранилища данных SQL Azure][].
 + Расширение SSDT для Visual Studio. Скорее всего, оно уже есть, если на вашем компьютере установлено приложение Visual Studio. Инструкции по установке и доступные варианты установки см. в статье [Установка Visual Studio 2015 и SSDT для хранилища данных SQL][].
-+ Полное имя сервера SQL Server. Чтобы найти его, см. статью [Connect to Azure SQL Data Warehouse][] (Подключение к хранилищу данных SQL Azure).
++ Полное имя сервера SQL Server. Чтобы найти его, см. статью [Connect to Azure SQL Data Warehouse][] \(Подключение к хранилищу данных SQL Azure).
 
 ## 1\. Подключение к хранилищу данных SQL
 
@@ -86,7 +86,7 @@
 
 Теперь, когда вы можете подключаться к базе данных и отправлять запросы, попробуйте [визуализировать данные с помощью PowerBI][].
 
-Сведения о том, как настроить в своей среде проверку подлинности Azure Active Directory, см. в статье [Authentication to Azure SQL Data Warehouse][] (Проверка подлинности в хранилище данных SQL Azure).
+Сведения о том, как настроить в своей среде проверку подлинности Azure Active Directory, см. в статье [Authentication to Azure SQL Data Warehouse][] \(Проверка подлинности в хранилище данных SQL Azure).
 
 <!--Arcticles-->
 [Connect to Azure SQL Data Warehouse]: sql-data-warehouse-connect-overview.md

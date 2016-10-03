@@ -182,7 +182,7 @@ public class SimpleEventProcessor : IEventProcessor
 - [Что такое концентраторы событий Azure?](event-hubs-what-is-event-hubs.md)
 - [Обзор концентраторов событий](event-hubs-overview.md)
 - [Руководство по программированию концентраторов событий](event-hubs-programming-guide.md)
-- [Примеры кода концентраторов событий] (http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
+- [Примеры кода концентраторов событий](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
 
 Ссылки на API-интерфейсы .NET:
 

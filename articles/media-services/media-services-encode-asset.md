@@ -159,7 +159,7 @@ MP3 (MPEG-1 Audio Layer 3)|Да|Да
 Windows Media Audio|Да|Да
 WAV/PCM|Да|Да
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Да|Нет
-[Opus] (https://en.wikipedia.org/wiki/Opus_(audio_format)) |Да|Нет
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format)) |Да|Нет
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Да|Нет
 
 
