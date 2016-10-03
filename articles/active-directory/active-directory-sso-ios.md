@@ -297,7 +297,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 
 Чтобы поддержать проверку подлинности на основе сертификатов, необходимо зарегистрировать второй файл msauth в приложении и на [классическом портале Azure](https://manage.windowsazure.com/) для обработки проверки подлинности сертификатов, если вы хотите добавить эту поддержку в приложение.
 
-.`msauth://code/<broker-redirect-uri-in-url-encoded-form>`
+`msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
 Пример: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 

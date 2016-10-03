@@ -44,9 +44,9 @@
 	-   `UserNotifications.framework`: задайте для связи значение `Optional`
 	-   `AdSupport.framework`: задайте для связи значение `Optional`
 	-   `SystemConfiguration.framework`
-	-   .`CoreTelephony.framework`
-	-   .`CFNetwork.framework`
-	-   .`CoreLocation.framework`
+	-   `CoreTelephony.framework`
+	-   `CFNetwork.framework`
+	-   `CoreLocation.framework`
 	-   `libxml2.dylib`
 
 > [AZURE.NOTE] Среду AdSupport можно удалить. Службе Engagement необходима эта среда для сбора IDFA. Однако сбор IDFA можно отключить (<ios-sdk-engagement-idfa>), чтобы обеспечить соответствие новой политике Apple в отношении этого идентификатора.

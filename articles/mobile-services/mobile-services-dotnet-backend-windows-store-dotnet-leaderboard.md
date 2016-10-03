@@ -144,7 +144,7 @@ PlayerRank содержит внешний ключ к Player. У каждого
 
 Контроллер является производным от **TableController<T>**. Этот класс наследует **ApiController**, но он специализирован для мобильных служб Azure.
 
-- Маршрутизация. Маршрут по умолчанию для **TableController** — `/tables/{table_name}/{id}`, где *table\_name* совпадает с именем сущности. Поэтому маршрут для контроллера Player — */tables/player/{id}*. Это соглашение о маршрутизации выполняет согласование **TableController** с [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) мобильных служб.
+- Маршрутизация. Маршрут по умолчанию для **TableController** — `/tables/{table_name}/{id}`, где *table\_name* совпадает с именем сущности. Поэтому маршрут для контроллера Player — */tables/player/{id}*. Это соглашение о маршрутизации выполняет согласование **TableController** с [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) мобильных служб.
 - Доступ к данным. Для операций баз данных класс **TableController** использует интерфейс **IDomainManager**, который определяет абстракцию для доступа к данным. Для формирования шаблонов используется параметр **EntityDomainManager**, который является конкретной реализацией интерфейса **IDomainManager**, заключающего в оболочку контекст EF.
 
 Теперь добавьте второй контроллер для сущностей PlayerRank. Выполните те же действия, но выберите класс модели PlayerRank. Используйте тот же класс контекста данных, а не создавайте новый. Назовите контроллер PlayerContoller.
@@ -270,7 +270,7 @@ DTO — это объект, который определяет способ о
 Удалите следующие методы из `PlayerRankController`:
 
 - `PatchPlayerRank`
-- .`PostPlayerRank`
+- `PostPlayerRank`
 - `DeletePlayerRank`
 
 Затем добавьте следующий код в `PlayerRankController`:
@@ -612,7 +612,7 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 	    }
 	}
 
-После локальной отладки мобильная служба запускается в IIS Express. Visual Studio назначает случайный номер порта, поэтому локальный URL-адрес указывается как http://localhost:*port*, где *port* — номер порта. Чтобы получить номер порта, запустите службу в Visual Studio, нажав клавишу F5 для отладки. Visual Studio запустит браузер и перейдет по URL-адресу службы. Локальный URL-адрес можно также найти в свойствах проекта в разделе **Веб-служба**.
+После локальной отладки мобильная служба запускается в IIS Express. Visual Studio назначает случайный номер порта, поэтому локальный URL-адрес указывается как http://localhost:*port*, где *port* — номер порта. Чтобы получить номер порта, запустите службу в Visual Studio, нажав клавишу F5 для отладки. Visual Studio запустит браузер и перейдет по URL-адресу службы. Локальный URL-адрес можно также найти в свойствах проекта в разделе **Веб-служба**.
 
 ## Создание главной страницы
 
@@ -737,7 +737,7 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 [Publish your mobile service]: #publish-your-mobile-service
 [Next Steps]: #next-steps
 
-.<!-- Images. -->
+<!-- Images. -->
 
 [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
 [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/02leaderboard.png

@@ -8,7 +8,7 @@
 	manager="jhubbard"
 	editor="cgronlun"/>
 
-.<tags
+<tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
 	ms.topic="article"
@@ -74,7 +74,7 @@
 
 ### Подготовка задания Stream Analytics
 
-1.	На [портале Azure](https://manage.windowsazure.com/) щелкните **СОЗДАТЬ** > **СЛУЖБЫ ДАННЫХ** > **STREAM ANALYTICS** > **БЫСТРОЕ СОЗДАНИЕ**.
+1.	На [портале Azure](https://manage.windowsazure.com/) щелкните **СОЗДАТЬ** > **СЛУЖБЫ ДАННЫХ** > **STREAM ANALYTICS** > **БЫСТРОЕ СОЗДАНИЕ**.
 2.	Укажите следующие значения и щелкните **СОЗДАТЬ ЗАДАНИЕ АНАЛИТИКИ ПОТОКА**:
 
 	* **ИМЯ ЗАДАНИЯ** — введите имя задания.

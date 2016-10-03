@@ -24,10 +24,14 @@
 ## Как добавить схему
 На портале Azure выполните следующие действия.
 
-1. Выберите **Больше служб**. ![](./media/app-service-logic-enterprise-integration-overview/overview-11.png)
-2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![](./media/app-service-logic-enterprise-integration-overview/overview-21.png)
-3. Выберите **учетную запись интеграции**, в которую необходимо добавить схему. ![](./media/app-service-logic-enterprise-integration-overview/overview-31.png)
-4. Выберите элемент **Схемы**. ![](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)
+1. Выберите **Больше служб**.
+![](./media/app-service-logic-enterprise-integration-overview/overview-11.png)
+2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов.
+![](./media/app-service-logic-enterprise-integration-overview/overview-21.png)
+3. Выберите **учетную запись интеграции**, в которую необходимо добавить схему.
+![](./media/app-service-logic-enterprise-integration-overview/overview-31.png)
+4. Выберите элемент **Схемы**.
+![](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)
 
 #### Добавление файла схемы, размер которого меньше 2 МБ  
 
@@ -36,21 +40,29 @@
 
 #### Добавление файла схемы, размер которого превышает 2 МБ (до 8 МБ)  
 
-7. Если для контейнера BLOB-объектов определен уровень доступа **Public** (Общедоступный) ![](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)
+7. Если для контейнера BLOB-объектов определен уровень доступа **Public** (Общедоступный)
+  ![](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)
 
-  * Передайте схему в хранилище и скопируйте универсальный код ресурса (URI). ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)
+  * Передайте схему в хранилище и скопируйте универсальный код ресурса (URI).
+  ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)
 
-  * Выберите "Large file" (Большой файл) в разделе "Add Schema" (Добавление схемы) и укажите универсальный код ресурса (URI) в поле "Content URI" (URI содержимого). ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)
+  * Выберите "Large file" (Большой файл) в разделе "Add Schema" (Добавление схемы) и укажите универсальный код ресурса (URI) в поле "Content URI" (URI содержимого).
+  ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)
 
-8. Если для контейнера BLOB-объектов определен уровень доступа **No anonymous access** (Без анонимного доступа) ![](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)
+8. Если для контейнера BLOB-объектов определен уровень доступа **No anonymous access** (Без анонимного доступа)
+  ![](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)
 
-  * Передайте схему в хранилище. ![](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
+  * Передайте схему в хранилище.
+  ![](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
 
-  * Создайте подписанный URL-адрес для схемы. ![](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
+  * Создайте подписанный URL-адрес для схемы.
+  ![](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
 
-  * Выберите "Large file" (Большой файл) в разделе "Add Schema" (Добавление схемы) и укажите URI подписанного URL-адреса в поле "Content URI" (URI содержимого). ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)
+  * Выберите "Large file" (Большой файл) в разделе "Add Schema" (Добавление схемы) и укажите URI подписанного URL-адреса в поле "Content URI" (URI содержимого).
+  ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)
 
-9. Вы увидите только что добавленную схему. ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png)
+9. Вы увидите только что добавленную схему.
+  ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png)
 
 ## Как использовать схемы
 - Схемы используются для проверки сообщений, которые передаются в рамках сценария "бизнес-бизнес".
@@ -58,9 +70,11 @@
 ## Как изменить схему
 1. Выберите элемент **Schemas** (Схемы).
 2. В открывшейся колонке "Schemas" (Схемы) выберите схему, которую вы хотите изменить.
-3. Щелкните ссылку **Передать** в колонке "Схемы". ![](./media/app-service-logic-enterprise-integration-schemas/edit-12.png)
+3. Щелкните ссылку **Передать** в колонке "Схемы".
+![](./media/app-service-logic-enterprise-integration-schemas/edit-12.png)
 4. Выберите файл схемы, который следует передать, используя открывшееся диалоговое окно выбора файлов.
-5. Нажмите кнопку **Открыть** в средстве выбора файлов. ![](./media/app-service-logic-enterprise-integration-schemas/edit-31.png)
+5. Нажмите кнопку **Открыть** в средстве выбора файлов.
+![](./media/app-service-logic-enterprise-integration-schemas/edit-31.png)
 6. Вы получите уведомление об успешном выполнении передачи.
 
 ## Как удалить схему

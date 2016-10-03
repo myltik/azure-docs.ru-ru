@@ -321,11 +321,11 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 Теперь можно скомпилировать и запустить программу, нажав в Visual Studio кнопку **Запустить**.
 
-.![Выполнение программы](./media/cdn-app-dev-net/cdn-program-running-1.png)
+![Выполнение программы](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
 Когда программа дойдет до упомянутого выше запроса, вы сможете вернуться к группе ресурсов на портале Azure и увидеть, что профиль создан.
 
-.![Готово!](./media/cdn-app-dev-net/cdn-success.png)
+![Готово!](./media/cdn-app-dev-net/cdn-success.png)
 
 Затем мы можем подтвердить запросы, чтобы была выполнена оставшаяся часть программы.
 

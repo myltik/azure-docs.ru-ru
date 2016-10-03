@@ -104,11 +104,11 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 Следующие пространства имен импортируются автоматически и поэтому являются необязательными:
 
 * `System`
-* .`System.Collections.Generic`
-* .`System.IO`
-* .`System.Linq`
-* .`System.Net.Http`
-* .`System.Threading.Tasks`
+* `System.Collections.Generic`
+* `System.IO`
+* `System.Linq`
+* `System.Net.Http`
+* `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`.
 
@@ -130,20 +130,20 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 
 * `mscorlib`;
 * `System`
-* .`System.Core`
-* .`System.Xml`
-* .`System.Net.Http`
-* .`Microsoft.Azure.WebJobs`
-* .`Microsoft.Azure.WebJobs.Host`
-* .`Microsoft.Azure.WebJobs.Extensions`
+* `System.Core`
+* `System.Xml`
+* `System.Net.Http`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`
+* `Microsoft.Azure.WebJobs.Extensions`
 * `System.Web.Http`
 * `System.Net.Http.Formatting`.
 
 Кроме того, следующие сборки представляют собой частные случаи, и к ним можно обращаться по простому имени (например, `#r "AssemblyName"`).
 
 * `Newtonsoft.Json`
-* .`Microsoft.WindowsAzure.Storage`
-* .`Microsoft.ServiceBus`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
 * `Microsoft.AspNEt.WebHooks.Common`.
 

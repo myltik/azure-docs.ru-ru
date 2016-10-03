@@ -114,7 +114,7 @@
 1.  Определите момент времени, на который вы хотите восстановить диск уровня "Премиум". Предположим, что это моментальный снимок *mybackupstdpageblob\_ss2*, который хранится в архивной учетной записи хранения *mybackupstdaccount*.
 2.  В mybackupstdaccount повысьте уровень моментального снимка *mybackupstdpageblob\_ss2* до нового архивного базового страничного BLOB-объекта *mybackupstdpageblobrestored*.
 3.  Создайте моментальный снимок архивного страничного BLOB-объекта с именем *mybackupstdpageblob\_ss1*.
-4.  Скопируйте восстановленный страничный BLOB-объект * mybackupstdpageblobrestored* из *mybackupstdaccount* в *mypremiumaccount* как новый диск класса "Премиум" *mypremiumdiskrestored*.
+4.  Скопируйте восстановленный страничный BLOB-объект *mybackupstdpageblobrestored* из *mybackupstdaccount* в *mypremiumaccount* как новый диск класса "Премиум" *mypremiumdiskrestored*.
 5.  Создайте моментальный снимок *mypremiumdiskrestored* с именем *mypremiumdiskrestored\_ss1* для дальнейшей добавочной архивации.
 6.  Укажите виртуальной машине серии DS восстановленный диск *mypremiumdiskrestored* и отключите от нее старый *mypremiumdisk*.
 7.  Начните процесс архивации, описанный в предыдущем разделе, для восстановленного диска *mypremiumdiskrestored*, используя *mybackupstdpageblobrestored* в качестве архивного страничного BLOB-объекта.

@@ -217,13 +217,13 @@ public static void Run(string myQueueItem, ICollector<string> myQueue, TraceWrit
 В функции C# можно выполнить привязку одного из следующих типов:
 
 * `TextReader`
-* .`Stream`
-* .`ICloudBlob`
-* .`CloudBlockBlob`
-* .`CloudPageBlob`
-* .`CloudBlobContainer`
-* .`CloudBlobDirectory`
-* .`IEnumerable<CloudBlockBlob>`
+* `Stream`
+* `ICloudBlob`
+* `CloudBlockBlob`
+* `CloudPageBlob`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `IEnumerable<CloudBlockBlob>`
 * `IEnumerable<CloudPageBlob>`
 * другие типы, десериализованные с помощью [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb).
 
@@ -355,7 +355,7 @@ public static void Run(string myBlob, TraceWriter log)
 * `Stream`;
 * `CloudBlobStream` (только для выходных данных);
 * `ICloudBlob`;
-* .`CloudBlockBlob`
+* `CloudBlockBlob`
 * `CloudPageBlob`.
 
 #### Пример кода C# с выходными данными большого двоичного объекта

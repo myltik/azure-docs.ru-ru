@@ -375,7 +375,7 @@
 [Практическое руководство. Хранение кэширования выводимых данных страниц ASP.NET в кэше]: #store-page
 [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
  
-.<!-- IMAGES --> 
+<!-- IMAGES --> 
 [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
 [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
 [RoleCache3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png

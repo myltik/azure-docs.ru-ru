@@ -224,7 +224,7 @@
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
 
-.<!-- URL List -->
+<!-- URL List -->
 
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 [профиле подписки]: http://go.microsoft.com/fwlink/?LinkID=396395

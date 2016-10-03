@@ -148,6 +148,7 @@
 
 ##См. также 
 
-[Создание эскиза с помощью стандартного кодировщика мультимедиа и платформы .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
+[Создание эскиза с помощью стандартного кодировщика мультимедиа и платформы .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+[Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
 
 <!---HONumber=AcomDC_0921_2016-->

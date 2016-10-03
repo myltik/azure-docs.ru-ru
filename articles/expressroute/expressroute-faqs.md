@@ -6,7 +6,7 @@
    authors="cherylmc"
    manager="carmonm"
    editor=""/>
-.<tags
+<tags
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article" 

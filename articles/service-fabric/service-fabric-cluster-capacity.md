@@ -104,7 +104,7 @@
 - [Защита кластера Service Fabric](service-fabric-cluster-security.md)
 - [Общие сведения о наблюдении за работоспособностью системы в Service Fabric](service-fabric-health-introduction.md)
 
-.<!--Image references-->
+<!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
 <!---HONumber=AcomDC_0921_2016-->

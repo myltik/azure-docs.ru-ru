@@ -432,7 +432,7 @@
 [Практическое руководство. Хранение кэширования выводимых данных страниц ASP.NET в кэше]: #store-page
 [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
   
-.<!-- IMAGES -->
+<!-- IMAGES -->
 [NewCacheMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceNewCacheMenu.png
 
 [QuickCreate]: ./media/cache-dotnet-how-to-use-service/CacheServiceQuickCreate.png
