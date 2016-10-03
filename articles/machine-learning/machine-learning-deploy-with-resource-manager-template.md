@@ -124,6 +124,12 @@ $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\ml
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
+Другой способ получения маркеров существующей рабочей области — использовать команду Invoke-AzureRmResourceAction. Например, можно отобразить список основных и дополнительных маркеров всех рабочих областей.
+
+```  
+# List the primary and secondary tokens of all workspaces
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
+```
 После подготовки рабочей области к работе можно автоматизировать многие задачи Студии машинного обучения Azure с помощью [модуля PowerShell для Машинного обучения Azure](http://aka.ms/amlps).
 
 ## Дальнейшие действия 
@@ -138,4 +144,4 @@ $rgd.Outputs.mlWorkspaceToken.Value
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

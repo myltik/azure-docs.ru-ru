@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="09/16/2016"
 	ms.author="andrela"/>
 
 
@@ -50,4 +50,4 @@
 * [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

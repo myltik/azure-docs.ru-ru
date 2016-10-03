@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Настройка кодировщика Telestream Wirecast для отправки односкоростного обновляющегося потока " 
-	description="В этом разделе показано, как настроить кодировщик Wirecast для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени. " 
+	pageTitle="Настройка кодировщика Telestream Wirecast для отправки односкоростного обновляющегося потока | Microsoft Azure" 
+	description="В этой статье показано, как настроить динамический кодировщик Wirecast для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени. " 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako;cenkdin;anilmur"/>
 
 #Использование кодировщика Wirecast для отправки односкоростного обновляющегося потока
@@ -24,7 +24,7 @@
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [FMLE](media-services-configure-fmle-live-encoder.md)
 
-В этом разделе показано, как настроить динамический кодировщик [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени. Дополнительные сведения см. в разделе [Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure](media-services-manage-live-encoder-enabled-channels.md).
+В этой статье показано, как настроить динамический кодировщик [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени. Дополнительные сведения см. в разделе [Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 В этом учебнике показано, как управлять службами мультимедиа Azure (AMS) с помощью Обозревателя служб мультимедиа Azure. Это средство запускается только на компьютерах с ОС Windows. Если вы используете Mac или Linux, воспользуйтесь классическим порталом Azure для создания [каналов](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) и [программ](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
 
@@ -32,7 +32,7 @@
 ##Предварительные требования
 
 - [Создание учетной записи служб мультимедиа Azure](media-services-create-account.md)
-- Убедитесь, что запущена конечная точка потоковой трансляции как минимум с одной выделенной единицей потоковой трансляции. Дополнительные сведения см. в разделе [Управление конечными точками потоковой передачи в учетной записи служб мультимедиа](media-services-manage-origins.md)
+- Убедитесь, что запущена конечная точка потоковой трансляции как минимум с одной выделенной единицей потоковой трансляции. Дополнительные сведения см. в разделе [Управление конечными точками потоковой передачи в учетной записи служб мультимедиа](media-services-portal-manage-streaming-endpoints.md)
 - Установите последнюю версию средства [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
 - Запустите его и подключитесь к учетной записи AMS.
 
@@ -170,7 +170,7 @@
 
 ## Устранение неполадок
  
-Рекомендации см. в статье об [устранении неполадок](media-services-troubleshooting-live-streaming.md).
+Рекомендации см. в разделе [Устранение неполадок](media-services-troubleshooting-live-streaming.md).
 
 ##Схемы обучения работе со службами мультимедиа
 
@@ -180,4 +180,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

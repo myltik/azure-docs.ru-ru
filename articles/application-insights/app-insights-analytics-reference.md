@@ -6,7 +6,7 @@
 	authors="alancameronwills" 
 	manager="douge"/>
 
-<tags 
+.<tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
@@ -19,7 +19,7 @@
 
 [Аналитика](app-insights-analytics.md) — это мощный инструмент поиска [Application Insights](app-insights-overview.md). На этих страницах описан язык запросов аналитики приложений.
 
-> [AZURE.NOTE] [Протестируйте аналитику на смоделированных данных](https://analytics.applicationinsights.io/demo) если ваше приложение еще не отправляет данные в Application Insights.
+> [AZURE.NOTE] [Test drive Analytics on our simulated data]https://analytics.applicationinsights.io/demo, если ваше приложение еще не отправляет данные в Application Insights.
 
 ## Индекс
 
@@ -27,13 +27,13 @@
 **Предложения let и set** [let](#let-clause) | [set](#set-clause)
 
 
-**Запросы и операторы** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**Запросы и операторы** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Агрегаты** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
 **Скаляры** [Логические литералы](#boolean-literals) | [Логические операторы](#boolean-operators) | [Приведение](#casts) | [Скалярные сравнения](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
-**Числовые значения** [Арифметические операторы](#arithmetic-operators) | [Числовые литералы](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+**Числовые значения** [Арифметические операторы](#arithmetic-operators) | [Числовые литералы](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Дата и время** [Выражения для даты и времени](#date-and-time-expressions) | [Литералы даты и времени](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -1053,7 +1053,7 @@ exceptions
 
 ### Оператор where
 
-     T | where fruit=="apple"
+     requests | where resultCode==200
 
 Отфильтровывает таблицу для подмножества строк, которые удовлетворяют предикату.
 
@@ -1086,7 +1086,7 @@ exceptions
 **Пример**
 
 ```AIQL
-Traces
+traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"
     and ActivityId == SubActivityIt 
@@ -1096,6 +1096,26 @@ Traces
 
 Обратите внимание: сравнение двух столбцов вводится в последнюю очередь, так как эта операция не предполагает использование индекса и запуска проверки.
 
+
+### Оператор where-in
+
+    requests | where resultCode !in (200, 201)
+
+    requests | where resultCode in (403, 404)
+
+**Синтаксис**
+
+    T | where col in (expr1, expr2, ...)
+    T | where col !in (expr1, expr2, ...)
+
+**Аргументы**
+
+* `col`: столбец в таблице.
+* `expr1`...: список скалярных выражений.
+
+`in` используется для включения только строк, в которых `col` равно одному из выражений `expr1...`.
+
+`!in` используется для включения только строк, в которых `col` не равно ни одному из выражений `expr1...`.
 
 
 ## Агрегаты
@@ -1204,7 +1224,7 @@ traces
 | |
 |---|
 |`{"x":1, "y":3.5}`
-|`{"x":"somevalue", "z":[1, 2, 3]}`
+|.`{"x":"somevalue", "z":[1, 2, 3]}`
 |`{"y":{"w":"zzz"}, "t":["aa", "bb"], "z":["foo"]}`
 
 
@@ -1471,15 +1491,15 @@ traces
 
 | Тип | Дополнительные имена | Эквивалентный тип .NET |
 | --------- | -------------------- | -------------------- |
-| `bool` | `boolean` | `System.Boolean` |
-| `datetime`| `date` | `System.DateTime` |
-| `dynamic` | | `System.Object` |
+| `bool` | .`boolean` | .`System.Boolean` |
+| .`datetime`| .`date` | .`System.DateTime` |
+| .`dynamic` | | .`System.Object` |
 | `guid` | `uuid`, `uniqueid` | `System.Guid` |
-| `int` | | `System.Int32` |
-| `long` | | `System.Int64` |
-| `double` | `real` | `System.Double` |
-| `string` | | `System.String` |
-| `timespan`| `time` | `System.TimeSpan` |
+| .`int` | | .`System.Int32` |
+| .`long` | | .`System.Int64` |
+| .`double` | .`real` | .`System.Double` |
+| .`string` | | .`System.String` |
+| .`timespan`| .`time` | `System.TimeSpan` |
 
 ### Приведение типов
 
@@ -1526,19 +1546,19 @@ traces
 
 |||
 ---|---
-`gettype("a")` |`"string" `
-`gettype(111)` |`"long" `
-`gettype(1==1)` |`"int8"`
-`gettype(now())` |`"datetime" `
-`gettype(1s)` |`"timespan" `
-`gettype(parsejson('1'))` |`"int" `
-`gettype(parsejson(' "abc" '))` |`"string" `
-`gettype(parsejson(' {"abc":1} '))` |`"dictionary"` 
-`gettype(parsejson(' [1, 2, 3] '))` |`"array"` 
-`gettype(123.45)` |`"real" `
-`gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |`"guid"` 
-`gettype(parsejson(''))` |`"null"`
-`gettype(1.2)==real` | `true`
+`gettype("a")` |.`"string" `
+.`gettype(111)` |.`"long" `
+.`gettype(1==1)` |.`"int8"`
+.`gettype(now())` |.`"datetime" `
+.`gettype(1s)` |.`"timespan" `
+.`gettype(parsejson('1'))` |.`"int" `
+.`gettype(parsejson(' "abc" '))` |.`"string" `
+.`gettype(parsejson(' {"abc":1} '))` |.`"dictionary"` 
+.`gettype(parsejson(' [1, 2, 3] '))` |.`"array"` 
+.`gettype(123.45)` |.`"real" `
+.`gettype(guid(12e8b78d-55b4-46ae-b068-26d7a0080254))` |.`"guid"` 
+.`gettype(parsejson(''))` |.`"null"`
+.`gettype(1.2)==real` | `true`
 
 ### hash
 
@@ -1670,31 +1690,21 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 ## Числа
 
-[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Числовые литералы
 
 |||
 |---|---
-|`42`|`long`
-|`42.0`|`real`
+|`42`|.`long`
+|.`42.0`|`real`
 
 ### Арифметические операторы
 
 || |
 |---|-------------|
 | + | Добавить |
-| — | Вычитание |
-| * | Умножение |
-| / | Деление |
-| % | Остаток от деления |
-||
-|`<` |Меньше
-|`<=`|Меньше или равно
-|`>` |Больше
-|`>=`|Больше или равно
-|`<>`|Не равно
-|`!=`|Не равно
+| — | Вычитание | | * | Умножение | | / | Деление | | % | Остаток от деления | || |`<` |Меньше |`<=`|Меньше или равно |`>` |Больше |`>=`|Больше или равно |`<>`|Не равно |`!=`|Не равно
 
 
 ### abs
@@ -1738,9 +1748,9 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 Выражение | Результат
 ---|---
-`bin(4.5, 1)` | `4.0`
-`bin(time(16d), 7d)` | `14d`
-`bin(datetime(1953-04-15 22:25:07), 1d)`| `datetime(1953-04-15)`
+`bin(4.5, 1)` | .`4.0`
+.`bin(time(16d), 7d)` | .`14d`
+.`bin(datetime(1953-04-15 22:25:07), 1d)`| `datetime(1953-04-15)`
 
 
 Следующее выражение вычисляет гистограмму длительности с размером сегмента в 1 секунду:
@@ -1757,10 +1767,25 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
     exp10(v) // 10 raised to the power v
 
 
-
 ### floor
 
 Псевдоним для [`bin()`](#bin).
+
+### gamma
+
+[Функция gamma](https://en.wikipedia.org/wiki/Gamma_function)
+
+**Синтаксис**
+
+    gamma(x)
+
+**Аргументы**
+
+* *x* — вещественное число.
+
+Для положительных целых чисел `gamma(x) == (x-1)!`. Например: `gamma(5) == 4 * 3 * 2 * 1`.
+
+См. также [loggamma](#loggamma).
 
 
 ### log
@@ -1771,6 +1796,20 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 
 `v` должно быть вещественным числом > 0. В противном случае возвращается значение null.
+
+### loggamma
+
+
+Натуральный логарифм абсолютного значения [функции gamma](#gamma).
+
+**Синтаксис**
+
+    loggamma(x)
+
+**Аргументы**
+
+* *x* — вещественное число.
+
 
 ### rand
 
@@ -1860,13 +1899,13 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 
 Выражение |Результат
 ---|---
-`datetime("2015-01-02") - datetime("2015-01-01")`| `1d`
-`datetime("2015-01-01") + 1d`| `datetime("2015-01-02")`
-`datetime("2015-01-01") - 1d`| `datetime("2014-12-31")`
-`2h * 24` | `2d`
+`datetime("2015-01-02") - datetime("2015-01-01")`| .`1d`
+.`datetime("2015-01-01") + 1d`| .`datetime("2015-01-02")`
+.`datetime("2015-01-01") - 1d`| .`datetime("2014-12-31")`
+.`2h * 24` | `2d`
 `2d` / `2h` | `24`
-`datetime("2015-04-15T22:33") % 1d` | `timespan("22:33")`
-`bin(datetime("2015-04-15T22:33"), 1d)` | `datetime("2015-04-15T00:00")`
+.`datetime("2015-04-15T22:33") % 1d` | .`timespan("22:33")`
+.`bin(datetime("2015-04-15T22:33"), 1d)` | .`datetime("2015-04-15T00:00")`
 ||
 `<` |Меньше
 `<=`|Меньше или равно
@@ -2099,7 +2138,7 @@ T | where ... | extend Elapsed=now() - timestamp
 Обратная косая черта (``) используется для экранирования знаков, включая `\t` (табуляция), `\n` (новая строка) и кавычки.
 
 * `'this is a "string" literal in single \' quotes'`
-* `"this is a 'string' literal in double " quotes"`
+* .`"this is a 'string' literal in double " quotes"`
 * `@"C:\backslash\not\escaped\with @ prefix"`
 
 ### Скрываемые строковые литералы
@@ -2119,23 +2158,23 @@ h"hello"
 Оператор|Описание|С учетом регистра|Пример
 ---|---|---|---
 `==`|Равно |Да| `"aBc" == "aBc"`
-`<>` `!=`|Не равно|Да| `"abc" <> "ABC"`
-`=~`|Равно |Нет| `"abc" =~ "ABC"`
-`!~`|Не равно |Нет| `"aBc" !~ "xyz"`
-`has`|Правая часть представляет собой все слово в левой части|Нет| `"North America" has "america"`
-`!has`|Правая часть не является всем словом в левой части|Нет|`"North America" !has "amer"` 
-.`hasprefix`|Правая часть является префиксом слова в левой части.|Нет|`"North America" hasprefix "ame"`
-.`!hasprefix`|Правая часть не является префиксом какого-либо слова в левой части.|Нет|`"North America" !hasprefix "mer"`
+`<>` `!=`|Не равно|Да| .`"abc" <> "ABC"`
+`=~`|Равно |Нет| .`"abc" =~ "ABC"`
+`!~`|Не равно |Нет| .`"aBc" !~ "xyz"`
+`has`|Правая часть представляет собой все слово в левой части|Нет| .`"North America" has "america"`
+`!has`|Правая часть не является всем словом в левой части|Нет|.`"North America" !has "amer"` 
+.`hasprefix`|Правая часть является префиксом слова в левой части.|Нет|.`"North America" hasprefix "ame"`
+.`!hasprefix`|Правая часть не является префиксом какого-либо слова в левой части.|Нет|.`"North America" !hasprefix "mer"`
 .`hassuffix`|Правая часть является суффиксом слова в левой части.|Нет|.`"North America" hassuffix "rth"`
 .`!hassuffix`|Правая часть не является суффиксом какого-либо слова в левой части.|Нет|.`"North America" !hassuffix "mer"`
 .`contains` | Правая часть является подстрокой левой части.|Нет| .`"FabriKam" contains "BRik"`
-`!contains`| Правая часть не входит в левую часть|Нет| .`"Fabrikam" !contains "xyz"`
+.`!contains`| Правая часть не входит в левую часть|Нет| .`"Fabrikam" !contains "xyz"`
 .`containscs` | Правая часть является подстрокой левой части.|Да| .`"FabriKam" contains "Kam"`
 .`!containscs`| Правая часть не входит в левую часть|Да| .`"Fabrikam" !contains "Kam"`
-.`startswith`|Правая часть является начальной подстрокой левой части.|Нет|`"Fabrikam" startswith "fab"`
+.`startswith`|Правая часть является начальной подстрокой левой части.|Нет|.`"Fabrikam" startswith "fab"`
 `!startswith`|Правая часть не является начальной подстрокой левой части.|Нет|.`"Fabrikam" !startswith "abr"`
 .`endswith`|Правая часть является конечной подстрокой левой части.|Нет|.`"Fabrikam" endswith "kam"`
-.`!endswith`|Правая часть не является конечной подстрокой левой части.|Нет|`"Fabrikam" !endswith "ka"`
+.`!endswith`|Правая часть не является конечной подстрокой левой части.|Нет|.`"Fabrikam" !endswith "ka"`
 .`matches regex`|Левая часть содержит соответствие для правой части|Да| .`"Fabrikam" matches regex "b.*k"`
 .`in`|Равно любому из элементов|Да|.`"abc" in ("123", "345", "abc")`
 .`!in`|Не равно ни одному из элементов|Да|.`"bc" !in ("123", "345", "abc")`
@@ -2397,7 +2436,7 @@ substring("ABCD", 0, 2)       // AB
 
 ## Массивы, объекты и динамические типы
 
-[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses) <br/> [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic) | [zip](#zip)
 
 
 Ниже приведен результат запроса на исключение Application Insights. Значение `details` является массивом.
@@ -2510,7 +2549,7 @@ T
 |[`range(`from,to,step`)`](#range)| Массив значений
 |[`mvexpand`listColumn](#mvexpand-operator) | Реплицирует строку для каждого значения в списке в указанной ячейке.
 |[`summarize buildschema(`column`)`](#buildschema) |Определяет схему типа по содержимому столбца.
-|[`summarize makelist(`column`)`](#makelist)| Выполняет сведение групп строк и помещает значения столбца в массив.
+|[`summarize makelist(`column`)` ](#makelist)| Выполняет сведение групп строк и помещает значения столбца в массив.
 |[`summarize makeset(`column`)`](#makeset) | Выполняет сведение групп строк и помещает значения столбца в массив без дублирования значений.
 
 ### Динамические объекты в предложениях let
@@ -2699,6 +2738,24 @@ range(1, 8, 3)
 
 Обратите внимание, что "[0]" определяет наличие массива, но не обозначает индекс, используемый указанным расположением.
 
+### zip
+
+    zip(list1, list2, ...)
+
+Объединяет набор списков в один список кортежей.
+
+* `list1...`: список значений.
+
+**Примеры**
+
+    zip(parsejson('[1,3,5]'), parsejson('[2,4,6]'))
+    => [ [1,2], [3,4], [5,6] ]
+
+    
+    zip(parsejson('[1,3,5]'), parsejson('[2,4]'))
+    => [ [1,2], [3,4], [5,null] ]
+
+
 ### Имена
 
 Имя может содержать до 1024 знаков. В нем учитывается регистр и допускаются буквы, цифры и знаки подчеркивания (`_`).
@@ -2724,4 +2781,4 @@ range(1, 8, 3)
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
    description="Узнайте, как вносить изменения в приложение, выполняемое в локальном контейнере Docker, обновлять контейнер с помощью функций правки и обновления, а также устанавливать точки останова."
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="07/22/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />
 
 # Отладка приложений в локальном контейнере Docker
 
@@ -25,9 +25,9 @@
 ## Предварительные требования
 Должны быть установлены следующие средства.
 
-- [Visual Studio 2015 с обновлением 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-- [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
-- [Средства Visual Studio 2015 для Docker](https://aka.ms/DockerToolsForVS)
+- [Visual Studio 2015 с обновлением 2](https://go.microsoft.com/fwlink/?LinkId=691978).
+- [Visual Studio 2015 с обновлением 3](https://go.microsoft.com/fwlink/?LinkId=691129).
+- [Пакет SDK для Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122).
 
 Для запуска контейнеров Docker локально потребуется локальный клиент Docker. Можно воспользоваться выпуском [панели элементов Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox), для которой требуется отключить Hyper-V, или можно воспользоваться [бета-версией Docker для Windows](https://beta.docker.com), для которой требуется Hyper-V и Windows 10.
 
@@ -37,12 +37,12 @@
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 2\. Добавление поддержки Docker
+## 2) Добавление поддержки Docker
 
 [AZURE.INCLUDE [Добавление поддержки Docker](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
 
-## 3\. Изменение и обновление кода
+## 3) Изменение и обновление кода
 
 Для быстрой итерации изменений можно запустить приложение в контейнере и продолжить внесение изменений, просматривая их так же, как в IIS Express.
 
@@ -125,4 +125,4 @@
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

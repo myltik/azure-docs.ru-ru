@@ -3,9 +3,9 @@
 	description="Клиентская библиотека службы хранилища Azure для Python поддерживает шифрование на стороне клиента для обеспечения максимальной защиты ваших приложений службы хранилища Azure."
 	services="storage"
 	documentationCenter="python"
-	authors="rickle-msft"
-	manager="carmonm"
-	editor=""/>
+	authors="dineshmurthy"
+	manager="jahogg"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="t-rickle"/>
+	ms.date="09/20/2016"
+	ms.author="dineshm;robinsh"/>
 
 
 # Шифрование на стороне клиента с помощью Python для службы хранилища Microsoft Azure
@@ -226,4 +226,4 @@ KEK должен реализовывать следующие методы дл
 - Скачайте [клиентскую библиотеку службы хранилища Azure для пакета PyPi Java](https://pypi.python.org/pypi/azure-storage).
 - Скачайте [клиентскую библиотеку службы хранилища Azure для исходного кода Python с портала GitHub](https://github.com/Azure/azure-storage-python).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

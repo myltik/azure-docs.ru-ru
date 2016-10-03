@@ -67,6 +67,13 @@ public static void Run(string myQueueItem, TraceWriter log)
 }
 ```
 
+#### Пример кода F#, который обрабатывает сообщение очереди служебной шины
+
+```fsharp
+let Run(myQueueItem: string, log: TraceWriter) =
+    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
+```
+
 #### Пример кода Node.js, который обрабатывает сообщение очереди служебной шины
 
 ```javascript
@@ -168,7 +175,16 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
 }
 ```
 
-#### Пример кода Node.js для создания сообщения очереди служебной шины
+#### Пример кода F#, который создает сообщение очереди служебной шины
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
+    log.Info(message)
+    outputSbQueue = message
+```
+
+#### Пример кода Node.js, которые создает сообщение очереди служебной шины
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -189,4 +205,4 @@ module.exports = function (context, myTimer) {
 
 [AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

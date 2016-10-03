@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Добавление функции входа в веб-приложение Node.js
@@ -46,21 +46,21 @@
 - Добавьте **веб-платформу** для своего приложения.
 - Введите правильный **универсальный код ресурса (URI) перенаправления**. Универсальный код ресурса (URI) перенаправления сообщает Azure AD, куда следует направлять ответы аутентификации. Значение по умолчанию в этом руководстве — `http://localhost:3000/auth/openid/return`.
 
-## 2\. Добавление предварительных требований в ваш каталог
+## 2) Добавление предварительных требований в ваш каталог
 
 В командной строке сделайте текущей корневую папку, если это еще не было сделано, и выполните следующие команды:
 
 - `npm install express`
-- `npm install ejs`
-- `npm install ejs-locals`
-- `npm install restify`
-- `npm install mongoose`
-- `npm install bunyan`
-- `npm install assert-plus`
-- `npm install passport`
-- `npm install webfinger`
-- `npm install body-parser`
-- `npm install express-session`
+- .`npm install ejs`
+- .`npm install ejs-locals`
+- .`npm install restify`
+- .`npm install mongoose`
+- .`npm install bunyan`
+- .`npm install assert-plus`
+- .`npm install passport`
+- .`npm install webfinger`
+- .`npm install body-parser`
+- .`npm install express-session`
 - `npm install cookie-parser`
 
 - Кроме того, в схему быстрого запуска мы включили `passport-azure-ad`.
@@ -424,4 +424,4 @@ exports.list = function(req, res){
 
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

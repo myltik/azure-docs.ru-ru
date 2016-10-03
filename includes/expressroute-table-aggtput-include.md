@@ -1,5 +1,7 @@
-|                                     | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+| | **Пропускная способность шлюза для ExpressRoute** | **Сосуществование VPN-шлюза и ExpressRoute**|
 |-------------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**                       |  500 Mbps                           | No   |
-| **Standard SKU**                    | 1000 Mbps                           | Yes  |
-| **High Performance SKU**            | 2000 Mbps                           | Yes  |
+| **SKU "Базовый"** | 500 Мбит/с | Нет |
+| **SKU "Стандартный"** | 1000 Мбит/с | Да |
+| **SKU "Высокопроизводительный"** | 2000 Мбит/с | Да |
+
+<!---HONumber=AcomDC_0921_2016-->

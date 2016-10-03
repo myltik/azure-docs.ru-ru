@@ -2,7 +2,7 @@
 	pageTitle="Предварительная версия руководства по разработке учетных записей DocumentDB с поддержкой протокола MongoDB | Microsoft Azure" 
 	description="Ознакомьтесь с руководством по разработке учетных записей DocumentDB с поддержкой протокола MongoDB (предварительная версия)." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="andrewhoh" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.date="09/15/2016" 
+	ms.author="anhoh"/>
 
-# Предварительная версия руководства по разработке для учетных записей DocumentDB с поддержкой протокола MongoDB
+# Руководства по разработке для учетных записей DocumentDB с поддержкой протокола MongoDB
 
-Вы можете обмениваться данными с Azure DocumentDB через любой из [драйверов](https://docs.mongodb.org/ecosystem/drivers/) с открытым кодом для клиента MongoDB. Поддержка протокола MongoDB подразумевает, что драйверы клиента MongoDB обмениваются данными с конечной точкой сервера MongoDB 2.6 или более поздней версии. DocumentDB поддерживает эту возможность, соблюдая [протокол подключения](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) MongoDB версии 2.6. Обратите внимание, что протокол подключения версии 3.2 поддерживается почти полностью, но в некоторых клиентских интерфейсах, включая сеанс оболочки MongoDB версии 3.2, будет указано о переходе в режим поддержки прежних версий.
+Вы можете обмениваться данными с Azure DocumentDB через любой из [драйверов](https://docs.mongodb.org/ecosystem/drivers/) с открытым кодом для клиента MongoDB. Поддержка протокола MongoDB подразумевает, что драйверы клиента MongoDB обмениваются данными с конечной точкой сервера MongoDB 2.6 или более поздней версии. DocumentDB обеспечивает поддержку в рамках [сетевого протокола](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol/) MongoDB версии 2.6.
 
 DocumentDB поддерживает основные функции API MongoDB, позволяя создавать, читать, обновлять и удалять данные, а также выполнять запросы к базе данных. При реализации возможностей сперва учитываются потребности наиболее распространенных платформ, средств и методов работы приложений.
 
@@ -36,62 +36,54 @@ DocumentDB поддерживает основные функции API MongoDB,
 
 ## Операции запросов
 
-DocumentDB поддерживает полную грамматику запросов MongoDB за небольшими исключениями. Поддерживаются форматы даты и времени MongoDB, а также запросы, работающие с JSON-совместимыми наборами [типов BSON](https://docs.mongodb.org/manual/reference/bson-types/). Для запросов, которые используют специальные операторы, не относящиеся к типу JSON, DocumentDB поддерживает типы данных GUID. В следующей таблице перечислены поддерживаемые и неподдерживаемые аспекты грамматики запросов MongoDB.
-
-## Агрегирование
-
-DocumentDB не поддерживает конвейер статистической обработки MongoDB и операции Map/Reduce. Конвейер статистической обработки обычно используется для обработки документов в многоэтапном наборе фильтров и преобразований, включая сопоставление и группирование результатов. DocumentDB изначально поддерживает как определяемые пользователем функции JavaScript, так и хранимые процедуры. Кроме того, DocumentDB легко может выступать в качестве источника и приемника для заданий Hive, Pig и MapReduce. Для этого применяется Azure HDInsight через [соединитель Hadoop](documentdb-run-hadoop-with-hdinsight.md) для DocumentDB.
+DocumentDB поддерживает полную грамматику запросов MongoDB за небольшими исключениями. Поддерживаются форматы даты и времени MongoDB, а также запросы, работающие с JSON-совместимыми наборами [типов BSON](https://docs.mongodb.org/manual/reference/bson-types/). Для запросов, которые используют специальные операторы, не относящиеся к типу JSON, DocumentDB поддерживает типы данных GUID.
 
 ## Взаимодействие с порталом
-Интерфейс портала Azure для учетных записей с поддержкой протокола MongoDB немного отличается от интерфейса для стандартных учетных записей DocumentDB. Мы намерены и далее дополнять этот интерфейс, но для этого нам нужны ваши [отзывы](mailto:askdocdb@microsoft.com?subject=DocumentDB%20Protocol%20Support%20for%20MongoDB%20Preview%20Portal%20Experience) о том, какие новые функции портала для вас будут наиболее полезными.
+Интерфейс портала Azure позволяет работать с учетными записями с поддержкой протокола MongoDB. Мы намерены и далее дополнять этот интерфейс, но для этого нам нужны ваши [отзывы](mailto:askdocdb@microsoft.com?subject=DocumentDB%20Protocol%20Support%20for%20MongoDB%20Preview%20Portal%20Experience) о том, какие новые функции портала для вас будут наиболее полезными.
 
 ## Матрица поддержки
 
 
 ### Операции CRUD и запросов
 
-Функция|Поддерживаются|Будет поддерживаться|Не поддерживается 
----|---|---|---
-Вставить|InsertOne| | 
- |InsertMany| | 
- |Вставить| | 
-Блокировка изменений|UpdateOne| | 
- |UpdateMany| | 
- |Блокировка изменений| | 
+Функция|Поддерживаются|Будет поддерживаться
+---|---|---
+Вставить|InsertOne| 
+ |InsertMany| 
+ |Вставить| 
+Блокировка изменений|UpdateOne| 
+ |UpdateMany| 
+ |Блокировка изменений| 
 Обновление полей|$inc, $mul, $rename, $set, $unset, $min, $max|$currentDate| 
-Обновление массива| |-все-| 
-Побитовые| |-все-| 
-Изоляция| |-все-| 
-Замените|ReplaceOne| |
-Удалить|DeleteOne | |
- |DeleteMany| | 
- |Удалить| | 
-BulkWrite| |bulkWrite()| 
-Сравнение|-все-| | 
-Логические|-все-| | 
-Запрос элементов| |-все-| 
-Оценка|$mod, $regex |$text, $where| 
-Геопространственные|2dsphere, 2d, polygon|Все остальное| 
-Массив|$all, $size, $elemMatch|| 
-Побитовые| |-все-| 
-Комментарий|-все-| | 
-Проекция| |-все-| 
+Обновление массива| |-все-
+Побитовые| |-все-
+Изоляция| |-все-
+Замените|ReplaceOne| 
+Удалить|DeleteOne | 
+ |DeleteMany| 
+ |Удалить| 
+BulkWrite| |bulkWrite()
+Сравнение|-все-| 
+Логические|-все-| 
+Запрос элементов| |-все-
+Оценка|$mod, $regex |$text, $where
+Геопространственные|2dsphere, 2d, polygon|Все остальное
+Массив|$all, $size, $elemMatch|
+Побитовые| |-все-
+Комментарий|-все-| 
+Проекция| |-все-
 
 
 ### Команды базы данных
 
-Функция|Поддерживаются|Будет поддерживаться|Не поддерживается 
----|---|---|---
-Агрегирование|Count| |aggregate, distinct, group, mapreduce
-Геопространственные| |-все-| 
-Запрос и запись|find, insert, update, delete, getLastError, getMore, findAndModify| |Eval, parallelCollectionScan, getPrevError, resetError
-Кэш QueryPlan| | |-все-
-Аутентификация|getnonce, logout, authenticate| |Copydbgetnone, authschemaUpgrade
-Управление пользователями| | |-все-
-Управление ролями| | |-все-
-Репликация| | |-все-
-Администрирование|createIndex, listIndexes, dropIndexes, connectionStatus, reIndex| |Другие команды. Для индексов не поддерживаются Unique, expireAfterSeconds, storageEngine, weights, default\_language, textIndexVersion, min, max, bucketSize
-Диагностика|listDatabases, collStats, dbStats| |Все остальное
+Функция|Поддерживаются|Будет поддерживаться
+---|---|---
+Агрегирование|Count| 
+Геопространственные| |-все-
+Запрос и запись|find, insert, update, delete, getLastError, getMore, findAndModify| 
+Аутентификация|getnonce, logout, authenticate| 
+Администрирование|createIndex, listIndexes, dropIndexes, connectionStatus, reIndex| 
+Диагностика|listDatabases, collStats, dbStats| 
 
 ## Дальнейшие действия
 
@@ -100,4 +92,4 @@ BulkWrite| |bulkWrite()|
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

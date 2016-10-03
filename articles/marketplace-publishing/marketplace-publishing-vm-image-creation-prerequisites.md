@@ -22,7 +22,7 @@
 ## Загрузка необходимых средств и приложений
 К началу работу необходимо подготовить следующее:
 
-- в зависимости от целевой операционной системы установите командлеты Azure PowerShell или программу командной строки Linux со страницы скачивания Azure;
+- в зависимости от целевой операционной системы установите [командлеты Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) или [программу командной строки Linux](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) со страницы [скачивания Azure](https://azure.microsoft.com/downloads/);
 - установите Azure Storage Explorer из CodePlex;
 - скачайте и установите средство проверки сертификации для Azure Certified:
   - [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Для запуска инструмента сертификации потребуется компьютер под управлением Windows. Если у вас нет такого компьютера, запустите средство сертификации на виртуальной машине Windows в Azure.
@@ -46,11 +46,11 @@
 ## Дальнейшие действия
 Теперь, когда вы ознакомились со списком обязательных компонентов и выполнили необходимые задачи, можете переходить к созданию образа виртуальной машины для предложения, как описано в [руководстве по публикации образа виртуальной машины](marketplace-publishing-vm-image-creation.md).
 
-## См. также
+## Дополнительные материалы
 - [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines-windows-hero-tutorial/)
+- [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 
 [link-acct-creation]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_0504_2016-->
+<!---HONumber=AcomDC_0921_2016-->

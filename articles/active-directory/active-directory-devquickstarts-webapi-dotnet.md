@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 
@@ -29,7 +29,7 @@
 
 Для этого вам необходимо:
 
-1. Зарегистрировать приложение в Azure AD.
+1. зарегистрировать приложение в Azure AD;
 2. Настроить приложение для использования конвейера проверки подлинности OWIN.
 3. Настроить клиентское приложение для вызова методов веб-API приложения To Do List.
 
@@ -95,7 +95,7 @@ public class TodoListController : ApiController
 {
 ```
 
-- Когда авторизованный вызывающий объект успешно вызывает один из интерфейсов API `TodoListController`, может потребоваться доступ к сведениям о вызывающем объекте. OWIN предоставляет доступ к утверждениям внутри маркера защиты посредством объекта `ClaimsPrincpal`.  
+- Когда авторизованный вызывающий объект успешно вызывает один из интерфейсов API `TodoListController`, может потребоваться доступ к сведениям о вызывающем объекте. OWIN предоставляет доступ к утверждениям внутри маркера защиты посредством объекта `ClaimsPrincpal`.
 - Общим требованием для веб-интерфейсов API является проверка областей (scope) в маркере, чтобы гарантировать, что конечный пользователь предоставил разрешения, необходимые для доступа к службе To Do List:
 
 ```C#
@@ -139,4 +139,4 @@ public IEnumerable<TodoItem> Get()
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

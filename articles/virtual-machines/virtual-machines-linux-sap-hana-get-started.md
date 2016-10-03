@@ -1,20 +1,20 @@
 <properties
    pageTitle="Краткое руководство по установке SAP Hana вручную на виртуальных машинах Azure | Microsoft Azure"
    description="Краткое руководство по установке SAP Hana вручную на виртуальных машинах Azure."
-   services="virtual-machines,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="hermanndms"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.service="virtual-machines-linux"
+   ms.devlang="na"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
-   ms.date="09/07/2016"
+   ms.workload="infrastructure-services"
+   ms.date="09/15/2016"
    ms.author="hermannd"/>
 
 # Краткое руководство по установке экземпляра SAP Hana вручную на виртуальных машинах Azure
@@ -384,11 +384,11 @@
 
 Дополнительные сведения о средстве HDBLCM Hana см. в следующих источниках:
 
-[Choosing the Correct SAP HANA HDBLCM for Your Task](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm) (Выбор подходящего средства SAP HANA HDBLCM для выполнения определенных заданий)
+[Choosing the Correct SAP HANA HDBLCM for Your Task (Выбор подходящего средства SAP HANA HDBLCM для выполнения определенных заданий)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
 
-[SAP HANA Lifecycle Management Tools](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/) (Средства управления жизненным циклом SAP Hana)
+[SAP HANA Lifecycle Management Tools (Средства управления жизненным циклом SAP Hana)](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
 
-[SAP HANA Server Installation and Update Guide](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf) (Руководство по установке и обновлению сервера SAP Hana)
+[SAP HANA Server Installation and Update Guide (Руководство по установке и обновлению сервера SAP Hana)](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 
 
@@ -484,4 +484,4 @@
 
 * Скачивание выпуска Hana SP12 Platform из SAP Service Marketplace. ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

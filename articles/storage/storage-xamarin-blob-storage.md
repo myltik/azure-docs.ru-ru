@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="xamarin"
 	authors="micurd"
-	manager=""
+	manager="jahogg"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2016"
-	ms.author="micurd"/>
+	ms.author="micurd;tamram"/>
 
 # Как использовать хранилище BLOB-объектов из Xamarin
 
@@ -217,4 +217,4 @@ Xamarin позволяет разработчикам использовать �
 
 [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/21/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Настройка MPIO на узле StorSimple под управлением CentOS
@@ -390,7 +390,7 @@
 
 Следует также проверить, отображаются ли какие-либо диски после подключения к целевому объекту, так как отсутствие ответа на запрос каналов ввода-вывода также может указывать на отсутствие дисков.
 
-- Повторно просканируйте шину SCSI, выполнив такую команду: 
+- Повторно просканируйте шину SCSI, выполнив такую команду:
  
 	`$ rescan-scsi-bus.sh `(часть пакета sg3\_utils)
  
@@ -492,4 +492,4 @@
 - [Настройка MPIO на CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Учебное руководство Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

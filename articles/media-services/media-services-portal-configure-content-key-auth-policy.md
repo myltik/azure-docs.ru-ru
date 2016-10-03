@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Настройка политики авторизации ключей содержимого с помощью портала" 
+	pageTitle="Настройка политики авторизации ключей содержимого с помощью портала Azure | Microsoft Azure" 
 	description="Узнайте, как настроить политику авторизации для ключа содержимого." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="06/22/2016" 
+ 	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
 
-#Настройка политики авторизации ключа содержимого 
+#Настройка политики авторизации ключа содержимого
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 
@@ -28,8 +28,8 @@
 
 Кроме того, службы мультимедиа включают в себя **службы доставки ключей и лицензий**, с помощью которых клиенты могут получать ключи AES либо лицензии PlayReady или Widevine для воспроизведения зашифрованного содержимого.
 
-В этом разделе показано, как настроить политики авторизации ключей содержимого с помощью **классического портала Azure**. Ключ может использоваться позже для динамического шифрования содержимого. Обратите внимание, что сейчас поддерживается шифрование для таких форматов потоковой передачи: HLS, MPEG DASH и Smooth Streaming. Шифрование формата потоковой передачи HDS и последовательных скачиваний не поддерживается.
- 
+В этой статье показано, как настроить политики авторизации ключей содержимого с помощью **классического портала Azure**. Ключ может использоваться позже для динамического шифрования содержимого. Обратите внимание, что сейчас поддерживается шифрование для таких форматов потоковой передачи: HLS, MPEG DASH и Smooth Streaming. Шифрование формата потоковой передачи HDS и последовательных скачиваний не поддерживается.
+
 Когда проигрыватель запрашивает поток, для которого настроено динамическое шифрование, службы мультимедиа используют настроенный ключ для динамического шифрования содержимого с помощью AES или DRM. Чтобы расшифровать поток, проигрыватель запросит ключ у службы доставки ключей. Чтобы определить, есть ли у пользователя право на получение ключа, служба оценивает политики авторизации, заданные для ключа.
 
 
@@ -41,7 +41,7 @@
 
 ###Важные особенности
 
-- Чтобы иметь возможность использовать динамическую упаковку и динамическое шифрование, необходимо иметь по крайней мере одну зарезервированную единицу потоковой передачи. Дополнительную информацию см. в разделе [Масштабирование службы мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints).
+- Чтобы иметь возможность использовать динамическую упаковку и динамическое шифрование, необходимо иметь по крайней мере одну зарезервированную единицу потоковой передачи. Дополнительную информацию см. в разделе [Масштабирование службы мультимедиа](media-services-portal-manage-streaming-endpoints.md).
 - Ресурс должен содержать набор MP4-файлов с адаптивной скоростью или файлов Smooth Streaming с адаптивной скоростью. Дополнительную информацию см. в разделе [Кодирование ресурса](media-services-encode-asset.md).
 - Служба доставки ключей кэширует политику ContentKeyAuthorizationPolicy и связанные с ней объекты (параметры и ограничения политики) за 15 минут. Если создать политику ContentKeyAuthorizationPolicy и задать для нее ограничение "по маркеру", а затем протестировать ее, то последующее обновление для использования ограничения "открытая" займет примерно 15 минут.
 
@@ -49,7 +49,7 @@
 ##Практическое руководство. Настройка политики авторизации ключей
 
 Чтобы настроить политику авторизации ключей, выберите страницу **ЗАЩИТА СОДЕРЖИМОГО**.
-	
+
 Службы мультимедиа поддерживают несколько способов аутентификации пользователей, которые запрашивают ключи. В политике авторизации ключей содержимого могут быть заданы ограничения авторизации — **открытое**, **по маркеру** или **по IP-адресу** (**IP-адрес** можно настроить с помощью пакета SDK для .NET или REST).
 
 ###Ограничение открытого типа
@@ -71,23 +71,15 @@
 ###PlayReady
 
 Когда защита содержимого выполняется с помощью **PlayReady**, в политике авторизации необходимо помимо прочего указать XML-строку, определяющую шаблон лицензии PlayReady. По умолчанию задана следующая политика:
-		
-	<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
-	  <LicenseTemplates>
-	    <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
-	      <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-	      <LicenseType>Nonpersistent</LicenseType>
-	      <PlayRight>
-	        <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
-	      </PlayRight>
-	    </PlayReadyLicenseTemplate>
-	  </LicenseTemplates>
-	</PlayReadyLicenseResponseTemplate>
+
+<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"> <LicenseTemplates> <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices> <ContentKey i:type="ContentEncryptionKeyFromHeader" /> <LicenseType>Nonpersistent</LicenseType> <PlayRight> <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput> </PlayRight> </PlayReadyLicenseTemplate> </LicenseTemplates> </PlayReadyLicenseResponseTemplate>
 
 При этом вы можете нажать кнопку **Импорт XML-файла политики** и выбрать другой XML-файл, который соответствует схеме XML, определенной [здесь](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 
-##Схемы обучения работе со службами мультимедиа
+##Дальнейшие действия
+
+Просмотрите схемы обучения работе со службами мультимедиа.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -96,13 +88,10 @@
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##Дальнейшие действия
-После того как вы настроили политики авторизации ключей содержимого, перейдите к разделу [Практическое руководство. Включение шифрования с помощью классического портала Azure](media-services-manage-content.md#encrypt).
+
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
 
- 
-
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

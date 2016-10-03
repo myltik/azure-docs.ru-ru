@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Общие сведения о динамической упаковке"
-	description="В этом разделе представлены общие сведения о технологии динамической упаковки."
+	pageTitle="Общие сведения о динамической упаковке | Microsoft Azure"
+	description="В этой статье представлены общие сведения о технологии динамической упаковки."
 	authors="Juliako"
 	manager="erikre"
 	editor=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
@@ -34,7 +34,7 @@
 ![Динамическое кодирование](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 
->[AZURE.NOTE]Для использования динамической упаковки вам потребуется получить по крайней мере одну единицу потоковой передачи по запросу для конечной точки потоковой передачи, из которой планируется передавать содержимое. Дополнительную информацию см. в статье [Масштабирование служб мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Для использования динамической упаковки вам потребуется получить по крайней мере одну единицу потокового воспроизведения по запросу для конечной точки потоковой передачи, из которой планируется передавать содержимое. Дополнительную информацию см. в статье [Масштабирование служб мультимедиа](media-services-portal-manage-streaming-endpoints.md).
 
 ##Стандартный сценарий
 
@@ -56,11 +56,11 @@
 3. [Выполните потоковую передачу содержимого](media-services-deliver-content-overview.md).
 
 -ИЛИ-
- 
+
 1. Отправьте предварительно закодированные MP4-файлы.
 
-	>[AZURE.NOTE] Этот вариант не рекомендуется.
-	
+>[AZURE.NOTE] Этот вариант не рекомендуется.
+
 2. [Проверьте предварительно закодированные файлы](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
 3. [Выполните потоковую передачу содержимого](media-services-deliver-content-overview.md).
 
@@ -80,4 +80,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

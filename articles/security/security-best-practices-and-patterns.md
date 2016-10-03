@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/08/2016"
+   ms.date="09/16/2016"
    ms.author="terrylan"/>
 
 # Рекомендации и шаблоны для обеспечения безопасности в Azure
@@ -26,7 +26,7 @@
 - [Рекомендации по обеспечению безопасности "Интернета вещей"](azure-security-iot-best-practices.md)
 - [Рекомендации по обновлению программного обеспечения в Microsoft Azure IaaS](azure-security-best-practices-software-updates-iaas.md)
 - [Облачные службы Microsoft Cloud и сетевая безопасность](../best-practices-network-security.md)
-- [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md) (Реализация защищенной гибридной сетевой архитектуры в Azure)
+- [Implementing a secure hybrid network architecture in Azure (Реализация защищенной гибридной сетевой архитектуры в Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
 Azure — это безопасная платформа для создания пользовательских решений. Кроме того, для защиты ваших решений в Azure мы дополнительно предоставляем разные службы и технологии. Так как доступно множество параметров, многие пользователи интересуются способами защиты, рекомендуемыми специалистами Майкрософт.
 
@@ -44,4 +44,4 @@ Azure — это безопасная платформа для создания
 
 Мы надеемся в скором времени добавить еще много статей со сведениями и рекомендациями об архитектуре безопасности Azure. Если вы хотите увидеть статьи на те или иные темы, сообщите нам об этом в дискуссионном разделе в нижней части этой страницы.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

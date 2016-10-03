@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="09/20/2016"
 	ms.author="glenga"/>
 
 # Создание приложения списка лидеров с помощью внутреннего сервера .NET мобильных служб Azure
@@ -270,7 +270,7 @@ DTO — это объект, который определяет способ о
 Удалите следующие методы из `PlayerRankController`:
 
 - `PatchPlayerRank`
-- `PostPlayerRank`
+- .`PostPlayerRank`
 - `DeletePlayerRank`
 
 Затем добавьте следующий код в `PlayerRankController`:
@@ -612,7 +612,7 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 	    }
 	}
 
-После локальной отладки мобильная служба запускается в IIS Express. Visual Studio назначает случайный номер порта, поэтому локальный URL-адрес указывается как http://localhost:*port*, где *port* — номер порта. Чтобы получить номер порта, запустите службу в Visual Studio, нажав клавишу F5 для отладки. Visual Studio запустит браузер и перейдет по URL-адресу службы. Локальный URL-адрес можно также найти в свойствах проекта в разделе **Веб-служба**.
+После локальной отладки мобильная служба запускается в IIS Express. Visual Studio назначает случайный номер порта, поэтому локальный URL-адрес указывается как http://localhost:*port*, где *port* — номер порта. Чтобы получить номер порта, запустите службу в Visual Studio, нажав клавишу F5 для отладки. Visual Studio запустит браузер и перейдет по URL-адресу службы. Локальный URL-адрес можно также найти в свойствах проекта в разделе **Веб-служба**.
 
 ## Создание главной страницы
 
@@ -737,7 +737,7 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 [Publish your mobile service]: #publish-your-mobile-service
 [Next Steps]: #next-steps
 
-<!-- Images. -->
+.<!-- Images. -->
 
 [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
 [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/02leaderboard.png
@@ -765,4 +765,4 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 [Добавление push-уведомлений]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0921_2016-->

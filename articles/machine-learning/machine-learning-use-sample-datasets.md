@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -47,217 +47,218 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <tr>
   <td valign=top>набор данных Adult Census Income Binary Classification;</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-adult-census-income](../../includes/machine-learning-sample-dataset-adult-census-income.md)]
+Подмножество данных из базы данных переписи 1994 года с информацией о работающих взрослых старше 16 лет с регулируемым индексом роста дохода > 100.<p> </p><b>Использование:</b> классификация людей с помощью демографических данных для прогнозирования, зарабатывает ли человек более 50 000 в год.<p> </p><b>Связанные исследования:</b> Kohavi, R., Becker, B., (1996). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
 <tr ID=airport-codes-dataset>
   <td valign=top>Набор данных кодов аэропортов</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-airport-codes](../../includes/machine-learning-sample-dataset-airport-codes.md)]
+Коды аэропортов США.<p> </p>Этот набор данных содержит по одной строке для каждого аэропорта США, где указывается идентификационный номер аэропорта, его название, а также город и штат, в котором он находится.
   </td>
 </tr>
 
 <tr>
   <td valign=top>данные о ценах на автомобили (необработанные);</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-automobile-price](../../includes/machine-learning-sample-dataset-automobile-price.md)]
+Информация об автомобилях по изготовителю и модели, включая цену, особенности, например, число цилиндров и MPG, а также оценки страховых рисков.<p> </p>Оценка рисков изначально связывается с ценой автомобиля, а затем регулируется по фактическому риску в процессе, известном актуариям как symboling. Значение "+3" указывает, что автомобиль является опасным, а значение "-3" — что, вероятно, он довольно безопасен.<p> </p><b>Использование:</b> прогнозирование оценки рисков с учетом особенностей с помощью регрессионной или многомерной классификации. <p> </p><b>Связанное исследование:</b> Schlimmer, J.C. (1987). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
 <tr ID=bike-rental-uci-dataset>
   <td valign=top>Набор данных по прокату велосипедов UCI</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-bike-rental-uci-dataset](../../includes/machine-learning-sample-dataset-bike-rental-uci-dataset.md)]
+Набор данных по прокату велосипедов UCI, основанный на реальных данных компании Capital Bikeshare, которая обслуживает сеть проката велосипедов в Вашингтоне, округ Колумбия.<p> </p>Набор данных имеет по одной строке на каждый час каждого дня за 2011 и 2012 гг., что в результате дает 17&#160;379 строк. Диапазон количества прокатов велосипедов в час составляет от 1 до 977.
+
   </td>
 </tr>
 
 <tr ID=bill-gates-rgb-image>
   <td valign=top>Изображение RGB Билла Гейтса</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-bill-gates-rgb-image](../../includes/machine-learning-sample-dataset-bill-gates-rgb-image.md)]
+Общедоступный файл изображения, преобразованный в данные в формате CSV.<p> </p>Код для преобразования изображения приводится на странице информации о модели <strong>Квантование цветов с использованием кластеризации k-средних</strong>.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Данные о донорах крови</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-blood-donation](../../includes/machine-learning-sample-dataset-blood-donation.md)]
+Подмножество данных из базы данных доноров Центра переливания крови в Синьчжу-Сити, Тайвань.<p> </p>Данные о донорах включают в себя число месяцев после последней дачи крови, частота или общее количество дач крови, время, прошедшее с даты последней дачи крови, и объем сданной (донорской) крови.<p> </p><b>Использование:</b> прогнозирование того, сдавал ли донор кровь в марте 2007 г., путем классификации, где "1" обозначает донора в течение целевого периода, а 0 — не донора. <p> </p><b>Связанное исследование:</b> Yeh, I.C., (2008). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук. <p> </p>Yeh, I-Cheng, Yang, King-Jang и Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
 <tr ID=book-reviews-from-amazon>
   <td valign=top>Обзоры книг на Amazon</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-book-reviews-from-amazon](../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]
+Обзор книг на Amazon, взятый с веб-сайта amazon.com и выполненный исследователями Пенсильванского университета (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">мнения читателей</a>). См. исследовательскую работу "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification", John Blitzer, Mark Dredze и Fernando Pereira; Ассоциация компьютерной лингвистики (ACL), 2007.<p> </p>Исходный набор данных содержит 975 тысяч отзывов с оценками 1, 2, 3, 4 и 5. Отзывы написаны на английском языке и относятся к периоду 1997-2007 гг. Количество примеров отзывов в этом наборе данных уменьшено до 10 тысяч.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Данные о раке молочной железы</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-data](../../includes/machine-learning-sample-dataset-breast-cancer-data.md)]
+Один из трех наборов данных, связанных с раком, предоставленных Институтом онкологии, который часто используется в литературе о машинном обучении. Объединяет диагностическую информацию с функциями из лабораторных анализов приблизительно с 300 образцами ткани.<p> </p><b>Использование:</b> классификация типа рака на основе 9 атрибутов, некоторые из которых являются линейными, а некоторые — категориальными. <p> </p><b>Связанное исследование:</b> Wohlberg, W.H., Street, W.N. и Mangasarian, O.L. (1995). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
 <tr ID=breast-cancer-features>
   <td valign=top>Признаки рака молочной железы
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-features](../../includes/machine-learning-sample-dataset-breast-cancer-features.md)]
+Набор данных содержит сведения о 102&#160;тыс. подозрительных областях (кандидатов) на рентгеновских снимках с описаниями 117 признаков для каждого. Признаки являются конфиденциальной информацией и их содержание не раскрывается создателями набора данных (Siemens Healthcare). 
   </td>
 </tr>
 
 <tr ID=breast-cancer-info>
   <td valign=top>Информация о раке молочной железы</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-info](../../includes/machine-learning-sample-dataset-breast-cancer-info.md)]
+Набор данных содержит дополнительные сведения о каждой подозрительной области рентгеновского снимка. В каждом примере содержится информация (например, метка, идентификатор пациента, координаты участка относительно всего изображения) о номере соответствующей строки в наборе данных "Признаки рака молочной железы". Каждый пациент имеет ряд примеров. Для пациентов, больных раком, часть примеров — положительные, а часть — отрицательные. Для пациентов, не больных раком, все примеры — отрицательные. Набор данных включает 102&#160;тыс. примеров. Набор является односторонним: 0,6&#160;% баллов положительные, остальные — отрицательные. Набор данных предоставлен Siemens Healthcare.
   </td>
 </tr>
 
 <tr ID=crm-appetency-labels-shared>
   <td valign=top>Общие метки стремления CRM</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-crm-appetency-labels-shared](../../includes/machine-learning-sample-dataset-crm-appetency-labels-shared.md)]
+Метки с KDD Cup 2009 — конкурс прогнозистов, использующих программы взаимоотношения с клиентами (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels">orange_small_train_appetency.labels</a>).
   </td>
 </tr>
 
 <tr ID=crm-churn-labels-shared>
   <td valign=top>Общие метки оттока CRM</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-crm-churn-labels-shared](../../includes/machine-learning-sample-dataset-crm-churn-labels-shared.md)]
+Метки с KDD Cup 2009 — конкурс прогнозистов, использующих программы взаимоотношения с клиентами (<a href="http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels">orange_small_train_churn.labels</a>).
   </td>
 </tr>
 
 <tr ID=crm-dataset-shared>
   <td valign=top>Общий набор данных CRM</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-crm-dataset-shared](../../includes/machine-learning-sample-dataset-crm-dataset-shared.md)]
+Эти данные взяты с KDD Cup 2009 — конкурса прогнозистов, использующих программы взаимоотношения с клиентами (<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>).<p> </p>Набор данных включает в себя 50 тысяч клиентов французской телекоммуникационной компании Orange. У каждого клиента есть 230 обезличенных характеристик, из которых 190 — числовые, а 40 — категорийные. Характеристики являются очень разреженными.
   </td>
 </tr>
 
 <tr ID=crm-upselling-labels-shared>
   <td valign=top>Общие метки увеличения суммы покупок CRM</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-crm-upselling-labels-shared](../../includes/machine-learning-sample-dataset-crm-upselling-labels-shared.md)]
+Метки с KDD Cup 2009 — конкурс прогнозистов, использующих программы взаимоотношения с клиентами (<a href="http://www.sigkdd.org/site/2009/files/orange_large_train_upselling.labels">orange_large_train_upselling.labels</a>).
   </td>
 </tr>
 
 <tr>
   <td valign=top>Данные о регрессии энергетического КПД</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-energy-efficiency-regression](../../includes/machine-learning-sample-dataset-energy-efficiency-regression.md)]
+Набор смоделированных профилей энергии, основанных на 12 различных формах здания. Здания отличаются 8-ю факторами, например, зоной застекления, распределением зоны застекления, а также ориентацией.<p> </p><b>Использование:</b> использование регрессии или классификации для прогнозирования оценки энергетического КПД, основанной на одном из двух реальных ответов. Для многоклассовой классификации переменная ответа округляется до ближайшего целого числа. <p> </p><b>Связанное исследование:</b> Xifara, A. &amp; Tsanas, A. (2012). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
 <tr ID=flight-delays-data>
   <td valign=top>Данные о задержках рейсов</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-flight-delays-data](../../includes/machine-learning-sample-dataset-flight-delays-data.md)]
+Данные о соблюдении графиков пассажирских рейсов взяты из массива данных TranStats Министерства транспорта США (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">данные о соблюдении графиков</a>).<p> </p>Набор данных охватывает период времени с апреля по октябрь 2013&#160;г. Перед отправкой в Azure ML Studio набор данных был обработан следующим образом:<ul><li>Набор данных был отфильтрован, чтобы охватывать только 70 самых загруженных аэропортов в континентальной части США.</li><li>Отмененные рейсы были отмечены как задержанные более, чем на 15 минут.</li><li>Рейсы с отклонением были удалены.</li><li>Были выбраны следующие столбцы: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled.</li></ul>
 </td>
 </tr>
 
 <tr>
   <td valign=top>Данные о соблюдении графиков рейсов (необработанные)</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-flight-on-time-performance](../../includes/machine-learning-sample-dataset-flight-on-time-performance.md)]
+Записи об отправлении и прибытии авиарейсов в США начиная с октября 2011&#160;г.<p> </p><b>Использование:</b> прогнозирование задержки рейсов. <p> </p><b>Связанное исследование:</b> данные Министерства транспорта США <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</a>.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Данные о лесных пожарах</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-forest-fires](../../includes/machine-learning-sample-dataset-forest-fires.md)]
+Содержит данные о погоде, такие как температура, влажность и скорость ветра, из северо-восточной Португалии, объединенные с записями о лесных пожарах.<p> </p><b>Использование:</b> это сложная регрессионная задача, цель которой состоит в прогнозировании площади выгорания из-за лесных пожаров. <p> </p><b>Связанное исследование:</b> Cortez, P., &amp; Morais, A. (2008). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук. <p> </p>[Cortez и Morais, 2007] P. Cortez и A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos и J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 — Portuguese Conference on Artificial Intelligence, декабрь, Гимарайнш, Португалия, с. 512–523, 2007 г. APPIA, ISBN-13 978-989-95618-0-9. Доступно по адресу: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
 <tr ID=german-credit-card-uci-dataset>
   <td valign=top>Набор данных German Credit Card UCI</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+Набор данных журнала регистрации статистики UCI (German Credit Card) (<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog+German+Credit+Data</a>) с использованием файла german.data.<p> </p>Набор данных классифицирует людей, описываемых набором атрибутов, как заемщиков с низким или высоким уровнем рисков. Каждый пример представляет собой физическое лицо. Имеется 20 показателей, как числовых, так и категорийных, и двоичная метка (уровень кредитного риска). Записи с высоким уровнем риска имеют метку со значением 2, записи с низким уровнем риска имеют метку со значением 1. Стоимость ошибочной классификации низкого уровня риска как высокого — 1, а стоимость ошибочной классификации высокого уровня риска как низкого — 5.
   </td>
 </tr>
 
 <tr ID=imdb-movie-titles>
   <td valign=top>Названия фильмов на сайте IMDB</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-imdb-movie-titles](../../includes/machine-learning-sample-dataset-imdb-movie-titles.md)]
+Набор данных содержит информацию о фильмах, оцененных в твитах Twitter: идентификатор фильма IMDB, название и жанр фильма, год выхода. В наборе данных содержится 17&#160;тыс. фильмов. Набор данных был представлен в документе "S. Dooms, T. De Pessemier and L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
   </td>
 </tr>
 
 <tr>
   <td valign=top>Двухклассовые данные об ирисе</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-iris-two-class](../../includes/machine-learning-sample-dataset-iris-two-class.md)]
+Возможно, это наиболее известная база данных, которую можно найти в литературе по распознаванию образов. Набор данных относительно небольшой и содержит 50 примеров измерения лепестков из трех разновидностей ириса.<p> </p><b>Использование:</b> прогнозирование типа ириса на основе результатов измерений.  <p> </p><b>Связанное исследование:</b> Fisher, R.A. (1988). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
 <tr ID=movie-tweets>
   <td valign=top>Твиты о фильмах</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-movie-tweets](../../includes/machine-learning-sample-dataset-movie-tweets.md)]
+Набор данных является расширенной версией набора данных Movie Tweeting. Набор данных содержит 170&#160;тыс. оценок фильмов, извлеченных из хорошо структурированных твитов в Twitter. Каждый экземпляр представляет собой твит и является кортежем: идентификатор пользователя, идентификатор фильма IMDB, оценка, метка времени, число добавлений в избранное для твита и число ретвитов. Набор данных предоставлен A. Said, S. Dooms, B. Loni и D. Tikk для Recommender Systems Challenge 2014.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Данные об MPG для различных автомобилей</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-automobile-mpg](../../includes/machine-learning-sample-dataset-automobile-mpg.md)]
+Этот набор данных является слегка модифицированной версией набора данных, предоставленного библиотекой StatLib университета Карнеги-Меллон. Набор данных использовался на выставке Американской статистической ассоциации 1983 г.<p> </p>Данные включают в себя потребление топлива для различных автомобилей в милях за галлон вместе с такой информацией, как число цилиндров, объем двигателя, мощность в лошадиных силах, общая масса и разгон.<p> </p><b>Использование:</b> прогнозирование уровня экономии топлива на основе 3 многозначных дискретных атрибутов и 5 непрерывных атрибутов. <p> </p><b>Связанное исследование:</b> StatLib, Университет Карнеги-Меллон, (1993). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Набор данных Pima Indians Diabetes Binary Classification</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-pima-indians-diabetes](../../includes/machine-learning-sample-dataset-pima-indians-diabetes.md)]
+Подмножество данных из базы данных национального института диабета, болезней пищеварительного тракта и почек. Набор данных был подвержен фильтрации для отбора пациенток из индейского племени пима. Сведения включают в себя медицинские данные, например, уровни глюкоза и инсулина, а также факторы образа жизни.<p> </p><b>Использование:</b> прогнозирование диабета у людей (двоичная классификация). <p> </p><b>Связанное исследование:</b> Sigillito, V. (1990). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Данные о клиентах ресторанов</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-customer-data](../../includes/machine-learning-sample-dataset-restaurant-customer-data.md)]
+Набор метаданных о клиентах, включая демографические сведения и предпочтения.<p> </p><b>Использование:</b> этот набор данных в комбинации с другими двумя наборами данных о ресторанах применяется для обучения и тестирования системы рекомендаций. <p> </p><b>Связанное исследование:</b> Bache, K. and Lichman, M. (2013). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Данные об услугах ресторанов</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-feature-data](../../includes/machine-learning-sample-dataset-restaurant-feature-data.md)]
+Набор метаданных о ресторанах и их услугах, например о типе пищи, стиле ресторанов и местоположении.<p> </p><b>Использование:</b> этот набор данных в комбинации с другими двумя наборами данных о ресторанах применяется для обучения и тестирования системы рекомендаций. <p> </p><b>Связанное исследование:</b> Bache, K. and Lichman, M. (2013). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Оценки ресторанов</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-ratings](../../includes/machine-learning-sample-dataset-restaurant-ratings.md)]
+Содержит оценки, данные ресторанам пользователями по шкале от 0 до&#160;2.<p> </p><b>Использование:</b> этот набор данных в комбинации с другими двумя наборами данных о ресторанах применяется для обучения и тестирования системы рекомендаций. <p> </p><b>Связанное исследование:</b> Bache, K. and Lichman, M. (2013). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Многоклассовый набор данных об отжиге стали</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-steel-annealing](../../includes/machine-learning-sample-dataset-steel-annealing.md)]
+Этот набор данных содержит различные записи испытаний отжига стали с физическими атрибутами (ширина, толщина, тип (рулонная, листовая и т.&#160;д.)) результирующих типов стали.<p> </p><b>Использование:</b> прогнозирование любого из двух числовых атрибутов класса (твердость или сопротивление). Вы также можете анализировать корреляции между атрибутами.<p> </p>Марка стали соответствует заданному стандарту, определенному ассоциацией SAE и другими организациями. Для конкретной марки стали (переменной класса) вы хотите определить необходимые значения. <p> </p><b>Связанное исследование:</b> Sterling, D. &amp; Buntine, W., (NA). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных и компьютерных наук. <p> </p>Полезное руководство по маркам стали: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Данные телескопов</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-telescope-data](../../includes/machine-learning-sample-dataset-telescope-data.md)]
+Записи данных о пучках высокоэнергетичных гамма-частиц вместе с фоновым шумом, которые моделируются с помощью метода Монте-Карло.<p> </p>Цель моделирования заключалась в повышении уровня точности наземных атмосферных гамма-телескопов Черенкова с помощью статистических методов дифференцирования требуемого сигнала (ливни радиации Черенкова) и фонового шума (адронные ливни, инициируемые космическими лучами в верхней атмосфере).<p> </p>Данные были предварительно обработаны для создания удлиненного кластера с продольной осью, ориентированной в центр камеры. Характеристики этого эллипса (часто называемыми параметрами «Hillas») относятся к параметрам изображения, которые могут использоваться для распознавания.<p> </p><b>Использование:</b> прогнозирование того, представляет ли изображение ливня сигнал или фоновый шум.<p> </p><b>Примечания.</b> Уровень точности простой классификации не имеет значения для этих данных, так как классификация фонового события в качестве сигнала хуже, чем классификация события сигнала в качестве фона. Для сравнения различных классификаторов следует использовать график ROC. Вероятность классификации фонового события в качестве сигнала должна быть меньше одного из следующих пороговых значений: 0,01, 0,02, 0,05, 0,1 или 0,2.<p> </p>Кроме того, следует отметить, что число фоновых событий (h — адронные ливни) является недооцененной, в то время как при реальных измерениях "h" (класс шума) представляет большинство событий. <p> </p><b>Связанное исследование:</b> Bock, R.K. (1995). Репозиторий машинного обучения UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Ирвин: Калифорнийский университет, школа информационных наук
   </td>
 </tr>
 
 <tr ID=weather-dataset>
   <td valign=top>Набор погодных данных</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../../includes/machine-learning-sample-dataset-weather-dataset.md)]
+Результаты ежечасных наземных наблюдений за погодой от NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">объединенные данные от 04.2013 до 10.2013</a>).<p> </p>Данные представляют собой наблюдения погоды, осуществленные с метеорологических станций аэропортов, которые охватывают период времени с апреля по октябрь 2013&#160;г. Перед отправкой в Azure ML Studio набор данных был обработан следующим образом:<ul><li>Идентификаторы метеорологических станций были сопоставлены с соответствующими идентификаторами аэропортов.</li><li>Метеорологические станции, не связанные с 70 самыми загруженными аэропортами, были удалены.</li><li>Столбец «Date» (Дата) был разделен на отдельные столбцы «Year» (Год), «Month» (Месяц) и «Day» (День).</li><li>Были выбраны следующие столбцы: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter.</li></ul>
   </td>
 </tr>
 
 <tr ID=wikipedia-sp-500-dataset>
   <td valign=top>Набор данных SP 500 из Википедии</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-wikipedia-sp-500](../../includes/machine-learning-sample-dataset-wikipedia-sp-500.md)]
+Данные получены из Википедии (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) и основаны на статьях о каждой из компаний, включенной в фондовый индекс S&amp;P 500. Данные сохранены в формате XML.<p> </p>Перед отправкой в Azure ML Studio набор данных был обработан следующим образом:<ul><li>Был извлечен текст по каждой конкретной компании</li><li>Удалено форматирование Википедии</li><li>Удалены символы, не являющиеся буквами или цифрами</li><li>Весь текст преобразован в нижний регистр</li><li>Были добавлены известные категории компаний</li></ul><p> </p>Обратите внимание, что удалось найти статьи не для всех компаний, поэтому число записей меньше, чем 500.
   </td>
 </tr>
 
@@ -268,42 +269,44 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <tr ID=direct-marketing>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-direct-marketing](../../includes/machine-learning-sample-dataset-direct-marketing.md)]
+Набор данных содержит данные клиентов и их реакцию на кампанию прямой рассылки. В каждой строке представлен один клиент. Набор данных содержит 9 признаков с демографическими данными и прошлым поведением пользователя и 3 столбца с метками (посещение, конвертация и расходы). "Посещение" является двоичным столбцом, который указывает, что клиент нанес визит после маркетинговой кампании, "Конвертация" означает, что клиент приобрел что-то, а в столбце "Расходы" указывается потраченная сумма. Набор данных предоставлен Кевином Хиллстромом (Kevin Hillstrom) для MineThatData E-Mail Analytics And Data Mining Challenge.
   </td>
 </tr>
 
 <tr ID=lyrl2004-tokens-test>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-test](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-test.md)]
+Характеристики тестовых примеров в наборе данных новостей RCV1-V2 Reuters. Набор данных содержит 781&#160;тыс. новостных статей с идентификаторами (первый столбец набора данных). Для каждой статьи выполнен анализ по лексемам, стоп-словам и однокоренным словам. Набор данных предоставлен Дэвидом Д. Льюисом (David. D. Lewis).
   </td>
 </tr>
 
 <tr ID=lyrl2004-tokens-train>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-train](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-train.md)]
+Характеристики учебных примеров в наборе данных новостей RCV1-V2 Reuters. Набор данных содержит 23&#160;тыс. новостных статей с идентификаторами (первый столбец набора данных). Для каждой статьи выполнен анализ по лексемам, стоп-словам и однокоренным словам. Набор данных предоставлен Дэвидом Д. Льюисом (David. D. Lewis).
   </td>
 </tr>
 
 <tr ID=intrusion-detection>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-network-intrusion](../../includes/machine-learning-sample-dataset-network-intrusion.md)]
+Набор данных с конкурса KDD Cup 1999: инструменты обнаружения знаний и интеллектуального анализа данных (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).<p> </p>Набор данных был скачан и сохранен в хранилище BLOB-объектов Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>). Он включает в себя наборы данных для обучения и тестирования. Набор данных для обучения содержит примерно 126 тысяч строк и 43 столбца, включая метки; 3 столбца являются частью информации меток, а 40 столбцов, состоящие из числовых и строчных (категорийных) характеристик, доступны для обучения модели. Тестовые данные содержат приблизительно 22&#160;500 тестовых примеров (с теми же 43 столбцами, что и данные для обучения).
+
   </td>
 </tr>
 
 <tr ID=rcv1-v2-topics-qrels>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-rcv1-v2-topics](../../includes/machine-learning-sample-dataset-rcv1-v2-topics.md)]
+Назначения разделов для новостных статей в наборе данных новостей RCV1-V2 Reuters. Новостная статья может быть назначена для нескольких разделов. Каждая строка имеет формат "<topic name> <document id> 1". Набор данных содержит 2,6 млн назначений разделов. Набор данных предоставлен Дэвидом Д. Льюисом (David. D. Lewis).
   </td>
 </tr>
 
 <tr ID=student-performance>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-student-performance](../../includes/machine-learning-sample-dataset-student-performance.md)]
+Эти данные взяты с состязания KDD Cup 2010: аттестация студентовв (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). Использованные данные: обучающий набор данных Algebra_2008_2009 (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., &amp; Koedinger, K.R. (2010). Алгебра 2008-2009. Опробуйте набор данных из состязания KDD Cup 2010: интеллектуальный анализ образовательных данных. Он находится в файле <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> или <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.<p> </p>Набор данных был скачан и сохранен в хранилище BLOB-объектов Azure (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>). Он содержит файлы журналов из системы обучения студентов. Задаваемыми характеристиками являются идентификатор проблемы и ее краткое описание, идентификатор учащегося, метка времени, а также количество попыток, которые сделал учащийся перед правильным решением проблемы. Исходный набор данных содержит 8,9 млн записей; количество строк в этом наборе данных уменьшено до первых 100 тысяч строк. Набор данных содержит 23 столбца с разделителем-табуляцией различных типов: числа, категории и метки времени.
+
   </td>
 </tr>
 
@@ -316,4 +319,4 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

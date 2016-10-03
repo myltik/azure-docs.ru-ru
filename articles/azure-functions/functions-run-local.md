@@ -219,7 +219,8 @@
 
 * [Справочник разработчика по функциям Azure](functions-reference.md)
 * [Справочник разработчика C# по функциям Azure](functions-reference-csharp.md)
+* [Справочник разработчика F# по функциям Azure](functions-reference-fsharp.md)
 * [Справочник разработчика NodeJS по функциям Azure](functions-reference-node.md)
 * [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

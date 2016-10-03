@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Устранение неполадок: элемент Active Directory отсутствует или недоступен | Microsoft Azure"
+   pageTitle="Устранение неполадок: элемент Active Directory отсутствует или недоступен | Microsoft Azure "
    description="Что делать, если пункт меню Active Directory не отображается на портале управления Azure."
    services="active-directory"
    documentationCenter="na"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/31/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
 # Устранение неполадок: элемент Active Directory отсутствует или недоступен
 
-Многие указания по использованию функций и служб Azure Active Directory начинаются с «Перейдите на портал управления Azure и щелкните **Active Directory**». Но что делать, если расширение или пункт меню Active Directory не отображается или помечен **Недоступно**? Вы найдете ответ в этом разделе. В нем описываются условия, при которых элемент **Active Directory** не отображается или недоступен, и дальнейшие действия в такой ситуации.
+Многие указания по использованию функций и служб Azure Active Directory начинаются с «Перейдите на портал управления Azure и щелкните **Active Directory**». Но что делать, если расширение или пункт меню Active Directory не отображается или помечен **Недоступно**? В этой статье вы найдете нужные ответы. В ней описываются условия, при которых элемент **Active Directory** не отображается или недоступен, и дальнейшие действия в такой ситуации.
 
 ## Active Directory отсутствует
 
@@ -54,4 +54,4 @@
 
 ![Снимок экрана: Active Directory недоступен](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Настройка политики авторизации ключей содержимого с помощью пакета SDK служб мультимедиа для .NET" 
+	pageTitle="Настройка политики авторизации ключей содержимого с помощью пакета SDK служб мультимедиа для .NET | Microsoft Azure" 
 	description="Узнайте, как настроить политику авторизации для ключа содержимого с помощью пакета SDK для .NET служб мультимедиа." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,Mingfeiy" 
+	authors="Mingfeiy" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,12 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;mingfeiy"/>
 
 
 
-#Динамическое шифрование: настройка политики авторизации ключа содержимого 
+# Динамическое шифрование: настройка политики авторизации ключа содержимого
+
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ##Обзор
@@ -45,7 +46,7 @@
 
 ###Важные особенности
 
-- Чтобы иметь возможность использовать динамическую упаковку и динамическое шифрование, необходимо иметь по крайней мере одну зарезервированную единицу потоковой передачи. Дополнительную информацию см. в разделе [Масштабирование службы мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints).
+- Чтобы иметь возможность использовать динамическую упаковку и динамическое шифрование, необходимо иметь по крайней мере одну зарезервированную единицу потоковой передачи. Дополнительную информацию см. в разделе [Масштабирование службы мультимедиа](media-services-portal-manage-streaming-endpoints.md).
 - Ресурс должен содержать набор MP4-файлов с адаптивной скоростью или файлов Smooth Streaming с адаптивной скоростью. Дополнительную информацию см. в разделе [Кодирование ресурса](media-services-encode-asset.md).
 - Отправляйте и кодируйте ресурсы с помощью параметра **AssetCreationOptions.StorageEncrypted**.
 - Если вы планируете использовать несколько ключей содержимого, для которых требуется одинаковая конфигурация политики, настоятельно рекомендуется создать единую политику авторизации и повторно использовать ее с несколькими ключами содержимого.
@@ -54,24 +55,17 @@
 - Сейчас шифрование формата потоковой передачи HDS или последовательных скачиваний не поддерживается.
 
 
-##Динамическое шифрование AES-128 
+##Динамическое шифрование AES-128
 
 ###Ограничение "открытая"
 
 Ограничение открытого типа означает, что система будет доставлять ключ всем, кто его запросит. Это ограничение подходит для тестирования.
 
 В следующем примере создается политика авторизации типа "открытая", которая затем добавляется в ключ содержимого.
-	
-	static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
-	{
-	    // Create ContentKeyAuthorizationPolicy with Open restrictions 
-	    // and create authorization policy             
-	    IContentKeyAuthorizationPolicy policy = _context.
-	                            ContentKeyAuthorizationPolicies.
-	                            CreateAsync("Open Authorization Policy").Result;
-	
-	    List<ContentKeyAuthorizationPolicyRestriction> restrictions =
-	        new List<ContentKeyAuthorizationPolicyRestriction>();
+
+static public void AddOpenAuthorizationPolicy(IContentKey contentKey) { // Create ContentKeyAuthorizationPolicy with Open restrictions // and create authorization policy IContentKeyAuthorizationPolicy policy = \_context. ContentKeyAuthorizationPolicies. CreateAsync("Open Authorization Policy").Result;
+
+List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>();
 	
 	    ContentKeyAuthorizationPolicyRestriction restriction =
 	        new ContentKeyAuthorizationPolicyRestriction
@@ -239,7 +233,7 @@
 
 При защите содержимого с помощью PlayReady, среди прочего, в политике авторизации необходимо указать XML-строку, определяющую [шаблон лицензии PlayReady](media-services-playready-license-template-overview.md). Классы **PlayReadyLicenseResponseTemplate** и **PlayReadyLicenseTemplate** в пакет SDK служб мультимедиа для .NET помогут определить шаблон лицензии PlayReady.
 
-[В этом разделе](media-services-protect-with-drm.md) описывается шифрование содержимого с помощью **PlayReady** и **Widevine**.
+[В этой статье](media-services-protect-with-drm.md) описывается шифрование содержимого с помощью **PlayReady** и **Widevine**.
 
 ###Ограничение "открытая"
 	
@@ -437,10 +431,8 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
 ##Дальнейшие действия
 Теперь, после настройки политики авторизации ключа содержимого, перейдите к разделу [Как настроить политику доставки ресурсов](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Доставка содержимого клиентам | Microsoft Azure"
-	description="В этом разделе представлен обзор доставки содержимого с помощью служб мультимедиа Azure."
+	description="В этой статье представлен обзор доставки содержимого с помощью служб мультимедиа Azure."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 
 # Доставка содержимого клиентам
-При доставке содержимого клиентам в виде потоковой трансляции или видео по запросу ваша задача – доставлять видео высокого качества для различных устройств в разных сетевых условиях.
+При доставке содержимого клиентам в виде потоковой трансляции или видео по запросу ваша задача — доставлять видео высокого качества для различных устройств в разных сетевых условиях.
 
 Для достижения этой цели можно сделать следующее.
 
@@ -36,7 +36,7 @@
 Чтобы воспользоваться преимуществом динамической упаковки, необходимо выполнить следующие действия:
 
 - Закодируйте мезонинный (исходный) файл в набор MP4-файлов с переменной скоростью или в набор файлов Smooth Streaming.
-- Получите по крайней мере одну единицу потоковой передачи по запросу для конечной точки потоковой передачи, из которой планируется доставлять содержимое. Дополнительную информацию см. в разделе [Масштабирование зарезервированных единиц потоковой передачи по запросу](media-services-manage-origins.md#scale_streaming_endpoints).
+- Получите по крайней мере одну единицу потоковой передачи по запросу для конечной точки потоковой передачи, из которой планируется доставлять содержимое. Дополнительные сведения см. в статье [Управление конечными точками потоковой передачи с помощью портала Azure](media-services-portal-manage-streaming-endpoints.md).
 
 Используя динамическую упаковку, можно хранить и оплачивать файлы в одном формате хранения. Службы мультимедиа будут создавать и обрабатывать соответствующий ответ с учетом ваших запросов.
 
@@ -87,7 +87,7 @@
 
 {имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=mpd-time-csf)
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 
 
@@ -95,21 +95,21 @@
 
 {имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=m3u8-aapl)
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 ### Формат Apple HTTP Live Streaming (HLS) V3
 
 {имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=m3u8-aapl-v3)
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 ### Формат Apple HTTP Live Streaming (HLS) с фильтром "только аудио"
 
 По умолчанию дорожки, содержащие только аудио, включены в манифест HLS. Это требуется для сертификации магазина Apple для сетей мобильной связи. В этом случае, если клиент не имеет достаточную пропускную способность или подключен через сеть 2G, то он переключается на воспроизведение только аудио дорожки. Это позволяет осуществлять потоковую передачу содержимого без необходимости буферизации, но и видео при этом не отображается. В некоторых сценариях буферизация проигрывателя может быть предпочтительнее воспроизведения лишь аудио дорожки. Для удаления дорожки, содержащей только аудио, добавьте к URL-адресу **audio-only=false**.
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-Дополнительные сведения см. в разделе [Azure Media Services – Dynamic Manifest Composition support and HLS output additional features](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) (Службы мультимедиа Azure — поддержка динамического создания манифестов и дополнительные функции вывода HLS).
+Дополнительные сведения см. в блоге [Azure Media Services – Dynamic Manifest Composition support and HLS output additional features](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) (Службы мультимедиа Azure — поддержка динамического создания манифестов и дополнительные функции вывода HLS).
 
 
 ### Формат Smooth Streaming
@@ -118,7 +118,7 @@
 
 Пример:
 
-	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 ### <a id="fmp4_v20"></a>Манифест Smooth Streaming 2.0 (манифест прежних версий)
 
@@ -159,7 +159,7 @@
 
 ## Конечные точки потоковой передачи
 
-Конечная точка потоковой передачи – это служба потоковой передачи, которая может доставить содержимое непосредственно в клиентское приложение проигрывателя или в сеть доставки содержимого (CDN) для дальнейшего распространения. Исходящим потоком службы конечной точки потоковой передачи может быть динамический поток или ресурс-контейнер видео по запросу в учетной записи служб мультимедиа. Кроме того, чтобы справиться с растущими потребностями в пропускной способности, можно контролировать емкость службы конечной точки потоковой передачи, регулируя число зарезервированных единиц потоковой передачи. Необходимо выделить хотя бы одну зарезервированную единицу для приложений в рабочей среде. Дополнительную информацию см. в разделе [Масштабирование службы мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints).
+Конечная точка потоковой передачи — это служба потоковой передачи, которая может доставить содержимое непосредственно в клиентское приложение проигрывателя или в сеть доставки содержимого (CDN) для дальнейшего распространения. Исходящим потоком службы конечной точки потоковой передачи может быть динамический поток или ресурс-контейнер видео по запросу в учетной записи служб мультимедиа. Кроме того, чтобы справиться с растущими потребностями в пропускной способности, можно контролировать емкость службы конечной точки потоковой передачи, регулируя число зарезервированных единиц потоковой передачи. Необходимо выделить хотя бы одну зарезервированную единицу для приложений в рабочей среде. Дополнительные сведения см. в статье [Управление конечными точками потоковой передачи с помощью портала Azure](media-services-portal-manage-streaming-endpoints.md).
 
 ## Известные проблемы
 
@@ -167,16 +167,7 @@
 
 До выпуска набора исправлений в июле 2016 года дело обстояло так. Когда ресурсы-контейнеры, генерируемые стандартным кодировщиком мультимедиа, расширенным рабочим процессом кодировщика мультимедиа или устаревшим кодировщиком мультимедиа Azure, передавались в потоке с помощью динамической упаковки, выдавался манифест Smooth Streaming версии 2.0. В нем для длительностей фрагментов не использовались так называемые теги повтора (r-tag). Например:
 
-	<?xml version="1.0" encoding="UTF-8"?>
-	<SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
-		<StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
-			<QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
-			<c t="0" d="2000" n="0" />
-			<c d="2000" />
-			<c d="2000" />
-			<c d="2000" />
-		</StreamIndex>
-	</SmoothStreamingMedia>
+<?xml version="1.0" encoding="UTF-8"?> <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000"> <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000"> <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" /> <c t="0" d="2000" n="0" /> <c d="2000" /> <c d="2000" /> <c d="2000" /> </StreamIndex> </SmoothStreamingMedia>
 
 После выпуска набора исправлений в июле 2016 года создаваемый манифест Smooth Streaming соответствует версии 2.2, в которой для длительностей фрагментов используются теги повтора. Например:
 
@@ -188,7 +179,7 @@
 		</StreamIndex>
 	</SmoothStreamingMedia>
 
-Некоторые устаревшие клиенты Smooth Streaming могут не поддерживать теги повтора и поэтому не загружать манифест. Чтобы устранить эту проблемы, воспользуйтесь параметром формата манифеста прежних версий **(format=fmp4-v20)** или обновите свой клиент до последней версии, поддерживающей теги повтора. Чтобы узнать больше, ознакомьтесь со [Smooth Streaming 2.0](media-services-deliver-content-overview.md#fmp4_v20).
+Некоторые устаревшие клиенты Smooth Streaming могут не поддерживать теги повтора и поэтому не загружать манифест. Чтобы устранить эту проблему, воспользуйтесь параметром формата манифеста прежних версий **(format=fmp4-v20)** или обновите свой клиент до последней версии, поддерживающей теги повтора. Чтобы узнать больше, ознакомьтесь со [Smooth Streaming 2.0](media-services-deliver-content-overview.md#fmp4_v20).
 
 ## Схемы обучения работе со службами мультимедиа
 
@@ -202,4 +193,4 @@
 
 [Обновление указателей служб мультимедиа после отката ключей хранилища](media-services-roll-storage-access-keys.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Создание рабочих процессов расширенной кодировки с помощью конструктора рабочих процессов" 
+	pageTitle="Создание рабочих процессов расширенной кодировки с помощью конструктора рабочих процессов | Microsoft Azure" 
 	description="Сведения о создании рабочих процессов с расширенной кодировкой с помощью конструктора рабочих процессов." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,johndeu,anilmur" 
-	manager="dwrede" 
+	authors="anilmur" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;johndeu;anilmur"/>
 
 
 #Создание рабочих процессов расширенной кодировки с помощью конструктора рабочих процессов
@@ -74,8 +74,9 @@
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
 
 
+## Дальнейшие действия
 
-##Схемы обучения работе со службами мультимедиа
+Просмотрите схемы обучения работе со службами мультимедиа.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -90,4 +91,4 @@
 
 [Учебные видеоматериалы по расширенному рабочему процессу кодировщика служб мультимедиа Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

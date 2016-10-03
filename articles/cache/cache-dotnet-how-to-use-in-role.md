@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 
@@ -375,7 +375,7 @@
 [Практическое руководство. Хранение кэширования выводимых данных страниц ASP.NET в кэше]: #store-page
 [Target a Supported .NET Framework Profile]: #prepare-vs-target-net
  
-<!-- IMAGES --> 
+.<!-- IMAGES --> 
 [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
 [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
 [RoleCache3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png
@@ -410,4 +410,4 @@
 [Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

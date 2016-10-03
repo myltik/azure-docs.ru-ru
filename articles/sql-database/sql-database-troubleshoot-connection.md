@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="daleche"/>
 
 # Ошибка при подключении к базе данных SQL: "База данных на сервере сейчас недоступна".
@@ -40,4 +40,4 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 - При появлении другой ошибки проанализируйте [сообщение об ошибке](sql-database-develop-error-messages.md), чтобы разобраться в вызвавших ее причинах.
 - Если проблема сохраняется, см. указания в статье [Устранение неполадок подключения к базе данных SQL Azure](sql-database-troubleshoot-common-connection-issues.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0921_2016-->

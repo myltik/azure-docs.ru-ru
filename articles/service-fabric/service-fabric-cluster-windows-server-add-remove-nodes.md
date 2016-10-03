@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2016"
+   ms.date="09/20/2016"
    ms.author="dkshir;chackdan"/>
 
 
@@ -32,7 +32,7 @@
 6. Запустите файл Powershell *AddNode.ps1*, указав параметры, описывающие новый узел для добавления. В следующем примере в домен сбоя 1 и домен обновления 1 добавляется новый узел с именем VM5, типом NodeType0 и IP-адресом 182.17.34.52. *ExistingClusterConnectionEndPoint* — это конечная точка подключения для узла в существующем кластере. Для этой конечной точки можно выбрать IP-адрес *любого* узла в кластере.
 
 ```
-.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1
+.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1 -AcceptEULA true
 ```
 
 ## Удаление узлов из кластера
@@ -43,7 +43,7 @@
 4. Запустите файл Powershell *RemoveNode.ps1*. В приведенном ниже примере текущий узел удаляется из кластера. *ExistingClusterConnectionEndPoint* — это конечная точка подключения для узла в существующем кластере. Для этой конечной точки можно выбрать IP-адрес *любого* узла в кластере.
 
 ```
-.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.50:19000
+.\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
 ```
 
 
@@ -51,6 +51,6 @@
 - [Параметры конфигурации для автономного кластера Windows](service-fabric-cluster-manifest.md)
 - [Защита автономного кластера под управлением Windows с помощью системы безопасности Windows](service-fabric-windows-cluster-windows-security.md)
 - [Защита автономного кластера под управлением Windows с помощью сертификатов](service-fabric-windows-cluster-x509-security.md)
-- [Create a three node standalone Service Fabric cluster with Azure virtual machines running Windows Server](service-fabric-cluster-creation-with-windows-azure-vms.md) (Создание автономного кластера Service Fabric с тремя узлами на виртуальных машинах Azure под управлением Windows)
+- [Create a three node standalone Service Fabric cluster with Azure virtual machines running Windows Server (Создание автономного кластера Service Fabric с тремя узлами на виртуальных машинах Azure под управлением Windows)](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

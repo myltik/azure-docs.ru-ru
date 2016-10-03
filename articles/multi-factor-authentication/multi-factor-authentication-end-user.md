@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Что для меня означает Azure Multi-Factor Authentication" 
-	description="Приведенные на этой странице сведения о многофакторной проверке подлинности в службе Azure помогут пользователям начать работу с Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Что для меня означает Azure Multi-Factor Authentication"
+	description="Приведенные на этой странице сведения о многофакторной проверке подлинности в службе Azure помогут пользователям начать работу с Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -40,13 +40,11 @@
 Выберите один из приведенных ниже разделов, чтобы приступить к работе.
 
 Раздел|Описание
-:------------- | :------------- | 
+:------------- | :------------- |
 [Процесс настройки](multi-factor-authentication-end-user-first-time.md)| Описание процесса первоначальной настройки многофакторной проверки подлинности.
 [Процесс входа](multi-factor-authentication-end-user-signin.md)|Описание входа в систему с помощью различных методов, включая использование телефона или приложения.
 [Изменение параметров](multi-factor-authentication-end-user-manage-settings.md)|Описание способа изменения параметров, включая номер телефона или предпочтительный метод регистрации.
 [Справка о паролях приложений](multi-factor-authentication-end-user-app-passwords.md)| Информация о создании и использовании паролей приложений.
 [Использование мобильного приложения](multi-factor-authentication-microsoft-authenticator.md)|Приложение Microsoft Authenticator доступно для платформ [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
- 
-
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

@@ -3,7 +3,7 @@
    description="Узнайте, как использовать средства Visual Studio для Docker для развертывания веб-приложения ASP.NET Core в контейнере Docker, работающем на виртуальной машине узла Docker под управлением Linux в Azure"   
    services="azure-container-service"
    documentationCenter=".net"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas"/>
+   ms.author="mlearned"/>
 
 # Развертывание контейнера ASP.NET на удаленном узле Docker
 
@@ -25,11 +25,12 @@ Docker — это облегченная платформа контейнеро
 Для работы с этим учебником необходимо выполнить следующие действия:
 
 - Создать виртуальную машину для узла Docker в Azure, как описано в статье [Использование машины Docker с Azure](./virtual-machines/virtual-machines-linux-docker-machine.md).
-- Установить [Visual Studio 2015 с обновлением 2](https://go.microsoft.com/fwlink/?LinkId=691978).
+- Установить [Visual Studio 2015 с обновлением 3](https://go.microsoft.com/fwlink/?LinkId=691129).
+- Установить [пакет SDK для Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122).
 - Установить [Средства Visual Studio 2015 для Docker — предварительная версия](http://aka.ms/DockerToolsForVS).
 
-## 1\. Создание веб-приложения ASP.NET 5
-Выполнив следующие шаги, вы создадите простое приложение ASP.NET 5, которое будет использоваться в этом учебнике.
+## 1\. Создание веб-приложения ASP.NET Core
+Выполнив следующие шаги, вы создадите простое приложение ASP.NET Core, которое будет использоваться в этом руководстве.
 
 [AZURE.INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
@@ -89,4 +90,4 @@ Docker — это облегченная платформа контейнеро
 [2]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
 [3]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0921_2016-->

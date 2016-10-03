@@ -13,7 +13,7 @@
    ms.topic="support-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="required"
-   ms.date="06/16/2016"
+   ms.date="09/20/2016"
    ms.devlang="na"
    ms.author="delhan"/>
 
@@ -83,6 +83,6 @@
 
 ## Дальнейшие действия
 
-При возникновении проблем во время создания новой виртуальной машины Windows в Azure см. статью, посвященную [устранению неполадок в развертывании](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+При возникновении проблем во время создания виртуальной машины Windows в Azure см. статью, посвященную [устранению неполадок в развертывании](../virtual-machines/virtual-machines-windows-troubleshoot-deployment-new-vm.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

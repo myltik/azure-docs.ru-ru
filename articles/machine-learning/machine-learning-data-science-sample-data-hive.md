@@ -3,7 +3,7 @@
 	description="Уменьшение выборки данных в таблицах Hive Azure HDInsight (Hadopop)"
 	services="machine-learning,hdinsight"
 	documentationCenter=""
-	authors="bradsev,hangzh-msft"
+	authors="bradsev"
 	manager="jhubbard" 
 	editor="cgronlun"  />
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="hangzh;bradsev" />
 
 # Выборка данных в таблицах Azure HDInsight Hive
@@ -107,4 +107,4 @@
 Сведения о дополнительных методах выборки, доступных в Hive, см. в статье [Руководство по языку: выборка](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

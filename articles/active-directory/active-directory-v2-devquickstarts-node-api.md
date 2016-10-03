@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Защита веб-API с помощью Node.js
@@ -190,23 +190,23 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 Введите следующие команды для установки следующих модулей в каталоге node\_modules:
 
 * `npm install crypto`
-* `npm install assert-plus`
-* `npm install posix-getopt`
-* `npm install util`
-* `npm install path`
-* `npm install connect`
-* `npm install xml-crypto`
-* `npm install xml2js`
-* `npm install xmldom`
-* `npm install async`
-* `npm install request`
-* `npm install underscore`
-* `npm install grunt-contrib-jshint@0.1.1`
-* `npm install grunt-contrib-nodeunit@0.1.2`
-* `npm install grunt-contrib-watch@0.2.0`
-* `npm install grunt@0.4.1`
-* `npm install xtend@2.0.3`
-* `npm install bunyan`
+* .`npm install assert-plus`
+* .`npm install posix-getopt`
+* .`npm install util`
+* .`npm install path`
+* .`npm install connect`
+* .`npm install xml-crypto`
+* .`npm install xml2js`
+* .`npm install xmldom`
+* .`npm install async`
+* .`npm install request`
+* .`npm install underscore`
+* .`npm install grunt-contrib-jshint@0.1.1`
+* .`npm install grunt-contrib-nodeunit@0.1.2`
+* .`npm install grunt-contrib-watch@0.2.0`
+* .`npm install grunt@0.4.1`
+* .`npm install xtend@2.0.3`
+* .`npm install bunyan`
 * `npm update`
 
 
@@ -712,7 +712,7 @@ server.use(passport.session()); // Provides session support
 ```
 
 > [AZURE.TIP]
-При записи интерфейсов API всегда нужно связывать данные с уникальными параметрами маркера, которые пользователь не сможет подделать. Элементы TODO на этом сервере сохраняются на основе идентификатора подписки пользователя в маркере (вызываемом через token.sub), который находится в поле owner. Таким образом только этот пользователь сможет получать доступ к своим элементам TODO. Значение owner не отображается в API, поэтому внешний пользователь может запросить элементы TODO другого пользователя, даже если для них пройдена аутентификация.
+При записи интерфейсов API всегда нужно связывать данные с уникальными параметрами маркера, которые пользователь не сможет подделать. Когда сервер сохраняет элементы TODO, он делает это на основании идентификатора подписки пользователя в маркере (вызываемого с помощью token.sub), который мы указываем в поле owner. Таким образом только этот пользователь сможет получать доступ к своим элементам TODO. Значение owner не отображается в API, поэтому внешний пользователь может запросить элементы TODO другого пользователя, даже если для них пройдена аутентификация.
 
 Теперь используем стратегию Open ID Connect Bearer, включенную в состав passport-azure-ad. Просмотрите код и его краткое описание ниже. Вставьте это после добавленного ранее:
 
@@ -764,7 +764,7 @@ Passport использует аналогичную схему для всех 
 > [AZURE.IMPORTANT]
 Приведенный выше код принимает всех пользователей, которые прошли аутентификацию на сервере. Это называется автоматической регистрацией. На рабочих серверах не нужно разрешать другим пользователям входить без выбранной вами регистрации. Это типично для клиентских приложений, в которых разрешается регистрация через Facebook и, помимо этого, требуется ввести дополнительную информацию. Если бы это не была программа командной строки, мы могли бы извлечь электронный адрес из возвращенного объекта маркера и затем запросить дополнительную информацию. Так как это всего лишь тестовый сервер, мы просто добавим их в базу данных в памяти.
 
-### 2\. Защита некоторых конечных точек
+### 2) Защита некоторых конечных точек
 
 Для защиты конечных точек необходимо указать вызов passport.authenticate() с протоколом, который вы хотите использовать.
 
@@ -858,4 +858,4 @@ Transfer-Encoding: chunked
 
 Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

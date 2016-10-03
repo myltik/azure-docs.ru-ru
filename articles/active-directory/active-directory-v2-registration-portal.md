@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Справка по регистрации приложений
@@ -42,4 +42,4 @@
 
 Если впоследствии вы захотите использовать конечную точку Azure AD 2.0, поддержку Live SDK можно будет спокойно отключить.
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0921_2016-->

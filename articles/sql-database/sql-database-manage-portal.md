@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="09/14/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 
@@ -78,7 +78,7 @@
 Чтобы просмотреть, создать или обновить правила брандмауэра, щелкните **Set server firewall** (Установить брандмауэр сервера) в колонке **База данных SQL**. Дополнительные сведения см. в статье [Настройка правила брандмауэра уровня сервера базы данных SQL Azure с помощью портала Azure](sql-database-configure-firewall-settings.md).
 
 
-![Правила брандмауэра](./media/sql-database-manage-portal/commands.png)
+![Правила брандмауэра](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 
 ## Как изменить уровень обслуживания или производительности базы данных SQL?
@@ -128,14 +128,14 @@
 Чтобы скопировать базу данных SQL, щелкните **Копировать** в колонке **База данных SQL**. Дополнительные сведения см. в статье [Копирование базы данных SQL Azure с помощью портала Azure](sql-database-copy-portal.md).
 
 
-![Параметры базы данных SQL](./media/sql-database-manage-portal/commands.png)
+![Параметры базы данных SQL](./media/sql-database-manage-portal/sql-database-copy.png)
 
 ## Как архивировать базу данных SQL Azure в BACPAC-файл?
 
 Чтобы создать BACPAC-файл из базы данных SQL, щелкните **Экспортировать** в колонке **База данных SQL**. Дополнительные сведения см. в статье [Архивация базы данных SQL Azure в BACPAC-файл с помощью портала Azure](sql-database-export.md).
 
 
-![экспорт базы данных SQL](./media/sql-database-manage-portal/commands.png)
+![экспорт базы данных SQL](./media/sql-database-manage-portal/sql-database-export.png)
 
 
 
@@ -144,7 +144,7 @@
 Чтобы восстановить базу данных SQL, щелкните **Восстановить** в колонке **База данных SQL**. Дополнительные сведения см. в статье [Восстановление базы данных SQL Azure до момента времени в прошлом с помощью портала Azure](sql-database-point-in-time-restore-portal.md).
 
 
-![Параметры базы данных SQL](./media/sql-database-manage-portal/commands.png)
+![Параметры базы данных SQL](./media/sql-database-manage-portal/sql-database-restore.png)
 
 
 ## Как создать базу данных SQL Azure из BACPAC-файла?
@@ -163,7 +163,7 @@
 
 Чтобы удалить базу данных SQL, щелкните **Удалить** в колонке **База данных SQL**.
 
-![Параметры базы данных SQL](./media/sql-database-manage-portal/commands.png)
+![Параметры базы данных SQL](./media/sql-database-manage-portal/sql-database-delete.png)
 
 
 
@@ -172,4 +172,4 @@
 - [База данных SQL](sql-database-technical-overview.md)
 - [Мониторинг пула эластичных баз данных и управление им на портале Azure](sql-database-elastic-pool-manage-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

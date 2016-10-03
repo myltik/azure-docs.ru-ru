@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Файлы мультимедиа Hyperlapse с Azure Media Hyperlapse"
+	pageTitle="Обработка файлов мультимедиа с помощью технологии Hyperlapse служб мультимедиа Azure | Microsoft Azure"
 	description="Azure Media Hyperlapse создает плавное замедленное видео от первого лица или содержимое, характерное для экшн-камер. В этом разделе показано, как использовать индексатор мультимедийных данных."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="09/19/2016"  
 	ms.author="adsolank"/>
 
 
@@ -29,7 +29,7 @@ Azure Media Hyperlapse представляет собой обработчик 
 
 ## Использование Hyperlapse для обработки ресурса-контейнера
 
-Сначала необходимо загрузить требуемый входной файл для служб мультимедиа Azure. Дополнительные сведения об основных понятиях, связанных с загрузкой содержимого и управлением им, см. в статье [об управлении содержимым](media-services-manage-content.md#upload).
+Сначала необходимо загрузить требуемый входной файл для служб мультимедиа Azure. Дополнительные сведения об основных понятиях, связанных с загрузкой содержимого и управлением им, см. в статье [об управлении содержимым](media-services-portal-vod-get-started.md).
 
 ###  <a id="configuration"></a>Предустановка конфигурации для Hyperlapse
 
@@ -75,68 +75,28 @@ Speed|Коэффициент ускорения входного видео.
 
 Следующий метод передает файл мультимедиа как ресурс и создает задание с помощью обработчика мультимедиа Azure Media Hyperlapse.
 
-> [AZURE.NOTE] Для работы этого кода в области с именем "context" уже должен находиться CloudMediaContext. Дополнительные сведения об этом см. в [статье об управлении содержимым](media-services-manage-content.md).
+> [AZURE.NOTE] Для работы этого кода в области с именем "context" уже должен находиться CloudMediaContext. Дополнительные сведения об этом см. в [статье об управлении содержимым](media-services-dotnet-get-started.md).
 
 > [AZURE.NOTE] Строковый аргумент "hyperConfig" должен быть соответствующей предустановкой конфигурации для JSON или XML, как описано выше.
 
-	static bool RunHyperlapseJob(string input, string output, string hyperConfig)
-	{
-		// create asset with input file
-		IAsset asset = context
-					   .Assets
-					   .CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
+static bool RunHyperlapseJob(string input, string output, string hyperConfig) { // create asset with input file IAsset asset = context .Assets .CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
 
-		// grab instances of Azure Media Hyperlapse MP
-		IMediaProcessor mp = context
-							 .MediaProcessors
-							 .GetLatestMediaProcessorByName("Azure Media Hyperlapse");
+// grab instances of Azure Media Hyperlapse MP IMediaProcessor mp = context .MediaProcessors .GetLatestMediaProcessorByName("Azure Media Hyperlapse");
 
-		// create Job with Hyperlapse task
-		IJob job = context
-				   .Jobs
-				   .Create(String.Format("Hyperlapse {0}", input));
+// create Job with Hyperlapse task IJob job = context .Jobs .Create(String.Format("Hyperlapse {0}", input));
 
-		if (String.IsNullOrEmpty(hyperConfig))
-		{
-			// config cannot be empty
-			return false;
-		}
+if (String.IsNullOrEmpty(hyperConfig)) { // config cannot be empty return false; }
 
-		hyperConfig = File.ReadAllText(hyperConfig);
+hyperConfig = File.ReadAllText(hyperConfig);
 
-		ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task",
-												mp,
-												hyperConfig,
-												TaskOptions.None);
-		hyperlapseTask.InputAssets.Add(asset);
-		hyperlapseTask.OutputAssets.AddNew("Hyperlapse output",
-											AssetCreationOptions.None);
+ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task", mp, hyperConfig, TaskOptions.None); hyperlapseTask.InputAssets.Add(asset); hyperlapseTask.OutputAssets.AddNew("Hyperlapse output", AssetCreationOptions.None);
 
 
-		job.Submit();
+job.Submit();
 
-		// Create progress printing and querying tasks
-			Task progressPrintTask = new Task(() =>
-			{
+// Create progress printing and querying tasks Task progressPrintTask = new Task(() => {
 
-				IJob jobQuery = null;
-				do
-				{
-					var progressContext = context;
-					jobQuery = progressContext.Jobs
-											  .Where(j => j.Id == job.Id)
-											  .First();
-					Console.WriteLine(string.Format("{0}\t{1}\t{2}",
-									  DateTime.Now,
-									  jobQuery.State,
-									  jobQuery.Tasks[0].Progress));
-					Thread.Sleep(10000);
-				}
-				while (jobQuery.State != JobState.Finished &&
-					   jobQuery.State != JobState.Error &&
-					   jobQuery.State != JobState.Canceled);
-			});
-			progressPrintTask.Start();
+IJob jobQuery = null; do { var progressContext = context; jobQuery = progressContext.Jobs .Where(j => j.Id == job.Id) .First(); Console.WriteLine(string.Format("{0}\\t{1}\\t{2}", DateTime.Now, jobQuery.State, jobQuery.Tasks[0].Progress)); Thread.Sleep(10000); } while (jobQuery.State != JobState.Finished && jobQuery.State != JobState.Error && jobQuery.State != JobState.Canceled); }); progressPrintTask.Start();
 
 			Task progressJobTask = job.GetExecutionProgressTask(
 												 CancellationToken.None);
@@ -215,4 +175,4 @@ Speed|Коэффициент ускорения входного видео.
 
 [Демонстрационные материалы для медиааналитики Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

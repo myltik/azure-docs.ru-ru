@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="vittorib"/>
 
 # Интеграция Azure AD с приложением Apache Cordova
@@ -27,7 +27,7 @@ Apache Cordova позволяет разрабатывать приложени�
 В данном руководстве мы будем использовать подключаемый модуль Apache Cordova для библиотеки проверки подлинности Active Directory (ADAL) с целью расширения простого приложения следующими возможностями:
 
 -	Добавив всего нескольких строк кода, можно проверить подлинность пользователя Active Directory и получить маркер для вызова Graph API Azure AD.
--	Использовать этот маркер, чтобы вызвать Graph API для запроса сведений из каталога и отображения результатов.  
+-	Использовать этот маркер, чтобы вызвать Graph API для запроса сведений из каталога и отображения результатов.
 -	Использовать кэш маркеров библиотеки ADAL, чтобы минимизировать количество запросов пользователя на ввод данных для проверки подлинности.
 
 Для этого вам необходимо:
@@ -42,7 +42,7 @@ Apache Cordova позволяет разрабатывать приложени�
 Для работы с данным руководством вам потребуется:
 
 - Клиент Azure AD, где имеется учетная запись с правами на разработку приложений.
-- Среда разработки, настроенная для использования Apache Cordova.  
+- Среда разработки, настроенная для использования Apache Cordova.
 
 При наличии и того и другого приступайте непосредственно к выполнению этапа 1.
 
@@ -156,7 +156,7 @@ Azure AD предоставляет маркеры только известны
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -180,7 +180,7 @@ Azure AD предоставляет маркеры только известны
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user cridentials so triggers authentication dialog
+                // We require user credentials so triggers authentication dialog
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
                     app.error("Failed to authenticate: " + err);
@@ -263,10 +263,10 @@ Azure AD предоставляет маркеры только известны
 
 Используйте `cordova run --help` для просмотра дополнительных параметров сборки и запуска.
 
-Для справки следует отметить, что готовый пример (без ваших значений конфигурации) находится [здесь](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient). Теперь вы можете приступить к более сложным сценариям (и более содержательным). Вы можете попробовать:
+Для справки следует отметить, что готовый пример (без ваших значений конфигурации) находится [здесь](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient). Теперь вы можете приступить к более сложным сценариям (и более содержательным). Можно попробовать:
 
 [Безопасность веб-API с Azure AD для Node.js>>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

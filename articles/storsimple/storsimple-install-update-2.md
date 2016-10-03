@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/21/2016"
+   ms.date="09/21/2016"
    ms.author="alkohli" />
 
 # Установка обновления 2 на устройство StorSimple
@@ -68,7 +68,7 @@
 | 1 | KB3121901 | Обновление программного обеспечения | Обычный |
 | 2 | KB3121900 | Драйвер LSI | Обычный |
 | 3 | KB3080728 | Исправление Storport </br> Windows Server 2012 R2 | Обычный |
-| 4 | KB3090322 | Исправление Spaceport </br> Windows Server 2012 R2 | Обычный |
+| 4\. | KB3090322 | Исправление Spaceport </br> Windows Server 2012 R2 | Обычный |
 | 5 | KB3121899 | Встроенное ПО диска | Обслуживание |
 
 
@@ -91,4 +91,4 @@
 
 Узнайте больше о [выпуске обновления 2](storsimple-update2-release-notes.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0921_2016-->

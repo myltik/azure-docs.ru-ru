@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/29/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # Настройка масштабируемых наборов виртуальных машин Windows и Desired State Configuration с помощью шаблонов Azure Resource Manager
@@ -90,7 +90,7 @@
 
 ## Подробные сведения о разделе settings
 
-В приведенном ниже фрагменте показана часть settings расширения Azure DSC в шаблоне Azure Resource Manager.
+В приведенной ниже схеме показана часть settings расширения Azure DSC в шаблоне Azure Resource Manager.
 
 ```json
 
@@ -143,8 +143,8 @@
 | settings.configuration.function | string | Указывает имя вашей конфигурации DSC. Указанную конфигурацию необходимо добавить в скрипт, заданный в свойстве configuration.script. Это свойство обязательное, если заданы свойства settings.configuration.url и (или) settings.configuration.function. |
 | settings.configurationArguments | Коллекция | Определяет параметры, которые необходимо передать в конфигурацию DSC. Это свойство не зашифровано. |
 | settings.configurationData.url | string | Указывает URL-адрес расположения, из которого можно скачать файл данных конфигурации (в формате PDS1), используемый в качестве входных данных для вашей конфигурации DSC. Если для доступа к предоставленному URL-адресу требуется маркер SAS, необходимо задать для свойства protectedSettings.configurationDataUrlSasToken значение маркера SAS.|
-| settings.privacy.dataEnabled | string | Включает или отключает сбор данных телеметрии. Для этого свойства доступны только такие значения: **Enable, Disable или $null**. Если для этого свойства не задано значение или задано значение null, сбор данных телеметрии будет выполняться. Значение по умолчанию — ''. Дополнительные сведения см. [здесь](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/). |
-| settings.advancedOptions.downloadMappings | Коллекция | Определяет альтернативные расположения для скачивания Windows Management Framework. Дополнительные сведения см. [здесь](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx). |
+| settings.privacy.dataEnabled | string | Включает или отключает сбор данных телеметрии. Для этого свойства доступны только такие значения: **Enable, Disable или $null**. Если для этого свойства не задано значение или задано значение null, сбор данных телеметрии будет выполняться. Значение по умолчанию — ''. [Дополнительные сведения см. здесь.](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
+| settings.advancedOptions.downloadMappings | Коллекция | Определяет альтернативные расположения для скачивания Windows Management Framework. [Дополнительные сведения см. здесь.](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
 | protectedSettings.configurationArguments | Коллекция | Определяет параметры, которые необходимо передать в конфигурацию DSC. Это свойство зашифровано. |
 | protectedSettings.configurationUrlSasToken | string | Указывает маркер SAS для доступа к URL-адресу, определенному в свойстве configuration.url. Это свойство зашифровано. |
 | protectedSettings.configurationDataUrlSasToken | string | Указывает маркер SAS для доступа к URL-адресу, определенному в свойстве configurationData.url. Это свойство зашифровано. |
@@ -169,7 +169,7 @@
 
 Следующий пример основан на примере конфигурации из раздела "Приступая к работе" статьи [Общие сведения об обработчике расширения Desired State Configuration в Azure](virtual-machines-windows-extensions-dsc-overview.md). В этом примере для развертывания расширения используются шаблоны Resource Manager, а не командлеты. Сохраните конфигурацию IisInstall.ps1, добавьте ее в ZIP-файл и передайте файл на доступный URL-адрес. В этом примере используется хранилище BLOB-объектов Azure, но ZIP-файл можно скачать из любого произвольного расположения.
 
-В шаблоне Resource Manager следующий фрагмент кода указывает виртуальной машине скачать правильный файл и выполнить соответствующую функцию PowerShell.
+В шаблоне Azure Resource Manager следующий код указывает виртуальной машине скачать правильный файл и выполнить соответствующую функцию PowerShell.
 
 ```json
 "settings": {
@@ -188,7 +188,7 @@
 ## Обновление из предыдущего формата
 Все параметры в предыдущем формате (содержащие общедоступные свойства ModulesUrl, ConfigurationFunction, SasToken или Properties) автоматически адаптируются к текущему формату и выполняются в обычном режиме.
 
-Раньше раздел settings выглядел следующим образом:
+Раньше схема settings выглядела следующим образом:
 
 ```json
 "settings": {
@@ -224,8 +224,8 @@
 | --- | --- |
 | settings.wmfVersion | settings.WMFVersion |
 | settings.configuration.url | settings.ModulesUrl |
-| settings.configuration.script | Первая часть свойства settings.ConfigurationFunction (перед \\\) |
-| settings.configuration.function | Вторая часть свойства settings.ConfigurationFunction (после \\\) |
+| settings.configuration.script | Первая часть свойства settings.ConfigurationFunction (перед \\\). |
+| settings.configuration.function | Вторая часть свойства settings.ConfigurationFunction (после \\\). |
 | settings.configurationArguments | settings.Properties |
 | settings.configurationData.url | protectedSettings.DataBlobUri (без маркера SAS) |
 | settings.privacy.dataEnabled | settings.Privacy.DataEnabled |
@@ -285,4 +285,14 @@
 - Укажите отсутствующее свойство.
 - Удалите свойство, требующее отсутствующего свойства.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+## Дальнейшие действия
+[Узнайте больше о DSC и наборах масштабирования виртуальных машин](virtual-machines-scale-sets-dsc.md).
+
+Получите дополнительные сведения о [безопасном управлении учетными данными посредством DSC](virtual-machines-windows-extensions-dsc-credentials.md).
+
+Дополнительные сведения об обработчике расширений DSC см. в статье [Общие сведения об обработчике расширения Desired State Configuration в Azure](virtual-machines-windows-extensions-dsc-overview.md).
+
+Для получения дополнительных сведений о DSC PowerShell [посетите центр документации PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+
+<!---HONumber=AcomDC_0921_2016-->

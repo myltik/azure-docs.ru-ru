@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Вход и выход веб-приложения с использованием Azure AD
@@ -28,7 +28,7 @@ Azure AD позволяет простым и удобным образом вы
 Для этого необходимо:
 
 1. зарегистрировать приложение в Azure AD;
-2. установить приложение для использования проверки подлинности OWIN;
+2. Настроить приложение для использования конвейера проверки подлинности OWIN.
 3. использовать OWIN для выдачи запросов входа и выхода в Azure AD;
 4. распечатать данные о пользователе.
 
@@ -59,7 +59,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 -	Добавьте класс запуска OWIN в проект под названием `Startup.cs` Щелкните проект правой кнопкой мыши--> **Добавить** --> **Новый элемент** --> Поиск «OWIN». При запуске вашего приложения промежуточный слой OWIN вызовет метод `Configuration(...)`.
--	Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле. В методе `Configuration(...)` отправьте вызов в ConfgureAuth(...), чтобы настроить проверку подлинности для веб-приложения.  
+-	Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле. В методе `Configuration(...)` отправьте вызов в ConfgureAuth(...), чтобы настроить проверку подлинности для веб-приложения.
 
 ```C#
 public partial class Startup
@@ -178,4 +178,4 @@ public ActionResult About()
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0921_2016-->

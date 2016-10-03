@@ -65,6 +65,13 @@
 	    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 	}
 
+#### Пример кода на языке F# для триггера концентратора событий Azure
+
+В рамках примера файла function.json, приведенного выше, текст сообщения о событии будет записан в журнал с помощью следующего кода функции F#:
+
+	let Run(myEventHubMessage: string, log: TraceWriter) =
+	    log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
+
 #### Пример триггера концентратора событий Azure на платформе Node.js
  
 Используя пример файла function.json, приведенный выше, текст сообщения о событии будет записан в журнал с помощью следующего кода функции Node.js:
@@ -113,6 +120,15 @@
 	    outputEventHubMessage = msg;
 	}
 
+#### Пример кода на языке F# для выходной привязки концентратора событий Azure
+
+Следующий пример кода функции на языке F# демонстрирует запись события в поток событий концентратора событий. В этом примере представлена выходная привязка концентратора событий, показанная выше, которую применили к триггеру таймера C#.
+
+	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
+	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
+	    log.Verbose(msg);
+	    outputEventHubMessage <- msg;
+
 #### Пример кода на платформе Node.js для выходной привязки концентратора событий Azure
  
 Следующий пример кода функции на платформе Node.js демонстрирует запись события в поток событий концентратора событий. В этом примере представлена выходная привязка концентратора событий, показанная выше, которую применили к триггеру таймера Node.js.
@@ -136,4 +152,4 @@
 
 [AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->

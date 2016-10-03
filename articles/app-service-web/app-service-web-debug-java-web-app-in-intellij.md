@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
+	ms.date="09/20/2016" 
 	ms.author="asirveda;robmcm"/>
 
 # Отладка в IntelliJ веб-приложения Java, размещенного в Azure
@@ -29,7 +29,7 @@
 * Пакет SDK для Java (JDK) 1.8 или более поздней версии.
 * IntelliJ IDEA Ultimate Edition. Среду также можно загрузить с веб-страницы <https://www.jetbrains.com/idea/download/index.html>.
 * Дистрибутив веб-сервера или сервера приложений на основе Java, например Apache Tomcat или Jetty.
-* Подписка Azure, которую можно получить на веб-сайте <https://azure.microsoft.com/free/> или <http://azure.microsoft.com/pricing/purchase-options/>.
+* Подписка Azure, которую можно получить на веб-сайте <https://azure.microsoft.com/ru-RU/free/> или <http://azure.microsoft.com/pricing/purchase-options/>.
 * Набор средств Azure для IntelliJ. Дополнительные сведения см. в статье [Установка набора средств Azure для IntelliJ].
 * Динамический веб-проект создан и развернут в службе приложений Azure. Пример см. в разделе [Создание веб-приложения Hello World для Azure в IntelliJ].
 
@@ -83,7 +83,7 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-<!-- URL List -->
+.<!-- URL List -->
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [набора средств Azure для IntelliJ]: ../azure-toolkit-for-intellij.md
@@ -103,4 +103,4 @@
 [05]: ./media/app-service-web-debug-java-web-app-in-intellij/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-intellij/06-windows-command-prompt-connection-successful-to-remote.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0921_2016-->

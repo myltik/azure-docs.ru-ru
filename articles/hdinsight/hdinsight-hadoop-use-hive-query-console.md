@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/19/2016"
+   ms.date="09/20/2016"
    ms.author="larryfr"/>
 
 # Выполнение запросов Hive с помощью консоли запросов
@@ -23,7 +23,7 @@
 
 В этой статье вы узнаете, как выполнять запросы Hive в кластере HDInsight Hadoop из браузера с помощью консоли запросов HDInsight.
 
-> [AZURE.NOTE] Консоль запросов доступна только в кластерах HDInsight на платформе Windows.
+> [AZURE.IMPORTANT] Консоль запросов HDInsight доступна только в кластерах HDInsight на платформе Windows. Если вы используете кластер HDInsight под управлением Linux, см. статью [Использование представления Hive с Hadoop в HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
 
 ##<a id="prereq"></a>Предварительные требования
@@ -128,4 +128,4 @@
 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

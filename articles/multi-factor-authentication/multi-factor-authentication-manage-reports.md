@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Отчеты Azure Multi-Factor Authentication" 
-	description="Эта статья содержит информацию о том, как использовать функцию отчетов службы Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Отчеты Azure Multi-Factor Authentication"
+	description="Эта статья содержит информацию о том, как использовать функцию отчетов службы Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Отчеты в службе Azure Multi-Factor Authentication
 
@@ -23,7 +23,7 @@ Azure Multi-Factor Authentication предоставляет несколько 
 Чтобы получить доступ к отчетам, войдите на портал управления Azure.
 
 Имя| Описание
-:------------- | :------------- | 
+:------------- | :------------- |
 Использование | В отчетах об использовании содержится информация об общем использовании, сводный отчет по пользователям и сведения о пользователях.
 Состояние серверов|В этом отчете отображается состояние серверов Multi-Factor Authentication, с которыми связана ваша учетная запись.
 Журнал заблокированных пользователей|В этих отчетах отображается журнал запросов о блокировании и разблокировании пользователей.
@@ -47,6 +47,5 @@ Azure Multi-Factor Authentication предоставляет несколько 
 
 * [Для пользователей](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
- 
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0921_2016-->

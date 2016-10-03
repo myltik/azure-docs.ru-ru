@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Кодирование ресурса-контейнера с помощью стандартного кодировщика мультимедиа" 
+	pageTitle="Кодирование ресурса-контейнера с помощью Media Encoder Standard | Microsoft Azure" 
 	description="Узнайте, как использовать стандартный кодировщик мультимедиа для кодировки мультимедийного содержимого в службах мультимедиа. В примерах кода используется REST API." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encode-asset.md)
 - [REST](media-services-rest-encode-asset.md)
-- [Портал](media-services-manage-content.md#encode)
+- [Портал](media-services-portal-encode.md)
 
 ##Обзор
 Для поставки цифрового видео по Интернету необходимо сжать мультимедиа. Цифровые видеофайлы довольно объемные. Это затрудняет их доставку через Интернет и влияет на качество их отображения на устройствах клиентов. Кодирование — это процесс сжатия аудио- и видеофайлов, чтобы их могли просматривать клиенты.
@@ -34,16 +34,16 @@
 
 - встроенными средствами с помощью свойств навигации задач в сущностях Job или
 - с помощью пакетной обработки OData.
-  
 
-Мы советуем всегда кодировать мезонинные файлы в набор MP4-файлов с адаптивной скоростью, а затем преобразовывать его в нужный формат с помощью [динамической упаковки](media-services-dynamic-packaging-overview.md). Для использования динамической упаковки вам потребуется получить по крайней мере одну единицу потокового воспроизведения по запросу для конечной точки потоковой передачи, из которой планируется передавать содержимое. Дополнительные сведения см. в статье [Масштабирование служб мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints).
+
+Мы советуем всегда кодировать мезонинные файлы в набор MP4-файлов с адаптивной скоростью, а затем преобразовывать его в нужный формат с помощью [динамической упаковки](media-services-dynamic-packaging-overview.md). Для использования динамической упаковки вам потребуется получить по крайней мере одну единицу потокового воспроизведения по запросу для конечной точки потоковой передачи, из которой планируется передавать содержимое. Дополнительные сведения см. в статье [Масштабирование служб мультимедиа](media-services-portal-manage-streaming-endpoints.md).
 
 Если выходящий ресурс зашифрован в хранилище, необходимо настроить политику доставки ресурсов. Дополнительную информацию см. в разделе [Настройка политики доставки ресурсов](media-services-rest-configure-asset-delivery-policy.md).
 
 
 >[AZURE.NOTE]Прежде чем начать ссылаться на обработчики мультимедиа, убедитесь, что у вас есть правильный идентификатор обработчика мультимедиа. Дополнительные сведения см. в статье [Получение обработчиков мультимедиа](media-services-rest-get-media-processor.md).
 
-##Создание задания с одной задачей кодирования 
+##Создание задания с одной задачей кодирования
 
 >[AZURE.NOTE] При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
 >
@@ -54,18 +54,10 @@
 >Если вы используете JSON и указываете ключевое слово **\_\_metadata** в запросе (например, для ссылки на связанный объект), то вы ДОЛЖНЫ задать для заголовка **Accept** [подробный формат JSON](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 
 В следующем примере показано, как создать и опубликовать задание с одной задачей, предназначенной для кодирования видео с определенным разрешением и качеством. При кодировании с помощью стандартного кодировщика мультимедиа вы можете использовать предустановки конфигурации задач, указанные [здесь](http://msdn.microsoft.com/library/mt269960).
-	
+
 Запрос:
 
-	POST https://media.windows.net/API/Jobs HTTP/1.1
-	Content-Type: application/json;odata=verbose
-	Accept: application/json;odata=verbose
-	DataServiceVersion: 3.0
-	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.11
-	Authorization: Bearer <token value>
-	x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-	Host: media.windows.net
+POST https://media.windows.net/API/Jobs HTTP/1.1 Content-Type: application/json;odata=verbose Accept: application/json;odata=verbose DataServiceVersion: 3.0 MaxDataServiceVersion: 3.0 x-ms-version: 2.11 Authorization: Bearer <значение маркера> x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 Host: media.windows.net
 
 	
 	{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
@@ -268,11 +260,11 @@
 
 
 ##Дальнейшие действия
-Вы узнали, как создать задание для кодирования актива. Теперь вы можете приступить к изучению статьи [Проверка хода выполнения задания с помощью служб мультимедиа](media-services-rest-check-job-progress.md).
+Вы узнали, как создать задание для кодирования ресурса-контейнера. Теперь вы можете приступить к изучению статьи [Практическое руководство. Проверка хода выполнения задания](media-services-rest-check-job-progress.md).
 
 
 ##См. также
 
 [Получение обработчиков мультимедиа](media-services-rest-get-media-processor.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0921_2016-->

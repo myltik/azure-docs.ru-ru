@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="hangzh;bradsev" />
 
 
 # Процесс обработки и анализа данных группы на практике: использование кластеров HDInsight Hadoop
 
-В этом пошаговом руководстве показано комплексное использование процесса обработки и анализа данных группы, где [кластер Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) используется для хранения и просмотра данных из общедоступного набора данных [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) (Поездки такси Нью-Йорка), реконструирования их характеристик и сокращения их выборки. Модели данных создаются с помощью машинного обучения Azure для обработки двоичных и мультиклассовых классификационных и регрессионных прогнозных задач.
+В этом пошаговом руководстве показано комплексное использование [процесса обработки и анализа данных группы (TDSP)](data-science-process-overview.md), где [кластер Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) используется для хранения и просмотра данных из общедоступного набора данных [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) (Поездки такси Нью-Йорка), реконструирования их характеристик и сокращения их выборки. Модели данных создаются с помощью машинного обучения Azure для обработки двоичных и мультиклассовых классификационных и регрессионных прогнозных задач.
 
 Пошаговое руководство, показывающее, как обработать более крупный (1 ТБ) набор данных для подобного сценария с помощью кластеров HDInsight Hadoop для обработки данных, см. в статье [Процесс обработки и анализа данных группы на практике: использование кластеров Azure HDInsight Hadoop с набором данных объемом 1 ТБ](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
@@ -434,10 +434,10 @@
 
 Вот содержимое файла *sample\_hive\_quality\_assessment.hql* для проверки.
 
-    	SELECT COUNT(*) FROM nyctaxidb.trip
-    	WHERE month=1
-    	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
-    	OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
+	    SELECT COUNT(*) FROM nyctaxidb.trip
+	    WHERE month=1
+	    AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
+	    OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
 	    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
 	    OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
@@ -564,10 +564,10 @@
 
 Ниже приведено содержимое файла *sample\_hive\_prepare\_for\_aml\_full.hql*, подготавливающего данные к построению моделей в машинном обучении Azure.
 
-		set R = 3959;
-	    set pi=radians(180);
+        set R = 3959;
+        set pi=radians(180);
 
-		create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
+        create table if not exists nyctaxidb.nyctaxi_downsampled_dataset (
 
         medallion string,
         hack_license string,
@@ -622,7 +622,7 @@
         t.pickup_latitude,
         t.dropoff_longitude,
         t.dropoff_latitude,
-		t.direct_distance,
+        t.direct_distance,
         f.payment_type,
         f.fare_amount,
         f.surcharge,
@@ -794,9 +794,7 @@ b. Для задач регрессии мы измеряем величины �
 
 ## Ссылки
 
-•	[Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ b. Для задач регрессии мы измеряем величины �
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0921_2016-->

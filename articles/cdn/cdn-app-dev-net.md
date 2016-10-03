@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/15/2016"
 	ms.author="casoper"/>
 
 # Приступая к разработке для Azure CDN
 
 > [AZURE.SELECTOR]
-- [.NET](cdn-app-dev-net.md)
 - [Node.js](cdn-app-dev-node.md)
+- [.NET](cdn-app-dev-net.md)
 
 С помощью [библиотеки Azure CDN для .NET](https://msdn.microsoft.com/library/mt657769.aspx) можно автоматизировать создание профилей и конечных точек CDN и управление ими. В этом руководстве описывается создание простого консольного приложения .NET, которое демонстрирует некоторые из доступных операций. Данный учебник не содержит подробных сведений о всех аспектах библиотеки Azure CDN для .NET.
 
@@ -321,11 +321,11 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 Теперь можно скомпилировать и запустить программу, нажав в Visual Studio кнопку **Запустить**.
 
-![Выполнение программы](./media/cdn-app-dev-net/cdn-program-running-1.png)
+.![Выполнение программы](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
 Когда программа дойдет до упомянутого выше запроса, вы сможете вернуться к группе ресурсов на портале Azure и увидеть, что профиль создан.
 
-![Готово!](./media/cdn-app-dev-net/cdn-success.png)
+.![Готово!](./media/cdn-app-dev-net/cdn-success.png)
 
 Затем мы можем подтвердить запросы, чтобы была выполнена оставшаяся часть программы.
 
@@ -339,4 +339,4 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 Управление ресурсами CDN с помощью [PowerShell](./cdn-manage-powershell.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0921_2016-->

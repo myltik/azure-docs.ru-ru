@@ -43,7 +43,7 @@
 **Базовый HTTP-запрос:**
 
 ```HTTP
-POST /<Azure AD Tenant ID>.onmicrosoft.com/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
+POST /<Azure AD Tenant ID>/oauth2/token?api-version=1.0 HTTP/1.1 HTTP/1.1
 Host: login.microsoftonline.com
 Cache-Control: no-cache
 Content-Type: application/x-www-form-urlencoded
@@ -68,13 +68,13 @@ grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.core.windows.net
 **Создание маркера доступа с помощью Bash:**
 
 ```console
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&resource=https://management.core.windows.net&client_id=<application id>&client_secret=<password you selected for authentication>" https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0
 ```
 
 **Создание маркера доступа с помощью PowerShell:**
 
 ```powershell
-Invoke-RestMethod -Uri https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token?api-version=1.0 -Method Post
+Invoke-RestMethod -Uri https://login.microsoftonline.com/<Azure AD Tenant ID>/oauth2/token?api-version=1.0 -Method Post
  -Body @{"grant_type" = "client_credentials"; "resource" = "https://management.core.windows.net/"; "client_id" = "<application id>"; "client_secret" = "<password you selected for authentication>" }
 ```
 
@@ -247,4 +247,4 @@ Content-Type: application/json
 
 Для удобства чтения этой документации мы опустили довольно длинный ответ JSON на данный запрос. Ответ будет содержать сведения о только что созданном развертывании на основе шаблона.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0921_2016-->
