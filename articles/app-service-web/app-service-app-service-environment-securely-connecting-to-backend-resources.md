@@ -46,7 +46,7 @@
 Существует два подхода к ограничению трафика к этой конечной точке.
 
 
-- [Сетевые списки управления доступом][NetworkAccessControlLists] (Network ACLs)
+- [Сетевые списки управления доступом][NetworkAccessControlLists] \(Network ACLs)
 
 - [Группы сетевой безопасности][NetworkSecurityGroups]
 

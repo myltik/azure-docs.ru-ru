@@ -86,7 +86,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 - [Создание хранилища данных SQL с помощью Powershell][]
 - [Восстановление базы данных][]
 
-Список всех задач, которые можно автоматизировать с помощью PowerShell, см. в разделе [Azure SQL Database Cmdlets][] (Командлеты базы данных SQL Azure). Список задач, которые можно автоматизировать с помощью REST, см. в статье [Операции для баз данных SQL Azure][].
+Список всех задач, которые можно автоматизировать с помощью PowerShell, см. в разделе [Azure SQL Database Cmdlets][] \(Командлеты базы данных SQL Azure). Список задач, которые можно автоматизировать с помощью REST, см. в статье [Операции для баз данных SQL Azure][].
 
 <!--Image references-->
 
@@ -114,4 +114,4 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 <!--Other Web references-->
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0817_2016-->
+<!----HONumber=AcomDC_0817_2016-->

@@ -43,7 +43,7 @@ Microsoft Azure Government – это отдельный экземпляр сл
 
 При создании и развертывании приложений для Azure Government разработчики должны понимать основные различия между этой службой и глобальным развертыванием. В частности, различия по подготовке и настройке среды программирования, настройке конечных точек, разработке приложений и развертыванию их в качестве служб в Azure Government.
 
-Данный документ описывает эти различия и дополняет информацию, приведенную на сайте [Azure Government](http://www.azure.com/gov "Azure Government") и в [технической библиотеке Microsoft Azure](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") в MSDN. Официальные сведения доступны также и в других расположениях, например в [Microsoft Azure Trust Center] (https://azure.microsoft.com/support/trust-center/ центре управления безопасностью Microsoft Azure/), [центре документации Azure](https://azure.microsoft.com/documentation/) и [Azure Blogs] (https://azure.microsoft.com/blog/ Блогах Azure/).
+Данный документ описывает эти различия и дополняет информацию, приведенную на сайте [Azure Government](http://www.azure.com/gov "Azure Government") и в [технической библиотеке Microsoft Azure](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") в MSDN. Официальные сведения доступны также и в других расположениях, например в [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ центре управления безопасностью Microsoft Azure/), [центре документации Azure](https://azure.microsoft.com/documentation/) и [Azure Blogs](https://azure.microsoft.com/blog/ Блогах Azure/).
 
 Эти сведения предназначены для партнеров и разработчиков, развертывающих приложения в Microsoft Azure Government.
 

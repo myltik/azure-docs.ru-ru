@@ -46,7 +46,7 @@ SendGrid — это [облачная служба электронной поч
 
 ### Интерфейс SMTP API
 
-Чтобы отправить сообщение электронной почты с помощью интерфейса SMTP API SendGrid, используйте *Swift Mailer* — библиотеку на основе компонентов, которая предназначена для отправки сообщений электронной почты из приложений PHP. Библиотеку *Swift Mailer* версии 5.3.0 можно скачать по адресу [http://swiftmailer.org/download][] (для ее установки используйте [Редактор]). Отправка сообщений электронной почты с использованием библиотеки предполагает создание экземпляров классов <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> и <span class="auto-style2">Swift\_Message</span>, настройку соответствующих свойств, а также вызов метода <span class="auto-style2">Swift\_Mailer::send</span>.
+Чтобы отправить сообщение электронной почты с помощью интерфейса SMTP API SendGrid, используйте *Swift Mailer* — библиотеку на основе компонентов, которая предназначена для отправки сообщений электронной почты из приложений PHP. Библиотеку *Swift Mailer* версии 5.3.0 можно скачать по адресу [http://swiftmailer.org/download][] \(для ее установки используйте [Редактор]). Отправка сообщений электронной почты с использованием библиотеки предполагает создание экземпляров классов <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> и <span class="auto-style2">Swift\_Message</span>, настройку соответствующих свойств, а также вызов метода <span class="auto-style2">Swift\_Mailer::send</span>.
 
     <?php
      include_once "vendor/autoload.php";

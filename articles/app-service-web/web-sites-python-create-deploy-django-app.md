@@ -35,7 +35,7 @@
 - Python 2.7 или 3.4
 - setuptools, pip, virtualenv (только для Python 2.7)
 - Git
-- [Инструменты Python для Visual Studio][] (PTVS) (необязательно).
+- [Инструменты Python для Visual Studio][] \(PTVS) (необязательно).
 
 **Примечание**. Публикация TFS в настоящее время для проектов Python не поддерживается.
 
