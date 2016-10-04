@@ -242,11 +242,11 @@ Ajax | Вызовы HTTP от веб-страницы на сервер
 
 #### Введение
 
-> [AZURE.VIDEO application-insights-introduction]
+<div class="wa-video-container" data-control="video-container" data-slug="application-insights-introduction"> <a href="/en-us/documentation/videos/application-insights-introduction/" data-control="video" data-expanding="false" class="wa-video-thumbnail" title="Application Insights Introduction" data-ch9="//channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Application-Insights-Introduction/player/" data-caption="" data-event="videopage-clicked-videothumbnail" data-event-property="application-insights-introduction"> <img src="https://sec.ch9.ms/ch9/8b8e/e924e562-d966-4f38-8410-b19ed0a28b8e/AppInsightsIntro_960.jpg" alt="Application Insights Introduction" class="thumbnail"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>08-05-2014</span> <span>03 min, 14 sec</span> </span> </span> </a> </div>
 
 #### Приступая к работе
 
-> [AZURE.VIDEO getting-started-with-application-insights]
+<div class="wa-video-container" data-control="video-container" data-slug="getting-started-with-application-insights"> <a href="/en-us/documentation/videos/getting-started-with-application-insights/" data-control="video" data-expanding="false" class="wa-video-thumbnail" title="Getting Started with Application Insights" data-ch9="//channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Getting-Started-with-Application-Insights/player/" data-caption="" data-event="videopage-clicked-videothumbnail" data-event-property="getting-started-with-application-insights"> <img src="https://sec.ch9.ms/ch9/3037/37da1ff1-7691-424e-8817-179e190c3037/AIGettingStarted_960.jpg" alt="Getting Started with Application Insights" class="thumbnail"> <img class="play-icon" src="/cdn/cvt-a29a0e789afe7f47464f393c011b53f210c511ee5fed2c4c9c0633442f30d6ec/images/icon/VideoPlay.svg"> <span class="metadata"> <span class="date"> <span>08-05-2014</span> <span>05 min, 28 sec</span> </span> </span> </a> </div>
 
 
 
