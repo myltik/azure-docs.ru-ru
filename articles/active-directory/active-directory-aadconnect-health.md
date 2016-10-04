@@ -44,7 +44,7 @@ Azure AD Connect Health для AD FS поддерживает AD FS 2.0 в Windo
 
 В следующем видео представлен обзор Azure AD Connect Health для AD FS:
 
->[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
+> [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
 
