@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="karavar"
-	manager="stevenpo"
+	manager="femila"
 	editor="karavar"/>
 
 <tags
@@ -38,7 +38,7 @@
 
 Чтобы выбрать дополнительные метрики, укажите диапазон времени или измените способ группировки, просто щелкнув правой кнопкой мыши диаграмму аналитики по использованию и выбрав «Изменить диаграмму». Затем можно будет указать диапазон времени, изменить или выбрать метрики и изменить группирование. Вы можете просмотреть распределение трафика аутентификации по различным метрикам и группировать каждую метрику с помощью соответствующего параметра «Сгруппировать по», описанного ниже.
 
-| Metric (Метрика) | Сгруппировать по | Что означает группирование и почему это удобно? |
+| Метрика | Сгруппировать по | Что означает группирование и почему это удобно? |
 | ------ | -------- | -------------------------------------------- |
 | «Всего запросов»: общее число запросов, обрабатываемых службой федерации. | Все | Отображает общее количество запросов без группировки. |
 | | Приложение | Этот параметр группирует общее количество запросов по целевой проверяющей стороне. Такой способ группировки удобен, чтобы понять, сколько процентов от общего трафика получает каждое приложение. |
@@ -110,8 +110,8 @@ Azure AD Connect Health для AD FS предоставляет отчет о 50
 * [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
-* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md) (Использование Azure AD Connect Health с AD DS)
+* [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-<!----HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

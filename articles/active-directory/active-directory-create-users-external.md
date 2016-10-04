@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/02/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 # Добавление пользователей из других каталогов или компаний-партнеров в Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [Портал Azure](active-directory-create-users-external-azure-portal.md)
+- [Портал Azure](active-directory-users-create-external-azure-portal.md)
 - [Классический портал Azure](active-directory-create-users-external.md)
 
 В этой статье объясняется, как добавлять в Azure Active Directory пользователей из других каталогов, а также пользователей из компаний-партнеров. Сведения о добавлении новых корпоративных пользователей, а также пользователей с учетными записями Майкрософт см. в статье [Добавление новых пользователей в Azure Active Directory](active-directory-create-users.md). По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
@@ -70,7 +70,7 @@
 - **Классический портал Azure** позволяет внешнему пользователю, который является администратором нескольких каталогов, управлять каждым из этих каталогов.
 - **SharePoint Online** позволяет внешнему пользователю обращаться к авторизованным ресурсам SharePoint Online, если включен внешний общий доступ.
 - **Dynamics CRM** позволяет внешнему пользователю обращаться к авторизованным ресурсам Dynamics CRM, если у него есть лицензия PowerShell.
-- **Dynamics AX** позволяет внешнему пользователю обращаться к авторизованным ресурсам Dynamics AX, если у него есть лицензия PowerShell. На внешних пользователей в Dynamics AX также распространяются ограничения для [внешних пользователей Azure AD](#known-limitations-of-azure-ad-external-users) и [пользователей-гостей](#guest-user-management-and-limitations).
+- **Dynamics AX** позволяет внешнему пользователю обращаться к авторизованным ресурсам Dynamics AX, если у него есть лицензия PowerShell. На внешних пользователей в Dynamics AX также распространяются ограничения для [внешних пользователей Azure AD](#known-limitations-of-azure-ad-external-users).
 
 ### Известные ограничения для внешних пользователей Azure AD
 
@@ -88,4 +88,4 @@
 - [Управление паролями в Azure AD](active-directory-manage-passwords.md)
 - [Управление группами в Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

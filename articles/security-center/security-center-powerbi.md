@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Анализ данных центра безопасности Azure с помощью Power BI
@@ -26,7 +26,7 @@
 
 1. На панели мониторинга **центра безопасности Azure** нажмите кнопку **Просмотреть в Power BI**.
 
-	.![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new1.png)
+	.![Подключение к центру безопасности Azure с помощью Power BI](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png)
 
 2. Справа откроется колонка **Просмотреть в Power BI**, как показано ниже.
 
@@ -115,4 +115,4 @@
 - [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Часто задаваемые вопросы об использовании этой службы.
 - [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/). Записи блога, посвященные безопасности и соответствию требованиям в Azure.
 
-<!----HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

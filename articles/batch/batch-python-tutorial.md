@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="09/08/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Приступая к работе с клиентом Python пакетной службы Azure
@@ -44,9 +44,33 @@
 
 ### Среда Python
 
-Чтобы запустить пример скрипта *python\_tutorial\_client.py* на локальной рабочей станции, необходим **интерпретатор Python**, совместимый с версией **2.7** или **3.3–3.5**. Сценарий прошел испытания в Linux и Windows.
+Чтобы запустить пример скрипта *python\_tutorial\_client.py* на локальной рабочей станции, необходим **интерпретатор Python**, совместимый с версией **2.7** или **3.3+**. Сценарий прошел испытания в Linux и Windows.
 
-Кроме того, необходимо установить пакеты Python **пакетной службы Azure** и **службы хранилища Azure**. Это можно сделать с помощью команды **pip** и файла *requirements.txt*, который находится здесь:
+### Зависимости шифрования
+
+Для библиотеки [шифрования][crypto], которая требуется пакетам Python `azure-batch` и `azure-storage`, необходимо установить зависимости. Выполните одну из следующих операций, подходящих для вашей платформы, или обратитесь к сведениям об [установке шифрования][crypto_install]\:
+
+* Ubuntu
+
+    `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
+
+* CentOS
+
+    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+
+* SLES/OpenSUSE
+
+    `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
+
+* Windows
+
+    `pip install cryptography`
+
+>[AZURE.NOTE] При установке для версии Python 3.3+ в Linux используйте эквиваленты python3 для зависимостей Python. Например, в Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+
+### Пакеты Azure
+
+Далее установите пакеты Python **пакетной службы Azure** и **службы хранилища Azure**. Это можно сделать с помощью команды **pip** и файла *requirements.txt*, который находится здесь:
 
 .`/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -56,9 +80,9 @@
 
 Кроме того, пакеты Python [azure-batch][pypi_batch] и [azure-storage][pypi_storage] можно установить вручную.
 
-`pip install azure-batch==0.30.0rc4`<br/> `pip install azure-storage==0.30.0`
+`pip install azure-batch`<br/> `pip install azure-storage`
 
-> [AZURE.TIP] Если вы используете непривилегированную учетную запись, может понадобиться добавить к команде префикс `sudo`. Например, `sudo pip install -r requirements.txt`. Дополнительные сведения об установке пакетов Python см. в статье [Installing Packages][pypi_install] \(Установка пакетов) на сайте readthedocs.io.
+> [AZURE.TIP] Если вы используете непривилегированную учетную запись, может понадобиться добавить к команде префикс `sudo`. Например, `sudo pip install -r requirements.txt`. Дополнительные сведения об установке пакетов Python см. в статье [Installing Packages][pypi_install] (Установка пакетов) на сайте readthedocs.io.
 
 ## Пример кода Python для руководства по пакетной службе
 
@@ -140,7 +164,7 @@ if __name__ == '__main__':
 
 Когда контейнеры будут созданы, приложение сможет отправлять файлы, которые будут использоваться задачами.
 
-> [AZURE.TIP] Статья ["Приступая к работе с хранилищем BLOB-объектов Azure с помощью Python"](../storage/storage-python-how-to-use-blob-storage.md) содержит хороший обзор работы с контейнерами службы хранилища Azure и большими двоичными объектами. Вы должны ознакомиться с этой статьей, прежде чем приступать к работе с пакетной службой.
+> [AZURE.TIP] [How to use Azure Blob storage from Python]Статья "Приступая к работе с хранилищем BLOB-объектов Azure с помощью Python" содержит хороший обзор работы с контейнерами службы хранилища Azure и большими двоичными объектами. Вы должны ознакомиться с этой статьей, прежде чем приступать к работе с пакетной службой.
 
 ## Шаг 2. Отправка сценария задач и файлов данных
 
@@ -254,7 +278,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 
 ```python
 def create_pool(batch_service_client, pool_id,
-                resource_files, distro, version):
+                resource_files, publisher, offer, sku):
     """
     Creates a pool of compute nodes with the specified OS settings.
 
@@ -263,10 +287,9 @@ def create_pool(batch_service_client, pool_id,
     :param str pool_id: An ID for the new pool.
     :param list resource_files: A collection of resource files for the pool's
     start task.
-    :param str distro: The Linux distribution that should be installed on the
-    compute nodes, e.g. 'Ubuntu' or 'CentOS'.
-    :param str version: The version of the operating system for the compute
-    nodes, e.g. '15' or '14.04'.
+    :param str publisher: Marketplace image publisher
+    :param str offer: Marketplace image offer
+    :param str sku: Marketplace image sku
     """
     print('Creating pool [{}]...'.format(pool_id))
 
@@ -282,24 +305,32 @@ def create_pool(batch_service_client, pool_id,
         # Copy the python_tutorial_task.py script to the "shared" directory
         # that all tasks that run on the node have access to.
         'cp -r $AZ_BATCH_TASK_WORKING_DIR/* $AZ_BATCH_NODE_SHARED_DIR',
-        # Install pip and then the azure-storage module so that the task
-        # script can access Azure Blob storage
+        # Install pip and the dependencies for cryptography
         'apt-get update',
         'apt-get -y install python-pip',
+        'apt-get -y install build-essential libssl-dev libffi-dev python-dev',
+        # Install the azure-storage module so that the task script can access
+        # Azure Blob storage
         'pip install azure-storage']
 
-    # Get the virtual machine configuration for the desired distro and version.
+    # Get the node agent SKU and image reference for the virtual machine
+    # configuration.
     # For more information about the virtual machine configuration, see:
     # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
-    vm_config = get_vm_config_for_distro(batch_service_client, distro, version)
+    sku_to_use, image_ref_to_use = \
+        common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
+            batch_service_client, publisher, offer, sku)
 
     new_pool = batch.models.PoolAddParameter(
         id=pool_id,
-        virtual_machine_configuration=vm_config,
+        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            node_agent_sku_id=sku_to_use),
         vm_size=_POOL_VM_SIZE,
         target_dedicated=_POOL_NODE_COUNT,
         start_task=batch.models.StartTask(
-            command_line=wrap_commands_in_shell('linux', task_commands),
+            command_line=
+            common.helpers.wrap_commands_in_shell('linux', task_commands),
             run_elevated=True,
             wait_for_success=True,
             resource_files=resource_files),
@@ -310,7 +341,6 @@ def create_pool(batch_service_client, pool_id,
     except batchmodels.batch_error.BatchErrorException as err:
         print_batch_exception(err)
         raise
-}
 ```
 
 Во время создания пула необходимо определить [PoolAddParameter][py_pooladdparam], который указывает несколько свойств пула.
@@ -319,7 +349,7 @@ def create_pool(batch_service_client, pool_id,
 
 - **Количество вычислительных узлов** (*target\_dedicated*, обязательное).<p/>Указывает, сколько виртуальных машин следует развернуть в пуле. Стоит отметить, что для всех учетных записей пакетной службы установлена **квота** по умолчанию, которая ограничивает количество **ядер** (и, следовательно, вычислительных узлов) в учетной записи. Дополнительные сведения о квотах по умолчанию и инструкцию по [увеличению квоты](batch-quota-limit.md#increase-a-quota) (например, максимального количества ядер в учетной записи пакетной службы) см. в статье [Квоты и ограничения пакетной службы Azure](batch-quota-limit.md). Если возник вопрос о том, почему пул не использует больше определенного количества узлов, причиной может быть квота на ядра.
 
-- **Операционная система** для узлов (*virtual\_machine\_configuration* **или** *cloud\_service\_configuration*, обязательное).<p/>В *python\_tutorial\_client.py* мы создадим пул узлов Linux с использованием [VirtualMachineConfiguration][py_vm_config], полученного с помощью вспомогательной функции `get_vm_config_for_distro`. Эта вспомогательная функция использует [list\_node\_agent\_skus][py_list_skus], чтобы получить и выбрать образ в списке совместимых образов [из магазина виртуальных машин Azure Marketplace][vm_marketplace]. Вместо этого можно указать [CloudServiceConfiguration][py_cs_config] и создать пул узлов Windows в облачных службах. Дополнительные сведения об этих двух конфигурациях см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
+- **Операционная система** для узлов (*virtual\_machine\_configuration* **или** *cloud\_service\_configuration*, обязательно).<p/>В *python\_tutorial\_client.py* мы создадим пул узлов Linux с использованием [VirtualMachineConfiguration][py_vm_config]. Функция `select_latest_verified_vm_image_with_node_agent_sku` в `common.helpers` упрощает работу с образами из [магазина виртуальных машин Azure][vm_marketplace]. Дополнительные сведения об использовании образов из магазина см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
 
 - **Размер вычислительных узлов**(*vm\_size*, обязательное).<p/>Так как мы указываем узлы Linux для [VirtualMachineConfiguration][py_vm_config], необходимо указать их размер (в этом примере — `STANDARD_A1`), как описано в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-linux-sizes.md). Дополнительные сведения см. в статье [Подготовка вычислительных узлов Linux в пулах пакетной службы Azure](batch-linux-nodes.md).
 
@@ -372,7 +402,7 @@ def create_job(batch_service_client, job_id, pool_id):
 
 **Задачи** пакетной службы представляют собой отдельные рабочие единицы, выполняемые на вычислительных узлах. У задачи есть командная строка, она запускает сценарии или исполняемые файлы, указанные в этой строке.
 
-Для фактического выполнения работы необходимо добавить задачи в задание. Каждая задача [CloudTask][py_task] \(как и задача StartTask пула) настраивается с помощью свойства командной строки и объекта [ResourceFiles][py_resource_file], который она скачивает на узел до автоматического выполнения ее командной строки. В этом примере каждая задача обрабатывает только один файл. Поэтому его коллекция ResourceFiles содержит один элемент.
+Для фактического выполнения работы необходимо добавить задачи в задание. Каждая задача [CloudTask][py_task] (как и задача StartTask пула) настраивается с помощью свойства командной строки и объекта [ResourceFiles][py_resource_file], который она скачивает на узел до автоматического выполнения ее командной строки. В этом примере каждая задача обрабатывает только один файл. Поэтому его коллекция ResourceFiles содержит один элемент.
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,
@@ -556,7 +586,9 @@ if query_yes_no('Delete pool?') == 'yes':
 
 При запуске скрипта *python\_tutorial\_client.py* из [примера кода][github_article_samples] в руководстве консоль будет выглядеть следующим образом. Во время создания и запуска вычислительных узлов пула, а также выполнения команд в рамках его задачи запуска выполнение приостанавливается на `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...`. Используйте [портал Azure][azure_portal] для мониторинга пула, вычислительных узлов, заданий и задач во время и после выполнения. Используйте [портал Azure][azure_portal] или [обозреватель хранилищ Microsoft Azure][storage_explorer], чтобы просматривать ресурсы службы хранилища (контейнеры и большие двоичные объекты), созданные приложением.
 
-Обычное время выполнения — **примерно 5–7 минут**, если для приложения задана конфигурация по умолчанию.
+>[AZURE.TIP] Выполните скрипт *python\_tutorial\_client.py* в каталоге `azure-batch-samples/Python/Batch/article_samples`. Он использует относительный путь для импорта модуля `common.helpers`, поэтому, если не выполнить скрипт в этом каталоге, может возникнуть ошибка `ImportError: No module named 'common'`.
+
+Обычное время выполнения — **примерно 5–7 минут**, если для примера задана конфигурация по умолчанию.
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -601,6 +633,8 @@ Press ENTER to exit...
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
+[crypto]: https://cryptography.io/en/latest/
+[crypto_install]: https://cryptography.io/en/latest/installation/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
@@ -658,4 +692,4 @@ Press ENTER to exit...
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Учетные данные службы хранилища на портале"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Рабочий процесс решения пакетной службы (сокращенная схема)"
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

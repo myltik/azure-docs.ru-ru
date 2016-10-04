@@ -34,7 +34,7 @@
 
 Ознакомьтесь с примерами [в нашем репозитории GitHub](https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples), демонстрирующими расширенные возможности обмена сообщениями служебной шины Azure.
 
-[create-namespace-using-arm]: ./service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->
