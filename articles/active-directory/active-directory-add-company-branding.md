@@ -3,7 +3,7 @@
 	description="Сведения о добавлении фирменной символики на страницу входа в Azure и панели доступа"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="curtand"
 	manager="femila"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/13/2016"
-	ms.author="MarkVi"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # Добавление фирменной символики компании на страницах входа и панели доступа
 
@@ -29,7 +29,7 @@
 
 > [AZURE.NOTE]
 >
-- Фирменная символика компании доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
+- Фирменная символика компании доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Она также доступна пользователям Office 365. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
 - Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
@@ -40,7 +40,7 @@
 
 Когда вы что-то меняете на странице входа, может потребоваться до одного часа, чтобы эти изменения вступили в силу.
 
-Страница входа с фирменным дизайном отображается только при посещении службы с помощью URL-адреса конкретного клиента, например https://outlook.com/**contoso**.com или https://mail.**contoso**.com.
+Страница входа с фирменной символикой отображается только при посещении службы с помощью URL-адреса конкретного клиента, например https://outlook.com/**contoso**.com или https://mail.**contoso**.com.
 
 При посещении службы без URL-адреса клиента (например, https://mail.office365.com) страница входа отображается без фирменного дизайна. Символика появится, когда вы введете идентификатор пользователя или выберете плитку пользователя.
 
@@ -219,4 +219,4 @@
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -25,7 +25,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Узнайте, как использовать язык C# для создания базы данных SQL Azure с помощью [библиотеки баз данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). В этой статье описываются способы создания отдельной базы данных с помощью SQL и C#. Создание пулов эластичных баз данных описано в статье [Создание пула эластичных баз данных на портале Azure](sql-database-elastic-pool-create-portal.md).
+Узнайте, как использовать язык C# для создания базы данных SQL Azure с помощью [библиотеки баз данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). В этой статье описываются способы создания отдельной базы данных с помощью SQL и C#. Создание пулов эластичных баз данных описано в статье [Создание пула эластичных баз данных на портале Azure](sql-database-elastic-pool-create-csharp.md).
 
 Библиотека базы данных SQL Azure для .NET предоставляет API на основе [диспетчера ресурсов Azure](../resource-group-overview.md), который создает оболочку для [API REST базы данных SQL на основе диспетчера ресурсов](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -291,4 +291,4 @@
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=AcomDC_0914_2016--->
+<!---HONumber=AcomDC_0928_2016-->

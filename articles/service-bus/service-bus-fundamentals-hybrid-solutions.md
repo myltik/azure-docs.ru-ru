@@ -110,9 +110,9 @@ Service Bus — это мультитенантная облачная служ�
 
 Вы познакомились с основами служебной шины Azure, используйте следующие ссылки для получения дополнительных сведений.
 
-- Как использовать [очереди служебной шины](service-bus-dotnet-get-started-with-queues.md)
-- Как использовать [разделы служебной шины](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-- Как использовать [ретрансляторы служебной шины](service-bus-dotnet-how-to-use-relay.md)
+- Как использовать [очереди служебной шины](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+- Как использовать [разделы служебной шины](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- Как использовать [ретрансляторы служебной шины](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
 - [Служебная шина: примеры](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -120,4 +120,4 @@ Service Bus — это мультитенантная облачная служ�
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -7,13 +7,13 @@
    manager="swadhwa"
    editor=""/>
 
-<tags
+.<tags
    ms.service="security-center"
    ms.topic="hero-article"
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Руководство по планированию использования центра безопасности Azure и работе в нем
@@ -231,9 +231,11 @@
 
 Как видно, в этой колонке показаны сведения о времени атаки, имени узла источника, целевой виртуальной машине, а также указаны рекомендации. В некоторых случаях сведения об источнике атаки могут отсутствовать. Дополнительные сведения о таком поведении см. в статье блога [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) (Отсутствие сведений об источнике в оповещениях центра безопасности Azure).
 
-> [AZURE.NOTE] См. видео [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Использование центра безопасности Azure и Microsoft Operations Management Suite для реагирования на инциденты), чтобы понять, как можно использовать центр безопасности на каждом из этих этапов.
+См. видео [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) (Использование центра безопасности Azure и Microsoft Operations Management Suite для реагирования на инциденты), чтобы понять, как можно использовать центр безопасности на каждом из этих этапов.
 
-## Дополнительные материалы
+> [AZURE.NOTE] Дополнительные сведения об использовании возможностей центра безопасности для реагирования на инциденты см. в статье [Использование центра безопасности Azure для реагирования на инциденты](security-center-incident-response.md).
+
+## См. также
 В этом документе описывается, как спланировать переход к использованию центра безопасности. Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
 - [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md)
@@ -242,4 +244,4 @@
 - [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Часто задаваемые вопросы об использовании этой службы.
 - [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/). Записи блога, посвященные безопасности и соответствию требованиям в Azure.
 
-<!----HONumber=AcomDC_0817_2016--->
+<!---HONumber=AcomDC_0928_2016-->
