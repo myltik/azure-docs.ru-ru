@@ -378,7 +378,7 @@
 
 	![][24]
 
-6.  Теперь откройте файл **HomeController.cs** в редакторе Visual Studio и замените существующее определение пространства имен следующим кодом. Не забудьте заменить *yourServiceNamespace* на имя пространства имен вашей службы, а *yourKey* — на ключ SAS. Это позволит клиенту вызывать локальную службу, возвращая результат в вызов.
+6.  Теперь откройте файл **HomeController.cs** в редакторе Visual Studio и замените существующее определение пространства имен следующим кодом. Не забудьте заменить *yourServiceNamespace* на имя пространства имен вашей службы, а *yourKey* — на ключ SAS. Это позволит клиенту вызывать локальную службу, возвращая результат в вызов.
 
 	```
 	namespace ProductsWeb.Controllers
@@ -500,7 +500,7 @@
 
   [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-  [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
+  [Получить инструменты и SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
