@@ -4,7 +4,7 @@
 	keywords="краткое руководство, язык r, язык программирования r, руководство по программированию на языке r"
 	services="machine-learning"
 	documentationCenter=""
-	authors="Blackmist"
+	authors="garyericson"
 	manager="jhubbard"
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/12/2016"
-	ms.author="larryfr"/>
+	ms.author="garye"/>
 
 # Краткое руководство по языку программирования R для службы машинного обучения Azure
 
@@ -1358,4 +1358,4 @@ R — динамически типизированный язык. Други�
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

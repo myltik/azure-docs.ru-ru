@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/03/2016"
+   ms.date="09/22/2016"
    ms.author="mfussell"/>
 
 # Общие сведения о Service Fabric
@@ -43,7 +43,7 @@ Service Fabric предоставляет широкие возможности 
 
 См. дополнительные сведения о [создании локальных кластеров на платформе Windows Server или Linux](service-fabric-deploy-anywhere.md) и [создании кластеров Azure на портале Azure](service-fabric-cluster-creation-via-portal.md).
 
-.![Платформа Service Fabric][Image1]
+![Платформа Service Fabric][Image1]
 
 ## Микрослужбы Service Fabric с отслеживанием и без отслеживания состояния
 
@@ -110,4 +110,4 @@ Service Fabric предоставляет первоклассную подде�
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 
@@ -38,7 +38,7 @@
 
 Предварительные условия (и необходимые компоненты) для сценария
 ------------------------------------------------------------------------
-* Подписка на Office 365 или Azure Active Directory Premium.
+* Подписка на Office 365 или Azure Active Directory Premium
 * Клиент Azure Active Directory.
 * Windows Server Active Directory (Windows Server 2008 или более поздней версии).
 * Обновленная схема в Windows Server 2012 R2.
@@ -194,7 +194,7 @@
 
 ### Присоединение устройства Android с помощью регистрации устройств в Active Directory Azure
 
-В разделе [Azure Authenticator для Android](active-directory-conditional-access-azure-authenticator-app.md) приведены указания по установке приложения Azure Authenticator на устройство Android и добавлению рабочей учетной записи. После успешного создания рабочей учетной записи на устройстве Android оно присоединяется к рабочей области организации.
+В статье [Azure Authenticator для Android](active-directory-conditional-access-azure-authenticator-app.md) приведены указания по установке приложения Azure Authenticator на устройство Android и добавлению рабочей учетной записи. После успешного создания рабочей учетной записи на устройстве Android оно присоединяется к рабочей области организации.
 
 ## Проверка обратной записи зарегистрированных устройств в Active Directory
 Просмотреть и убедиться, что объекты устройств были записаны в Active Directory посредством обратной записи, можно с помощью LDP.exe и ADSI Edit. Оба приложения доступны в инструментах для администратора Active Directory.
@@ -252,4 +252,4 @@
 
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

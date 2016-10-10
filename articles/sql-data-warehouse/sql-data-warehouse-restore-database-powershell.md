@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="09/21/2016"
    ms.author="lakshmir;barbkess;sonyama"/>
 
 # Восстановление хранилища данных SQL Azure (PowerShell)
@@ -78,7 +78,7 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
+>[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям раздела [Настройка базы данных после восстановления][].
 
 
 ## Восстановление удаленной базы данных.
@@ -113,7 +113,7 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –D
 $RestoredDatabase.status
 ```
 
->[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
+>[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям раздела [Настройка базы данных после восстановления][].
 
 
 ## Восстановление из географического региона Azure
@@ -142,7 +142,7 @@ $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGrou
 $GeoRestoredDatabase.status
 ```
 
->[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
+>[AZURE.NOTE] Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][].
 
 
 Восстановленная база данных будет поддерживать прозрачное шифрование данных, если исходная база данных поддерживает прозрачное шифрование данных.
@@ -156,13 +156,13 @@ $GeoRestoredDatabase.status
 <!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: sql-database-business-continuity.md
 [Создание запроса в службу поддержки для хранилища данных SQL]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
-[Finalize a recovered database]: sql-database-recovered-finalize.md
+[Configure your database after recovery]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [Установка и настройка Azure PowerShell]: powershell-install-configure.md
 [Обзор]: ./sql-data-warehouse-restore-database-overview.md
 [Портал]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Финализация восстановленной базы данных SQL Azure]: ./sql-database-recovered-finalize.md
+[Настройка базы данных после восстановления]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
@@ -171,4 +171,4 @@ $GeoRestoredDatabase.status
 [Azure Portal]: https://portal.azure.com/
 [установщика веб-платформы Майкрософт]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

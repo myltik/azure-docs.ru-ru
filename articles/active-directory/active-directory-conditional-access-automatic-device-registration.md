@@ -3,7 +3,7 @@
 	description="ИТ-администраторы могут автоматически и без предупреждений регистрировать устройства Windows, присоединенные к домену, с помощью Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="Markvi"
 	manager="swadhwa"
 	editor=""/>
 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows
 
 ИТ-администраторы могут автоматически и без предупреждений зарегистрировать устройства Windows, присоединенные к домену, с помощью Azure Active Directory (Azure AD). Такую регистрацию удобно использовать, если вы настроили политики условного доступа на основе устройств для приложений Office 365 или приложений, которыми локально управляют службы федерации Active Directory (AD FS). Дополнительную информацию о сценариях регистрации устройств см. в разделе [Общая информация о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
+
+>AZURE.NOTE Дополнительные сведения о настройке автоматической регистрации устройств см. в статье [Настройка автоматической регистрации в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 Автоматическая регистрация устройств в Azure AD доступна для компьютеров под управлением Windows 7 и Windows 8.1, присоединенных к домену Active Directory. Обычно это корпоративные компьютеры, которые предоставляются информационным работникам.
 
@@ -105,4 +107,4 @@
 - [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
 - [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

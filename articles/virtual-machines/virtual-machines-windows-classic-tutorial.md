@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Создание виртуальной машины под управлением Windows на классическом портале Azure
@@ -25,7 +25,7 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели развертывания Resource Manager](virtual-machines-windows-hero-tutorial.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия для модели развертывания с помощью Resource Manager](virtual-machines-windows-hero-tutorial.md). Если вы собираетесь использовать новый портал Azure, см. статью [Создание первой виртуальной машины Windows на портале Azure](virtual-machines-windows-hero-tutorial.md).
 
 В этом учебнике показано, как просто создать виртуальную машину Azure под управлением Windows на классическом портале Azure. Мы будем использовать в качестве примера образ Windows Server, но это лишь один из многих образов, предлагаемых в Azure. Обратите внимание, что доступные образы зависят от подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов Windows.
 
@@ -51,4 +51,4 @@
 
 - Подключите диск для хранения данных. Можно присоединять пустые диски и диски с данными. Инструкции см. в статье [Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания](virtual-machines-windows-classic-attach-disk.md).
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

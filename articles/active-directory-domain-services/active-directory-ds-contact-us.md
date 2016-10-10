@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Доменные службы Azure Active Directory (предварительная версия) — связь с нами | Microsoft Azure"
+	pageTitle="Доменные службы Azure Active Directory — связь с нами | Microsoft Azure"
 	description="Свяжитесь с к командой по доменным службам Azure AD."
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 
-# Доменные службы Azure AD (предварительная версия) — связь с нами
+# Доменные службы Azure AD — связь с нами
 
-## Свяжитесь с нами
-Если у вас возникла проблема с управляемым доменом, попробуйте выполнить действия, описанные в [руководстве по устранению неполадок](active-directory-ds-troubleshooting.md). Если проблема сохранилась, свяжитесь с нами.
+## Связь с группой разработка продукта
+Если у вас возникла проблема с управляемым доменом, попробуйте выполнить действия, описанные в [руководстве по устранению неполадок](active-directory-ds-troubleshooting.md). Если устранить проблему не удалось, свяжитесь с нами.
 
 Вы можете написать нам электронное сообщение [с отзывом о доменных службах Azure AD](mailto:aaddsfb@microsoft.com).
 
@@ -36,4 +36,4 @@
 
 Чтобы мы получили ваш вопрос или отзыв, он должен начинаться со слова **AADDS**.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

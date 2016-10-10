@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Сценарий PowerShell для идентификации отдельных баз данных, подходящих для пула"
+	pageTitle="Сценарий PowerShell для идентификации отдельных баз данных, подходящих для пула | Microsoft Azure"
 	description="Эластичный пул баз данных — это набор доступных ресурсов, совместно используемых группой эластичных баз данных. В этом документе приведен сценарий Powershell, который поможет оценить целесообразность использования пула эластичных баз данных для группы баз данных."
 	services="sql-database"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/06/2016"
+	ms.date="09/22/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -28,7 +28,7 @@
 
 Перед запуском сценария установите следующие элементы:
 
-- Новые [средства командной строки Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+- Последняя версия Azure PowerShell. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 - [Пакет дополнительных компонентов SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ### Сведения о сценарии
@@ -266,4 +266,4 @@
 
         
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

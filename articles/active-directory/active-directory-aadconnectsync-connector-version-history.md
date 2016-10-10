@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -94,4 +94,4 @@
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

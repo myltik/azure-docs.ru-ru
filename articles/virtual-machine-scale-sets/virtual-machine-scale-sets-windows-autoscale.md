@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/27/2016"
 	ms.author="davidmu"/>
 
-# Автоматическое масштабирование машин в масштабируемом наборе виртуальных машин
+# Автоматическое масштабирование ВМ в наборе масштабирования ВМ
 
-Масштабируемые наборы виртуальных машин упрощают развертывание идентичных виртуальных машин в виде набора и управление ими. Масштабируемые наборы обеспечивают высокую степень масштабируемости и персонализацию уровня вычислений для гипермасштабируемых приложений. Кроме того, они поддерживают образы платформ Windows и Linux, а также пользовательские образы и расширения. Дополнительные сведения о масштабируемых наборах см. в статье [Масштабируемые наборы виртуальных машин](virtual-machine-scale-sets-overview.md).
+Наборы масштабирования виртуальных машин позволяют легко развертывать идентичные виртуальные машины (ВМ) в виде набора и управлять ими. Масштабируемые наборы обеспечивают высокую степень масштабируемости и персонализацию уровня вычислений для гипермасштабируемых приложений. Кроме того, они поддерживают образы платформ Windows и Linux, а также пользовательские образы и расширения. Дополнительные сведения о масштабируемых наборах см. в статье [Масштабируемые наборы виртуальных машин](virtual-machine-scale-sets-overview.md).
 
-В этом руководстве показано, как создать масштабируемый набор виртуальных машин Windows и автоматически масштабировать машины в наборе. Для этого нужно создать шаблон диспетчера ресурсов Azure и развернуть его с помощью Azure PowerShell. Дополнительную информацию о шаблонах см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md). Дополнительные сведения об автоматическом масштабировании наборов масштабирования см. в статье [Автоматическое масштабирование и наборы масштабирования виртуальных машин](virtual-machine-scale-sets-autoscale-overview.md).
+В этом руководстве объясняется, как создать набор масштабирования виртуальных машин Windows и настроить их автоматическое масштабирование. Чтобы создать набор и настроить масштабирование, нужно создать шаблон Azure Resource Manager и развернуть его с помощью Azure PowerShell. Дополнительную информацию о шаблонах см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md). Дополнительные сведения об автоматическом масштабировании наборов масштабирования см. в статье [Автоматическое масштабирование и наборы масштабирования виртуальных машин](virtual-machine-scale-sets-autoscale-overview.md).
 
-Следуя инструкциям этого руководства, вы развернете следующие ресурсы и расширения:
+Следуя инструкциям из этой статьи, вы развернете следующие ресурсы и расширения:
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Network/virtualNetworks
@@ -39,13 +39,13 @@
 
 ## Шаг 1. Установка Azure PowerShell
 
-Сведения о том, как установить последнюю версию Azure PowerShell, выбрать нужную подписку и выполнить вход в учетную запись Azure, см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в Azure см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 ## Шаг 2. Создание группы ресурсов и учетной записи хранения
 
-1. **Создайте группу ресурсов**. Все ресурсы должны быть развернуты в группе ресурсов. В этом учебнике назовем группу ресурсов **vmsstestrg1**. См. информацию о командлете [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+1. **Создайте группу ресурсов**. Все ресурсы должны быть развернуты в группе ресурсов. Чтобы создать группу ресурсов с именем **vmsstestrg1**, выполните командлет [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
-2. **Разверните учетную запись хранения в новой группе ресурсов**. В этом руководстве используется несколько учетных записей для упрощения работы с масштабируемым набором виртуальных машин. Используйте командлет [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx), чтобы создать учетную запись хранения с именем **vmsstestsa**. Не закрывайте окно Azure PowerShell — оно понадобится для выполнения дальнейших инструкций этого руководства.
+2. **Создайте учетную запись хранения**. Это учетная запись, в которой будет храниться шаблон. Используйте командлет [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx), чтобы создать учетную запись хранения с именем **vmsstestsa**.
 
 ## Шаг 3. Создание шаблона
 С помощью шаблона диспетчера ресурсов Azure можно развертывать ресурсы Azure и управлять ими совокупно, используя JSON-описание ресурсов и связанные параметры развертывания.
@@ -56,96 +56,67 @@
           "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
           "contentVersion": "1.0.0.0",
           "parameters": {
-          }
+          },
           "variables": {
-          }
+          },
           "resources": [
           ]
         }
 
-2. Параметры не всегда обязательны, но они упрощают управление шаблонами. Они указывают способ определения значений для шаблона, описывают тип значения, значение по умолчанию (если требуется) и иногда допустимые значения параметра. Добавьте указанные ниже параметры в родительский элемент параметров, добавленный в шаблон.
+2. Параметры требуются не всегда, но при развертывании шаблона с их помощью можно передавать значения. Добавьте указанные ниже параметры в родительский элемент параметров, добавленный в шаблон.
 
-        "vmName": {
-          "type": "string"
-        },
-        "vmSSName": {
-          "type": "string"
-        },
-        "instanceCount": {
-          "type": "string"
-        },
-        "adminUsername": {
-          "type": "string"
-        },
-        "adminPassword": {
-          "type": "securestring"
-        },
-        "resourcePrefix": {
-          "type": "string"
-        }
+        "vmName": { "type": "string" },
+        "vmSSName": { "type": "string" },
+        "instanceCount": { "type": "string" },
+        "adminUsername": { "type": "string" },
+        "adminPassword": { "type": "securestring" },
+        "resourcePrefix": { "type": "string" }
         
     - Имя отдельной виртуальной машины, которая используется для доступа к машинам в наборе масштабирования.
     - Имя учетной записи хранения, в которой хранится шаблон.
-    - Количество экземпляров виртуальных машин, которое требуется создать сначала в масштабируемом наборе.
+    - Количество виртуальных машин, которое требуется изначально создать в наборе масштабирования.
     - Имя и пароль учетной записи администратора на виртуальных машинах.
-    - Префикс для ресурсов, создаваемых в группе ресурсов.
+    - Префикс имени для ресурсов, создаваемых для поддержки набора масштабирования.
     
 3. Переменные в шаблоне можно использовать для указания значений, которые могут часто изменяться, или значений, которые должны быть созданы из сочетания значений параметров. Добавьте указанные ниже переменные в родительский элемент переменных, добавленный в шаблон.
 
         "dnsName1": "[concat(parameters('resourcePrefix'),'dn1')]",
         "dnsName2": "[concat(parameters('resourcePrefix'),'dn2')]",
-        "vmSize": "Standard_A0",
-        "imagePublisher": "MicrosoftWindowsServer",
-        "imageOffer": "WindowsServer",
-        "imageVersion": "2012-R2-Datacenter",
-        "addressPrefix": "10.0.0.0/16",
-        "subnetName": "Subnet",
-        "subnetPrefix": "10.0.0.0/24",
         "publicIP1": "[concat(parameters('resourcePrefix'),'ip1')]",
         "publicIP2": "[concat(parameters('resourcePrefix'),'ip2')]",
         "loadBalancerName": "[concat(parameters('resourcePrefix'),'lb1')]",
         "virtualNetworkName": "[concat(parameters('resourcePrefix'),'vn1')]",
-        "nicName1": "[concat(parameters('resourcePrefix'),'nc1')]",
-        "nicName2": "[concat(parameters('resourcePrefix'),'nc2')]",
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-        "publicIPAddressID1": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIP1'))]",
-        "publicIPAddressID2": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIP2'))]",
+        "nicName": "[concat(parameters('resourcePrefix'),'nc1')]",
         "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
-        "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName2'))]",
         "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
-        "storageAccountType": "Standard_LRS",
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
         "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-	    "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
+	      "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
         "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="ru-RU"/></PerformanceCounterConfiguration></PerformanceCounters>",
         "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
         "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 
-    - DNS-имена, которые используются сетевыми интерфейсами.
-	- Размер виртуальных машин, используемых в масштабируемом наборе. Дополнительную информацию о размерах виртуальных машин см. в статье [Размеры виртуальных машин](../virtual-machines/virtual-machines-size-specs.md).
-	- Сведения об образе платформы для определения операционной системы, которая будет запущена на виртуальных машинах в масштабируемом наборе. Дополнительную информацию о выборе образов см. в статье [Просмотр и выбор образов виртуальных машин Azure с помощью оболочки Windows PowerShell и инфраструктуры Azure CLI](../virtual-machines/resource-groups-vm-searching.md).
+  - DNS-имена, которые используются сетевыми интерфейсами.
 	- Имена и префиксы IP-адресов для виртуальной сети и подсетей.
 	- Имена и идентификаторы виртуальной сети, балансировщик нагрузки и сетевые интерфейсы.
 	- Имена учетных записей хранения, связанных с машинами в масштабируемом наборе.
 	- Параметры для расширения системы диагностики, которая установлена на виртуальных машинах. Дополнительную информацию о расширении системы диагностики см. в статье [Создание виртуальной машины Windows с мониторингом и диагностикой с помощью шаблона диспетчера ресурсов Azure](../virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md).
     
-4. Добавьте ресурс учетной записи хранения в родительский элемент ресурсов, добавленный в шаблон. Этот шаблон использует цикл для создания рекомендуемых пяти учетных записей хранения, в которых хранятся диски операционной системы и диагностические данные. Этот набор учетных записей может поддерживать до 100 виртуальных машин в масштабируемом наборе (это максимальное количество на данный момент). Каждой учетной записи хранения присваивается буквенный код, который определен в переменных в сочетании с суффиксом, указанным в параметрах шаблона.
+4. Добавьте ресурс учетной записи хранения в родительский элемент ресурсов, добавленный в шаблон. В этом шаблоне используется цикл для создания пяти рекомендуемых учетных записей хранения, в которых будут храниться диски операционной системы и диагностические данные. Этот набор учетных записей может поддерживать до 100 виртуальных машин в масштабируемом наборе (это максимальное количество на данный момент). Каждой учетной записи хранения присваивается буквенный код, который определен в переменных в сочетании с префиксом, указанным в параметрах шаблона.
 
         {
           "type": "Microsoft.Storage/storageAccounts",
-          "name": "[concat(variables('resourcePrefix'), parameters('storageAccountSuffix')[copyIndex()])]",
+          "name": "[concat(parameters('resourcePrefix'), variables('storageAccountSuffix')[copyIndex()])]",
           "apiVersion": "2015-06-15",
           "copy": {
-          "name": "storageLoop",
-          "count": 5
+            "name": "storageLoop",
+            "count": 5
+          },
+          "location": "[resourceGroup().location]",
+          "properties": { "accountType": "Standard_LRS" }
         },
-        "location": "[resourceGroup().location]",
-        "properties": {
-          "accountType": "[variables('storageAccountType')]"
-        }
-      }
 
 5. Добавьте ресурс виртуальной сети. Дополнительную информацию см. в статье [Поставщик сетевых ресурсов](../virtual-network/resource-groups-networking.md).
 
@@ -155,17 +126,11 @@
           "name": "[variables('virtualNetworkName')]",
           "location": "[resourceGroup().location]",
           "properties": {
-            "addressSpace": {
-              "addressPrefixes": [
-                "[variables('addressPrefix')]"
-              ]
-            },
+            "addressSpace": { "addressPrefixes": [ "10.0.0.0/16" ] },
             "subnets": [
               {
-                "name": "[variables('subnetName')]",
-                "properties": {
-                  "addressPrefix": "[variables('subnetPrefix')]"
-                }
+                "name": "subnet1",
+                "properties": { "addressPrefix": "10.0.0.0/24" }
               }
             ]
           }
@@ -214,16 +179,12 @@
                 "name": "loadBalancerFrontEnd",
                 "properties": {
                   "publicIPAddress": {
-                    "id": "[variables('publicIPAddressID1')]"
+                    "id": "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIP1'))]"
                   }
                 }
               }
             ],
-            "backendAddressPools": [
-              {
-                "name": "bepool1"
-              }
-            ],
+            "backendAddressPools": [ { "name": "bepool1" } ],
             "inboundNatPools": [
               {
                 "name": "natpool1",
@@ -241,12 +202,12 @@
           }
         },
 
-8. Добавьте ресурс сетевого интерфейса, используемый отдельной виртуальной машиной. К виртуальным машинам в наборе масштабирования нельзя получить доступ напрямую с помощью общедоступного IP-адреса, поэтому в виртуальной сети набора масштабирования создается отдельная виртуальная машина, которая используется для удаленного доступа к машинам в наборе.
+8. Добавьте ресурс сетевого интерфейса, используемый отдельной виртуальной машиной. К виртуальным машинам из набора масштабирования нельзя получить доступ через общедоступный IP-адрес, поэтому для удаленного доступа к ним в той же виртуальной сети создается отдельная виртуальная машина.
 
         {
           "apiVersion": "2016-03-30",
           "type": "Microsoft.Network/networkInterfaces",
-          "name": "[variables('nicName1')]",
+          "name": "[variables('nicName')]",
           "location": "[resourceGroup().location]",
           "dependsOn": [
             "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIP2'))]",
@@ -262,7 +223,7 @@
                     "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP2'))]"
                   },
                   "subnet": {
-                    "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
+                    "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/subnet1')]"
                   }
                 }
               }
@@ -278,12 +239,11 @@
           "name": "[parameters('vmName')]",
           "location": "[resourceGroup().location]",
           "dependsOn": [
-            "[concat('Microsoft.Network/networkInterfaces/', variables('nicName1'))]"
+            "storageLoop",
+            "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
           ],
           "properties": {
-            "hardwareProfile": {
-              "vmSize": "[variables('vmSize')]"
-            },
+            "hardwareProfile": { "vmSize": "Standard_A1" },
             "osProfile": {
               "computername": "[parameters('vmName')]",
               "adminUsername": "[parameters('adminUsername')]",
@@ -291,15 +251,15 @@
             },
             "storageProfile": {
               "imageReference": {
-                "publisher": "[variables('imagePublisher')]",
-                "offer": "[variables('imageOffer')]",
-                "sku": "[variables('imageVersion')]",
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2012-R2-Datacenter",
                 "version": "latest"
               },
               "osDisk": {
-                "name": "osdisk1",
+                "name": "[concat(parameters('resourcePrefix'), 'os1')]",
                 "vhd": {
-                  "uri":  "[concat('https://',parameters('resourcePrefix'),'sa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
+                  "uri":  "[concat('https://',parameters('resourcePrefix'),'a.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'os1.vhd')]"
                 },
                 "caching": "ReadWrite",
                 "createOption": "FromImage"        
@@ -308,14 +268,14 @@
             "networkProfile": {
               "networkInterfaces": [
                 {
-                  "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName1'))]"
+                  "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
                 }
               ]
             }
           }
         },
 
-10.	Добавьте ресурс масштабируемого набора виртуальных машин и укажите расширение системы диагностики, установленное на всех виртуальных машинах в масштабируемом наборе. Многие параметры данного ресурса похожи на ресурс виртуальной машины. Основное отличие заключается в появлении элемента capacity, который указывает, сколько виртуальных машин должно быть инициализировано в наборе масштабирования, и элемента upgradePolicy, который указывает, как выполняются обновления в виртуальных машинах в наборе масштабирования. Набор масштабирования не будет создан, пока не будут созданы все учетные записи хранения, которые указаны в элементе dependsOn.
+10.	Добавьте ресурс набора масштабирования ВМ и укажите расширение диагностики, устанавливаемое на все виртуальные машины из набора масштабирования. Многие параметры данного ресурса похожи на ресурс виртуальной машины. Основные отличия заключаются в элементе capacity, который указывает количество виртуальных машин в наборе масштабирования, и элементе upgradePolicy, который указывает способ выполнения обновлений на виртуальных машинах. Набор масштабирования не будет создан, пока не будут созданы все учетные записи хранения, указанные в элементе dependsOn.
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -328,7 +288,7 @@
                 "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
               ],
               "sku": {
-                "name": "[variables('vmSize')]",
+                "name": "Standard_A1",
                 "tier": "Standard",
                 "capacity": "[parameters('instanceCount')]"
               },
@@ -340,20 +300,20 @@
                   "storageProfile": {
                     "osDisk": {
                       "vhdContainers": [
-                        "[concat('https://', parameters('resourcePrefix'), 'a.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'g.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'm.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 's.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), 'y.blob.core.windows.net/vmss')]"
+                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[0], '.blob.core.windows.net/vhds')]",
+                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[1], '.blob.core.windows.net/vhds')]",
+                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[2], '.blob.core.windows.net/vhds')]",
+                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[3], '.blob.core.windows.net/vhds')]",
+                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[4], '.blob.core.windows.net/vhds')]"
                       ],
                       "name": "vmssosdisk",
                       "caching": "ReadOnly",
                       "createOption": "FromImage"
                     },
                     "imageReference": {
-                      "publisher": "[variables('imagePublisher')]",
-                      "offer": "[variables('imageOffer')]",
-                      "sku": "[variables('imageVersion')]",
+                      "publisher": "MicrosoftWindowsServer",
+                      "offer": "WindowsServer",
+                      "sku": "2012-R2-Datacenter",
                       "version": "latest"
                     }
                   },
@@ -365,7 +325,7 @@
                   "networkProfile": {
                     "networkInterfaceConfigurations": [
                       {
-                        "name": "[variables('nicName2')]",
+                        "name": "networkconfig1",
                         "properties": {
                           "primary": "true",
                           "ipConfigurations": [
@@ -373,7 +333,7 @@
                               "name": "ip1",
                               "properties": {
                                 "subnet": {
-                                  "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
+                                  "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/subnet1')]"
                                 },
                                 "loadBalancerBackendAddressPools": [
                                   {
@@ -418,7 +378,7 @@
               }
             },
 
-11.	Добавьте ресурс autoscaleSettings, который определяет, как масштабируемый набор изменяется в зависимости от использования процессоров на машинах в наборе.
+11.	Добавьте ресурс autoscaleSettings, который определяет, как набор масштабирования изменяется в зависимости от использования процессоров на машинах из набора.
 
             {
               "type": "Microsoft.Insights/autoscaleSettings",
@@ -466,51 +426,51 @@
               }
             }
 
-    Далее приведены важные параметры для этого руководства.
+    Для целей этого руководства важны значения следующих параметров:
 
-    - **metricName** — это то же самое, что счетчик производительности, определенный в переменной wadperfcounter. Используя эту переменную, расширение системы диагностики собирает данные счетчика **Processor(\_Total)\\% Processor Time**.
-- **metricResourceUri** — это идентификатор ресурса масштабируемого набора виртуальных машин.
-    - **timeGrain** — это степень детализации собираемых метрик. В данном шаблоне значение этого параметра равно 1 минуте.
-    - **statistic** — этот параметр определяет, как объединяются метрики для выполнения автоматического масштабирования. Возможные значения: Average (Среднее), Min (Минимальное), Max (Максимальное). В этом шаблоне мы хотим определить среднее использование ЦП на виртуальных машинах в масштабируемом наборе.
-    - **timeWindow** — это диапазон времени, в течение которого собираются данные об экземплярах. Значение должно составлять от 5 минут до 12 часов.
-    - **timeAggregation** — этот параметр определяет способ объединения собранных данных с течением времени. Значение по умолчанию — Average (Среднее). Возможные значения: Average (Среднее), Minimum (Минимальное), Maximum (Максимальное), Last (Последнее), Total (Всего), Count (Количество).
-    - **operator** — это оператор, который используется для сравнения данных метрики и порогового значения. Возможные значения: Equals (Равно), NotEquals (Не равно), GreaterThan (Больше), GreaterThanOrEqual (Больше или равно), LessThan (Меньше), LessThanOrEqual (Меньше или равно).
-    - **threshold** — это значение, которое активирует действие масштабирования. В этом шаблоне машины добавляются в масштабируемый набор, когда среднее использование ЦП на машинах в наборе превышает 50 %.
-    - **direction** — этот параметр определяет действие, которое выполняется, когда достигается пороговое значение. Допустимые значения: Increase (Увеличить) или Decrease (Уменьшить). В этом шаблоне количество виртуальных машин в масштабируемом наборе увеличивается, если пороговое значение превышает 50 % за определенный период.
-    - **type** — это тип действия, которое должно выполняться. Для этого параметра должно быть установлено значение ChangeCount (Изменить количество).
-    - **value** — это количество виртуальных машин, которые добавляются в масштабируемый набор или удаляются из него. Для этого параметра должно быть указано значение не меньше 1. Значение по умолчанию — 1. В этом шаблоне количество машин в масштабируемом наборе увеличивается на 1 при достижении порогового значения.
-    - **cooldown** — это общее время ожидания с момента последнего действия масштабирования перед выполнением следующего действия. Это значение должно быть в диапазоне от 1 минуты до 1 недели.
+    - **metricName**. Значение этого параметра соответствует счетчику производительности, который мы определили в переменной wadperfcounter. С помощью этой переменной расширение диагностики собирает данные счетчика **Processor(\_Total)\\% Processor Time**.
+    - **metricResourceUri**. В этом параметре указывается идентификатор ресурса набора масштабирования ВМ.
+    - **timeGrain**. В этом параметре указывается степень детализации собираемых метрик. В нашем шаблоне значение этого параметра равно 1 минуте.
+    - **statistic**. Этот параметр определяет, как объединяются метрики для выполнения автоматического масштабирования. Возможные значения: Average (Среднее), Min (Минимальное), Max (Максимальное). В этом шаблоне выполняется сбор данных о среднем общем использовании ЦП на виртуальных машинах.
+    - **timeWindow**. В этом параметре указывается интервал, в пределах которого собираются данные об экземплярах. Значение должно составлять от 5 минут до 12 часов.
+    - **timeAggregation**. Этот параметр определяет способ объединения собранных данных с течением времени. Значение по умолчанию — Average (Среднее). Возможные значения: Average (Среднее), Minimum (Минимальное), Maximum (Максимальное), Last (Последнее), Total (Всего), Count (Количество).
+    - **operator**. Оператор, который используется для сравнения данных метрики с пороговым значением. Возможные значения: Equals (Равно), NotEquals (Не равно), GreaterThan (Больше), GreaterThanOrEqual (Больше или равно), LessThan (Меньше), LessThanOrEqual (Меньше или равно).
+    - **threshold**. Значение этого параметра активирует действие масштабирования. В этом шаблоне машины добавляются в масштабируемый набор, когда среднее использование ЦП на машинах в наборе превышает 50 %.
+    - **direction**. Этот параметр определяет действие, которое запускается при достижении порогового значения. Допустимые значения: Increase (Увеличить) или Decrease (Уменьшить). В этом шаблоне количество виртуальных машин в масштабируемом наборе увеличивается, если пороговое значение превышает 50 % за определенный период.
+    - **type**. В этом параметре указывается тип действия, которое должно выполняться. Для этого параметра должно быть установлено значение ChangeCount (Изменить количество).
+    - **value**. В этом параметре указывается количество виртуальных машин, которые добавляются в набор масштабирования или удаляются из него. Для этого параметра должно быть указано значение не меньше 1. Значение по умолчанию — 1. В этом шаблоне количество машин в масштабируемом наборе увеличивается на 1 при достижении порогового значения.
+    - **cooldown**. В этом параметре указывается время ожидания с момента выполнения последнего действия масштабирования до начала следующего. Допустимые значения: от одной минуты до одной недели.
 
 12.	Сохраните файл шаблона.
 
 ## Шаг 4. Отправка шаблона в хранилище
 
-Шаблон можно отправить из окна Microsoft Azure PowerShell, если вы знаете имя учетной записи и первичный ключ учетной записи хранения, созданной на шаге 1.
+Шаблон можно отправить, если вы знаете имя и первичный ключ учетной записи хранения, созданной при выполнении шага 1.
 
-1.	В окне Microsoft Azure PowerShell укажите переменную, которая означает имя учетной записи хранения, развернутой при выполнении шага 1.
+1.	В окне Microsoft Azure PowerShell укажите переменную, которая означает имя учетной записи хранения, созданной при выполнении шага 1.
 
-            $StorageAccountName = "vmstestsa"
+            $storageAccountName = "vmstestsa"
 
 2.	Укажите переменную, которая означает первичный ключ учетной записи хранения.
 
-            $StorageAccountKey = "<primary-account-key>"
+            $storageAccountKey = "<primary-account-key>"
 
 	Чтобы получить этот ключ, щелкните значок ключа в представлении ресурсов учетной записи хранения на портале Azure.
 
 3.	Создайте объект контекста учетной записи хранения, который используется для проверки операций с учетной записью хранения.
 
-            $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+            $ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-4.	Создайте новый контейнер шаблонов, в котором будет храниться созданный шаблон.
+4.	Создайте контейнер для хранения шаблона.
 
-            $ContainerName = "templates"
-            New-AzureStorageContainer -Name $ContainerName -Context $ctx  -Permission Blob
+            $containerName = "templates"
+            New-AzureStorageContainer -Name $containerName -Context $ctx  -Permission Blob
 
 5.	Отправьте файл шаблона в новый контейнер.
 
-            $BlobName = "VMSSTemplate.json"
+            $blobName = "VMSSTemplate.json"
             $fileName = "C:" + $BlobName
-            Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
+            Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob  $blobName -Context $ctx
 
 ## Шаг 5. Развертывание шаблона
 
@@ -521,22 +481,22 @@
 Когда вы нажмете клавишу ВВОД, появится запрос на ввод переменных, которые вы назначили. Укажите следующие значения:
 
     vmName: vmsstestvm1
-	vmSSName: vmsstest1
-	instanceCount: 5
-	adminUserName: vmadmin1
-	adminPassword: VMpass1
-	resourcePrefix: vmsstest
+	  vmSSName: vmsstest1
+	  instanceCount: 5
+	  adminUserName: vmadmin1
+	  adminPassword: VMpass1
+	  resourcePrefix: vmsstest
 
-Для успешного развертывания всех ресурсов может потребоваться около 15 минут.
+Для успешного развертывания всех ресурсов может потребоваться приблизительно 15 минут.
 
->[AZURE.NOTE] Вы также можете использовать возможности портала для развертывания ресурсов. Для этого используйте ссылку: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+>[AZURE.NOTE] Развернуть ресурсы можно также с помощью портала. Используйте эту ссылку: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
 
 ## Шаг 6. Мониторинг ресурсов
 
 Сведения о масштабируемых наборах виртуальных машин можно получать, используя следующие методы:
 
- - Портал Azure — с помощью портала в настоящее время можно получить ограниченный объем сведений.
- - [Обозреватель ресурсов Azure](https://resources.azure.com/) — это лучшее средство для просмотра текущего состояния масштабируемого набора. Используйте этот путь, чтобы увидеть представление экземпляра созданного масштабируемого набора:
+ - Портал Azure. С помощью портала в настоящее время можно получить ограниченный объем сведений.
+ - [Обозреватель ресурсов Azure](https://resources.azure.com/). Это лучший инструмент для просмотра текущего состояния набора масштабирования. Используйте этот путь, чтобы увидеть представление экземпляра созданного масштабируемого набора:
 
         subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
@@ -548,13 +508,13 @@
         
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
 
- - Подключитесь к основной виртуальной машине так же, как к любому другому компьютеру. Теперь вы сможете удаленно подключаться к виртуальным машинам в масштабируемом наборе, чтобы отслеживать отдельные процессы.
+ - Подключитесь к отдельной виртуальной машине так же, как к любому другому компьютеру. Теперь вы сможете удаленно подключаться к виртуальным машинам в наборе масштабирования, чтобы отслеживать отдельные процессы.
 
 >[AZURE.NOTE] Полный REST API для получения информации о масштабируемых наборах можно найти на странице [Масштабируемые наборы виртуальных машин](https://msdn.microsoft.com/library/mt589023.aspx).
 
 ## Шаг 7. Удаление ресурсов
 
-Так как за использование ресурсов Azure взимается плата, рекомендуется всегда удалять ресурсы, которые больше не нужны. Не нужно отдельно удалять каждый ресурс из группы ресурсов. Можно удалить группу ресурсов, тогда все ее ресурсы будут автоматически удалены.
+Так как за использование ресурсов Azure взимается плата, рекомендуется всегда удалять ресурсы, которые больше не нужны. Не нужно отдельно удалять каждый ресурс из группы ресурсов. Вы можете удалить группу ресурсов, и все ее ресурсы будут автоматически удалены.
 
 	Remove-AzureRmResourceGroup -Name vmsstestrg1
 
@@ -567,6 +527,7 @@
 - Сведения об управлении созданным набором масштабирования можно найти в статье [Управление виртуальными машинами в наборе масштабирования виртуальных машин](virtual-machine-scale-sets-windows-manage.md).
 - Дополнительные сведения о вертикальном масштабировании см. в статье [Вертикальное автомасштабирование масштабируемых наборов виртуальных машин](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 - Просмотрите примеры функций мониторинга Azure Insights в разделе [Примеры для быстрого запуска Azure Insights с помощью PowerShell](../azure-portal/insights-powershell-samples.md).
-- Узнайте о возможностях уведомления в разделах [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) и [Использование журналов аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
+- Сведения о функциях оповещений см. в статье [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md).
+- Узнайте, как [использовать журналы аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

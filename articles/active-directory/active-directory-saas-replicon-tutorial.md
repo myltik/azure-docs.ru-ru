@@ -11,14 +11,14 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с Replicon
   
 Цель данного учебника — показать интеграцию Azure и Replicon. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
--   Действующая подписка на Azure
+-   действующая подписка Azure;
 -   Клиент Replicon.
   
 По завершении работы с этим руководством пользователи Azure AD, назначенные в Replicon, смогут выполнять единый вход в приложение на веб-сайте Replicon компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
@@ -83,7 +83,7 @@
     1.  В текстовом поле **URL-адрес входа в Replicon** введите URL-адрес клиента Replicon (например, *https://na2.replicon.com/company/saml2/sp-sso/post*).
     2.  В текстовом поле **URL-адрес ответа Replicon** введите URL-адрес службы Replicon **AssertionConsumerService** (например, *https://global.replicon.com/!/saml2/company/sso/post*).
 
-        >[AZURE.NOTE] URL-адрес можно получить из метаданных Replicon по адресу: 
+        >[AZURE.NOTE] URL-адрес можно получить из метаданных Replicon по адресу:
 	**https://global.replicon.com/!/saml2/\<ключ\_вашей\_компании>**.
 
     3.  Нажмите кнопку **Далее**.
@@ -144,7 +144,7 @@
 
 2.  На странице интеграции с приложением **Replicon** щелкните **Назначить пользователей**.
 
-    ![Назначение пользователей](./media/active-directory-saas-replicon-tutorial/IC777809.png "Назначить пользователей")
+    ![Назначение пользователей](./media/active-directory-saas-replicon-tutorial/IC777809.png "Назначение пользователей")
 
 3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
@@ -152,4 +152,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
+   ms.date="09/24/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Защита базы данных в хранилище данных SQL
 
 > [AZURE.SELECTOR]
 - [Обзор безопасности](sql-data-warehouse-overview-manage-security.md)
-- [Обнаружение угроз](sql-data-warehouse-security-threat-detection.md)
-- [Общие сведения об аудите](sql-data-warehouse-auditing-overview.md)
-- [Поддержка клиентов нижнего уровня](sql-data-warehouse-auditing-downlevel-clients.md)
-- [Прозрачное шифрование данных (портал)](sql-data-warehouse-encryption-tde.md)
-- [Прозрачное шифрование данных (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Аутентификация](sql-data-warehouse-authentication.md)
+- [Шифрование (портал)](sql-data-warehouse-encryption-tde.md)
+- [Шифрование (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 В этой статье рассматриваются основы защиты базы данных в хранилище данных SQL. В частности, эта статья содержит инструкции по началу работы с ресурсами для ограничения доступа, защиты данных и мониторинга действий с базой данных.
 
@@ -83,18 +81,9 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 ## Шифрование
 
-Хранилище данных SQL Azure поможет защитить ваши данные путем их шифрования, когда они находятся в неактивном состоянии или хранятся в файлах базы данных и ее резервных копиях, используя [прозрачное шифрование данных][]. Включить прозрачное шифрование данных может администратор или член роли dbmanager в базе данных master. Чтобы зашифровать базу данных, подключитесь к главной базе данных на сервере и выполните следующий код:
+Прозрачное шифрование данных хранилища данных SQL Azure помогает защититься от вредоносных атак благодаря шифрованию и расшифровке неактивных данных в реальном времени. При шифровании базы связанные резервные копии и файлы журналов транзакций шифруются без необходимости вносить изменения в приложения. При использовании TDE хранилище всей базы данных шифруется с помощью симметричного ключа, который называется ключом шифрования базы данных. В Базе данных SQL ключ шифрования базы данных защищается встроенным сертификатом сервера. Каждый сервер Базы данных SQL обладает уникальным встроенным сертификатом. Корпорация Майкрософт автоматически изменяет эти сертификаты не реже, чем раз в 90 дней. Алгоритм шифрования, используемый в хранилище данных SQL, это AES-256. Общее описание функции TDE см. в статье [Прозрачное шифрование данных (TDE)][].
 
-
-```sql
-ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
-```
-
-Прозрачное шифрование данных можно включить также в разделе параметров базы данных на [портале Azure][]. Дополнительные сведения см. в статье [Начало работы с прозрачным шифрованием данных (TDE) в хранилище данных SQL][].
-
-## Аудит
-
-Аудит и отслеживание событий базы данных может помочь в постоянном обеспечении соответствия нормативным требованиям и обнаружении подозрительных действий. Аудит хранилища данных SQL позволяет фиксировать события, происходящие в базе данных, в журнале аудита в вашей учетной записи хранения Azure. Кроме того, благодаря интеграции аудита хранилища данных SQL с Microsoft Power BI обеспечиваются упрощенное создание подробных отчетов и проведение детализированного анализа. Дополнительные сведения см. в статье [Приступая к работе с аудитом Базы данных SQL][].
+Можно зашифровать базу данных с помощью [портала Azure][Encryption with Portal] или [T-SQL][Encryption with TSQL].
 
 ## Дальнейшие действия
 
@@ -104,8 +93,8 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 <!--Article references-->
 [Подключение к хранилищу данных SQL Azure]: ./sql-data-warehouse-connect-overview.md
-[Приступая к работе с аудитом Базы данных SQL]: ./sql-data-warehouse-auditing-overview.md
-[Начало работы с прозрачным шифрованием данных (TDE) в хранилище данных SQL]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with Portal]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
 [Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
@@ -116,10 +105,10 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 [Проверка подлинности и авторизация в базе данных SQL: предоставление доступа]: https://msdn.microsoft.com/library/ee336235.aspx
 [разрешений]: https://msdn.microsoft.com/library/ms191291.aspx
 [хранимые процедуры]: https://msdn.microsoft.com/library/ms190782.aspx
-[прозрачное шифрование данных]: https://go.microsoft.com/fwlink/?LinkId=526242
-[портале Azure]: https://portal.azure.com/
+[Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Использование назначений ролей для управления доступом к ресурсам в подписке Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

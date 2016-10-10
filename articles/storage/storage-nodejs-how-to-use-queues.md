@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,12 +14,14 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="cbrooks;robmcm"/>
 
 
 # Использование хранилища очередей из Node.js
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] .<br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Обзор
 
@@ -325,4 +327,4 @@ ACL реализуется с помощью массива политик до�
   [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -11,15 +11,15 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/07/2016" 
+    ms.date="09/26/2016" 
     ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с RightAnswers
   
 Цель данного учебника — показать интеграцию Azure и RightAnswers. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
--   Действующая подписка на Azure
--   Подписка с поддержкой единого входа RightAnswers.
+-   действующая подписка Azure;
+-   подписка RightAnswers с поддержкой единого входа.
   
 После завершения этого руководства пользователи Azure AD, назначенные RightAnswers, будут иметь возможность единого входа в приложение с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
@@ -115,4 +115,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

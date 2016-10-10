@@ -5,7 +5,7 @@
 	  keywords="Лицензирование Azure AD"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -140,4 +140,4 @@ Azure Active Directory (Azure AD) — это служба идентифика�
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Прямое приобретение лицензий Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

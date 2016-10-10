@@ -3,7 +3,7 @@
 	description="Узнайте, как включить поддержку CORS для служб хранилища Microsoft Azure."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
+	authors="cbrooks"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="cbrooks;tamram"/>
 
 # Поддержка общего доступа к ресурсам независимо от источника (CORS) для служб хранилища Azure
 
@@ -195,4 +195,4 @@
 
 [Спецификация общего доступа к ресурсам, независимо от источника W3C](http://www.w3.org/TR/cors/)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

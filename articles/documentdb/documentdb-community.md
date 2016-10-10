@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="09/12/2016"
+  ms.date="09/26/2016"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -120,8 +120,9 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 | Название мероприятия | Докладчик | Расположение | Дата | Хэш-тег |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Эндрю Лю (Andrew Liu) и Тара Джана (Tara Jana) | Атланта, штат Джорджия, США | 26–30 сентября 2016 г. | [#MSIgnite](https://twitter.com/MS_Ignite) |
-| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | ПОДЛЕЖИТ УТОЧНЕНИЮ | Нью-Йорк, Нью-Йорк | 26-29 сентября 2016 г. | [#StrataConf](https://twitter.com/strataconf) |
+| [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb)<br><br>[Основной доклад: Преимущества цифровых технологий и использование неоправданной эффективности A.C.I.D — Джозеф Сирош (Joseph Sirosh)](https://myignite.microsoft.com/sessions/34953)<br><br>[Секция: Azure DocumentDB в массивном масштабировании: успех клиентов и шаблоны проектирования — Сиам Кумар Найр (Syam Kumar Nair) и Эндрю Лю (Andrew Liu)](https://myignite.microsoft.com/sessions/3066)<br><br>[Секция: Управление ресурсами Интернета вещей с помощью Node.js и DocumentDB — Джошуа Дэвис (Joshua Davis)](https://myignite.microsoft.com/sessions/39704)<br><br>[Секция: Создание интеллектуальных и масштабируемых приложений с помощью служб баз данных Microsoft Azure — Тара Джана (Tara Jana) и Моше Гутман (Moshe Gutman)](https://myignite.microsoft.com/sessions/2633)| Эндрю Лю (Andrew Liu), Сиам Кумар Найр (Syam Kumar Nair) и Тара Джана (Tara Jana) | Атланта, штат Джорджия, США | 26–30 сентября 2016 г. | [#MSIgnite](https://twitter.com/MS_Ignite) |
+| [Встреча на конференции Ignite: DocumentDB: расширенные возможности для крупномасштабных приложений](http://www.meetup.com/Azure-in-the-ATL/events/234252070/) | Эндрю Лю (Andrew Liu) и Сиам Кумар Найр (Syam Kumar Nair) | Атланта, штат Джорджия, США | 27 сентября 2016 г. | [#MSIgnite](https://twitter.com/MS_Ignite) [@FlatironCity](https://twitter.com/FlatironCity) |
+| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | Посетите наш стенд! | Нью-Йорк, Нью-Йорк | 26-29 сентября 2016 г. | [#StrataConf](https://twitter.com/strataconf) |
 | [Capital City .NET Users Group (Группа пользователей Capital City .NET)](http://www.meetup.com/tally-dot-net/events/233768568/) | Сантош Хари (Santosh Hari) | Таллахасси, шт. Флорида | 3 ноября 2016 г. | Недоступно |
 
 
@@ -137,7 +138,8 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 | [Integration User Group](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) | Ховард С. Эдидин (Howard S. Edidin) | Веб-трансляция | 20 июня 2016 г. | [Do Logic Apps support error handling? (Поддерживают ли приложения логики обработку ошибок?)](http://www.integrationusergroup.com/do-logic-apps-support-error-handling/) |
 | [Meetup: UK Azure User Group](http://www.meetup.com/UKAzureUserGroup/events/229673468/)| Эндрю Лю (Andrew Liu) | Лондон, Великобритания | 12 мая 2016 г. | Недоступно
 |[Meetup: ONETUG - Orlando .NET User Group](http://www.meetup.com/ONETUG/events/230797164/)| Сантош Хари (Santosh Hari)| Орландо, штат Флорида (США)| 12 мая 2016 г.| Недоступно 
-| [SQLBits XV](https://sqlbits.com/) | Эндрю Лю (Andrew Liu), Аравинд Рамачандран (Aravind Ramachandran) | Ливерпуль, Великобритания | 4–7 мая 2016 г. | Недоступно| [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Леонард Лоубел (Leonard Lobel) | Нью-Йорк, штат Нью-Йорк | 21 апреля 2016 г. | Недоступно |
+| [SQLBits XV](https://sqlbits.com/) | Эндрю Лю (Andrew Liu), Аравинд Рамачандран (Aravind Ramachandran) | Ливерпуль, Великобритания | 4–7 мая 2016 г. | Недоступно| 
+| [Meetup: NYC .NET Developers Group](http://www.meetup.com/NYC-NET-Developers/events/230396260/) | Леонард Лоубел (Leonard Lobel) | Нью-Йорк, штат Нью-Йорк | 21 апреля 2016 г. | Недоступно |
 | [Integration User Group](http://www.integrationusergroup.com/#) | Ховард Эдидин (Howard Edidin) | Вебинар | 25 апреля 2016 г. | Недоступно |
 | [Глобальный учебный курс по Azure — Южная Калифорния](http://xprs.imcreator.com/free/vishalishere/gab2016) | Леонард Лоубел (Leonard Lobel) | Ориндж, штат Калифорния | 16 апреля 2016 г. | Недоступно |
 | [Глобальный учебный курс по Azure — Редмонд](https://www.eventbrite.com/e/2016-global-azure-bootcamp-redmond-wa-tickets-21387752343) | Дэвид Мекоген (David Makogon) | Редмонд, штат Вашингтон | 16 апреля 2016 г. | Недоступно |
@@ -269,4 +271,4 @@ fluent-plugin-documentdb — это подключаемый модуль Fluent
 
 Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

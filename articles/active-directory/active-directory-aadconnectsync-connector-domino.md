@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -477,4 +477,4 @@ Person | <li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS\_Password
 
 -	Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [Включение трассировки событий Windows для соединителей](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

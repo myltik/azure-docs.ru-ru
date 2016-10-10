@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/29/2016" 
 	ms.author="anwestg"/>
 
 # Технический документ о предложениях по веб-приложениям служб приложений Azure для крупных предприятий #
@@ -159,4 +159,4 @@
  
  
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -39,6 +39,11 @@
 
 	azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+#### Создание набора записей типа PTR с одной записью  
+В этом случае "my-arpa-zone.com" представляет зону ARPA вашего диапазона IP-адресов. Каждая запись PTR в этой зоне соответствует IP-адресу в этом диапазоне.
+
+	azure network dns record-set add-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"   
+
 #### Создание набора записей типа SRV с одной записью
 
 Если вы создаете запись SRV в корне зоны, в имени записи можно указать \_service и \_protocol. Нет необходимости включать в имя записи символ "@".
@@ -54,4 +59,4 @@
 
 	azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

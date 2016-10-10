@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
-	ms.author="micurd"/>
+	ms.date="09/21/2016"
+	ms.author="micurd;tamram"/>
 
 # Перемещение данных в службу хранилища Azure и обратно
 
@@ -82,4 +82,4 @@ Azure PowerShell — это модуль, предоставляющий ком�
 
 Чтобы узнать больше, ознакомьтесь с [Azure Site Recovery](../site-recovery/site-recovery-overview.md).
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

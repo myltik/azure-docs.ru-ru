@@ -18,6 +18,12 @@
 
 # Развертывание и удаление приложений с помощью PowerShell
 
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-deploy-remove-applications.md)
+- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+
+<br/>
+
 После [создания пакета приложения][10] его можно развернуть в кластере Azure Service Fabric. Развертывание включает следующие три шага:
 
 1. Загрузка пакета приложения
@@ -239,4 +245,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

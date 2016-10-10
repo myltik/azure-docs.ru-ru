@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -256,4 +256,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

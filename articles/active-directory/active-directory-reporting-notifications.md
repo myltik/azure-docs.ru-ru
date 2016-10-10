@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -51,4 +51,4 @@
 - [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

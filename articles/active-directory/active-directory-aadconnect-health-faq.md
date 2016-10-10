@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -25,7 +25,7 @@
 
 
 
-**Вопрос. Я управляю несколькими каталогами Azure AD. Как выполнить переключение на один из них с помощью Azure Active Directory Premium?**
+**Вопрос. Я управляю несколькими каталогами Azure AD. Как выполнить переключение на один из них с помощью Azure Active Directory Premium?**
 
 Можно переключиться между различными каталогами Azure AD, щелкнув имя выполнившего вход пользователя в правом верхнем углу и выбрав соответствующую учетную запись. Если учетной записи нет в списке, выполните выход, а затем войдите, используя учетные данные каталога, для которого включено предложение Azure Active Directory Premium.
 
@@ -114,4 +114,4 @@
 * [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

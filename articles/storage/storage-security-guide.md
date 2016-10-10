@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/08/2016"
-	ms.author="robinsh"/>
+	ms.author="cbrooks;robinsh"/>
 
 #Руководство по безопасности службы хранилища Azure
 
@@ -632,4 +632,4 @@ SSE управляется службой хранилища Azure. Шифров
 
 	В этой статье рассказывается об использовании режима FIPS на более старых компьютерах с ОС Windows.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

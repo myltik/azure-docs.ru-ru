@@ -41,7 +41,7 @@
 
 - [Установка стека LAMP на виртуальную машину Linux в Azure](virtual-machines-linux-create-lamp-stack.md)
 - [Веб-приложение Ruby on Rails на виртуальной машине Azure](virtual-machines-linux-classic-ruby-rails-web-app.md)
-- [Практическое руководство. Установка Apache Qpid Proton-C для AMQP и служебной шины](../service-bus/service-bus-amqp-apache.md)
+- [Практическое руководство. Установка Apache Qpid Proton-C для AMQP и служебной шины](../service-bus-messaging/service-bus-amqp-apache.md)
 
 ### Базы данных
 - [Оптимизация производительности MySQL в Azure](virtual-machines-linux-classic-optimize-mysql.md)
@@ -189,4 +189,4 @@
 
 - [Подключаемый модуль Packer для Azure](https://github.com/msopentech/packer-azure)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

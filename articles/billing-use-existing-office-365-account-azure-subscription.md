@@ -3,7 +3,7 @@
 	description="Узнайте, как передать клиент Azure AD Office 365 и его пользователей в подписку Azure, или наоборот."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="mbaldwin"
 	editor=""
 	tags="billing,top-support-issue"/>
@@ -151,4 +151,4 @@ Office 365 и Azure используют службу Azure Active Directory (AA
 
 > [AZURE.NOTE] Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

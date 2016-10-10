@@ -14,7 +14,9 @@
 
 ## Изменение размера шлюза
 
-Существует три [SKU шлюза](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Чтобы изменить SKU шлюза в любое время, можно использовать следующую команду.
+Существует несколько [номеров SKU шлюзов](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Чтобы изменить SKU шлюза в любое время, можно использовать следующую команду.
+
+>[AZURE.IMPORTANT] Эта команда не работает для шлюза UltraPerformance. Чтобы заменить шлюз на UltraPerformance, сначала удалите существующий шлюз ExpressRoute, а затем создайте шлюз UltraPerformance. Чтобы заменить шлюз UltraPerformance обычным шлюзом, сначала удалите шлюз UltraPerformance, а затем создайте новый шлюз.
 
 	Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 
@@ -24,4 +26,4 @@
 
 	Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
 
-<!---HONumber=AcomDC_0413_2016-->
+<!---HONumber=AcomDC_0928_2016-->

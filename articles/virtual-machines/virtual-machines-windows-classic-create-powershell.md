@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Создание виртуальной машины Windows с использованием PowerShell и классической модели развертывания 
 
 > [AZURE.SELECTOR]
 - [Классический портал Azure — Windows](virtual-machines-windows-classic-tutorial.md)
-- [PowerShell – Windows](virtual-machines-windows-classic-create-powershell.md)
+- [PowerShell — Windows](virtual-machines-windows-classic-create-powershell.md)
 
 <br>
 
@@ -42,7 +42,7 @@
 3. Введите пароль к учетной записи.
 4. Щелкните **Войти**.
 
-## Шаг 2. Указание подписки и учетной записи хранения
+## Шаг 2. Выбор подписки и учетной записи хранения
 
 Укажите подписку Azure и учетную запись хранения, выполнив следующие команды в командной строке Windows PowerShell. Замените все содержимое внутри кавычек, включая знаки < и >, правильными именами.
 
@@ -61,7 +61,7 @@
 
 Ниже приведено несколько примеров значений ImageFamily для компьютеров под управлением Windows:
 
-- Центр обработки данных Windows Server 2012 R2;
+- Центр обработки данных Windows Server 2012 R2
 - Windows Server 2008 R2 с пакетом обновления 1
 - Windows Server 2016 Technical Preview 4
 - SQL Server 2012 SP1 Enterprise на базе Windows Server 2012
@@ -108,7 +108,7 @@
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.Username -Password $cred.GetNetworkCredential().Password
 
- Выберите надежный пароль. Чтобы проверить его надежность, см. раздел [Проверка надежности пароля. Использование надежных паролей](https://www.microsoft.com/security/pc-security/password-checker.aspx).
+Выберите надежный пароль. Чтобы проверить его надежность, см. раздел [Проверка надежности пароля. Использование надежных паролей](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
 Если потребуется добавить компьютер с Windows в существующий домен Active Directory, укажите учетную запись локального администратора и пароль, домен, а также имя и пароль учетной записи домена.
 
@@ -262,4 +262,4 @@
 
 Если требуется диск ОС больше 127 ГБ, вы можете [расширить диск ОС](virtual-machines-windows-expand-os-disk.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

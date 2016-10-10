@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="storage" 
@@ -14,7 +14,7 @@
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+	ms.author="dinesh;robmcm"/>
 
 # Использование хранилища Azure с решением непрерывной интеграции Jenkins
 
@@ -166,4 +166,4 @@ Jenkins обеспечивает непрерывную интеграцию п�
 
 Дополнительную информацию см. также в [Центре разработчика Java](https://azure.microsoft.com/develop/java/).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

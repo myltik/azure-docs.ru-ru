@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="06/27/2016"
+  ms.date="09/26/2016"
   ms.author="araguila"/>
    
 # Часто задаваемые вопросы об IoT Suite
@@ -51,7 +51,7 @@
 
 4. Запустив развертывание (локально или в облаке), найдите в корневой папке файл *.user.config, созданный во время развертывания. Откройте этот файл в текстовом редакторе.
 
-5. Измените следующую строку, чтобы включить скопированное значение ключа QueryKey:
+5. Измените следующую строку, чтобы включить скопированное из ключа QueryKey значение:
    
   `<setting name="MapApiQueryKey" value="" />`
 
@@ -82,4 +82,4 @@
 [lnk-30daytrial]: https://azure.microsoft.com/free/
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Предварительная версия доменных служб Azure Active Directory: сценарии развертывания | Microsoft Azure"
+	pageTitle="Доменные службы Azure Active Directory: сценарии развертывания | Microsoft Azure"
 	description="Сценарии развертывания для доменных служб Azure AD"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 
@@ -88,6 +88,6 @@
 
 ![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
 
-Дополнительные сведения об этом сценарии развертывания см. в статье блога о службах удаленных рабочих столов [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx) (Перемещение рабочих нагрузок с помощью Azure RemoteApp и доменных служб Azure AD).
+Дополнительные сведения об этом сценарии развертывания см. в статье блога о службах удаленного рабочего стола [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx) (Перемещение рабочих нагрузок с помощью Azure RemoteApp и доменных служб Azure AD).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

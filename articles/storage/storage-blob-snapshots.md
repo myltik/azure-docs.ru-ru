@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="jwillis;tamram"/>
 
 # Создание моментального снимка BLOB-объекта
 
@@ -174,4 +174,4 @@
 
 Дополнительные примеры использования хранилища BLOB-объектов см. на странице с [примерами кода Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Вы можете скачать пример приложения и запустить его или просмотреть код на GitHub.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

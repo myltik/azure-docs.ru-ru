@@ -3,7 +3,7 @@
 	description="Узнайте, как подключиться к учетной записи DocumentDB с поддержкой протокола MongoDB, доступной в предварительной версии. Подключитесь с помощью строки подключения MongoDB." 
 	keywords="строка подключения MongoDB"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Подключение к учетной записи DocumentDB с поддержкой протокола MongoDB
 
@@ -84,4 +84,4 @@
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

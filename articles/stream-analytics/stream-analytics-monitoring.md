@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/19/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Основные сведения о мониторинге заданий Stream Analytics и порядок мониторинга запросов
@@ -106,4 +106,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

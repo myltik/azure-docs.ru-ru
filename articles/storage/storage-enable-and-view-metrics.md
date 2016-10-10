@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="fryu;robinsh"/>
 
 # Включение метрик хранилища Azure и просмотр данных метрик
 
@@ -213,4 +213,4 @@
 ## Дальнейшие действия:
 [Включение ведения журнала и доступа к данным журнала хранилища](https://msdn.microsoft.com/library/dn782840.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

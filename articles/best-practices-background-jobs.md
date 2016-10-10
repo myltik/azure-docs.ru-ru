@@ -318,7 +318,7 @@
 - [Жизненный цикл запуска роли Azure](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (запись блога)
 - [Жизненный цикл роли облачных служб Azure](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (видео)
 - [Начало работы с пакетом SDK для Azure для веб-заданий](./app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
-- [Очереди Azure и очереди служебной шины: сходства и различия](./service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Очереди Azure и очереди служебной шины: сходства и различия](./service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - [Включение диагностики в облачной службе](./cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

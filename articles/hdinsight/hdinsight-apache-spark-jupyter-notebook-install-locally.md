@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2016" 
+	ms.date="09/26/2016" 
 	ms.author="nitinme"/>
 
 
@@ -51,24 +51,7 @@
 
 ## Установка ядер и волшебной команды Spark
 
-В этом разделе вы установите волшебную команду Spark, ядра PySpark и Spark, а затем настроите ядра для подключения к кластеру Apache Spark в Azure HDInsight.
-
-1. Скачайте последнюю общедоступную предварительную версию набора средств Spark magic из репозитория [Github](https://github.com/jupyter-incubator/sparkmagic/archive/publicpreview0.5.zip).
-
-2. Распакуйте скачанный файл в каталог на диске. В приведенных здесь инструкциях этот каталог обозначается как `$SPARKMAGIC_PATH`.
-
-2. Выполните следующую команду
-
-		pip install -r $SPARKMAGIC_PATH/requirements.txt  
-
-3. Выполните следующую команду для установки волшебной команды Spark.
-
-		pip install -e $SPARKMAGIC_PATH
-
-4. Установите ядра PySpark и Spark. Выполните команды ниже.
-
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/sparkkernel
-		jupyter-kernelspec install $SPARKMAGIC_PATH/remotespark/kernels/pysparkkernel
+Инструкции по установке магической команды Spark, ядер PySpark и Spark см. в [документации по sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) на GitHub.
 
 ## Настройка волшебной команды Spark для доступа к кластеру Spark в HDInsight
 
@@ -97,7 +80,7 @@
 		  },
 		  "kernel_scala_credentials" : {
 		    "username": "{USERNAME}",
-		    " base64_password ": "{BASE64ENCODEDPASSWORD}",
+		    "base64_password": "{BASE64ENCODEDPASSWORD}",
 		    "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
 		  }
 		}
@@ -185,4 +168,4 @@
 
 * [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование Azure Media Packager для выполнения задач статической упаковки" 
+	pageTitle="Использование Azure Media Packager для выполнения задач статической упаковки | Microsoft Azure" 
 	description="В этом разделе показаны различные задачи, которые выполняются с помощью Azure Media Packager." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="06/22/2016"    
+ 	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -693,7 +693,7 @@
 
 >[AZURE.NOTE]Чтобы преобразовать содержимое в формат HLS, необходимо сначала преобразовать или закодировать содержимое в формат Smooth Streaming. Кроме того, чтобы зашифровать содержимое HLS с AES, обязательно установите следующие свойства в файле MediaPackager\_SmoothToHLS.xml: установите свойство encrypt в true и установите значение ключа и значение keyuri, так чтобы они указывали на ваш сервер проверки подлинности или авторизации. Службы мультимедиа создадут файл ключа и поместят его в контейнер ресурса. Скопируйте файл /asset-containerguid/*.key на сервер (или создайте собственный файл ключа) и затем удалите файл *.key из контейнера ресурса.
 
-Пример в этом разделе кодирует мезонинный файл (в данном случае MP4) в файлы MP4 с несколькими скоростями, а затем упаковывает файлы MP4 в формат Smooth Streaming. После этого он упаковывает содержимое в формате Smooth Streaming в формат HTTP Live Streaming (HLS), зашифрованный с помощью 128-разрядного шифрования потока AES. Обязательно измените следующий код, указав каталог, в котором расположен исходный файл MP4. Также укажите расположение файлов MediaPackager\_MP4ToSmooth.xml и MediaPackager\_SmoothToHLS.xml. Определение этих файлов в можно найти в разделе [Предустановка задачи для Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
+Пример в этом разделе кодирует мезонинный файл (в данном случае MP4) в файлы MP4 с несколькими скоростями, а затем упаковывает файлы MP4 в формат Smooth Streaming. После этого он упаковывает содержимое в формате Smooth Streaming в формат HTTP Live Streaming (HLS), зашифрованный с помощью 128-разрядного шифрования потока AES. Обязательно измените следующий код, указав каталог, в котором расположен исходный файл MP4. Также укажите расположение файлов MediaPackager\_MP4ToSmooth.xml и MediaPackager\_SmoothToHLS.xml. Определение этих файлов можно найти в разделе [Предустановка задачи для Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
 	
 	using System;
 	using System.Collections.Generic;
@@ -1447,4 +1447,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

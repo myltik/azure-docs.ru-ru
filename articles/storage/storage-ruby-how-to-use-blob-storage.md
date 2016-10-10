@@ -5,7 +5,7 @@
 	documentationCenter="ruby"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,12 +14,14 @@
 	ms.devlang="ruby"
 	ms.topic="article"
     ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="jwillis;robmcm"/>
 
 
 # Использование хранилища BLOB-объектов из Ruby
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] .<br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Обзор
 
@@ -157,4 +159,4 @@
 - Репозиторий [пакетов SDK Azure для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

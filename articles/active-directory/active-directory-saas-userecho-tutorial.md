@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -58,17 +58,17 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Active Directory][1]
+	![Active Directory][1]
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
 3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-	.![Приложения][2]
+	![Приложения][2]
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 
-	.![Приложения][3]
+	![Приложения][3]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -76,11 +76,11 @@
 
 6. В поле поиска введите **UserEcho**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_01.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_01.png)
 
 7. В области результатов выберите **UserEcho** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_02.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_02.png)
 
 ##  Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в UserEcho с использованием тестового пользователя Britta Simon.
@@ -106,11 +106,11 @@
 
 1. На классическом портале Azure на странице интеграции с приложением **UserEcho** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-	.![Настройка единого входа][6]
+	![Настройка единого входа][6]
 
 2. На странице **Как пользователи должны входить в UserEcho?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
 
-	.![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png)
+	![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_03.png)
 
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
 
@@ -134,16 +134,16 @@
 
 1. На панели инструментов вверху щелкните имя пользователя, чтобы развернуть меню, а затем щелкните **Setup** (Настройка).
 
-	.![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png)
+	![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png)
 
 1. Щелкните **Integrations** (Интеграция).
 
-	.![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png)
+	![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png)
 
 
 1. Щелкните **Website** (Веб-сайт), а затем — **Single sign-on (SAML2)** (Единый вход (SAML2)).
 
-	.![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png)
+	![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png)
 
 
 1. На странице **Single sign-on (SAML)** (Единый вход (SAML)) выполните следующие действия.
@@ -163,11 +163,11 @@
 
 6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
 
-	.![Единый вход в Azure AD][10]
+	![Единый вход в Azure AD][10]
 
 7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
 
-	.![Единый вход в Azure AD][11]
+	![Единый вход в Azure AD][11]
 
 
 
@@ -181,21 +181,21 @@
 
 1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_09.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_09.png)
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3. Чтобы вывести на экран список пользователей, в меню вверху выберите **Пользователи**.
+3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_03.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_03.png)
  
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу щелкните **Добавить пользователя**.
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png)
 
 5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_05.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_05.png)
 
     а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
@@ -205,7 +205,7 @@
 
 6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_06.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_06.png)
  
     а. В текстовом поле **Имя** введите **Britta**.
 
@@ -219,9 +219,9 @@
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_07.png)
  
-8. На диалоговой странице **Получение временного пароля** выполните следующие действия:
+8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
-	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png)
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png)
   
     а. Запишите значение поля **Новый пароль**.
 
@@ -239,15 +239,15 @@
 
 1. На панели инструментов вверху щелкните имя пользователя, чтобы развернуть меню, а затем щелкните **Setup** (Настройка).
 
-	.![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png)
+	![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png)
 
 1. Щелкните **Users** (Пользователи), чтобы развернуть раздел **Users** (Пользователи).
 
-	.![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png)
+	![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_10.png)
 
 1. Выберите раздел **Пользователи**.
 
-	.![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_11.png)
+	![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_11.png)
 
 1. Щелкните **Invite a new user** (Пригласить нового пользователя).
 
@@ -256,7 +256,7 @@
 
 1. В диалоговом окне **Invite a new user** (Приглашение нового пользователя) выполните следующие действия.
 
-	.![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_13.png)
+	![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_13.png)
 
     а. В текстовом поле **Name** (Имя) введите **Britta Simon**.
 
@@ -278,21 +278,21 @@
 
 1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
 
-	.![Назначение пользователя][201]
+	![Назначение пользователя][201]
 
 2. Из списка приложений выберите **UserEcho**.
 
-	.![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png)
+	![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_50.png)
 
 1. В меню в верхней части страницы щелкните **Пользователи**.
 
-	.![Назначение пользователя][203]
+	![Назначение пользователя][203]
 
 1. В списке пользователей выберите **Britta Simon**.
 
 2. На панели инструментов внизу щелкните **Назначить**.
 
-	.![Назначение пользователя][205]
+	![Назначение пользователя][205]
 
 
 
@@ -325,4 +325,4 @@
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

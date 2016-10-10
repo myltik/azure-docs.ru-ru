@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Настройка группы доступности AlwaysOn на виртуальной машине Azure с помощью PowerShell
 
 > [AZURE.SELECTOR]
-- [Resource Manager: автоматически](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Шаблон Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Resource Manager: вручную](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Классическая модель: пользовательский интерфейс](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Классическая модель: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -44,7 +44,7 @@
 
 В данном учебнике будут показаны шаги, необходимые для настройки описанного решения. Подробные сведения каждого этапа не приводятся. Вместо демонстрации элементов графического пользовательского интерфейса на каждом этапе в учебнике используются скрипты PowerShell для быстрого ознакомления с этапами. Для целей учебника предполагается следующее:
 
-- Вы уже имеете учетную запись Azure с подпиской для виртуальных машин.
+- У вас уже есть учетная запись Azure с подпиской на виртуальные машины.
 
 - В системе установлены [командлеты Azure PowerShell](../powershell-install-configure.md).
 
@@ -52,15 +52,15 @@
 
 ## Подключение к подписке Azure и создание виртуальной сети
 
-1. В окне Powershell на локальном компьютере импортируйте модуль Azure, загрузите файл параметров публикации на компьютер и подключите сеанс PowerShell к подписке Azure путем импорта загруженных параметров публикации.
+1. В окне PowerShell на локальном компьютере импортируйте модуль Azure, скачайте файл параметров публикации на компьютер и подключите сеанс PowerShell к подписке Azure путем импорта загруженных параметров публикации.
 
 		Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
 		Get-AzurePublishSettingsFile
 		Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
-	Команда **Get AzurePublishgSettingsFile** автоматически создает сертификат управления, а Azure загружает его на компьютер. Автоматически откроется браузер, где потребуется ввести данные учетной записи Майкрософт для подписки Azure. Загруженный файл **PUBLISHSETTINGS** содержит всю информацию, необходимую для управления подпиской Azure. После сохранения этого файла в локальный каталог импортируйте его с помощью команды **Import-AzurePublishSettingsFile**.
+	Команда **Get AzurePublishgSettingsFile** автоматически создает сертификат управления, а Azure загружает его на компьютер. Автоматически откроется браузер, где потребуется ввести данные учетной записи Майкрософт для подписки Azure. Скачанный файл **PUBLISHSETTINGS** содержит всю информацию, необходимую для управления подпиской Azure. После сохранения этого файла в локальный каталог импортируйте его с помощью команды **Import-AzurePublishSettingsFile**.
 
-	>[AZURE.NOTE] PUBLISHSETTINGS-файл содержит учетные данные (некодированные), используемые для администрирования подписок и служб Azure. В целях безопасности для этого файла рекомендуется временно хранить его за пределами исходных каталогов (например, в папке Libraries\\Documents), а затем удалять после завершения импорта. Злоумышленник, получив доступ к PUBLISHSETTINGS-файлу, сможет изменять, создавать и удалять ваши службы Azure.
+	>[AZURE.NOTE] Файл PUBLISHSETTINGS содержит учетные данные (в незашифрованном виде), используемые для администрирования подписок и служб Azure. В целях безопасности для этого файла рекомендуется временно хранить его за пределами исходных каталогов (например, в папке Libraries\\Documents), а затем удалять после завершения импорта. Злоумышленник, получив доступ к PUBLISHSETTINGS-файлу, сможет изменять, создавать и удалять ваши службы Azure.
 
 1. Определите ряд переменных, которые будут использоваться для создания облачной ИТ-инфраструктуры.
 
@@ -630,4 +630,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

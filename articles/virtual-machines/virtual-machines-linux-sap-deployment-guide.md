@@ -1,19 +1,19 @@
 <properties
    pageTitle="SAP NetWeaver на виртуальных машинах Linux — руководство по развертыванию | Microsoft Azure"
    description="SAP NetWeaver на виртуальных машинах Linux — руководство по развертыванию"
-   services="virtual-machines-linux,virtual-network,storage"
-   documentationCenter="saponazure"
+   services="virtual-machines-linux"
+   documentationCenter=""
    authors="MSSedusch"
-   manager="juergent"
+   manager="timlt"
    editor=""
    tags="azure-resource-manager"
    keywords=""/>
 <tags
    ms.service="virtual-machines-linux"
    ms.devlang="NA"
-   ms.topic="campaign-page"
+   ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload="na"
+   ms.workload="infrastructure-services"
    ms.date="08/18/2016"
    ms.author="sedusch"/>
 
@@ -837,7 +837,7 @@ sudo service waagent restart
 
 * Откройте командную строку Windows и перейдите в папку установки расширения мониторинга Azure для SAP: C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\`<version`>\\drop.
 
-Часть версии в приведенном выше пути к расширению мониторинга может отличаться. Если в папке установки отображается несколько папок версий расширения мониторинга, проверьте конфигурацию службы Microsoft AzureEnhancedMonitoring и перейдите в папку, указанную в поле "Путь к исполняемому объекту".
+Часть версии в приведенном выше пути к расширению мониторинга может отличаться. Если в папке установки отображается несколько папок версий расширения мониторинга, проверьте конфигурацию службы Windows AzureEnhancedMonitoring и перейдите в папку, указанную в поле "Путь к исполняемому объекту".
  
 ![Свойства службы, в которой выполняется расширение для расширенного мониторинга Azure для SAP][deployment-guide-figure-1000]
 
@@ -926,7 +926,7 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Инфраструктура мониторинга Azure для SAP: дальнейшее устранение неполадок
 
 #### ![Windows][Logo_Windows] Счетчики производительности Azure вообще не отображаются
-Сбор показателей производительности в Azure выполняет служба Microsoft AzureEnhancedMonitoring. Если служба установлена неправильно или не запущена на виртуальной машине, сбор метрик производительности невозможен.
+Сбор показателей производительности в Azure выполняет служба Windows AzureEnhancedMonitoring. Если служба установлена неправильно или не запущена на виртуальной машине, сбор метрик производительности невозможен.
 
 ##### Каталог установки расширения для расширенного мониторинга Azure пустой 
 
@@ -939,7 +939,7 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 ##### Служба для расширенного мониторинга Azure не существует 
 
 ###### Проблема
-Служба Microsoft AzureEnhancedMonitoring не существует. В результате выполнения azperlib.exe отображается ошибка, как показано на [рисунке ниже][deployment-guide-figure-14].
+Служба Windows AzureEnhancedMonitoring не существует. В результате выполнения azperlib.exe отображается ошибка, как показано на [рисунке ниже][deployment-guide-figure-14].
  
 ![Выполнение файла azperflib.exe, в результате которого указано, что служба расширения для расширенного мониторинга Azure для SAP не запущена][deployment-guide-figure-1400] <a name="figure-14"></a>
 
@@ -951,13 +951,13 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 ##### Служба для расширенного мониторинга Azure существует, но не запускается 
 
 ###### Проблема
-Служба Microsoft AzureEnhancedMonitoring существует и включена, но не запускается. Дополнительные сведения см. в журнале событий приложений.
+Служба Windows AzureEnhancedMonitoring существует и включена, но не запускается. Дополнительные сведения см. в журнале событий приложений.
 
 ###### Решение
 Недопустимая конфигурация. Включите расширение мониторинга Azure для SAP повторно, как описано в разделе [Расширенный мониторинг Azure для SAP: настройка расширения][deployment-guide-4.5].
 
 #### ![Windows][Logo_Windows] Отсутствуют некоторые счетчики производительности Azure
-Сбор показателей производительности в Azure выполняет служба Microsoft AzureEnhancedMonitoring, которая получает данные из нескольких источников. Некоторые данные конфигурации собираются локально, метрики производительности считываются из системы диагностики Azure, а счетчики хранилища используются из журналов на уровне подписки в хранилище.
+Сбор показателей производительности в Azure выполняет служба Windows AzureEnhancedMonitoring, которая получает данные из нескольких источников. Некоторые данные конфигурации собираются локально, метрики производительности считываются из системы диагностики Azure, а счетчики хранилища используются из журналов на уровне подписки в хранилище.
 
 Если после устранения неполадок с использованием примечания к SAP [1999351] проблемы не исчезли, повторно запустите сценарий конфигурации Set-AzureRmVMAEMExtension. Необходимо подождать час, так как счетчики аналитики или диагностики хранилищ не могут быть созданы сразу после включения. Если проблема не исчезла, откройте сообщение о поддержке клиентов SAP в компоненте BC-OP-NT-AZR.
 
@@ -981,4 +981,4 @@ Test-AzureRmVMAEMExtension -ResourceGroupName <resource group name> -VMName <vir
 
 Если при устранении неполадок с использованием примечания к SAP [1999351] проблема не исчезла, повторно запустите сценарий конфигурации Set-AzureRmVMAEMExtension, как описано в разделе [Расширенный мониторинг Azure для SAP: настройка расширения][deployment-guide-4.5]. Необходимо подождать час, так как счетчики аналитики или диагностики хранилищ не могут быть созданы сразу после включения. Если проблема не исчезла, откройте сообщение о поддержке клиентов SAP в компоненте BC-OP-NT-AZR для виртуальной машины Windows или BC-OP-LNX-AZR для виртуальной машины Linux.
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

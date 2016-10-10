@@ -13,21 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="09/24/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 
 # Приступая к работе с системой обнаружения угроз
 
 > [AZURE.SELECTOR]
-- [Обзор безопасности](sql-data-warehouse-overview-manage-security.md)
+- [Аудит](sql-data-warehouse-auditing-overview.md)
 - [Обнаружение угроз](sql-data-warehouse-security-threat-detection.md)
-- [Шифрование (портал)](sql-data-warehouse-encryption-tde.md)
-- [Шифрование (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-- [Общие сведения об аудите](sql-data-warehouse-auditing-overview.md)
-- [Поддержка клиентов нижнего уровня](sql-data-warehouse-auditing-downlevel-clients.md)
-
-
 
 ## Обзор
 
@@ -99,4 +93,4 @@
 [8]: ./media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png
 [9]: ./media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

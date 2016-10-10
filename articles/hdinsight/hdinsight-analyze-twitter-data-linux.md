@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 # Анализ данных Twitter с помощью Hive в HDInsight
@@ -99,7 +99,7 @@ Twitter позволяет получать [данные для каждого 
 
 		nano gettweets.py
 
-5. Добавьте в файл __gettweets.py__ следующее содержимое. Вместо заполнителей __consumer/_secret__, __consumer/_key_\_, __access/_token__ и __access/_token/_secret__ введите данные из своего приложения Twitter.
+5. Добавьте в файл __gettweets.py__ следующее содержимое. Вместо заполнителей __consumer\_secret__, __consumer\_key__, __access/\_token__ и __access\_token\_secret__ введите данные из своего приложения Twitter.
 
         #!/usr/bin/python
 
@@ -290,7 +290,7 @@ Twitter позволяет получать [данные для каждого 
 
 4. Выполните приведенную ниже команду, чтобы запустить код HiveQL в файле:
 
-		beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql		
+		beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i twitter.hql
 		
 	Она загрузит оболочку Hive, запустит код HiveQL из файла __twitter.hql__, а затем вернет командную строку `jdbc:hive2//localhost:10001/>`.
 	
@@ -319,4 +319,4 @@ Twitter позволяет получать [данные для каждого 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

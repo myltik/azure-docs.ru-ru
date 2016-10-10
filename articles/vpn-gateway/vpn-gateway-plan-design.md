@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc"/>
 
 # Планирование и проектирование VPN-шлюза
@@ -46,20 +46,13 @@
 
 ### <a name="gwrequire"></a>Требования к шлюзу в зависимости от типа VPN и SKU
 
+[AZURE.INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-Во время создания шлюза VPN нужно указать SKU шлюза, который вы хотите использовать. Существует три SKU VPN-шлюза:
-
-- базовая;
-- Стандартная
-- высокопроизводительная
+Дополнительные сведения о номерах SKU шлюзов см. в разделе [SKU шлюзов](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)]
 
-
-
-### <a name="aggthroughput"></a>Типы шлюзов и их суммарная пропускная способность
-
-В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью. Приблизительная суммарная пропускная способность может быть решающим фактором при проектировании. Цены на шлюзы зависят от артикулов. Сведения о ценах см. в разделе [Стоимость VPN-шлюзов ](https://azure.microsoft.com/pricing/details/vpn-gateway/). Эта таблица относится к классической модели развертывания и модели диспетчера ресурсов.
+<br> В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью. Приблизительная суммарная пропускная способность может быть решающим фактором при проектировании. Цены на шлюзы зависят от артикулов. Сведения о ценах см. в разделе [Стоимость VPN-шлюзов ](https://azure.microsoft.com/pricing/details/vpn-gateway/). Эта таблица относится к классической модели развертывания и модели диспетчера ресурсов.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -161,4 +154,4 @@
 
 Дополнительные сведения о конкретных параметрах шлюза см. в разделе [Сведения о параметрах VPN-шлюза](vpn-gateway-about-vpn-gateway-settings.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

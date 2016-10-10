@@ -3,7 +3,7 @@
 	description="Из этой статьи вы узнаете, что делать, когда вы пытаетесь зарегистрироваться в Azure и система не принимает вашу кредитную или банковскую карту."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"
@@ -74,4 +74,4 @@
 
 > [AZURE.NOTE] Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

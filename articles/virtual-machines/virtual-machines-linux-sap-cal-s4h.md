@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Развертывание платформы S/4 HANA или BW/4 HANA в Microsoft Azure | Microsoft Azure" 
-description="Развертывание платформы S/4 HANA или BW/4 HANA в Microsoft Azure" 
+pageTitle="Развертывание платформы S/4 HANA или BW/4 HANA на виртуальной машине Azure | Microsoft Azure" 
+description="Развертывание платформы S/4 HANA или BW/4 HANA на виртуальной машине Azure" 
 services="virtual-machines-linux" 
 documentationCenter="" 
 authors="hermanndms" 
@@ -88,4 +88,4 @@ tags="azure-resource-manager"
 
 Другой вариант — войти на клиентскую виртуальную машину Windows и запустить, например, предварительно настроенный интерфейс SAP GUI.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

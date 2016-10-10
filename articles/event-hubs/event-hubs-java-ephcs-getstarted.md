@@ -3,7 +3,7 @@
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события посредством Java, и получению событий посредством C# с помощью EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
-	ms.author="sethm"/>
+	ms.date="09/27/2016"
+	ms.author="jotaub;sethm"/>
 
 # Приступая к работе с концентраторами событий
 
@@ -77,4 +77,4 @@
 [Решение для обмена сообщениями в очереди]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

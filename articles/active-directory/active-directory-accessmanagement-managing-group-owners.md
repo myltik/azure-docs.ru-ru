@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 # Управление владельцами группы
@@ -53,4 +53,4 @@
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -69,6 +69,17 @@
 
 ![Перемещение фабрики данных](media/data-factory-faq/move-data-factory.png)
 
+### Какие вычислительные среды поддерживает фабрика данных?
+Следующая таблица содержит список вычислительных сред, поддерживаемых фабрикой данных, и доступных в них действий.
+
+| Вычислительная среда | Действия |
+| ------------------- | -------- | 
+| [Кластер HDInsight по запросу](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) или [собственный кластер HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [потоковая передача Hadoop](data-factory-hadoop-streaming-activity.md) | 
+| [Пакетная служба Azure](data-factory-compute-linked-services.md#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |  
+| [Машинное обучение Azure](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) | [Действия машинного обучения: выполнение пакета и обновление ресурса](data-factory-azure-ml-batch-execution-activity.md) |
+| [Аналитика озера данных Azure](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) | [Аналитика озера данных U-SQL](data-factory-usql-activity.md)
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [хранилище данных Azure SQL](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) | [Хранимая процедура](data-factory-stored-proc-activity.md)
+
 ## Действия — вопросы и ответы
 ### Какие типы действий использовать в конвейере фабрики данных Azure? 
 
@@ -82,8 +93,13 @@
 ### Что лучше: конвейер с несколькими действиями или отдельный конвейер для каждого действия? 
 Предполагается, что конвейеры объединяют связанные действия. Действия можно хранить в одном конвейере, если связывающие их наборы данных не используются каким-либо действием за пределами конвейера. Таким образом, вам не придется объединять активные периоды конвейера в цепочку, чтобы они были согласованы друг с другом. Кроме того, целостность данных в таблицах конвейера лучше сохраняется при обновлении конвейера. В сущности, обновление конвейера останавливает все действия в конвейере, удаляет их и создает их снова. С точки зрения разработки также будет легче просматривать поток данных в связанных действиях в одном JSON-файле для конвейера.
 
-### Где выполняется операция копирования? 
+### Какие хранилища данных поддерживаются?
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
+### Какие форматы файлов поддерживаются? 
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
+
+### Где выполняется операция копирования? 
 Подробные сведения см. в разделе [Глобально доступное перемещение данных](data-factory-data-movement-activities.md#global). Если задействовано локальное хранилище данных, то операцию копирования выполняет шлюз управления данными в локальной среде. Когда данные перемещаются между двумя облачными хранилищами, операция копирования выполняется в ближайшем к принимающему хранилищу регионе в той же географической области.
 
 
@@ -192,4 +208,4 @@
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

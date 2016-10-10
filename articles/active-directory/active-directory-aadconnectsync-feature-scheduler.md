@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="StevenPo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -36,7 +36,7 @@
 ## Конфигурация планировщика
 Чтобы увидеть текущие параметры конфигурации, откройте PowerShell и выполните командлет `Get-ADSyncScheduler`. Отобразятся данные примерно следующего вида:
 
-.![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
+![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings.png)
 
 Если при запуске этого командлета отображается сообщение **The sync command or cmdlet is not available** (Команда синхронизации или командлет недоступны), то модуль PowerShell не загружается. Это может произойти при запуске Azure AD Connect на контроллере домена или на сервере с более высокими уровнями ограничений PowerShell, чем предусмотрено параметрами по умолчанию. Если отображается это сообщение об ошибке, выполните команду `Import-Module ADSync`, чтобы сделать командлет доступным.
 
@@ -95,7 +95,7 @@
 ## Остановка планировщика
 Бывает, что планировщик необходимо остановить в процессе выполнения цикла синхронизации. Это может потребоваться, например, если вы запустили мастер установки и получили следующую ошибку:
 
-.![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
+![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
 
 Пока выполняется цикл синхронизации, вносить изменения в конфигурацию нельзя. Вы можете дождаться, пока планировщик завершит синхронизацию, или остановить его и внести изменения незамедлительно. Остановка текущего цикла не вредит системе, а внесенные изменения будут обработаны только во время следующей синхронизации.
 
@@ -119,7 +119,7 @@ Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name
 
 [Имена соединителей](active-directory-aadconnectsync-service-manager-ui-connectors.md) и [имена профилей выполнения](active-directory-aadconnectsync-service-manager-ui-connectors.md#configure-run-profiles) можно найти в [пользовательском интерфейсе Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md).
 
-.![Вызов профиля выполнения](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
+![Вызов профиля выполнения](./media/active-directory-aadconnectsync-feature-scheduler/invokerunprofile.png)
 
 Командлет `Invoke-ADSyncRunProfile` является синхронным, т. е. он не возвращает управление до тех пор, пока соединитель не завершит операцию, успешно или с ошибкой.
 
@@ -151,4 +151,4 @@ Get-ADSyncConnectorRunStatus
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

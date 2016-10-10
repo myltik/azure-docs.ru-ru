@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="na"
 	authors="aungoo-msft"
-	manager=""
+	manager="tadb"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="tamram;aungoo"/>
+	ms.author="aungoo;tamram"/>
 
 
 # Архивация дисков виртуальной машины Azure с помощью добавочных моментальных снимков
@@ -128,4 +128,4 @@
 - [Создание моментального снимка большого двоичного объекта](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 - [Планирование инфраструктуры резервного копирования виртуальных машин в Azure](../backup/backup-azure-vms-introduction.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

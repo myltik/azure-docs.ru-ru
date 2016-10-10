@@ -287,7 +287,7 @@
 
 
 ## Дальнейшие действия
-[Узнайте больше о DSC и наборах масштабирования виртуальных машин](virtual-machines-scale-sets-dsc.md).
+Дополнительные сведения о DSC и наборах масштабирования виртуальных машин см. в статье, посвященной [использованию наборов масштабирования с помощью расширений Azure DSC](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 
 Получите дополнительные сведения о [безопасном управлении учетными данными посредством DSC](virtual-machines-windows-extensions-dsc-credentials.md).
 
@@ -295,4 +295,4 @@
 
 Для получения дополнительных сведений о DSC PowerShell [посетите центр документации PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

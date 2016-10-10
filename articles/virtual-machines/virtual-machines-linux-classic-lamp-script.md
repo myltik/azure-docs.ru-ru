@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="09/13/2016"
 	ms.author="guybo"/>
 
 #Развертывание приложения LAMP с помощью расширения Azure CustomScript для Linux##
@@ -81,7 +81,7 @@
 
 Теперь расширение CustomScript для Linux можно развернуть на удаленной виртуальной машине с помощью интерфейса командной строки Azure.
 
-    azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
+    azure vm extension set -c "./public_config.json" lamp-vm CustomScript Microsoft.Azure.Extensions 2.0
 
 Предыдущая команда загружает и выполняет сценарий *install\_lamp.sh* на виртуальной машине с именем *lamp-vm*.
 
@@ -93,8 +93,8 @@
 
 Можно проверить правильность выполнения пользовательского скрипта, просмотрите файл журнала на удаленной виртуальной машине. Добавьте SSH в *lamp-vm* и добавьте в файл журнала заключительный фрагмент с помощью следующей команды:
 
-    cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
-    tail -f extension.log
+    cd /var/log/azure/customscript
+    tail -f handler.log
 
 После запуска расширения CustomScript вы сможете перейти к созданной PHP-странице и проверить данные. PHP-страница для примера в этой статье — *http://lamp-vm.cloudapp.net/phpinfo.php*.
 
@@ -110,4 +110,4 @@
 
 [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource-links.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Выполнение задания потоковой передачи в Azure Stream Analytics
@@ -23,11 +23,11 @@
 
 Для запуска задания:
 
-1.	На панели мониторинга заданий классического портала Azure нажмите кнопку **Начало** в нижней части страницы.
+1.	На панели мониторинга заданий классического портала Azure нажмите кнопку **Запустить** в нижней части страницы.
 
     ![Кнопка запуска задания](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)
 
-    На портале Azure нажмите **Запустить** в верхней части страницы вашего задания.
+    На портале Azure нажмите кнопку **Запустить** в верхней части страницы вашего задания.
 
     ![Кнопка запуска задания на портале Azure](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)
 
@@ -54,4 +54,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

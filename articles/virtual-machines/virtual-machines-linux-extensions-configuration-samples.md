@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
+   ms.date="09/13/2016"
    ms.author="kundanap"/>
 
 # Примеры конфигурации расширений виртуальной машины Linux
@@ -92,9 +92,10 @@
 
 ### Расширение CustomScript для Linux.
     {
-        "publisher": " Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.3",
+        "publisher": " Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
                 "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"
@@ -216,4 +217,4 @@
 
 [Расширение Custom Script на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

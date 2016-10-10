@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="AndKjell"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 <tags
     ms.service="active-directory"
@@ -187,4 +187,4 @@ Azure AD Connect поддерживает установку второго се
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

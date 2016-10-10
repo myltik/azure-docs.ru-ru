@@ -2,7 +2,7 @@
 	pageTitle="Развертывание DocumentDB и веб-приложений службы приложений Azure с помощью шаблона диспетчера ресурсов Azure | Microsoft Azure" 
 	description="В этом учебном курсе показано, как выполнять развертывание учетной записи DocumentDB, веб-приложений службы приложений Azure и примера веб-приложения с использованием шаблона диспетчера ресурсов Azure." 
 	services="documentdb, app-service\web" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/02/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Развертывание DocumentDB и веб-приложений службы приложений Azure с помощью шаблона диспетчера ресурсов Azure
 
@@ -33,7 +33,7 @@
 
 Перед выполнением инструкций в этом учебнике убедитесь в наличии следующих ресурсов.
 
-- Подписка Azure. Azure – это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения](https://azure.microsoft.com/pricing/purchase-options/), [Предложения для участников](https://azure.microsoft.com/pricing/member-offers/) или [Бесплатное пробное использование](https://azure.microsoft.com/pricing/free-trial/).
+- Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Как приобрести Azure](https://azure.microsoft.com/pricing/purchase-options/), [Предложения для участников](https://azure.microsoft.com/pricing/member-offers/) или [Создайте бесплатную учетную запись Azure уже сегодня](https://azure.microsoft.com/pricing/free-trial/).
 
 ##<a id="CreateDB"></a>Шаг 1. Загрузка файлов шаблонов ##
 Давайте начнем с загрузки файлов шаблонов, которые будут использоваться в этом учебнике.
@@ -141,4 +141,4 @@
 >[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
  
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

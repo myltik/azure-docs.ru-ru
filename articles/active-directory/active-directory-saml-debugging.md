@@ -1,9 +1,9 @@
 <properties 
     pageTitle="Отладка единого входа на основе SAML в приложения в Azure Active Directory | Microsoft Azure" 
-    description="Узнайте, как выполнять отладку единого входа на основе SAML в приложения в Azure Active Directory." 
+    description="Узнайте, как выполнять отладку единого входа на основе SAML в приложения в Azure Active Directory. " 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -34,4 +34,4 @@
 <!--Image references-->
 [1]: ./media/active-directory-saml-debugging/fiddler.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

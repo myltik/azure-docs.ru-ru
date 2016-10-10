@@ -3,7 +3,7 @@
    description="Устранение неполадок, связанных с классическим развертыванием при создании виртуальной машины Linux в Azure"
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue"/>
@@ -84,4 +84,4 @@
 ## Дальнейшие действия
 При возникновении проблем во время запуска остановленной виртуальной машины Linux или в случае изменения размера существующей виртуальной машины Linux в Azure см. раздел [Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

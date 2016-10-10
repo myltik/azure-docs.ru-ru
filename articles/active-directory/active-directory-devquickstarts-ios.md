@@ -33,7 +33,9 @@
 3. установить и настроить ADAL;
 5. использовать ADAL для получения маркеров из Azure AD.
 
-Чтобы начать работу, [загрузите каркас приложения](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) или [завершенный пример](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Вам также потребуется клиент Azure AD, в котором можно будет создавать пользователей и зарегистрировать приложение. Если у вас еще нет клиента, [узнайте, как его получить](active-directory-howto-tenant.md).
+Чтобы начать работу, [загрузите каркас приложения](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) или [завершенный пример](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip). Вам также потребуется клиент Azure AD, в котором можно будет создавать пользователей и зарегистрировать приложение. Если клиента нет, [узнайте, как его получить](active-directory-howto-tenant.md).
+
+> [AZURE.TIP] Воспользуйтесь предварительной версией нашего нового [портала разработчиков](https://identity.microsoft.com/Docs/iOS), который поможет вам приступить к работе с Azure Active Directory через несколько минут. Портал разработчиков поможет зарегистрировать приложение и интегрировать Azure AD в коде. Завершив работу, вы получите простое приложение, с помощью которого выполняется аутентификация пользователей в клиенте и на сервере, принимающем маркеры и проводящем проверку.
 
 ## *1. Выбор URI перенаправления для iOS*
 
@@ -46,7 +48,7 @@
 ```
 
 - 	Схема **aap-scheme** регистрируется в проекте XCode и используется для вызова из других приложений. Данные сведения можно найти в файле Info.plist (URL Types -> URL Identifier). Если вы еще не создали или не настроили хотя бы одну схему, следует сделать это.
-- 	**bundle-id** — это идентификатор пакета, который можно найти в разделе "identity" параметров проекта XCode.
+- 	**bundle-id** — это идентификатор пакета, который можно найти в разделе "identity" параметров проекта XCode.
 
 Пример для рассматриваемого проекта QuickStart: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
@@ -230,4 +232,4 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

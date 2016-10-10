@@ -32,16 +32,16 @@
 
 - <ins>ограничения</ins> — ограничения API рекомендаций.
 - <ins>общая информация</ins> — сведения об аутентификации, универсальном коде ресурса (URI) службы и управлении версиями.
-- <ins>Базовая обработка модели</ins> — интерфейсы API, позволяющие выполнять основные операции с моделью, например создание, обновление или удаление модели.
-- <ins>Расширенная обработка модели</ins> — интерфейсы API, позволяющие получать подробные сведения о данных модели.
-- <ins>Бизнес-правила модели</ins> — интерфейсы API, позволяющие управлять бизнес-правилами в отношении результатов рекомендаций модели.
-- <ins>Каталог</ins> — интерфейсы API, позволяющие выполнять основные операции с каталогом модели. Каталог содержит метаданные по элементам данных об использовании.
+- <ins>Базовая обработка модели</ins> — интерфейсы API, позволяющие выполнять основные операции с моделью, например создание, обновление или удаление модели.
+- <ins>Расширенная обработка модели</ins> — интерфейсы API, позволяющие получать подробные сведения о данных модели.
+- <ins>Бизнес-правила модели</ins> — интерфейсы API, позволяющие управлять бизнес-правилами в отношении результатов рекомендаций модели.
+- <ins>Каталог</ins> — интерфейсы API, позволяющие выполнять основные операции с каталогом модели. Каталог содержит метаданные по элементам данных об использовании.
 - <ins>Функция</ins> — интерфейсы API, позволяющие получить сведения об элементе в каталоге и о том, как использовать эти сведения для создания лучших рекомендаций.
-- <ins>Данные по использованию</ins> — интерфейсы API, позволяющие выполнять основные операции с данными по использованию модели. Данные по использованию в базовой форме состоят из строк, содержащих пары &#60;userId&#62;,&#60;itemId&#62;.
-- <ins>Сборка</ins> — интерфейсы API, позволяющие инициировать сборку модели и выполнять основные операции, связанные с этой сборкой. Инициировать сборку модели можно, получив значимые данные об использовании.
-- <ins>Рекомендации</ins> — интерфейсы API, позволяющие использовать рекомендации после завершения сборки модели.
+- <ins>Данные по использованию</ins> — интерфейсы API, позволяющие выполнять основные операции с данными по использованию модели. Данные по использованию в базовой форме состоят из строк, содержащих пары &#60;userId&#62;,&#60;itemId&#62;.
+- <ins>Сборка</ins> — интерфейсы API, позволяющие инициировать сборку модели и выполнять основные операции, связанные с этой сборкой. Инициировать сборку модели можно, получив значимые данные об использовании.
+- <ins>Рекомендации</ins> — интерфейсы API, позволяющие использовать рекомендации после завершения сборки модели.
 - <ins>Данные пользователей</ins> — интерфейсы API, которые позволяют получать сведения о работе пользователей.
-- <ins>Уведомления</ins> — интерфейсы API, позволяющие получать уведомления о проблемах, связанных с операциями API. Например, если при передаче данных по использованию через систему сбора данных происходит сбой обработки большинства событий, то вызывается сообщение об ошибке.
+- <ins>Уведомления</ins> — интерфейсы API, позволяющие получать уведомления о проблемах, связанных с операциями API. Например, если при передаче данных по использованию через систему сбора данных происходит сбой обработки большинства событий, то вызывается сообщение об ошибке.
 
 ##2) Ограничения
 
@@ -156,16 +156,16 @@ OData XML
 
 Данные модели содержатся в следующих элементах:
 
-- `feed/entry/content/properties/Id` — уникальный идентификатор модели.
-- `feed/entry/content/properties/Name` — имя модели.
-- `feed/entry/content/properties/Date` — дата создания модели.
-- `feed/entry/content/properties/Status` — состояние модели. Один из следующих типов:
+- `feed/entry/content/properties/Id` — уникальный идентификатор модели.
+- `feed/entry/content/properties/Name` — имя модели.
+- `feed/entry/content/properties/Date` — дата создания модели.
+- `feed/entry/content/properties/Status` — состояние модели. Один из следующих типов:
     - Created — модель создана и не содержит каталога и данных по использованию;
-	- ReadyForBuild — модель создана и содержит каталог и данные по использованию.
-- `feed/entry/content/properties/HasActiveBuild` — указывает, создана ли модель успешно.
-- `feed/entry/content/properties/BuildId` — идентификатор активной сборки модели.
-- `feed/entry/content/properties/Mpr` — средний процентильный рейтинг модели (MPR, подробнее см. в разделе, посвященном параметру ModelInsight).
-- `feed/entry/content/properties/UserName` — имя внутреннего пользователя модели.
+	- ReadyForBuild — модель создана и содержит каталог и данные по использованию.
+- `feed/entry/content/properties/HasActiveBuild` — указывает, создана ли модель успешно.
+- `feed/entry/content/properties/BuildId` — идентификатор активной сборки модели.
+- `feed/entry/content/properties/Mpr` — средний процентильный рейтинг модели (MPR, подробнее см. в разделе, посвященном параметру ModelInsight).
+- `feed/entry/content/properties/UserName` — имя внутреннего пользователя модели.
 
 OData XML
 
@@ -217,20 +217,20 @@ OData XML
 
 Код состояния HTTP: 200
 
-- `feed/entry/content/properties/Id` — уникальный идентификатор модели.
-- `feed/entry/content/properties/Name` — имя модели.
-- `feed/entry/content/properties/Date` — дата создания модели.
-- `feed/entry/content/properties/Status` — состояние модели. Один из следующих типов:
+- `feed/entry/content/properties/Id` — уникальный идентификатор модели.
+- `feed/entry/content/properties/Name` — имя модели.
+- `feed/entry/content/properties/Date` — дата создания модели.
+- `feed/entry/content/properties/Status` — состояние модели. Один из следующих типов:
   - Created — модель создана и не содержит каталога и данных по использованию;
-  - ReadyForBuild — модель создана и содержит каталог и данные по использованию.
-- `feed/entry/content/properties/HasActiveBuild` — указывает, создана ли модель успешно.
-- `feed/entry/content/properties/BuildId` — идентификатор активной сборки модели.
-- `feed/entry/content/properties/Mpr` — средний процентильный рейтинг модели (подробнее см. в разделе, посвященном параметру ModelInsight).
-- `feed/entry/content/properties/UserName` — имя внутреннего пользователя модели.
-- `feed/entry/content/properties/UsageFileNames` — список файлов использования модели через запятую.
-- `feed/entry/content/properties/CatalogId` — идентификатор каталога модели.
-- `feed/entry/content/properties/Description` — описание модели.
-- `feed/entry/content/properties/CatalogFileName` — имя файла каталога модели.
+  - ReadyForBuild — модель создана и содержит каталог и данные по использованию.
+- `feed/entry/content/properties/HasActiveBuild` — указывает, создана ли модель успешно.
+- `feed/entry/content/properties/BuildId` — идентификатор активной сборки модели.
+- `feed/entry/content/properties/Mpr` — средний процентильный рейтинг модели (подробнее см. в разделе, посвященном параметру ModelInsight).
+- `feed/entry/content/properties/UserName` — имя внутреннего пользователя модели.
+- `feed/entry/content/properties/UsageFileNames` — список файлов использования модели через запятую.
+- `feed/entry/content/properties/CatalogId` — идентификатор каталога модели.
+- `feed/entry/content/properties/Description` — описание модели.
+- `feed/entry/content/properties/CatalogFileName` — имя файла каталога модели.
 
 OData XML
 
@@ -268,7 +268,7 @@ OData XML
 
 ###5\.4. Обновление модели
 
-Можно обновить описание модели или активного идентификатора сборки.<br> <ins>Активный идентификатор сборки</ins> — каждая сборка для каждой модели имеет идентификатор сборки. Активный идентификатор сборки — это первая успешная сборка каждой новой модели. Как только у вас будет активный идентификатор сборки и вы выполните дополнительные сборки для той же модели, следует явно задать его в качестве идентификатора сборки по умолчанию, если необходимо. Если при использовании рекомендаций не указать идентификатор сборки, который необходимо использовать, автоматически будет использоваться идентификатор по умолчанию.<br> Этот механизм позволяет при наличии действующей модели рекомендаций в рабочей среде выполнять сборку новых моделей и тестировать их перед выпуском.
+Можно обновить описание модели или активного идентификатора сборки.<br> <ins>Активный идентификатор сборки</ins> — каждая сборка каждой модели имеет собственный идентификатор. Активный идентификатор сборки — это первая успешная сборка каждой новой модели. Как только у вас будет активный идентификатор сборки и вы выполните дополнительные сборки для той же модели, следует явно задать его в качестве идентификатора сборки по умолчанию, если необходимо. Если при использовании рекомендаций не указать идентификатор сборки, который необходимо использовать, автоматически будет использоваться идентификатор по умолчанию.<br> Этот механизм позволяет при наличии действующей модели рекомендаций в рабочей среде выполнять сборку новых моделей и тестировать их перед выпуском.
 
 
 | Метод HTTP | URI |
@@ -576,7 +576,7 @@ OData XML
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
 |	modelId |	Уникальный идентификатор модели |
-|	buildId |	Необязательно — число, которое обозначает успешную сборку. |
+|	buildId |	Необязательно — число, которое обозначает успешную сборку. |
 |	версия\_API | 1\.0 |
 |||
 | Текст запроса | НЕТ |
@@ -836,9 +836,9 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 Код состояния HTTP: 200
 
-- `feed/entry/content/properties/Id` — уникальный идентификатор правила.
-- `feed/entry/content/properties/Type` — тип правила.
-- `feed/entry/content/properties/Parameter` — параметр правила.
+- `feed/entry/content/properties/Id` — уникальный идентификатор правила.
+- `feed/entry/content/properties/Type` — тип правила.
+- `feed/entry/content/properties/Parameter` — параметр правила.
 
 OData XML
 
@@ -890,16 +890,16 @@ OData XML
 |||
 | Текст запроса | 
 <ins>Всякий раз, когда для бизнес-правил определяется идентификатор элемента, обязательно используйте внешний идентификатор этого элемента (используемый в файле каталога).</ins><br> 
-<ins>Чтобы добавить правило BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
-<ins>Чтобы добавить правило FeatureBlockList:</ins><br> 
-<br>
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
-Чтобы добавить правило Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br>
+<ins>Чтобы добавить правило BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> 
+<ins>Чтобы добавить правило FeatureBlockList:</ins><br>
+<br> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> 
+Чтобы добавить правило Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> 
 <ins>Чтобы добавить правило WhiteList:</ins><br>
 `<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
 <ins>Чтобы добавить правило FeatureWhiteList:</ins><br> 
 <br> 
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> 
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
 Чтобы добавить правило PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 
@@ -909,9 +909,9 @@ OData XML
 
 Интерфейс API возвращает только что созданное правило и его подробные данные. Свойства правила можно получить по следующим путям:
 
-- `feed/entry/content/properties/Id` — уникальный идентификатор правила.
-- `feed/entry/content/properties/Type` — тип правила: BlockList или Upsale.
-- `feed/entry/content/properties/Parameter` — параметр правила.
+- `feed/entry/content/properties/Id` — уникальный идентификатор правила.
+- `feed/entry/content/properties/Type` — тип правила: BlockList или Upsale.
+- `feed/entry/content/properties/Parameter` — параметр правила.
 
 OData XML
 
@@ -1062,12 +1062,12 @@ OData XML
 
 Ответ включает одну запись для каждого элемента каталога. Каждая запись содержит следующие данные:
 
-- `feed/entry/content/properties/ExternalId` — внешний идентификатор элемента каталога, предоставленный клиентом.
-- `feed/entry/content/properties/InternalId` — внутренний идентификатор элемента каталога, созданный API рекомендаций Машинного обучения Azure.
-- `feed/entry/content/properties/Name` — имя элемента каталога.
-- `feed/entry/content/properties/Category` — категория элемента каталога.
-- `feed/entry/content/properties/Description` — описание элемента каталога.
-- `feed/entry/content/properties/Metadata` — метаданные элемента каталога.
+- `feed/entry/content/properties/ExternalId` — внешний идентификатор элемента каталога, предоставленный клиентом.
+- `feed/entry/content/properties/InternalId` — внутренний идентификатор элемента каталога, созданный API рекомендаций Машинного обучения Azure.
+- `feed/entry/content/properties/Name` — имя элемента каталога.
+- `feed/entry/content/properties/Category` — категория элемента каталога.
+- `feed/entry/content/properties/Description` — описание элемента каталога.
+- `feed/entry/content/properties/Metadata` — метаданные элемента каталога.
 
 
 OData XML
@@ -1165,8 +1165,8 @@ OData XML
 
 Ответ включает одну запись для каждого элемента каталога. Каждая запись содержит следующие данные:
 
-- `feed/entry/content/properties/InternalId` — внутренний идентификатор элемента каталога, созданный API рекомендаций Машинного обучения Azure.
-- `feed/entry/content/properties/Name` — имя элемента каталога.
+- `feed/entry/content/properties/InternalId` — внутренний идентификатор элемента каталога, созданный API рекомендаций Машинного обучения Azure.
+- `feed/entry/content/properties/Name` — имя элемента каталога.
 - `feed/entry/content/properties/Rating` — (для будущего использования).
 - `feed/entry/content/properties/Reasoning` — (для будущего использования).
 - `feed/entry/content/properties/Metadata` — (для будущего использования).
@@ -1384,10 +1384,10 @@ OData XML
 
 Ответ включает одну запись для каждого файла использования. Каждая запись содержит следующие данные:
 
-- `feed\entry\content\properties\Id` — идентификатор файла использования.
-- `feed\entry\content\properties\Length` — размер файла использования в мегабайтах.
-- `feed\entry\content\properties\DateModified` — дата создания файла использования.
-- `feed\entry\content\properties\UseInModel` — применяется ли файл использования в модели.
+- `feed\entry\content\properties\Id` — идентификатор файла использования.
+- `feed\entry\content\properties\Length` — размер файла использования в мегабайтах.
+- `feed\entry\content\properties\DateModified` — дата создания файла использования.
+- `feed\entry\content\properties\UseInModel` — применяется ли файл использования в модели.
 
 OData XML
 
@@ -1451,8 +1451,8 @@ OData XML
 
 Коллекция элементов "ключ-значение". Каждый элемент содержит суммарное число событий определенного типа за указанный час.
 
-- `feed\entry[i]\content\properties\Key` — содержит время (с группировкой по часам) и тип события.
-- `feed\entry[i]\content\properties\Value` — общее число событий.
+- `feed\entry[i]\content\properties\Key` — содержит время (с группировкой по часам) и тип события.
+- `feed\entry[i]\content\properties\Value` — общее число событий.
 
 OData XML
 
@@ -1920,12 +1920,12 @@ OData
 
 Допустимые состояния сборки:
 
-- Create — запрос сборки был создан.
-- Queued — запрос сборки был отправлен и поставлен в очередь.
-- Building — выполняется сборка.
-- Success — сборка успешно завершилась;
-- Error — сборка завершилась сбоем;
-- Cancelled — сборка отменена;
+- Create — запрос сборки был создан;
+- Queued — запрос сборки был отправлен и поставлен в очередь;
+- Building — выполняется сборка;
+- Success — сборка успешно завершилась;
+- Error — сборка завершилась сбоем;
+- Cancelled — сборка отменена;
 - Cancelling — отправлен запрос на отмену сборки.
 
 
@@ -1996,13 +1996,13 @@ OData XML
 
 Допустимые состояния сборки:
 
-- Create — модель создана;
-- Queued — сборка модели запущена и поставлена в очередь;
-- Building — сборка модели выполняется;
-- Success — сборка успешно завершилась;
-- Error — сборка завершилась сбоем;
-- Cancelled — сборка отменена;
-- Cancelling — сборка отменяется.
+- Create — модель создана;
+- Queued — сборка модели запущена и поставлена в очередь;
+- Building — сборка модели выполняется;
+- Success — сборка успешно завершилась;
+- Error — сборка завершилась сбоем;
+- Cancelled — сборка отменена;
+- Cancelling — сборка отменяется.
 
 Обратите внимание на то, что идентификатор сборки можно найти по следующему пути: `Feed\entry\content\properties\Id`
 
@@ -2069,28 +2069,28 @@ OData XML
 
 Ответ включает одну запись для каждой сборки. Каждая запись содержит следующие данные:
 
-- `feed/entry/content/properties/UserName` — имя пользователя.
-- `feed/entry/content/properties/ModelName` — имя модели.
-- `feed/entry/content/properties/ModelId` — уникальный идентификатор модели.
-- `feed/entry/content/properties/IsDeployed` — развертывается ли сборка (то есть является ли она активной).
-- `feed/entry/content/properties/BuildId` — уникальный идентификатор сборки.
+- `feed/entry/content/properties/UserName` — имя пользователя.
+- `feed/entry/content/properties/ModelName` — имя модели.
+- `feed/entry/content/properties/ModelId` — уникальный идентификатор модели.
+- `feed/entry/content/properties/IsDeployed` — развертывается ли сборка (то есть является ли она активной).
+- `feed/entry/content/properties/BuildId` — уникальный идентификатор сборки.
 - `feed/entry/content/properties/BuildType` — тип сборки.
-- `feed/entry/content/properties/Status` — состояние сборки. Может иметь одно из следующих значений: Error, Building, Queued, Cancelling, Cancelled, Success.
-- `feed/entry/content/properties/StatusMessage` — подробное сообщение о состоянии (относится только к некоторым состояниям).
-- `feed/entry/content/properties/Progress` — ход выполнения сборки (%).
-- `feed/entry/content/properties/StartTime` — время начала сборки.
-- `feed/entry/content/properties/EndTime` — время окончания сборки.
-- `feed/entry/content/properties/ExecutionTime` — длительность сборки.
-- `feed/entry/content/properties/ProgressStep` — сведения о текущем этапе выполняемой сборки.
+- `feed/entry/content/properties/Status` — состояние сборки. Может иметь одно из следующих значений: Error, Building, Queued, Cancelling, Cancelled, Success.
+- `feed/entry/content/properties/StatusMessage` — подробное сообщение о состоянии (относится только к некоторым состояниям).
+- `feed/entry/content/properties/Progress` — ход выполнения сборки (%).
+- `feed/entry/content/properties/StartTime` — время начала сборки.
+- `feed/entry/content/properties/EndTime` — время окончания сборки.
+- `feed/entry/content/properties/ExecutionTime` — длительность сборки.
+- `feed/entry/content/properties/ProgressStep` — сведения о текущем этапе выполняемой сборки.
 
 Допустимые состояния сборки:
-- Created — запись запроса сборки создана;
-- Queued — запрос сборки инициирован и помещен в очередь;
-- Building — сборка выполняется;
-- Success — сборка успешно завершилась;
-- Error — сборка завершилась сбоем;
-- Cancelled — сборка отменена;
-- Cancelling — сборка отменяется.
+- Created — запись запроса сборки создана;
+- Queued — запрос сборки инициирован и помещен в очередь;
+- Building — сборка выполняется;
+- Success — сборка успешно завершилась;
+- Error — сборка завершилась сбоем;
+- Cancelled — сборка отменена;
+- Cancelling — сборка отменяется.
 
 Допустимые значения типа сборки:
 - Rank — сборка рейтинга;
@@ -2153,28 +2153,28 @@ OData XML
 
 Ответ включает одну запись для каждой сборки. Каждая запись содержит следующие данные:
 
-- `feed/entry/content/properties/UserName` — имя пользователя.
-- `feed/entry/content/properties/ModelName` — имя модели.
-- `feed/entry/content/properties/ModelId` — уникальный идентификатор модели.
-- `feed/entry/content/properties/IsDeployed` — развертывается ли сборка.
-- `feed/entry/content/properties/BuildId` — уникальный идентификатор сборки.
+- `feed/entry/content/properties/UserName` — имя пользователя.
+- `feed/entry/content/properties/ModelName` — имя модели.
+- `feed/entry/content/properties/ModelId` — уникальный идентификатор модели.
+- `feed/entry/content/properties/IsDeployed` — развертывается ли сборка.
+- `feed/entry/content/properties/BuildId` — уникальный идентификатор сборки.
 - `feed/entry/content/properties/BuildType` — тип сборки.
-- `feed/entry/content/properties/Status` — состояние сборки. Может иметь одно из следующих значений: Error, Building, Queued, Cancelled, Cancelling, Success.
-- `feed/entry/content/properties/StatusMessage` — подробное сообщение о состоянии (относится только к некоторым состояниям).
-- `feed/entry/content/properties/Progress` — ход выполнения сборки (%).
-- `feed/entry/content/properties/StartTime` — время начала сборки.
-- `feed/entry/content/properties/EndTime` — время окончания сборки.
-- `feed/entry/content/properties/ExecutionTime` — длительность сборки.
-- `feed/entry/content/properties/ProgressStep` — сведения о текущем этапе выполняемой сборки.
+- `feed/entry/content/properties/Status` — состояние сборки. Может иметь одно из следующих значений: Error, Building, Queued, Cancelled, Cancelling, Success.
+- `feed/entry/content/properties/StatusMessage` — подробное сообщение о состоянии (относится только к некоторым состояниям).
+- `feed/entry/content/properties/Progress` — ход выполнения сборки (%).
+- `feed/entry/content/properties/StartTime` — время начала сборки.
+- `feed/entry/content/properties/EndTime` — время окончания сборки.
+- `feed/entry/content/properties/ExecutionTime` — длительность сборки.
+- `feed/entry/content/properties/ProgressStep` — сведения о текущем этапе выполняемой сборки.
 
 Допустимые состояния сборки:
-- Created — запись запроса сборки создана;
-- Queued — запрос сборки инициирован и помещен в очередь;
-- Building — сборка выполняется;
-- Success — сборка успешно завершилась;
-- Error — сборка завершилась сбоем;
-- Cancelled — сборка отменена;
-- Cancelling — сборка отменяется.
+- Created — запись запроса сборки создана;
+- Queued — запрос сборки инициирован и помещен в очередь;
+- Building — сборка выполняется;
+- Success — сборка успешно завершилась;
+- Error — сборка завершилась сбоем;
+- Cancelled — сборка отменена;
+- Cancelling — сборка отменяется.
 
 
 Допустимые значения типа сборки:
@@ -2483,7 +2483,7 @@ OData XML
 Ответ включает одну запись для каждого рекомендованного элемента. Каждая запись содержит следующие данные:
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
-- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень достоверности.
+- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
 - `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Приведенный ниже пример ответа содержит 10 рекомендованных элементов.
@@ -2664,7 +2664,7 @@ OData XML
 Ответ включает одну запись для каждого рекомендованного элемента. Каждая запись содержит следующие данные:
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
-- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень достоверности.
+- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
 - `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.1.
@@ -2694,9 +2694,9 @@ OData XML
 Ответ включает по одной записи на рекомендуемый набор элементов (набор элементов, которые обычно покупаются вместе с входящим элементом). Каждая запись содержит следующие данные:
 - `Feed\entry\content\properties\Id1` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name1` — имя элемента.
-- `Feed\entry\content\properties\Id2` — имя второго рекомендованного элемента (необязательно).
+- `Feed\entry\content\properties\Id2` — идентификатор второго рекомендованного элемента (необязательно).
 - `Feed\entry\content\properties\Name2` — имя второго элемента (необязательно).
-- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень достоверности.
+- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
 - `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Приведенный ниже пример ответа содержит 3 рекомендованных набора элементов.
@@ -2786,9 +2786,9 @@ OData XML
 Ответ включает по одной записи на рекомендуемый набор элементов (набор элементов, которые обычно покупаются вместе с входящим элементом). Каждая запись содержит следующие данные:
 - `Feed\entry\content\properties\Id1` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name1` — имя элемента.
-- `Feed\entry\content\properties\Id2` — имя второго рекомендованного элемента (необязательно).
+- `Feed\entry\content\properties\Id2` — идентификатор второго рекомендованного элемента (необязательно).
 - `Feed\entry\content\properties\Name2` — имя второго элемента (необязательно).
-- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень достоверности.
+- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
 - `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.3.
@@ -2823,7 +2823,7 @@ API вернет список прогнозируемых элементов н
 Ответ включает одну запись для каждого рекомендованного элемента. Каждая запись содержит следующие данные:
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
-- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень достоверности.
+- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
 - `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.1.
@@ -2860,7 +2860,7 @@ API вернет список прогнозируемых элементов н
 Ответ включает одну запись для каждого рекомендованного элемента. Каждая запись содержит следующие данные:
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
-- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень достоверности.
+- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
 - `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.1.
@@ -2895,7 +2895,7 @@ API вернет список прогнозируемых элементов н
 Ответ включает одну запись для каждого рекомендованного элемента. Каждая запись содержит следующие данные:
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
-- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень достоверности.
+- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
 - `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.1.
@@ -2933,7 +2933,7 @@ API вернет список прогнозируемых элементов н
 Ответ включает одну запись для каждого рекомендованного элемента. Каждая запись содержит следующие данные:
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
-- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень достоверности.
+- `Feed\entry\content\properties\Rating` — оценка рекомендации. Чем выше оценка, тем выше уровень доверия.
 - `Feed\entry\content\properties\Reasoning` — обоснование рекомендации (например, объяснения).
 
 Пример ответа см. в подразделе 12.1.
@@ -2966,8 +2966,8 @@ API вернет список прогнозируемых элементов н
 Ответ включает одну запись для каждого рекомендованного элемента. Каждая запись содержит следующие данные:
 - `Feed\entry\content\properties\Id` — идентификатор рекомендованного элемента.
 - `Feed\entry\content\properties\Name` — имя элемента.
-- `Feed\entry\content\properties\Rating` — недоступно.
-- `Feed\entry\content\properties\Reasoning` — недоступно.
+- `Feed\entry\content\properties\Rating` — Недоступно.
+- `Feed\entry\content\properties\Reasoning` — Недоступно.
 
 OData XML
 
@@ -3025,11 +3025,11 @@ OData XML
 OData XML
 
     The response includes one entry per notification. Each entry has the following data:
-		* feed\entry\content\properties\UserName – Internal user name identification.
-		* feed\entry\content\properties\ModelId – Model ID.
-		* feed\entry\content\properties\Message – Notification message.
-		* feed\entry\content\properties\DateCreated – Date that this notification was created in UTC format.
-		* feed\entry\content\properties\NotificationType – Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
+		* feed\entry\content\properties\UserName - Internal user name identification.
+		* feed\entry\content\properties\ModelId - Model ID.
+		* feed\entry\content\properties\Message - Notification message.
+		* feed\entry\content\properties\DateCreated - Date that this notification was created in UTC format.
+		* feed\entry\content\properties\NotificationType - Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
 
 	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
@@ -3102,4 +3102,4 @@ OData XML
 © Корпорация Майкрософт (Microsoft Corporation), 2015 г. Все права защищены.
  
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

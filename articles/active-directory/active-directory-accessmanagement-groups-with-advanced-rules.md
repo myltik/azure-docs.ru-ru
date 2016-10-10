@@ -22,6 +22,8 @@
 
 Классический портал Azure предоставляет возможность создания расширенных правил для поддержки более сложного динамического членства в группах Azure Active Directory (Azure AD) на основе атрибутов.
 
+При изменении любых атрибутов пользователя система оценивает все правила динамических групп в каталоге, чтобы определить, приведет ли это к добавлению или удалению в группе. Если пользователь соответствует условиям правила в группе, он добавляется в эту группу. Если он больше не соответствует условиям правила группы, в которую он входит, он удаляется из этой группы.
+
 ## Создание расширенного правила
 
 1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Active Directory** и откройте каталог своей организации.
@@ -201,13 +203,24 @@ user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 Можно также создать правило, которое выбирает объекты устройств для членства в группе. Можно использовать следующие атрибуты устройства:
 
 | Свойства | Допустимые значения | Использование |
-|----------------------|---------------------------------|------------------------------------------------------|
+|-------------------------|---------------------------------|-------------------------------------------------------------|
 | displayName | Любое строковое значение | (device.displayName -eq "Rob Iphone”) |
 | deviceOSType | Любое строковое значение | (device.deviceOSType -eq "IOS") |
 | deviceOSVersion | Любое строковое значение | (device.OSVersion -eq "9.1") |
 | isDirSynced | true, false, null | (device.isDirSynced -eq "true") |
 | isManaged | true, false, null | (device.isManaged -eq "false") |
 | isCompliant | true, false, null | (device.isCompliant -eq "true") |
+| deviceCategory | Любое строковое значение | (device.deviceCategory -eq "") |
+| deviceManufacturer | Любое строковое значение | (device.deviceManufacturer -eq "Microsoft") |
+| deviceModel | Любое строковое значение | (device.deviceModel -eq "IPhone 7+") |
+| deviceOwnership | Любое строковое значение | (device.deviceOwnership -eq "") |
+| domainName | Любое строковое значение | (device.domainName -eq "contoso.com") |
+| enrollmentProfileName | Любое строковое значение | (device.enrollmentProfileName -eq "") |
+| enrollmentType | Любое строковое значение | (device.enrollmentType -eq "") |
+| isRooted | true, false, null | (device.deviceOSType -eq "true") |
+| managementType | Любое строковое значение | (device.managementType -eq "") |
+| organizationalUnit | Любое строковое значение | (device.organizationalUnit -eq "") |
+| deviceId | a valid deviceId | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
 
 > [AZURE.NOTE]
 Эти правила устройств невозможно создать с помощью раскрывающегося списка "Простое правило" на классическом портале Azure.
@@ -226,4 +239,4 @@ user.extension\_c272a57b722d4eb29bfe327874ae79cb\_\_OfficeNumber
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -13,7 +13,7 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="gusapost;robmcm"/>
 
 
 # Использование табличного хранилища Azure в Ruby
@@ -165,4 +165,4 @@
 - [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Репозиторий [пакетов Azure SDK для Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
 
-<!---HONumber=AcomDC_0817_2016--->
+<!---HONumber=AcomDC_0928_2016-->

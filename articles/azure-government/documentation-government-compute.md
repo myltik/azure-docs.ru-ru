@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="ryansoc"/>
 
 
@@ -22,6 +22,7 @@
 
 ##  Виртуальные машины
 
+###  Рекомендации по работе с данными
 
 Информация ниже определяет границу службы Azure для государственных организаций для виртуальных машин Azure.
 
@@ -33,4 +34,4 @@
 
 Чтобы получать дополнительные сведения и обновления, подпишитесь на <a href="https://blogs.msdn.microsoft.com/azuregov/">блог Microsoft Azure для государственных организаций. </a>
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

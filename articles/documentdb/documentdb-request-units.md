@@ -2,7 +2,7 @@
 	pageTitle="Единицы запросов в DocumentDB | Microsoft Azure" 
 	description="Узнайте о том, как понять факторы, задать количество запросов и оценить количество необходимых единиц запросов в DocumentDB." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="mimig" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="06/29/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 #Единицы запросов в DocumentDB
 Теперь доступен [калькулятор единиц запросов](https://www.documentdb.com/capacityplanner) DocumentDB. Дополнительные сведения см. в разделе [Оценка требований к пропускной способности](documentdb-request-units.md#estimating-throughput-needs).
@@ -220,4 +220,4 @@ DocumentDB обеспечивает высокую прогнозируемую 
 [4]: ./media/documentdb-request-units/RUEstimatorResults.png
 [5]: ./media/documentdb-request-units/RUCalculator2.png
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

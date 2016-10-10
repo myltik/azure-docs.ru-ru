@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Учебник по приложениям магазина Windows с потоковой передачей Smooth Streaming" 
+	pageTitle="Учебник по приложениям магазина Windows с потоковой передачей Smooth Streaming | Microsoft Azure" 
 	description="Сведения об использовании служб мультимедиа Azure для создания приложения для магазина Windows на C# с управляющим элементом XML MediaElement для воспроизведения контента Smooth Stream" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 
@@ -986,4 +986,4 @@
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

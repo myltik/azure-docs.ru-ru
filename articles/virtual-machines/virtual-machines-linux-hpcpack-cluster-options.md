@@ -13,16 +13,14 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="06/17/2016"
+ ms.date="09/26/2016"
  ms.author="danlep"/>
 
-# Возможности создания кластера высокопроизводительных вычислений (HPC) в Azure и управления им с помощью пакета Microsoft HPC
+# Варианты создания кластера HPC в Azure для рабочих нагрузок Linux и управления им с помощью пакета HPC
 
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
 Эта статья посвящена вариантам использования пакета HPC для запуска рабочих нагрузок Linux. Существуют также возможности запуска [рабочих нагрузок HPC Windows с помощью пакета HPC](virtual-machines-windows-hpcpack-cluster-options.md).
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Запуск кластера пакета HPC на виртуальных машинах Azure
 
@@ -52,6 +50,8 @@ ms.service="virtual-machines-linux"
 
 * [Отправка заданий в кластер пакета HPC в Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 
+* [Управление заданиями в пакете HPC](https://technet.microsoft.com/library/jj899585.aspx)
+
 
 ## Создание кластеров RDMA для рабочих нагрузок MPI
 
@@ -59,4 +59,4 @@ ms.service="virtual-machines-linux"
 
 * [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-classic-rdma-cluster.md)
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

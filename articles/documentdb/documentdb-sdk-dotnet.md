@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/01/2016" 
+	ms.date="09/27/2016" 
 	ms.author="rnagpal"/>
 
 # Интерфейсы API и пакеты SDK для DocumentDB 
@@ -40,6 +40,13 @@
 ## Заметки о выпуске
 
 > [AZURE.IMPORTANT] При выполнении запросов к секционированным коллекциям может порождаться исключение System.NotSupportedException. Во избежание этой ошибки в окне свойств проекта на вкладке "Сборка" снимите флажок "Предпочтительно 32-разр.".
+
+### <a name="1.10.0"/>[1\.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
+
+  - Добавлена поддержка прямое подключения для секционированных коллекций.
+  - Повышена производительность для уровня согласованности с ограниченным устареванием.
+  - Добавлена поддержка LINQ для StringEnumConverter, IsoDateTimeConverter и UnixDateTimeConverter при преобразовании предикатов.
+  - Исправлены различные ошибки в пакете SDK.
 
 ### <a name="1.9.5"/>[1\.9.5](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.5)
 
@@ -140,9 +147,9 @@
   - Поставщик LINQ поддерживает OrderBy() или OrderByDescending().
   - IndexingPolicy поддерживает Order By.
   
-		**Следует учесть: потенциальное изменение, нарушающее функциональность** 
+		**NB: Possible breaking change** 
   
-    	Если имеется существующий код, который предоставляет коллекции с пользовательской политикой индексирования, он должен быть обновлен и должен поддерживать новый класс IndexingPolicy. Если такой политики нет, это изменение на вас не влияет.
+    	If you have existing code that provisions collections with a custom indexing policy, then your existing code will need to be updated to support the new IndexingPolicy class. If you have no custom indexing policy, then this change does not affect you.
 
 ### <a name="1.1.0"/>[1\.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.1.0)
 - Новые классы HashPartitionResolver и RangePartitionResolver и интерфейс IPartitionResolver для поддержки секционирования данных.
@@ -168,18 +175,19 @@
 Любые запросы к DocumentDB с помощью выведенного из эксплуатации SDK будут отклоняться службой.
 
 > [AZURE.WARNING]
-Все версии пакета SDK для Azure DocumentDB для .NET версии ниже **1.0.0** будут удалены **29 февраля 2016 г.**
+Все версии пакета SDK для Azure DocumentDB для .NET версии ниже **1.0.0** будут удалены **29 февраля 2016 г.**
  
 .<br/>
  
 | Version (версия) | Дата выпуска | Дата вывода 
 | ---	  | ---	         | ---
+| [1\.10.0](#1.10.0) | 27 сентября 2016 г. |---
 | [1\.9.5](#1.9.5) | 1 сентября 2016 г. |---
 | [1\.9.4](#1.9.4) | 24 августа 2016 г. |---
 | [1\.9.3](#1.9.3) | 15 августа 2016 г. |---
 | [1\.9.2](#1.9.2) | 23 июля 2016 г. |---
-| 1.9.1 | Не рекомендуется |---
-| 1.9.0 | Не рекомендуется |---
+| 1.9.1 | не рекомендуется |---
+| 1.9.0 | не рекомендуется |---
 | [1\.8.0](#1.8.0) | 14 июня 2016 г. |---
 | [1\.7.1](#1.7.1) | 6 мая 2016 г. |---
 | [1\.7.0](#1.7.0) | 26 апреля 2016 г. |---
@@ -197,7 +205,7 @@
 | [1\.0.0](#1.0.0) | 8 апреля 2015 г. |---
 | [0\.9.3-prelease](#0.9.x-preview) | 12 марта 2015 г. | 29 февраля 2016 г. 
 | [0\.9.2-prelease](#0.9.x-preview) | Январь 2015 г. | 29 февраля 2016 г. 
-| [0\.9.1-prelease](#0.9.x-preview) | 13 октября 2014 г. | 29 февраля 2016 г. 
+| [.9.1-prelease](#0.9.x-preview) | 13 октября 2014 г. | 29 февраля 2016 г. 
 | [0\.9.0-prelease](#0.9.x-preview) | 21 августа 2014 г. | 29 февраля 2016 г.
 
 ## Часто задаваемые вопросы
@@ -207,4 +215,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

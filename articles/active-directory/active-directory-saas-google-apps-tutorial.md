@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -313,4 +313,4 @@
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

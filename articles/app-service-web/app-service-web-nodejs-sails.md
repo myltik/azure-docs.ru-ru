@@ -13,31 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="09/23/2016"
 	ms.author="cephalin"/>
 
 # Развертывание веб-приложения Sails.js в службе приложений Azure
 
 В этом учебнике показано, как развернуть веб-приложение Sails.js в службе приложений Azure. При работе с учебником вы получите некоторые общие знания о настройке приложения Node.js для запуска в службе приложений.
 
+У вас должен быть опыт работы с Sails.js. Этот учебник не содержит рекомендаций по решению проблем, связанных с управлением Sails.js в целом.
+
+
 ## Предварительные требования
 
-- [Node.js](https://nodejs.org/).
-- [Sails.js](http://sailsjs.org/get-started).
-- Общие знания о работе Sails.js. Этот учебник не содержит рекомендаций по решению проблем, связанных с управлением Sails.js в целом.
-- [Git](http://www.git-scm.com/downloads).
-- [Azure CLI](../xplat-cli-install.md).
+- [Node.js](https://nodejs.org/)
+- [Sails.js](http://sailsjs.org/get-started)
+- [Git.](http://www.git-scm.com/downloads)
+- [Интерфейс командной строки Azure](../xplat-cli-install.md)
 - Учетная запись Microsoft Azure. Если у вас нет учетной записи, можно [подписаться на бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F) или [активировать преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 >[AZURE.NOTE] Чтобы увидеть службу приложений Azure в действии до создания учетной записи Azure, перейдите на страницу [пробного использования службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751). Там можно быстро создать кратковременное приложение начального уровня в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
 
-## Шаг 1. Создание приложения Sails.js в среде разработки
+## Шаг 1. Создание приложения Sails.js в локальной среде
 
-Сначала создайте приложение Sails.js по умолчанию, выполнив следующие действия:
+Сначала быстро создайте приложение Sails.js по умолчанию в своей среде разработки, выполнив следующее.
 
 1. Откройте терминал и `CD` в рабочий каталог.
 
-2. Создайте новое приложение Sails.js и запустите его:
+2. Создайте приложение Sails.js и запустите его.
 
         sails new <appname>
         cd <appname>
@@ -45,9 +47,9 @@
 
     Убедитесь, что домашняя страница по умолчанию http://localhost:1377 открывается.
 
-## Шаг 2. Создание ресурса для приложения службы приложений в Azure
+## Шаг 2. Создание ресурса приложения Azure
 
-Затем создайте ресурс для приложения службы приложений. Позже вы развернете в него свое приложение.
+Теперь создайте ресурс службы приложений в Azure. Позже вы развернете в него свое приложение.
 
 1. Войдите в Azure.
 1. В том же окне терминала переключитесь на режим ASM и войдите в Azure.
@@ -115,6 +117,12 @@
             "sails-sqlserver": "<leave-as-is>"
         },
 
+3. Добавьте следующее свойство `engines` в файл package.json, чтобы задать нужную нам версию Node.js.
+
+        "engines": {
+            "node": "6.6.0"
+        },
+
 6. Сохраните изменения и проверьте их, чтобы убедиться, что приложение все еще работает локально. Для этого удалите папку `node_modules`, а затем выполните следующую команду.
 
         npm install
@@ -141,7 +149,7 @@
                 .-..-.
 
     Sails              <|    .-..-.
-    v0.12.3             |\
+    v0.12.4             |\
                         /|.\
                         / || \
                     ,'  |'  \
@@ -151,39 +159,39 @@
     ____---___--___---___--___---___--___-__
 
     Server lifted in `D:\home\site\wwwroot`
-    To see your app, visit http://localhost:\\.\pipe\a76e8111-663e-449d-956e-5c5deff2d304
+    To see your app, visit http://localhost:\\.\pipe\c775303c-0ebc-4854-8ddd-2e280aabccac
     To shut down Sails, press <CTRL> + C at any time.
 
 Степень детализации журналов stdout определяется в файле [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging).
 
 ## Подключение к базе данных в Azure
 
-Чтобы подключиться к базе данных Azure, создайте в Azure базу данных выбранного типа (база данных SQL Azure, MySQL, MongoDB, кэш Redis для Azure и т. д.) и используйте соответствующий [адаптер хранилища данных](https://github.com/balderdashy/sails#compatibility) для подключения к ней. Действия, описанные в этом разделе, показывают, как подключиться к базе данных SQL Azure.
+Чтобы подключиться к базе данных Azure, создайте в Azure базу данных выбранного типа (база данных SQL Azure, MySQL, MongoDB, кэш Redis для Azure и т. д.) и используйте соответствующий [адаптер хранилища данных](https://github.com/balderdashy/sails#compatibility) для подключения к ней. Действия, описанные в этом разделе, показывают, как подключиться к базе данных MySQL в Azure.
 
-1. Следуйте инструкциям в [этом](../sql-database/sql-database-get-started.md) руководстве, чтобы создать пустую базу данных SQL Azure на новом сервере SQL. Параметры брандмауэра по умолчанию разрешают службам Azure (например службе приложений) подключаться к этому серверу.
+1. Следуйте инструкциям в [этом](../store-php-create-mysql-database.md) учебнике, чтобы создать базу данных MySQL в Azure.
 
-2. Из терминала установите адаптер SQL Server:
+2. Из командной строки терминала установите адаптер MySQL.
 
-        npm install sails-sqlserver --save
+        npm install sails-mysql --save
 
 3. Откройте файл config/connections.js и добавьте в список следующий объект соединения:
 
-        sqlserver: {
-            adapter: 'sails-sqlserver',
+        mySql: {
+            adapter: 'sails-mysql',
             user: process.env.dbuser,
             password: process.env.dbpassword,
-            host: process.env.sqlserver, 
+            host: process.env.dbhost, 
             database: process.env.dbname,
             options: {
-                encrypt: true   // use this for Azure databases
+                encrypt: true
             }
         },
 
-4. Каждую переменную среды (`process.env.*`) необходимо задать в службе приложений. Для этого выполните следующие команды из терминала:
+4. Каждую переменную среды (`process.env.*`) необходимо задать в службе приложений. Для этого выполните следующие команды из терминала. Все необходимые сведения о подключении находятся на портале Azure (см. раздел [Подключение к базе данных MySQL](../store-php-create-mysql-database.md#connect)).
 
-        azure site appsetting add dbuser="<database server administrator>"
-        azure site appsetting add dbpassword="<database server password>"
-        azure site appsetting add sqlserver="<database server name>.database.windows.net"
+        azure site appsetting add dbuser="<database user>"
+        azure site appsetting add dbpassword="<database password>"
+        azure site appsetting add dbhost="<database hostname>"
         azure site appsetting add dbname="<database name>"
         
     Чтобы предотвратить доступ системы управления версиями (Git) к конфиденциальным данным, в код приложения Azure необходимо добавить собственные параметры. Далее необходимо настроить такие же данные о подключении для среды разработки.
@@ -191,31 +199,31 @@
 4. Откройте файл config/local.js и добавьте следующий объект соединения:
 
         connections: {
-            sqlserver: {
-                user: "<database server administrator>",
-                password: "<database server password>",
-                host: "<database server name>.database.windows.net", 
+            mySql: {
+                user: "<database user>",
+                password: "<database password>",
+                host: "<database hostname>", 
                 database: "<database name>",
             },
         },
     
-    Эта конфигурация позволяет переопределить параметры локальной среды в файле config/connections.js. Этот файл входит в список исключений, определенный в GITIGNORE-файле по умолчанию для проекта, поэтому его нельзя сохранить в репозитории Git. Теперь подключаться к базе данных SQL Azure можно как из веб-приложения Azure, так из локальной среды разработки.
+    Эта конфигурация позволяет переопределить параметры локальной среды в файле config/connections.js. Этот файл входит в список исключений, определенный в GITIGNORE-файле по умолчанию для проекта, поэтому его нельзя сохранить в репозитории Git. Теперь подключаться к базе данных MySQL можно как из веб-приложения Azure, так из локальной среды разработки.
 
 4. Чтобы настроить рабочую среду, откройте файл config/env/production.js и добавьте в него следующий объект `models`.
 
         models: {
-            connection: 'sqlserver',
+            connection: 'mySql',
             migrate: 'safe'
         },
 
 4. Чтобы настроить среду разработки, откройте файл config/env/development.js и добавьте в него следующий объект `models`.
 
         models: {
-            connection: 'sqlserver',
+            connection: 'mySql',
             migrate: 'alter'
         },
 
-    Объект `migrate: 'alter'` позволяет использовать компоненты миграции для создания и обновления таблиц в базе данных SQL Azure. Так как приложение Sails.js не поддерживает параметр `migrate: 'alter'`, в рабочей среде Azure используется параметр `migrate: 'safe'` (дополнительные сведения см. в [документации по Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
+    Объект `migrate: 'alter'` позволяет использовать функции миграции, чтобы легко создавать и обновлять таблицы в базе данных MySQL. Так как приложение Sails.js не поддерживает параметр `migrate: 'alter'`, в рабочей среде Azure используется параметр `migrate: 'safe'` (дополнительные сведения см. в [документации по Sails.js](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
 
 4. Чтобы создать базу данных с возможностями миграции Sails.js, в терминале [создайте](http://sailsjs.org/documentation/reference/command-line-interface/sails-generate) [проектный API](http://sailsjs.org/documentation/concepts/blueprints) для Sails.js, следуя обычной процедуре, а затем выполните команду `sails lift`. Например:
 
@@ -230,7 +238,7 @@
     
     API должен возвратить созданный объект в окно браузера, что будет означать, что база данных успешно создана.
 
-        {"id":1,"createdAt":"2016-03-28T23:08:01.000Z","updatedAt":"2016-03-28T23:08:01.000Z"}
+        {"id":1,"createdAt":"2016-09-23T13:32:00.000Z","updatedAt":"2016-09-23T13:32:00.000Z"}
 
 5. Теперь отправьте изменения в Azure и перейдите к своему приложению, чтобы убедиться, что оно работает.
 
@@ -243,11 +251,11 @@
 
         http://<appname>.azurewebsites.net/mywidget/create
 
-    Если API возвращает другой объект, это значит, что между веб-приложением Azure и базой данных SQL Azure осуществляется взаимодействие.
+    Если API возвращает другую новую запись, это значит, что между веб-приложением Azure и базой данных MySQL осуществляется взаимодействие.
 
 ## Дополнительные ресурсы
 
 - [Приступая к работе с веб-приложениями Node.js в службе приложений Azure](app-service-web-nodejs-get-started.md)
 - [Использование модулей Node.js с приложениями Azure](../nodejs-use-node-modules-azure-apps.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

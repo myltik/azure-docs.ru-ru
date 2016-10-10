@@ -3,7 +3,7 @@
 	description="Устраните ошибки выделения ресурсов при создании, перезагрузке или изменении размера виртуальных машин Linux в Azure."
 	services="virtual-machines-linux, azure-resource-manager"
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="top-support-issue,azure-resourece-manager,azure-service-management"/>
@@ -13,7 +13,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="support-article"
+	ms.topic="article"
 	ms.date="02/02/2016"
 	ms.author="cjiang"/>
 
@@ -24,4 +24,4 @@
 
 [AZURE.INCLUDE [virtual-machines-common-allocation-failure](../../includes/virtual-machines-common-allocation-failure.md)]
 
-<!---HONumber=AcomDC_0525_2016-->
+<!---HONumber=AcomDC_0928_2016-->

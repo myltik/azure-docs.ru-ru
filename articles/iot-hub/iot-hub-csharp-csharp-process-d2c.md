@@ -417,8 +417,8 @@
 [хранилище BLOB-объектов Azure]: ../storage/storage-dotnet-how-to-use-blobs.md
 [фабрика данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
-[Service Bus queue]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
-[очередь служебной шины Azure]: ../service-bus/service-bus-dotnet-get-started-with-queues.md
+[Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+[очередь служебной шины Azure]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
 [руководстве разработчика по центру Azure IoT — в разделе "Отправка сообщений с устройства в облако"]: iot-hub-devguide.md#d2c
 
@@ -450,4 +450,4 @@
 [lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

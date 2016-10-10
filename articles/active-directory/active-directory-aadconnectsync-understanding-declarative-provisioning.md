@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -148,4 +148,4 @@ ISMEMBEROF, ISNOTMEMBEROF | Значение должно содержать а�
 
 - [Синхронизация Azure AD Connect: справочник по функциям](active-directory-aadconnectsync-functions-reference.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/06/2016"
+	ms.date="09/26/2016"
 	ms.author="spelluru"/>
 
 # Учебник. Создание первого конвейера для обработки данных с помощью кластера Hadoop 
@@ -216,4 +216,12 @@
 	
 		AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storageaccesskey>  /Pattern:partitionweblogs.hql
 
-<!---HONumber=AcomDC_0921_2016-->
+Необходимые условия выполнены. Для создания фабрики данных можно использовать один из приведенных ниже способов. Щелкните одну из вкладок в верхней части страницы или приведенных ниже ссылок, чтобы приступить к изучению соответствующего учебника.
+
+- [Портал Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Шаблон Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+- [ИНТЕРФЕЙС REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+
+<!---HONumber=AcomDC_0928_2016-->

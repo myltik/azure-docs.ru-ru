@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.date="09/21/2016"
+	ms.author="jutang;tamram"/>
 
 # Репликация службы хранилища Azure
 
@@ -37,6 +37,8 @@
 | Количество обслуживаемых копий данных на отдельных узлах. | 3 | 3 | 6 | 6 |
 
 В разделе [Цены на хранилища Azure](https://azure.microsoft.com/pricing/details/storage/) приведены сведения о различных вариантах обеспечения избыточности данных.
+
+>[AZURE.NOTE] Хранилище класса Premium поддерживает только локально избыточное хранилище (LRS). Информацию о хранилище класса Premium см. в статье [Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальных машин Azure](storage-premium-storage.md).
 
 ## Локально избыточное хранилище
 
@@ -117,4 +119,4 @@
 - [Варианты избыточности и геоизбыточное хранилище с доступом для чтения службы хранилища Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [Документ SOSP — служба хранилища Azure: высокодоступная облачная служба хранилища со строгой согласованностью](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

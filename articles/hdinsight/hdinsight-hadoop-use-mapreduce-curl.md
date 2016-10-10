@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/12/2016"
+   ms.date="09/27/2016"
    ms.author="larryfr"/>
 
 #Выполнение заданий MapReduce с помощью Curl с использованием Hadoop в HDInsight
@@ -115,4 +115,4 @@ Curl используется для демонстрации возможнос
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

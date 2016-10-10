@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,13 +14,15 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
     ms.date="08/11/2016"
-	ms.author="micurd"/>
+	ms.author="jwillis;robmcm"/>
 
 
 
 # Использование хранилища больших двоичных объектов из Node.js
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)] .<br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
+[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Обзор
 
@@ -142,7 +144,7 @@
 
 Чтобы загрузить данные в blob-блок, используйте следующие команды:
 
-* **createBlockBlobFromLocalFile** — создает новый blob-блок и отправляет содержимое файла;
+* **createBlockBlobFromLocalFile** — создает новый blob-блок и отправляет содержимое файла;
 
 * **createBlockBlobFromStream** — создает новый блочный BLOB-объект и загружает содержимое потока
 
@@ -415,4 +417,4 @@ ACL реализуется с помощью массива политик до�
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Справочник по пакету SDK службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

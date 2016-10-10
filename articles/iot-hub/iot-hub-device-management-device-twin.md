@@ -125,7 +125,7 @@ set_device_batterylevel(0, level);
 - [How to use device jobs to update device firmware (Использование заданий устройства для обновления встроенного ПО устройства)][lnk-tutorial-jobs]
 - [Включение управляемых устройств за шлюзом IoT][lnk-dm-gateway]
 - [Знакомство с клиентской библиотекой управления устройствами для центра Azure IoT][lnk-library-c]
-- Клиентская библиотека управления устройствами содержит полноценный пример кода с использованием [устройства Intel Edison][lnk-edison]
+- Клиентская библиотека управления устройствами содержит полноценный пример кода с использованием [устройства Intel Edison][lnk-edison].
 
 Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
@@ -157,4 +157,4 @@ set_device_batterylevel(0, level);
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

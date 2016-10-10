@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/27/2016"   
+	ms.date="09/26/2016"   
 	ms.author="juliako"/>
  
 #Преобразование текстового содержимого в видеофайлах в цифровой текст с помощью медиа-аналитики Azure 
@@ -350,4 +350,4 @@ text|Непосредственно текст
 
 [Общие сведения об аналитике служб мультимедиа Azure](media-services-analytics-overview.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

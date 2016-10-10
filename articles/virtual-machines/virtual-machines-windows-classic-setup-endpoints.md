@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Настройка конечных точек в классической виртуальной машине Windows в Azure
@@ -38,4 +38,4 @@
 
 * Если вы создали виртуальную машину, используя модель развертывания с помощью Resource Manager, [создайте группы безопасности сети](../virtual-network/virtual-networks-create-nsg-arm-ps.md) с помощью Azure PowerShell и управляйте трафиком к этой виртуальной машине.
 
-<!-----HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

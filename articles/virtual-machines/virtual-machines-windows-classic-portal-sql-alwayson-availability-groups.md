@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/09/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Настройка группы доступности AlwaysOn на виртуальной машине Azure в классической модели
 
 > [AZURE.SELECTOR]
-- [Resource Manager: автоматически](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Шаблон Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Resource Manager: вручную](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Классическая модель: пользовательский интерфейс](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Классическая модель: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -73,7 +73,7 @@
 
 1. В диалоговом окне **СОЗДАНИЕ ВИРТУАЛЬНОЙ СЕТИ** создайте новую виртуальную сеть, поэтапно настроив параметры на всех страницах, как показано ниже.
 
-	|Страница|данных|
+	|Страница|Параметры|
 |---|---|
 |Информация о виртуальной сети|**NAME = ContosoNET**<br/>**REGION = West US**|
 |DNS-серверы и подключение VPN|None|
@@ -85,7 +85,7 @@
 
 1. В диалоговом окне **СОЗДАНИЕ ВИРТУАЛЬНОЙ МАШИНЫ** настройте новую виртуальную машину, поэтапно настроив параметры на всех страницах, как показано ниже.
 
-	|Страница|данных|
+	|Страница|Параметры|
 |---|---|
 |Выбор операционной системы виртуальной машины|Центр обработки данных Windows Server 2012 R2|
 |Конфигурация виртуальной машины|**ДАТА ВЫПУСКА ВЕРСИИ** = (последняя)<br/>**ИМЯ ВИРТУАЛЬНОЙ МАШИНЫ** = ContosoDC<br/>**УРОВЕНЬ** = Стандартный<br/>**РАЗМЕР** = A2 (2 ядра)<br/>**ИМЯ НОВОГО ПОЛЬЗОВАТЕЛЯ** = AzureAdmin<br/>**НОВЫЙ ПАРОЛЬ** = Contoso!000<br/>**ПОДТВЕРЖДЕНИЕ** = Contoso!000|
@@ -319,7 +319,7 @@
 
 1. В мастере создания кластеров создайте кластер с одним узлом, поэтапно настроив параметры на всех страницах, как указано ниже:
 
-	|Страница|данных|
+	|Страница|Параметры|
 |---|---|
 |Перед началом работы|По умолчанию|
 |Выбор серверов|Введите **ContosoSQL1** в поле **Введите имя сервера** и нажмите кнопку **Добавить**|
@@ -548,4 +548,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

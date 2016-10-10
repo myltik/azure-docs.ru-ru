@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,11 +14,13 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="cbrooks;robmcm"/>
 
 # Использование хранилища очередей из Java
 
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)] .<br/> [AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Обзор
 
@@ -393,4 +395,4 @@
 [API-интерфейс REST служб хранилища Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

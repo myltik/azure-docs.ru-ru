@@ -17,7 +17,7 @@
   ms.date="08/31/2016"
   ms.author="sewhee" />
 
-# <a name="get-started"></a>Приступая к созданию балансировщика нагрузки для Интернета в Resource Manager с помощью PowerShell
+# <a name="get-started"></a>Создание балансировщика нагрузки для Интернета в Resource Manager с помощью PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -254,4 +254,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

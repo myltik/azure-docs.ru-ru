@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/12/2016"
+	ms.date="09/22/2016"
 	ms.author="mikeray" />
 
 # Автоматическая настройка группы доступности AlwaysOn на виртуальной машине Azure в модели Resource Manager
 
 > [AZURE.SELECTOR]
-- [Resource Manager: автоматически](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Шаблон Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Resource Manager: вручную](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Классическая модель: пользовательский интерфейс](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Классическая модель: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -259,4 +259,4 @@
 
 Теперь вы подключены к серверу SQL Server по RDP. Откройте SQL Server Management Studio, подключитесь к экземпляру SQL Server по умолчанию и убедитесь, что создана группа доступности.
 
-<!---HONumber=AcomDC_0622_2016-->
+<!---HONumber=AcomDC_0928_2016-->

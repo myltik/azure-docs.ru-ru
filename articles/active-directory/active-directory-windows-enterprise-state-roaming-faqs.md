@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Часто задаваемые вопросы о перемещении параметров и данных
@@ -136,4 +136,4 @@ Enterprise State Roaming поддерживается для SKU клиенто�
 - [Group policy and MDM settings for settings sync (Параметры групповой политики и управления мобильными устройствами)](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 - [Справочник по перемещаемым параметрам в Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

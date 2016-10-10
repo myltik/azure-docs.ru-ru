@@ -3,7 +3,7 @@
 	description="Узнайте о том, как перемещать данные из Amazon Redshift с помощью фабрики данных Azure." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Перемещение данных из Amazon Redshift с помощью фабрики данных Azure
 
@@ -223,7 +223,7 @@
 
 ## Свойства типа "Набор данных"
 
-Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
+Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных](data-factory-create-datasets.md). Разделы structure, availability и policy одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
 
 Раздел **typeProperties** во всех типах наборов данных разный. В нем содержится информация о расположении данных в хранилище данных. Раздел typeProperties набора данных с типом **RelationalTable** (который включает набор данных Amazon Redshift) имеет следующие свойства.
 
@@ -282,4 +282,4 @@ TEXT | Строка
 Ознакомьтесь со следующими статьями:
 - Пошаговые инструкции по созданию конвейера с помощью действия копирования см в [руководстве по действию копирования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

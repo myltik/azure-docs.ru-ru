@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Служба архивации Azure – развертывание резервного копирования для DPM и управление им с помощью PowerShell | Microsoft Azure"
+	pageTitle="Служба архивации Azure — развертывание резервного копирования для DPM и управление им с помощью PowerShell | Microsoft Azure"
 	description="Узнайте о том, как развернуть службу архивации Azure для Data Protection Manager (DPM) и управлять ей с помощью PowerShell"
 	services="backup"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
+	ms.date="09/27/2016"
 	ms.author="jimpark; trinadhk; anuragm; markgal"/>
 
 
@@ -116,7 +116,7 @@ PS C:\> MARSAgentInstaller.exe /?
 ### Регистрация в службе архивации Azure
 Перед регистрацией в службе резервного копирования Azure убедитесь, что соблюдены [необходимые условия](backup-azure-dpm-introduction.md). Необходимо следующее:
 
-- Действующая подписка на Azure
+- Действующая подписка Azure
 - Хранилище архивов
 
 Чтобы скачать учетные данные хранилища, запустите командлет **Get-AzureBackupVaultCredentials** в консоли Azure PowerShell и сохраните их в удобном месте, например в папке *C:\\Downloads*.
@@ -140,7 +140,7 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 > [AZURE.IMPORTANT] Не используйте относительные пути для указания файла с учетными данными хранилища. Укажите абсолютный путь в качестве входных данных командлета.
 
 ### Исходные параметры конфигурации
-После регистрации сервера DPM в хранилище службы архивации Azure он будет запущен с параметрами подписки, используемыми по умолчанию. Эти параметры подписки включают настройки сети, шифрования и промежуточной области. Чтобы приступить к изменению параметров подписки, сначала получите дескриптор существующих параметров (по умолчанию) с помощью командлета [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793):
+После регистрации сервера DPM в хранилище службы архивации Azure он будет запущен с параметрами подписки, используемыми по умолчанию. Эти параметры подписки включают настройки сети, шифрования и промежуточной области. Чтобы приступить к изменению параметров подписки, сначала получите дескриптор существующих параметров (по умолчанию) с помощью командлета [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793).
 
 ```
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
@@ -340,4 +340,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 
 - Дополнительные сведения о службе архивации Azure для DPM см. в разделе [Введение в службу архивации DPM](backup-azure-dpm-introduction.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

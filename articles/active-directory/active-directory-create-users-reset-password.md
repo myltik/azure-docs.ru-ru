@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -39,4 +39,4 @@
 - [Управление паролями в Azure AD](active-directory-manage-passwords.md)
 - [Управление группами в Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

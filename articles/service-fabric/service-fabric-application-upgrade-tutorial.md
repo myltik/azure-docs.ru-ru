@@ -17,8 +17,13 @@
    ms.author="subramar"/>
 
 
-
 # Учебник по обновлению приложений Service Fabric с помощью Visual Studio
+
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+- [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+
+<br/>
 
 Azure Service Fabric упрощает процесс обновления облачных приложений за счет того, что обновляются только измененные службы, кроме того, в процессе обновления отслеживается работоспособность приложения. При обнаружении проблем автоматически выполняется откат к предыдущей версии приложения. Обновление приложений Service Fabric выполняется *без времени простоя*, так как приложение можно обновить без времени простоя. В этом учебнике описывается развертывание последовательного обновления из Visual Studio.
 
@@ -87,4 +92,4 @@ Azure Service Fabric упрощает процесс обновления обл
 [image3]: media/service-fabric-application-upgrade-tutorial/upgrade5.png
 [image4]: media/service-fabric-application-upgrade-tutorial/upgrade6.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

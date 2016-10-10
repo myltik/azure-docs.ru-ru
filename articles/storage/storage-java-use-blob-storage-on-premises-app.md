@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="rmcmurray"/>
+	ms.author="jwillis;rmcmurray"/>
 
 # Локальное приложение с хранилищем больших двоичных объектов
 
@@ -359,4 +359,4 @@
 - [API-интерфейс REST служб хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

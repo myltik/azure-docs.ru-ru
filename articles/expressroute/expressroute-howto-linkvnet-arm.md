@@ -80,7 +80,7 @@
 	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-        $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName = MyRG"
+        $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 		
 
@@ -146,4 +146,4 @@
 
 Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

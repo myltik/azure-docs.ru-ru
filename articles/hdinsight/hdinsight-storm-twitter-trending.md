@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/12/2016"
+   ms.date="09/27/2016"
    ms.author="larryfr"/>
 
 #Определение популярных тем в Twitter с помощью Apache Storm в HDInsight
@@ -140,4 +140,4 @@ Trident — это высокоуровневая абстракция, кот�
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

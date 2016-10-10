@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 
 # Создание настраиваемой виртуальной машины под управлением Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Сведения о создании виртуальной машины Linux с помощью нового портала Azure см. в статье [Создание виртуальной машины Linux в Azure с помощью портала](virtual-machines-linux-quick-create-portal.md).
 
 
 
@@ -30,8 +30,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-linuxvm](../../includes/virtual-machines-create-linuxvm.md)]
 
-## Дальнейшие действия
-
-Вы также можете [создать настраиваемую виртуальную машину под управлением Windows](virtual-machines-windows-classic-createportal.md) с помощью классического портала.
-
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

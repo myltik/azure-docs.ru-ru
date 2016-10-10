@@ -1,25 +1,25 @@
 <properties
-   pageTitle="Целевые показатели масштабируемости и производительности службы хранилища Azure | Microsoft Azure"
-   description="Узнайте подробнее о целевых показателях масштабируемости и производительности службы хранилища Azure, включая показатели объема, частоты запросов, входящей и исходящей пропускной способности, как для стандартных учетных записей хранения, так и для учетных записей хранения класса Premium. Понимание целевых показателей производительности для разделов каждой из служб хранилища Azure."
-   services="storage"
-   documentationCenter="na"
-   authors="robinsh"
-   manager="carmonm"
-   editor="tysonn" />
+	pageTitle="Целевые показатели масштабируемости и производительности службы хранилища Azure | Microsoft Azure"
+	description="Узнайте подробнее о целевых показателях масштабируемости и производительности службы хранилища Azure, включая показатели объема, частоты запросов, входящей и исходящей пропускной способности, как для стандартных учетных записей хранения, так и для учетных записей хранения класса Premium. Понимание целевых показателей производительности для разделов каждой из служб хранилища Azure."
+	services="storage"
+	documentationCenter="na"
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn" />
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage"
-   ms.date="08/03/2016"
-   ms.author="robinsh" />
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage"
+	ms.date="08/03/2016"
+	ms.author="jahogg;robinsh" />
 
 # Целевые показатели масштабируемости и производительности службы хранилища Azure
 
 ## Обзор
 
-Данный раздел посвящен вопросам масштабируемости и производительности службы хранилища Microsoft Azure. Сведения о других ограничениях Azure приведены в разделе [Лимиты, квоты и ограничения подписки и обслуживания Azure](../azure-subscription-service-limits.md).
+Данная статья посвящена вопросам масштабируемости и производительности службы хранилища Microsoft Azure. Сведения о других ограничениях Azure приведены в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 
 >[AZURE.NOTE] Все учетные записи хранения функционируют в новой плоской сетевой топологии и поддерживают приведенные ниже целевые показатели масштабируемости и производительности независимо от того, когда они были созданы. Дополнительные сведения о неструктурированной сетевой архитектуре службы хранилища Azure и масштабируемости см. в разделе [Хранилище Microsoft Azure: доступная служба облачного хранения с развитой системой согласованности](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
@@ -83,4 +83,4 @@
 - [Производительность хранилища Microsoft Azure и контрольный список масштабируемости](storage-performance-checklist.md)
 - [Хранилище Azure: доступная служба облачного хранения со строгой согласованностью](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

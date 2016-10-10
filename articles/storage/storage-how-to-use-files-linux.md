@@ -13,7 +13,7 @@
       ms.devlang="na"
       ms.topic="article"
       ms.date="02/29/2016"
-      ms.author="minet" />
+      ms.author="minet;robinsh" />
 
 
 # Использование хранилища файлов Azure в Linux
@@ -64,7 +64,7 @@
 
 Чтобы сохранить подключение общей папки после перезагрузки, можно добавить в /etc/fstab параметр следующего вида:
 
-    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 
 Например, если вы создали виртуальную машину Azure с помощью образа Linux Ubuntu Server 15.04 (доступен в галерее образов Azure), файл можно подключить следующим образом.
 
@@ -140,4 +140,4 @@
 - [Введение в службы файлов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_0608_2016-->
+<!---HONumber=AcomDC_0928_2016-->

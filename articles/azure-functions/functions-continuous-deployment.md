@@ -1,7 +1,7 @@
 <properties
    pageTitle="Непрерывное развертывание для Функций Azure | Microsoft Azure"
    description="Публикация Функций Azure с помощью средств непрерывного развертывания службы приложений Azure."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/15/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
 
 # Непрерывное развертывание для Функций Azure 
@@ -48,7 +48,9 @@
 1. В приложении-функции на [портале функций Azure](https://functions.azure.com/signin) щелкните **Function app settings** (Параметры приложения-функции) > **Настройка непрерывной интеграции** > **Настройка**.
 
 	![Настройка непрерывного развертывания](./media/functions-continuous-deployment/setup-deployment.png)
-
+	
+	![Настройка непрерывного развертывания](./media/functions-continuous-deployment/setup-deployment-1.png)
+	
 	Кроме того, колонку "Развертывания" можно открыть на странице быстрого запуска Функций, щелкнув **Start from source control** (Система управления версиями).
 
 2. В колонке "Развертывания" щелкните **Выбор источника**, а затем введите информацию о выбранном источнике развертывания и нажмите кнопку **OК**.
@@ -128,4 +130,4 @@
 
 [GitHub]: https://github.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->
