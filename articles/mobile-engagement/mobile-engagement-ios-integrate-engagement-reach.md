@@ -20,7 +20,7 @@
 
 Перед выполнением этого руководства вам следует выполнить процедуры по интеграции, описанные в статье [Интеграция службы Engagement в iOS](mobile-engagement-ios-integrate-engagement.md).
 
-Также требуется установка XCode 8. Если вам крайне важно оставить версию XCode 7, то можете воспользоваться [пакетом SDK Engagement для iOS версии 3.2.4](https://aka.ms/r6oouh). В предыдущей версии выявлена ошибка при выполнении на устройствах iOS 10: не приводятся в действие системные уведомления. Для исправления этой ошибки понадобится реализовать в делегате приложения устаревшую версию API `application:didReceiveRemoteNotification:`:
+Также требуется установка XCode 8. Если вам крайне важно оставить версию XCode 7, то можете воспользоваться [пакетом SDK Служб взаимодействия для iOS версии 3.2.4](https://aka.ms/r6oouh). В предыдущей версии выявлена ошибка при выполнении на устройствах iOS 10: не приводятся в действие системные уведомления. Для исправления этой ошибки понадобится реализовать в делегате приложения устаревшую версию API `application:didReceiveRemoteNotification:`:
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -101,15 +101,29 @@
 
 *На этом этапе для приложения должен быть зарегистрирован сертификат push-уведомлений Apple в интерфейсной части Engagement.*
 
-Если он не зарегистрирован, необходимо зарегистрировать приложение для получения push-уведомлений. Добавьте следующую строку при запуске приложения (обычно в `application:didFinishLaunchingWithOptions:`):
+Если он не зарегистрирован, необходимо зарегистрировать приложение для получения push-уведомлений.
 
-	if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-	  	[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
-	  	[application registerForRemoteNotifications];
-	}
-	else {
-	  	[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-	}
+* Импортируйте платформу `User Notification`:
+
+		#import <UserNotifications/UserNotifications.h>
+
+* Добавьте следующую строку при запуске приложения (обычно в `application:didFinishLaunchingWithOptions:`):
+
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
+			[application registerForRemoteNotifications];
+		}
+		else
+		{
+			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
 
 Затем необходимо предоставить службе Engagement маркер устройства, возвращенный серверами Apple. Он указывается в делегате приложения в методе с именем `application:didRegisterForRemoteNotificationsWithDeviceToken:`:
 
@@ -230,7 +244,7 @@
 
 	@end
 
-> [AZURE.NOTE] Можно определить, поступают ли уведомления из Служб Взаимодействия, передав словарь `userInfo` в метод класса `isEngagementPushPayload:` агента.
+> [AZURE.NOTE] Можно определить, поступают ли уведомления из Служб взаимодействия, передав словарь `userInfo` в метод класса `isEngagementPushPayload:` агента.
 
 ##Как настраивать кампании
 
@@ -486,4 +500,4 @@
 
 	@end
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

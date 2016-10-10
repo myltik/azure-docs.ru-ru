@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -58,7 +58,7 @@
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 
-	![Нажмите кнопку "Добавить", чтобы добавить новое приложение.][2]
+	.![Нажмите кнопку "Добавить", чтобы добавить новое приложение.][2]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -216,7 +216,7 @@
 
 		![Confirm the assignment.][29]
 
-		> [AZURE.IMPORTANT] При подготовке для среды **разработчиков** Salesforce количество доступных лицензий для каждого профиля будет крайне ограниченно. Следовательно, лучше подготовить пользователей для профиля **Chatter Free**, который имеет 4999 доступных лицензий.
+		> [AZURE.IMPORTANT] If you are provisioning to a Salesforce **developer** environment, you will have a very limited number of licenses available for each profile. Therefore, it's best to provision users to the **Chatter Free User** profile, which has 4,999 licenses available.
 
 4. Чтобы проверить параметры единого входа, откройте панель доступа по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com/), выполните вход с тестовой учетной записью и щелкните **Salesforce**.
 
@@ -256,4 +256,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -65,13 +65,7 @@
 	$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 
-<br>
-
-
-###  <a name="aggthroughput"></a>Расчетная суммарная пропускная способность в зависимости от SKU и типа шлюза
-
-
-В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью. Эта таблица относится к классической модели развертывания и модели диспетчера ресурсов.
+<br> В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью. Эта таблица относится к классической модели развертывания и модели диспетчера ресурсов.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -164,4 +158,4 @@
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

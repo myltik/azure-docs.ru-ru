@@ -2,7 +2,7 @@
 	pageTitle="Создание учетной записи DocumentDB с поддержкой протокола MongoDB | Microsoft Azure" 
 	description="Узнайте, как создать учетную запись DocumentDB с поддержкой протокола MongoDB, доступную в предварительной версии." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Создание учетной записи DocumentDB с поддержкой протокола MongoDB с помощью портала Azure
 
@@ -62,7 +62,7 @@
 
 	Или вы можете наблюдать за ходом выполнения на портале "Уведомления".
 
-	![Быстрое создание баз данных — снимок экрана: центр уведомлений, где показано, что создается учетная запись DocumentDB](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)
+	.![Быстрое создание баз данных — снимок экрана: центр уведомлений, где показано, что создается учетная запись DocumentDB](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)
 
 	![Снимок экрана: центр уведомлений, где показано, что учетная запись DocumentDB успешно создана и развернута в группе ресурсов — уведомление создателя базы данных в Интернете](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-5.png)
 
@@ -78,4 +78,4 @@
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

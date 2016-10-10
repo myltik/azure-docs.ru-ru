@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 #  Azure Stream Analytics и Power BI: панель оперативного мониторинга аналитики для визуализации потоковой передачи данных в режиме реального времени
@@ -98,11 +98,11 @@ Azure Stream Analytics позволяет воспользоваться одн�
 *	**Имя таблицы** — задайте имя таблицы в наборе выходных данных Power BI. Можно, например, назвать ее pbidemo. В настоящее время для вывода выходных данных из заданий Stream Analytics в Power BI можно использовать только одну таблицу в наборе данных.
 *	**Рабочая область** — в клиенте Power BI выберите рабочую область, в которой будет создан набор данных.
 
->	[AZURE.NOTE] Не следует напрямую создавать этот набор данных и таблицу в вашей учетной записи Power BI. Они будут автоматически созданы при запуске задания в Stream Analytics, когда задание начнет вносить выходные данные в Power BI. Если запрос задания не возвращает никаких результатов, набор данных и таблица не будут созданы.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Нажмите кнопку **ОК** и щелкните **Проверить подключение**. Настройка выхода завершена.
 
->	[AZURE.WARNING] Кроме того, учтите, что, если в Power BI уже есть набор данных и таблица с именем, аналогичным указанному вами в этом задании Stream Analytics, существующие данные будут перезаписаны.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Составление запросов
@@ -240,4 +240,4 @@ Azure Stream Analytics позволяет воспользоваться одн�
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

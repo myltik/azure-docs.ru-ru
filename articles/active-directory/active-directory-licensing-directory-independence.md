@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -45,4 +45,4 @@
 
 Общие сведения о лицензировании Azure AD и рекомендации по работе с этой службой см. в статье [Общие сведения о лицензировании Azure Active Directory](active-directory-licensing-what-is.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

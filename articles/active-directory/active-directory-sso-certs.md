@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="asmalser-msft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -82,4 +82,4 @@
 - [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
 - [Устранение неполадок единого входа на основе SAML](active-directory-saml-debugging.md)
 
-<!---HONumber=AcomDC_0427_2016-->
+<!---HONumber=AcomDC_0928_2016-->

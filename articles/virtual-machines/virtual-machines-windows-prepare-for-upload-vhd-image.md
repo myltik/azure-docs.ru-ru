@@ -8,7 +8,7 @@
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags
+.<tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
@@ -22,7 +22,11 @@
 
 ## Подготовка виртуального диска
 
->[AZURE.NOTE] Более новый формат VHDX не поддерживается в Azure. Размер VHD должен быть фиксированным, а не динамическим. На случай, если возникнет необходимость преобразовать VHDX-файлы или динамические диски, ниже приведены соответствующие инструкции. Максимально допустимый размер виртуального жесткого диска составляет 1023 ГБ.
+>[AZURE.NOTE] 
+В Azure поддерживаются только [виртуальные машины первого поколения](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx), использующие формат файла VHD. Более новый формат VHDX не поддерживается в Azure.
+>
+> Размер VHD должен быть фиксированным, а не динамическим. На случай, если возникнет необходимость преобразовать VHDX-файлы или динамические диски, ниже приведены соответствующие инструкции. Максимально допустимый размер виртуального жесткого диска составляет 1023 ГБ.
+
 
 Убедитесь в правильной работе виртуального жесткого диска Windows на локальном сервере. Устраните все ошибки в виртуальной машине, прежде чем ее преобразовывать или передавать в Azure.
 
@@ -319,4 +323,4 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 - [Отправка образа виртуальной машины Windows в Azure для развертываний Resource Manager](virtual-machines-windows-upload-image.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

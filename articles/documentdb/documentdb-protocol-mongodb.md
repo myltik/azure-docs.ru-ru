@@ -3,7 +3,7 @@
 	description="Сведения о поддержке протокола DocumentDB для MongoDB, которая теперь общедоступна в предварительной версии." 
 	keywords="MongoDB"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Поддержка протокола DocumentDB для MongoDB
 
@@ -38,4 +38,4 @@ Azure DocumentDB — это полностью управляемая служб
 
  
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

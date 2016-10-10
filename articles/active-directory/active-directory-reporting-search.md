@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="dhanyahk"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -58,4 +58,4 @@ Azure Active Directory (Azure AD) предоставляет администр�
  - [Отчеты Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Отчеты о событиях аудита Azure Active Directory ](active-directory-reporting-audit-events.md)
 
-<!---HONumber=AcomDC_0309_2016-->
+<!---HONumber=AcomDC_0928_2016-->

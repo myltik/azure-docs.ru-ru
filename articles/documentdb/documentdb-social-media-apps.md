@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="09/27/2016" 
 	ms.author="mimig"/>
 
 # Использование социальных сетей с помощью DocumentDB
@@ -214,9 +214,11 @@ Azure DocumentDB обеспечивает индексирование всех 
 
 Теперь, когда я заинтересовал вас, скорее всего вы думаете, что нужна кандидатская степень по математике, чтобы извлечь эти шаблоны и информацию из простых баз данных и файлов, но это не так.
 
-[Машинное обучение Azure](https://azure.microsoft.com/services/machine-learning/), являющееся частью [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), — это полностью управляемая облачная служба, которая позволяет создавать рабочие процессы с помощью алгоритмов, используя простой интерфейс с перетаскиванием, а также позволяет программировать собственные алгоритмы на [R] \(https://en.wikipedia.org/wiki/R_(programming_language)) или использовать некоторые встроенные и готовые к использованию API, например [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) или [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Машинное обучение Azure](https://azure.microsoft.com/services/machine-learning/), являющееся частью [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), — это полностью управляемая облачная служба, которая позволяет создавать рабочие процессы с помощью алгоритмов, используя простой интерфейс с перетаскиванием, а также позволяет программировать собственные алгоритмы на [R] (https://en.wikipedia.org/wiki/R_(programming_language)) или использовать некоторые встроенные и готовые к использованию API, например [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) или [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 Чтобы реализовать любой из этих сценариев машинного обучения, можно использовать [озеро данных Azure](https://azure.microsoft.com/services/data-lake-store/) для приема информации из различных источников и [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) — для обработки данных и формирования выходных данных, которые могут быть обработаны Машинным обучением Azure.
+
+Другим доступным вариантом для анализа содержимого наших пользователей является использование [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services). Мы можем не только лучше понять их (анализируя с помощью [API анализа текста](https://www.microsoft.com/cognitive-services/ru-RU/text-analytics-api), что они пишут), но и обнаружить нежелательное содержимого или содержимое для взрослых и действовать соответствующим образом, используя [API компьютерного зрения](https://www.microsoft.com/cognitive-services/ru-RU/computer-vision-api). Службы Cognitive Services включают в себя много готовых решений, для использования которых не требуется никаких знаний Машинного обучения.
 
 ## Заключение
 
@@ -232,4 +234,4 @@ Azure DocumentDB обеспечивает индексирование всех 
 
 Или узнайте больше о DocumentDB, следуя [схеме обучения DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

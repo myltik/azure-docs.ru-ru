@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 # Основные сведения о службе Stream Analytics и журналах операций
@@ -36,16 +36,16 @@
 
 ## Службы управления
 
-Чтобы перейти к журналам операций Stream Analytics и других служб на классическом портале Azure вручную, выполните указанные ниже действия.
+Чтобы перейти к журналам операций Stream Analytics и других служб на классическом портале Azure, выполните следующие действия:
 
-1.	Нажмите **Службы управления** на [классическом портале Azure](https://manage.windowsazure.com).
+1.	На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Службы управления**.
 2.	Выберите значение **Stream Analytics** в поле **Тип** и имя задания а поле **Имя службы**.
 
   ![Выбор Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
 
 ## Поиск журналов аудита на портале Azure ##
 
-Чтобы найти журналы операций для задания Stream Analytics на портале Azure, нажмите **Обзор** и выберите **Журналы аудита**.
+Чтобы найти на портале Azure журналы операций для задания Stream Analytics, щелкните **Обзор** и выберите **Журналы аудита**.
 
   ![Выбор Stream Analytics на портале Azure](./media/stream-analytics-operation-logs/06-stream-analytics-operation-logs.png)
 
@@ -55,13 +55,13 @@
 
 ## Получение подробных сведений журнала
 
-Для просмотра журналов задания можно использовать фильтры «Диапазон времени» и «Состояние».
+Для просмотра журналов задания можно использовать фильтры "Диапазон времени" и "Состояние".
 
 На портале управления Azure нажмите кнопку **Сведения** в нижней части окна, чтобы увидеть дополнительные сведения о выбранном событии.
 
   ![Выбор сведений](./media/stream-analytics-operation-logs/03-stream-analytics-operation-logs.png)
 
-На портале Azure выберите раздел журнала, чтобы просмотреть включенные в него события.
+На портале Azure щелкните раздел журнала, чтобы просмотреть включенные в него события.
 
   ![Выбор подробных сведений на портале Azure](./media/stream-analytics-operation-logs/08-stream-analytics-operation-logs.png)
 
@@ -75,15 +75,15 @@
 
   ![Отладка задания с ошибкой](./media/stream-analytics-operation-logs/04-stream-analytics-operation-logs.png)
 
-На портале Azure можно применить фильтр по уровню сообщения, чтобы просмотреть **критические** события.
+На портале Azure журналы можно отфильтровать по уровню сообщений и просмотреть только **критические** события.
 
   ![Отладка на портале Azure](./media/stream-analytics-operation-logs/10-stream-analytics-operation-logs.png)
 
-Выберите одну из ошибок, нажмите кнопку **Сведения** и ознакомьтесь с дополнительными сведениями об ошибке. Некоторые сообщения об ошибках содержат информацию о том, как устранить проблему.
+Выберите одну из ошибок, нажмите кнопку **Сведения** и ознакомьтесь с дополнительными сведениями об ошибке. Некоторые сообщения об ошибках содержат также информацию о том, как устранить проблему.
 
   ![Сведения об операции](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
 
-Если вам нужно связаться со [Службой поддержки](https://azure.microsoft.com/support/options/) или передать информацию специалистам через [форум MSDN](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics), обратите внимание на раздел «Сведения об операции», особенно на **Идентификатор корреляции**.
+Если вам нужно связаться со [Службой поддержки](https://azure.microsoft.com/support/options/) или передать информацию специалистам через [форум MSDN](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics), обратите внимание на раздел "Сведения об операции", особенно на **Идентификатор корреляции**.
 
 ## Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
@@ -96,4 +96,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

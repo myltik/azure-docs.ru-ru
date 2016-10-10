@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Общие сведения о шаблоне лицензии Widevine" 
+	pageTitle="Обзор шаблона лицензии Widevine | Microsoft Azure" 
 	description="В этом разделе содержится обзор шаблона лицензии Widevine, который используется для настройки лицензий Widevine." 
 	authors="juliako" 
 	manager="erikre" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
-#Общие сведения о шаблоне лицензии Widevine
+#Обзор шаблона лицензии Widevine
 
 ##Обзор
 
@@ -210,4 +210,4 @@ override\_provider\_client\_token | логическое значение: true 
 
 [Использование общего динамического шифрования PlayReady и (или) Widevine DRM](media-services-protect-with-drm.md)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

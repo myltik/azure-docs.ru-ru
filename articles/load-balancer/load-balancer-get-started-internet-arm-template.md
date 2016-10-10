@@ -17,7 +17,7 @@
    ms.date="02/09/2016"
    ms.author="sewhee" />
 
-# Приступая к созданию балансировщика нагрузки для Интернета с помощью шаблона
+# Создание балансировщика нагрузки для Интернета с помощью шаблона
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -70,4 +70,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

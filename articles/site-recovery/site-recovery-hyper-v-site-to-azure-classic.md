@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Портал Azure](site-recovery-hyper-v-site-to-azure.md)
-- [PowerShell в режиме ARM](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell — Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 - [Классический портал](site-recovery-hyper-v-site-to-azure-classic.md)
 
 В этой статье описывается развертывание Site Recovery для репликации виртуальных машин Hyper-V в Azure, когда узлы Hyper-V не управляются в облачных средах System Center Virtual Machine Manager (VMM).
@@ -300,4 +300,4 @@
 
 Настроив и запустив развертывание, см. [дополнительные сведения](site-recovery-failover.md) об обработке отказов.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

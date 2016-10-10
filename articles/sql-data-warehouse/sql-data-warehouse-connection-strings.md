@@ -13,19 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/01/2016"
+   ms.date="09/24/2016"
    ms.author="sonyama;barbkess"/>
 
 
 # Драйверы для хранилища данных SQL Azure
 
-> [AZURE.SELECTOR]
-- [Обзор](sql-data-warehouse-connect-overview.md)
-- [Аутентификация](sql-data-warehouse-authentication.md)
-- [Драйверы](sql-data-warehouse-connection-strings.md)
-
-
-Подключиться к хранилищу данных SQL можно с помощью нескольких различных протоколов приложений, таких как [ADO.NET][], [ODBC][], [PHP][] и [JDBC][]. Ниже приведены некоторые примеры строк подключения для каждого протокола. Кроме того, для формирования строки подключения можно использовать портал Azure. Чтобы создать строку подключения с помощью портала Azure, перейдите к колонке своей базы данных и в разделе *Основное* щелкните *Показать строки подключения к базам данных*.
+К хранилищу данных SQL можно подключиться с помощью нескольких различных протоколов приложений, таких как [ADO.NET][], [ODBC][], [PHP][] и [JDBC][]. Ниже приведены некоторые примеры строк подключения для каждого протокола. Кроме того, для формирования строки подключения можно использовать портал Azure. Чтобы создать строку подключения с помощью портала Azure, перейдите к колонке своей базы данных и в разделе *Основное* щелкните *Показать строки подключения к базам данных*.
 
 ## Пример строки подключения по протоколу ADO.NET
 
@@ -59,10 +53,10 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 <!--Image references-->
 
-<!--Azure.com references-->
+.<!--Azure.com references-->
  [Запросы к хранилищу данных SQL Azure (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
  
-<!--MSDN references-->
+.<!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
 [ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
 [PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
@@ -70,4 +64,4 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 <!--Other references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+<!---HONumber=AcomDC_0928_2016-->

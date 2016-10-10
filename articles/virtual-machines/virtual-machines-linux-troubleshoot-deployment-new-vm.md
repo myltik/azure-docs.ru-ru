@@ -3,7 +3,7 @@
    description="Устранение неполадок развертывания Resource Manager при создании виртуальной машины Linux в Azure"
    services="virtual-machines-linux, azure-resource-manager"
    documentationCenter=""
-   authors="jiangchen79"
+   authors="JiangChen79"
    manager="felixwu"
    editor=""
    tags="top-support-issue, azure-resource-manager"/>
@@ -82,4 +82,4 @@
 ## Дальнейшие действия
 При возникновении проблем во время запуска остановленной виртуальной машины Linux или в случае изменения размера существующей виртуальной машины Linux в Azure см. раздел [Устранение неполадок в развертывании Resource Manager при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

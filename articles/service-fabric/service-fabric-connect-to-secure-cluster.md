@@ -16,10 +16,11 @@
    ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
-# Безопасное подключение к кластеру
-Когда клиент подключается к узлу кластера Service Fabric, он может пройти аутентификацию и установить безопасную связь с помощью безопасности на основе сертификатов. Это гарантирует, что только авторизованные пользователи могут получить доступ к кластеру для развертывания приложений и выполнения задач управления. Безопасность на основе сертификатов необходимо предварительно включить в кластере при его создании. Для обеспечения безопасности кластера следует использовать по крайней мере два сертификата: один для кластера и сервера, а второй для клиентского доступа. Рекомендуется также использовать дополнительные сертификаты и сертификаты клиентского доступа. Дополнительные сведения о сценариях обеспечения безопасности кластеров см. в разделе [Безопасность кластера](service-fabric-cluster-security.md).
+# Безопасное подключение к кластеру без AAD
+Когда клиент подключается к узлу кластера Service Fabric, он может пройти аутентификацию и установить безопасную связь с помощью безопасности на основе сертификатов. Такая проверка подлинности гарантирует, что только авторизованные пользователи могут получить доступ к кластеру и развернутым приложениям для выполнения задач управления. Безопасность на основе сертификатов необходимо предварительно включить в кластере при его создании. Для обеспечения безопасности кластера следует использовать по крайней мере два сертификата: один для кластера и сервера, а второй для клиентского доступа. Рекомендуется также использовать дополнительные сертификаты и сертификаты клиентского доступа. Дополнительные сведения о сценариях обеспечения безопасности кластеров см. в разделе [Безопасность кластера](service-fabric-cluster-security.md).
 
-Чтобы защитить обмен данными между клиентом и узлом кластера с помощью безопасности на основе сертификатов, необходимо сначала получить сертификат клиента и установить его в личное хранилище (Мое) на локальном компьютере или в личное хранилище текущего пользователя. Отпечаток в сертификате сервера также нужен, чтобы клиент мог аутентифицировать кластер.
+Чтобы защитить обмен данными между клиентом и узлом кластера с помощью сертификатов, сначала необходимо получить и установить сертификат клиента. Его можно установить в личное хранилище на локальном компьютере или в личное хранилище текущего пользователя. Отпечаток в сертификате сервера также нужен, чтобы клиент мог аутентифицировать кластер.
+
 
 Выполните следующий командлет PowerShell, чтобы установить сертификат клиента на компьютер, который используется для доступа к кластеру.
 
@@ -36,9 +37,41 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
+<a id="connectsecureclustercli"></a>
+## Подключение к защищенному кластеру с помощью интерфейса командной строки Azure без AAD
+
+Следующие команды интерфейса командной строки Azure позволяют подключиться к безопасному кластеру. Сведения о сертификате должны соответствовать сертификату на узлах кластера.
+ 
+Если ваш сертификат выдан центром сертификации (ЦС), добавьте параметр `--ca-cert-path`, как показано в следующем примере.
+
+```
+ azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
+```
+Если вы используете несколько центров сертификации, используйте в качестве разделителя запятые.
+
+ 
+Если общее имя в сертификате не соответствует конечной точке подключения, для обхода проверки можно использовать параметр `--strict-ssl-false`.
+
+```
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
+```
+ 
+Если вы хотите пропустить проверку ЦС, добавьте параметр ``--reject-unauthorized-false``, как показано в следующем примере.
+
+```
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
+```
+ 
+Чтобы подключиться к кластеру, защищенному с помощью самозаверяющего сертификата, удалите проверку ЦС и проверку общего имени с помощью следующей команды:
+
+```
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
+```
+
+После подключения вы сможете взаимодействовать с кластером с помощью дополнительных команд интерфейса командной строки.
 
 <a id="connectsecurecluster"></a>
-## Подключение к защищенному кластеру с помощью PowerShell
+## Подключение к защищенному кластеру с помощью PowerShell без AAD
 
 Для подключения к защищенному кластеру выполните следующую команду PowerShell: Сведения о сертификате должны соответствовать сертификату на узлах кластера.
 
@@ -50,7 +83,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-Например, приведенная выше команда PowerShell должна выглядеть следующим образом. *ServerCertThumbprint* — отпечаток сертификата сервера, установленного на узлах кластера, *FindValue* — отпечаток сертификата клиента администрирования.
+*ServerCertThumbprint* — отпечаток сертификата сервера, установленного на узлах кластера. *FindValue* — отпечаток сертификата клиента администрирования. Когда все параметры указаны, команда выглядит так:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
@@ -60,8 +93,12 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
           -StoreLocation CurrentUser -StoreName My
 ```
 
+
+
+
 ## Подключение к защищенному кластеру с помощью интерфейсов API FabricClient
-Ниже приведен [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). У узлов в кластере должны быть действительные сертификаты, общее имя или DNS-имя которых в сети SAN отображается в [свойстве RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx), заданном для [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Это обеспечивает взаимную аутентификацию между клиентом и узлом кластера.
+
+Дополнительные сведения об API-интерфейсах FabricClient см. [здесь](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). У узлов в кластере должны быть действительные сертификаты, общее имя или DNS-имя которых в сети SAN отображается в [свойстве RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx), заданном для [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Это обеспечивает взаимную проверку подлинности между клиентом и узлами кластера.
 
 ```csharp
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
@@ -115,4 +152,4 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 - [Общие сведения о модели работоспособности в Service Fabric](service-fabric-health-introduction.md)
 - [Безопасность приложений и запуск от имени](service-fabric-application-runas-security.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -17,7 +17,7 @@
    ms.author="andkjell"/>
 
 # Azure AD Connect: обновление до последней версии
-В этом разделе описываются различные варианты обновления установки Azure AD Connect до последней версии. Мы рекомендуем устанавливать все новые выпуски Azure AD Connect.
+В этой статье описываются различные варианты обновления установки Azure AD Connect до последней версии. Мы рекомендуем устанавливать все новые выпуски Azure AD Connect.
 
 Инструкции по обновлению DirSync см. в статье [Обновление средства синхронизации Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
@@ -85,4 +85,4 @@
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

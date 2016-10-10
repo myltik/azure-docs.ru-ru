@@ -7,14 +7,14 @@
 	manager="carmonm"
 	editor="tysonn"/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="jwillis;tamram"/>
 
 
 # Настройка пользовательского доменного имени для конечной точки хранилища BLOB-объектов
@@ -130,4 +130,4 @@ BLOB-объект|**URL-адрес по умолчанию:** http://mystorageac
 
 -   [Как сопоставить личный домен с конечной точкой сети доставки содержимого (CDN)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

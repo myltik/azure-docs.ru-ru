@@ -4,7 +4,7 @@
     services="storage"
     documentationCenter="na"
     authors="aungoo-msft"
-    manager=""
+    manager="tadb"
 	editor="tysonn" />
 
 <tags
@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="09/19/2016"
-    ms.author="aungoo-msft"/>
+    ms.author="aungoo;robinsh"/>
 
 # Хранилище Azure класса «Премиум»: разработка, обеспечивающая повышенную производительность
 
@@ -542,4 +542,4 @@ rate_iops=12500
 - [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
 - [Хранилище Azure класса «Премиум» обеспечивает максимальную производительность SQL Server в виртуальных машинах Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

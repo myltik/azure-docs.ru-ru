@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -46,11 +46,11 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Приложения](./media/active-directory-saas-zendesk-tutorial/IC700994.png "Приложения")
+    .![Приложения](./media/active-directory-saas-zendesk-tutorial/IC700994.png "Приложения")
 
 4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Добавление приложения](./media/active-directory-saas-zendesk-tutorial/IC749321.png "Добавление приложения")
+    .![Добавление приложения](./media/active-directory-saas-zendesk-tutorial/IC749321.png "Добавление приложения")
 
 5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -158,4 +158,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

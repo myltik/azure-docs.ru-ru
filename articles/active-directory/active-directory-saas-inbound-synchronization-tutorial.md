@@ -4,8 +4,8 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
-<tags 
+    manager="femila"/>
+.<tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
@@ -14,7 +14,7 @@
     ms.date="04/06/2016" 
     ms.author="jeedes" />
 
-# Руководство. Настройка Workday для входящей синхронизации
+#Руководство. Настройка Workday для входящей синхронизации
 >[AZURE.NOTE]Azure Active Directory (AD) Premium доступен для клиентов в Китае, использующих доступный по всему миру экземпляр Azure AD. Служба Microsoft Azure, обслуживаемая компанией 21Vianet в Китае, сейчас не поддерживает AD Premium.
 
 Цель этого руководства — показать, какие действия необходимо выполнить в Workday и Microsoft Azure AD для импорта пользователей из Workday в Microsoft Azure AD. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
@@ -181,4 +181,4 @@
 
 Теперь вы можете перейти в раздел **Пользователи** и проверить выполнение импорта пользователя Workday.
 
-<!---HONumber=AcomDC_0810_2016---->
+<!---HONumber=AcomDC_0928_2016-->

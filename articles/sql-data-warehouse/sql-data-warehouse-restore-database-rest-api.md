@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
+   ms.date="09/21/2016"
    ms.author="lakshmir;barbkess;sonyama"/>
 
 # Восстановление хранилища данных SQL Azure (REST API)
@@ -38,7 +38,7 @@
 2. Начните восстановление с помощью операции [Create Database Restore Request][].
 3. Отследите состояние восстановления с помощью операции [Database Operation Status][].
 
->[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
+>[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям раздела [Настройка базы данных после восстановления][].
 
 ## Восстановление удаленной базы данных.
 
@@ -49,25 +49,25 @@
 3.	Начните восстановление с помощью операции [Create Database Restore Request][].
 4.	Отследите состояние восстановления с помощью операции [Database Operation Status][].
 
->[AZURE.NOTE] Восстановленную базу данных можно настроить. Для этого следуйте инструкциям руководства [Финализация восстановленной базы данных SQL Azure][].
+>[AZURE.NOTE] Чтобы настроить базу данных после восстановления, см. раздел [Настройка базы данных после восстановления][].
 
 
 ## Дальнейшие действия
-Дополнительные сведения о функциях, обеспечивающих непрерывность бизнес-процессов в выпусках базы данных SQL Azure, см. в статье [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL][].
+Дополнительные сведения о функциях обеспечения непрерывности бизнес-процессов в выпусках Базы данных SQL Azure см. в статье [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL][].
 
 <!--Image references-->
 
-<!--Article references-->
+.<!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: ./sql-database-business-continuity.md
 [Создание запроса в службу поддержки для хранилища данных SQL]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
-[Финализация восстановленной базы данных SQL Azure]: ./sql-database-recovered-finalize.md
+[Настройка базы данных после восстановления]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [How to install and configure Azure PowerShell]: ./powershell-install-configure.md
 [Обзор]: ./sql-data-warehouse-restore-database-overview.md
 [Портал]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
-<!--MSDN references-->
+.<!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
 [Database operation status]: https://msdn.microsoft.com/library/azure/dn720371.aspx
 [Get restorable dropped database]: https://msdn.microsoft.com/library/azure/dn509574.aspx
@@ -78,4 +78,4 @@
 [Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

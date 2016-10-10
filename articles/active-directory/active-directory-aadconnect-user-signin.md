@@ -4,10 +4,10 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
-<tags
+.<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -143,4 +143,4 @@ UserPrincipalName. Пользователи будут использовать 
 
 См. также [Azure AD Connect: принципы проектирования](active-directory-aadconnect-design-concepts.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

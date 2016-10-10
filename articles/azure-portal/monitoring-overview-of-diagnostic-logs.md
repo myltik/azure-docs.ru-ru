@@ -7,19 +7,19 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-<tags
+.<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/26/2016"
 	ms.author="johnkem"/>
 
 # Обзор журналов диагностики Azure
 **Журналы диагностики Azure** генерируются ресурсом; они содержат подробные и своевременные данные о работе этого ресурса. Содержимое этих журналов зависит от типа ресурса (например, журналы событий Windows — это одна из категорий журналов диагностики для виртуальных машин, а журналы больших двоичных объектов, таблиц и очередей — это журналы диагностики для учетных записей хранения). Эти журналы отличаются от [журнала действий (раньше он назывался журналом аудита или операционным журналом)](monitoring-overview-activity-logs.md), который содержит информацию об операциях с ресурсами в рамках подписки. Не все ресурсы поддерживают описанный здесь новый тип журналов диагностики. Типы ресурсов, которые поддерживают новые журналы диагностики, перечислены ниже в списке поддерживаемых служб.
 
-![Логическое расположение журналов диагностики](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
+.![Логическое расположение журналов диагностики](./media/monitoring-overview-of-diagnostic-logs/logical-placement-chart.png)
 
 ## Что можно делать с журналами диагностики
 Ниже описано несколько доступных операций с журналами диагностики.
@@ -69,15 +69,23 @@
 
 Эта команда включает отправку журналов диагностики в учетную запись хранения:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -StorageAccountId [your storage account id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 
 StorageAccountID — это идентификатор ресурса учетной записи хранения, в которую будут отправляться журналы.
 
 Эта команда включает потоковую передачу журналов диагностики в концентратор событий:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource Id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
 
 ServiceBusRuleID — это строка в таком формате: `{service bus resource ID}/authorizationrules/{key name}`.
+
+Чтобы включить отправку журналов диагностики в рабочую область Log Analytics, используйте следующую команду.
+
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+
+Идентификатор рабочей области Log Analytics можно получить на портале Azure.
+
+Можно объединять эти параметры, чтобы получить несколько вариантов вывода.
 
 Чтобы включить журналы диагностики с помощью интерфейса командной строки Azure, используйте следующие команды.
 
@@ -93,7 +101,33 @@ StorageAccountID — это идентификатор ресурса учетн
 
 ServiceBusRuleID — это строка в таком формате: `{service bus resource ID}/authorizationrules/{key name}`.
 
+Чтобы включить отправку журналов диагностики в рабочую область Log Analytics, используйте следующую команду.
+
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
+
+Идентификатор рабочей области Log Analytics можно получить на портале Azure.
+
+Можно объединять эти параметры, чтобы получить несколько вариантов вывода.
+
 Изменение параметров диагностики с помощью API REST Insights описывается в [этом документе](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+
+## Управление параметрами диагностики на портале
+
+Чтобы убедиться, что для всех ресурсов правильно настроены параметры диагностики, можно перейти к колонке **Мониторинг** на портале и открыть колонку **Журналы диагностики**.
+
+![Колонка "Журналы диагностики" на портале](./media/monitoring-overview-of-diagnostic-logs/manage-portal-nav.png)
+
+Чтобы найти колонку "Мониторинг" может понадобиться щелкнуть "Больше служб".
+
+В этой колонке можно просматривать и фильтровать все ресурсы, поддерживающие журналы диагностики, чтобы узнать, включена ли для них диагностика и в какую учетную запись хранения, концентратор событий и (или) рабочую область Log Analytics передаются эти журналы.
+
+![Результаты в колонке "Журналы диагностики" на портале](./media/monitoring-overview-of-diagnostic-logs/manage-portal-blade.png)
+
+Если щелкнуть ресурс, отобразятся все журналы, сохраненные в учетной записи хранения, и вы сможете отключить диагностику или изменить ее параметры. Щелкните значок скачивания, чтобы скачать журналы за определенный период времени.
+
+![Колонка "Журналы диагностики" одного ресурса](./media/monitoring-overview-of-diagnostic-logs/manage-portal-logs.png)
+
+> [AZURE.NOTE] Это представление будет содержать журналы диагностики, которые можно будет скачать, только если вы настроили параметры для их сохранения в учетную запись хранения.
 
 ## Поддерживаемые службы и схемы для журналов диагностики
 Схема для журналов диагностики зависит от типа ресурса и категории журнала. Ниже приведены поддерживаемые службы и схемы.
@@ -133,10 +167,13 @@ ServiceBusRuleID — это строка в таком формате: `{service
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Журнал производительности шлюза приложений|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Журнал брандмауэра шлюза приложений|
 |Microsoft.Search/searchServices|OperationLogs|Журналы операций|
+|Microsoft.ServerManagement/nodes|RequestLogs|Журналы запросов|
+|Microsoft.StreamAnalytics/streamingjobs|Выполнение|Выполнение|
+|Microsoft.StreamAnalytics/streamingjobs|Разработка|Разработка|
 
 ## Дальнейшие действия
 - [Потоковая передача журналов диагностики в **концентраторы событий**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 - [Изменение параметров диагностики с помощью REST API Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 - [Анализ журналов с помощью OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

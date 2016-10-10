@@ -5,16 +5,16 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+	ms.author="dinesh;robmcm"/>
 
 # Использование хранилища Azure с решением непрерывной интеграции Hudson
 
@@ -47,7 +47,7 @@ Hudson обеспечивает непрерывную интеграцию пр
 
     Если у вас нет решения Hudson, его можно запустить следующим образом:
 
-    1. На компьютере с поддержкой Java загрузите WAR-файл Hudson из <http://hudson-ci.org/>.
+    1. На компьютере с поддержкой Java загрузите WAR-файл Hudson из http://hudson-ci.org/.
     2. В командной строке, открытой на папке с WAR-файлом Hudson, запустите этот файл. Например, если вы загрузили версию 3.1.2:
 
         `java -jar hudson-3.1.2.war`
@@ -60,7 +60,7 @@ Hudson обеспечивает непрерывную интеграцию пр
 
         Хотя обычно решение Hudson настраивается на запуск в качестве службы, в рамках данного учебника будет достаточно запуска WAR-файла Hudson в командной строке.
 
-- Учетная запись Azure. Зарегистрироваться для получения учетной записи Azure можно по адресу <http://www.windowsazure.com>.
+- Учетная запись Azure. Зарегистрироваться для получения учетной записи Azure можно по адресу http://www.windowsazure.com.
 
 - Учетная запись хранения Azure. Если у вас еще нет учетной записи хранения, ее можно создать с помощью процедуры [Создание учетной записи хранения](storage-create-storage-account.md#create-a-storage-account).
 
@@ -182,4 +182,4 @@ Hudson обеспечивает непрерывную интеграцию пр
 
 Дополнительную информацию см. также в [Центре разработчика Java](https://azure.microsoft.com/develop/java/).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

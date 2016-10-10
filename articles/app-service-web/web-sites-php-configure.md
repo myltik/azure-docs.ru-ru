@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
@@ -86,6 +86,9 @@
 		; Example Settings
 		display_errors=On
 		upload_max_filesize=10M
+		
+		; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
+		; log_errors=On
 
 3. Разверните веб-приложение.
 4. Перезапустите веб-приложение. (Перезапуск необходим, так как частота считывания PHP файлов `.user.ini` регулируется параметром `user_ini.cache_ttl`, который является параметром уровня системы; по умолчанию значение этого параметра составляет 300 секунд (5 минут). Перезапуск веб-приложения заставляет PHP считать новые параметры из файла `.user.ini`.)
@@ -158,7 +161,7 @@
 
 8. Нажмите кнопку **Сохранить** в верхней части колонки **Параметры веб-приложения**.
 
-	![Сохранение параметров конфигурации][save-button]
+	.![Сохранение параметров конфигурации][save-button]
 
 <a name="composer" />
 ## Практическое руководство. Включение автоматизации Composer в Azure
@@ -208,4 +211,4 @@
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

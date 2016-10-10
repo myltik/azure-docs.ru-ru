@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Опрос долговременных операций" 
+	pageTitle="Опрос долговременных операций | Microsoft Azure" 
 	description="В этом разделе содержатся сведения об опросе долговременных операций." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="04/18/2016" 
+ 	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
@@ -195,4 +195,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0420_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Обзор сообщества служб мультимедиа Azure"
+	pageTitle="Обзор сообщества служб мультимедиа Azure | Microsoft Azure"
 	description="На этой странице сообщества служб мультимедиа Azure (AMS) описаны различные возможности для получения новых сведений об AMS, ознакомления с новыми видеороликами и подкастами, а также для обратной связи, с помощью которой вы можете задавать вопросы и отправлять отзывы. "
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 # Сообщество служб мультимедиа Azure  
@@ -63,4 +63,4 @@ Azure Media Player|ampinfo@microsoft.com
 Обозреватель мультимедиа Azure|amse@microsoft.com
 Конструктор рабочих процессов|mepd@microsoft.com
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

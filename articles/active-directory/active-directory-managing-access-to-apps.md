@@ -4,7 +4,7 @@
   services="active-directory"
   documentationCenter=""
   authors="msStevenPo"
-  manager="stevenpo"
+  manager="femila"
   editor=""/>
 
  <tags
@@ -59,7 +59,7 @@
 
 Прежде всего, если вы еще не используете Azure AD и являетесь ИТ-администратором:
 
- - [Попробуйте](https://azure.microsoft.com/trial/get-started-active-directory/) — вы можете зарегистрироваться сегодня, чтобы использовать бесплатную пробную версию в течение 30 дней и развернуть первое облачное решение в течение 5 минут, применив эту ссылку.
+ - [Попробуйте](https://azure.microsoft.com/trial/get-started-active-directory/) — вы можете зарегистрироваться сегодня, чтобы использовать бесплатную пробную версию в течение 30 дней и развернуть первое облачное решение в течение 5 минут, применив эту ссылку.
 
 Ниже перечислены компоненты Azure AD, обеспечивающие совместное использование учетных записей.
 
@@ -75,4 +75,4 @@
 - [Защита приложений с помощью условного доступа](active-directory-conditional-access.md)
 - [Самостоятельное управление группами/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_0330_2016-->
+<!---HONumber=AcomDC_0928_2016-->

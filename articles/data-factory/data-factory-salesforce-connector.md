@@ -3,7 +3,7 @@
 	description="Узнайте, как перемещать данные из Salesforce с использованием фабрики данных Azure."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
-	ms.author="spelluru"/>
+	ms.date="09/26/2016"
+	ms.author="jingwang"/>
 
 # Перемещение данных из Salesforce с помощью фабрики данных Azure
 В этой статье описано, как переместить данные из Salesforce в любое хранилище данных, указанное в таблице [поддерживаемых хранилищ данных](data-factory-data-movement-activities.md#supported-data-stores) (столбец "Приемник"), с использованием действия копирования в фабрике данных Azure. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
@@ -101,7 +101,7 @@
 
 > [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.
 
-![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+.![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Выходной набор данных большого двоичного объекта Azure**
 
@@ -179,7 +179,7 @@
 
 > [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.
 
-![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+.![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Свойства связанной службы Salesforce
 
@@ -194,7 +194,7 @@
 
 ## Свойства типа "Набор данных Salesforce"
 
-Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных в фабрике данных Azure](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
+Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Наборы данных в фабрике данных Azure](data-factory-create-datasets.md). Разделы structure, availability и policy JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, большие двоичные объекты Azure, таблицы Azure и т. д.).
 
 Раздел **typeProperties** во всех типах наборов данных разный. В нем содержится информация о расположении данных в хранилище данных. Раздел typeProperties для набора данных с типом **RelationalTable** содержит следующее свойство:
 
@@ -209,20 +209,20 @@
 ## Свойства типа RelationalSource
 Полный список разделов и свойств, используемых для определения действий, см. в статье [Конвейеры и действия в фабрике данных Azure: создание конвейеров, цепочки действий и расписаний для них](data-factory-create-pipelines.md). Такие свойства, как имя, описание, входные и выходные таблицы, различные политики, доступны для всех типов действий.
 
-То, какие свойства будут доступны в разделе typeProperties, зависит от типа действия, а в случае с действием копирования — еще и от типов источников и приемников.
+С другой стороны, свойства, доступные в разделе typeProperties действия, зависят от конкретного типа действия. Для действия копирования они различаются в зависимости от типов источников и приемников.
 
-В случае действия копирования, когда источник относится к типу **RelationalSource** (который содержит Salesforce), в разделе typeProperties доступны следующие свойства:
+В случае действия копирования, если источник относится к типу **RelationalSource** (который содержит Salesforce), в разделе typeProperties доступны следующие свойства.
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
-| запрос | Используйте пользовательский запрос для чтения данных. | Запрос SQL-92 или запрос, написанный на [объектно-ориентированном языке запросов Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.ru-RU.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Например, select * from MyTable\_\_c | Нет (если для **dataset** задано значение **tableName**) |
+| запрос | Используйте пользовательский запрос для чтения данных. | Запрос SQL-92 или запрос, написанный на [объектно-ориентированном языке запросов Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.ru-RU.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Например, `select * from MyTable__c`. | Нет (если для **dataset** задано значение **tableName**) |
 
-> [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.<br> Используйте язык SOQL при указании запроса с использованием предложения **WHERE** в столбце даты и времени. Например, $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd). Или запрос SQL, например, $$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts'{0:yyyy-MM-dd HH:mm:ss}'}} AND LastModifiedDate < {{ts'{1:yyyy-MM-dd HH:mm:ss}'}}', WindowStart, WindowEnd).
+> [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.<br> Используйте язык SOQL при указании запроса с использованием предложения **WHERE** в столбце даты и времени. Например, `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
 
 ![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Извлечение данных из отчета Salesforce
-Из отчетов Salesforce можно извлекать данные, указывая запросы в формате {call "<имя\_отчета>"}, например: "query": "{call "TestReport"}".
+Из отчетов Salesforce можно извлекать данные, указывая запросы в формате `{call "<report name>"}`, например: `"query": "{call "TestReport"}"`.
 
 ## Ограничения запросов Salesforce
 Для Salesforce установлены ограничения на общее число запросов API и одновременных запросов API. Дополнительные сведения см. в разделе "API Request Limits" (Ограничения запросов API) статьи об [ограничениях для разработчика Salesforce](http://resources.docs.salesforce.com/200/20/ru-RU/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
@@ -261,4 +261,4 @@ URL-адрес | Строка
 ## Производительность и настройка  
 См. [руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в котором описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

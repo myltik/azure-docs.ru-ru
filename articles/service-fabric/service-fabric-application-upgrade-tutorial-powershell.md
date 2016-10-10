@@ -17,9 +17,13 @@
    ms.author="subramar"/>
 
 
-
-
 # Обновление приложения Service Fabric с помощью PowerShell
+
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+- [Visual Studio](service-fabric-application-upgrade-tutorial.md)
+
+<br/>
 
 Наиболее часто используемый и рекомендуемый подход к выполнению обновлений состоит в отслеживаемом последовательном обновлении. Платформа Azure Service Fabric осуществляет мониторинг работоспособности обновляемого приложения на основе набора политик работоспособности. После обновления домена обновления Service Fabric оценивает работоспособность приложения, после чего переходит к следующему домену обновления или регистрирует сбой в соответствии с политиками работоспособности.
 
@@ -135,4 +139,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 Сведения об устранении распространенных проблем при обновлении приложений см. в разделе [Устранение неполадок обновления приложения](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

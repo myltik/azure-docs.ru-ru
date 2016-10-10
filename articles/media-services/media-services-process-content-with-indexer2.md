@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure 2 (предварительная версия)"
+	pageTitle="Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure 2 (предварительная версия) | Microsoft Azure"
 	description="Индексатор мультимедийных данных Azure позволяет искать содержимое файлов мультимедиа и создавать полнотекстовую транскрипцию для скрытых субтитров и ключевых слов. В этом разделе показано, как использовать индексатор мультимедийных данных 2 (предварительная версия)."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="adsolank;juliako;"/>
 
 
@@ -289,4 +289,4 @@
 
 [Демонстрационные материалы для медиааналитики Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

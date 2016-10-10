@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -26,4 +26,4 @@
 - [Регистрация организации в Azure](sign-up-organization.md)
 - [Как подписки Azure связаны с Azure AD](active-directory-how-subscriptions-associated-directory.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

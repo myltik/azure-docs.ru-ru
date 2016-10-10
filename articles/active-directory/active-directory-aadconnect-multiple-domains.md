@@ -4,10 +4,10 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
-<tags
+.<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -44,7 +44,7 @@
 Чтобы обойти это, необходимо добавить другой IssuerUri. Это можно сделать с помощью параметра `-SupportMultipleDomain`. Этот параметр используется со следующими командлетами:
 	
 - `New-MsolFederatedDomain`
-- `Convert-MsolDomaintoFederated`
+- .`Convert-MsolDomaintoFederated`
 - `Update-MsolFederatedDomain`
 
 Этот параметр заставляет Azure AD настроить IssuerUri таким образом, чтобы он был основан на имени домена. Оно будет уникальным в различных каталогах в Azure AD. Использование параметра позволяет успешно выполнить команду PowerShell.
@@ -153,4 +153,4 @@
 .![Заменить утверждение](./media/active-directory-multiple-domains/sub2.png)
 5.	Нажмите кнопку "ОК". Нажмите кнопку "Применить". Нажмите кнопку "ОК". Откройте оснастку управления AD FS.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

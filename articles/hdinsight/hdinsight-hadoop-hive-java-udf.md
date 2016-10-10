@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/07/2016"
+ms.date="09/27/2016"
 ms.author="larryfr"/>
 
 #Работа с определяемыми пользователем функциями Java с использованием Hive в HDInsight
@@ -67,7 +67,61 @@ Hive отлично подходит для работы с данными в HD
 
     Эти записи содержат версию Hadoop и Hive, используемую в кластерах HDInsight 3.3 и 3.4. Сведения о версиях Hadoop и Hive, включенных в HDInsight, можно найти в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](hdinsight-component-versioning.md).
 
-    После внесения этих изменений сохраните файл.
+    В конце файла добавьте раздел `<build>` перед строкой `</project>`. Этот раздел должен содержать следующее:
+
+        <build>
+            <plugins>
+                <!-- build for Java 1.7, even if you're on a later version -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                    </configuration>
+                </plugin>
+                <!-- build an uber jar -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>2.3</version>
+                    <configuration>
+                        <!-- Keep us from getting a can't overwrite file error -->
+                        <transformers>
+                            <transformer
+                                    implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                            </transformer>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer">
+                            </transformer>
+                        </transformers>
+                        <!-- Keep us from getting a bad signature error -->
+                        <filters>
+                            <filter>
+                                <artifact>*:*</artifact>
+                                <excludes>
+                                    <exclude>META-INF/*.SF</exclude>
+                                    <exclude>META-INF/*.DSA</exclude>
+                                    <exclude>META-INF/*.RSA</exclude>
+                                </excludes>
+                            </filter>
+                        </filters>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    
+    Эти записи определяют способ построения проекта. В частности, используемую в проекте версию Java и способ построения uberjar для развертывания в кластер.
+
+    После внесения изменений сохраните файл.
 
 4. Переименуйте файл __exampleudf/src/main/java/com/microsoft/examples/App.java__ на __ExampleUDF.java__, а затем откройте его в редакторе.
 
@@ -136,7 +190,7 @@ Hive отлично подходит для работы с данными в HD
 
 2. После появления командной строки `jdbc:hive2://localhost:10001/>` введите следующую команду, чтобы добавить определяемую пользователем функцию в Hive и предоставить ее как функцию.
 
-        ADD JAR wasbs:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
+        ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
         CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
 
 3. Используйте определяемую пользователем функцию, чтобы преобразовать значения, полученные из таблицы, в строки нижнего регистра.
@@ -166,4 +220,4 @@ Hive отлично подходит для работы с данными в HD
 
 Дополнительные сведения об определяемых пользователем функциях Hive см. в разделе [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Операторы Hive и определяемые пользователем функции) в вики Hive на сайте apache.org.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

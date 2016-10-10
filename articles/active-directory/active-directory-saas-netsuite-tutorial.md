@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -40,7 +40,7 @@
 
 4. В нижней части страницы нажмите кнопку **Добавить**.
 
-	![Нажмите кнопку "Добавить", чтобы добавить новое приложение.][2]
+	.![Нажмите кнопку "Добавить", чтобы добавить новое приложение.][2]
 
 5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
@@ -68,11 +68,11 @@
 
 3. На странице **Настройка параметров приложения** введите в поле **URL-адрес ответа** URL-адрес клиента NetSuite в одном из следующих форматов:
 	- `https://<tenant-name>.netsuite.com/saml2/acs`
-	- `https://<tenant-name>.na1.netsuite.com/saml2/acs`
-	- `https://<tenant-name>.na2.netsuite.com/saml2/acs`
-	- `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
-	- `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
-	- `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
+	- .`https://<tenant-name>.na1.netsuite.com/saml2/acs`
+	- .`https://<tenant-name>.na2.netsuite.com/saml2/acs`
+	- .`https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
+	- .`https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
+	- .`https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
 	![Введите URL-адрес клиента.][8]
 
@@ -259,4 +259,4 @@
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=AcomDC_0518_2016-->
+<!---HONumber=AcomDC_0928_2016-->

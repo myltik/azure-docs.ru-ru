@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="06/08/2016"
+   ms.date="09/22/2016"
    ms.author="danlep"/>
 
-# Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC)
-Это руководство по техническим ресурсам поможет вам выполнять крупномасштабные параллельные и пакетные задания, а также рабочие нагрузки HPC в Azure. Перенесите свои текущие пакетные задания или рабочие нагрузки HPC в облако Azure или создайте в Azure новые решения для больших вычислений с помощью набора служб Azure.
+# Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений 
+Это руководство по техническим ресурсам, которые помогут вам выполнять крупномасштабные параллельные, пакетные и высокопроизводительные вычисления (HPC) в Azure. Перенесите свои текущие пакетные рабочие нагрузки или рабочие нагрузки HPC в облако Azure или создайте новые решения для больших вычислений с помощью набора служб Azure.
 
 ## Варианты решений
 
@@ -89,7 +89,7 @@ HPC Pack — это бесплатное решение HPC корпораци
 
 ## Экземпляры для ресурсоемких вычислений
 
-В Azure доступны [разные размеры](../virtual-machines/virtual-machines-windows-sizes.md) вычислительных ресурсов, включая экземпляры [A8 и A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) для ресурсоемких вычислений, поддерживающих подключение к внутренней сети RDMA для выполнения рабочих нагрузок HPC в Linux и Windows.
+В Azure доступны [разные размеры виртуальных машин](../virtual-machines/virtual-machines-windows-sizes.md), включая экземпляры [для ресурсоемких вычислений](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md), поддерживающие подключение к внутренней сети RDMA для выполнения рабочих нагрузок HPC в Linux и Windows.
 
 
 * [Настройка кластера Linux RDMA для выполнения приложений MPI](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
@@ -101,6 +101,8 @@ HPC Pack — это бесплатное решение HPC корпораци
 ## Примеры и образцы
 
 * [Примеры кода для пакетной службы Azure на C# и Python](https://github.com/Azure/azure-batch-samples)
+
+* Набор средств [Batch Shipyard](https://azure.github.io/batch-shipyard/) для удобного развертывания пакетных рабочих нагрузок Docker
 
 * [Пробная установка сервера SUSE Linux Enterprise Server для HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
@@ -118,11 +120,15 @@ HPC Pack — это бесплатное решение HPC корпораци
 
 * [Облачные службы](https://azure.microsoft.com/documentation/services/cloud-services/)
 
+* [Служба приложений](https://azure.microsoft.com/documentation/services/app-service/)
+
 * [Службы мультимедиа](https://azure.microsoft.com/documentation/services/media-services/)
+
+* [Функции](https://azure.microsoft.com/documentation/services/functions/)
 
 ## Проекты архитектуры
 
-* PDF-файл [Управление данными и высокопроизводительными вычислениями с помощью пакетной службы и фабрики данных Azure](http://go.microsoft.com/fwlink/?linkid=717686) и [статья](../data-factory/data-factory-data-processing-using-batch.md)
+* [Управление данными и высокопроизводительными вычислениями с помощью пакетной службы и фабрики данных Azure](http://go.microsoft.com/fwlink/?linkid=717686) (PDF-файл) и [статья](../data-factory/data-factory-data-processing-using-batch.md)
 
 ## Отраслевые решения
 
@@ -132,7 +138,7 @@ HPC Pack — это бесплатное решение HPC корпораци
 
 ## Истории клиентов
 
-* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168)
 
 * [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
 
@@ -157,4 +163,4 @@ HPC Pack — это бесплатное решение HPC корпораци
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](https://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](https://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](https://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=AcomDC_0615_2016-->
+<!---HONumber=AcomDC_0928_2016-->

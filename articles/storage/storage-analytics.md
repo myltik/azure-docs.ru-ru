@@ -7,14 +7,14 @@
 	manager="carmonm"
 	editor="tysonn"/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="fryu;robinsh"/>
 
 # Аналитика службы хранилища
 
@@ -208,4 +208,4 @@
 - [Схема таблицы метрик аналитики хранилища](https://msdn.microsoft.com/library/hh343264.aspx)
 - [Операции с протоколированием и сообщения о состоянии аналитик хранилища](https://msdn.microsoft.com/library/hh343260.aspx)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

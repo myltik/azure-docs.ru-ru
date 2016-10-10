@@ -52,7 +52,7 @@
 ### XCode 8
 Версия XCode 8 является обязательной, начиная с пакета SDK версии 4.0.0.
 
-> [AZURE.NOTE] Если вам крайне важно оставить версию XCode 7, то можете воспользоваться [пакетом SDK Engagement для iOS версии 3.2.4](https://aka.ms/r6oouh). В предыдущей версии выявлена ошибка в модуле обработки рекламных кампаний при выполнении на устройствах iOS 10: не приводятся в действие системные уведомления. Для исправления этой ошибки понадобится реализовать в делегате приложения устаревшую версию API `application:didReceiveRemoteNotification:`:
+> [AZURE.NOTE] Если вам крайне важно оставить версию XCode 7, то можете воспользоваться [пакетом SDK Служб взаимодействия для iOS версии 3.2.4](https://aka.ms/r6oouh). В предыдущей версии выявлена ошибка в модуле обработки рекламных кампаний при выполнении на устройствах iOS 10: не приводятся в действие системные уведомления. Для исправления этой ошибки понадобится реализовать в делегате приложения устаревшую версию API `application:didReceiveRemoteNotification:`:
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -69,6 +69,42 @@
 
 #### Функция push-уведомлений приложения
 XCode 8 может выполнить сброс настроек push-уведомлений приложения. Проверьте настройки этой функции на вкладке `capability` выбранной цели.
+
+#### Добавление нового кода регистрации уведомления в iOS 10
+Старый фрагмент кода для регистрации приложения для получения уведомлений по-прежнему функционирует, но он использует устаревшие интерфейсы API при работе в iOS 10.
+
+Импортируйте платформу `User Notification`:
+
+		#import <UserNotifications/UserNotifications.h>
+
+В методе `application:didFinishLaunchingWithOptions` делегата приложения замените:
+
+		if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+			[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+			[application registerForRemoteNotifications];
+		}
+		else {
+
+    		[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
+
+на:
+
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
+			[application registerForRemoteNotifications];
+		}
+		else
+		{
+			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
 
 #### Если у вас уже есть собственная реализация UNUserNotificationCenterDelegate
 
@@ -129,6 +165,6 @@ XCode 8 может выполнить сброс настроек push-увед�
 
 	@end
 
-> [AZURE.NOTE] Можно определить, поступают ли уведомления из Служб Взаимодействия, передав словарь `userInfo` в метод класса `isEngagementPushPayload:` агента.
+> [AZURE.NOTE] Можно определить, поступают ли уведомления из Служб взаимодействия, передав словарь `userInfo` в метод класса `isEngagementPushPayload:` агента.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

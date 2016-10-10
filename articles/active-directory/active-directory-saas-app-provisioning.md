@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="asmalser-msft"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -116,4 +116,4 @@ Azure AD готовит пользователей для приложения S
 - [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
 - [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

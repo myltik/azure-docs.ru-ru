@@ -3,18 +3,18 @@
    description="Управляйте наборами записей и записями DNS в службе Azure DNS при размещении вашего домена в Azure DNS. Все команды интерфейса командной строки для операций с наборами записей и записями."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="jtuliani"
    manager="carmonm"
    editor=""/>
 
-<tags
+.<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.date="09/22/2016"
+   ms.author="jtuliani"/>
 
 # Управление записями и наборами записей DNS с помощью CLI
 
@@ -153,6 +153,11 @@ DNS Azure является исключительно службой диспе�
 
 	azure network dns record-set delete-record myresourcegroup contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+### Удаление записи типа PTR из набора записей
+В этом случае my-arpa-zone.com представляет зону ARPA вашего диапазона IP-адресов. Каждая запись типа PTR в этой зоне соответствует IP-адресу в этом диапазоне.
+
+	azure network dns record-set delete-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"
+
 ### Удаление записи SRV из набора записей
 
 	azure network dns record-set delete-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 -w 5 -o 8080 -u "sip.contoso.com"
@@ -178,4 +183,4 @@ DNS Azure является исключительно службой диспе�
 
 Если вы хотите работать с обратными записями DNS, ознакомьтесь с разделом [Как управлять обратными записями DNS для служб с помощью Azure CLI](dns-reverse-dns-record-operations-cli.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

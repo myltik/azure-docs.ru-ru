@@ -1,16 +1,17 @@
 
-## Start your PowerShell session
+## Запуск сеанса PowerShell
 
-First you need to have the latest [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) installed and running. For detailed information, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md).
+Сначала установите и запустите последнюю версию [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md).
 
 
->[AZURE.NOTE] The examples in this topic use [Azure Resource Manager deployment model](../articles/resource-group-overview.md), so examples use the [Azure Resource Manager cmdlets](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
+>[AZURE.NOTE] В примерах ниже используется [модель развертывания Azure Resource Manager](../articles/resource-group-overview.md), поэтому применяются [командлеты Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx).
 
-Run the [**Add-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
+Выполните командлет [**Add-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx). Откроется окно входа, в котором нужно ввести свои учетные данные. Используйте для входа те же учетные данные, что и для входа на портал Azure.
 
 	Add-AzureRmAccount
 
-If you have multiple subscriptions use the [**Set-AzureRmContext**](http://msdn.microsoft.com/library/mt619263.aspx) cmdlet to select which subscription your PowerShell session should use. To see what subscription the current PowerShell session is using, run [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx). To see all your subscriptions, run [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx).
+Если у вас несколько подписок, используйте командлет [**Set-AzureRmContext**](http://msdn.microsoft.com/library/mt619263.aspx), чтобы выбрать подписку, которую будет использовать сеанс PowerShell. Чтобы узнать, какую подписку использует текущий сеанс PowerShell, выполните командлет [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx). Чтобы просмотреть все подписки, выполните командлет [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx).
 
 	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
+<!---HONumber=AcomDC_0928_2016-->

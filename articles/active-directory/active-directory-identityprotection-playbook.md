@@ -5,7 +5,7 @@
 	keywords="защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -136,7 +136,7 @@
 ##Риск при входе
 
  
-**Чтобы протестировать риск при входе, выполните следующее**.
+**Чтобы протестировать риск при входе, выполните следующее.**
 
 1.	Войдите на портал по адресу [https://portal.azure.com](https://portal.azure.com), используя учетные данные глобального администратора для клиента.
 
@@ -169,4 +169,4 @@
 
  - [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

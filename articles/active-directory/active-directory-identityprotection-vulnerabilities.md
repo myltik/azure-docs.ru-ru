@@ -5,7 +5,7 @@
 	keywords="защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -62,4 +62,4 @@ Azure Multi-Factor Authentication обеспечивает второй уров
 
  - [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

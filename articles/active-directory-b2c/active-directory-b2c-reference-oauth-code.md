@@ -116,11 +116,11 @@ error=access_denied
 | state | См. полное описание в первой таблице этого раздела. Если запрос содержит параметр "state", в ответе должно отображаться то же значение. Приложение должно проверить, совпадают ли значения параметра "state" в запросе и ответе. |
 
 
-## 2\. Получение маркера
+## 2) Получение маркера
 После получения кода авторизации можно использовать `code`, чтобы получить маркер для необходимого ресурса путем отправки запроса `POST` на конечную точку `/token`. В Azure AD B2C вы можете запросить маркер только для веб-API серверной части вашего приложения. В соответствии с соглашением, которое используется, при запросе маркера для себя следует использовать идентификатор клиента в качестве области.
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -185,7 +185,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 Срок действия маркеров доступа и маркеров идентификатора крайне мал. Для сохранения доступа к ресурсам маркеры с истекшим сроком действия необходимо обновлять. Для этого нужно отправить еще один запрос `POST` в конечную точку `/token`, указав `refresh_token` вместо `code`:
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -244,4 +244,4 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 - [Создайте приложение](active-directory-b2c-app-registration.md) для получения идентификатора приложения и URI перенаправления. Включите **собственный клиент** в свое приложение.
 - [Создайте собственные политики](active-directory-b2c-reference-policies.md) для получения имен политик.
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

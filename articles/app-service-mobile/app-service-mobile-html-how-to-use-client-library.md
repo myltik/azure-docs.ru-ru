@@ -22,6 +22,12 @@
 
 В этом руководстве показано, как реализовать типичные сценарии с использованием последней версии [пакета SDK JavaScript для мобильных приложений Azure]. Если вы не знакомы с мобильными приложениями Azure, сначала изучите статью [Быстрый запуск мобильного приложения Azure], чтобы создать серверную часть и таблицу. В этом руководстве мы рассмотрим использование мобильного внутреннего сервера в веб-приложениях HTML и JavaScript.
 
+## Поддерживаемые платформы
+
+Для текущей и последней версий поддерживаются основные браузеры: Google Chrome, Microsoft Edge, Microsoft Internet Explorer и Mozilla Firefox. Ожидается, что пакет SDK будет работать с любым относительно современным браузером.
+
+Этот пакет распространяется в виде универсального модуля JavaScript, поэтому он поддерживает глобальные переменные, AMD и форматы CommonJS.
+
 ##<a name="Setup"></a>Настройка и необходимые компоненты
 
 В данном руководстве предполагается, что вы уже создали серверную часть с таблицей. В этом руководстве предполагается, что в таблице используется та же схему, что и в таблицах, приведенных в этих учебниках.
@@ -73,7 +79,7 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 4. Щелкните **Перейти**, чтобы открыть обозреватель ресурсов для серверной части мобильного приложения в новой вкладке или окне.
 5. Разверните узел **config** > **authsettings** для своего приложения.
 6. Нажмите кнопку **Изменить**, чтобы включить режим редактирования ресурса.
-7. Найдите элемент **allowedExternalRedirectUrls**, который должен иметь значение NULL. Измените его, как показано далее.
+7. Найдите элемент **allowedExternalRedirectUrls**, который должен иметь значение NULL. Добавьте URL-адреса в массив.
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
@@ -97,11 +103,10 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 <!-- URLs. -->
 [Быстрый запуск мобильного приложения Azure]: app-service-mobile-cordova-get-started.md
 [Приступая к работе с проверкой подлинности]: app-service-mobile-cordova-get-started-users.md
-[Добавление проверки подлинности в приложение]: app-service-mobile-cordova-get-started-users.md
+[Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [портал Azure]: https://portal.azure.com/
 [пакета SDK JavaScript для мобильных приложений Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
-[документации по объектам запросов]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/ru-RU/library/azure/jj613353.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
-
+<!---HONumber=AcomDC_0928_2016-->

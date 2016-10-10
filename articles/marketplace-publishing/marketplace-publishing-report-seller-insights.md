@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="02/05/2016"
    ms.author="v-jeana; hascipio"/>
 
 # Основные сведения об отчетах Seller Insights
@@ -92,7 +92,9 @@
 Откройте вкладку **Издатели**. ![selectpublisherstab][8]
 
 
-Найдите идентификатор издателя в URL-адресе и введите его в качестве пароля для открытия Excel-файла Seller Insights. Этот пароль будет применяться впредь до его изменения. Кроме того, в качестве программы для работы с отчетами рекомендуем использовать MS Office 2013 для ОС Windows. Некоторые пользователи сообщили о проблемах при работе с отчетами в MS Office для Mac.
+Найдите идентификатор издателя в URL-адресе:
+- Введите его в качестве пароля для открытия Excel-файла Seller Insights. Этот пароль будет применяться впредь до его изменения.
+- Кроме того, в качестве программы для работы с отчетами рекомендуем использовать MS Office 2013 для ОС Windows. Некоторые пользователи сообщили о проблемах при работе с отчетами в MS Office для Mac.
 
 ![publisherid][9]
 
@@ -118,4 +120,4 @@
 [9]: ./media/marketplace-publishing-report-seller-insights/publisherid.png
 [10]: ./media/marketplace-publishing-report-seller-insights/sellerinsightsquestions.png
 
-<!---HONumber=AcomDC_0211_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,16 +5,16 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="cbrooks;robmcm"/>
 
 # Использование хранилища очередей из Java
 
@@ -393,4 +393,4 @@
 [API-интерфейс REST служб хранилища Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

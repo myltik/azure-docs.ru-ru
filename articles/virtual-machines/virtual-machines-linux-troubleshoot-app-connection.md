@@ -1,25 +1,25 @@
 <properties
-	pageTitle="Программа не открывает или не прослушивает порт, заблокированный на виртуальной машине | Microsoft Azure"
-	description="Если вам не удается запустить или использовать программу, которая работает на виртуальной машине Azure, выполните следующие действия, чтобы определить источник проблемы."
+	pageTitle="Устранение проблем с доступом к приложениям на виртуальных машинах | Microsoft Azure"
+	description="Эти подробные сведения помогут вам устранить проблемы с подключением к приложениям, работающим на виртуальных машинах Linux в Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
 	manager="timlt"
 	editor=""
 	tags="top-support-issue,azure-service-management,azure-resource-manager"
-	keywords="не удается запустить приложение, программа не открывается, прослушивается заблокированный порт, не удалось запустить программу, прослушивается заблокированный порт"/>
+	keywords="не удается запустить приложение, программа не открывается, порт прослушивания заблокирован, не удалось запустить программу"/>
 
 <tags
 	ms.service="virtual-machines-linux"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
+	ms.topic="support-article"
+	ms.date="09/27/2016"
 	ms.author="iainfou"/>
 
-# Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure
+# Устранение проблем с подключением к приложениям на виртуальных машинах Linux в Azure
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

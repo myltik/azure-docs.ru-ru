@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование партнеров для доставки лицензий Widevine для служб мультимедиа Azure" 
+	pageTitle="Использование партнеров для доставки лицензий Widevine для служб мультимедиа Azure | Microsoft Azure" 
 	description="В этой статье описывается использование служб мультимедиа Azure (AMS) для доставки потока, который зашифрован динамически службой AMS, с помощью лицензий DRM PlayReady и Widevine. Лицензию PlayReady выдает сервер лицензирования служб мультимедиа PlayReady, а лицензию Widevine — сервер лицензирования castLabs." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako"/>
 
 #Использование партнеров для доставки лицензий Widevine для служб мультимедиа Azure
@@ -47,4 +47,4 @@
 
 [Блог по Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

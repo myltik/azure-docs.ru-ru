@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/26/2016"
 	ms.author="carlasab"/>
 
 
@@ -180,4 +180,4 @@
 
 Инструкции по созданию образ виртуальной машины Azure SQL Server из записанного образа см. в [рекомендациях по клонированию виртуальных машин Azure SQL из записанных образов](https://blogs.msdn.microsoft.com/psssql/2016/07/06/tips-tricks-on-cloning-azure-sql-virtual-machines-from-captured-images/) в блоге инженеров CSS SQL Server.
 
-<!---HONumber=AcomDC_0713_2016-->
+<!---HONumber=AcomDC_0928_2016-->

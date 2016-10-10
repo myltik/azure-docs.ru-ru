@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -68,4 +68,4 @@
 
 -   [Управление доменными именами в Azure AD с помощью API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

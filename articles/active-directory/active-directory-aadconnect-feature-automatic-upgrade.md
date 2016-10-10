@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="StevenPo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -94,4 +94,4 @@ UpgradeNotSupportedUserWritebackEnabled | Включена функция [об�
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

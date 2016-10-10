@@ -7,14 +7,14 @@
 	manager="carmonm"
 	editor="tysonn"/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="jutang;robinsh"/>
 
 
 # Что делать в случае простоя службы хранилища Azure
@@ -81,4 +81,4 @@
 
 -   Файлы — используйте [AzCopy](storage-use-azcopy.md) или [Azure PowerShell](storage-powershell-guide-full.md) для копирования файлов в другую учетную запись хранения, относящуюся к другому региону.
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -36,7 +36,7 @@
 
 Функция | Поддержка
 --- | --- |
-Подключенный источник данных | Соединитель поддерживают все серверы LDAP v3 (соответствуют требованиям документа RFC 4510). Соединитель протестирован со следующими решениями: <li>службы Microsoft Active Directory облегченного доступа к каталогам (AD LDS);</li><li>глобальный каталог Microsoft Active Directory (AD GC);</li><li>389 Directory Server;</li><li>Apache Directory Server;</li><li>IBM Tivoli DS;</li><li>Isode Directory;</li><li>NetIQ eDirectory;</li><li>Novell eDirectory;</li><li>Open DJ;</li><li>Open DS;</li><li>Open LDAP (openldap.org);</li><li>Oracle (предыдущее название — Sun) Directory Server Enterprise Edition;</li><li>RadiantOne Virtual Directory Server;</li><li>Sun One Directory Server.</li>**Не поддерживаются такие известные каталоги:** <li>доменные службы Microsoft Active Directory (AD DS) (взамен используйте встроенный соединитель Active Directory);</li><li>Oracle Internet Directory (OID).</li>
+Подключенный источник данных | Соединитель поддерживают все серверы LDAP v3 (соответствуют требованиям документа RFC 4510). Соединитель протестирован со следующими решениями: <li>службы Microsoft Active Directory облегченного доступа к каталогам (AD LDS);</li><li>глобальный каталог Microsoft Active Directory (AD GC);</li><li>389 Directory Server;</li><li>Apache Directory Server;</li><li>IBM Tivoli DS;</li><li>Isode Directory;</li><li>NetIQ eDirectory;</li><li>Novell eDirectory;</li><li>Open DJ;</li><li>Open DS;</li><li>Open LDAP (openldap.org);</li><li>Oracle (предыдущее название — Sun) Directory Server Enterprise Edition;</li><li>RadiantOne Virtual Directory Server;</li><li>Sun One Directory Server.</li>**Не поддерживаются такие известные каталоги: ** <li>доменные службы Microsoft Active Directory (AD DS) (взамен используйте встроенный соединитель Active Directory);</li><li>Oracle Internet Directory (OID).</li>
 Сценарии | <li>Управление жизненным циклом объекта.</li><li>Управление группами.</li><li>Управление паролями.</li>
 Операции |Следующие операции поддерживаются во всех каталогах LDAP: <li>полный импорт;</li><li>экспорт.</li>Следующие операции поддерживаются только в указанных каталогах:<li>импорт изменений;</li><li>установка и изменение пароля.</li>
 Схема | <li>Схема определяется из схемы LDAP (RFC 3673 и RFC 4512/4.2).</li><li>Поддерживаются структурные классы, дополнительные классы и класс объектов extensibleObject (RFC 4512/4.3).</li>
@@ -252,4 +252,4 @@ Sun One Directory Server | Различающееся имя
 
 -	Сведения о том, как включить ведение журнала для устранения неполадок соединителя, см. в статье [Включение трассировки событий Windows для соединителей](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_0928_2016-->

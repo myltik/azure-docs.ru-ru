@@ -8,21 +8,22 @@
    editor=""
    tags=""/>
 
-<tags
+.<tags
    ms.service="sql-data-warehouse"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/04/2016"
+   ms.date="09/24/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Аутентификация в хранилище данных SQL Azure
 
 > [AZURE.SELECTOR]
-- [Обзор](sql-data-warehouse-connect-overview.md)
+- [Обзор безопасности](sql-data-warehouse-overview-manage-security.md)
 - [Аутентификация](sql-data-warehouse-authentication.md)
-- [Драйверы](sql-data-warehouse-connection-strings.md)
+- [Шифрование (портал)](sql-data-warehouse-encryption-tde.md)
+- [Шифрование (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 Для подключения к хранилищу данных SQL необходимо передавать учетные данные безопасности для аутентификации. После установки подключения некоторые его параметры настраиваются при установке сеанса запроса.
 
@@ -90,4 +91,4 @@
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
 [Функции и ограничения Azure AD]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

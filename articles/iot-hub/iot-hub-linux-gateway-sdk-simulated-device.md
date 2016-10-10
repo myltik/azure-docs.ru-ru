@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/20/2016"
-     ms.author="cstreet"/>
+     ms.date="08/29/2016"
+     ms.author="andbuc"/>
 
 
 # IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Linux (Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux)
@@ -26,7 +26,7 @@
 Перед началом работы необходимо выполнить следующие действия:
 
 - [Настроить среду разработки][lnk-setupdevbox] для работы с пакетом SDK для Linux.
-- [Создать центр IoT][lnk-create-hub] в подписке Azure (для работы с данным руководством необходимо знать имя центра). Если у вас еще нет подписки Azure, создайте [бесплатную учетную запись][lnk-free-trial].
+- [Создайте центр IoT][lnk-create-hub] в подписке Azure (для выполнения указаний данного пошагового руководства необходимо имя центра). Если у вас еще нет подписки Azure, получите [бесплатную учетную запись][lnk-free-trial].
 - Добавьте в центр IoT два устройства и запишите их идентификаторы и ключи устройств. Для добавления устройств в центр IoT, созданный при выполнении предыдущего шага, и получения их ключей можно использовать [обозреватель устройств или средство iothub-explorer][lnk-explorer-tools].
 
 Сборка примера
@@ -41,11 +41,12 @@
 
 В текстовом редакторе откройте файл **samples/simulated\_device\_cloud\_upload/src/simulated\_device\_cloud\_upload\_lin.json** в локальной копии репозитория **azure-iot-gateway-sdk**. Этот файл настраивает модули в примере шлюза:
 
-- Модуль **IoTHub** подключается к центру IoT. Его необходимо настроить для отправки данных в центр IoT. В частности, укажите в качестве значения **IoTHubName** имя своего центра IoT, а в качестве значения **IoTHubSuffix** — **azure devices.net**.
-- Модуль **mapping** сопоставляет MAC-адреса виртуальных устройств с идентификаторами устройств центра IoT. Убедитесь в том, что значения **deviceId** совпадают с идентификаторами двух устройств, добавленных в центр IoT, а значения **deviceKey** содержат ключи эти двух устройств.
-- Модули **BLE1** и **BLE2** — это виртуальные устройства. Обратите внимание на то, что их MAC-адреса совпадают с адресами в модуле **mapping**.
-- Модуль **Logger** записывает активность вашего шлюза в файл.
+- Модуль **IoTHub** подключается к центру IoT. Его необходимо настроить для отправки данных в центр IoT. В частности, укажите в качестве значения **IoTHubName** имя своего Центра Интернета вещей, а в качестве значения **IoTHubSuffix** — **azure-devices.net**. Для параметра **Transport** задайте одно из следующих значений: HTTP, AMQP или MQTT. Обратите внимание, что в настоящее время только HTTP использует одно TCP-подключение для всех сообщений с устройства. Если задать значение AMQP или MQTT, то шлюз будет поддерживать отдельное TCP-подключение к Центру Интернета вещей для каждого устройства.
+- Модуль **mapping** сопоставляет MAC-адреса имитаций устройств с идентификаторами устройств Центра Интернета вещей. Убедитесь в том, что значения **deviceId** совпадают с идентификаторами двух устройств, добавленных в Центр Интернета вещей, а значения **deviceKey** содержат ключи этих двух устройств.
+- Модули **BLE1** и **BLE2** — это имитации устройств. Обратите внимание на то, что их MAC-адреса совпадают с адресами в модуле **mapping**.
+- Модуль **Logger** регистрирует активность вашего шлюза в файл.
 - Представленные ниже значения **module path** предполагают, что пример запускается из корневой папки локальной копии репозитория **azure-iot-gateway-sdk**.
+- Массив **links** в нижней части JSON-файла подключает модули **BLE1** и **BLE2** к модулю **mapping**, а модуль **mapping** — к модулю **IoTHub**. Это также гарантирует, что все сообщения будут зарегистрированы модулем **Logger**.
 
 ```
 {
@@ -53,27 +54,28 @@
     [ 
         {
             "module name" : "IoTHub",
-            "module path" : "./build/modules/iothubhttp/libiothubhttp_hl.so",
+            "module path" : "./build/modules/iothub/libiothub_hl.so",
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
-                "IoTHubSuffix" : "azure-devices.net"
+                "IoTHubSuffix" : "azure-devices.net",
+                "Transport": "HTTP"
             }
         },
         {
             "module name" : "mapping",
-            "module path" : "./build/modules/identitymap/libidentitymap_hl.so",
+            "module path" : "./build/modules/identitymap/libidentity_map_hl.so",
             "args" : 
             [
                 {
                     "macAddress" : "01-01-01-01-01-01",
-                    "deviceId"   : "GW-ble1-demo",
-                    "deviceKey"  : "{Device key}"
+                    "deviceId"   : "{Device ID 1}",
+                    "deviceKey"  : "{Device key 1}"
                 },
                 {
                     "macAddress" : "02-02-02-02-02-02",
-                    "deviceId"   : "GW-ble2-demo",
-                    "deviceKey"  : "{Device key}"
+                    "deviceId"   : "{Device ID 2}",
+                    "deviceKey"  : "{Device key 2}"
                 }
             ]
         },
@@ -101,6 +103,12 @@
                 "filename":"./deviceCloudUploadGatewaylog.log"
             }
         }
+    ],
+    "links" : [
+        { "source" : "*", "sink" : "Logger" },
+        { "source" : "BLE1", "sink" : "mapping" },
+        { "source" : "BLE2", "sink" : "mapping" },
+        { "source" : "mapping", "sink" : "IoTHub" }
     ]
 }
 
@@ -117,7 +125,7 @@
     ./build/samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
     ```
 
-3. Для мониторинга сообщений, полученных центром IoT из шлюза, можно использовать [обозреватель устройств или средство iothub-explorer][lnk-explorer-tools].
+3. Для мониторинга сообщений, получаемых Центром Интернета вещей из шлюза, можно использовать [обозреватель устройств или средство iothub-explorer][lnk-explorer-tools].
 
 ## Дальнейшие действия
 
@@ -151,4 +159,4 @@
 [lnk-portal]: iot-hub-manage-through-portal.md
 [lnk-securing]: iot-hub-security-ground-up.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_0928_2016-->

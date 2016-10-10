@@ -4,7 +4,7 @@
 	keywords="перемещение данных, перенос данных, копирование данных, передача данных"
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="spelluru"/>
+	ms.date="09/22/2016"
+	ms.author="jingwang"/>
 
 # Перемещение данных с помощью действия копирования
 
@@ -54,23 +54,14 @@
 Используя шлюз управления данными, можно также перемещать данные в поддерживаемые хранилища данных, расположенные на виртуальных машинах IaaS Azure, и из таких хранилищ. В этом случае шлюз управления данными можно установить на ту же виртуальную машину, где находится хранилище данных, или на отдельную виртуальную машину с доступом к этому хранилищу.
 
 ## Поддерживаемые хранилища данных и форматы
-Действие копирования копирует данные из хранилища-источника в хранилище-приемник. Фабрика данных поддерживает приведенные ниже хранилища данных. Данные из любого источника можно записывать в любой приемник. Щелкните название хранилища, чтобы узнать, как скопировать данные из него или в него.
-
-Категория | Хранилище данных | Поддерживается в качестве источника | Поддерживается в качестве приемника
-:------- | :--------- | :------------------ | :-----------------
-Таблицы Azure | [Хранилище BLOB-объектов Azure](data-factory-azure-blob-connector.md) <br/> [Azure Data Lake Store](data-factory-azure-datalake-connector.md) <br/> [База данных SQL Azure](data-factory-azure-sql-connector.md) <br/> [Хранилище данных SQL Azure](data-factory-azure-sql-data-warehouse-connector.md) <br/> [Хранилище таблиц Azure](data-factory-azure-table-connector.md) <br/> [База данных Azure DocumentDB](data-factory-azure-documentdb-connector.md) <br/> | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓
-Базы данных | [SQL Server](data-factory-sqlserver-connector.md)* <br/> [Oracle](data-factory-onprem-oracle-connector.md)* <br/> [MySQL](data-factory-onprem-mysql-connector.md)* <br/> [DB2](data-factory-onprem-db2-connector.md)* <br/> [Teradata](data-factory-onprem-teradata-connector.md)* <br/> [PostgreSQL](data-factory-onprem-postgresql-connector.md)* <br/> [Sybase](data-factory-onprem-sybase-connector.md)* <br/>[Cassandra](data-factory-onprem-cassandra-connector.md)* <br/>[MongoDB](data-factory-on-premises-mongodb-connector.md)*<br/>[Amazon Redshift](data-factory-amazon-redshift-connector.md) | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓<br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | ✓ <br/> ✓ <br/> &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp;<br/> &nbsp;<br/> &nbsp; <br/>&nbsp;
-Файл | [Файловая система](data-factory-onprem-file-system-connector.md)* <br/> [HDFS](data-factory-hdfs-connector.md)* <br/> [Amazon S3](data-factory-amazon-simple-storage-service-connector.md) | ✓ <br/> ✓ <br/> ✓ | ✓ <br/> &nbsp;<br/>&nbsp;
-Прочее | [Salesforce](data-factory-salesforce-connector.md)<br/> [Универсальное ODBC](data-factory-odbc-connector.md)* <br/> [Универсальное OData](data-factory-odata-connector.md) <br/> [Веб-таблица (таблица из HTML)](data-factory-web-table-connector.md) <br/> [GE Historian](data-factory-odbc-connector.md#ge-historian-store)* | ✓ <br/> ✓ <br/> ✓ <br/> ✓ <br/> ✓ | &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp;<br/> &nbsp;<br/> &nbsp;
-
-> [AZURE.NOTE] Хранилища данных, отмеченные звездочкой (*), могут находиться в локальном расположении или в IaaS Azure и требовать установки [шлюза управления данными](data-factory-data-management-gateway.md) на локальном компьютере или компьютере IaaS Azure.
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
 Если необходимо переместить данные в хранилище или из хранилища данных, которое не поддерживается действием копирования, вы можете использовать в фабрике данных **настраиваемое действие**. В нем для копирования и перемещения данных используется логика, которую задаете вы. Сведения о создании и использовании настраиваемого действия см. в статье [Использование настраиваемых действий в конвейере фабрики данных Azure](data-factory-use-custom-activities.md).
 
 ### Поддерживаемые форматы файлов
 С помощью действия копирования можно копировать файлы "как есть" из одного файлового хранилища данных в другое (это такие хранилища, как большой двоичный объект Azure, файловая система и система HDFS). Для этого нужно пропустить [раздел формата](data-factory-create-datasets.md) в определениях наборов входных и выходных данных. Это позволяет эффективно копировать данные без какой-либо сериализации или десериализации.
 
-Кроме того, действие копирования позволяет читать файлы таких форматов (и делать в них записи): текстовый формат, AVRO, ORC и JSON. Вы можете выполнять следующие действия копирования:
+Кроме того, действие копирования позволяет читать и записывать файлы таких форматов: текстовый формат, Avro, ORC, Parquet и JSON. Вы можете выполнять следующие действия копирования:
 
 -	копирование данных в текстовом формате (CSV) из большого двоичного объекта Azure и запись в базу данных SQL Azure;
 -	копирование файлов в текстовом формате (CSV) из локальной файловой системы и запись в большой двоичный объект Azure в формате AVRO;
@@ -185,11 +176,11 @@
 1. Преобразование собственных типов источников в тип .NET.
 2. Преобразование типа .NET в собственный тип приемника.
 
-Сведения о сопоставлениях собственных систем типов с типами .NET см. в статьях, посвященных соответствующим хранилищам данных. (Щелкните соответствующую ссылку в таблице [Поддерживаемые хранилища данных и форматы](#supported-data-stores)). Эти сопоставления позволяют выбрать подходящие типы при создании таблиц и обеспечить правильность преобразований в процессе копирования.
+Сведения о сопоставлении собственных систем типов с типами .NET см. в статьях, посвященных соответствующим хранилищам данных. (Щелкните соответствующую ссылку в таблице [Поддерживаемые хранилища данных и форматы](#supported-data-stores)). Эти сопоставления позволяют выбрать подходящие типы при создании таблиц и обеспечить правильность преобразований в процессе копирования.
 
 
 ## Дальнейшие действия
 - Дополнительные сведения о действии копирования см. в статье [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 - Чтобы узнать о перемещении данных из локального хранилища данных в облачное хранилище данных, ознакомьтесь со статьей [Перемещение данных между локальными источниками и облаком с помощью шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Встраивание адаптивного потокового видео MPEG-DASH в приложение HTML5 с помощью DASH.js" 
+	pageTitle="Встраивание адаптивного потокового видео MPEG-DASH в приложение HTML5 с помощью DASH.js | Microsoft Azure" 
 	description="В этом разделе демонстрируется встраивание адаптивного потокового видео MPEG-DASH в приложение HTML5 с помощью DASH.js." 
 	authors="Juliako" 
 	manager="erikre" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 
@@ -114,4 +114,4 @@ Dash.js — это проигрыватель видео MPEG-DASH с откр�
 
 [Репозиторий dash.js на GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

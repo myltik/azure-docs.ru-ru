@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -49,4 +49,4 @@
 - [Создание и изменение пользователей в Azure AD](active-directory-create-users.md)
 - [Управление группами в Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

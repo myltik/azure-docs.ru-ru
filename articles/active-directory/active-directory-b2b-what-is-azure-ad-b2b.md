@@ -8,13 +8,13 @@
    editor=""
    tags=""/>
 
-<tags
+.<tags
    ms.service="active-directory"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="08/11/2016"
+   ms.date="09/27/2016"
    ms.author="femila"/>
 
 # Предварительная версия службы совместной работы Azure Active Directory (Azure AD) B2B: простая и надежная облачная интеграция партнеров
@@ -42,4 +42,4 @@
 - [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
 - [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

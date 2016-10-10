@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Управление активами служб мультимедиа в нескольких учетных записях хранения" 
+	pageTitle="Управление активами служб мультимедиа в нескольких учетных записях хранения | Microsoft Azure" 
 	description="В этой статье приведены рекомендации по управлению файлами служб мультимедиа в нескольких учетных записях хранения." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"    
+	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
@@ -40,7 +40,7 @@
 
 ##Подключение учетной записи хранения с помощью API REST управления службами Azure
 
-Сейчас единственным способом подключения нескольких учетных записей хранения является использование [API REST управления службами Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). В примере кода в статье [Как использовать API REST управления службами мультимедиа ](https://msdn.microsoft.com/library/azure/dn167656.aspx) описывается метод **AttachStorageAccountToMediaServiceAccount**, который подключает учетную запись хранения к указанной учетной записи служб мультимедиа. Код в том же разделе определяет метод **ListStorageAccountDetails**, который выводит все учетные записи хранения, подключенные к указанной учетной записи служб мультимедиа.
+Сейчас единственным способом подключения нескольких учетных записей хранения является использование [API REST управления службами Azure](http://msdn.microsoft.com/library/azure/dn167014.aspx). В примере кода в разделе [How to: Use Media Services Management REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx) (Как использовать API REST управления службами мультимедиа) описывается метод **AttachStorageAccountToMediaServiceAccount**, который подключает учетную запись хранения к указанной учетной записи служб мультимедиа. Код в том же разделе определяет метод **ListStorageAccountDetails**, который выводит все учетные записи хранения, подключенные к указанной учетной записи служб мультимедиа.
 
 
 ##Управление файлами служб мультимедиа в нескольких учетных записях хранения
@@ -259,4 +259,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

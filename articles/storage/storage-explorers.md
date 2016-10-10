@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2016"
-	ms.author="micurd"/>
+	ms.date="09/21/2016"
+	ms.author="micurd;tamram"/>
 
 # Клиентские инструменты службы хранилища Azure
 
@@ -33,8 +33,8 @@
     <th rowspan="2">Таблицы</th>
     <th rowspan="2">Очереди</th>
     <th rowspan="2">Файлы</th>
-    <th rowspan="2">Free</th>
-    <th colspan="4">платформа</th>
+    <th rowspan="2">Бесплатно</th>
+    <th colspan="4">Платформа</th>
   </tr>
   <tr>
     <td>Web</td>
@@ -99,8 +99,8 @@
     <th rowspan="2">Таблицы</th>
     <th rowspan="2">Очереди</th>
     <th rowspan="2">Файлы</th>
-    <th rowspan="2">Free</th>
-    <th colspan="4">платформа</th>
+    <th rowspan="2">Бесплатно</th>
+    <th colspan="4">Платформа</th>
   </tr>
   <tr>
     <td>Web</td>
@@ -250,4 +250,4 @@
   </tr>
 </table>
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

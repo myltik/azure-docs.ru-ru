@@ -4,7 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtand"/>
 
 <tags 
@@ -93,4 +93,4 @@
 ## Дальнейшие действия
 Дополнительные сведения о [мониторинге локальной инфраструктуры идентификации и служб синхронизации в облаке](active-directory-aadconnect-health.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

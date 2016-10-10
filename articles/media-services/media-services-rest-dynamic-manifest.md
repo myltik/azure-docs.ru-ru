@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание фильтров с помощью с помощью API REST служб мультимедиа" 
+	pageTitle="Создание фильтров с помощью API REST служб мультимедиа | Microsoft Azure" 
 	description="В этом разделе описывается создание фильтров, с помощью которых клиент может передавать определенные секции потока. Для достижения такой выборочной потоковой передачи службы мультимедиа создают динамические манифесты."
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="juliako;cenkdin"/>
 
 #Создание фильтров с помощью с помощью API REST служб мультимедиа
@@ -374,4 +374,4 @@
 
  
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -4,10 +4,10 @@
 	documentationCenter=""
 	services="active-directory"
 	authors="billmath"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="active-directory"
 	ms.devlang="na"
 	ms.topic="article"
@@ -81,4 +81,4 @@
 ## См. также
 [Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

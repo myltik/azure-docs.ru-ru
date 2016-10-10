@@ -13,12 +13,12 @@
    	ms.tgt_pltfrm="na"
    	ms.devlang="na"
    	ms.topic="article"
-   	ms.date="07/06/2016"
+   	ms.date="09/22/2016"
    	ms.author="v-donglo"/>
 
 # Развертывание новой веб-службы
 
-Теперь Машинное обучение Microsoft Azure предоставляет веб-службы на основе [Azure Resource Manager](../azure-portal/resource-group-overview.md). Это позволяет предложить новые варианты планов выставления счетов и возможности развертывания веб-службы в нескольких регионах.
+Теперь Машинное обучение Microsoft Azure предоставляет веб-службы на основе [Azure Resource Manager](../resource-group-overview.md). Это позволяет предложить новые варианты планов выставления счетов и возможности развертывания веб-службы в нескольких регионах.
 
 Ниже приведен общий рабочий процесс развертывания веб-службы с помощью веб-служб Машинного обучения Microsoft Azure:
 
@@ -87,6 +87,13 @@
 
 Дополнительные сведения об использовании веб-служб см. в статье [Как использовать веб-службу машинного обучения Azure, развернутую из эксперимента машинного обучения](machine-learning-consume-web-services.md).
 
+## Дальнейшие действия
+
+Дополнительные сведения об использовании веб-служб см. в следующих статьях:
+
+[Как использовать веб-службу машинного обучения Azure, развернутую из эксперимента машинного обучения](machine-learning-consume-web-services.md)
+
+[Развертывание и использование веб-служб Машинного обучения Azure](machine-learning-deploy-consume-web-service-guide.md)
 
 <!--Image references-->
 [1]: ./media/machine-learning-webservice-deploy-a-web-service/armdeploymentworkflow.png
@@ -94,4 +101,4 @@
 
 <!--links-->
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->

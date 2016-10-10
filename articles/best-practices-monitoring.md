@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 
-<tags
+.<tags
    ms.service="best-practice"
    ms.devlang="na"
    ms.topic="article"
@@ -659,9 +659,9 @@ _Рис. 6. Секционирование данных в соответств�
 - [Azure: основы телеметрии и устранения неполадок](http://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)
 - [Включение диагностики в облачных службах и виртуальных машинах Azure](./cloud-services/cloud-services-dotnet-diagnostics.md)
 - [Кэш Redis для Azure](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) и [HDInsight](https://azure.microsoft.com/services/hdinsight/)
-- [Как использовать очереди служебной шины](./service-bus/service-bus-dotnet-get-started-with-queues.md)
+- [Как использовать очереди служебной шины](./service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 - [Бизнес-аналитика SQL Server на виртуальных машинах Azure](./virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
 - [Получение уведомлений об оповещениях](./azure-portal/insights-receive-alert-notifications.md) и [Мониторинг работоспособности службы](./azure-portal/insights-service-health.md)
 - [Application Insights](./application-insights/app-insights-overview.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_0928_2016-->

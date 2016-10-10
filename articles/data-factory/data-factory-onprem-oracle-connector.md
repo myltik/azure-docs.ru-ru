@@ -3,7 +3,7 @@
 	description="Узнайте, как переместить данные в локальную базу данных Oracle или из нее с помощью фабрики данных Azure." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/20/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Перемещение данных в локальную базу данных Oracle и обратно с помощью фабрики данных Azure 
 
@@ -511,4 +511,4 @@ XML | Строка
 ## Производительность и настройка  
 См. статью [Руководство по настройке производительности действия копирования](data-factory-copy-activity-performance.md), в которой описываются ключевые факторы, влияющие на производительность перемещения данных (действие копирования) в фабрике данных Azure, и различные способы оптимизации этого процесса.
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

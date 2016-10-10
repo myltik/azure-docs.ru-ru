@@ -7,17 +7,17 @@
 	services="monitoring-and-diagnostics"
 	documentationCenter="monitoring-and-diagnostics"/>
 
-<tags
+.<tags
 	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/26/2016"
 	ms.author="johnkem"/>
 
 # Автоматическое включение параметров диагностики при создании ресурса из шаблона Resource Manager
-В этой статье мы покажем, как применить [шаблон Azure Resource Manager](../resource-group-authoring-templates.md) для настройки параметров диагностики при создании ресурса. С помощью этого шаблона вы сможете запускать потоковую передачу журналов диагностики и метрик в концентраторы событий или архивировать их в учетной записи хранения при создании ресурса.
+В этой статье мы покажем, как применить [шаблон Azure Resource Manager](../resource-group-authoring-templates.md) для настройки параметров диагностики при создании ресурса. Это позволит автоматически запускать потоковую передачу журналов диагностики и метрик в концентраторы событий, архивировать их в учетной записи хранения ли отправлять в Log Analytics при создании ресурса.
 
 Для разных типов ресурсов журналы диагностики включаются с помощью шаблона Resource Manager по-разному.
 
@@ -36,9 +36,9 @@
 ## Шаблон для невычислительных ресурсов
 Для невычислительных ресурсов выполните два действия.
 
-1. Добавьте в большой двоичный объект параметров параметры имени учетной записи хранения и идентификатора правила служебной шины (для хранения журналов диагностики в учетной записи хранения и (или) для потоковой передачи журналов в концентраторы событий).
+1. Добавьте в большой двоичный объект параметров параметры имени учетной записи хранения, идентификатора правила служебной шины и (или) идентификатор рабочей области OMS Log Analytics. Это позволит архивировать журналы диагностики в учетную запись хранения, передавать поток журналов в концентраторы событий и (или) отправлять журналы в Log Analytics.
 
-    ```
+    ```json
     "storageAccountName": {
       "type": "string",
       "metadata": {
@@ -50,11 +50,17 @@
       "metadata": {
         "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
       }
+    },
+    "workspaceId":{
+      "type": "string",
+      "metadata": {
+        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+      }
     }
     ```
 2. Добавьте ресурс с типом `[resource namespace]/providers/diagnosticSettings` в массив ресурсов того ресурса, для которого нужно включить журналы диагностики.
 
-    ```
+    ```json
     "resources": [
       {
         "type": "providers/diagnosticSettings",
@@ -66,6 +72,7 @@
         "properties": {
           "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
           "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+          "workspaceId": "[parameters('workspaceId')]",
           "logs": [ 
             {
               "category": "/* log category name */",
@@ -85,76 +92,85 @@
 
 Ниже приведен полный пример, в котором создается группа безопасности сети, а также настраивается потоковая передача в концентраторы событий и хранение в учетной записи хранения.
 
-```
+```json
+
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "nsgName": {
-            "type": "string",
-			"metadata": {
-				"description": "Name of the NSG that will be created."
-			}
-        },
-		"storageAccountName": {
-			"type": "string",
-			"metadata": {
-				"description":"Name of the Storage Account in which Diagnostic Logs should be saved."
-			}
-		},
-		"serviceBusRuleId": {
-			"type": "string",
-			"metadata": {
-				"description":"Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
-			}
-		}
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nsgName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the NSG that will be created."
+      }
     },
-    "variables": {},
-    "resources": [
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+      }
+    },
+    "serviceBusRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+      }
+    },
+    "workspaceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+      }
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('nsgName')]",
+      "apiVersion": "2016-03-30",
+      "location": "westus",
+      "properties": {
+        "securityRules": []
+      },
+      "resources": [
         {
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('nsgName')]",
-            "apiVersion": "2016-03-30",
-            "location": "westus",
-            "properties": {
-                "securityRules": []
-            },
-            "resources": [
-				{
-					"type": "providers/diagnosticSettings",
-					"name": "Microsoft.Insights/service",
-					"dependsOn": [
-						"[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
-					],
-					"apiVersion": "2015-07-01",
-					"properties": {
-						"storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-                        "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
-						"logs": [
-							{
-								"category": "NetworkSecurityGroupEvent",
-								"enabled": true,
-								"retentionPolicy": {
-									"days": 0,
-									"enabled": false
-								}
-							},
-                            {
-								"category": "NetworkSecurityGroupRuleCounter",
-								"enabled": true,
-								"retentionPolicy": {
-									"days": 0,
-									"enabled": false
-								}
-							}
-						]
-					}
-				}
-			],
-            "dependsOn": []
+          "type": "providers/diagnosticSettings",
+          "name": "Microsoft.Insights/service",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+          ],
+          "apiVersion": "2015-07-01",
+          "properties": {
+            "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+            "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+            "workspaceId": "[parameters('workspaceId')]",
+            "logs": [
+              {
+                "category": "NetworkSecurityGroupEvent",
+                "enabled": true,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              },
+              {
+                "category": "NetworkSecurityGroupRuleCounter",
+                "enabled": true,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              }
+            ]
+          }
         }
-    ]
+      ],
+      "dependsOn": []
+    }
+  ]
 }
+
 ```
 
 ## Шаблон для вычислительных ресурсов
@@ -173,4 +189,4 @@
 - [Дополнительные сведения о журналах диагностики Azure](./monitoring-overview-of-diagnostic-logs.md)
 - [Потоковая передача журналов диагностики Azure в концентраторы событий](./monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

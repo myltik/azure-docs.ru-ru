@@ -3,18 +3,18 @@
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью C, и их получению в кластере Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
-	authors="fsautomata"
+	authors="jtaubensee"
 	manager="timlt"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="event-hubs"
 	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
 	ms.topic="article"
 	ms.date="08/16/2016"
-	ms.author="sethm"/>
+	ms.author="jotaub;sethm"/>
 
 # Приступая к работе с концентраторами событий
 
@@ -61,10 +61,10 @@
 - [Анализ данных датчиков в Storm и HDInsight][] — это полный учебник, в котором концентраторы событий, Storm и HBase используются для приема данных датчиков в кластере Hadoop.
 - [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight][] — это учебник по написанию конвейеров Storm на C#.
 
-<!-- Images. -->
+.<!-- Images. -->
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
-<!-- Links -->
+.<!-- Links -->
 [Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Обзор концентраторов событий]: event-hubs-overview.md
@@ -74,4 +74,4 @@
 [Анализ данных датчиков в Storm и HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

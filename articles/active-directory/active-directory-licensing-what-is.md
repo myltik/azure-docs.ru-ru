@@ -5,7 +5,7 @@
 	  keywords="Лицензирование Azure AD"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -82,7 +82,7 @@ Azure Active Directory (Azure AD) — это служба идентифика�
 
 ![Планы пробной лицензии Azure Active Directory](./media/active-directory-licensing-what-is/trial_plans.png)
 
-![Планы пробной лицензии Enterprise Mobility Suite](./media/active-directory-licensing-what-is/EMS_trial_plan.png)
+.![Планы пробной лицензии Enterprise Mobility Suite](./media/active-directory-licensing-what-is/EMS_trial_plan.png)
 
 ![Активация планов пробных лицензий](./media/active-directory-licensing-what-is/active_license_trials.png)
 
@@ -140,4 +140,4 @@ Azure Active Directory (Azure AD) — это служба идентифика�
 - [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Прямое приобретение лицензий Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_0928_2016-->

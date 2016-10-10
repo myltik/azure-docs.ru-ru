@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 # Командлеты предварительной версии Azure Active Directory для управления группами
 
-В следующем документе представлены примеры использования PowerShell для управления группами в Azure Active Directory (Azure AD). Также в нем содержатся сведения о том, как выполнить настройки предварительной версии модуля Azure AD PowerShell. Во-первых, необходимо [скачать модуль Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+В следующем документе представлены примеры использования PowerShell для управления группами в Azure Active Directory (Azure AD). Также в нем содержатся сведения о том, как выполнить настройки предварительной версии модуля Azure AD PowerShell. Во-первых, необходимо [скачать модуль Azure AD PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=828627).
 
 ## Установка модуля Azure AD PowerShell
 
@@ -223,4 +223,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

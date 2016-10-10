@@ -7,14 +7,14 @@
 	manager="carmonm"
 	editor="tysonn"/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="fryu;robinsh"/>
 
 # Мониторинг учетной записи хранения на портале Azure
 
@@ -159,4 +159,4 @@
 
 Журналы диагностики сохраняются в контейнере BLOB-объектов с именем $logs в вашей учетной записи хранения. Дополнительные сведения о доступе к контейнеру $logs см. в статье [О ведении журнала службы аналитики хранилища](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="rmcmurray"/>
+	ms.author="jwillis;rmcmurray"/>
 
 # Локальное приложение с хранилищем больших двоичных объектов
 
@@ -26,7 +26,7 @@
 
 - Установленный пакет Java Developer Kit (JDK) версии 1.6 или более поздней.
 - Установленный пакет Azure SDK.
-- JAR-файл для библиотек Azure для Java и JAR-файлы для любых применимых зависимостей, установлены и указаны в пути сборки, который используется компилятором Java. Сведения об установке библиотек Azure для Java см. в разделе [Скачивание пакета SDK для Azure для Java]( java-download-azure-sdk.md).
+- JAR-файл для библиотек Azure для Java и JAR-файлы для любых применимых зависимостей, установлены и указаны в пути сборки, который используется компилятором Java. Сведения об установке библиотек Azure для Java см. в разделе [Скачивание пакета SDK для Azure для Java](java-download-azure-sdk.md).
 - Настроенная учетная запись хранения Azure. Имя и ключ учетной записи хранения используются в коде в этой статье. Сведения о создании учетной записи хранения см. в разделе [Создание учетной записи хранения](storage-create-storage-account.md#create-a-storage-account). Сведения о получении ключа учетной записи см. в разделе [Просмотр и копирование ключей доступа к хранилищу](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 - Вы создали локальный файл изображения, который был сохранен с именем c:\\myimages\\image1.jpg. Как вариант, можно изменить конструктор **FileInputStream** в данном примере, чтобы использовать другой путь и другое имя для изображения.
@@ -69,7 +69,7 @@
 -   **CloudBlobContainer**: используется для создания контейнера больших двоичных объектов, перечисления BLOB-объектов в контейнере и удаления контейнера.
 -   **CloudBlockBlob**: используется для отправки локального файла изображения в контейнер.
 
-<!-- -->
+.<!-- -->
 
     CloudStorageAccount account;
     CloudBlobClient serviceClient;
@@ -131,7 +131,7 @@
 -   **URISyntaxException**: может вызываться методом **ListBlobItem.getUri**.
 -   **Исключение**: обработка универсального исключения.
 
-<!-- -->
+.<!-- -->
 
     catch (FileNotFoundException fileNotFoundException)
     {
@@ -359,4 +359,4 @@
 - [API-интерфейс REST служб хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

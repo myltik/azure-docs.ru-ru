@@ -6,14 +6,14 @@
 	authors="robinsh" 
 	manager="carmonm"/>
 
-<tags 
+.<tags 
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/03/2016" 
-	ms.author="robinsh"/>
+	ms.author="jahogg;robinsh"/>
 
 # Комплексный поиск и устранение неполадок с помощью метрик хранилища Azure и ведения журнала, AzCopy и анализатора сообщений 
 
@@ -347,7 +347,7 @@ AzCopy можно загрузить на странице [Загрузки Azu
 | Для изучения... | Использование выражения фильтра | Выражение применяется к журналу (клиента, сервера, сети, всех) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Непредвиденные задержки при доставке сообщений в очередь | AzureStorageClientDotNetV4.Description содержит "Повторное выполнение неудавшейся операции". | Клиент |
-| Увеличение HTTP в PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Сеть |
+| Увеличение HTTP в PercentThrottlingError | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | Сеть |
 | Увеличение PercentTimeoutError | HTTP.Response.StatusCode == 500 | Сеть |
 | Увеличение PercentTimeoutError (все) | *StatusCode == 500 | Все |
 | Увеличение PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Клиент |
@@ -375,4 +375,4 @@ AzCopy можно загрузить на странице [Загрузки Azu
  
  
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

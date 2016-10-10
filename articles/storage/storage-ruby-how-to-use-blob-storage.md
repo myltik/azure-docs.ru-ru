@@ -5,16 +5,16 @@
 	documentationCenter="ruby"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
     ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="jwillis;robmcm"/>
 
 
 # Использование хранилища BLOB-объектов из Ruby
@@ -157,4 +157,4 @@
 - Репозиторий [пакетов SDK Azure для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
 - [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_0928_2016-->

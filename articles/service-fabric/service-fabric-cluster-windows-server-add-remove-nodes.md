@@ -32,20 +32,24 @@
 6. Запустите файл Powershell *AddNode.ps1*, указав параметры, описывающие новый узел для добавления. В следующем примере в домен сбоя 1 и домен обновления 1 добавляется новый узел с именем VM5, типом NodeType0 и IP-адресом 182.17.34.52. *ExistingClusterConnectionEndPoint* — это конечная точка подключения для узла в существующем кластере. Для этой конечной точки можно выбрать IP-адрес *любого* узла в кластере.
 
 ```
-.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1 -AcceptEULA true
+.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1 -AcceptEULA
+
 ```
 
 ## Удаление узлов из кластера
 
-1. Подключитесь к виртуальной машине или компьютеру, который нужно удалить из кластера, с помощью удаленного рабочего стола.
+1. В зависимости от уровня надежности, выбранного для кластера, вы не сможете удалить первые n (3/5/7/9) узлов основного типа.
+2. Выполнение команды RemoveNode в кластере разработки не поддерживается.
+2. Подключитесь к виртуальной машине или компьютеру, который нужно удалить из кластера, с помощью удаленного рабочего стола.
 2. Скопируйте или [скачайте изолированный пакет для Service Fabric для Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) на виртуальную машину или компьютер и извлеките его содержимое.
 3. Запустите PowerShell от имени администратора и перейдите к расположению распакованного пакета.
-4. Запустите файл Powershell *RemoveNode.ps1*. В приведенном ниже примере текущий узел удаляется из кластера. *ExistingClusterConnectionEndPoint* — это конечная точка подключения для узла в существующем кластере. Для этой конечной точки можно выбрать IP-адрес *любого* узла в кластере.
+4. Запустите файл Powershell *RemoveNode.ps1*. В приведенном ниже примере текущий узел удаляется из кластера. *ExistingClusterConnectionEndPoint* — это конечная точка подключения для узла в существующем кластере. Для этой конечной точки необходимо выбрать IP-адрес *любого* **другого узла** в кластере.
 
 ```
 .\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
 ```
 
+Известная ошибка, которая будет исправлена в следующем выпуске: даже после удаления узла он отображается как неработающий в запросах и SFX.
 
 ## Дальнейшие действия
 - [Параметры конфигурации для автономного кластера Windows](service-fabric-cluster-manifest.md)
@@ -53,4 +57,4 @@
 - [Защита автономного кластера под управлением Windows с помощью сертификатов](service-fabric-windows-cluster-x509-security.md)
 - [Create a three node standalone Service Fabric cluster with Azure virtual machines running Windows Server (Создание автономного кластера Service Fabric с тремя узлами на виртуальных машинах Azure под управлением Windows)](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

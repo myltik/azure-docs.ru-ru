@@ -1,7 +1,7 @@
 <properties
    pageTitle="Использование образов клиента Windows в сценариях разработки и тестирования | Microsoft Azure"
    description="Узнайте, как использовать преимущества подписки Visual Studio для развертывания Windows 7, 8 или 10 в Azure в сценариях разработки и тестирования."
-   services="virtual-machines-windowse"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
    manager="timlt"
@@ -57,4 +57,4 @@
 ## Дальнейшие действия
 Теперь вы можете развернуть виртуальные машины с помощью [PowerShell](virtual-machines-windows-ps-create.md), [шаблонов Resource Manager](virtual-machines-windows-ps-template.md) или [Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_0928_2016-->

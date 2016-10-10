@@ -5,7 +5,7 @@
 - Имя виртуальной сети: TestVNet.
 - Адресное пространство виртуальной сети: 192.168.0.0/16.
 - Группа ресурсов — TestRG.
-- Имя подсети Subnet1: FrontEnd. 
+- Имя подсети Subnet1: FrontEnd.
 - Адресное пространство Subnet1: 192.168.0.0/16.
 - Имя подсети шлюза: GatewaySubnet; подсеть шлюза всегда необходимо называть *GatewaySubnet*.
 - Адресное пространство шлюза подсети: 192.168.200.0/26.
@@ -19,7 +19,7 @@
 
 ## Добавление шлюза
 
-1. Подключитесь к своей подписке Azure. 
+1. Подключитесь к своей подписке Azure.
 
 		Login-AzureRmAccount
 		Get-AzureRmSubscription 
@@ -70,7 +70,9 @@
 
 ## Изменение размера шлюза
 
-Существует три [SKU шлюза](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). Чтобы изменить SKU шлюза в любое время, можно использовать следующую команду.
+Существует несколько [номеров SKU шлюзов](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Чтобы изменить SKU шлюза в любое время, можно использовать следующую команду.
+
+>[AZURE.IMPORTANT] Эта команда не работает для шлюза UltraPerformance. Чтобы заменить шлюз на UltraPerformance, сначала удалите существующий шлюз ExpressRoute, а затем создайте шлюз UltraPerformance. Чтобы заменить шлюз UltraPerformance обычным шлюзом, сначала удалите шлюз UltraPerformance, а затем создайте новый шлюз.
 
 	$gw = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
@@ -81,4 +83,4 @@
 
 	Remove-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG  
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

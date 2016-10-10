@@ -24,6 +24,13 @@
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
+### Создание набора записей типа PTR с одной записью
+В этом случае "my-arpa-zone.com" представляет зону ARPA вашего диапазона IP-адресов. Каждая запись PTR в этой зоне соответствует IP-адресу в этом диапазоне.
+
+	$rs = New-AzureRmDnsRecordSet -Name "10" -RecordType PTR -Ttl 3600 -ZoneName my-arpa-zone.com -ResourceGroupName MyAzureResourceGroup
+	Add-AzureRmDnsRecordConfig -RecordSet $rs -Ptrdname "myservice.contoso.com"
+	Set-AzureRmDnsRecordSet -RecordSet $rs
+
 ### Создание набора записей типа SRV с одной записью
 
 Если вы создаете запись SRV в корне зоны, просто укажите в имени записи *\_service* и *\_protocol*. Нет необходимости включать в имя записи символ "@".
@@ -38,4 +45,4 @@
 	Add-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-<!---HONumber=AcomDC_0601_2016-->
+<!---HONumber=AcomDC_0928_2016-->

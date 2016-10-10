@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/22/2016"
    ms.author="kgremban"/>
 
 # Управление привилегированными пользователями Azure AD: добавление и удаление роли пользователя
@@ -26,7 +26,7 @@
 
 В Azure AD, Office 365 и других службах и приложениях Майкрософт можно назначать пользователям организации различные административные роли. Дополнительные сведения о доступных ролях можно найти в разделе, посвященном [ролям в Azure AD PIM](active-directory-privileged-identity-management-roles.md).
 
-Чтобы добавить пользователя в роль или удалить его из роли с помощью управления привилегированными пользователями, откройте панель управления PIM, а затем нажмите кнопку **Пользователи с ролями администраторов** или выберите необходимую роль в таблице ролей (например "Глобальный администратор").
+Чтобы добавить или удалить пользователя в роли с помощью управления привилегированными пользователями, откройте панель мониторинга PIM. Нажмите кнопку **Пользователи в роли администратора** или выберите определенную роль (например, глобальный администратор) в таблице ролей.
 
 > [AZURE.NOTE] Если приложение PIM еще не включено на портале Azure, см. статью [Приступая к работе с Azure AD PIM](active-directory-privileged-identity-management-getting-started.md).
 
@@ -58,11 +58,11 @@
 3. Нажмите кнопку **Удалить**. Появится сообщение с запросом подтверждения.
 4. Нажмите **Да**, чтобы удалить роль у пользователя.
 
-Если вам неизвестно, каким пользователям по-прежнему требуются назначенные им роли, можно [запустить проверку безопасности для ролей](active-directory-privileged-identity-management-how-to-start-security-review.md).
+Если вам неизвестно, каким пользователям по-прежнему требуются назначенные им роли, можно [запустить проверку доступа для ролей](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

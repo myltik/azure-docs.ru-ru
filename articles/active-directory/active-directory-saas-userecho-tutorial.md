@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -114,7 +114,7 @@
 
 3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
 
-	![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_04.png)
+	.![Настройка единого входа](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_04.png)
 
     а. В текстовом поле **URL-адрес для входа** введите URL-адрес, используемый для входа в приложение UserEcho (например, *https://fabrikam.UserEcho.com/*).
 
@@ -185,11 +185,11 @@
 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3. Чтобы вывести на экран список пользователей, в меню вверху выберите **Пользователи**.
+3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 
 	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_03.png)
  
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу щелкните **Добавить пользователя**.
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
 	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_04.png)
 
@@ -217,9 +217,9 @@
 
 7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_07.png)
+	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_07.png)
  
-8. На диалоговой странице **Получение временного пароля** выполните следующие действия:
+8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
 	.![Создание тестового пользователя Azure AD](./media/active-directory-saas-userecho-tutorial/create_aaduser_08.png)
   
@@ -307,7 +307,7 @@
 * [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
-<!--Image references-->
+.<!--Image references-->
 
 [1]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_01.png
 [2]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_02.png
@@ -325,4 +325,4 @@
 [204]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-userecho-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_0928_2016-->

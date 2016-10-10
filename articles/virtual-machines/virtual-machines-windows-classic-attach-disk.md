@@ -14,20 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
+	ms.date="06/27/2016"
 	ms.author="cynthn"/>
 
 # Подключение диска данных к виртуальной машине Windows, созданной с использованием классической модели развертывания
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-machines-windows-attach-disk-portal.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Если вы собираетесь использовать портал, см. статью [Подключение диска данных к виртуальной машине Windows на портале Azure](virtual-machines-windows-attach-disk-portal.md).
 
 Если требуется дополнительный диск с данными, вы можете подключить к виртуальной машине пустой диск или существующий диск с данными. В обоих случаях диски — это VHD-файлы, которые размещаются в вашей учетной записи хранения Azure. Если применяется новый диск, после подключения диска также необходимо инициализировать его, чтобы он был готов для использования в виртуальной машине Windows.
 
 Дополнительную информацию о дисках см. в разделе [О дисках и виртуальных жестких дисках для виртуальных машин](virtual-machines-windows-about-disks-vhds.md).
-
-## Видеоруководство
-
-Ниже приведено [видеоруководство](https://azure.microsoft.com/documentation/videos/attaching-a-data-disk-to-a-windows-vm/) для этого учебника.
 
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
@@ -60,4 +56,4 @@
 
 [logon]: virtual-machines-windows-classic-connect-logon.md
 
-<!---HONumber=AcomDC_0629_2016-->
+<!---HONumber=AcomDC_0928_2016-->

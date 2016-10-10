@@ -7,14 +7,14 @@
 	manager="carmonm"
 	editor="tysonn"/>
 
-<tags
+.<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="jwillis;tamram"/>
 
 # Создание моментального снимка BLOB-объекта
 
@@ -156,22 +156,22 @@
 
 В сценарии 1 базовый большой двоичный объект создания моментального снимка не обновлялся, поэтому плата начисляется только за уникальные блоки 1, 2 и 3.
 
-![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
+.![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
 
 В сценарии 2 базовый большой двоичный объект изменился, а моментальный снимок — нет. Блок 3 был обновлен, и, хотя он содержит такие же данные и тот же идентификатор, он отличается от блока 3 в моментальном снимке. В результате плата в учетной записи взимается за четыре блока.
 
-![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
+.![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
 В сценарии 3 базовый большой двоичный объект изменился, а моментальный снимок — нет. Блок 3 был заменен блоком 4 в базовом большом двоичном объекте, но моментальный снимок по-прежнему отражает блок 3. В результате плата в учетной записи взимается за четыре блока.
 
-![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
+.![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
 В сценарии 4 базовый большой двоичный объект был полностью обновлен и не содержит никаких первоначальных блоков. В результате плата в учетной записи взимается за все восемь уникальных блоков. Этот сценарий может произойти при использовании такого методов обновления, как **UploadFile**, **UploadText**, **UploadFromStream** или **UploadByteArray**, так как эти методы заменяют все содержимое больших двоичных объектов.
 
-![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
+.![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
 ## Дальнейшие действия
 
 Дополнительные примеры использования хранилища BLOB-объектов см. на странице с [примерами кода Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Вы можете скачать пример приложения и запустить его или просмотреть код на GitHub.
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_0928_2016-->

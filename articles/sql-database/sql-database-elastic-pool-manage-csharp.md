@@ -102,13 +102,13 @@
 
 ## Управление пулом: пример C&#x23;
 
-Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio выполните в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**) следующие команды.
+Для выполнения этого примера требуются дополнительные библиотеки. Чтобы установить их, в Visual Studio выполните следующие команды в [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) (**Средства** > **Диспетчер пакетов NuGet** > **Консоль диспетчера пакетов**).
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Сведения о том, как получить идентификатор клиента и другие значения, см. в статье [Получение идентификатора клиента и ключа для доступа к базе данных SQL из кода](sql-database-client-id-keys.md).
+Создайте консольное приложение и замените содержимое файла Program.cs приведенным ниже. Чтобы получить идентификатор нужного клиента и связанные значения, см. статью [Использование Azure PowerShell для создания субъекта-службы и доступа к ресурсам](../resource-group-authenticate-service-principal.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;
@@ -422,7 +422,7 @@
     }
     }
 
-## Дополнительные ресурсы
+## дополнительные ресурсы.
 
 - [База данных SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 - [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
@@ -430,4 +430,4 @@
 - [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md)
 - Ознакомьтесь с разделом [Развертывание с помощью Базы данных SQL Azure](sql-database-elastic-scale-introduction.md). В нем описывается использование инструментов эластичной базы данных для развертывания, перемещения данных, выполнения запросов и создания транзакций.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_0928_2016-->

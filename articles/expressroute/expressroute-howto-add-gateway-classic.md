@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="09/22/2016"
    ms.author="charwen"/>
 
 # Настройка шлюза виртуальной сети для ExpressRoute с помощью классической модели развертывания и PowerShell
@@ -40,4 +40,4 @@
 
 После создания шлюза виртуальной сети вы можете связать виртуальную сеть с каналом ExpressRoute. См. статью [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_0928_2016-->
