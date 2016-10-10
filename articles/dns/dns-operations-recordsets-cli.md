@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="article"

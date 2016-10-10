@@ -8,7 +8,7 @@
 	editor=""
 	tags="azure-resource-management"/>
 
-.<tags
+<tags
 	ms.service="virtual-machines-windows"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"

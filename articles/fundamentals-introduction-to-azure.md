@@ -200,7 +200,7 @@ BLOB-объекты Azure (опять же "Хранилище BLOB-объект
 
 
 ### Виртуальная сеть
-.![Виртуальная сеть](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
+![Виртуальная сеть](./media/fundamentals-introduction-to-azure/VirtualNetworkIntroNew.png)
 
 *Рисунок. Виртуальная сеть предоставляет частную сеть в облаке, чтобы различные службы могли обмениваться данными друг с другом или с локальными ресурсами. Для этого необходимо настроить VPN-подключение между локальными площадками.*
 
@@ -227,7 +227,7 @@ BLOB-объекты Azure (опять же "Хранилище BLOB-объект
 
 ### Диспетчер трафика
 
-.![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)
+![TrafficManager](./media/fundamentals-introduction-to-azure/TrafficManagerIntroNew.png)
 
 *Рисунок. Диспетчер трафика Azure позволяет направлять глобальный трафик в службу на основе интеллектуальных правил.*
 

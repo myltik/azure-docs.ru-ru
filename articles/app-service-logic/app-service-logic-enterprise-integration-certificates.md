@@ -44,7 +44,8 @@
 
 Ниже приведены подробные инструкции по передаче открытых сертификатов в учетную запись интеграции после входа на портал Azure.
 
-1. Щелкните **Обзор**.![Щелкните "Обзор".](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+1. Щелкните **Обзор**.
+![Щелкните "Обзор".](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 
 2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![Выберите "Учетные записи интеграции".](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 
@@ -81,7 +82,8 @@
 
 Ниже приведены подробные инструкции по передаче закрытых сертификатов в учетную запись интеграции после входа на портал Azure.
 
-1. Щелкните **Обзор**.![Передайте закрытые сертификаты в учетную запись интеграции.](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+1. Щелкните **Обзор**.
+![Передайте закрытые сертификаты в учетную запись интеграции.](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 
 2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![Выберите "Учетные записи интеграции".](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 

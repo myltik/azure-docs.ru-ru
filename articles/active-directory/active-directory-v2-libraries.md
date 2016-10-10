@@ -20,7 +20,7 @@
 # Azure Active Directory (AD) версии 2.0 и библиотеки аутентификации
 Конечная точка версии 2.0 Azure AD поддерживает стандартные отраслевые протоколы OAuth 2.0 и OpenID Connect 1.0. Конечную точку версии 2.0 можно использовать с множеством библиотек корпорации Майкрософт и сторонних поставщиков.
 
-При создании приложения, использующего конечную точку версии 2.0, рекомендуется использовать библиотеки, написанные специалистами в области протоколов, сторонниками методов жизненного цикла разработки защищенных приложений (SDL), [таких, каким следуют в корпорации Майкрософт][Microsoft-SDL]. Если принято решение написать код поддержки для протоколов, рекомендуется следовать методам SDL и внимательно просмотреть рекомендации по безопасности в спецификациях стандартов для каждого из протоколов.
+При создании приложения, использующего конечную точку версии 2.0, рекомендуется использовать библиотеки, написанные специалистами в области протоколов, сторонниками методов жизненного цикла разработки защищенных приложений (SDL), [таких, каким следуют в корпорации Майкрософт]\[Microsoft-SDL]. Если принято решение написать код поддержки для протоколов, рекомендуется следовать методам SDL и внимательно просмотреть рекомендации по безопасности в спецификациях стандартов для каждого из протоколов.
 
 ## Типы библиотек
 С версией 2.0 совместимы два вида библиотек:
@@ -83,7 +83,7 @@
 
 
 ## Связанная информация
-Дополнительные сведения о конечной точке версии 2.0 Azure AD см. в статье [Azure AD App Model v2 Overview][AAD-App-Model-V2-Overview] (Обзор модели приложения Azure AD версии 2.0).
+Дополнительные сведения о конечной точке версии 2.0 Azure AD см. в статье [Azure AD App Model v2 Overview][AAD-App-Model-V2-Overview] \(Обзор модели приложения Azure AD версии 2.0).
 
 Оставляйте свои замечания и пожелания в разделе DISQUS ниже. Они помогают нам улучшать содержимое веб-сайта.
 
@@ -107,7 +107,7 @@
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
 [ServerLib-Net4-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OAuth/
 [ServerLib-Net4-Owin-Oauth-Repo]: http://katanaproject.codeplex.com/
-[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/ru-RU/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
+[ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
 [ServerLib-Net-Jwt-Sample]: /
@@ -119,6 +119,6 @@
 [ServerLib-NetCore-Owin-Oauth-Sample]: /
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
-[ServerLib-Node-Sample]: https://azure.microsoft.com/ru-RU/documentation/articles/active-directory-v2-devquickstarts-node-web/
+[ServerLib-Node-Sample]: https://azure.microsoft.com/documentation/articles/active-directory-v2-devquickstarts-node-web/
 
 <!---HONumber=AcomDC_0928_2016-->

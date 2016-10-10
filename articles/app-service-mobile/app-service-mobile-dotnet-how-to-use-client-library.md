@@ -26,7 +26,7 @@
 
 ## Справочная документация
 
-Справочная документация по пакету SDK клиента находится здесь: [Azure Mobile Apps .NET client reference] (Клиент .NET мобильных служб Azure). Несколько примеров клиентов доступно в [репозитории GitHub Azure Samples] (Примеры для Azure).
+Справочная документация по пакету SDK клиента находится здесь: [Azure Mobile Apps .NET client reference] \(Клиент .NET мобильных служб Azure). Несколько примеров клиентов доступно в [репозитории GitHub Azure Samples] \(Примеры для Azure).
 
 ## Поддерживаемые платформы
 
@@ -913,9 +913,9 @@ Push-уведомления рассматриваются в следующих
 [Выбор определенных столбцов]: #selecting
 [Поиск данных по идентификатору]: #lookingup
 
-.<!-- Images. -->
+<!-- Images. -->
 
-.<!-- Internal URLs. -->
+<!-- Internal URLs. -->
 [Краткое руководство по мобильным приложениям Azure]: app-service-mobile-windows-store-dotnet-get-started.md
 [краткого руководства по мобильным приложениям Azure]: app-service-mobile-windows-store-dotnet-get-started.md
 [Добавление проверки подлинности в приложение]: app-service-mobile-windows-store-dotnet-get-started-users.md
@@ -929,7 +929,7 @@ Push-уведомления рассматриваются в следующих
 [Регистрация приложения для входа с использованием учетной записи Майкрософт]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
-.<!-- Microsoft URLs. -->
+<!-- Microsoft URLs. -->
 [Azure Mobile Apps .NET client reference]: https://msdn.microsoft.com/ru-RU/library/azure/mt419521(v=azure.10).aspx
 [MobileServiceClient]: https://msdn.microsoft.com/ru-RU/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 [MobileServiceCollection]: https://msdn.microsoft.com/ru-RU/library/azure/dn250636(v=azure.10).aspx

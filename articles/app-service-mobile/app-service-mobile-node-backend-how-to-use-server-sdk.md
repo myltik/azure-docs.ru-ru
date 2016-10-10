@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
@@ -850,7 +850,7 @@ Microsoft Azure предоставляет множество механизмо
 
 Щелкнув **Простые таблицы** в параметрах сайта серверной части, вы сможете добавить, изменить или удалить таблицу. Также можно просмотреть данные, которые хранятся в таблице.
 
-.![Работа с Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
+![Работа с Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 
 На панели команд для таблицы есть следующие команды.
 
@@ -877,7 +877,7 @@ Microsoft Azure предоставляет множество механизмо
 
 1. В колонке серверной части мобильного приложения щелкните **Все параметры**, затем **Easy Tables** или **Easy APIs**, выберите таблицу или API и щелкните **Изменить сценарий**. Файл сценария будет открыт в редакторе службы приложений.
 
-	.![Редактор службы приложений](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
+	![Редактор службы приложений](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
 
 2. Внесите необходимые изменения в файл кода с помощью онлайн-редактора. Изменения сохраняются автоматически при вводе.
 

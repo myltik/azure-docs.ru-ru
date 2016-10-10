@@ -7,7 +7,7 @@
 	manager="wpickett" 
 	editor=""/>
 
-.<tags 
+<tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
@@ -222,7 +222,7 @@
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
-.<!-- URL List -->
+<!-- URL List -->
 
 [Набор средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
 [средств Azure для Eclipse]: ../azure-toolkit-for-eclipse.md
@@ -237,7 +237,7 @@
 [центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
 [Обзор веб-приложений]: ./app-service-web-overview.md
 
-.<!-- IMG List -->
+<!-- IMG List -->
 
 [01]: ./media/app-service-web-eclipse-create-hello-world-web-app/01-Web-Page.png
 [02]: ./media/app-service-web-eclipse-create-hello-world-web-app/02-Dynamic-Web-Project.png

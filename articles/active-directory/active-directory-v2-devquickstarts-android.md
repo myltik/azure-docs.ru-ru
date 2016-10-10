@@ -71,7 +71,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 	![Создание нового проекта в Android Studio](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample1.PNG)
 
-	.![Целевые устройства Android](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
+	![Целевые устройства Android](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample2.PNG)
 
 	![Добавление действия для мобильных устройств](media/active-directory-android-native-oidcandroidlib-v2/SetUpSample3.PNG)
 

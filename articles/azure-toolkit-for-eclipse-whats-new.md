@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="multiple"
 	ms.workload="na"
 	ms.tgt_pltfrm="multiple"
@@ -24,7 +24,7 @@
 
 Эта статья содержит сведения о различных выпусках и последних обновлениях набора средств Azure для Eclipse.
 
-> [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки IntelliJ. Дополнительные сведения см. в разделе [Azure Toolkit for IntelliJ] (Набор средств Azure для IntelliJ).
+> [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки IntelliJ. Дополнительные сведения см. в разделе [Azure Toolkit for IntelliJ] \(Набор средств Azure для IntelliJ).
 
 ### 26 августа 2016 г.
 
@@ -336,7 +336,7 @@
 
 Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
 
-.<!-- URL List -->
+<!-- URL List -->
 
 [Набор средств Azure для Eclipse]: ./azure-toolkit-for-eclipse.md
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md

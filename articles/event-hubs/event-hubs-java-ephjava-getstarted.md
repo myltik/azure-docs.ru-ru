@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="event-hubs"
 	ms.workload="core"
 	ms.tgt_pltfrm="na"

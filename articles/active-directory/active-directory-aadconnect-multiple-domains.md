@@ -7,7 +7,7 @@
 	manager="femila"
 	editor="curtand"/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -150,7 +150,7 @@
     
 	    `c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));`
 	
-.![Заменить утверждение](./media/active-directory-multiple-domains/sub2.png)
+![Заменить утверждение](./media/active-directory-multiple-domains/sub2.png)
 5.	Нажмите кнопку "ОК". Нажмите кнопку "Применить". Нажмите кнопку "ОК". Откройте оснастку управления AD FS.
 
 <!---HONumber=AcomDC_0928_2016-->

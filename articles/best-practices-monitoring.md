@@ -8,7 +8,7 @@
    editor=""
    tags=""/>
 
-.<tags
+<tags
    ms.service="best-practice"
    ms.devlang="na"
    ms.topic="article"

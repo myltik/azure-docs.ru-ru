@@ -218,7 +218,7 @@
 
 <!-- Anchors. -->
 
-.<!-- URLs. -->
+<!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->

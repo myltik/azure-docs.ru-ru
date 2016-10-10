@@ -5,7 +5,7 @@
     authors="jeevansd"  
     documentationCenter="na" 
     manager="femila"/>
-.<tags 
+<tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 

@@ -101,7 +101,7 @@
 
 > [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.
 
-.![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Выходной набор данных большого двоичного объекта Azure**
 
@@ -179,7 +179,7 @@
 
 > [AZURE.IMPORTANT] Имя API для любых настраиваемых объектов должно содержать приставку \_\_c.
 
-.![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Фабрика данных — подключение к Salesforce — имя API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Свойства связанной службы Salesforce
 

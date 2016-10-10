@@ -7,7 +7,7 @@
 	manager="femila"
 	editor="curtand"/>
 
-.<tags
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -58,7 +58,7 @@ Azure AD пытается отслеживать метаданные федер
 
 	Get-Adfsproperties
 
-.![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
+![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
 [AZURE.NOTE] При использовании AD FS 2.0 необходимо сначала выполнить команду Add-Pssnapin Microsoft.Adfs.Powershell.
 

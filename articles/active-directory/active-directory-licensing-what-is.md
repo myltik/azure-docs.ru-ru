@@ -82,7 +82,7 @@ Azure Active Directory (Azure AD) — это служба идентифика�
 
 ![Планы пробной лицензии Azure Active Directory](./media/active-directory-licensing-what-is/trial_plans.png)
 
-.![Планы пробной лицензии Enterprise Mobility Suite](./media/active-directory-licensing-what-is/EMS_trial_plan.png)
+![Планы пробной лицензии Enterprise Mobility Suite](./media/active-directory-licensing-what-is/EMS_trial_plan.png)
 
 ![Активация планов пробных лицензий](./media/active-directory-licensing-what-is/active_license_trials.png)
 

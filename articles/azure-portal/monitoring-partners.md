@@ -101,7 +101,7 @@ PagerDuty, ведущее решение по управлению инциде�
 [splunk-anchor]: #splunk-add-on-for-microsoft-azure "Splunk"
 [sumologic-anchor]: #sumologic "Sumo Logic"
 
-.<!--Icon references-->
+<!--Icon references-->
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
 [appdynamics-logo]: ./media/partner-logos/appdynamics.png
 [atlassian-logo]: ./media/partner-logos/atlassian.png

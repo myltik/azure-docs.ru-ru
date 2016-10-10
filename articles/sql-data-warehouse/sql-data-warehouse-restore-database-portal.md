@@ -99,7 +99,7 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: ./sql-database-business-continuity.md
 [Обзор]: ./sql-data-warehouse-restore-database-overview.md
 [Портал]: ./sql-data-warehouse-restore-database-portal.md
@@ -108,9 +108,9 @@
 [Настройка базы данных после восстановления]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [Создание запроса в службу поддержки для хранилища данных SQL]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
-.<!--Blog references-->
+<!--Blog references-->
 
 <!--Other Web references-->
 [портал Azure]: https://portal.azure.com/

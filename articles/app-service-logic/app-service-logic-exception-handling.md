@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""/>
 
-.<tags
+<tags
    ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"

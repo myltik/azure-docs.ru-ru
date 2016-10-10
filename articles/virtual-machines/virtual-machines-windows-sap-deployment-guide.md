@@ -446,7 +446,7 @@ ___
 После завершения работы мастера виртуальная машина будет развернута в выбранной группе ресурсов.
 
 #### Создание виртуальной машины с помощью шаблона
-Развертывание можно также создать с помощью одного из шаблонов SAP, опубликованных в [каталоге azure-quickstart-templates на сайте GitHub][azure-quickstart-templates-github]. Кроме того, можно создать виртуальную машину вручную с помощью [портала][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] или [интерфейса командной строки Azure][virtual-machines-linux-tutorial] (Azure CLI).
+Развертывание можно также создать с помощью одного из шаблонов SAP, опубликованных в [каталоге azure-quickstart-templates на сайте GitHub][azure-quickstart-templates-github]. Кроме того, можно создать виртуальную машину вручную с помощью [портала][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms] или [интерфейса командной строки Azure][virtual-machines-linux-tutorial] \(Azure CLI).
 
 * [Шаблон двухуровневой конфигурации (только одна виртуальная машина)][sap-templates-2-tier-marketplace-image]. Этот шаблон используется, если нужно создать двухуровневую систему с использованием только одной виртуальной машины.
 * [Шаблон трехуровневой конфигурации (несколько виртуальных машин)][sap-templates-3-tier-marketplace-image]. Этот шаблон используется, если нужно создать трехуровневую систему с использованием нескольких виртуальных машин.

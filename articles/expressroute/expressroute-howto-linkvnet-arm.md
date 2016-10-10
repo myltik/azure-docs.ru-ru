@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
-.<tags 
+<tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"

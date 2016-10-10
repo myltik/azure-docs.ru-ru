@@ -47,11 +47,11 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    .![Приложения](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700994.png "Приложения")
+    ![Приложения](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC700994.png "Приложения")
 
 4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    .![Добавление приложения](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749321.png "Добавление приложения")
+    ![Добавление приложения](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC749321.png "Добавление приложения")
 
 5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 

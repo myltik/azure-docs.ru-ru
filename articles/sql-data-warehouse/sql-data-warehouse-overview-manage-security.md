@@ -89,15 +89,15 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 
 Дополнительные сведения и примеры подключения к хранилищу данных SQL с различными протоколами см. в статье [Подключение к хранилищу данных SQL Azure][].
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Подключение к хранилищу данных SQL Azure]: ./sql-data-warehouse-connect-overview.md
 [Encryption with Portal]: ./sql-data-warehouse-encryption-tde.md
 [Encryption with TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
 [Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [Брандмауэр базы данных SQL Azure]: https://msdn.microsoft.com/library/ee621782.aspx
 [sp\_set\_firewall\_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp\_set\_database\_firewall\_rule]: https://msdn.microsoft.com/library/dn270010.aspx
@@ -108,7 +108,7 @@ EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationU
 [Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 [Azure portal]: https://portal.azure.com/
 
-.<!--Other Web references-->
+<!--Other Web references-->
 [Использование назначений ролей для управления доступом к ресурсам в подписке Azure]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
 
 <!---HONumber=AcomDC_0928_2016-->

@@ -262,7 +262,7 @@ ORDER BY
 - EXPLAIN
 - DBCC
 
-.<!--
+<!--
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
@@ -418,14 +418,14 @@ FROM	sys.dm_pdw_wait_stats w;
 
 Дополнительные сведения об управлении пользователями и безопасностью базы данных см. в статье [Защита базы данных в хранилище данных SQL][]. Дополнительные сведения о повышении качества кластеризованных индексов columnstore за счет повышения класса ресурсов см. в статье [Индексирование таблиц в хранилище данных SQL].
 
-.<!--Image references-->
+<!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Индексирование таблиц в хранилище данных SQL]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Защита базы данных в хранилище данных SQL]: ./sql-data-warehouse-overview-manage-security.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [Managing Databases and Logins in Azure SQL Database]: https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->

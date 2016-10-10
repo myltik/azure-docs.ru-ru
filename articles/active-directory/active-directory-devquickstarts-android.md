@@ -289,9 +289,9 @@ dependencies {
 
  Манифест приложения должен иметь следующие разрешения на использование учетных записей в диспетчере учетных записей: http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET\_ACCOUNTS
- * USE\_CREDENTIALS
- * MANAGE\_ACCOUNTS
+ * GET_ACCOUNTS
+ * USE_CREDENTIALS
+ * MANAGE_ACCOUNTS
 
 
 Данное пошаговое руководство предоставляет все необходимое для успешной интеграции с Azure AD. Дополнительные примеры представлены в репозитории AzureADSamples/ на портале GitHub.

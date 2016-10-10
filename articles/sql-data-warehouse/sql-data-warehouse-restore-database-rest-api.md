@@ -57,7 +57,7 @@
 
 <!--Image references-->
 
-.<!--Article references-->
+<!--Article references-->
 [Обзор. Непрерывность облачных бизнес-процессов и аварийное восстановление баз данных с базой данных SQL]: ./sql-database-business-continuity.md
 [Создание запроса в службу поддержки для хранилища данных SQL]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Настройка базы данных после восстановления]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
@@ -67,7 +67,7 @@
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [Create database restore request]: https://msdn.microsoft.com/library/azure/dn509571.aspx
 [Database operation status]: https://msdn.microsoft.com/library/azure/dn720371.aspx
 [Get restorable dropped database]: https://msdn.microsoft.com/library/azure/dn509574.aspx

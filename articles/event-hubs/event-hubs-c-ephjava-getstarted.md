@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="event-hubs"
 	ms.workload="na"
 	ms.tgt_pltfrm="c"
@@ -63,7 +63,7 @@
 - [Решение для обмена сообщениями в очереди][] при помощи очередей служебной шины.
 - [Обзор концентраторов событий][]
 
-.<!-- Images. -->
+<!-- Images. -->
 [21]: ./media/event-hubs-c-ephjava-getstarted/ephjava.png
 [24]: ./media/event-hubs-c-ephjava-getstarted/receive-eph-c.png
 

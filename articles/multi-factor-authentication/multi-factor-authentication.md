@@ -37,7 +37,7 @@ Azure Multi-Factor Authentication помогает защитить доступ
 
 Azure Multi-Factor Authentication — это простое в использовании, масштабируемое и надежное решение, которое предоставляет дополнительный способ проверки подлинности, обеспечивая постоянную защиту пользователей.
 
-![Простота в использовании](./media/multi-factor-authentication/simple.png)| .![масштабируемость,](./media/multi-factor-authentication/scalable.png)| .![Постоянная защита](./media/multi-factor-authentication/protected.png)|![Надежность](./media/multi-factor-authentication/reliable.png)
+![Простота в использовании](./media/multi-factor-authentication/simple.png)| . ![масштабируемость,](./media/multi-factor-authentication/scalable.png)| . ![Постоянная защита](./media/multi-factor-authentication/protected.png)|![Надежность](./media/multi-factor-authentication/reliable.png)
 :-------------: | :-------------: | :-------------: | :-------------: |
 **Простота в использовании**|**Масштабируемость**|**Постоянная защита**|**Надежность**
 

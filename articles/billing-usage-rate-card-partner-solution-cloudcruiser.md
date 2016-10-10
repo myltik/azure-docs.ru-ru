@@ -9,7 +9,7 @@
    tags="billing"
    />
 
-.<tags
+<tags
    ms.service="billing"
    ms.devlang="na"
    ms.topic="article"
@@ -221,7 +221,7 @@ Cloud Cruiser может по-разному использовать интег
 ### Подробнее
 + В статье [Обзор диспетчера ресурсов Azure](resource-group-overview.md) приведены дополнительные сведения о диспетчере ресурсов Azure.
 
-.<!--Image references-->
+<!--Image references-->
  
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Рис. 1. Создание новой коллекции"
 [2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Рис. 2. Импорт данных из новой коллекции"

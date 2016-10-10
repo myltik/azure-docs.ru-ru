@@ -6,7 +6,7 @@
    authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
-.<tags
+<tags
    ms.service="application-gateway"
    ms.devlang="na"
    ms.topic="article"

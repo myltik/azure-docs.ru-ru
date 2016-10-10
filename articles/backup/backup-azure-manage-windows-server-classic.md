@@ -7,7 +7,7 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-.<tags
+<tags
 	ms.service="backup"
 	ms.workload="storage-backup-recovery"
 	ms.tgt_pltfrm="na"
@@ -32,11 +32,11 @@
 
 2. Щелкните **Службы восстановления** и выберите имя хранилища архивации, чтобы просмотреть соответствующую страницу «Быстрый запуск».
 
-    .![Службы восстановления](./media/backup-azure-manage-windows-server-classic/rs-left-nav.png)
+    ![Службы восстановления](./media/backup-azure-manage-windows-server-classic/rs-left-nav.png)
 
 Выбирая параметры в верхней части страницы быстрого запуска, можно просмотреть доступные задачи управления.
 
-.![Управление вкладками](./media/backup-azure-manage-windows-server-classic/qs-page.png)
+![Управление вкладками](./media/backup-azure-manage-windows-server-classic/qs-page.png)
 
 ### Панель мониторинга
 Щелкните **Панель мониторинга**, чтобы посмотреть обзор использования сервера. В разделе **Обзор использования** представлены следующие сведения:
@@ -51,12 +51,12 @@
 - **Управление сертификатом** — если для регистрации сервера использовался сертификат, применяйте эту функцию для обновления сертификата. При использовании учетных данных хранилища не используйте пункт **Управление сертификатом**.
 - **Удаление** — удаляет текущее хранилище резервных копий. Если хранилище архивации больше не используется, его можно удалить для освобождения места. Элемент **Удалить** становится доступен только после удаления из хранилища всех зарегистрированных серверов.
 
-.![Задачи панели мониторинга архивации](./media/backup-azure-manage-windows-server-classic/dashboard-tasks.png)
+![Задачи панели мониторинга архивации](./media/backup-azure-manage-windows-server-classic/dashboard-tasks.png)
 
 ## Зарегистрированные элементы
 Щелкните **Зарегистрированные элементы** для просмотра имен серверов, зарегистрированных в этом хранилище.
 
-.![Зарегистрированные элементы](./media/backup-azure-manage-windows-server-classic/registered-items.png)
+![Зарегистрированные элементы](./media/backup-azure-manage-windows-server-classic/registered-items.png)
 
 Для фильтра **Тип** по умолчанию установлено значение "Виртуальная машина Azure". Для просмотра имен серверов, зарегистрированных в этом хранилище, из раскрывающегося меню выберите **Windows Server**.
 
@@ -65,7 +65,7 @@
 - **Разрешить повторную регистрацию** — когда для сервера выбран этот параметр, можно воспользоваться **мастером регистрации**, доступным в локальном агенте службы архивации Microsoft Azure, чтобы зарегистрировать сервер в хранилище резервных копий во второй раз. Повторная регистрация может потребоваться из-за ошибки в сертификате или перестроения сервера.
 - **Удалить** — удаляет сервер из хранилища архивации. Все сохраненные данные, связанные с этим сервером, сразу же удаляются.
 
-    .![Задачи зарегистрированных элементов](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
+    ![Задачи зарегистрированных элементов](./media/backup-azure-manage-windows-server-classic/registered-items-tasks.png)
 
 ## Защищенные элементы
 Щелкните **Защищенные элементы** для просмотра элементов, заархивированных с серверов.
@@ -78,7 +78,7 @@
 
 >[AZURE.WARNING] После регистрации элемента в хранилище параметр избыточности хранилища блокируется и в последствии не может быть изменен.
 
-.![Настройка](./media/backup-azure-manage-windows-server-classic/configure.png)
+![Настройка](./media/backup-azure-manage-windows-server-classic/configure.png)
 
 Дополнительные сведения см. в статье об [избыточности хранилища](../storage/storage-redundancy.md).
 
@@ -97,7 +97,7 @@
 - Выполнить архивацию сейчас
 - Изменить свойства
 
-.![Действия в консоли агента](./media/backup-azure-manage-windows-server-classic/console-actions.png)
+![Действия в консоли агента](./media/backup-azure-manage-windows-server-classic/console-actions.png)
 
 >[AZURE.NOTE] Чтобы **восстановить данные**, см. статью [Восстановление файлов на сервере Windows Server или клиентском компьютере Windows с помощью модели развертывания Resource Manager](backup-azure-restore-windows-server.md).
 
@@ -105,11 +105,11 @@
 
 1. В агенте службы архивации Microsoft Azure щелкните **Создать расписание архивации**.
 
-    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
+    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
 
 2. В **мастере архивации по расписанию** установите флажок **Изменить архивные элементы или время архивации** и нажмите кнопку **Далее**.
 
-    .![Изменение расписания резервного копирования](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
+    ![Изменение расписания резервного копирования](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
 
 3. Если нужно добавить или изменить элементы, в окне **Выбор элементов для архивации** щелкните **Добавить элементы**.
 
@@ -117,19 +117,19 @@
 
 4. Выберите файлы и папки, для которых нужно создать резервные копии, и нажмите кнопку **ОК**.
 
-    .![Добавление элементов](./media/backup-azure-manage-windows-server-classic/add-items-modify.png)
+    ![Добавление элементов](./media/backup-azure-manage-windows-server-classic/add-items-modify.png)
 
 5. Настройте **расписание резервного копирования** и нажмите кнопку **Далее**.
 
     Вы можете запланировать ежедневное (не более трех раз в день) или еженедельное резервное копирование.
 
-    .![Выбор расписания резервного копирования](./media/backup-azure-manage-windows-server-classic/specify-backup-schedule-modify-close.png)
+    ![Выбор расписания резервного копирования](./media/backup-azure-manage-windows-server-classic/specify-backup-schedule-modify-close.png)
 
     >[AZURE.NOTE] Дополнительные сведения о настройке расписания резервного копирования см. в [этой статье](backup-azure-backup-cloud-as-tape.md).
 
 6. Выберите **политику хранения** для резервных копий и нажмите кнопку **Далее**.
 
-    .![Определение политики хранения](./media/backup-azure-manage-windows-server-classic/select-retention-policy-modify.png)
+    ![Определение политики хранения](./media/backup-azure-manage-windows-server-classic/select-retention-policy-modify.png)
 
 7. Проверьте сведения в окне **Подтверждение** и нажмите кнопку **Готово**.
 
@@ -146,7 +146,7 @@
 
 2. Установите флажок **Разрешить регулирование уровня использования пропускной способности канала для операций резервного копирования**.
 
-    .![Регулирование сети](./media/backup-azure-manage-windows-server-classic/throttling-dialog.png)
+    ![Регулирование сети](./media/backup-azure-manage-windows-server-classic/throttling-dialog.png)
 
 3. После включения регулирования укажите допустимую пропускную способность для передачи данных во время резервного копирования в **рабочие** и **нерабочие** часы.
 
@@ -158,31 +158,31 @@
 
 1. Откройте **агент службы архивации Microsoft Azure** (чтобы найти его, введите *Служба архивации Microsoft Azure* в строке поиска на своем компьютере).
 
-    .![Открытие агента службы архивации](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
+    ![Открытие агента службы архивации](./media/backup-azure-manage-windows-server-classic/snap-in-search.png)
 
 2. В агенте службы архивации Microsoft Azure щелкните **Создать расписание архивации**.
 
-    .![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
+    ![Планирование архивации Windows Server](./media/backup-azure-manage-windows-server-classic/schedule-backup.png)
 
 3. В мастере архивации по расписанию установите флажок **Изменить архивные элементы или время архивации** и нажмите кнопку **Далее**.
 
-    .![Изменение расписания](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
+    ![Изменение расписания](./media/backup-azure-manage-windows-server-classic/modify-or-stop-a-scheduled-backup.png)
 
 4. Щелкните **Параметры исключений**.
 
-    .![Выбор элементов для исключения](./media/backup-azure-manage-windows-server-classic/exclusion-settings.png)
+    ![Выбор элементов для исключения](./media/backup-azure-manage-windows-server-classic/exclusion-settings.png)
 
 5. Щелкните **Добавить исключение**.
 
-    .![Добавление исключений](./media/backup-azure-manage-windows-server-classic/add-exclusion.png)
+    ![Добавление исключений](./media/backup-azure-manage-windows-server-classic/add-exclusion.png)
 
 6. Выберите расположение и нажмите кнопку **ОК**.
 
-    .![Выбор расположения для исключения](./media/backup-azure-manage-windows-server-classic/exclusion-location.png)
+    ![Выбор расположения для исключения](./media/backup-azure-manage-windows-server-classic/exclusion-location.png)
 
 7. Добавьте расширение файла в поле **Тип файла**.
 
-    .![Исключение по типу файлов](./media/backup-azure-manage-windows-server-classic/exclude-file-type.png)
+    ![Исключение по типу файлов](./media/backup-azure-manage-windows-server-classic/exclude-file-type.png)
 
     Добавление расширения .mp3
 
@@ -190,13 +190,13 @@
 
     Чтобы добавить другое расширение, нажмите кнопку **Добавить исключение** и введите другое расширение имени файла (ниже показано добавление расширения JPEG).
 
-    .![Другой пример типа файла](./media/backup-azure-manage-windows-server-classic/exclude-jpg.png)
+    ![Другой пример типа файла](./media/backup-azure-manage-windows-server-classic/exclude-jpg.png)
 
 8. После добавления всех расширений нажмите кнопку **ОК**.
 
 9. Продолжайте выполнять указания мастера архивации по расписанию, нажимая кнопку **Далее**, пока не откроется **страница подтверждения**. После этого нажмите кнопку **Готово**.
 
-    .![Подтверждение исключения](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
+    ![Подтверждение исключения](./media/backup-azure-manage-windows-server-classic/finish-exclusions.png)
 
 ## Дальнейшие действия
 - [Восстановление Windows Server или клиента Windows из Azure](backup-azure-restore-windows-server.md)

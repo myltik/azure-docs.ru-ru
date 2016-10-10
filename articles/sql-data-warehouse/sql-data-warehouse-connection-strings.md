@@ -53,10 +53,10 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 <!--Image references-->
 
-.<!--Azure.com references-->
+<!--Azure.com references-->
  [Запросы к хранилищу данных SQL Azure (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
  
-.<!--MSDN references-->
+<!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
 [ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
 [PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396

@@ -62,7 +62,7 @@
 
 	Или вы можете наблюдать за ходом выполнения на портале "Уведомления".
 
-	.![Быстрое создание баз данных — снимок экрана: центр уведомлений, где показано, что создается учетная запись DocumentDB](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)
+	![Быстрое создание баз данных — снимок экрана: центр уведомлений, где показано, что создается учетная запись DocumentDB](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-4.png)
 
 	![Снимок экрана: центр уведомлений, где показано, что учетная запись DocumentDB успешно создана и развернута в группе ресурсов — уведомление создателя базы данных в Интернете](./media/documentdb-create-mongodb-account/create-nosql-db-databases-json-tutorial-5.png)
 

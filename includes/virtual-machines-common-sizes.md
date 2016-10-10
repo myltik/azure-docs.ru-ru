@@ -52,9 +52,9 @@
 
 |Семейство SKU |ACU/число ядер |
 |---|---|
-|[Standard\_A0](#a-series) |50 |
-|[Standard\_A1–4](#a-series) |100 |
-|[Standard\_A5-7](#a-series) |100 |
+|[Standard\_A0](#a-series)	|50 |
+|[Standard\_A1–4](#a-series)	|100 |
+|[Standard\_A5-7](#a-series)	|100 |
 |[A8-A11](#a-series) |225*|
 |[D1–14](#d-series) |160 |
 |[D1–15v2](#dv2-series) |210–250*|
