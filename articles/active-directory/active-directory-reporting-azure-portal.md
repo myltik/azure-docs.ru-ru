@@ -13,10 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="markvi"/>
 
 # Отчеты в Azure Active Directory — предварительная версия
+
+> [AZURE.SELECTOR]
+- [Портал Azure](active-directory-reporting-azure-portal.md)
+- [Классический портал Azure](active-directory-reporting-guide.md)
 
 *Данная документация является частью [руководства по отчетам Azure Active Directory](active-directory-reporting-guide.md).*
 
@@ -216,4 +220,4 @@
 
 См. статью [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="07/22/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Отправка push-уведомлений в приложения Chrome с помощью Центров уведомлений Azure
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-В этом разделе показано, как использовать Центры уведомлений Azure для отправки push-уведомлений в приложение Chrome, которое будет запущено в браузере Google Chrome. В этом руководстве мы создадим приложение Chrome, которое получает push-уведомления с помощью [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/).
+В этой статье показано, как использовать Центры уведомлений Azure для отправки push-уведомлений в приложение Chrome, которое будет запущено в браузере Google Chrome. В этом руководстве мы создадим приложение Chrome, которое получает push-уведомления с помощью [Google Cloud Messaging (GCM)](https://developers.google.com/cloud-messaging/).
 
 >[AZURE.NOTE] Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
@@ -388,7 +388,7 @@
 
 1. В Visual Studio откройте меню **Файл** и выберите **Создать**, а затем — **Проект**. В разделе **Visual C#** последовательно щелкните **Windows** и **Консольное приложение**, а затем нажмите кнопку **ОК**. Это создаст новый проект консольного приложения.
 
-2. В меню **Инструменты** последовательно выберите **Диспетчер пакетов библиотеки** и **Консоль диспетчера пакетов**. Отобразится консоль диспетчера пакетов.
+2. В меню **Инструменты** последовательно выберите **Диспетчер пакетов библиотеки** и **Консоль диспетчера пакетов**. Откроется консоль диспетчера пакетов.
 
 3. В окне консоли выполните следующую команду:
 
@@ -474,7 +474,7 @@
 [библиотеку crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging для Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
-<!---HONumber=AcomDC_0727_2016-->
+<!---HONumber=AcomDC_1005_2016-->

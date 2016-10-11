@@ -169,7 +169,7 @@
 
 	![Состояние команды Remove-AzureService][The status of the Remove-AzureService command]
 
-	> [AZURE.NOTE] При удалении службы учетная запись хранения, созданная при первоначальной публикации службы, не удаляется. Оплата за использование хранилища будет насчитываться. См. дополнительную информацию об [удалении учетной записи хранения из подписки Azure].
+	> [AZURE.NOTE] При удалении службы учетная запись хранения, созданная при первоначальной публикации службы, не удаляется. Оплата за использование хранилища будет насчитываться. Если хранилище не используется другими объектами, его можно удалить.
 
 ## Дальнейшие действия
 
@@ -183,19 +183,17 @@
 [пакет SDK для Azure для .NET 2.7]: http://www.microsoft.com/ru-RU/download/details.aspx?id=48178
 [Подключите PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[удалении учетной записи хранения из подписки Azure]: ../storage/how-to-manage-a-storage-account.md
 [Обзор создания размещенной службы для Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Центре разработчика Node.js]: https://azure.microsoft.com/develop/nodejs/
 
-.<!-- IMG List -->
+<!-- IMG List -->
 
 [The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
 [The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
 [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

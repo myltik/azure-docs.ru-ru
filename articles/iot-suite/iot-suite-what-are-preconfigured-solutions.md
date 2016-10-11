@@ -19,7 +19,7 @@
 
 # Что такое предварительно настроенные решения Azure IoT Suite?
 
-Предварительно настроенные решения Azure IoT Suite — это реализация стандартных шаблонов IoT, которые вы можете развернуть в Azure с помощью своей подписки. Предварительно настроенные решения можно использовать:
+Предварительно настроенные решения Azure IoT Suite — это реализация стандартных шаблонов Центра Интернета вещей, которые вы можете развернуть в Azure в рамках своей подписки. Предварительно настроенные решения можно использовать:
 
 - в качестве отправной точки для собственных решений IoT;
 - для ознакомления с распространенными шаблонами, которые используются при проектировании и разработке решений IoT.
@@ -125,10 +125,10 @@
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
+[lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
-<!----HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

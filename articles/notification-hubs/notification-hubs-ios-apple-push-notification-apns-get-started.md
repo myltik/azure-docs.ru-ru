@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="06/29/2016"
+	ms.date="10/03/2016"
 	ms.author="wesmc"/>
 
 # Отправка push-уведомлений с помощью центров уведомлений Azure в iOS
@@ -502,11 +502,11 @@
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Уведомление пользователей iOS через центры уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-ios-send-breaking-news.md
+[Уведомление пользователей iOS через центры уведомлений с помощью серверной части .NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [руководстве по программированию локальных уведомлений и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [портала Azure]: https://portal.azure.com
 [портале Azure]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

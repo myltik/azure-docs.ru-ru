@@ -151,6 +151,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 Подписки раздела можно также создавать с помощью класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Подписки имеют имена и могут использовать дополнительный фильтр, ограничивающий набор сообщений, доставляемых в виртуальную очередь подписки.
 
+> [AZURE.IMPORTANT] Чтобы в подписку поступали сообщения, создайте ее, прежде чем отправлять какие-либо сообщения в раздел. В противном случае раздел будет отклонять сообщения.
+
 ### Создание подписки с фильтром по умолчанию (MatchAll)
 
 Если при создании новой подписки не указан фильтр, то по умолчанию используется фильтр **MatchAll**. Если используется фильтр **MatchAll**, все сообщения, опубликованные в разделе, помещаются в виртуальную очередь подписки. В следующем примере создается подписка AllMessages и используется фильтр по умолчанию **MatchAll**.
@@ -327,4 +329,4 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
   [Учебное пособие по обмену сообщениями .NET через посредника в служебной шине]: service-bus-brokered-tutorial-dotnet.md
   [примеров Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

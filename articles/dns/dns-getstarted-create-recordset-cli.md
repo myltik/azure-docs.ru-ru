@@ -3,7 +3,7 @@
    description="Как создать записи узла для Azure DNS. Настройка наборов записей и записей с помощью интерфейса командной строки."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # Создание записей и наборов записей DNS с помощью интерфейса командной строки
 
@@ -42,7 +42,7 @@
 
 	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
-### 2) Добавление записей
+### 2\ Добавление записей
 
 Чтобы использовать созданный набор записей www, в него нужно добавить записи. Это можно сделать с помощью `azure network dns record-set add-record`.
 
@@ -66,4 +66,4 @@
 
 Дополнительные сведения об Azure DNS см. в статье [Обзор Azure DNS](dns-overview.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

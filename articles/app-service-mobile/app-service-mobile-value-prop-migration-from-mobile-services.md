@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/30/2016"
-	ms.author="krisragh"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 # <a name="getting-started"> </a>Если я использую мобильные службы, чем мне может быть полезна служба приложений?
 
@@ -61,4 +61,4 @@
 
 Следуя инструкциям этого [учебника](app-service-mobile-migrating-from-mobile-services.md), вы можете начать использовать *службу приложений* для существующей мобильной службы.
 
-<!---HONumber=AcomDC_0706_2016-->
+<!---HONumber=AcomDC_1005_2016-->

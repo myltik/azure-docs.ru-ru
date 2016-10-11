@@ -132,7 +132,7 @@
 ## Дальнейшие действия
 Вы создали базу данных SQL и выполнили ее базовую настройку. Теперь можно перейти к следующим шагам:
 
-- [Управление базой данных SQL Azure с помощью PowerShell](sql-database-command-line-tools.md)
+- [Управление базой данных SQL Azure с помощью PowerShell](sql-database-manage-powershell.md)
 - [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md)
 
 
@@ -140,4 +140,4 @@
 
 - [база данных SQL Azure;](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_0824_2016-->
+<!---HONumber=AcomDC_1005_2016-->

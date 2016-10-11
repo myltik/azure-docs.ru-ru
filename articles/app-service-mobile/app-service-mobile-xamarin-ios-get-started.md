@@ -3,7 +3,7 @@
 	description="Этот учебник поможет приступить к использованию мобильных приложений в разработке для Xamarin.iOS."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2016"
-	ms.author="normesta"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 
 #Создание приложения Xamarin.iOS
@@ -99,4 +99,4 @@
 <!-- URLs. -->
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0810_2016-->
+<!---HONumber=AcomDC_1005_2016-->

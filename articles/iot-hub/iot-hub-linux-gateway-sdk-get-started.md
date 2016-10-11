@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Приступая к работе с пакетом SDK для шлюза центра IoT | Microsoft Azure"
-	description="Пошаговое руководство по работе с пакетом SDK для шлюза IoT Azure под управлением Linux иллюстрирует основные понятия, которые нужно знать при работе с пакетом SDK для шлюза IoT Azure."
+	description="В этом пошаговом руководстве по работе с пакетом SDK для шлюза Центра Интернета вещей Azure под управлением Linux рассматриваются основные понятия, которые нужно знать при работе с этим пакетом SDK."
 	services="iot-hub"
 	documentationCenter=""
 	authors="chipalost"
@@ -83,4 +83,4 @@
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

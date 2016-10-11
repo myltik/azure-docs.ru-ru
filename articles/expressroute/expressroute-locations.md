@@ -89,7 +89,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Softbank** | Поддерживаются | Поддерживаются | Осака, Токио | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Поддерживаются | Поддерживаются | Амстердам, Ченнаи, Гонконг, Лондон, Мумбаи, Кремниевая долина, Сингапур, Вашингтон (округ Колумбия) |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Поддерживаются | Поддерживаются | Амстердам, Дублин, Лондон |
-| **Telefonica** | Поддерживаются | Скоро | Сан-Паулу |
+| **Telefonica** | Поддерживаются | Поддерживаются | Сан-Паулу |
 | **Telenor** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Поддерживаются | Скоро | Мельбурн, Сидней |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Поддерживаются | Поддерживаются | Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Сидней, Токио, Вашингтон (округ Колумбия) |
@@ -171,4 +171,4 @@ ExpressRoute поддерживается во всех регионах и ра
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

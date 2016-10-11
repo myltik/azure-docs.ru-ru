@@ -3,7 +3,7 @@
 	description="Этот учебник поможет приступить к использованию мобильных приложений Azure для разработки приложений Xamarin Android"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="ggailey777"
+	authors="adrianhall"
 	manager="erikre"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/11/2016"
-	ms.author="glenga" />
+	ms.date="10/01/2016"
+	ms.author="adrianha" />
 
 #Создание приложения Xamarin.Android
 
@@ -82,8 +82,8 @@
 [9]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-xs.png
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
-.<!-- URLs. -->
+<!-- URLs. -->
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

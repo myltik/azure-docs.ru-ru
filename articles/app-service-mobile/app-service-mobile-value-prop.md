@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter=""
 	authors="adrianhall"
-	manager="dwrede"
+	manager="yochayk"
 	editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
-	ms.author="glennga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
-# <a name="getting-started"> </a>Что такое мобильные приложения?
+# <a name="getting-started"> </a>Общие сведения о мобильных приложениях
 
 Служба приложений Azure — это полностью управляемая [платформа как услуга](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) для профессиональных разработчиков, которая объединяет широкий набор возможностей для работы с веб-приложениями, мобильными устройствами и применения сценариев интеграции. *Мобильные приложения* в *службе приложений Azure* — это доступная по всему миру масштабируемая платформа разработки мобильных приложений, предназначенная для корпоративных разработчиков и системных интеграторов и расширяющая возможности разработки мобильных приложений.
 
@@ -99,8 +99,8 @@
 [Развертывание приложения в службе приложений Azure]: ../app-service-web/web-sites-deploy.md
 [Доступ к локальным ресурсам с помощью гибридных подключений в службе приложений Azure]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [Интеграция приложения с виртуальной сетью Azure]: ../app-service-web/web-sites-integrate-with-vnet.md
-[Сведения о конфигурации сети для сред службы приложений с ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
+[Сведения о конфигурации сети для сред службы приложений с ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [Введение в среду службы приложения]: ../app-service-web/app-service-app-service-environment-intro.md
-[карте обучения]: https://azure.microsoft.com/ru-RU/documentation/learning-paths/appservice-mobileapps/
+[карте обучения]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 
-<!----HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

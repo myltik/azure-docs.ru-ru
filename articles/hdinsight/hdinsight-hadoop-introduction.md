@@ -253,7 +253,7 @@ HDInsight предлагает облачные решения для работ
 
 * [Подключение Excel к HDInsight с помощью Power Query](hdinsight-connect-excel-power-query.md): узнайте о подключении Excel к учетной записи хранения Azure, в которой хранятся данные, связанные с кластером HDInsight, с помощью Microsoft Power Query для Excel. Требуется рабочая станция Windows. Работает с кластерами под управлением Windows или Linux.
 
-* [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC](hdinsight-connect-excel-hive-ODBC-driver.md): узнайте об импорте данных из HDInsight с помощью драйвера Microsoft Hive ODBC. Требуется рабочая станция Windows. Работает с кластерами под управлением Windows или Linux.
+* [Подключение Excel к HDInsight с помощью драйвера Microsoft Hive ODBC](hdinsight-connect-excel-hive-odbc-driver.md): узнайте об импорте данных из HDInsight с помощью драйвера Microsoft Hive ODBC. Требуется рабочая станция Windows. Работает с кластерами под управлением Windows или Linux.
 
 * [Облачная платформа Майкрософт](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): узнайте о возможностях Power BI для Office 365, скачайте пробную версию SQL Server, а также настройте SharePoint Server 2013 и SQL Server BI.
 
@@ -268,4 +268,4 @@ HDInsight предлагает облачные решения для работ
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->
