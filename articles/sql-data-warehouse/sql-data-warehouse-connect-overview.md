@@ -80,7 +80,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 [Запросы к хранилищу данных SQL Azure (Visual Studio)]: ./sql-data-warehouse-query-visual-studio.md
 [Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
 [ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
 [PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
@@ -90,7 +90,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 [DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
 [DATEFIRST]: https://msdn.microsoft.com/library/ms181598.aspx
 
-.<!--Other-->
+<!--Other-->
 [портал Azure]: https://portal.azure.com
 
 <!--Image references-->
