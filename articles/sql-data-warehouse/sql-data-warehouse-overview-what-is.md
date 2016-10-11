@@ -162,7 +162,7 @@
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
-.<!--Article references-->
+<!--Article references-->
 [Создание запроса в службу поддержки]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [загрузить демонстрационные данные]: ./sql-data-warehouse-load-sample-databases.md
 [создать хранилище данных SQL]: ./sql-data-warehouse-get-started-provision.md
@@ -172,7 +172,7 @@
 [здесь]: ./sql-data-warehouse-restore-database-overview.md
 [глоссарий Azure Глоссарий]: ../azure-glossary-cloud-terminology.md
 
-.<!--MSDN references-->
+<!--MSDN references-->
 
 <!--Other Web references-->
 [Истории успеха клиентов]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
