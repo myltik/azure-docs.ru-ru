@@ -3,7 +3,7 @@
    description="Поэтапно узнайте, как создать зоны DNS для Azure DNS, чтобы разместить домен DNS, используя интерфейс командной строки (CLI)."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
 
 # Создание зоны Azure DNS с помощью интерфейса командной строки
 
@@ -42,13 +42,13 @@
 
 Список команд поставщика сети для интерфейса командной строки можно вызвать с помощью следующей команды:
 
-    azure network
+	azure network
 
 ### 2) Переключение режима интерфейса командной строки
 
 Azure DNS использует диспетчер ресурсов Azure. Обязательно переключите интерфейс командной строки (CLI) в режим использования команд ARM.
 
-    azure config mode arm
+	azure config mode arm
 
 ### 3) Вход в учетную запись Azure
 
@@ -75,7 +75,7 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 Служба Azure DNS управляется поставщиком ресурсов Microsoft.Network. Вашу подписку Azure необходимо зарегистрировать, чтобы использовать этот поставщик ресурсов, прежде чем работать с Azure DNS. Эта операция выполняется один раз для каждой подписки.
 
-    azure provider register --namespace Microsoft.Network
+	azure provider register --namespace Microsoft.Network
 
 
 ## Шаг 2. Создание зоны DNS
@@ -99,7 +99,7 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 Пример ниже можно использовать для создания зоны DNS и тегов. Просто замените указанные значения собственными.
 
-    azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+	azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Просмотр записей
 
@@ -185,4 +185,4 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 Создав зону DNS, создайте [наборы записей и записи](dns-getstarted-create-recordset-cli.md), чтобы начать разрешение имен для домена Интернета.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -262,7 +262,7 @@
     node ReadDeviceToCloudMessages.js 
     ```
 
-    ![][7]
+    ![Клиентское приложение службы Центра Интернета вещей на Node.js для наблюдения за сообщениями, отправляемыми с устройства в облако][7]
 
 2. В командной строке в папке **simulateddevice** выполните следующую команду, чтобы начать отправку данных телеметрии в центр IoT:
 
@@ -270,11 +270,11 @@
     node SimulatedDevice.js
     ```
 
-    ![][8]
+    ![Клиентское приложение устройства Центра Интернета вещей на Node.js для отправки сообщений с устройства в облако][8]
 
 3. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в центр.
 
-     ![][43]
+    .![Плитка "Использование" на портале Azure, отображающая количество сообщений, отправленных в Центр Интернета вещей][43]
 
 ## Дальнейшие действия
 
@@ -288,8 +288,7 @@
 
 В руководстве по [обработке сообщений, отправляемых с устройства в облако][lnk-process-d2c-tutorial], показано, как расширить решение IoT и обрабатывать такие сообщения в большом количестве.
 
-<!-- Images. -->
-[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
+.<!-- Images. -->
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
 [8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
@@ -298,13 +297,13 @@
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -312,4 +311,4 @@
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!----HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -22,12 +22,13 @@
 
 В этом руководстве показано, как создать простое приложение [Node.js] и развернуть его в [службе приложений Azure] из командной строки, например cmd.exe или Bash. Инструкции, приведенные в этом руководстве, применимы к любой операционной системе, в которой может работать Node.js.
 
+
 <a name="prereq"></a>
 ## Предварительные требования
 
 - [Node.js]
-- [Bower];
-- [Yeoman];
+- [Bower;]
+- [Yeoman;]
 - [Git.]
 - [Интерфейс командной строки Azure]
 - Учетная запись Microsoft Azure. Если у вас нет учетной записи, можно [подписаться на бесплатную пробную версию] или [активировать преимущества для подписчиков Visual Studio].
@@ -224,7 +225,7 @@
 [Интерфейс командной строки Azure]: ../xplat-cli-install.md
 [службе приложений Azure]: ../app-service/app-service-value-prop-what-is.md
 [активировать преимущества для подписчиков Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Bower]: http://bower.io/
+[Bower;]: http://bower.io/
 [Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure]: ./web-sites-nodejs-chat-app-socketio.md
 [Развертывание веб-приложения Sails.js в службе приложений Azure]: ./app-service-web-nodejs-sails.md
 [Exploring the Super Secret Kudu Debug Console (Обзор сверхсекретной консоли для отладки Kudu)]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
@@ -237,7 +238,7 @@
 [SAILSJS]: http://sailsjs.org/
 [подписаться на бесплатную пробную версию]: http://go.microsoft.com/fwlink/?LinkId=623901
 [web app]: ./app-service-web-overview.md
-[Yeoman]: http://yeoman.io/
+[Yeoman;]: http://yeoman.io/
 
 <!-- IMG List -->
 
@@ -246,4 +247,4 @@
 [iislog-kudu-console-open]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-open.png
 [iislog-kudu-console-read]: ./media/app-service-web-nodejs-get-started/iislog-kudu-console-read.png
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

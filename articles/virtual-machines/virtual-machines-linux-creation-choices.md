@@ -35,14 +35,14 @@
 	```
 
 - [Создание защищенной виртуальной машины Linux с помощью шаблона Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-	- В следующем примере виртуальная машина создается на основе шаблона, который хранится на GitHub.
+	- В следующем примере виртуальная машина создается на основе шаблона, который хранится на сайте GitHub.
 
 	```bash
 	azure group create --name TestRG --location WestUS 
 		--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	```
 
-- [Создание полной среды Linux с помощью интерфейса командной строки Azure](virtual-machines-linux-create-cli-complete.md).
+- [Создание полной среды Linux с помощью интерфейса командной строки Azure](virtual-machines-linux-create-cli-complete.md)
 	- Включает создание балансировщика нагрузки и нескольких виртуальных машин в группе доступности.
 
 - [Добавление диска к виртуальной машине Linux](virtual-machines-linux-add-disk.md)
@@ -130,4 +130,4 @@ azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer
 
 - Способы быстрого [сброса пароля или SSH-ключей и управления пользователями](virtual-machines-linux-using-vmaccess-extension.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

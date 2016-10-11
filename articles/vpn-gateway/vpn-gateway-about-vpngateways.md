@@ -34,7 +34,7 @@
 
 ## Артикулы шлюзов
 
-[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] Дополнительные сведения о номерах SKU шлюзов см. в разделе [Артикулы шлюзов](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 В следующей таблице приведены типы шлюзов с приблизительной суммарной пропускной способностью. Эта таблица относится к классической модели развертывания и модели диспетчера ресурсов.
 
@@ -148,4 +148,4 @@ VPN типа "сеть — сеть" можно настроить как защ
 
  
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

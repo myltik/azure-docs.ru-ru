@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="10/04/2016"
    ms.author="nitinme"/>
 
 # Начало работы с хранилищем озера данных Azure с помощью Azure PowerShell
@@ -33,12 +33,13 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
+* **Azure PowerShell 1.0 или более поздней версии**. См. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
-##Установка Azure PowerShell 1.0 или более поздней версии
+## Аутентификация
 
-См. раздел "Предварительные требования" статьи [Использование Azure PowerShell с Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
+В этой статье используется более простой подход к проверке подлинности в Data Lake Store, при котором нужно ввести учетные данные учетной записи Azure. Уровень доступа к учетной записи Data Lake Store и файловой системе зависит от уровня доступа пользователя, который вошел в систему. Существуют разные способы проверки подлинности в Data Lake Store, в частности **проверка подлинности пользователя** и **проверка подлинности с взаимодействием между службами**. Инструкции и дополнительные сведения о проверке подлинности см. в статье [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Проверка подлинности приложений Data Lake Store с помощью Azure Active Directory).
 
 ## Создание учетной записи хранения озера данных Azure
 
@@ -140,4 +141,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -27,9 +27,9 @@
 
 Чтобы создать пиринговую связь между виртуальными сетями с помощью PowerShell, сделайте следующее:
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 
-        > [AZURE.NOTE] PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+> [AZURE.NOTE] Командлет PowerShell для управления пирингом виртуальных сетей включен в выпуск [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0).
 
 2. Чтение объектов виртуальных сетей.
 
@@ -47,7 +47,8 @@
         Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName	: vnet101
         VirtualNetworkName	: vnet1
-        ProvisioningState		: Succeeded
+        PeeringState		: Initiated
+        ProvisioningState	: Succeeded
         RemoteVirtualNetwork	: {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -69,7 +70,8 @@
         Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName	: vnet101
         VirtualNetworkName	: vnet2
-        ProvisioningState		: Succeeded
+        PeeringState		: Connected
+        ProvisioningState	: Succeeded
         RemoteVirtualNetwork	: {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
                                         }
@@ -91,7 +93,8 @@
 		Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ResourceGroupName	: vnet101
 		VirtualNetworkName	: vnet1
-		ProvisioningState		: Succeeded
+		PeeringState		: Connected
+		ProvisioningState	: Succeeded
 		RemoteVirtualNetwork	: {
 		                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
 		                                }
@@ -124,6 +127,7 @@
         Etag			: W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName	: vnet101
         VirtualNetworkName	: vnet1
+        PeeringState		: Connected
         ProvisioningState	: Succeeded
         RemoteVirtualNetwork	: {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
@@ -234,4 +238,4 @@
 
 2. Когда вы удалите одно соединение в рамках пиринга виртуальных сетей, состояние пирингового соединения изменится на "Отключено". В этом состоянии вы не сможете повторно создать соединение, пока состояние не изменится на "Инициировано". Перед повторной настройкой пиринга виртуальных сетей рекомендуется удалить оба соединения.
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

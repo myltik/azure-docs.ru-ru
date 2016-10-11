@@ -3,18 +3,18 @@
 	description="Следуйте указаниям этого руководства, чтобы начать работу с серверной частью мобильных приложений Azure для разработки приложений универсальной платформы Windows (UWP) на C#, Visual Basic или JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="ggailey777"
+	authors="adrianhall"
 	manager="erikre"
 	editor=""/>
 
-<tags
+.<tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/11/2016"
-	ms.author="glenga"/>
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
 #Создание приложения Windows
 
@@ -78,11 +78,9 @@
 
 ##Дальнейшие действия
 
-* [Добавление аутентификации в приложение](app-service-mobile-windows-store-dotnet-get-started-users.md)
-Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
+* [Добавление аутентификации в приложение](app-service-mobile-windows-store-dotnet-get-started-users.md) Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
-* [Добавление push-уведомлений в приложение](app-service-mobile-windows-store-dotnet-get-started-push.md).
-Узнайте, как добавить поддержку push-уведомлений в приложение и настроить в серверной части мобильного приложения использование центров уведомлений Azure для отправки push-уведомлений.
+* [Добавление push-уведомлений в приложение](app-service-mobile-windows-store-dotnet-get-started-push.md). Узнайте, как добавить поддержку push-уведомлений в приложение и настроить в серверной части мобильного приложения использование центров уведомлений Azure для отправки push-уведомлений.
 
 * [Включение автономной синхронизации для приложения](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). Узнайте, как добавить в приложение поддержку автономной работы с помощью серверной части мобильного приложения. Автономная синхронизация позволяет конечным пользователям взаимодействовать с мобильным приложением (просматривать, добавлять или изменять данные) даже при отсутствии подключения к сети.
 
@@ -93,4 +91,4 @@
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_0817_2016-->
+<!---HONumber=AcomDC_1005_2016-->

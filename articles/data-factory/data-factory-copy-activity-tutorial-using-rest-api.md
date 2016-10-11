@@ -7,7 +7,7 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-<tags 
+.<tags 
 	ms.service="data-factory" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
@@ -19,12 +19,13 @@
 # Руководство. Создание конвейера с действием копирования с помощью REST API
 > [AZURE.SELECTOR]
 - [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
 - [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+
 
 В этом руководстве рассматривается создание и мониторинг фабрики данных Azure с помощью REST API. Конвейер в фабрике данных копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure с помощью действия копирования.
 
@@ -491,4 +492,4 @@
 [sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

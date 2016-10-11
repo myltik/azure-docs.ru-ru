@@ -19,12 +19,13 @@
 # Руководство. Создание конвейера с действием копирования с помощью API .NET
 > [AZURE.SELECTOR]
 - [Обзор и предварительные требования](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
 - [Портал Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [ИНТЕРФЕЙС REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Мастер копирования](data-factory-copy-data-wizard-tutorial.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+
 
 В этом руководстве описывается создание и мониторинг фабрики данных Azure с помощью API .NET. Конвейер в фабрике данных копирует данные из хранилища BLOB-объектов Azure в базу данных SQL Azure с помощью действия копирования.
 
@@ -458,4 +459,4 @@
 
  
 
-<!---HONumber=AcomDC_0921_2016-->
+<!---HONumber=AcomDC_1005_2016-->

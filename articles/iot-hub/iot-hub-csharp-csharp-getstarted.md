@@ -220,7 +220,7 @@
 
   По умолчанию метод **Create** создает экземпляр **DeviceClient**, который использует протокол AMQP для связи с центром IoT. Для использования протокола HTTPS используйте переопределение метода **Create**, чтобы указать протокол. Если вы используете протокол HTTPS, вам также следует добавить в свой проект пакет NuGet **Microsoft.AspNet.WebApi.Client**, чтобы включить пространство имен **System.Net.Http.Formatting**.
 
-В этом руководстве описываются шаги по созданию клиентского устройства центра IoT. Вы также можете использовать расширение [подключенной службы для центра Azure IoT][lnk-connected-service] \(Visual Studio), чтобы добавить необходимый код в приложение клиентского устройства.
+В этом руководстве описываются шаги по созданию клиентского устройства центра IoT. Вы также можете использовать расширение [подключенной службы для центра Azure IoT][lnk-connected-service] (Visual Studio), чтобы добавить необходимый код в приложение клиентского устройства.
 
 
 > [AZURE.NOTE] Для простоты в этом руководстве не реализуются политики повтора. В рабочем коде следует реализовать политики повтора (например, экспоненциальную задержку), как указано в статье MSDN [Обработка временного сбоя][lnk-transient-faults].
@@ -239,7 +239,7 @@
 
 3. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в центр.
 
-     ![Плитка "Использование" на портале Azure][43]
+    .![Плитка "Использование" на портале Azure][43]
 
 
 ## Дальнейшие действия
@@ -254,7 +254,7 @@
 
 В руководстве по [обработке сообщений, отправляемых с устройства в облако][lnk-process-d2c-tutorial], показано, как расширить решение IoT и обрабатывать такие сообщения в большом количестве.
 
-<!-- Images. -->
+.<!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
@@ -265,12 +265,12 @@
 <!-- Links -->
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
@@ -282,4 +282,4 @@
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

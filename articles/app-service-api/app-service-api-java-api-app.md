@@ -24,7 +24,7 @@
 
 ## Предварительные требования
 
-1. [Java Developer Kit 8] \(или более поздней версии).
+1. [Java Developer Kit 8] (или более поздней версии).
 1. Установка [Maven] на компьютере, на котором ведется разработка.
 1. Установка [Git] на компьютере, на котором ведется разработка.
 1. Платная или [бесплатная пробная версия] подписки [Microsoft Azure].
@@ -338,4 +338,4 @@
 [copy-git-repo-url]: ./media/app-service-api-java-api-app/copy-git-repo-url.png
 [postman-calling-azure-contacts]: ./media/app-service-api-java-api-app/postman-calling-azure-contacts.png
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

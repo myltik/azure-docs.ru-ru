@@ -14,18 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="davidmu"/>
 
 # Создание виртуальной машины Windows с помощью Resource Manager и PowerShell
 
 В этой статье показано, как быстро создать виртуальную машину Azure под управлением Windows Server и связанные с ней ресурсы с помощью [Resource Manager](../resource-group-overview.md) и PowerShell.
 
-Все действия, описанные в этой статье, необходимы для создания виртуальной машины; их выполнение займет около 30 минут.
+Все действия, описанные в этой статье, необходимы для создания виртуальной машины. Их выполнение займет около 30 минут.
 
 ## Шаг 1. Установка Azure PowerShell
 
-Сведения об установке последней версии Azure PowerShell, выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в учетную запись Azure см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
         
 ## Шаг 2. Создание группы ресурсов
 
@@ -35,7 +35,7 @@
 
 	    Get-AzureRmLocation | sort Location | Select Location
         
-    Вы увидите нечто вроде этого:
+    Вы увидите нечто вроде этого примера:
     
         Location
         --------
@@ -98,7 +98,7 @@
         $vnetName = "myvnet1"
         $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
         
-    Для приложения и среды следует использовать содержательные значения.
+    Для приложения и среды используйте содержательные значения.
         
 ## Шаг 5. Создание общедоступного IP-адреса и сетевого интерфейса
 
@@ -122,7 +122,7 @@
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Пароль должен содержать от 8 до 123 символов и включать по крайней мере три из перечисленных далее символов: одна строчная буква, одна заглавная буква, одно число и один специальный символ. См. дополнительную информацию о [требованиях к имени пользователя и паролю](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+    Пароль должен содержать от 12 до 123 символов и включать по крайней мере одну строчную букву, одну прописную букву, одну цифру и один специальный знак.
         
 2. Замените значение **$vmName** именем виртуальной машины. Создайте переменную и конфигурацию виртуальной машины.
 
@@ -140,13 +140,13 @@
 
         $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         
-    Дополнительную информацию о выборе образов, которые можно использовать, см. в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](virtual-machines-windows-cli-ps-findimage.md).
+    Дополнительные сведения о выборе образов, которые можно использовать, см. в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](virtual-machines-windows-cli-ps-findimage.md).
         
 5. Добавьте в конфигурацию созданный сетевой интерфейс.
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. Замените значение **$blobPath** путем и именем файла в хранилище, который будет использоваться виртуальным жестким диском. Файл виртуального жесткого диска обычно хранится в контейнере, например **vhds/WindowsVMosDisk.vhd**. Создайте переменные.
+6. Замените значение **$blobPath** путем и именем файла в хранилище виртуального жесткого диска. Файл виртуального жесткого диска обычно хранится в контейнере, например **vhds/WindowsVMosDisk.vhd**. Создайте переменные.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
@@ -172,4 +172,4 @@
 - Узнайте, как управлять созданной виртуальной машиной, прочитав статью об [управлении виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-ps-manage.md).
 - Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->

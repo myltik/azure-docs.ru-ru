@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 # Начало работы с хранилищем озера данных Azure с помощью пакета SDK .NET
@@ -112,9 +112,9 @@
 
 ## Аутентификация
 
-### При использовании проверки подлинности пользователя
+### При использовании проверки подлинности пользователя (рекомендуется для этого руководства)
 
-Используйте приведенный ниже фрагмент кода для существующего собственного клиентского приложения Azure AD.
+Используйте приведенный ниже фрагмент кода для существующего собственного клиентского приложения Azure AD. Мы советуем вам использовать этот подход для быстрого завершения работы с этим руководством.
 
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
@@ -124,7 +124,10 @@
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-В указанном фрагменте используется домен в Azure AD и идентификатор клиента, доступный по умолчанию для всех подписок Azure. Если вы хотите использовать свой домен Azure AD и идентификатор клиента приложения, вам нужно создать собственное приложение Azure AD. Подробные инструкции см. в разделе [Создание приложения Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
+Некоторые важные моменты касательно этого фрагмента.
+
+* Для быстрого завершения работы с руководством в этом фрагменте кода используется домен Azure AD и идентификатор клиента, доступный по умолчанию для всех подписок Azure. Таким образом, вы можете **использовать этот фрагмент в приложении в исходном виде**.
+* Если вы не хотите использовать свой домен Azure AD и идентификатор клиента приложения, необходимо создать собственное приложение Azure AD и использовать домен Azure AD, идентификатор клиента и URI перенаправления этого приложения. Подробные инструкции см. в разделе [Создание приложения Active Directory](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
 
 >[AZURE.NOTE] Инструкции по указанным ссылкам относятся к веб-приложениям Azure AD. Однако если вы решите создать собственное клиентское приложение, ваши действия будут такими же.
 
@@ -273,4 +276,4 @@
 - [Data Lake Store .NET Reference (Справочник по пакету SDK .NET для Data Lake Store)](https://msdn.microsoft.com/library/mt581387.aspx)
 - [Data Lake Store REST Reference (Справочник по REST для Data Lake Store)](https://msdn.microsoft.com/library/mt693424.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

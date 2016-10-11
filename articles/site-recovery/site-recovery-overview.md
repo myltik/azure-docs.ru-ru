@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="09/29/2016" 
 	ms.author="raynew"/>
 
 #  Что такое Site Recovery?
@@ -81,4 +81,4 @@
 - Дополнительные сведения об архитектуре службы Site Recovery см. в статье [Как работает служба Azure Site Recovery?](site-recovery-components.md)
  
 
-<!---HONumber=AcomDC_0720_2016-->
+<!---HONumber=AcomDC_1005_2016-->

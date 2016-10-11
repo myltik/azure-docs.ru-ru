@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/01/2016"
+	ms.date="09/30/2016"
 	ms.author="casoper"/>
 
 # Общие сведения о сети доставки содержимого(CDN) Azure
@@ -52,7 +52,7 @@
 
 | | Akamai уровня "Стандартный" | Verizon уровня "Стандартный" | Verizon уровня "Premium" |
 |-------|-----------------|------------------|-----------------|
-| Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [облачные службы](cdn-cloud-service-with-cdn.md), [веб-приложения](../app-service-web/cdn-websites-with-cdn.md) и [службы мультимедиа](../media-services/media-services-manage-origins.md#enable_cdn). | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Простая интеграция со службами Azure, такими как [служба хранилища](cdn-create-a-storage-account-with-cdn.md), [облачные службы](cdn-cloud-service-with-cdn.md), [веб-приложения](../app-service-web/cdn-websites-with-cdn.md) и [службы мультимедиа](../media-services/media-services-manage-origins.md#enable-cdn). | **&#x2713;** | **&#x2713;** | **&#x2713;**|
 | Управление с помощью [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md) или [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Поддержка HTTPS. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Балансировка нагрузки. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
@@ -87,4 +87,4 @@
 
 Сведения о ценах на CDN см. на [этой странице](https://azure.microsoft.com/pricing/details/cdn/).
 
-<!---HONumber=AcomDC_0907_2016-->
+<!---HONumber=AcomDC_1005_2016-->

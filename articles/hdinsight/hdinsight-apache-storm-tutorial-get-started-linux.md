@@ -8,7 +8,7 @@
 	manager="jhubbard"
 	editor="cgronlun"/>
 
-<tags
+.<tags
    ms.service="hdinsight"
    ms.devlang="java"
    ms.topic="get-started-article"
@@ -24,7 +24,7 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 > [AZURE.NOTE] С помощью действий, описанных в данной статье, можно создать кластер HDInsight под управлением Linux. Инструкции по созданию Storm под управлением Windows в кластере HDInsight см. в статье [Учебник по Apache Storm: начало работы с примерами Storm Starter для анализа данных в HDInsight](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Перед началом работы
+## Предварительные требования
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -38,13 +38,17 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 	- **Для клиентов Windows**: См. [Использование SSH в Hadoop на HDInsight под управлением Linux из Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
+### Требования к контролю доступа
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
 ## Создание кластера Storm
 
 В этом разделе мы создадим кластер HDInsight версии 3.2 (Storm версии 0.9.3) с помощью шаблона Azure Resource Manager. Дополнительную информацию о различных версиях HDInsight и их соглашениях об уровне обслуживания см. в статье [Версии компонентов НDInsight](hdinsight-component-versioning.md). Другие способы создания кластера см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Щелкните следующее изображение, чтобы открыть шаблон на портале Azure.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/ru-RU/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
     Шаблон хранится в общедоступном контейнере BLOB-объектов *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json*.
    
@@ -141,7 +145,7 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 3. На этой странице выберите запись и раздела **Spouts** (Воронки) или **Bolts** (Сита). Отобразится информация о выбранном компоненте.
 
-	 ![Панель мониторинга Storm со сведениями о выбранных компонентах.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
+	.![Панель мониторинга Storm со сведениями о выбранных компонентах.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
 	На этой странице отображается следующая информация.
 
@@ -172,7 +176,7 @@ Apache Storm — это масштабируемая отказоустойчи�
 
 ##Остановка топологии
 
-Вернитесь к странице **Topology summary** (Сводка топологии), чтобы найти топологию подсчета слов, и нажмите кнопку **Kill** (Удалить) в разделе **Topology actions** (Действия топологии). При появлении запроса введите 10 секунд ожидания перед остановкой топологии. После истечения времени ожидания топология перестанет отображаться во время входа в раздел **Storm UI** (Пользовательский интерфейс Storm) панели мониторинга.
+Вернитесь к странице **Topology summary** (Сводка топологии), чтобы найти топологию подсчета слов, и нажмите кнопку **Kill** (Удалить) в разделе **Topology actions ** (Действия топологии). При появлении запроса введите 10 секунд ожидания перед остановкой топологии. После истечения времени ожидания топология перестанет отображаться во время входа в раздел **Storm UI** (Пользовательский интерфейс Storm) панели мониторинга.
 
 ##Удаление кластера
 
@@ -192,4 +196,4 @@ Apache Storm — это масштабируемая отказоустойчи�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+<!---HONumber=AcomDC_1005_2016-->

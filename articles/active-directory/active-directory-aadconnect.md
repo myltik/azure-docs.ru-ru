@@ -14,15 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/14/2016"
+	ms.date="09/30/2016"
 	ms.author="andkjell;billmath"/>
 
 # Интеграция локальных удостоверений с Azure Active Directory
+
 Azure AD Connect интегрирует локальные каталоги с Azure Active Directory. Таким образом вы сможете предоставить пользователям возможность получать доступ с использованием одного удостоверения для приложений Office 365, Azure и программного обеспечения как услуги (SaaS), интегрированных с Azure AD. В этом разделе описаны шаги планирования, развертывания и использования. Здесь представлена коллекция ссылок на статьи, относящиеся к этой области.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [Azure AD Connect — это лучший способ для подключения локального каталога к Azure AD и Office 365. Если вы пользуетесь Windows Azure Active Directory Sync (DirSync) или Azure AD Sync, настало время перейти на Azure AD Connect, поскольку эти продукты уже устарели, и с 13 апреля 2017 года их поддержка будет прекращена.]( https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect is the best way to connect your on-premises directory with Azure AD and Office 365. This is a great time to upgrade to Azure AD Connect from Windows Azure Active Directory Sync (DirSync) or Azure AD Sync as these tools are now deprecated and will reach end of support on April 13, 2017.]active-directory-aadconnect-dirsync-deprecated.md)
 
 ![Что такое Azure AD Connect?](./media/active-directory-aadconnect/arch.png)
 
@@ -53,9 +54,9 @@ Azure Active Directory Connect состоит из трех основных к�
 Решение | Сценарий
 ----- | ----- |
 Перед началом работы: [оборудование и предварительные требования](active-directory-aadconnect-prerequisites.md) | <li>Шаги, которые нужно выполнить до установки Azure AD Connect.</li>
-[Стандартные параметры](active-directory-aadconnect-get-started-express.md) | <li>Рекомендуемый вариант при наличии AD с одним лесом.</li> <li>Пользователи входят в систему с одним и тем же паролем, используя синхронизацию паролей.</li>
-[Настраиваемые параметры](active-directory-aadconnect-get-started-custom.md) | <li>Используется при наличии нескольких лесов. Поддерживает многие локальные [топологии](active-directory-aadconnect-topologies.md).</li> <li>Настройка режима входа, например AD FS для федерации или использования стороннего поставщика удостоверений.</li> <li>Настройка функций синхронизации, таких как фильтрация и обратная запись.</li>
-[Обновление из DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Используется, если есть уже работающий сервер DirSync.</li>
+[Стандартные параметры](./aad-connect/active-directory-aadconnect-get-started-express.md) | <li>Рекомендуемый вариант при наличии AD с одним лесом.</li> <li>Пользователи входят в систему с одним и тем же паролем, используя синхронизацию паролей.</li>
+[Настраиваемые параметры](./aad-connect/active-directory-aadconnect-get-started-custom.md) | <li>Используется при наличии нескольких лесов. Поддерживает многие локальные [топологии](active-directory-aadconnect-topologies.md).</li> <li>Настройка режима входа, например AD FS для федерации или использования стороннего поставщика удостоверений.</li> <li>Настройка функций синхронизации, таких как фильтрация и обратная запись.</li>
+[Обновление из DirSync](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Используется, если есть уже работающий сервер DirSync.</li>
 [Переход с Azure AD Sync на Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md)| <li>Если есть несколько разных способов, зависящих от ваших требований.</li>
 
 
@@ -66,9 +67,9 @@ Azure Active Directory Connect состоит из трех основных к�
 Раздел |  
 --------- | ---------
 Загрузка Azure AD Connect | [Загрузка Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
-Установка с помощью стандартных параметров | [Экспресс-установка Azure AD Connect](active-directory-aadconnect-get-started-express.md)
-Установка с помощью настроенных параметров | [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-Обновление из DirSync | [Обновление из средства синхронизации Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Установка с помощью стандартных параметров | [Экспресс-установка Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-express.md)
+Установка с помощью настроенных параметров | [Выборочная установка Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md)
+Обновление из DirSync | [Обновление из средства синхронизации Azure AD (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Действия после установки | [Проверка установки и назначение лицензий ](active-directory-aadconnect-whats-next.md)
 
 ### Дополнительные сведения об установке Azure AD Connect
@@ -79,7 +80,7 @@ Azure Active Directory Connect состоит из трех основных к�
 --------- | ---------
 Поддерживаемые топологии | [Топологии Azure AD Connect.](active-directory-aadconnect-topologies.md)
 Принципы проектирования | [Принципы проектирования Azure AD Connect](active-directory-aadconnect-design-concepts.md)
-Учетные записи, используемые для установки | [Дополнительные сведения об учетных данных и разрешениях Azure AD Connect](active-directory-aadconnect-accounts-permissions.md)
+Учетные записи, используемые для установки | [Дополнительные сведения об учетных данных и разрешениях Azure AD Connect](./aad-connect/active-directory-aadconnect-accounts-permissions.md)
 Операционное планирование | [Службы синхронизации Azure AD Connect: рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md)
 Параметры входа пользователя | [Параметры входа в Azure AD Connect](active-directory-aadconnect-user-signin.md)
 
@@ -140,7 +141,7 @@ Azure AD Connect поставляется с несколькими функци
 --------- | ---------
 Все статьи, посвященные AD FS | [Azure AD Connect и федерация](active-directory-aadconnectfed-whatis.md)
 Настройка служб AD FS с поддоменами | [Поддержка нескольких доменов для федерации с Azure AD](active-directory-aadconnect-multiple-domains.md)
-Управление фермой AD FS | [AD FS management and customizaton with Azure AD Connect](active-directory-aadconnect-federation-management.md) (Управление службой AD FS и ее настройка с помощью Azure AD Connect)
+Управление фермой AD FS | [AD FS management and customizaton with Azure AD Connect (Управление службой AD FS и ее настройка с помощью Azure AD Connect)](active-directory-aadconnect-federation-management.md)
 Обновление сертификатов федерации вручную | [Обновление сертификатов федерации для Office 365 и Azure AD](active-directory-aadconnect-o365-certs.md)
 
 ## Дополнительные сведения и ссылки
@@ -162,4 +163,4 @@ Azure AD Connect поставляется с несколькими функци
 
 >[AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=AcomDC_0928_2016-->
+<!---HONumber=AcomDC_1005_2016-->

@@ -18,9 +18,7 @@
 
 # Что такое центр IoT в Azure?
 
-Добро пожаловать в центр IoT Azure. В этой статье представлен обзор центра IoT Azure и содержатся сведения о том, как вам может пригодиться эта служба при внедрении решения Интернета вещей (IoT).
-
-Центр IoT Azure — это полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств IoT и серверной частью решения. Центр IoT Azure обеспечивает:
+Добро пожаловать в центр IoT Azure. В этой статье представлен обзор Центра Интернета вещей Azure и содержатся сведения о том, как вам может пригодиться эта служба при внедрении решения Интернета вещей. Центр IoT Azure — это полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств IoT и серверной частью решения. Центр IoT Azure обеспечивает:
 
 - глобальный надежный обмен сообщениями между облаком и устройством в обоих направлениях;
 - безопасную связь — используются учетные данные безопасности, уникальные для каждого устройства, и контроль доступа;
@@ -31,7 +29,7 @@
 
 ![Использование центра IoT Azure в качестве облачного шлюза для решения IoT][img-architecture]
 
-> [AZURE.NOTE] Подробное рассмотрение архитектуры IoT см. в документе [Microsoft Azure IoT Reference Architecture][lnk-refarch] \(Эталонная архитектура Microsoft Azure IoT).
+> [AZURE.NOTE] Подробное рассмотрение архитектуры IoT см. в документе [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Эталонная архитектура Microsoft Azure IoT).
 
 ## Трудности, связанные с взаимодействием устройств IoT
 
@@ -60,7 +58,7 @@
 -   **Протоколы IoT и расширяемость**. Если в вашем решении нельзя использовать библиотеки устройств, центр IoT Azure предоставляет открытый протокол, который позволяет устройствам использовать протоколы MQTT 3.1.1, HTTP 1.1 и AMQP 1.0. Кроме того, в центре IoT можно настроить поддержку пользовательских протоколов. Для этого нужно:
 
     - создать полевой шлюз с помощью [пакета SDK шлюза Azure IoT][lnk-gateway-sdk], который преобразует пользовательский протокол в один из трех протоколов, поддерживаемых центром IoT.
-    - настроить [шлюз протокола Azure IoT][protocol-gateway] \(компонент с открытым исходным кодом, который выполняется в облаке).
+    - настроить [шлюз протокола Azure IoT][protocol-gateway] (компонент с открытым исходным кодом, который выполняется в облаке).
 
 -   **Масштабирование.** Центр IoT Azure масштабируется до нескольких миллионов одновременно подключенных устройств и нескольких миллионов событий в секунду.
 
@@ -106,15 +104,13 @@
 
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-[lnk-d2c]: iot-hub-csharp-csharp-process-d2c.md
 [protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Взаимодействие с поддержкой службы, запись в блоге Клеменса Вастерса (Clemens Vasters)"
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-gateway]: iot-hub-protocol-gateway.md
-[lnk-field-gateway]: iot-hub-guidance.md#field-gateways
-[lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-devguide-security]: iot-hub-devguide.md#security
+[lnk-field-gateway]: iot-hub-devguide-endpoints.md#field-gateways
+[lnk-devguide-identityregistry]: iot-hub-devguide-identity-registry.md
+[lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-wns]: https://msdn.microsoft.com/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
@@ -123,4 +119,4 @@
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-<!---HONumber=AcomDC_0831_2016-->
+<!---HONumber=AcomDC_1005_2016-->
