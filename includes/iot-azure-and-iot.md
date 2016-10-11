@@ -14,7 +14,7 @@
 
 ![Архитектура решения IoT][img-solution-architecture]
 
-> [AZURE.NOTE] Подробное рассмотрение архитектуры IoT см. в документе [Microsoft Azure IoT Reference Architecture][lnk-refarch] (Эталонная архитектура Microsoft Azure IoT).
+> [AZURE.NOTE] Подробное рассмотрение архитектуры IoT см. в документе [Microsoft Azure IoT Reference Architecture][lnk-refarch] \(Эталонная архитектура Microsoft Azure IoT).
 
 ### Взаимодействие устройств
 

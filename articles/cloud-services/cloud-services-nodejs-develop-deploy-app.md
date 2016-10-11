@@ -7,7 +7,7 @@
 	manager="wpickett"
 	editor=""/>
 
-.<tags
+<tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
@@ -186,7 +186,7 @@
 [Обзор создания размещенной службы для Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Центре разработчика Node.js]: https://azure.microsoft.com/develop/nodejs/
 
-.<!-- IMG List -->
+<!-- IMG List -->
 
 [The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
 [The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png

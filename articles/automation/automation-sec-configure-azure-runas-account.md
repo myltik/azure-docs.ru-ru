@@ -7,7 +7,7 @@
     manager="jwhit"
     editor=""
 	keywords="имя субъекта-службы, SetSPN, проверка подлинности Azure"/>
-.<tags
+<tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"

@@ -7,7 +7,7 @@
 	manager="erikre"
 	editor="" />
 
-.<tags
+<tags
 	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
@@ -82,7 +82,7 @@
 [9]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-xs.png
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
-.<!-- URLs. -->
+<!-- URLs. -->
 [Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 

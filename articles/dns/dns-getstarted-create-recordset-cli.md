@@ -7,7 +7,7 @@
    manager="carmonm"
    editor=""/>
 
-.<tags
+<tags
    ms.service="dns"
    ms.devlang="na"
    ms.topic="get-started-article"
@@ -42,7 +42,7 @@
 
 	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
-### 2) Добавление записей
+### 2\ Добавление записей
 
 Чтобы использовать созданный набор записей www, в него нужно добавить записи. Это можно сделать с помощью `azure network dns record-set add-record`.
 

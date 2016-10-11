@@ -7,7 +7,7 @@
 	manager="timlt"
 	editor=""/>
 
-.<tags
+<tags
      ms.service="iot-hub"
      ms.devlang="java"
      ms.topic="hero-article"
@@ -457,7 +457,7 @@
 
 3. На плитке **Использование** на [портале Azure][lnk-portal] отображается количество сообщений, отправленных в центр.
 
-    .![Плитка "Использование" на портале Azure, отображающая количество сообщений, отправленных в Центр Интернета вещей][43]
+    ![Плитка "Использование" на портале Azure, отображающая количество сообщений, отправленных в Центр Интернета вещей][43]
 
 ## Дальнейшие действия
 
@@ -471,13 +471,13 @@
 
 В руководстве по [обработке сообщений, отправляемых с устройства в облако][lnk-process-d2c-tutorial], показано, как расширить решение IoT и обрабатывать такие сообщения в большом количестве.
 
-.<!-- Images. -->
+<!-- Images. -->
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-java-java-getstarted/runapp1.png
 [8]: ./media/iot-hub-java-java-getstarted/runapp2.png
 [43]: ./media/iot-hub-java-java-getstarted/usage.png
 
-.<!-- Links -->
+<!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

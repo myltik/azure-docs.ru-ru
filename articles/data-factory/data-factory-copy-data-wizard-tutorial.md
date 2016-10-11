@@ -7,7 +7,14 @@
 	manager="jhubbard" 
 	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ** ms.devlang="na" ms.topic="get-started-article" ms.date="09/16/2016" ms.author="spelluru"/>
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="09/16/2016" 
+	ms.author="spelluru"/>
 
 # Руководство. Создание конвейера с действием копирования с помощью мастера копирования фабрики данных
 > [AZURE.SELECTOR]
@@ -100,7 +107,7 @@
 	![Средство копирования — указание базы данных SQL Azure](./media/data-factory-copy-data-wizard-tutorial/specify-azure-sql-database.png)
 9. На странице **Сопоставление таблицы** выберите **emp** в поле **Назначение** раскрывающегося списка, щелкните **стрелку вниз** (необязательно), чтобы отобразить схему и просмотреть данные.
 
-	.![Средство копирования — сопоставление таблиц](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
+	![Средство копирования — сопоставление таблиц](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png)
 10. На странице **Сопоставление схем** нажмите кнопку **Далее**.
 
 	![Средство копирования — сопоставление схем](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)

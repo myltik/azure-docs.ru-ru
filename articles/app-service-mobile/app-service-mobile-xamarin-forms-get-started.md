@@ -166,7 +166,7 @@
 [Next Steps]: #next-steps
 
 
-.<!-- Images. -->
+<!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart.png
 [8]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-vs.png
 [9]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-xs.png
