@@ -429,7 +429,7 @@ Enterprise Library 6 (EntLib60) — это платформа классов .
 
 Следующие классы EntLib60 особенно полезны для логики повторных ошибок. Все они входят в пространство имен **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** или во вложенные пространства.
 
-*В пространстве имен* *Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
+*В пространстве имен **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:*
 
 - класс **RetryPolicy**;
  - метод **ExecuteAction**;
@@ -562,4 +562,4 @@ public bool IsTransient(Exception ex)
 
 - [*Retrying* — это лицензированная общая библиотека Apache 2.0 для повторных попыток, написанная на языке **Python**, которая позволяет легко добавить режим повтора куда угодно.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_0921_2016-->
+<!----HONumber=AcomDC_0921_2016-->
