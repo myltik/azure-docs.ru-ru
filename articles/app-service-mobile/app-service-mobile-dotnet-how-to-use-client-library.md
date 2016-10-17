@@ -502,14 +502,14 @@
 
 Вы можете использовать библиотеку проверки подлинности Active Directory (ADAL) для управления входом пользователей из клиента с помощью Azure Active Directory.
 
-1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя указаниям в учебнике "Настройка приложения службы приложений для использования службы входа Azure Active Directory". Обязательно выполните дополнительный этап регистрации собственного клиентского приложения.
+1. Настройте серверную часть мобильного приложения для входа с помощью AAD, следуя указаниям в учебнике "[Настройка приложения службы приложений для использования службы входа Azure Active Directory]". Обязательно выполните дополнительный этап регистрации собственного клиентского приложения.
 2. Откройте проект в Visual Studio или Xamarin Studio и добавьте ссылку на пакет NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory`. Включите в диапазон поиска предварительные версии.
 3. Добавьте в приложение код, соответствующий используемой платформе, который приведен ниже. В каждом коде выполните следующие замены.
 
 	* Замените строку **INSERT-AUTHORITY-HERE** именем клиента, в котором подготовлено приложение. Используйте следующий формат: https://login.windows.net/contoso.onmicrosoft.com. Это значение можно скопировать на вкладке "Домен" в разделе Azure Active Directory на [классическом портале Azure].
 	* Замените текст **INSERT-RESOURCE-ID-HERE** идентификатором клиента для серверной части мобильного приложения. Идентификатор клиента можно скопировать на портале в разделе **Настройки Azure Active Directory** на вкладке **Дополнительно**.
 	* Замените текст **INSERT-CLIENT-ID-HERE** идентификатором клиента, скопированным из собственного клиентского приложения.
-	* Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта _/.auth/login/done_, используя схему HTTPS. Это значение должно быть аналогично https://contoso.azurewebsites.net/.auth/login/done_.
+	* Замените текст **INSERT-REDIRECT-URI-HERE** конечной точкой сайта _/.auth/login/done_, используя схему HTTPS. Это значение должно быть аналогично _https://contoso.azurewebsites.net/.auth/login/done_.
 	
 	Ниже приведены колы для каждой платформы.
 	
@@ -927,7 +927,7 @@ Push-уведомления рассматриваются в следующих
 [Автономная синхронизация данных в мобильных приложениях Azure]: app-service-mobile-offline-data-sync.md
 [Добавление push-уведомлений в приложение]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Регистрация приложения для входа с использованием учетной записи Майкрософт]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[How to configure App Service for Active Directory login]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Настройка приложения службы приложений для использования службы входа Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [Azure Mobile Apps .NET client reference]: https://msdn.microsoft.com/ru-RU/library/azure/mt419521(v=azure.10).aspx
