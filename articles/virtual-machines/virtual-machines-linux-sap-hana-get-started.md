@@ -260,7 +260,8 @@
 
 Если перезапуск xrdp, как указано выше, не выполняется, удалите PID-файл при его наличии.
 
-  Удалите из каталога /var/run файл xrdp.pid, а затем попробуйте выполнить перезапуск еще раз.
+  Удалите из каталога /var/run файл xrdp.pid,   
+  а затем попробуйте выполнить перезапуск еще раз.
 
 
 
@@ -484,4 +485,4 @@
 
 * Скачивание выпуска Hana SP12 Platform из SAP Service Marketplace. ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->

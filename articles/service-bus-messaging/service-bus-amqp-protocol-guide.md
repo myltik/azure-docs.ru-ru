@@ -206,7 +206,11 @@ AMQP обеспечивает передачу сообщений через с�
 
 | Имя поля | Использование | Имя API |
 |----------------	|-------------------------------	|---------------	|
-| durable | — | — | | priority | — | — | | ttl | Срок действия сообщения | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) | | first-acquirer | — | — | | delivery-count | — | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
+| durable | — | — |
+| priority | — | — |
+| ttl | Срок действия сообщения | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
+| first-acquirer | — | — |
+| delivery-count | — | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
 
 #### properties
 
@@ -325,4 +329,4 @@ CBS определяет виртуальный узел управления *$
 [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->
