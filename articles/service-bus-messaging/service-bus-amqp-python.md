@@ -142,7 +142,25 @@ if message.properties != None:
 
 | Тип свойств .NET | Тип свойств Python | Примечания |
 |--------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | int | - | | sbyte | int | - | | char | char | Класс Proton-Python | | short | int | - | | ushort | int | - | | int | int | - | | uint | int | - | | long | int | - | | ulong | long | Класс Proton-Python | | float | float | - | | double | float | - | | decimal | String | Свойство decimal сейчас не поддерживается в Proton | | bool | bool | - | | Guid | uuid | Класс Proton-Python | | string | string | - | | DateTime | timestamp | Класс Proton-Python | | DateTimeOffset | DescribedType | Свойство DateTimeOffset.UtcTicks сопоставлено с типом AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Свойство Timespan.Ticks сопоставлено с типом AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Свойство Uri.AbsoluteUri сопоставлено с типом AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | int | - |
+| sbyte | int | - |
+| char | char | Класс Proton-Python |
+| short | int | - |
+| ushort | int | - |
+| int | int | - |
+| uint | int | - |
+ long | int | - |
+| ulong | long | Класс Proton-Python |
+| float | float | - |
+| double | float | - |
+ decimal | String | Свойство decimal сейчас не поддерживается в Proton |
+| bool | bool | - |
+| Guid | uuid | Класс Proton-Python |
+| string | string | - |
+| DateTime | timestamp | Класс Proton-Python |
+| DateTimeOffset | DescribedType | Свойство DateTimeOffset.UtcTicks сопоставлено с типом AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
+| TimeSpan | DescribedType | Свойство Timespan.Ticks сопоставлено с типом AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> |
+| Uri | DescribedType | Свойство Uri.AbsoluteUri сопоставлено с типом AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### Стандартные свойства
 
@@ -155,11 +173,36 @@ if message.properties != None:
 | durable | Недоступно | Служебная шина поддерживает только устойчивые сообщения. |
 | priority | Недоступно | Служебная шина поддерживает только приоритет одиночных сообщений. |
 | Ttl | Message.TimeToLive | Преобразование; срок жизни сообщений Proton-Python определяется в миллисекундах. |
-| first\_acquirer | Недоступно | - | | delivery\_count | Недоступно | - | | Id | Message.MessageID | - | | user\_id | Недоступно | - | | address | Message.To | - | | subject | Message.Label | - | | reply\_to | Message.ReplyTo | - | | correlation\_id | Message.CorrelationID | - | | content\_type | Message.ContentType | - | | content\_encoding | Недоступно | - | | expiry\_time | Недоступно | - | | creation\_time | Недоступно | - | | group\_id | Message.SessionId | - | | group\_sequence | Недоступно | - | | reply\_to\_group\_id | Message.ReplyToSessionId | - | | format | Недоступно | - |
+| first\_acquirer | Недоступно | - |
+| delivery\_count | Недоступно | - |
+| Id | Message.MessageID | - |
+| user\_id | Недоступно | - |
+| address | Message.To | - |
+| subject | Message.Label | - |
+| reply\_to | Message.ReplyTo | - |
+| correlation\_id | Message.CorrelationID | - |
+| content\_type | Message.ContentType | - |
+| content\_encoding | Недоступно | - |
+| expiry\_time | Недоступно | - |
+| creation\_time | Недоступно | - |
+| group\_id | Message.SessionId | - |
+| group\_sequence | Недоступно | - |
+| reply\_to\_group\_id | Message.ReplyToSessionId | - |
+| format | Недоступно | - |
 
 | .NET служебной шины | Proton | Примечания |
 |-------------------------|------------------------------|-----------------------------------------------------------|
-| ContentType | Message.content\_type | - | | CorrelationId | Message.correlation\_id | - | | EnqueuedTimeUtc | Недоступно | - | | Label | Message.subject | - | | MessageId | Message.id | - | | ReplyTo | Message.reply\_to | - | | ReplyToSessionId | Message.reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | Недоступно | - | | SessionId | Message.group\_id | - | | TimeToLive | Message.ttl | Преобразование; срок жизни сообщений Proton-Python определяется в миллисекундах. | | To | Message.address | - |
+| ContentType | Message.content\_type | - |
+| CorrelationId | Message.correlation\_id | - |
+| EnqueuedTimeUtc | Недоступно | - |
+| Label | Message.subject | - |
+| MessageId | Message.id | - |
+| ReplyTo | Message.reply\_to | - |
+| ReplyToSessionId | Message.reply\_to\_group\_id | - |
+| ScheduledEnqueueTimeUtc | Недоступно | - |
+| SessionId | Message.group\_id | - |
+| TimeToLive | Message.ttl | Преобразование; срок жизни сообщений Proton-Python определяется в миллисекундах. |
+| To | Message.address | - |
 
 ## Дальнейшие действия
 
@@ -173,4 +216,4 @@ if message.properties != None:
 
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->

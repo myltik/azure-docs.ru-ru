@@ -156,7 +156,25 @@ if ($message->properties != null)
 
 | Тип свойств .NET | Тип свойств PHP | Примечания |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | integer | - | | sbyte | integer | - | | char | Char | Класс Proton-PHP | | short | integer | - | | ushort | integer | - | | int | integer | - | | uint | Integer | - | | long | integer | - | | ulong | integer | - | | float | double | - | | double | double | - | | decimal | string | Свойство decimal сейчас не поддерживается в Proton | | bool | boolean | - | | Guid | UUID | Класс Proton-PHP | | string | string | - | | DateTime | integer | - | | DateTimeOffset | DescribedType | Свойство DateTimeOffset.UtcTicks сопоставлено с типом AMQP:<type name="datetime-offset" class=restricted source="long"> <descriptor name="com.microsoft:datetime-offset" /></type> | | TimeSpan | DescribedType | Свойство Timespan.Ticks сопоставлено с типом AMQP:<type name="timespan" class=restricted source="long"> <descriptor name="com.microsoft:timespan" /></type> | | Uri | DescribedType | Свойство Uri.AbsoluteUri сопоставлено с типом AMQP:<type name="uri" class=restricted source="string"> <descriptor name="com.microsoft:uri" /></type> |
+| byte | integer | - |
+| sbyte | integer | - |
+| char | Char | Класс Proton-PHP |
+| short | integer | - |
+| ushort | integer | - |
+| int | integer | - |
+| uint | Integer | - |
+| long | integer | - |
+| ulong | integer | - |
+| float | double | - |
+| double | double | - |
+| decimal | string | Свойство decimal сейчас не поддерживается в Proton |
+| bool | boolean | - |
+| Guid | UUID | Класс Proton-PHP |
+| string | string | - |
+| DateTime | integer | - |
+| DateTimeOffset | DescribedType | Свойство DateTimeOffset.UtcTicks сопоставлено с типом AMQP:<type name="datetime-offset" class=restricted source="long"> <descriptor name="com.microsoft:datetime-offset" /></type> |
+| TimeSpan | DescribedType | Свойство Timespan.Ticks сопоставлено с типом AMQP:<type name="timespan" class=restricted source="long"> <descriptor name="com.microsoft:timespan" /></type> |
+| Uri | DescribedType | Свойство Uri.AbsoluteUri сопоставлено с типом AMQP:<type name="uri" class=restricted source="string"> <descriptor name="com.microsoft:uri" /></type> |
 
 ### Стандартные свойства
 
@@ -167,13 +185,38 @@ if ($message->properties != null)
 | durable | Недоступно | Служебная шина поддерживает только устойчивые сообщения. |
 | Приоритет | Недоступно | Служебная шина поддерживает только приоритет одиночных сообщений. |
 | Ttl | Message.TimeToLive | Преобразование; срок жизни сообщений Proton-PHP определяется миллисекундами. |
-| first\_acquirer | - | - | | delivery\_count | - | - | | Id | Message.Id | - | | user\_id | - | - | | Address | Message.To | - | | Subject | Message.Label | - | | reply\_to | Message.ReplyTo | - | | correlation\_id | Message.CorrelationId | - | | content\_type | Message.ContentType | - | | content\_encoding | Недоступно | - | | expiry\_time | Message.ExpiresAtUTC | - | | creation\_time | Недоступно | - | | group\_id | Message.SessionId | - | | group\_sequence | - | - | | reply\_to\_group\_id | Message.ReplyToSessionId | - | | Format | Недоступно | -
+| first\_acquirer | - | - |
+| delivery\_count | - | - |
+| Id | Message.Id | - |
+| user\_id | - | - |
+| Address | Message.To | - |
+| Subject | Message.Label | - |
+| reply\_to | Message.ReplyTo | - |
+| correlation\_id | Message.CorrelationId | - |
+| content\_type | Message.ContentType | - |
+| content\_encoding | Недоступно | - |
+| expiry\_time | Message.ExpiresAtUTC | - |
+| creation\_time | Недоступно | - |
+| group\_id | Message.SessionId | - |
+| group\_sequence | - | - |
+| reply\_to\_group\_id | Message.ReplyToSessionId | - |
+| Format | Недоступно | -
 
 #### Взаимодействие между API .NET служебной шины и Proton-PHP
 
 | .NET служебной шины | Proton-PHP | Примечания |
 |-------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| ContentType | Message->content\_type | - | | CorrelationId | Message->correlation\_id | - | | EnqueuedTimeUtc | Message->annotations[x-opt-enqueued-time] | - | | Label | Message->subject | - | | MessageId | Message->id | - | | ReplyTo | Message->reply\_to | - | | ReplyToSessionId | Message->reply\_to\_group\_id | - | | ScheduledEnqueueTimeUtc | Message->annotations ["x-opt-scheduled-enqueue-time"] | - | | SessionId | Message->group\_id | - | | TimeToLive | Message->ttl | Conversion, Proton-PHP TTL is defined in milliseconds. | | To | Message->address | - |
+| ContentType | Message->content\_type | - |
+| CorrelationId | Message->correlation\_id | - |
+| EnqueuedTimeUtc | Message->annotations[x-opt-enqueued-time] | - |
+| Label | Message->subject | - |
+| MessageId | Message->id | - |
+| ReplyTo | Message->reply\_to | - |
+| ReplyToSessionId | Message->reply\_to\_group\_id | - |
+| ScheduledEnqueueTimeUtc | Message->annotations ["x-opt-scheduled-enqueue-time"] | - |
+| SessionId | Message->group\_id | - |
+| TimeToLive | Message->ttl | Conversion, Proton-PHP TTL is defined in milliseconds. |
+| To | Message->address | - |
 
 ## Дальнейшие действия
 
@@ -187,4 +230,4 @@ if ($message->properties != null)
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->

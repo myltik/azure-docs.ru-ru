@@ -96,7 +96,7 @@
 
 <!-- Reusable paths. -->
 
-.<!-- Anchors. -->
+<!-- Anchors. -->
   [Concepts]: #concepts
   [Before you begin]: #begin
   [How to: Create a Media Services account using Quick Create]: #quick
@@ -106,4 +106,4 @@
 
   [классическом портале Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->
