@@ -178,7 +178,7 @@
 <!-- URL List -->
 
 [Сравнение веб-сайтов Azure, облачных служб и виртуальных машин]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[использование упрощенного веб-приложения]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md">
+[использовать упрощенное веб-приложение]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md">
 [Azure Powershell]: ../powershell-install-configure.md
 [пакет SDK для Azure для .NET 2.7]: http://www.microsoft.com/ru-RU/download/details.aspx?id=48178
 [Подключите PowerShell]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
