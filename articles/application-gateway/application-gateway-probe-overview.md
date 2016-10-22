@@ -1,8 +1,8 @@
 
 
 <properties
-   pageTitle="Обзор мониторинга работоспособности для шлюза приложений Azure | Microsoft Azure"
-   description="Дополнительные сведения о возможностях мониторинга для шлюза приложений Azure"
+   pageTitle="Health monitoring overview for Azure Application Gateway | Microsoft Azure"
+   description="Learn about the monitoring capabilities in Azure Application Gateway"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -19,53 +19,62 @@
    ms.date="08/29/2016"
    ms.author="gwallace" />
 
-# Обзор мониторинга работоспособности шлюза приложений
 
-Шлюз приложений Azure по умолчанию отслеживает работоспособность всех ресурсов в своем пуле внутренних серверов и автоматически удаляет из пула все ресурсы, признанные неработоспособными. Шлюз приложений продолжает отслеживать неисправные экземпляры и добавляет их в пул внутренних серверов, как только они становятся доступными и начинают отвечать на проверку работоспособности.
+# <a name="application-gateway-health-monitoring-overview"></a>Application Gateway health monitoring overview
 
-![пример проверки работоспособности шлюза приложений][1]
+Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes.
 
-Помимо проверки работоспособности по умолчанию проверку также можно настроить в соответствии с требованиями приложения. В этой статье рассматривается как проверка работоспособности по умолчанию, так и пользовательская проверка работоспособности.
+![application gateway probe example][1]
 
-## Проверка работоспособности по умолчанию
+In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
 
-Если ни одной из пользовательских проверок работоспособности не настроено, шлюз приложений автоматически настраивает проверку работоспособности по умолчанию. Мониторинг осуществляется путем выполнения HTTP-запроса к IP-адресам пула внутренних серверов.
+## <a name="default-health-probe"></a>Default health probe
 
-Пример. Вы настроили шлюз приложений, так что внутренние серверы A, B и C используются для получения сетевого трафика HTTP на порт 80. По умолчанию мониторинг работоспособности осуществляет проверку трех серверов каждые 30 секунд и ожидает получения HTTP-ответа, подтверждающего работоспособность. HTTP-ответ, подтверждающий работоспособность, имеет [код состояния](https://msdn.microsoft.com/library/aa287675.aspx) от 200 до 399.
+An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool.
 
-Если проверка работоспособности по умолчанию для сервера А завершается неудачно, шлюз приложений удаляет его из внутреннего пула и сетевой трафик перестает поступать на этот сервер. Проверка работоспособности по умолчанию по-прежнему продолжает проверять сервер A каждые 30 секунд. Когда сервер A успешно отвечает на запрос проверки работоспособности по умолчанию, он возвращается в пул внутренних серверов, и передача трафика на этот сервер возобновляется.
+For example: You configure your application gateway to use back-end servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response. A healthy HTTP response has a [status code](https://msdn.microsoft.com/library/aa287675.aspx) between 200 and 399.
 
-### Параметры проверки работоспособности по умолчанию
+If the default probe check fails for server A, the application gateway removes it from its back-end pool, and network traffic stops flowing to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, it is added back as healthy to the back-end pool, and traffic starts flowing to the server again.
 
-|Свойства проверки | Значение | Описание|
+### <a name="default-health-probe-settings"></a>Default health probe settings
+
+|Probe property | Value | Description|
 |---|---|---|
-| URL-адрес проверки| http://127.0.0.1:\< порт >/ | URL-адрес |
-| Интервал | 30 | Интервал проверки в секундах |
-| Время ожидания | 30 | Время ожидания проверки в секундах |
-| Пороговое значение сбоя | 3 | Количество повторных попыток проверки. Сервер внутреннего пула считается неисправным, когда количество повторных неудачных попыток проверки достигает порогового значения сбоя. |
+| Probe URL| http://127.0.0.1:\<port\>/ | URL path |
+| Interval | 30 | Probe interval in seconds |
+| Time-out  | 30 | Probe time-out in seconds |
+| Unhealthy threshold | 3 | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-Для определения состояния работоспособности проба по умолчанию использует только http://127.0.0.1:\<порт>. Если необходимо настроить проверку работоспособности для перехода на настраиваемый URL-адрес или изменить любые другие параметры, используйте пользовательскую проверку работоспособности, как описано ниже.
+The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps.
 
-## Пользовательская проверка работоспособности
+## <a name="custom-health-probe"></a>Custom health probe
 
-Пользовательская проверка работоспособности позволяет добиться более детального контроля над мониторингом работоспособности. При использовании пользовательской проверки можно настроить интервал проверки, URL-адрес и путь проверки, а также количество неудачных попыток проверки, после которых экземпляр пула внутренних серверов должен считаться неработоспособным.
+Custom probes allow you to have a more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before marking the back-end pool instance as unhealthy.
 
-### Параметры пользовательской проверки работоспособности
+### <a name="custom-health-probe-settings"></a>Custom health probe settings
 
-|Свойства проверки| Описание|
+The following table provides definitions for the properties of a custom health probe.
+
+|Probe property| Description|
 |---|---|
-| Name (Имя) | Имя проверки. Это имя используется для указания проверки в параметрах HTTP внутреннего сервера |
-| Протокол | Протокол, используемый для проверки. Допустимые протоколы — HTTP и HTTPS. |
-| Узел | Имя узла для проверки. |
-| Путь | Относительный путь проверки. Путь должен начинаться с "/". Проба отправляется по адресу <protocol>://<host>:<port><path>. |
-| Интервал | Интервал проверки в секундах. Интервал времени между двумя последовательными проверками.|
-| Время ожидания | Время ожидания проверки в секундах. Проверка считается неудачной, если ответ о работоспособности не получен в течение этого времени ожидания. |
-| Пороговое значение сбоя | Количество повторных попыток проверки. Сервер внутреннего пула считается неисправным, когда количество повторных неудачных попыток проверки достигает порогового значения сбоя. |
+| Name | Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
+| Protocol | Protocol used to send the probe. The probe will use the protocol defined in the back-end HTTP settings |
+| Host |  Host name to send the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This is different from VM host name. |
+| Path | Relative path of the probe. The valid path starts from '/'. |
+| Interval | Probe interval in seconds. This is the time interval between two consecutive probes.|
+| Time-out | Probe time-out in seconds. The probe is marked as failed if a valid response is not received within this time-out period. |
+| Unhealthy threshold | Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
-## Дальнейшие действия
+> [AZURE.IMPORTANT] If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
+For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>.
 
-Ознакомившись со сведениями о мониторинге работоспособности шлюза приложений, можно настроить [пользовательскую проверку работоспособности](application-gateway-create-probe-portal.md) на портале Azure либо [пользовательскую проверку работоспособности](application-gateway-create-probe-ps.md) с использованием модели развертывания PowerShell или Azure Resource Manager.
+## <a name="next-steps"></a>Next steps
+
+After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

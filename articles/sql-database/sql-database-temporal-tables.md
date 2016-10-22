@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Приступая к работе с временными таблицами в базе данных SQL Azure | Microsoft Azure"
-   description="Узнайте, как приступить к работе с временными таблицами в базе данных SQL Azure."
+   pageTitle="Getting Started with Temporal Tables in Azure SQL Database | Microsoft Azure"
+   description="Learn how to get started with using Temporal Tables in Azure SQL Database."
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,39 +16,40 @@
    ms.date="08/29/2016"
    ms.author="carlrab"/>
 
-#Приступая к работе с временными таблицами в базе данных SQL Azure
 
-Временные таблицы — это новая программная возможность базы данных SQL Azure, которая позволяет отслеживать и анализировать полный журнал изменений в данных, не создавая какого-либо дополнительного пользовательского кода. Во временных таблицах хранятся данные, тесно связанные с контекстом времени, чтобы хранимые факты можно было интерпретировать как действительные только в течение определенного периода. Эта особенность временных таблиц дает возможность эффективно выполнять анализ с учетом времени и получать ценную информацию об эволюции данных.
+#<a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Getting Started with Temporal Tables in Azure SQL Database
 
-##Сценарий использования временных таблиц
+Temporal Tables are a new programmability feature of Azure SQL Database that allows you to track and analyze the full history of changes in your data, without the need for custom coding. Temporal Tables keep data closely related to time context so that stored facts can be interpreted as valid only within the specific period. This property of Temporal Tables allows for efficient time-based analysis and getting insights from data evolution.
 
-В данной статье показана последовательность действий для использования временных таблиц в прикладном сценарии. Предположим, что вам нужно отслеживать активность пользователей на новом веб-сайте, который разрабатывался с нуля, или на существующем веб-сайте, который вы хотите дополнить возможностями анализа активности пользователей. В этом упрощенном примере предположим, что количество посещаемых веб-страниц за определенный период времени является показателем, который необходимо записывать и отслеживать в базе данных веб-сайта, размещенной в базе данных SQL Azure. Цель исторического анализа активности пользователей — получить входные данные для переработки веб-сайта и улучшения его взаимодействия с посетителями.
+##<a name="temporal-scenario"></a>Temporal Scenario
 
-Модель базы данных в этом сценарии очень простая: метрика активности пользователей представлена одним целочисленным полем, **PageVisited**, а ее значение записывается вместе с основными сведениями в профиле пользователя. Кроме того, для анализа с учетом времени следует выделить набор строк для каждого пользователя, где каждая строка представляет число страниц, посещенных определенным пользователем в течение определенного периода времени.
+This article illustrates the steps to utilize Temporal Tables in an application scenario. Suppose that you want to track user activity on a new website that is being developed from scratch or on an existing website that you want to extend with user activity analytics. In this simplified example, we assume that the number of visited web pages during a period of time is an indicator that needs to be captured and monitored in the website database that is hosted on Azure SQL Database. The goal of the historical analysis of user activity is to get inputs to redesign website and provide better experience for the visitors.
 
-![Схема](./media/sql-database-temporal-tables/AzureTemporal1.png)
+The database model for this scenario is very simple – user activity metric is represented with a single integer field, **PageVisited**, and is captured along with basic information on the user profile. Additionally, for time based analysis, you would keep a series of rows for each user, where every row represents the number of pages a particular user visited within a specific period of time.
 
-К счастью, вам не нужно программировать хранение этой информации об активности в приложении. Благодаря временным таблицам этот процесс автоматизирован, что обеспечивает абсолютную гибкость во время разработки веб-сайта и позволяет больше времени уделить непосредственно анализу данных. Единственное, что необходимо сделать, — убедиться, что таблица **WebSiteInfo** настроена как [временная с системным управлением версиями](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). Конкретные шаги по использованию временных таблиц в этом сценарии описаны ниже.
+![Schema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
-##Шаг 1. Настройка таблиц в качестве временных
+Fortunately, you do not need to put any effort in your app to maintain this activity information. With Temporal Tables, this process is automated - giving you full flexibility during website design and more time to focus on the data analysis itself. The only thing you have to do is to ensure that **WebSiteInfo** table is configured as [temporal system-versioned](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). The exact steps to utilize Temporal Tables in this scenario are described below.
 
-В зависимости от того, начинаете вы разработку новых приложений или обновляете существующее приложение, вы создадите временные таблицы или измените существующие, добавляя в них временные атрибуты. В общем случае может потребоваться сделать и то, и другое. Выполните это с помощью [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) или любого другого инструмента для разработки Transact-SQL.
+##<a name="step-1:-configure-tables-as-temporal"></a>Step 1: Configure tables as temporal
 
-
-> [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+Depending on whether you are starting new development or upgrading existing application, you will either create temporal tables or modify existing ones by adding temporal attributes. In general case, your scenario can be a mix of these two options. Perform these action using [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) or any other Transact-SQL development tool.
 
 
-###Создание новой таблицы
+> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-Используйте пункт контекстного меню "New System-Versioned Table" (Новая таблица с системным управлением версиями) в обозревателе объектов SSMS, чтобы открыть редактор запросов с шаблоном сценария временной таблицы, а затем щелкните "Указать значения для параметров шаблона" (Ctrl+Shift+M) для заполнения шаблона.
+
+###<a name="create-new-table"></a>Create new table
+
+Use context menu item “New System-Versioned Table” in SSMS Object Explorer to open the query editor with a temporal table template script and then use “Specify Values for Template Parameters” (Ctrl+Shift+M) to populate the template:
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
 
-В SSDT при добавлении новых элементов в проект базы данных выберите шаблон "Темпоральная таблица (с системным управлением версиями)". Откроется конструктор таблиц, в котором вы сможете легко указать макет таблицы.
+In SSDT, chose “Temporal Table (System-Versioned)” template when adding new items to the database project. That will open table designer and enable you to easily specify the table layout:
 
 ![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 
-Временную таблицу также можно создать, непосредственно указав инструкции Transact-SQL, как показано в следующем примере. Обратите внимание, что обязательными элементами каждой временной таблицы являются определение PERIOD и предложение SYSTEM\_VERSIONING со ссылкой на другую таблицу пользователя, в которой будут храниться исторические версии строк.
+You can also a create temporal table by specifying the Transact-SQL statements directly, as shown in the example below. Note that the mandatory elements of every temporal table are the PERIOD definition and the SYSTEM_VERSIONING clause with a reference to another user table that will store historical row versions:
 
 ````
 CREATE TABLE WebsiteUserInfo 
@@ -63,13 +64,13 @@ CREATE TABLE WebsiteUserInfo
  WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.WebsiteUserInfoHistory));
 ````
 
-При создании временной таблицы с системным управлением версиями автоматически создается сопутствующая таблица журнала с конфигурацией по умолчанию. Таблица журнала по умолчанию содержит кластеризованный индекс сбалансированного дерева в столбцах периода (конец и начало) с включенным сжатием страниц. Эта конфигурация оптимальна для большинства сценариев, в которых используются временные таблицы, особенно для [аудита данных](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0).
+When you create system-versioned temporal table, the accompanying history table with the default configuration is automatically created. The default history table contains a clustered B-tree index on the period columns (end, start) with page compression enabled. This configuration is optimal for the majority of scenarios in which temporal tables are used, especially for [data auditing](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0). 
 
-В данном случае наша цель — выполнить анализ тенденций с учетом времени, используя журнал данных за длительный период и большие наборы данных, поэтому в качестве хранилища для таблицы журнала выбран кластеризованный индекс columnstore. Кластеризованный индекс columnstore обеспечивает очень хорошее сжатие и производительность аналитических запросов. Временные таблицы обеспечивают гибкость, позволяя настроить индексы для текущих и временных таблиц полностью независимо друг от друга.
+In this particular case, we aim to perform time-based trend analysis over a longer data history and with bigger data sets, so the storage choice for the history table is a clustered columnstore index. A clustered columnstore provides very good compression and performance for analytical queries. Temporal Tables give you the flexibility to configure indexes on the current and temporal tables completely independently. 
 
-**Примечание.** Индексы columnstore доступны только для уровня служб "Премиум".
+**Note**: Columnstore indexes are only available in the premium service tier.
 
-В следующем сценарии показано, как индекс по умолчанию в таблице журнала можно изменить на кластеризованный индекс columnstore.
+The following script shows how default index on history table can be changed to the clustered columnstore:
 
 ````
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
@@ -77,13 +78,13 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ````
 
-В обозревателе объектов временные таблицы представлены специальным значком, чтобы их было удобней отличать, а таблица журнала отображается как дочерний узел.
+Temporal Tables are represented in the Object Explorer with the specific icon for easier identification, while its history table is displayed as a child node.
 
 ![AlterTable](./media/sql-database-temporal-tables/AzureTemporal4.png)
 
-###Преобразование существующей таблицы во временную
+###<a name="alter-existing-table-to-temporal"></a>Alter existing table to temporal
 
-Рассмотрим альтернативный сценарий, в котором таблица WebsiteUserInfo уже существует, но не была предназначена для хранения журнала изменений. В этом случае можно просто расширить существующую таблицу, превратив ее во временную, как показано в следующем примере.
+Let’s cover the alternative scenario in which the WebsiteUserInfo table already exists, but was not designed to keep a history of changes. In this case, you can simply extend the existing table to become temporal, as shown in the following example:
 
 ````
 ALTER TABLE WebsiteUserInfo 
@@ -103,26 +104,26 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ````
 
-##Шаг 2. Регулярный запуск рабочей нагрузки
+##<a name="step-2:-run-your-workload-regularly"></a>Step 2: Run your workload regularly
 
-Главным преимуществом временных таблиц является то, что для отслеживания изменений вам не нужно каким-либо образом изменять или настраивать веб-сайт. После создания временных таблиц в них прозрачно сохраняются предыдущие версии строк каждый раз, когда вы вносите изменения в данные.
+The main advantage of Temporal Tables is that you do not need to change or adjust your website in any way to perform change tracking. Once created, Temporal Tables transparently persist previous row versions every time you perform modifications on your data. 
 
-Чтобы использовать автоматическое отслеживание изменений в этой конкретной ситуации, мы просто будем изменять столбец **PagesVisited** каждый раз, когда пользователь будет завершать сеанс посещения веб-сайта.
+In order to leverage automatic change tracking for this particular scenario, let’s just update column **PagesVisited** every time when user ends her/his session on the website:
 
 ````
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
 WHERE [UserID] = 1;
 ````
 
-Важно отметить, что запросу на обновление не нужно знать точное время самой операции или то, как будут сохранены данные журнала для последующего анализа. Оба аспекта автоматически обрабатываются базой данных SQL Azure. Следующая схема иллюстрирует, как при каждом обновлении создаются данные журнала.
+It is important to notice that the update query doesn’t need to know the exact time when the actual operation occurred nor how historical data will be preserved for future analysis. Both aspects are automatically handled by the Azure SQL Database. The following diagram illustrates how history data is being generated on every update.
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
-##Шаг 3. Анализ данных журнала
+##<a name="step-3:-perform-historical-data-analysis"></a>Step 3: Perform historical data analysis
 
-Теперь, когда временное управления версиями системой включено, анализ данных журнала — дело всего одного запроса. В этой статье мы приведем несколько примеров распространенных сценариев анализа. Чтобы изучить все подробности, ознакомьтесь с возможностями предложения [FOR SYSTEM\_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3).
+Now when temporal system-versioning is enabled, historical data analysis is just one query away from you. In this article, we will provide a few examples that address common analysis scenarios - to learn all details, explore various options introduced with the [FOR SYSTEM_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) clause.
 
-Чтобы просмотреть 10 лидирующих пользователей час назад, упорядоченных по числу посещаемых веб-страниц, выполните этот запрос.
+To see the top 10 users ordered by the number of visited web pages as of an hour ago, run this query:
 
 ````
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
@@ -130,9 +131,9 @@ SELECT TOP 10 * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME AS OF @hourAgo
 ORDER BY PagesVisited DESC
 ````
 
-Вы легко можете изменить этот запрос, чтобы анализировать посещения сайта день назад, месяц назад или любой момент в прошлом.
+You can easily modify this query to analyze the site visits as of a day ago, a month ago or at any point in the past you wish.
 
-Чтобы выполнить простой статистический анализ за предыдущий день, используйте следующий пример.
+To perform basic statistical analysis for the previous day, use the following example:
 
 ````
 DECLARE @twoDaysAgo datetime2 = DATEADD(DAY, -2, SYSUTCDATETIME());
@@ -146,7 +147,7 @@ FOR SYSTEM_TIME BETWEEN @twoDaysAgo AND @aDayAgo
 GROUP BY UserId
 ````
 
-Для поиска активности конкретного пользователя в течение периода времени используйте предложение CONTAINED IN.
+To search for activities of a specific user, within a period of time, use the CONTAINED IN clause:
 
 ````
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
@@ -156,13 +157,13 @@ FOR SYSTEM_TIME CONTAINED IN (@twoHoursAgo, @hourAgo)
 WHERE [UserID] = 1;
 ````
 
-Графическое представление особенно удобно для временных запросов, так как можно отобразить тенденции и закономерности использования доступным и интуитивно понятным способом.
+Graphic visualization is especially convenient for temporal queries as you can show trends and usage patterns in an intuitive way very easily:
 
 ![TemporalGraph](./media/sql-database-temporal-tables/AzureTemporal6.png)
 
-##Развитие схемы таблицы
+##<a name="evolving-table-schema"></a>Evolving table schema
 
-Как правило, во время разработки приложения приходится менять схему временной таблицы. Для этого просто выполните обычные инструкции запустите ALTER TABLE, и база данных SQL Azure соответствующим образом распространит изменения на таблицу журнала. В следующем сценарии показано, как добавить дополнительный атрибут для отслеживания.
+Typically, you will need to change the temporal table schema while you are doing app development. For that, simply run regular ALTER TABLE statements and Azure SQL Database will appropriately propagate changes to the history table. The following script shows how you can add additional attribute for tracking:
 
 ````
 /*Add new column for tracking source IP address*/
@@ -170,7 +171,7 @@ ALTER TABLE dbo.WebsiteUserInfo
 ADD  [IPAddress] varchar(128) NOT NULL CONSTRAINT DF_Address DEFAULT 'N/A';
 ````
 
-Аналогичным образом можно изменить определение столбца при активной рабочей нагрузке.
+Similarly, you can change column definition while your workload is active:
 
 ````
 /*Increase the length of name column*/
@@ -178,7 +179,7 @@ ALTER TABLE dbo.WebsiteUserInfo
     ALTER COLUMN  UserName nvarchar(256) NOT NULL;
 ````
 
-Наконец, можно удалить столбец, который больше не нужен.
+Finally, you can remove a column that you do not need anymore.
 
 ````
 /*Drop unnecessary column */
@@ -186,17 +187,22 @@ ALTER TABLE dbo.WebsiteUserInfo
     DROP COLUMN TemporaryColumn; 
 ````
     
-В качестве альтернативы можно использовать последнюю версию [SSDT](https://msdn.microsoft.com/library/mt204009.aspx), чтобы изменить схему временной таблицы при активном подключении к базе данных (интерактивный режим) или непосредственно в проекте базы данных (автономный режим).
+Alternatively, use latest [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) to change temporal table schema while you are connected to the database (online mode) or as part of the database project (offline mode).
 
-##Управление периодом удержания данных журнала
+##<a name="controlling-retention-of-historical-data"></a>Controlling retention of historical data
 
-При использовании временных таблиц с системным управлением версиями таблица журнала может увеличить размер базы данных значительнее, чем обычные таблицы. Большая и постоянно растущая таблица журнала может стать проблемой из-за непосредственных затрат на хранилище, а также издержек производительности, накладываемых запросами временных данных. Следовательно, разработка политики хранения данных для управления данными в таблице журнала является важной составляющей планирования и управления жизненным циклом всех временных таблиц. При использовании базы данных SQL Azure доступны следующие подходы для управления данными журнала во временной таблице.
+With system-versioned temporal tables, the history table may increase the database size more than regular tables. A large and ever-growing history table can become an issue both due to pure storage costs as well as imposing a performance tax on temporal querying. Hence, developing a data retention policy for managing data in the history table is an important aspect of planning and managing the lifecycle of every temporal table. With Azure SQL Database, you have the following approaches for managing historical data in the temporal table:
 
-- [Секционирование таблиц.](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
-- [Пользовательский сценарий очистки](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
+- [Table Partitioning](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
+- [Custom Cleanup Script](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
-##Дальнейшие действия
+##<a name="next-steps"></a>Next steps
 
-Дополнительные сведения о временных таблицах см. в [документации MSDN](https://msdn.microsoft.com/library/dn935015.aspx). Посетите сайт Channel 9, чтобы услышать [историю успешного внедрения временных решений реальным клиентом](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) и посмотреть [наглядную демонстрацию временных решений](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+For detailed information on Temporal Tables, check out [MSDN documentation](https://msdn.microsoft.com/library/dn935015.aspx).
+Visit Channel 9 to hear a [real customer temporal implemenation success story](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) and watch a [live temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

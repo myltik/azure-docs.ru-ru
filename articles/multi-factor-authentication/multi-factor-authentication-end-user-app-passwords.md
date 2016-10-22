@@ -1,132 +1,159 @@
 <properties
-	pageTitle="Что такое пароли приложений в Azure MFA"
-	description="Эта страница содержит сведения для пользователей о паролях приложений и их назначении в Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+    pageTitle="What are App Passwords in Azure MFA?"
+    description="This page will help users understand what app passwords are and what they are used for with regard to Azure MFA."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
+    editor="curtland"/>
 
 <tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
 
 
 
-# Что такое пароли приложений в службе Azure Multi-Factor Authentication
 
-Сейчас некоторые не использующие браузер приложения, например собственный почтовый клиент Apple, использующий Exchange Active Sync, не поддерживают многофакторную проверку подлинности. Многофакторная проверка подлинности активируется для каждого пользователя. То есть если для пользователя активирована многофакторная проверка подлинности и он пытается использовать приложение, не использующее браузер, то это ему не удастся. Для этого нужен пароль приложения.
+# <a name="what-are-app-passwords-in-azure-multi-factor-authentication?"></a>What are App Passwords in Azure Multi-Factor Authentication?
 
->[AZURE.NOTE] Современная проверка подлинности для клиентов Office 2013
+Certain non-browser apps, such as the Apple native email client that uses Exchange Active Sync, currently do not support multi-factor authentication. Multi-factor authentication is enabled per user. This means that if a user has been enabled for multi-factor authentication and they are attempting to use non-browser apps, they will be unable to do so. An app password allows this to occur.
+
+>[AZURE.NOTE] Modern Authentication for the Office 2013 Clients
 >
-> Клиенты Office 2013 (включая Outlook) теперь поддерживают новые протоколы проверки подлинности, благодаря чему в них можно активировать поддержку многофакторной проверки подлинности. Это означает, что после активации отпадает потребность в использовании паролей приложений с клиентами Office 2013. Дополнительные сведения см. в статье [Анонсирована общедоступная предварительная версия современной проверки подлинности Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-## Использование паролей приложений
+## <a name="how-to-use-app-passwords"></a>How to use app passwords
 
-Ниже приведены некоторые важные советы о том, как использовать пароли приложений.
+The following are some things to remember on how to use app passwords.
 
-- В действительности пароль создается автоматически, а не задается пользователем. Это обусловлено тем, что автоматически созданный пароль сложнее подобрать и он более безопасен.
-- В настоящее время имеется ограничение — не более 40 паролей на пользователя. При попытке создать пароль после достижения максимального их числа вам будет предложено удалить один из существующих паролей приложений, чтобы создать новый.
-- Рекомендуется создавать пароли для устройства, а не для приложения. Например, вы можете создать один пароль приложения для ноутбука и использовать его для всех приложений на ноутбуке.
-- Пароль приложения предоставляется при первом входе. Если потребуются дополнительные пароли, их можно создать.
+- The actual password is automatically generated and is not supplied by the user. This is because the automatically generated password, is harder for an attacker to guess and is more secure.
+- Currently there is a limit of 40 passwords per user. If you attempt to create one after you have reached the limit, you will be prompted to delete one of your existing app passwords in order to create a new one.
+- It is recommended that app passwords be created per device and not per application. For example, you can create one app password for your laptop and use that app password for all of your applications on that laptop.
+- You are given an app password the first time you sign-in.  If you need additional ones, you can create them.
 
-![Настройка](./media/multi-factor-authentication-end-user-app-passwords/app.png)
+![Setup](./media/multi-factor-authentication-end-user-app-passwords/app.png)
 
-Получив пароль, используйте его вместо исходного пароля в этих не использующих браузер приложениях. Например, вы используете многофакторную проверку подлинности и собственный почтовый клиент Apple на своем телефоне. Используйте пароль приложения, чтобы обойти многофакторную проверку подлинности и продолжить работу.
+Once you have an app password, you use this in place of your original password with these non-browser apps.  So for instance, if you are using multi-factor authentication and the Apple native email client on your phone.  Use the app password so that it can bypass multi-factor authentication and continue to work.
 
-## Создание и удаление паролей приложений
-При первом входе вам предоставляется пароль приложения. Кроме того, вы можете создавать и удалять дополнительные пароли приложений позже. Как вы это будете делать, зависит от способа использования многофакторной проверки подлинности. Выберите наиболее подходящий вам вариант.
+## <a name="creating-and-deleting-app-passwords"></a>Creating and deleting app passwords
+During your initial sign-in you are given an app password that you can use.  Additionally you can also create and delete app passwords later on.  How you do this depends on how you use multi-factor authentication.  Choose the one that most applies to you.
 
-Способ использования многофакторной проверки подлинности|Описание
+How you use multi-factor authentiation|Description
 :------------- | :------------- |
-[Я использую ее в службе Office 365](#creating-and-deleting-app-passwords-with-office-365)| Это означает, что создавать пароли приложений вы будете на портале Office 365.
-[Я не знаю](#creating-and-deleting-app-passwords-with-myapps-portal)|Это означает, что создавать пароли мы рекомендуем на сайте [https://myapps.microsoft.com](https://myapps.microsoft.com)
-[Я использую ее в службе Microsoft Azure](#create-app-passwords-in-the-azure-portal)| Это означает, что создавать пароли приложений вы будете на портале Azure.
+[I use it with Office 365](#creating-and-deleting-app-passwords-with-office-365)|  This means that you will want to create app passwords through the Office 365 portal.
+[I don't know](#creating-and-deleting-app-passwords-with-myapps-portal)|This means you will want create app passwords through [https://myapps.microsoft.com](https://myapps.microsoft.com)
+[I use it with Microsoft Azure](#create-app-passwords-in-the-azure-portal)| This means that you will want create app passwords through the Azure portal.
 
-## Создание и удаление паролей приложений с помощью Office 365
+## <a name="creating-and-deleting-app-passwords-with-office-365"></a>Creating and deleting app passwords with Office 365
 
-Если вы пользуетесь многофакторной проверкой подлинности в Office 365, вам необходимо будет создавать и удалять пароли приложений на портале Office 365.
+If you use multi-factor authentication with Office 365 you will want to create and delete app passwords through the Office 365 portal.
 
-### Для создания паролей приложений на портале Office 365
+### <a name="to-create-app-passwords-in-the-office-365-portal"></a>To create app passwords in the Office 365 portal
 --------------------------------------------------------------------------------
 
-1. Войдите на [портал Office 365](https://login.microsoftonline.com/).
-2. В правом верхнем углу выберите мини-приложение и щелкните "Параметры Office 365".
-3. Щелкните "Дополнительная проверка безопасности".
-4. Справа щелкните ссылку **Обновить мои телефонные номера, используемые для обеспечения безопасности учетной записи**. ![Настройка](./media/multi-factor-authentication-end-user-manage/o365a.png)
-5. После этого вы перейдете на страницу, на которой можно изменить параметры. ![Облако](./media/multi-factor-authentication-end-user-manage/o365b.png)
-6. Вверху, рядом с параметром дополнительной проверки безопасности, щелкните **пароли приложений**.
-7. Нажмите кнопку **Создать**. ![Облако](./media/multi-factor-authentication-end-user-app-passwords-create-o365/apppass.png)
-8. Введите имя для пароля приложения и нажмите кнопку **Далее**. ![Создание пароля приложения](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
-9. Скопируйте пароль приложения в буфер обмена и вставьте его в свое приложение. ![Создание пароля приложения](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+1. Log on to the [Office 365 portal](https://login.microsoftonline.com/).
+2. In the top right corner select the widget and choose Office 365 Settings.
+3. Click on Additional security verification.
+4. On the right, click the link that says **Update my phone numbers used for account security.**
+![Setup](./media/multi-factor-authentication-end-user-manage/o365a.png)
+5. This will take you to the page that will allow you to change your settings.
+![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
+6. At the top, next to additional security verification, click on **app passwords.**
+7. Click **Create**.
+![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/apppass.png)
+8. Enter a name for the app password and click **Next**.
+![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
+9. Copy the app password to the clipboard and paste it into your app.
+![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
 
-### Удаление паролей приложений с помощью портала Office 365
+### <a name="to-delete-app-passwords-using-the-office-365-portal"></a>To delete app passwords using the Office 365 portal
 --------------------------------------------------------------------------------
 
 
-1. Войдите на [портал Office 365](https://login.microsoftonline.com/).
-2. В правом верхнем углу выберите мини-приложение и щелкните "Параметры Office 365".
-3. Щелкните "Дополнительная проверка безопасности".
-4. Справа щелкните ссылку **Обновить мои телефонные номера, используемые для обеспечения безопасности учетной записи**. ![Настройка](./media/multi-factor-authentication-end-user-manage/o365a.png)
-5. После этого вы перейдете на страницу, на которой можно изменить параметры. ![Облако](./media/multi-factor-authentication-end-user-manage/o365b.png)
-6. Вверху, рядом с параметром дополнительной проверки безопасности, щелкните **пароли приложений**.
-7. Рядом с паролем приложения, который следует удалить, щелкните **Удалить**. ![Удаление пароля приложения](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-8. Подтвердите удаление, нажав кнопку **Да**. ![Подтверждение удаления](./media/multi-factor-authentication-end-user-app-passwords/delete2.png)
-9. После того как пароль удален можно щелкнуть **Закрыть**. ![Закрыть](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
+1. Log on to the [Office 365 portal](https://login.microsoftonline.com/).
+2. In the top right corner select the widget and choose Office 365 Settings.
+3. Click on Additional security verification.
+4. On the right, click the link that says **Update my phone numbers used for account security.**
+![Setup](./media/multi-factor-authentication-end-user-manage/o365a.png)
+5. This will take you to the page that will allow you to change your settings.
+![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
+6. At the top, next to additional security verification, click on **app passwords.**
+7. Next to the app password you want to delete, click **Delete**.
+![Delete an app password](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+8. Confirm the deletion by clicking **yes**.
+![Confirm the delete](./media/multi-factor-authentication-end-user-app-passwords/delete2.png)
+9. Once the app password is deleted you can click **close**.
+![Close](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-## Создание и удаление паролей приложений с помощью портала Myapps
-Если вы не уверены, как использовать многофакторную проверку подлинности, можно всегда создать или удалить пароль приложения на портале Myapps.
+## <a name="creating-and-deleting-app-passwords-with-myapps-portal."></a>Creating and deleting app passwords with Myapps portal.
+If you are not sure how you use multi-factor authentication, then you can always create adn delete app passwords through the myapps portal.
 
-### Создание пароля приложения с помощью портала Myapps
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>To create an app password using the Myapps portal
 
-1. Войдите на портал [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Вверху выберите профиль.
-3. Выберите "Дополнительная проверка безопасности". ![Облако](./media/multi-factor-authentication-end-user-manage/myapps1.png)
-4. После этого вы перейдете на страницу, на которой можно изменить параметры. ![Настройка](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
-5. Вверху, рядом с параметром дополнительной проверки безопасности, щелкните **пароли приложений**.
-6. Нажмите кнопку **Создать**. ![Создание пароля приложения](./media/multi-factor-authentication-end-user-app-passwords/create3.png)
-7. Введите имя для пароля приложения и нажмите кнопку **Далее**. ![Создание пароля приложения](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
-8. Скопируйте пароль приложения в буфер обмена и вставьте его в свое приложение. ![Создание пароля приложения](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
+2. At the top, select profile.
+3. Select Additional Security Verification.
+![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+4. This will take you to the page that will allow you to change your settings.
+![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+5. At the top, next to additional security verification, click on **app passwords.**
+6. Click **Create**.
+![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create3.png)
+7. Enter a name for the app password and click **Next**.
+![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
+8. Copy the app password to the clipboard and paste it into your app.
+![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### Удаление пароля приложения с помощью портала Myapps
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>To delete an app password using the Myapps portal
 
-1. Войдите на портал [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Вверху выберите профиль.
-3. Выберите "Дополнительная проверка безопасности". ![Облако](./media/multi-factor-authentication-end-user-manage/myapps1.png)
-4. После этого вы перейдете на страницу, на которой можно изменить параметры. ![Настройка](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
-5. Вверху, рядом с параметром дополнительной проверки безопасности, щелкните **пароли приложений**.
-6. Рядом с паролем приложения, который следует удалить, щелкните **Удалить**. ![Удаление пароля приложения](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-7. Подтвердите удаление, нажав кнопку **Да**. ![Подтверждение удаления](./media/multi-factor-authentication-end-user-app-passwords/delete2.png)
-8. После того как пароль удален можно щелкнуть **Закрыть**. ![Закрыть](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
+2. At the top, select profile.
+3. Select Additional Security Verification.
+![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+4. This will take you to the page that will allow you to change your settings.
+![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+5. At the top, next to additional security verification, click on **app passwords.**
+6. Next to the app password you want to delete, click **Delete**.
+![Delete an app password](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+7. Confirm the deletion by clicking **yes**.
+![Confirm the delete](./media/multi-factor-authentication-end-user-app-passwords/delete2.png)
+8. Once the app password is deleted you can click **close**.
+![Close](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
 
-## Создание паролей приложений на портале Azure
+## <a name="create-app-passwords-in-the-azure-portal"></a>Create app passwords in the Azure portal
 
-Если вы пользуетесь многофакторной проверкой подлинности в Azure, вам необходимо будет создавать пароли на портале Azure.
+If you use multi-factor authentication with Azure you will want to create app passwords through the Azure portal.
 
-### Создание паролей приложений на портале Azure
+### <a name="to-create-app-passwords-in-the-azure-portal"></a>To create app passwords in the Azure portal
 
-1. Войдите на портал управления Azure.
-2. В верхней части щелкните правой кнопкой мыши по своему имени пользователя и выберите "Дополнительная проверка безопасности".
-3. На странице подтверждения вверху выберите пароли приложений
-4. Щелкните **Создать**.
-5. Введите имя для пароля приложения и нажмите кнопку **Далее**.
-6. Скопируйте пароль приложения в буфер обмена и вставьте его в свое приложение. ![Облако](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)
+1. Sign-in to the Azure Management portal.
+2. At the top, right-click on your user name and select Additional Security Verification.
+3. On the proofup page, at the top, select app passwords
+4. Click **Create**.
+5. Enter a name for the app password and click **Next**
+6. Copy the app password to the clipboard and paste it into your app.
+![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)
 
-### Удаление паролей приложений на портале Azure
+### <a name="to-delete-app-passwords-in-the-azure-portal"></a>To delete app passwords in the Azure portal
 
-1. Войдите на портал управления Azure.
-2. В верхней части щелкните правой кнопкой мыши по своему имени пользователя и выберите "Дополнительная проверка безопасности".
-3. Вверху, рядом с параметром дополнительной проверки безопасности, щелкните **пароли приложений**.
-4. Рядом с паролем приложения, который следует удалить, щелкните **Удалить**.
-5. Подтвердите удаление, нажав кнопку **Да**.
-6. После того как пароль удален можно щелкнуть **Закрыть**. ![Закрыть](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
+1. Sign-in to the Azure Management portal.
+2. At the top, right-click on your user name and select Additional Security Verification.
+3. At the top, next to additional security verification, click on **app passwords.**
+4. Next to the app password you want to delete, click **Delete**.
+5. Confirm the deletion by clicking **yes**.
+6. Once the app password is deleted you can click **close**.
+![Close](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Исправление уязвимостей ОС в центре безопасности Azure | Microsoft Azure"
-   description="В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure ";Remediate OS vulnerabilities"; (Исправить уязвимости ОС)."
+   pageTitle="Remediate OS vulnerabilities in Azure Security Center | Microsoft Azure"
+   description="This document shows you how to implement the Azure Security Center recommendation **Remediate OS vulnerabilities**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,66 +16,72 @@
    ms.date="07/20/2016"
    ms.author="terrylan"/>
 
-# Исправление уязвимостей ОС в центре безопасности Azure
 
-Центр безопасности Azure ежедневно анализирует конфигурации операционной системы виртуальной машины, которые могут сделать ее более уязвимой для атак, и рекомендует изменения конфигурации для устранения таких уязвимостей. Дополнительные сведения о конкретных отслеживаемых конфигурациях см. в [списке рекомендуемых правил конфигурации](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Центр безопасности порекомендует устранить уязвимости в случае, если конфигурация операционной системы виртуальной машины не будет соответствовать рекомендуемым правилам конфигурации.
+# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Remediate OS vulnerabilities in Azure Security Center
 
-> [AZURE.NOTE] В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
+Azure Security Center analyzes daily your virtual machine (VM) operating system (OS) for configurations that could make the VM more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended configuration rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. Security Center will recommend that you resolve vulnerabilities when your VM’s OS configuration does not match the recommended configuration rules.
 
-## Выполнение рекомендаций
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
-1. В колонке **Рекомендации** выберите **Remediate OS vulnerabilities** (Исправить уязвимости ОС). Откроется колонка **Remediate OS vulnerabilities** (Исправление уязвимостей ОС). ![Исправление уязвимостей ОС][1]
+## <a name="implement-the-recommendation"></a>Implement the recommendation
 
-2. В колонке **Remediate OS vulnerabilities** (Исправление уязвимостей ОС) перечислены виртуальные машины с конфигурацией операционной системы, которая не соответствуют рекомендуемым правилам конфигурации. Для каждой виртуальной машины колонка содержит:
+1. In the **Recommendations** blade, select **Remediate OS vulnerabilities**. This opens the **Remediate OS vulnerabilities** blade.
+![Remediate OS vulnerabilities][1]
 
- - **Правила с ошибкой** — количество правил, не выполненных конфигурацией ОС виртуальной машины.
- - **Время последнего сканирования** — дата и время последней проверки конфигурации ОС виртуальной машины, выполненной центром безопасности.
- - **Состояние** — текущее состояние рекомендации уязвимости:
+2. The **Remediate OS vulnerabilities** blade lists your VMs with OS configurations that do not match the recommended configuration rules.  For each VM, the blade identifies:
 
-      - "Открыто" — уязвимость еще не исправлена;
-      - "Выполняется" — уязвимость уже устраняется, вам ничего не нужно делать;
-      - "Устранено" — уязвимость устранена (если проблема устранена, эта строка неактивна).
- - **Серьезность** — всем уязвимостям присваивается низкая серьезность, означающая, что уязвимость необходимо устранить, но она не требует немедленного внимания.
+ - **FAILED RULES** -- The number of rules that the VM's OS configuration failed.
+ - **LAST SCAN TIME** -- The date and time that Security Center last scanned the VM’s OS configuration.
+ - **STATE** -- The current state of the vulnerability:
 
-   Выберите виртуальную машину. Откроется колонка **Remediate OS vulnerabilities** (Исправление уязвимостей ОС) для этой виртуальной машины, содержащая правила, которые не выполнены.
+      - Open: The vulnerability has not been addressed yet
+      - In Progress: The vulnerability is currently being applied, no action is required by you
+      - Resolved: The vulnerability was already addressed (when the issue has been resolved, the entry is grayed out)
+ - **SEVERITY** -- All vulnerabilities are set to a severity of Low, meaning a vulnerability should be addressed but does not require immediate attention.
 
-   ![Правила конфигурации, которые не были выполнены][2]
+   Select a VM. This opens the **Remediate OS vulnerabilities** blade for that VM and displays the rules that have failed.
 
-Выберите правило. В этом примере выберем **Пароль должен отвечать требованиям сложности**. Откроется колонка, описывающая не выполненное правило и последствия этого. Просмотрите эту информацию и решите, как будут применяться конфигурации операционной системы.
+   ![Configuration rules that have failed][2]
 
-  ![Описание правила, которое не выполнено][3]
+Select a rule. In this example, lets select **Password must meet complexity requirements**. A blade opens describing the failed rule and the impact. Review the details and consider how operating system configurations will be applied.
 
-  Центр безопасности использует перечисление общей конфигурации (CCE) для назначения уникальных идентификаторов для правил конфигурации. В этой колонке предоставляется следующая информация:
+  ![Description for the failed rule][3]
 
-  - "Имя" — имя правила;
-  - "Серьезность" — указывает значение серьезности CCE: критическая ошибка, важное уведомление или предупреждение;
-  - "CCIED" — уникальный идентификатор CCE правила;
-  - "Описание" — описание правила;
-  - "Уязвимость" — описание уязвимости или риска в случае, если правило не применяется;
-  - "Воздействие" — влияние на работу организации в случае применения правила;
-  - "Ожидаемое значение" — ожидаемое значение при анализе центром безопасности конфигурации ОС виртуальной машины посредством правила;
-  - "Операция правила" — операция правила, используемая центром безопасности во время анализа конфигурации ОС виртуальной машины посредством правила;
-  - "Фактическое значение" — значение, возвращаемое после анализа конфигурации ОС виртуальной машины посредством правила;
-  - "Результат вычисления" — результат анализа: проверка пройдена или нет.
+  Security Center uses Common Configuration Enumeration (CCE) to assign unique identifiers for configuration rules. The following information is provided on this blade:
+
+  - NAME -- Name of rule
+  - SEVERITY -- CCE severity value of critical, important, or warning
+  - CCIED -- CCE unique identifier for the rule
+  - DESCRIPTION -- Description of rule
+  - VULNERABILITY -- Explanation of vulnerability or risk if rule is not applied
+  - IMPACT -- Business impact when rule is applied
+  - EXPECTED VALUE -- Value expected when Security Center analyzes your VM OS configuration against the rule
+  - RULE OPERATION -- Rule operation used by Security Center during analysis of your VM OS configuration against the rule
+  - ACTUAL VALUE -- Value returned after analysis of your VM OS configuration against the rule
+  - EVALUATION RESULT –- Result of analysis: Pass, Fail
 
 
-## См. также
+## <a name="see-also"></a>See also
 
-В этой статье объясняется, как выполнить рекомендацию центра безопасности "Remediate OS vulnerabilities" (Исправить уязвимости ОС). Набор правил конфигурации можно просмотреть [здесь](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Центр безопасности использует CCE (перечисление общей конфигурации) для назначения уникальных идентификаторов для правил конфигурации. Посетите сайт [CCE](http://cce.mitre.org), чтобы получить дополнительную информацию.
+This article showed you how to implement the Security Center recommendation "Remediate OS vulnerabilities." You can review the set of configuration rules [here](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Security Center uses CCE (Common Configuration Enumeration) to assign unique identifiers for configuration rules. Visit the [CCE](http://cce.mitre.org) site for more information.
 
-Дополнительные сведения о Центре безопасности см. в следующих статьях:
+To learn more about Security Center, see the following:
 
-- [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
-- [Управление рекомендациями по безопасности в Центре безопасности Azure](security-center-recommendations.md) — узнайте, как рекомендации могут помочь вам защитить ресурсы Azure.
-- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md) — узнайте, как наблюдать за работоспособностью ресурсов Azure.
-- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
-- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md) — узнайте, как отслеживать состояние работоспособности решений партнеров.
-- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
-- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
+- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
+- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
+- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
+- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/recommendation.png
-[2]: ./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
+[2]:./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
 [3]: ./media/security-center-remediate-os-vulnerabilities/vulnerability-details.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

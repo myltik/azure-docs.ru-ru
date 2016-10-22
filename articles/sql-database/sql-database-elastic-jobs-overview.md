@@ -1,148 +1,149 @@
 <properties
-	pageTitle="Управление масштабируемыми облачными базами данных | Microsoft Azure" 
-	description="Описание службы заданий обработки эластичных баз данных" 
-	metaKeywords="azure sql database elastic databases" 
-	services="sql-database" 
+    pageTitle="Managing scaled-out cloud databases | Microsoft Azure" 
+    description="Illustrates the elastic database job service" 
+    metaKeywords="azure sql database elastic databases" 
+    services="sql-database" 
     documentationCenter=""  
-	manager="jhubbard" 
-	authors="ddove"/>
+    manager="jhubbard" 
+    authors="ddove"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2016" 
-	ms.author="ddove" />
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="05/27/2016" 
+    ms.author="ddove" />
 
-# Управление масштабируемыми облачными базами данных
 
-Для управления масштабируемыми сегментированными базами данных можно воспользоваться функцией **заданий обработки для эластичных баз данных** (предварительная версия). Она позволяет надежно выполнить сценарий Transact-SQL (T-SQL) или применить файл DACPAC ([приложение уровня данных](https://msdn.microsoft.com/library/ee210546.aspx)) для группы баз данных, включая:
+# <a name="managing-scaled-out-cloud-databases"></a>Managing scaled-out cloud databases
 
-* пользовательское семейство баз данных (см. ниже);
-* все базы данных [в пуле эластичных баз данных](sql-database-elastic-pool.md);
-* набор сегментов (созданный с помощью [клиентской библиотеки эластичной базы данных ](sql-database-elastic-database-client-library.md)).
+To manage scaled-out sharded databases, the **Elastic Database jobs** feature (preview) enables you to  reliably execute a Transact-SQL (T-SQL) script or apply a DACPAC ([data-tier application](https://msdn.microsoft.com/library/ee210546.aspx)) across a group of databases, including:
+
+* a custom-defined collection of databases (explained below)
+* all databases in an [Elastic Database pool](sql-database-elastic-pool.md)
+* a shard set (created using [Elastic Database client library](sql-database-elastic-database-client-library.md)). 
  
-## Документация
+## <a name="documentation"></a>Documentation
 
-* [Установка компонентов заданий для обработки эластичных баз данных](sql-database-elastic-jobs-service-installation.md).
-* [Приступая к работе с инструментами эластичных баз данных](sql-database-elastic-jobs-getting-started.md).
-* [Создание и управление заданиями с помощью PowerShell](sql-database-elastic-jobs-powershell.md).
-* [Создание развернутых баз данных SQL Azure и управление ими](sql-database-elastic-jobs-getting-started.md)
+* [Install the Elastic Database job components](sql-database-elastic-jobs-service-installation.md). 
+* [Get started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
+* [Create and manage jobs using PowerShell](sql-database-elastic-jobs-powershell.md).
+* [Create and manage scaled out Azure SQL Databases](sql-database-elastic-jobs-getting-started.md)
 
-Сейчас служба **заданий обработки эластичных баз данных** —это размещаемая на стороне клиента облачная служба Azure, которая дает возможность выполнять ситуативные и запланированные административные задачи, именуемые **заданиями**. С помощью заданий вы можете легко и уверенно управлять большими группами баз данных SQL Azure, выполняя административные операции с помощью сценариев Transact-SQL.
+**Elastic Database jobs** is currently a customer-hosted Azure Cloud Service that enables the execution of ad-hoc and scheduled administrative tasks, which are called **jobs**. With jobs, you can easily and reliably manage large groups of Azure SQL Databases by running Transact-SQL scripts to perform administrative operations. 
 
-![Служба заданий обработки эластичных баз данных][1]
+![Elastic database job service][1]
 
-## Зачем использовать задания?
+## <a name="why-use-jobs?"></a>Why use jobs?
 
-**Управление**
+**Manage**
 
-Удобство управления изменениями схемы, учетными данными, обновлением эталонных данных, сбором сведений о производительности и клиентских данных телеметрии.
+Easily do schema changes, credentials management, reference data updates, performance data collection or tenant (customer) telemetry collection.
 
-**Отчеты**
+**Reports**
 
-Сбор данных из семейства баз данных SQL Azure в одну целевую таблицу.
+Aggregate data from a collection of Azure SQL Databases into a single destination table.
 
-**Уменьшение нагрузки**
+**Reduce overhead**
 
-Как правило, чтобы выполнять инструкции Transact-SQL или другие административные задачи, к каждой базе данных необходимо подключаться отдельно. тогда как задание автоматически входит в каждую базу данных в целевой группе. Вы также определяете, поддерживаете и сохраняете сценарии Transact-SQL, которые могут выполняться в группе баз данных SQL Azure.
+Normally, you must connect to each database independently in order to run Transact-SQL statements or perform other administrative tasks. A job handles the task of logging in to each database in the target group. You also define, maintain and persist Transact-SQL scripts to be executed across a group of Azure SQL Databases.
 
-**Учет**
+**Accounting**
 
-Задания запускают сценарий и записывают состояние выполнения для каждой базы данных. При сбое действие автоматически выполняется повторно.
+Jobs run the script and log the status of execution for each database. You also get automatic retry when failures occur.
 
-**Гибкость**
+**Flexibility**
 
-Определение пользовательских групп для баз данных SQL Azure и определение расписаний для запуска задания.
+Define custom groups of Azure SQL Databases, and define schedules for running a job.
 
-**Развертывание**
+**Deployment**
 
-Развертывание приложений на уровне данных (DACPAC)
+Deploy data-tier applications (DACPACs).
 
-> [AZURE.NOTE] На портале Azure доступен сокращенный набор функций. Эти функции предназначены для работы с пулами эластичных баз данных SQL Azure. Чтобы получить полный набор доступных на данный момент возможностей, используйте API-интерфейсы PowerShell.
+> [AZURE.NOTE] In the Azure portal, only a reduced set of functions limited to SQL Azure elastic pools is available. Use the PowerShell APIs to access the full set of current functionality.
 
-## Приложения 
+## <a name="applications"></a>Applications 
 
-* Выполнение административных задач, таких как развертывание новой схемы.
-* Обновление эталонных данных (например, сведений о продукте, которые являются общими для всех баз данных). Планируйте автоматические обновления на нерабочие часы в будни.
-* Перестроение индексов для повышения скорости обработки запросов. Вы можете настроить регулярное перестроение в семействе баз данных, например во время низкой нагрузки.
-* Собирайте результаты запросов из набора баз данных в центральную таблицу на постоянной основе. Запросы производительности могут выполняться непрерывно и вызывать дополнительные задачи.
-* Выполняйте запросы обработки данных с повышенным временем выполнения для большого набора баз данных, например коллекции телеметрии клиентов. Результаты собираются в одну целевую таблицу для дальнейшего анализа.
+* Perform administrative tasks, such as deploying a new schema.
+* Update reference data-product information common across all databases. Or schedules automatic updates every weekday, after hours.
+* Rebuild indexes to improve query performance. The rebuilding can be configured to execute across a collection of databases on a recurring basis, such as during off-peak hours.
+* Collect query results from a set of databases into a central table on an on-going basis. Performance queries can be continually executed and configured to trigger additional tasks to be executed.
+* Execute longer running data processing queries across a large set of databases, for example the collection of customer telemetry. Results are collected into a single destination table for further analysis.
 
-## Работа с заданиями обработки эластичных баз данных 
-1.	Установите компоненты службы **заданий обработки эластичных баз данных**. Дополнительные сведения см. в статье [Обзор установки заданий обработки эластичных баз данных](sql-database-elastic-jobs-service-installation.md). Если во время установки произошла ошибка, [удалите установленные компоненты](sql-database-elastic-jobs-uninstall.md).
-2.	Используйте API-интерфейсы PowerShell, чтобы получить дополнительные возможности, например создание пользовательских семейств баз данных, добавление расписаний и/или сбор наборов результатов. Портал используется для простой установки, создания и мониторинга заданий, которые выполняются только в **пуле эластичных баз данных**.
-3.	Создайте зашифрованные учетные данные для выполнения заданий и [добавьте пользователя (или роль) в каждую базу данных в группе](sql-database-security.md).
-4.	Создайте сложный сценарий T-SQL, который можно запускать для каждой базы данных в группе.
-5.	Чтобы создать задания с помощью портала Azure, выполните действия, описанные в статье [Создание заданий обработки эластичных баз данных SQL и управление ими с помощью портала (предварительная версия)](sql-database-elastic-jobs-create-and-manage.md).
-6.	Вы также можете воспользоваться сценариями PowerShell. См. статью [Создание заданий обработки эластичных баз данных для базы данных SQL и управление ими с помощью PowerShell (предварительная версия)](sql-database-elastic-jobs-powershell.md).
+## <a name="elastic-database-jobs:-end-to-end"></a>Elastic Database jobs: end-to-end 
+1.  Install the **Elastic Database jobs** components. For more information, see [Installing Elastic Database jobs](sql-database-elastic-jobs-service-installation.md). If the installation fails, see [how to uninstall](sql-database-elastic-jobs-uninstall.md).
+2.  Use the PowerShell APIs to access more functionality, for example creating custom-defined database collections, adding schedules and/or gathering results sets. Use the portal for simple installation and creation/monitoring of jobs limited to execution against a **Elastic Database pool**. 
+3.  Create encrypted credentials for job execution and [add the user (or role) to each database in the group](sql-database-security.md).
+4.  Create an idempotent T-SQL script that can be run against every database in the group. 
+5.  Follow these steps to create jobs using the Azure portal: [Creating and managing Elastic Database jobs](sql-database-elastic-jobs-create-and-manage.md). 
+6.  Or use PowerShell scripts: [Create and manage a SQL Database elastic database jobs using PowerShell (preview)](sql-database-elastic-jobs-powershell.md).
 
-## Идемпотентные сценарии
+## <a name="idempotent-scripts"></a>Idempotent scripts
 
-Сценарии должны быть [идемпотентными](https://en.wikipedia.org/wiki/Idempotence). Проще говоря, «идемпотентный» означает, что, если сценарий выполнился успешно и запустился снова, его результат останется неизменным. Сценарий может завершиться ошибкой из-за временных проблем в сети. В этом случае задание будет автоматически пытаться выполнить сценарий указанное количество раз, после чего попытки будут прекращены. Идемпотентный сценарий дает неизменный результат даже после двух успешных запусков.
+The scripts must be [idempotent](https://en.wikipedia.org/wiki/Idempotence). In simple terms, "idempotent" means that if the script succeeds, and it is run again, the same result occurs. A script may fail due to transient network issues. In that case, the job will automatically retry running the script a preset number of times before desisting. An idempotent script has the same result even if has been successfully run twice. 
 
-Прежде чем создавать объект, рекомендуется сначала проверить, не существует ли он уже.
+A simple tactic is to test for the existence of an object before creating it.  
 
-	IF NOT EXIST (some_object)
-	-- Create the object 
-	-- If it exists, drop the object before recreating it.
+    IF NOT EXIST (some_object)
+    -- Create the object 
+    -- If it exists, drop the object before recreating it.
 
-Аналогичным образом сценарий должен успешно завершаться, выполняя логическую проверку на существование различных условий и их обработку.
+Similarly, a script must be able to execute successfully by logically testing for and countering any conditions it finds.
 
-## Сбои и журналы
+## <a name="failures-and-logs"></a>Failures and logs
 
-Если после нескольких попыток сценарий завершается сбоем, задание записывает в журнал ошибку и продолжает работу. После завершения задания (т. е. после его выполнения во всех базах данных в группе) вы можете просмотреть список неудачных попыток. Сведения в журналах можно использовать для отладки неисправных сценариев.
+If a script fails after multiple attempts, the job logs the error and continues. After a job ends (meaning a run against all databases in the group), you can check its list of failed attempts. The logs provide details to debug faulty scripts. 
 
-## Типы групп и их создание
+## <a name="group-types-and-creation"></a>Group types and creation
 
-Группы бывают двух типов:
+There are two kinds of groups: 
 
-1. наборы сегментов;
-2. настраиваемые группы.
+1. Shard sets
+2. Custom groups
 
-Группы наборов сегментов создаются с помощью [инструментов для эластичных баз данных](sql-database-elastic-scale-introduction.md). В таких группах базы данных добавляются и удаляются автоматически. Например, при добавлении сегмента в карту сегментов он будет автоматически добавлен в группу. Затем можно будет запустить задание для группы.
+Shard set groups are created using the [Elastic Database tools](sql-database-elastic-scale-introduction.md). When you create a shard set group, databases are added or removed from the group automatically. For example, a new shard will be automatically in the group when you add it to the shard map. A job can then be run against the group.
 
-Настраиваемые группы определяются строго. В таких группах базы данных нужно добавлять и удалять явно. Если в группе удалить какую-то базу данных, задание попытается выполнить в ней сценарий, что в конечном итоге приведет к ошибке. На портале Azure сейчас можно создавать только настраиваемые группы.
+Custom groups, on the other hand, are rigidly defined. You must explicitly add or remove databases from custom groups. If a database in the group is dropped, the job will attempt to run the script against the database resulting in an eventual failure. Groups created using the Azure portal currently are custom groups. 
 
 
-## Компоненты и цены
+## <a name="components-and-pricing"></a>Components and pricing
  
-Ниже перечислены компоненты, которые вместе формируют облачную службу Azure, позволяющую в любой момент выполнять административные задания. Компоненты устанавливаются и настраиваются в вашей подписке автоматически во время установки. Эти службы можно легко идентифицировать — все они имеют одно и тоже автоматически сгенерированное уникальное имя, которое состоит из префикса edj и 21 произвольного символа.
+The following components work together to create an Azure Cloud service that enables ad-hoc execution of administrative jobs. The components are installed and configured automatically during setup, in your subscription. You can identify the services as they all have the same auto-generated name. The name is unique, and consists of the prefix "edj" followed by 21 randomly generated characters.
 
-* **Облачная служба Azure**. Служба заданий эластичной базы данных (предварительная версия) поставляется как облачная служба Azure, размещаемая клиентом для выполнения требуемых задачи. На портале служба развертывается и размещается в вашей подписке Microsoft Azure. По умолчанию развернутая служба выполняется как минимум с двумя рабочими ролями, что обеспечивает высокую доступность службы. Каждая роль стандартного размера (ElasticDatabaseJobWorker) работает на экземпляре A0. Сведения о ценах на облачные службы см. [здесь](https://azure.microsoft.com/pricing/details/cloud-services/).
-* **База данных SQL Azure**. Также называется **управляющей базой данных**. Используется для хранения всех метаданных заданий. По умолчанию используется уровень служб S0. Сведения о ценах на базы данных SQL см. [здесь](https://azure.microsoft.com/pricing/details/sql-database/).
-* **Служебная шина Azure**. Используется для координации работы в облачной службе Azure. Сведения о ценах на служебную шину см. [здесь](https://azure.microsoft.com/pricing/details/service-bus/).
-* **Служба хранилища Azure**. Для хранения диагностических сведений используется учетная запись хранения Azure. Эти данные могут понадобиться в случае, если для решения проблемы потребуется дальнейшая отладка (см. статью [Включение диагностики в облачных службах и виртуальных машинах Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)). Сведения о ценах на хранилище Azure см. [здесь](https://azure.microsoft.com/pricing/details/storage/).
+* **Azure Cloud Service**: elastic database jobs (preview) is delivered as a customer-hosted Azure Cloud service to perform execution of the requested tasks. From the portal, the service is deployed and hosted in your Microsoft Azure subscription. The default deployed service runs with the minimum of two worker roles for high availability. The default size of each worker role (ElasticDatabaseJobWorker) runs on an A0 instance. For pricing, see [Cloud services pricing](https://azure.microsoft.com/pricing/details/cloud-services/). 
+* **Azure SQL Database**: The service uses an Azure SQL Database known as the **control database** to store all of the job metadata. The default service tier is a S0. For pricing, see [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+* **Azure Service Bus**: An Azure Service Bus is for coordination of the work within the Azure Cloud Service. See [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/).
+* **Azure Storage**: An Azure Storage account is used to store diagnostic output logging in the event that an issue requires further debugging (see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md)). For pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-## Как работают задания обработки эластичных баз данных
+## <a name="how-elastic-database-jobs-work"></a>How Elastic Database jobs work
 
-1.	Базе данных SQL Azure назначается **управляющая база данных**, в которой хранятся все метаданные и сведения о состоянии.
-2.	**Служба заданий** обращается к управляющей базе данных для запуска и отслеживания выполняемых заданий.
-3.	С управляющей базой данных связываются две роли:
-	* Контроллер: определяет, каким заданиям для выполнения требуются задачи, и повторно запускает невыполненные задания, создавая новые задачи.
-	* Выполнение задач: выполняет задачи.
+1.  An Azure SQL Database is designated a **control database** which stores all meta-data and state data.
+2.  The control database is accessed by the **job service** to launch and track jobs to execute.
+3.  Two different roles communicate with the control database: 
+    * Controller: Determines which jobs require tasks to perform the requested job, and retries failed jobs by creating new job tasks.
+    * Job Task Execution: Carries out the job tasks.
 
-### Типы задач
+### <a name="job-task-types"></a>Job task types
 
-Существует несколько типов задач, которые выполняют задания:
+There are multiple types of job tasks that carry out execution of jobs:
 
-* ShardMapRefresh: отправляет карте сегментов запрос, чтобы определить все базы данных, используемые как сегменты
-* ScriptSplit: разбивает сценарий на группы между инструкциями GO
-* ExpandJob: создает дочерние задачи для каждой базы данных из задачи, которая направлена на группу баз данных
-* ScriptExecution: выполняет сценарий для определенной базы данных с использованием заданных учетных данных
-* Dacpac: применяет DACPAC к определенной базе данных с использованием определенных учетных данных
+* ShardMapRefresh: Queries the shard map to determine all the databases used as shards
+* ScriptSplit: Splits the script across ‘GO’ statements into batches
+* ExpandJob: Creates child jobs for each database from a job that targets a group of databases
+* ScriptExecution: Executes a script against a particular database using defined credentials
+* Dacpac: Applies a DACPAC to a particular database using particular credentials
 
-## Полный рабочий процесс выполнения заданий
+## <a name="end-to-end-job-execution-work-flow"></a>End-to-end job execution work-flow
 
-1.	С помощью портала или API PowerShell задание добавляется в **управляющую базу данных**. Задание требует выполнения сценарий Transact-SQL для группы баз данных с использованием определенных учетных данных.
-2.	Контроллер определяет новое задание. Создаются и выполняются задачи для разделения сценария и обновления баз данных группы. Напоследок создается и выполняется новое задание для расширения задания и создания дочерних заданий, каждое из которых выполняет сценарий Transact-SQL для отдельной базы данных в группе.
-3.	Контроллер определяет созданные дочерние задания. Для каждого задания контроллер создает и запускает задачу для выполнения сценария в базе данных.
-4.	После завершения задач контроллер задает состояние завершения заданий. Во время выполнения задания в любой момент можно использовать API PowerShell для просмотра текущего состояния его выполнения. Время, возвращаемое API-интерфейсами PowerShell, представлено в формате UTC. При желании можно отправить запрос на отмену, чтобы остановить задание.
+1.  Using either the Portal or the PowerShell API, a job is inserted into the  **control database**. The job requests execution of a Transact-SQL script against a group of databases using specific credentials.
+2.  The controller identifies the new job. Job tasks are created and executed to split the script and to refresh the group’s databases. Lastly, a new job is created and executed to expand the job and create new child jobs where each child job is specified to execute the Transact-SQL script against an individual database in the group.
+3.  The controller identifies the created child jobs. For each job, the controller creates and triggers a job task to execute the script against a database. 
+4.  After all job tasks have completed, the controller updates the jobs to a completed state. At any point during job execution, the PowerShell API can be used to view the current state of job execution. All times returned by the PowerShell APIs are represented in UTC. If desired, a cancellation request can be initiated to stop a job. 
 
-## Дальнейшие действия
-[Установите компоненты](sql-database-elastic-jobs-service-installation.md), а затем [создайте и добавьте учетные данные для входа в каждую базу данных в группе](sql-database-security.md). Дополнительные сведения о создании заданий и управлении ими см. в статье [Создание заданий эластичной базы данных и управление ими](sql-database-elastic-jobs-create-and-manage.md). Также см. раздел [Начало работы с заданиями обработки эластичных баз данных](sql-database-elastic-jobs-getting-started.md).
+## <a name="next-steps"></a>Next steps
+[Install the components](sql-database-elastic-jobs-service-installation.md), then [create and add a log in to each database in the group of databases](sql-database-security.md). To further understand job creation and management, see [creating and managing elastic database jobs](sql-database-elastic-jobs-create-and-manage.md). See also [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -152,4 +153,8 @@
 
  
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

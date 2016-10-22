@@ -1,203 +1,204 @@
 <properties 
-	pageTitle="Использование диспетчера ресурсов для выделения ресурсов для кластера Apache Spark в HDInsight | Microsoft Azure" 
-	description="Узнайте о том, как использовать диспетчер ресурсов для кластера Spark в HDInsight для повышения производительности." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="jhubbard" 
-	editor="cgronlun"
-	tags="azure-portal"/>
+    pageTitle="Use Resource Manager to allocate resources to the Apache Spark cluster in HDInsight| Microsoft Azure" 
+    description="Learn how to use the Resource Manager for Spark clusters on HDInsight for better performance." 
+    services="hdinsight" 
+    documentationCenter="" 
+    authors="nitinme" 
+    manager="jhubbard" 
+    editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="nitinme"/>
+    ms.service="hdinsight" 
+    ms.workload="big-data" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/25/2016" 
+    ms.author="nitinme"/>
 
 
-# Управление ресурсами кластера Apache Spark в HDInsight на платформе Linux
 
-Из этой статьи вы узнаете, как получать доступ к разным интерфейсам, связанным с кластером Spark, включая пользовательский интерфейс Ambari, пользовательский интерфейс YARN и сервер журнала Spark. Также вы узнаете, как настроить конфигурацию кластера для оптимальной производительности.
+# <a name="manage-resources-for-the-apache-spark-cluster-on-hdinsight-linux"></a>Manage resources for the Apache Spark cluster on HDInsight Linux
 
-**Предварительные требования:**
+In this article you will learn how to access the interfaces like Ambari UI, YARN UI, and the Spark History Server associated with your Spark cluster. You will also learn about how to tune the cluster configuration for optimal performance.
 
-Необходимо следующее:
+**Prerequisites:**
 
-- Подписка Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Кластер Apache Spark в HDInsight на платформе Linux. Инструкции см. в разделе [Создание кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+You must have the following:
 
-## Как запустить веб-интерфейс Ambari?
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
-1. На начальной панели [портала Azure](https://portal.azure.com/) щелкните элемент кластера Spark (если он закреплен на начальной панели). Можно также перейти к кластеру в разделе **Просмотреть все** > **Кластеры HDInsight**.
+## <a name="how-do-i-launch-the-ambari-web-ui?"></a>How do I launch the Ambari Web UI?
+
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**. 
  
-2. В колонке кластера Spark нажмите **Панель мониторинга**. При появлении запроса введите учетные данные администратора для кластера Spark.
+2. From the Spark cluster blade, click **Dashboard**. When prompted, enter the admin credentials for the Spark cluster.
 
-	![Запуск Ambari](./media/hdinsight-apache-spark-resource-manager/hdispark.cluster.launch.dashboard.png "Начало работы с диспетчером ресурсов")
+    ![Launch Ambari](./media/hdinsight-apache-spark-resource-manager/hdispark.cluster.launch.dashboard.png "Start Resource Manager")
 
-3. В результате должен запуститься веб-интерфейс Ambari, как показано ниже.
+3. This should launch the Ambari Web UI, as shown below.
 
-	![Веб-интерфейс Ambari](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Веб-интерфейс Ambari")
+    ![Ambari Web UI](./media/hdinsight-apache-spark-resource-manager/ambari-web-ui.png "Ambari Web UI")   
 
-## Как запустить сервер журнала Spark?
+## <a name="how-do-i-launch-the-spark-history-server?"></a>How do I launch the Spark History Server?
 
-1. На начальной панели [портала Azure](https://portal.azure.com/) щелкните элемент кластера Spark (если он закреплен на начальной панели).
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard).
 
-2. В разделе **Быстрые ссылки** колонке кластера щелкните элемент **Панель мониторинга кластера**. В колонке **Панель мониторинга кластера** щелкните **Сервер журнала Spark**.
+2. From the cluster blade, under **Quick Links**, click **Cluster Dashboard**. In the **Cluster Dashboard** blade, click **Spark History Server**.
 
-	![Сервер журнала Spark](./media/hdinsight-apache-spark-resource-manager/launch-history-server.png "Сервер журнала Spark")
+    ![Spark History Server](./media/hdinsight-apache-spark-resource-manager/launch-history-server.png "Spark History Server")
 
-	При появлении запроса введите учетные данные администратора для кластера Spark.
+    When prompted, enter the admin credentials for the Spark cluster.
 
 
-## Как запустить пользовательский интерфейс Yarn?
+## <a name="how-do-i-launch-the-yarn-ui?"></a>How do I launch the Yarn UI?
 
-Вы можете использовать пользовательский интерфейс YARN для мониторинга приложений, которые выполняются в кластере Spark в настоящее время.
+You can use the YARN UI to monitor applications that are currently running on the Spark cluster. 
 
-1. В колонке кластера щелкните **Панель мониторинга кластера**, а затем выберите пункт **YARN**.
+1. From the cluster blade, click **Cluster Dashboard**, and then click **YARN**.
 
-	![Запуск пользовательского интерфейса YARN](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png)
+    ![Launch YARN UI](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png)
 
-	>[AZURE.TIP] Также пользовательский интерфейс YARN можно открыть из пользовательского интерфейса Ambari. Чтобы открыть пользовательский интерфейс Ambari, выберите в колонке кластера **Панель мониторинга кластера**, а затем щелкните **Панель мониторинга кластера HDInsight**. В пользовательском интерфейсе Ambari щелкните **YARN**, затем — **Быстрые ссылки**. Щелкните активный менеджер ресурсов и нажмите кнопку **Пользовательский интерфейс диспетчера ресурсов**.
+    >[AZURE.TIP] Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, from the cluster blade, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**. From the Ambari UI, click **YARN**, click **Quick Links**, click the active resource manager, and then click **ResourceManager UI**.
 
-## Какая конфигурация кластера будет оптимальной для запуска приложений Spark?
+## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications?"></a>What is the optimum cluster configuration to run Spark applications?
 
-В зависимости от требований приложения можно изменять три основных параметра Spark: `spark.executor.instances`, `spark.executor.cores` и `spark.executor.memory`. Исполнитель — это процесс, запущенный для приложения Spark. Он выполняется на рабочем узле и отвечает за выполнение задач этого приложения. Число исполнителей по умолчанию и размеры исполнителя для каждого кластера определяются с учетом числа рабочих узлов и размера каждого рабочего узла. Эти значения хранятся в файле `spark-defaults.conf` на головных узлах кластера.
+The three key parameters that can be used for Spark configuration depending on application requirements are `spark.executor.instances`, `spark.executor.cores`, and `spark.executor.memory`. An Executor is a process launched for a Spark application. It runs on the worker node and is responsible to carry out the tasks for the application. The default number of executors and the executor sizes for each cluster is calculated based on the number of worker nodes and the worker node size. These are stored in `spark-defaults.conf` on the cluster head nodes. 
 
-Эти три параметра конфигурации можно настроить на уровне кластера (для всех приложений, работающих в кластере) или для каждого отдельного приложения.
+The three configuration parameters can be configured at the cluster level (for all applications that run on the cluster) or can be specified for each individual application as well.
 
-### Изменение параметров с помощью пользовательского интерфейса Ambari
+### <a name="change-the-parameters-using-ambari-ui"></a>Change the parameters using Ambari UI
 
-1. В пользовательском интерфейсе Ambari щелкните **Spark**, выберите пункт **Конфигурации** и разверните категорию **Custom spark-defaults**.
+1. From the Ambari UI click **Spark**, click **Configs**, and then expand **Custom spark-defaults**.
 
-	![Изменение параметров с помощью Ambari](./media/hdinsight-apache-spark-resource-manager/set-parameters-using-ambari.png)
+    ![Set parameters using Ambari](./media/hdinsight-apache-spark-resource-manager/set-parameters-using-ambari.png)
 
-2. Значения по умолчанию позволяют запустить в кластере одновременно четыре приложения Spark. Вы можете изменять эти значения из пользовательского интерфейса, как показано ниже.
+2. The default values are good to have 4 Spark applications run concurrently on the cluster. You can changes these values from the user interface, as shown below.
 
-	![Изменение параметров с помощью Ambari](./media/hdinsight-apache-spark-resource-manager/set-executor-parameters.png)
+    ![Set parameters using Ambari](./media/hdinsight-apache-spark-resource-manager/set-executor-parameters.png)
 
-3. Чтобы сохранить изменения конфигурации, нажмите кнопку **Сохранить**. В верхней части страницы вы увидите предложение перезапустить все используемые службы. Щелкните **Перезапустить**.
+3. Click **Save** to save the configuration changes. At the top of the page, you will be prompted to restart all the affected services. Click **Restart**.
 
-	![Перезапуск служб](./media/hdinsight-apache-spark-resource-manager/restart-services.png)
+    ![Restart services](./media/hdinsight-apache-spark-resource-manager/restart-services.png)
 
 
-### Изменение параметров для приложения, запущенного в записной книжке Jupyter
+### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Change the parameters for an application running in Jupyter notebook
 
-Чтобы изменить конфигурацию для приложений, запущенных в записной книжке Jupyter, можно использовать волшебную команду `%%configure`. Желательно вносить такие изменения в начале приложения, перед запуском первой ячейки кода. Это гарантирует, что конфигурация будет применена к сеансу Livy, когда он будет создан. Если вы хотите изменить конфигурацию на более позднем этапе выполнения приложения, следует использовать параметр `-f`. Но при этом будут потеряны все результаты, полученные в приложении.
+For applications running in the Jupyter notebook, you can use the `%%configure` magic to make the configuration changes. Ideally, you must make such changes at the beginning of the application, before you run your first code cell. This ensures that the configuration is applied to the Livy session, when it gets created. If you want to change the configuration at a later stage in the application, you must use the `-f` parameter. However, by doing so all progress in the application will be lost.
 
-В следующем фрагменте показано, как изменить конфигурацию для приложения, работающего в Jupyter.
+The snippet below shows how to change the configuration for an application running in Jupyter.
 
-	%%configure 
-	{"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
+    %%configure 
+    {"executorMemory": "3072M", "executorCores": 4, “numExecutors”:10}
 
-Параметры конфигурации следует передавать в виде строки JSON, расположенной сразу после команды magic, как показано в столбце примера.
+Configuration parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. 
 
-### Изменение параметров для приложения, отправленного с помощью spark-submit
+### <a name="change-the-parameters-for-an-application-submitted-using-spark-submit"></a>Change the parameters for an application submitted using spark-submit
 
-Следующая команда демонстрирует, как можно изменять параметры конфигурации для приложения пакетной службы, отправленного с помощью `spark-submit`.
+Following command is an example of how to change the configuration parameters for a batch application that is submitted using `spark-submit`.
 
-	spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+    spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
 
-### Изменение параметров для приложения, отправленного с помощью cURL
+### <a name="change-the-parameters-for-an-application-submitted-using-curl"></a>Change the parameters for an application submitted using cURL
 
-Следующая команда демонстрирует, как можно изменять параметры конфигурации для приложения пакетной службы, отправленного с помощью cURL.
+Following command is an example of how to change the configuration parameters for a batch application that is submitted using using cURL.
 
-	curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+    curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 
-### Как изменить эти параметры на сервере Thrift Spark?
+### <a name="how-do-i-change-these-parameters-on-a-spark-thrift-server?"></a>How do I change these parameters on a Spark Thrift Server?
 
-Сервер Thrift Spark предоставляет доступ JDBC и ODBC к кластеру Spark. Он используется для обслуживания запросов к службе Spark SQL. Разные средства, такие как Power BI, Tableau и др., используют протокол ODBC для обмена данными с сервером Thrift Spark и выполнения запросов Spark SQL в виде приложения Spark. Когда вы создаете кластер Spark, запускаются два экземпляра сервера Thrift Spark, по одному на каждый головной узел. Каждый сервер Thrift Spark отображается в пользовательском интерфейсе YARN как приложение Spark.
+Spark Thrift Server provides JDBC/ODBC access to a Spark cluster and is used to service Spark SQL queries. Tools like Power BI, Tableau etc. use ODBC protocol to communicate with Spark Thrift Server to execute Spark SQL queries as a Spark Application. When a Spark cluster is created, two instances of the Spark Thrift Server are started, one on each head node. Each Spark Thrift Server is visible as a Spark application in the YARN UI. 
 
-Сервер Thrift Spark использует динамическое выделение исполнителей Spark, поэтому `spark.executor.instances` не используется. Вместо этого сервер Thrift Spark использует `spark.dynamicAllocation.minExecutors` и `spark.dynamicAllocation.maxExecutors`, чтобы указать число исполнителей. Параметры конфигурации `spark.executor.cores` и `spark.executor.memory` используются для изменения размера исполнителя. Все эти параметры вы можете изменять, как показано ниже.
+Spark Thrift Server uses Spark dynamic executor allocation and hence the `spark.executor.instances` is not used. Instead, Spark Thrift Server uses `spark.dynamicAllocation.minExecutors` and `spark.dynamicAllocation.maxExecutors` to specify the executor count. The configuration parameters `spark.executor.cores` and `spark.executor.memory` is used to modify the executor size. You can change these parameters as shown below.
 
-* Разверните категорию **Advanced spark-thrift-sparkconf**, чтобы изменить параметры `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors` и `spark.executor.memory`.
+* Expand the **Advanced spark-thrift-sparkconf** category to update the parameters `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors`, and `spark.executor.memory`.
 
-	![Настройка сервера Thrift Spark](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-1.png)
+    ![Configure Spark thrift server](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-1.png) 
 
-* Разверните категорию **Custom spark-thrift-sparkconf**, чтобы изменить параметр `spark.executor.cores`.
+* Expand the **Custom spark-thrift-sparkconf** category to update the parameter `spark.executor.cores`.
 
-	![Настройка сервера Thrift Spark](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-2.png)
+    ![Configure Spark thrift server](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-2.png)
 
-### Как можно изменить память драйверов для сервера Thrift Spark?
+### <a name="how-do-i-change-the-driver-memory-of-the-spark-thrift-server?"></a>How do I change the driver memory of the Spark Thrift Server?
 
-Память драйверов сервера Thrift Spark настроена так, что она использует 25 % от размера ОЗУ головного узла, при условии, что общий объем ОЗУ головного узла превышает 14 ГБ. Конфигурацию памяти драйверов можно изменить с помощью пользовательского интерфейса Ambari, как показано ниже.
+Spark Thrift Server driver memory is configured to 25% of the head node RAM size, provided the total RAM size of the head node is greater than 14GB. You can use the Ambari UI to change the driver memory configuration, as shown below.
 
-* В пользовательском интерфейсе Ambari щелкните **Spark**, нажмите **Конфигурации**, разверните категорию **Advanced spark-env** и введите значение для параметра **spark\_thrift\_cmd\_opts**.
+* From the Ambari UI click **Spark**, click **Configs**, expand **Advanced spark-env**, and then provide the value for **spark_thrift_cmd_opts**.
 
-	![Настройка памяти сервера Thrift Spark](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-ram.png)
+    ![Configure Spark thrift server RAM](./media/hdinsight-apache-spark-resource-manager/spark-thrift-server-ram.png)
 
-## Я не использую бизнес-аналитику с кластером Spark. Как получить ресурсы обратно?
+## <a name="i-do-not-use-bi-with-spark-cluster.-how-do-i-take-the-resources-back?"></a>I do not use BI with Spark cluster. How do I take the resources back?
 
-Так как мы используем динамическое выделение Spark, сервер Thrift потребляет только ресурсы, предназначенные для двух главных серверов приложений. Чтобы освободить эти ресурсы, следует остановить службы сервера Thrift, запущенные в кластере.
+Since we use Spark dynamic allocation, the only resources that are consumed by thrift server are the resources for the two application masters. To reclaim these resources you must stop the Thrift Server services running on the cluster.
 
-1. В пользовательском интерфейсе Ambari на панели слева щелкните **Spark**.
+1. From the Ambari UI, from the left pane, click **Spark**.
 
-2. На следующей странице щелкните **Серверы Thrift Spark**.
+2. In the next page, click **Spark Thrift Servers**.
 
-	![Перезапуск сервера Thrift](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-1.png)
+    ![Restart thrift server](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-1.png)
 
-3. Вы увидите два головных узла, на которых запущен сервер Thrift Spark. Выберите один из этих головных узлов.
+3. You should see the two headnodes on which the Spark Thrift Server is running. Click one of the headnodes.
 
-	![Перезапуск сервера Thrift](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-2.png)
+    ![Restart thrift server](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-2.png)
 
-4. На следующей странице перечислены все службы, запущенные на выбранном головном узле. Нажмите в этом списке кнопку раскрывающегося списка рядом с сервером Thrift Spark, затем нажмите кнопку **Остановить**.
+4. The next page lists all the services running on that headnode. From the list click the drop-down button next to Spark Thrift Server, and then click **Stop**.
 
-	![Перезапуск сервера Thrift](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-3.png)
+    ![Restart thrift server](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-3.png)
 
-5. Повторите эти действия на другом головном узле.
+5. Repeat these steps on the other headnode as well.
 
 
-## Мои записные книжки Jupyter работают не так, как ожидалось. Как я могу перезапустить службу?
+## <a name="my-jupyter-notebooks-are-not-running-as-expected.-how-can-i-restart-the-service?"></a>My Jupyter notebooks are not running as expected. How can I restart the service?
 
-1. Запустите веб-интерфейс Ambari, как показано выше. В левой области навигации щелкните **Jupyter**, **Service Actions** (Действия службы) и затем **Перезапустить все**. При этом служба Jupyter запускается на всех головных узлах.
+1. Launch the Ambari Web UI as shown above. From the left navigation pane, click **Jupyter**, click **Service Actions**, and then click **Restart All**. This will start the Jupyter service on all the headnodes.
 
-	![Перезапуск Jupyter](./media/hdinsight-apache-spark-resource-manager/restart-jupyter.png "Перезапуск Jupyter")
+    ![Restart Jupyter](./media/hdinsight-apache-spark-resource-manager/restart-jupyter.png "Restart Jupyter")
 
-	
+    
 
 
-## <a name="seealso"></a>См. также:
+## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>See also
 
 
-* [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-### Сценарии
+### <a name="scenarios"></a>Scenarios
 
-* [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Использование Spark с машинным обучением. Использование Spark в HDInsight для анализа температуры в здании на основе данных системы кондиционирования](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-* [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
 
-* [Анализ журнала веб-сайта с использованием Spark в HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-### Создание и запуск приложений
+### <a name="create-and-run-applications"></a>Create and run applications
 
-* [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
 
-* [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Средства и расширения
+### <a name="tools-and-extensions"></a>Tools and extensions
 
-* [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
-* [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
-* [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
-* [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 
-* [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### Управление ресурсами
+### <a name="manage-resources"></a>Manage resources
 
-* [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
 
 
 
@@ -210,6 +211,10 @@
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]: storage-create-storage-account.md 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

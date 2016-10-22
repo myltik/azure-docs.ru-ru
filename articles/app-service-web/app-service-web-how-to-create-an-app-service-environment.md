@@ -1,175 +1,86 @@
 <properties 
-	pageTitle="Создание среды службы приложения" 
-	description="Описание процесса создания сред службы приложений" 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="stefsch" 
-	editor=""/>
+    pageTitle="How to Create an App Service Environment" 
+    description="Creation flow description for app service environments" 
+    services="app-service" 
+    documentationCenter="" 
+    authors="ccompy" 
+    manager="stefsch" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2016" 
-	ms.author="ccompy"/>
-
-# Создание среды службы приложения #
-
-Среды службы приложений (ASE) — возможность службы приложений Azure уровня Премиум, которая предоставляет возможность расширенной настройки, недоступную в многопользовательских метках. Функция ASE фактически развертывает службу приложений Azure в виртуальной сети клиента. Чтобы узнать больше о возможностях, доступных в средах службы приложений, см. документацию [Возможности среды службы приложений][WhatisASE].
+    ms.service="app-service" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/22/2016" 
+    ms.author="ccompy"/>
 
 
-### Обзор ###
+# <a name="how-to-create-an-app-service-environment"></a>How to Create an App Service Environment #
 
-ASE состоит из внешнего интерфейса и вычислительных ресурсов рабочих ролей. Внешний интерфейс выступает в качестве конечных точек HTTP или HTTPS и отправляет трафик в рабочие роли. Это роли, в которых размещены ваши приложения.
+### <a name="overview"></a>Overview ###
 
-При создании среды ASE пользователям нужно указать следующие сведения:
+App Service Environments (ASE) are a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  The ASE feature essentially deploys the Azure App Service into a customer’s virtual network.  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
 
-- имя среды ASE;
-- подписка, которая будет использоваться для среды ASE;
-- resource group
-- виртуальная сеть Azure с 8 или более адресами и подсетью для ASE;
-- тип виртуального IP-адреса: внешний или внутренний;
-- определение пула ресурсов ASE.
+### <a name="before-you-create-your-ase"></a>Before you create your ASE ###
 
+It is important to be aware of the things you cannot change.  Those aspects you cannot change about your ASE are:
 
-Есть важная информация о каждом из этих элементов.
+- Location
+- Subscription
+- Resource Group
+- VNet used
+- Subnet used 
+- Subnet size
 
-- Имя ASE будет использоваться в поддомене для любых приложений, созданных в этой среде ASE, если для нее настроен внешний виртуальный IP-адрес.
-- В ASE с внешним виртуальным IP-адресом размещаются приложения, доступные из Интернета. В ASE с внутренним виртуальным IP-адресом используется внутренний балансировщик нагрузки.
-- Все приложения, созданные в ASE, будут находиться в той же подписке, что и ASE.
-- Если у вас нет доступа к подписке, использованной для создания ASE, вы не сможете использовать ASE для создания приложений.
-- Виртуальные сети, используемые для размещения ASE, должны быть региональными. Можно использовать классические виртуальные сети или виртуальные сети Resource Manager.
-- **Подсеть, используемая для размещения ASE, не должна содержать какие-либо другие вычислительные ресурсы.**
-- В подсети может находиться только одна среда ASE.
-- Теперь ASE можно развертывать в виртуальных сетях, использующих *либо* диапазоны общедоступных адресов, *либо* адресные пространства RFC1918 (т. е. частные адреса). Чтобы использовать виртуальную сеть с диапазоном общедоступных адресов, потребуется создать виртуальную сеть и подсеть заранее, а затем выбрать эту подсеть при создании ASE в пользовательском интерфейсе.
+When picking a VNet and specifying a subnet, make sure it is large enough to accomodate any future growth.  
 
+### <a name="creating-an-app-service-environment"></a>Creating an App Service Environment ###
 
-Каждое развертывание ASE является размещенной службой, которая управляется и обслуживается платформой Azure. Вычислительные ресурсы, на которых размещены роли системы ASE, недоступны для клиента, хотя клиент регулирует количество экземпляров и их размер.
+There are two ways to access the ASE creation UI.  It can be found by searching in the Azure Marketplace for ***App Service Environment*** or by going through New -> Web + Mobile -> App Service Environment.  To create an ASE:
 
-Вы можете получить доступ к пользовательскому интерфейсу создания ASE двумя способами. Чтобы найти его, выполните поиск в Azure Marketplace по запросу ***Среда службы приложений*** или откройте меню "Создать -> Интернет + мобильные устройства".
+1. Provide the name of your ASE.  The name that is specified for the ASE will be used for the apps created in the ASE.  If name of the ASE is appsvcenvdemo then the subdomain name would be .*appsvcenvdemo.p.azurewebsites.net*.  If you thus created an app named *mytestapp* then it would be addressable at *mytestapp.appsvcenvdemo.p.azurewebsites.net*.  You cannot use white space in the name of your ASE.  If you use upper case characters in the name, the domain name will be the total lowercase version of that name.  If you use an ILB then your ASE name is not used in your subdomain but is instead explicitly stated during ASE creation
 
-Чтобы у подсети и среды ASE были разные группы ресурсов, вам сначала нужно отдельно создать виртуальную сеть, а затем указать ее при создании ASE. Кроме того, чтобы создать подсеть в существующей виртуальной сети во время создания ASE, среда ASE должна входить в ту же группу ресурсов, что виртуальная сеть.
+    ![][1]
 
+2. Select your subscription.  The subscription used for your ASE is also the one that all apps in that ASE will be created with.  You cannot place your ASE in a VNet that is in another subscription
 
-### Быстро создать ###
-Вы можете быстро создать среду ASE с помощью набора значений по умолчанию. Чтобы быстро создать ASE, просто введите имя для развертывания. После этого в ближайшем к вам регионе будет создана среда ASE со следующими характеристиками:
+3. Select or specify a new resource group.  The resource group used for your ASE must be the same that is used for your VNet.  If you select a pre-existing VNet then the resource group selection for your ASE will be updated to reflect that of your VNet.
 
-- виртуальная сеть с 512 адресами, использующая частное адресное пространство RFC1918;
-- подсеть с 256 адресами;
-- внешний виртуальный IP-адрес;
-- интерфейсный пул с двумя вычислительными ресурсами P2;
-- рабочий пул с двумя вычислительными ресурсами P1;
-- один IP-адрес для использования SSL на основе IP.
+    ![][2]
 
-Для интерфейсных пулов требуется вычислительный ресурс уровня P2 или выше. Внимательно выберите подписку, в которую будет включена среда ASE. В подписке, используемой для создания ASE, должны находиться только учетные записи, которые могут использовать ASE для размещения содержимого.
+4. Make your Virtual Network and Location selections.  You can choose to create a new VNet or select a pre-existing VNet.  If you select a new VNet then you can specify a name and location. The new VNet will have the address range 192.268.250.0/23 and a subnet named **default** that is defined as 192.168.250.0/24.  You can also simply select a pre-existing Classic or Resource Manager VNet.  The VIP Type selection determines if your ASE can be directly accessed from the internet (External) or if it uses an Internal Load Balancer (ILB).  To learn more about them read [Using an Internal Load Balancer with an App Service Environment][ILBASE].  If you select a VIP type of External then you can select how many external IP addresses the system is created with for IPSSL purposes.  If you select Internal then you need to specify the subdomain that your ASE will use.  ASEs can be deployed into virtual networks that use *either* public address ranges, *or* RFC1918 address spaces (i.e. private addresses).  In order to use a virtual network with a public address range, you will need to create the VNet ahead of time.  When you select a pre-existing VNet you will need to create a new subnet during ASE creation.  **You cannot use a pre-created subnet in the portal.  You can create an ASE with a pre-existing subnet if you create your ASE using a resource manager template.**
 
-![][1]
+### <a name="details"></a>Details ###
 
-Имя, указанное для ASE, будет использоваться для веб-приложений, созданных в этой среде ASE. Если для ASE указано имя appsvcenvdemo, то именем поддомена будет .*appsvcenvdemo.p.azurewebsites.net*. Если создать веб-приложение с именем *mytestapp*, к нему можно будет обращаться по адресу *mytestapp.appsvcenvdemo.p.azurewebsites.net*. В имени ASE нельзя использовать пробелы. Если вы используете в имени символы верхнего регистра, в доменном имени будут использоваться такие же символы нижнего регистра. Если используется внутренний балансировщик нагрузки, то имя ASE не используется в поддомене, а указывается явно во время создания среды ASE.
+An ASE is created with 2 Front Ends and 2 Workers.  The Front Ends act as the HTTP/HTTPS endpoints and send traffic to the Workers which are the roles that host your apps.   You can adjust the quantity after ASE creation and can even set up autoscale rules on these resource pools.  For more details around manual scaling, management and monitoring of an App Service Environment go here: [How to configure an App Service Environment][ASEConfig] 
 
-В некоторых ситуациях очень удобно использовать значения по умолчанию. Но бывают и другие ситуации, когда вам нужно что-то настроить вручную. В следующих разделах описана настройка всех необходимых параметров конфигурации ASE.
+Only the one ASE can exist in the subnet used by the ASE.  The subnet cannot be used for anything other than the ASE
 
+### <a name="after-app-service-environment-creation"></a>After App Service Environment creation ###
 
-### Виртуальная сеть ###
-При создании ASE можно выбрать существующую классическую виртуальную сеть или виртуальную сеть Resource Manager, а также создать новую классическую виртуальную сеть.
+After ASE creation you can adjust:
 
-При переходе к выбору существующей виртуальной сети вы увидите классические виртуальные сети и виртуальные сети Resource Manager в одном списке. Для классических виртуальных сетей рядом с расположением отображается слово "Классический". В противном случае это виртуальная сеть Resource Manager.
-
-![][2]
+- Quantity of Front Ends (minimum: 2)
+- Quantity of  Workers (minimum: 2)
+- Quantity of IP addresses available for IP SSL
+- Compute resource sizes used by the Front Ends or Workers (Front End minimum size is P2)
 
 
-Если вы используете пользовательский интерфейс для создания виртуальной сети, то необходимо указать следующие параметры:
+There are more details around manual scaling, management and monitoring of App Service Environments here: [How to configure an App Service Environment][ASEConfig] 
 
-- имя виртуальной сети;
-- диапазон адресов виртуальной сети в нотации CIDR;
-- Расположение
+For information on autoscaling there is a guide here: [How to configure autoscale for an App Service Environment][ASEAutoscale]
 
-Расположением виртуальной сети является расположение ASE. Помните, что при этом создается классическая виртуальная сеть, а не виртуальная сеть Resource Manager.
-
-ASE можно развертывать в виртуальных сетях, использующих *либо* диапазоны общедоступных адресов, *либо* адресные пространства RFC1918 (т. е. частные адреса). Чтобы использовать виртуальную сеть с диапазоном общедоступных адресов, необходимо создать подсеть заранее, а затем выбрать ее при создании ASE в пользовательском интерфейсе.
-
-При выборе существующей виртуальной сети также необходимо указать подсеть или создать новую. Подсеть должна содержать не менее восьми адресов; также она не может включать другие ресурсы. Создание среды ASE завершится ошибкой при попытке использовать подсеть, которая уже содержит выделенные виртуальные машины.
-
-Указав нужную виртуальную сеть, создайте или выберите подсеть. Здесь необходимо указать следующие данные.
-
-- Имя подсети
-- Диапазон адресов подсети в нотации CIDR
-
-Если вы не знакомы со схемой адресации CIDR (бесклассовой междоменной маршрутизации), просто запомните, что нотация выглядит как IP-адрес, разделенный косой чертой от значения CIDR, например *10.0.0.0/22*. CIDR-значение обозначает количество старших битов, определяющих маску для IP-адреса. Иными словами, значения CIDR обеспечивают диапазон IP-адресов. В этом примере адрес 10.0.0.0/22 означает диапазон, состоящий из 1024 адресов (от 10.0.0.0 до 10.0.3.255). /23 означает 512 адреса и т. д.
-
-Также помните о том, что при создании подсети в существующей виртуальной сети среда ASE должна входить в ту же группу ресурсов, что и виртуальная сеть. Чтобы среда ASE и виртуальная сеть входили в разные группы ресурсов, перед созданием ASE нужно убедиться в том, что виртуальная сеть и подсеть разделены.
+There are additional dependencies that are not available for customization such as the database and storage.  These are handled by Azure and come with the system.  The system storage supports up to 500 GB for the entire App Service Environment and the database is adjusted by Azure as needed by the scale of the system.
 
 
-#### Внешний или внутренний виртуальный IP-адрес ####
+## <a name="getting-started"></a>Getting started
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
-По умолчанию в конфигурации виртуальной сети задан внешний тип виртуального IP-адреса и один IP-адрес. Если вы хотите использовать внутренний балансировщик нагрузки вместо внешнего виртуального IP-адреса, то перейдите к конфигурации виртуальной сети и измените тип виртуального IP-адреса на внутренний. По умолчанию используется внешний виртуальный IP-адрес. При изменении типа виртуального IP-адреса на внутренний необходимо будет указать поддомен для ASE. При использовании внутреннего балансировщика нагрузки в качестве виртуального IP-адреса для ASE имеет место ряд компромиссов. Чтобы узнать о них больше, ознакомьтесь с разделом [Использование внутреннего балансировщика нагрузки в среде службы приложений][ILBASE].
+To get started with App Service Environments, see [Introduction to App Service Environments][WhatisASE]
 
-![][4]
-
-### Пулы вычислительных ресурсов ###
-
-Во время создания среды ASE можно задать требуемое для каждого пула ресурсов количество ресурсов, а также их размер. Задать размеры пулов ресурсов можно при создании среды ASE, а изменить их можно позже, используя функции ручного или автоматического масштабирования.
-
-Как отмечалось ранее, среда ASE состоит из серверов переднего плана и рабочих ролей. Внешние серверы обрабатывают нагрузку подключения приложения, а исполнители запускают код приложения. Управление внешними серверами выполняется из специального пула вычислительных ресурсов. Управление исполнителями в свою очередь выполняется из трех отдельных пулов вычислительных ресурсов с именами
-
-- Пул исполнителей 1
-- Пул исполнителей 2
-- Пул исполнителей 3
-
-Если к простым веб-приложениям поступает большое количество запросов, вам, скорее всего, потребуется масштабировать внешние интерфейсы и уменьшить количество рабочих ролей. Если у вас есть веб-приложения, которые используют много ресурсов ЦП и памяти, вам не потребуется много внешних интерфейсов, но, скорее всего, потребуется больше исполнителей.
-
-![][3]
-
-Независимо от объема вычислительных ресурсов минимальная конфигурация должна иметь два внешних сервера и два работника. Среду ASE можно настроить для использования до 55 вычислительных ресурсов. Из этих 55 вычислительных ресурсов только 50 можно использовать для размещения рабочих нагрузок. Для этого есть две причины. Существует как минимум 2 вычислительных ресурса для интерфейсов. Остается максимум 53 ресурса для поддержки распределения пула работников. При этом для обеспечения отказоустойчивости требуются дополнительные вычислительные ресурсы, распределенные в соответствии с следующими правилами:
-
-- для каждого пула работников требуется по крайней мере один дополнительный вычислительный ресурс, которому нельзя назначать рабочую нагрузку;
-- если количество вычислительных ресурсов в пуле превышает определенное значение, требуется другой вычислительный ресурс.
-
-Согласно требованиям к отказоустойчивости любого пула работников данное значение X ресурсов назначается пулу работников при таких условиях:
-
-- если переменная X — это число от 2 до 20, количество доступных вычислительных ресурсов, которые можно использовать для рабочих нагрузок, равно X-1;
-- если переменная X — это число от 21 до 40, количество доступных вычислительных ресурсов, которые можно использовать для рабочих нагрузок, равно X-2;
-- если переменная X — это число от 41 до 53, количество доступных вычислительных ресурсов, которые можно использовать для рабочих нагрузок, равно X-3.
-
-Вы можете не только управлять количеством вычислительных ресурсов, которые можно назначить данному пулу, но и контролировать размер вычислительного ресурса. Для сред службы приложений можно выбрать четыре разных размера с метками от P1 до P4. Информацию об этих размерах и их ценах см. в разделе [Ценовые категории службы приложений][AppServicePricing]. Размеры вычислительных ресурсов от P1 до P3 совпадают с размерами, доступными в многопользовательских средах. Вычислительный ресурс размера P4 состоит из 8 ядер с 14 ГБ ОЗУ и доступен только в среде службы приложений.
-
-Цены сред службы приложений зависят от назначенных вычислительных ресурсов. Вы платите за вычислительные ресурсы, выделенные для вашей среды службы приложений независимо от того, размещены ли на них рабочие нагрузки.
-
-По умолчанию среда ASE поставляется с одним IP-адресом, доступным для SSL IP-адреса. Если вы знаете, что вам понадобится больше адресов, вы можете указать это здесь или изменить эти настройки после создания.
-  
-### После создания среды службы приложений ###
-
-После создания ASE можно настроить такие параметры:
-
-- Количество внешних интерфейсов (минимальное: 2)
-- Количество исполнителей (минимальное: 2)
-- Количество IP-адресов, доступных для SSL на основе IP
-- Размеры вычислительных ресурсов, используемых внешними интерфейсами или исполнителями (минимальный размер для внешнего интерфейса — P2)
-
-Нельзя изменить:
-
-- Расположение
-- Подписка
-- Группа ресурсов
-- Используемая виртуальная сеть
-- Используемая подсеть
-
-Дополнительные сведения о масштабировании и мониторинге сред службы приложений, а также их управлении вручную см. в статье [Настройка среды службы приложений][ASEConfig].
-
-Дополнительные сведения об автоматическом масштабировании см. в статье [Настройка автоматического масштабирования среды службы приложений][ASEAutoscale].
-
-Существуют дополнительные зависимости, которые невозможно настроить, такие как база данных и хранилище. Они обрабатываются платформой Azure и поставляются с системой. Система хранения предоставляет до 500 ГБ для среды ASE, а Azure при необходимости регулирует размер базы данных в соответствии с масштабом системы.
-
-
-## Приступая к работе
-Все статьи и практические руководства, посвященные средам службы приложений, доступны в [файле сведений для сред службы приложений](../app-service/app-service-app-service-environments-readme.md).
-
-Чтобы начать работу со средами службы приложений, см. статью [Введение в среды службы приложений][WhatisASE]
-
-Дополнительные сведения о платформе службы приложений Azure см. в статье [Служба приложений Azure][AzureAppService].
+For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -179,15 +90,17 @@ ASE можно развертывать в виртуальных сетях, и
 <!--Image references-->
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-basecreateblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-vnetcreation.png
-[3]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-resources.png
-[4]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-externalvip.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
-[AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
+[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/ 
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 [ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,41 +1,46 @@
 <properties
-	pageTitle="Сообщения об ошибке трассировки стека | Microsoft Azure"
-	description="Указатель сообщений об ошибке трассировки стека в Hadoop. Найдите ошибку в списке, чтобы просмотреть сведения об устранении неполадок."
-	keywords="Трассировка стека, сообщения об ошибке"
-	services="hdinsight"
-	documentationCenter="NA"
-	authors="mumian"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    pageTitle="Hadoop stack trace error messages | Microsoft Azure"
+    description="Index of Hadoop stack trace error messages in HDInsight. Find the error in the list to see troubleshooting information."
+    keywords="stack trace, error messages"
+    services="hdinsight"
+    documentationCenter="NA"
+    authors="mumian"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="big-data"
-	ms.date="07/14/2016"
-	ms.author="rashimg;jgao"/>
+    ms.service="hdinsight"
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="big-data"
+    ms.date="07/14/2016"
+    ms.author="rashimg;jgao"/>
 
-# Указатель статей об устранении неполадок Hadoop в HDInsight
 
-Статьи упорядочены по типу ошибок.
+# <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Index of Hadoop in HDInsight troubleshooting articles
 
-## Ошибка нехватки памяти
+Articles are organized by types of errors.
 
-* [Fix an Out of Memory (OOM) error with Hive settings](hdinsight-hadoop-hive-out-of-memory-error-oom.md): устранение ошибки нехватки памяти, возникшей из-за запроса Hive. Пользовательский сценарий включает в себя запрос ко множеству больших таблиц.
+## <a name="out-of-memory-error"></a>Out of Memory error
 
-## Производительность запросов Hive
+* [Fix an Out of Memory (OOM) error with Hive settings](hdinsight-hadoop-hive-out-of-memory-error-oom.md): Fix an out of memory error (OOM) from a Hive query. The customer scenario includes a query across many large tables.
 
-* [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md) (Оптимизация запросов Hive для Hadoop в HDInsight): в этой статье описывается несколько наиболее распространенных методов оптимизации производительности Hive, которые можно применить к запросам Hive.
-* [Troubleshoot Hive query performance issues in HDInsight Hadoop cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) (Устранение проблем с производительностью запросов Hive в кластере HDInsight Hadoop).
+## <a name="hive-query-performance"></a>Hive query performance
 
-## Дополнительные статьи об устранении неполадок
+* [Optimize Hive queries for Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): This article covers some most common Hive performance optimization methods that you can apply to Hive queries.
+* [Troubleshoot Hive query performance issues in HDInsight Hadoop cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
 
-* [Сведения об использовании HDInsight в Linux](hdinsight-hadoop-linux-information.md)
-* [Отладка Hadoop в среде HDInsight: просмотр журналов и интерпретация сообщений об ошибках](hdinsight-debug-jobs.md)
-* [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md) (Доступ к журналам приложений YARN в Hadoop в HDInsight под управлением Linux)
-* [Включение дампов кучи для служб Hadoop в HDInsight под управлением Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Заметки о выпуске для компонентов Hadoop в Azure HDInsight](hdinsight-release-notes.md)
+## <a name="more-troubleshooting-articles"></a>More troubleshooting articles
 
-<!---HONumber=AcomDC_0914_2016-->
+* [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)
+* [Debug Hadoop in HDInsight: View logs and interpret error messages](hdinsight-debug-jobs.md)
+* [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Enable heap dumps for Hadoop services on Linux-based HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Release notes for Hadoop components on Azure HDInsight](hdinsight-release-notes.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

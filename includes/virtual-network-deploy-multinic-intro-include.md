@@ -1,5 +1,8 @@
-Можно создать виртуальные машины в Azure и подключить к каждой из них несколько сетевых карт. Такая возможность необходима для целого ряда сетевых устройств \(например, в составе решений для доставки приложений и оптимизации работы глобальной сети\). Кроме того, поддержка нескольких сетевых карт обеспечивает доступ к дополнительным функциям управления сетевым трафиком, включая изоляцию трафика между интерфейсным и внутренним адаптерами либо разделение трафика данных и трафика управления.
+You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multi NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multi NIC also provides more network traffic management functionality, including isolation of traffic between a front end NIC and back end NIC(s), or separation of data plane traffic from management plane traffic.
 
-Прежде чем реализовать несколько сетевых карт в виртуальных машинах, необходимо понимать, когда можно использовать нескольких сетевых карт, и как это делать. Чтобы больше узнать о виртуальных машинах с несколькими сетевыми картами, см. [обзор использования нескольких сетевых карт](../articles/virtual-network/virtual-networks-multiple-nics.md).
+Before you can implement multi NICs in VMs, it is necessary to understand when you can use multi NICs, and how they are used. Read the [multi NIC overview](../articles/virtual-network/virtual-networks-multiple-nics.md) to learn more about VMs with multiple NICs.
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

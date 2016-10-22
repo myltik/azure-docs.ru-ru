@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Приступая к созданию внутреннего балансировщика нагрузки в Resource Manager с помощью портала Azure | Microsoft Azure"
-   description="Узнайте, как создать внутренний балансировщик нагрузки в Resource Manager с помощью портала Azure."
+   pageTitle="Get started creating an Internal load balancer in Resource Manager using the Azure portal | Microsoft Azure"
+   description="Learn how to create an Internal load balancer in Resource Manager using the Azure portal"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -17,7 +17,8 @@
    ms.date="08/31/2016"
    ms.author="sewhee" />
 
-# Приступая к созданию внутреннего балансировщика нагрузки на портале Azure
+
+# <a name="get-started-creating-an-internal-load-balancer-in-the-azure-portal"></a>Get started creating an Internal load balancer in the Azure portal
 
 [AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
@@ -28,75 +29,80 @@
 [AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 
-## Приступая к созданию внутреннего балансировщика нагрузки с помощью портала Azure
+## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Get started creating an Internal load balancer using Azure portal
 
-Чтобы создать внутренний балансировщик нагрузки на портале Azure, выполните следующее.
+To create an internal load balancer from the Azure portal, follow the steps below.
 
-1. В браузере откройте [портал Azure](http://portal.azure.com) и при необходимости войдите с использованием учетной записи Azure.
-2. В верхней левой части экрана щелкните **Создать** > **Сеть** > **Балансировщик нагрузки**.
-3. В колонке **Create load balancer** (Создание балансировщика нагрузки) введите **имя** для балансировщика нагрузки.
-4. В разделе **Схема** щелкните **Внутренний**.
-5. Щелкните **Виртуальная сеть**, а затем выберите виртуальную сеть, в которой вы хотите создать балансировщик нагрузки.
+1. From a browser, navigate to the [Azure Portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+2. In the upper left hand side of the screen, click **New** > **Networking** > **Load balancer**.
+3. In the **Create load balancer** blade, type a **Name** for your load balancer.
+4. Under **Scheme**, click **Internal**.
+5. Click **Virtual network**, and then select the virtual network where you want to create the load balancer.
 
-    >[AZURE.NOTE] Если нужная виртуальная сеть не отображается, проверьте значение в поле **Расположение**, используемое для балансировщика нагрузки, и соответствующим образом измените его.
+    >[AZURE.NOTE] If you do not see the virtual network you want to use, check the **Location** you are using for the load balancer, and change it accordingly.
 
-6. Щелкните **Подсеть**, а затем выберите подсеть, в которой вы хотите создать балансировщик нагрузки.
-7. В разделе **Назначение IP-адресов** щелкните **Динамический** или **Статический** в зависимости от желаемого типа IP-адреса балансировщика нагрузки — фиксированного (статического) или нет.
+6. Click **Subnet**, and then select the subnet where you want to create the load balancer.
+7. Under **IP address assignment**, click either **Dynamic** or **Static**, depending on whether you want the IP address for the load balancer to be fixed (static) or not.
 
-    >[AZURE.NOTE] Если выбран статический IP-адрес, необходимо указать адрес для балансировщика нагрузки.
+    >[AZURE.NOTE] If you select to use a static IP address, you will have to provide an address for the load balancer.
 
-8. В разделе **Группа ресурсов** укажите имя новой группы ресурсов для балансировщика нагрузки или щелкните **Выбрать существующую** и выберите существующую группу ресурсов.
-9. Щелкните **Создать**.
+8. Under **Resource group** either specify the name of a new resource group for the load balancer, or click **select existing** and select an existing resource group.
+9. Click **Create**.
 
-## Настройка правил балансировки нагрузки
+## <a name="configure-load-balancing-rules"></a>Configure load balancing rules
 
-После создания балансировщика нагрузки перейдите к ресурсу балансировщика нагрузки, чтобы его настроить. Перед настройкой правила балансировки нагрузки необходимо настроить серверный пул адресов и пробу.
+After the load balancer creation, navigate to the load balancer resource to configure it.
+You need to configure first a back-end address pool and a probe before configuring a load balancing rule.
 
-### Шаг 1
+### <a name="step-1"></a>Step 1
 
-Настройка серверного пула
+Configure a back-end pool:
 
-1. На портале Azure щелкните **Обзор** > **Балансировщики нагрузки** и выберите созданный ранее балансировщик нагрузки.
-2. В колонке **Параметры** щелкните **Серверные пулы**.
-3. В колонке **Серверные пулы адресов** щелкните **Добавить**.
-4. В колонке **Добавить внутренний пул** введите **имя** серверного пула, а затем нажмите кнопку **ОК**.
+1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
+2. In the **Settings** blade, click **Backend pools**.
+3. In the **Backend address pools** blade, click **Add**.
+4. In the **Add backend pool** blade, type a **Name** for the backend pool, and then click **OK**.
 
-### Шаг 2
+### <a name="step-2"></a>Step 2
 
-Настройка пробы
+Configure a probe:
 
-1. На портале Azure щелкните **Обзор** > **Балансировщики нагрузки** и выберите созданный ранее балансировщик нагрузки.
-2. В колонке **Параметры** щелкните **Пробы**.
-3. В колонке **Пробы** щелкните **Добавить**.
-4. В колонке **Добавление пробы** введите **имя** для пробы.
-5. В разделе **Протокол** выберите **HTTP** (для веб-сайтов) или **TCP** (для других приложений на основе TCP).
-6. В разделе **Порт** укажите порт, используемый при доступе к пробе.
-7. В разделе **Путь** (только для проб HTTP) укажите путь для пробы.
-8. В разделе **Интервал** укажите частоту проверки приложения.
-9. В разделе **Порог состояния неработоспособности** укажите число неудачных попыток, по достижении которого серверная виртуальная машина будет помечена как неработоспособная.
-10. Нажмите кнопку **ОК**, чтобы создать пробу.
+1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
+2. In the **Settings** blade, click **Probes**.
+3. In the **Probes**  blade, click **Add**.
+4. In the **Add probe** blade, type a **Name** for the probe.
+5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
+6. Under **Port**, specify the port to use when accessing the probe.
+7. Under **Path** (for HTTP probes only), specify the path to use as a probe.
+8. Under **Interval** specify how frequently to probe the application.
+9. Under **Unhealthy threshold**, specify how many attempts should fail before the backend VM is marked as unhealthy.
+10. Click **OK** to create probe.
 
-### Шаг 3.
+### <a name="step-3"></a>Step 3
 
-Настройка правил балансировки нагрузки
+Configure load balancing rules:
 
-1. На портале Azure щелкните **Обзор** > **Балансировщики нагрузки** и выберите созданный ранее балансировщик нагрузки.
-2. В колонке **Параметры** щелкните **Правила балансировки нагрузки**.
-3. В колонке **Правила балансировки нагрузки** щелкните **Добавить**.
-4. В колонке **Добавить правило балансировки нагрузки** введите **имя** для правила.
-5. В разделе **Протокол** выберите **HTTP** (для веб-сайтов) или **TCP** (для других приложений на основе TCP).
-6. В разделе **Порт** укажите порт для подключения клиентов к внутреннему балансировщику нагрузки.
-7. В разделе **Внутренний порт** укажите порт, который будет использоваться в серверном пуле (обычно порт балансировщика нагрузки совпадает с внутренним портом).
-8. В разделе **Серверный пул** выберите созданный ранее серверный пул.
-9. В разделе **Сохранение сеанса** выберите сеансы, которые будут сохраняться.
-10. В разделе **Время ожидания в режиме простоя (мин)** укажите время ожидания в режиме простоя.
-11. В разделе **Плавающий IP-адрес (direct server return)** щелкните **Отключен** или **Включен**.
-12. Нажмите кнопку **ОК**.
+1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
+2. In the **Settings** blade, click **Load balancing rules**.
+3. In the **Load balancing rules** blade, click **Add**.
+4. In the **Add load balancing rule** blade, type a **Name** for the rule.
+5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
+6. Under **Port**, specify the port clients connect to int he load balancer.
+7. Under **Backend port**, specify the port to be used in the backend pool (usually, the load balancer port and the backend port are the same).
+8. Under **Backend pool**, select the backend pool you created above.
+9. Under **Session persistence**, select how you want sessions to persist.
+10. Under **Idle timeout (minutes)**, specify the idle timeout.
+11. Under **Floating IP (direct server return)**, click **Disabled** or **Enabled**.
+12. Click **OK**.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
-[Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

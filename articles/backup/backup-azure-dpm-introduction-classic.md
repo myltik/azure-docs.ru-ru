@@ -1,63 +1,64 @@
 <properties
-	pageTitle="Общие сведения о службе архивации DPM Azure | Microsoft Azure"
-	description="Общие сведения о резервном копировании серверов Azure с помощью службы архивации Azure"
-	services="backup"
-	documentationCenter=""
-	authors="Nkolli1"
-	manager="shreeshd"
-	editor=""
-	keywords="System Center Data Protection Manager, диспетчер защиты данных, диспетчер защиты данных резервного копирования"/>
+    pageTitle="Introduction to Azure DPM backup | Microsoft Azure"
+    description="An introduction to backing up DPM servers using the Azure Backup service"
+    services="backup"
+    documentationCenter=""
+    authors="Nkolli1"
+    manager="shreeshd"
+    editor=""
+    keywords="System Center Data Protection Manager, data protection manager, dpm backup"/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2016"
-	ms.author="trinadhk;giridham;jimpark;markgal"/>
+    ms.service="backup"
+    ms.workload="storage-backup-recovery"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/21/2016"
+    ms.author="trinadhk;giridham;jimpark;markgal"/>
 
-# Подготовка к архивированию рабочих нагрузок в Azure с помощью DPM
+
+# <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparing to back up workloads to Azure with DPM
 
 > [AZURE.SELECTOR]
-- [Сервер службы архивации Azure](backup-azure-microsoft-azure-backup.md)
+- [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
 - [SCDPM](backup-azure-dpm-introduction.md)
-- [Сервер службы архивации Azure (классическая модель)](backup-azure-microsoft-azure-backup-classic.md)
-- [Диспетчер SCDPM (классическая модель)](backup-azure-dpm-introduction-classic.md)
+- [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
+- [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 
 
-В этой статье содержатся общие сведения о защите серверов и рабочих нагрузок System Center Data Protection Manager (DPM) с помощью службы архивации Microsoft Azure. Здесь можно найти информацию по перечисленным ниже темам.
+This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it, you’ll understand:
 
-- Принципы работы службы архивации серверов Azure DPM.
-- Необходимые условия для успешного резервного копирования.
-- Типичные ошибки и способы их решения.
-- Поддерживаемые сценарии использования.
+- How Azure DPM server backup works
+- The prerequisites to achieve a smooth backup experience
+- The typical errors encountered and how to deal with them
+- Supported scenarios
 
-Диспетчер System Center DPM выполняет резервное копирование файлов и данных приложений. Данные, заархивированные в DPM, могут храниться на магнитной ленте или диске либо могут быть сохранены в виде резервной копии в среде Azure с помощью службы архивации Microsoft Azure. DPM взаимодействует со службой архивации Azure по описанной ниже схеме.
+System Center DPM backs up file and application data. Data backed up to DPM can be stored on tape, on disk, or backed up to Azure with Microsoft Azure Backup. DPM interacts with Azure Backup as follows:
 
-- **Диспетчер DPM развернут в качестве физического сервера или локальной виртуальной машины**. Если система DPM развернута в качестве физического сервера или локальной виртуальной машины Hyper-V, резервную копию данных (помимо диска и магнитной ленты) можно создать в хранилище службы архивации Azure.
-- **Диспетчер DPM развернут в качестве виртуальной машины Azure**. Начиная с версии System Center 2012 R2 с пакетом обновления 3, диспетчер DPM можно развернуть в качестве виртуальной машины Azure. Если DPM развернут как виртуальная машина Azure, резервную копию данных можно создать на дисках Azure, подключенных к этой виртуальной машине, либо выгрузить в хранилище службы архивации Azure.
+- **DPM deployed as a physical server or on-premises virtual machine** — If DPM is deployed as a physical server or as an on-premises Hyper-V virtual machine you can back up data to an Azure Backup vault in addition to disk and tape backup.
+- **DPM deployed as an Azure virtual machine** — From System Center 2012 R2 with Update 3, DPM can be deployed as an Azure virtual machine. If DPM is deployed as an Azure virtual machine you can back up data to Azure disks attached to the DPM Azure virtual machine, or you can offload the data storage by backing it up to an Azure Backup vault.
 
-## Зачем создавать резервные копии серверов DPM?
+## <a name="why-backup-your-dpm-servers?"></a>Why backup your DPM servers?
 
-В результате использования службы архивации Azure для резервного копирования серверов DPM компания получает перечисленные ниже преимущества.
+The business benefits of using Azure Backup for backing up DPM servers include:
 
-- Для служб DPM, развернутых локально, резервную копию в среде Azure можно использовать в качестве альтернативы долгосрочному копированию на магнитную ленту.
-- Для служб DPM, развернутых в среде Azure, служба архивации Azure позволяет выгружать данные с диска Azure и тем самым увеличивать масштаб развертывания, сохраняя старые данные в службе архивации, а новые — на диске.
+- For on-premises DPM deployment, you can use Azure backup as an alternative to long-term deployment to tape.
+- For DPM deployments in Azure, Azure Backup allows you to offload storage from the Azure disk, allowing you to scale up by storing older data in Azure Backup and new data on disk.
 
-## Как работает служба архивации серверов DPM?
-Чтобы выполнить резервное копирование виртуальной машины, необходимо сначала создать снимок данных на определенный момент времени. Служба архивации Azure запускает задание резервного копирования по расписанию и модуль резервного копирования для создания снимка. Расширение резервного копирования работает совместно со службой VSS в операционных системах для достижения согласованности и вызывает API моментального снимка BLOB-объекта службы хранилища Azure при достижении согласованности. Это делается для получения согласованных моментальных снимков дисков виртуальной машины без необходимости завершать ее работы.
+## <a name="how-does-dpm-server-backup-work?"></a>How does DPM server backup work?
+To back up a virtual machine, first a point-in-time snapshot of the data is needed. The Azure Backup service initiates the backup job at the scheduled time, and triggers the backup extension to take a snapshot. The backup extension coordinates with the in-guest VSS service to achieve consistency, and invokes the blob snapshot API of the Azure Storage service once consistency has been reached. This is done to get a consistent snapshot of the disks of the virtual machine, without having to shut it down.
 
-После создания моментального снимка данные передаются в хранилище службы архивации Azure. Служба определяет и передает только блоки, измененные с момента последнего резервного копирования, что способствует эффективной работе хранилища службы архивации и сети. После завершения передачи данных моментальный снимок удаляется и создается точка восстановления. Эта точка восстановления отображается на классическом портале Azure.
+After the snapshot has been taken, the data is transferred by the Azure Backup service to the backup vault. The service takes care of identifying and transferring only the blocks that have changed from the last backup making the backups storage and network efficient. When the data transfer is completed, the snapshot is removed and a recovery point is created. This recovery point can be seen in the  Azure classic portal.
 
->[AZURE.NOTE] Для виртуальных машин Linux возможно только резервное копирование с согласованием файлов.
+>[AZURE.NOTE] For Linux virtual machines, only file-consistent backup is possible.
 
-## Предварительные требования
-Для подготовки службы архивации Azure к резервному копированию данных DPM необходимо выполнить перечисленные ниже действия.
+## <a name="prerequisites"></a>Prerequisites
+Prepare Azure Backup to back up DPM data as follows:
 
-1. **Создание хранилища службы архивации**. Создайте хранилище в консоли службы архивации Azure.
-2. **Скачивание учетных данных хранилища**. В службе архивации Azure загрузите в хранилище созданные вами сертификаты управления.
-3. **Установка агента службы архивации Azure и регистрация сервера**. В службе архивации Azure установите агент на каждый сервер DPM и зарегистрируйте сервер DPM в хранилище архивации.
+1. **Create a Backup vault** — Create a vault in the Azure Backup console.
+2. **Download vault credentials** — In Azure Backup, upload the management certificate you created to the vault.
+3. **Install the Azure Backup Agent and register the server** — From Azure Backup, install the agent on each DPM server and register the DPM server in the backup vault.
 
 [AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
 
@@ -66,34 +67,38 @@
 [AZURE.INCLUDE [backup-install-agent](../../includes/backup-install-agent.md)]
 
 
-## Требования (и ограничения)
+## <a name="requirements-(and-limitations)"></a>Requirements (and limitations)
 
-- Диспетчер DPM может работать в качестве физического сервера или виртуальной машины Hyper-V, установленной в среде System Center 2012 SP1 или System Center 2012 R2. Он также может работать в виде виртуальной машины Azure на базе системы System Center 2012 R2 с накопительным пакетом обновления 3 или выше для DPM 2012 R2 или в качестве виртуальной машины Windows в среде VMWare на базе системы System Center 2012 R2 с накопительным пакетом обновления 5 или выше.
-- Если диспетчер DPM работает на базе системы System Center 2012 SP1, необходимо установить накопительный пакет обновления 2 для System Center Data Protection Manager SP1. Это нужно сделать до установки агента службы архивации Azure.
-- На сервере DPM должна быть установлена среда Windows PowerShell и компоненты .NET Framework 4.5.
-- Диспетчер DPM способен создавать резервные копии большинства рабочих нагрузок в службе архивации Azure. Полный список поддерживаемых возможностей см. в разделе поддерживаемых службой архивации Azure компонентов ниже.
-- Данные, которые хранятся в службе архивации Azure, нельзя восстановить с помощью функции копирования на магнитную ленту.
-- Необходима учетная запись Azure, для которой включена служба архивации Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Ознакомьтесь с [ценами на доступ к службе архивации Azure](https://azure.microsoft.com/pricing/details/backup/).
-- Для использования службы архивации Azure на серверах, для которых создаются резервные копии, должен быть установлен агент службы архивации. В локальном хранилище каждого сервера должно быть доступно не менее 10 % от размера копируемых данных. Например, для резервного копирования 100 ГБ данных требуется как минимум 10 ГБ свободного места в папке временных файлов. Хотя минимальное значение — 10 %, рекомендуется иметь 15 % свободного места для размещения кэша.
-- Данные будут храниться в хранилище Azure. Ограничений на объем данных, которые вы можете архивировать в хранилище службы архивации Azure, нет, однако размер источника данных (например, виртуальной машины или базы) не должен превышать 54 400 ГБ.
+- DPM can be running as a physical server or a Hyper-V virtual machine installed on System Center 2012 SP1 or System Center 2012 R2. It can also be running as an Azure virtual machine running on System Center 2012 R2 with at least DPM 2012 R2 Update Rollup 3 or a Windows virtual machine in VMWare running on System Center 2012 R2 with at least Update Rollup 5.
+- If you’re running DPM with System Center 2012 SP1, you should install Update Rollup 2 for System Center Data Protection Manager SP1. This is required before you can install the Azure Backup Agent.
+- The DPM server should have Windows PowerShell and .Net Framework 4.5 installed.
+- DPM can back up most workloads to Azure Backup. For a full list of what’s supported see the Azure Backup support items below.
+- Data stored in Azure Backup can’t be recovered with the “copy to tape” option.
+- You’ll need an Azure account with the Azure Backup feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. Read about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
+- Using Azure Backup requires the Azure Backup Agent to be installed on the servers you want to back up. Each server must have at least 10% of the size of the data that is being backed up, available as local free storage. For example, backing up 100 GB of data requires a minimum of 10 GB of free space in the scratch location. While the minimum is 10%, 15% of free local storage space to be used for the cache location is recommended.
+- Data will be stored in the Azure vault storage. There’s no limit to the amount of data you can back up to an Azure Backup vault but the size of a data source (for example a virtual machine or database) shouldn’t exceed 54,400 GB.
 
-В среде Azure можно создавать резервные копии файлов перечисленных ниже типов.
+These file types are supported for back up to Azure:
 
-- Зашифрованные (только полные резервные копии)
-- Сжатые (поддерживаются добавочные резервные копии)
-- Разреженные (поддерживаются инкрементные резервные копии)
-- Сжатые и разреженные (обрабатываются как разреженные)
+- Encrypted (Full backups only)
+- Compressed (Incremental backups supported)
+- Sparse (Incremental backups supported)
+- Compressed and sparse (Treated as Sparse)
 
-Перечисленные ниже типы данных не поддерживаются.
+And these are unsupported:
 
-- Серверы на базе файловых систем, в которых учитывается регистр символов
-- Жесткие связи (пропускаются)
-- Точки повторного анализа (пропускаются)
-- Зашифрованные и сжатые (пропускаются)
-- Зашифрованные и разреженные (пропускаются)
-- Сжатые потоки данных
-- Разреженные потоки данных
+- Servers on case-sensitive file systems aren’t supported.
+- Hard links (Skipped)
+- Reparse points (Skipped)
+- Encrypted and compressed (Skipped)
+- Encrypted and sparse (Skipped)
+- Compressed stream
+- Sparse stream
 
->[AZURE.NOTE] Начиная с версии System Center 2012 DPM с пакетом обновления 1 (SP1) и выше, в службе Azure можно создавать резервные копии рабочих нагрузок, защищенных DPM, с помощью службы архивации Microsoft Azure.
+>[AZURE.NOTE] From in System Center 2012 DPM with SP1 onwards, you can backup up workloads protected by DPM to Azure using Microsoft Azure Backup.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

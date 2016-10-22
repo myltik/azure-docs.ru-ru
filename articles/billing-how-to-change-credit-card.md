@@ -1,66 +1,71 @@
 <properties
-	pageTitle="Изменение кредитной карты, используемой для оплаты подписки Azure | Microsoft Azure"
-	description="Описание процедуры изменения кредитной карты, используемой для оплаты подписки Azure"
-	services=""
-	documentationCenter=""
-	authors="genlin"
-	manager="mbaldwin"
-	editor=""
-	tags="billing"
-	/>
+    pageTitle="How to change the credit card used to pay for an Azure subscription | Microsoft Azure"
+    description="Describes how to How to change the credit card used to pay for an Azure subscription"
+    services=""
+    documentationCenter=""
+    authors="genlin"
+    manager="mbaldwin"
+    editor=""
+    tags="billing"
+    />
 
 <tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="genli"/>
+    ms.service="billing"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/24/2016"
+    ms.author="genli"/>
 
-# Изменение кредитной карты, используемой для оплаты подписки Azure
 
-Иногда может потребоваться обновить сведения о кредитной карте в учетной записи или изменить карту, используемую для оплаты счета.
+# <a name="how-to-change-the-credit-card-used-to-pay-for-an-azure-subscription"></a>How to change the credit card used to pay for an Azure subscription
 
-Если существующая кредитная карта обновлена, а ее номер остается прежним, можно просто обновить сведения о такой карте, например дату окончания срока действия.
+You may sometimes need to update details of the credit card in your account information, or change the card used to pay your bill.
 
-Если номер кредитной карты изменился из-за потери, кражи или истечения срока действия, вам нужно добавить в учетную запись новую кредитную карту. Это вызвано тем, что CVV-код безопасности меняется при изменении номера кредитной карты.
+If your credit card gets renewed and the number remains the same, you can simply update the details of the existing credit card, such as expiration date.
 
-> [AZURE.NOTE] Если в ходе работы с этой статьей вам потребуется дополнительная помощь, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет вам быстро устранить проблему.
+If your credit card number ever changes, due to being lost, stolen, or expired, you need to add the new credit card to your account. This is because the CVV security code on the card is changed when the credit card number changes.
 
-## Изменение платежной информации для существующей кредитной карты
-1. Войдите в [Центр управления учетной записью Azure](https://account.windowsazure.com/Subscriptions) как администратор учетной записи. На [портале Azure](https://portal.azure.com) в Центр управления учетной записью Azure можно перейти, последовательно щелкнув **Подписка** > *имя подписки* > **Управление**.
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-	> [AZURE.NOTE] Доступ к центру учетных записей предоставляется только администратору учетной записи. Дополнительные сведения об администраторе учетной записи см. в статье [Добавление или изменение ролей администратора Azure](billing-add-change-azure-subscription-administrator.md).
+## <a name="edit-payment-information-for-an-existing-credit-card"></a>Edit payment information for an existing credit card
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator. In the [Azure portal](https://portal.azure.com), you can access the Account Center by selecting **Subscription**>*the subscription name*>**Manage**.
 
-2. Под элементом **Щелкните подписку для просмотра информации и сведений об использовании** выберите подписку, привязанную к кредитной карте.</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
-3. В правой части страницы выберите **Manage payment methods** (Управление методами оплаты).</br> ![changesub](./media/billing-how-to-change-credit-card/changesub_new.png)
-4. На странице **Manage payment methods** (Управление методами оплаты) щелкните **Изменить** рядом с номером кредитной карты.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard_new.png)
-5. На странице **Изменить** убедитесь, что выбран правильный тип и номер кредитной карты.
-6. Внесите необходимые изменения в данные карты и щелкните **Далее**, чтобы вернуться на страницу **Выбрать метод оплаты**.
+    > [AZURE.NOTE] Only the  account administrator has permission to access the Account Center. For more information about account administrator, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
 
-## Добавление новой кредитной карты в качестве метода оплаты
-1. Выполните вход в [Центр учетных записей Azure](https://account.windowsazure.com/Subscriptions) в качестве администратора учетной записи.
-2. Под элементом **Щелкните подписку для просмотра информации и сведений об использовании** выберите подписку, для которой требуется добавить новый метод оплаты.
-3. В правой части страницы выберите **Manage payment methods** (Управление методами оплаты).
-4. На странице **Manage payment methods** (Управление методами оплаты) щелкните "+", чтобы добавить новую кредитную карту.
-5. Выберите тип кредитной карты и укажите необходимые сведения.
-6. Нажмите кнопку **Далее**, чтобы вернуться на страницу **Manage payment methods** (Управление методами оплаты). Если добавленная карта действительна, она будет добавлена в список действительных способов оплаты.
+2. Under **Click a subscription to view details and usage**, select the subscription that is linked to the credit card.</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
+3. On the right side of the page, select **Manage payment methods**.</br> ![changesub](./media/billing-how-to-change-credit-card/changesub_new.png)
+4. On the **Manage payment methods** page, select **Edit** next to the credit card number.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard_new.png)
+5. On the **Edit** page, verify that you have selected the correct credit card type and card number.
+6. Make the changes you need to the card details, and then select **Next** to the **Choose payment method** page.
 
-## Изменение кредитной карты, используемой для оплаты счетов Azure
-1. Выполните вход в [Центр учетных записей Azure](https://account.windowsazure.com/Subscriptions) в качестве администратора учетной записи.
-2. Под элементом **Щелкните подписку для просмотра информации и сведений об использовании** выберите подписку, для которой требуется обновить метод оплаты.
-3. В правой части страницы выберите **Manage payment methods** (Управление методами оплаты).
-4. На странице **Manage payment methods** (Управление методами оплаты) нажмите кнопку **Use Instead** (Использовать другую карту), чтобы выбрать кредитную карту, которые вы хотите использовать.
+## <a name="add-a-new-credit-card-as-a-payment-method"></a>Add a new credit card as a payment method
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+2. Under **Click a subscription to view details and usage**, select the subscription for which you want to add a new payment method.
+3. On the right side of the page, select **Manage payment methods**.
+4. On the **Manage payment methods** page, select “+” to add a new credit card.
+5. Choose a credit card type, and then provide all the required information.
+6. Select **Next** to return to the **Manage payment methods** page. If the card you added is valid, it will be added to the list of available payment methods.
 
-## Удаление кредитной карты из учетной записи
-1. Выполните вход в [Центр учетных записей Azure](https://account.windowsazure.com/Subscriptions) в качестве администратора учетной записи.
-2. Под элементом **Щелкните подписку для просмотра информации и сведений об использовании** выберите подписку, для которой требуется обновить метод оплаты.
-3. В правой части страницы выберите **Manage payment methods** (Управление методами оплаты).
-4. На странице **Manage payment methods** (Управление методами оплаты) нажмите кнопку **Удалить**, чтобы выбрать кредитную карту, которые вы хотите удалить.
+## <a name="change-the-credit-card-that-you-use-to-pay-an-azure-bill"></a>Change the credit card that you use to pay an Azure bill
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+2. Under **Click a subscription to view details and usage**, select the subscription for which you want to update the payment method.
+3. On the right side of the page, select **Manage payment methods**.
+4. On the **Manage payment methods** page, click **Use Instead** to select the credit card you want to use.
 
-	> [AZURE.NOTE] Вы не сможете удалить кредитную карту, если она связана с другими активными подписками Майкрософт. Если появится сообщение о том, что карта используется, отключите ее во всех активных подписках Майкрософт.
+## <a name="removing-a-credit-card-from-the-account"></a>Removing a credit card from the account
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+2. Under **Click a subscription to view details and usage**, select the subscription for which you want to update the payment method.
+3. On the right side of the page, select **Manage payment methods**.
+4. On the **Manage payment methods** page, click **Delete** to select the credit card you want to delete.
 
-> [AZURE.NOTE] Если у вас есть дополнительные вопросы, [обратитесь в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), которая поможет быстро устранить проблему.
+    > [AZURE.NOTE] You will not be able to delete a credit card if it is associated with other active Microsoft subscriptions. If you receive an error that the card is in use, please ensure that it is disassociated from all active subscriptions that you have with Microsoft.
 
-<!---HONumber=AcomDC_0831_2016-->
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+
