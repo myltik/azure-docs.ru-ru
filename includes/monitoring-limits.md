@@ -1,6 +1,8 @@
 
-| Resource (Ресурс) | Ограничение |
+| Resource | Limit |
 |----|----|
-| Параметры автомасштабирования | 100 на регион в подписке |
+| Autoscale Settings | 100 per region per subscription |
 
-<!---HONumber=AcomDC_0907_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

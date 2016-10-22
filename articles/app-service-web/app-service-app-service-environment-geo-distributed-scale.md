@@ -1,68 +1,69 @@
 <properties 
-	pageTitle="Географически распределенное масштабирование с использованием сред службы приложений" 
-	description="Узнайте, как горизонтально масштабировать приложения на основе географического распределения с помощью диспетчера трафика и сред службы приложения." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Geo Distributed Scale with App Service Environments" 
+    description="Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments." 
+    services="app-service" 
+    documentationCenter="" 
+    authors="stefsch" 
+    manager="wpickett" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2016" 
-	ms.author="stefsch"/>
-
-# Географически распределенное масштабирование с использованием сред службы приложений
-
-## Обзор ##
-В некоторых сценариях для корректной работы приложения требуется значительно больше вычислительных ресурсов, чем может обеспечить один развернутый экземпляр. Как следствие, необходимо обеспечить высокий уровень масштабируемости. К примерам таких сценариев относятся проведение голосования, организация спортивных событий и телевизионных трансляций. Высокого уровня масштабируемости можно добиться за счет горизонтального масштабирования, при котором несколько приложений развертываются в одном или нескольких регионах.
-
-Идеальной платформой для горизонтального масштабирования являются среды службы приложений. После того как будет выбрана основная конфигурация сред службы приложений, поддерживающая определенную частоту запросов, разработчики могут при необходимости развернуть дополнительные среды службы приложений, чтобы обеспечить эффективную работу при пиковых нагрузках.
-
-Предположим, что для приложения используется конфигурация среды службы приложений, протестированная для обработки 20 тысяч запросов в секунду. Если при пиковой нагрузке приложение должно обрабатывать 100 тысяч запросов в секунду, можно создать и настроить пять (5) сред службы приложений, чтобы обеспечить эффективную работу при прогнозируемой максимальной нагрузке.
-
-Поскольку клиенты обычно обращаются к приложениям, используя именной (личный) домен, разработчикам необходим способ распределения запросов к приложению между всеми экземплярами среды службы приложений. Идеальным решением этой задачи является разрешение именного домена с помощью [профиля диспетчера трафика Azure][AzureTrafficManagerProfile]. Можно настроить профиль диспетчера трафика таким образом, чтобы он указывал на все отдельные среды службы приложений. Диспетчер трафика будет автоматически распределять клиентов между средами службы приложений на основе параметров балансировки нагрузки, заданных в профиле диспетчера трафика. Этот подход работает независимо от того, развернуты среды службы приложений в одном регионе Azure или в нескольких.
-
-Кроме того, поскольку клиенты обращаются к приложениям через именной домен, они не знают, в скольких средах службы приложений выполняется приложение. Поэтому разработчики могут быстро добавлять и удалять среды службы приложений в зависимости от ожидаемого трафика.
-
-На следующей схеме представлено приложение, выполняющееся в трех средах службы приложений в одном регионе.
-
-![Концепция архитектуры][ConceptualArchitecture]
-
-Далее мы рассмотрим действия, связанные с настройкой распределенной топологии приложения. В нашем примере оно будет развернуто в нескольких средах службы приложений.
-
-## Планирование топологии ##
-Прежде чем построить распределенную топологию приложения, необходимо собрать некоторые сведения.
-
-- **Именной домен приложения.** Какое имя домена клиенты будут использовать для доступа к приложению? В нашем примере используется именной домен *www.scalableasedemo.com*.
-- **Домен диспетчера трафика.** При создании [профиля диспетчера трафика Azure][AzureTrafficManagerProfile] необходимо выбрать имя домена. При регистрации записи домена, используемой диспетчером трафика, к этому имени будет добавлен суффикс *trafficmanager.net*. В нашем примере приложения используется имя *scalable-ase-demo*, поэтому полное имя домена, управляемое диспетчером трафика, — *scalable-ase-demo.trafficmanager.net*.
-- **Стратегия масштабирования приложения.** Как будет распределяться нагрузка между несколькими средами службы приложений? Они будут размещаться в одном регионе, в нескольких регионах, или вы будете применять гибридный подход? Решение должно основываться на предполагаемых источниках клиентского трафика, а также на характеристиках масштабируемости серверной инфраструктуры приложения. Например, приложение, не хранящее сведения о состоянии, можно масштабировать, развернув конфигурацию из нескольких сред службы приложений, развернутых в одном регионе, в нескольких регионах. В настоящее время доступно более 15 открытых регионов Azure, поэтому клиенты могут создать по-настоящему глобальное гипермасштабируемое приложение. Для приложения, рассматриваемого в этой статье, создано три среды службы приложений в одном регионе Azure (South Central US).
-- **Соглашение об именовании для сред службы приложений.** Для каждой среды службы приложений требуется уникальное имя. Если используется больше двух сред службы приложений, рекомендуется присваивать каждой из них имя на основе соглашения об именовании. В нашем примере используется простое соглашение об именовании: среды службы приложений называются *fe1ase*, *fe2ase* и *fe3ase*.
-- **Соглашение об именовании приложений.** Поскольку предполагается развертывание нескольких экземпляров приложения, каждому из них необходимо присвоить уникальное имя. В разных средах службы приложений можно использовать одни и те же имена. Это малоизвестная, но очень полезная особенность сред службы приложений. Так как у каждой среды службы приложений есть уникальный доменный суффикс, разработчики могут использовать одно и то же имя приложения во всех средах. Например, разработчик может назвать приложения так: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net* и т. д. В приложении, рассматриваемом в этой статье, каждому экземпляру приложения также присвоено уникальное имя: *webfrontend1*, *webfrontend2* и *webfrontend3*.
+    ms.service="app-service" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/07/2016" 
+    ms.author="stefsch"/>   
 
 
-## Настройка профиля диспетчера трафика ##
-После развертывания нескольких экземпляров приложения в нескольких средах службы приложений отдельные экземпляры приложения можно зарегистрировать в диспетчере трафика. В приложении, рассматриваемом в этой статье, профиль диспетчера трафика используется для перенаправления трафика с *scalable-ase-demo.trafficmanager.net* на следующие развернутые экземпляры:
+# <a name="geo-distributed-scale-with-app-service-environments"></a>Geo Distributed Scale with App Service Environments
 
-- **webfrontend1.fe1ase.p.azurewebsites.net:** экземпляр приложения, развернутый в первой среде службы приложений;
-- **webfrontend2.fe2ase.p.azurewebsites.net:** экземпляр приложения, развернутый во второй среде службы приложений;
-- **webfrontend3.fe3ase.p.azurewebsites.net:** экземпляр приложения, развернутый в третьей среде службы приложений.
+## <a name="overview"></a>Overview ##
+Application scenarios which require very high scale can exceed the compute resource capacity available to a single deployment of an app.  Voting applications, sporting events, and televised entertainment events are all examples of scenarios that require extremely high scale. High scale requirements can be met by horizontally scaling out apps, with multiple app deployments being made within a single region, as well as across regions, to handle extreme load requirements.
 
-Самый простой способ зарегистрировать несколько конечных точек службы приложений Azure, работающих в **одном и том же** регионе Azure, — использовать PowerShell для [поддержки диспетчера трафика диспетчером Azure Resource Manager][ARMTrafficManager].
+App Service Environments are an ideal platform for horizontal scale out.  Once an App Service Environment configuration has been selected that can support a known request rate, developers can deploy additional App Service Environments in "cookie cutter" fashion to attain a desired peak load capacity.
 
-Прежде всего необходимо создать профиль диспетчера трафика Azure. Ниже приведен код, создающий профиль для нашего примера приложения.
+For example suppose an app running on an App Service Environment configuration has been tested to handle 20K requests per second (RPS).  If the desired peak load capacity is 100K RPS, then five (5) App Service Environments can be created and configured to ensure the application can handle the maximum projected load.
+
+Since customers typically access apps using a custom (or vanity) domain, developers need a way to distribute app requests across all of the App Service Environment instances.  A great way to accomplish this is to resolve the custom domain using an [Azure Traffic Manager profile][AzureTrafficManagerProfile].  The Traffic Manager profile can be configured to point at all of the individual App Service Environments.  Traffic Manager will automatically handle distributing customers across all of the App Service Environments based on the load balancing settings in the Traffic Manager profile.  This approach works regardless of whether all of the App Service Environments are deployed in a single Azure region, or deployed worldwide across multiple Azure regions.
+
+Furthermore, since customers access apps through the vanity domain, customers are unaware of the number of App Service Environments running an app.  As a result developers can quickly and easily add, and remove, App Service Environments based on observed traffic load.
+
+The conceptual diagram below depicts an app horizontally scaled out across three App Service Environments within a single region.
+
+![Conceptual Architecture][ConceptualArchitecture] 
+
+The remainder of this topic walks through the steps involved with setting up a distributed topology for the sample app using multiple App Service Environments.
+
+## <a name="planning-the-topology"></a>Planning the Topology ##
+Before building out a distributed app footprint, it helps to have a few pieces information ahead of time.
+
+- **Custom domain for the app:**  What is the custom domain name that customers will use to access the app?  For the sample app the custom domain name is *www.scalableasedemo.com*
+- **Traffic Manager domain:**  A domain name needs to be chosen when creating an [Azure Traffic Manager profile][AzureTrafficManagerProfile].  This name will be combined with the *trafficmanager.net* suffix to register a domain entry that is managed by Traffic Manager.  For the sample app, the name chosen is *scalable-ase-demo*.  As a result the full domain name that is managed by Traffic Manager is *scalable-ase-demo.trafficmanager.net*.
+- **Strategy for scaling the app footprint:**  Will the application footprint be distributed across multiple App Service Environments in a single region?  Multiple regions?  A mix-and-match of both approaches?  The decision should be based on expectations of where customer traffic will originate, as well as how well the rest of an app's supporting back-end infrastructure can scale.  For example, with a 100% stateless application, an app can be massively scaled using a combination of multiple App Service Environments per Azure region,  multiplied by App Service Environments deployed across multiple Azure regions.  With 15+ public Azure regions available to choose from, customers can truly build a world-wide hyper-scale application footprint.  For the sample app used for this article, three App Service Environments were created in a single Azure region (South Central US).
+- **Naming convention for the App Service Environments:**  Each App Service Environment requires a unique name.  Beyond one or two App Service Environments it is helpful to have a naming convention to help identify each App Service Environment.  For the sample app a simple naming convention was used.  The names of the three App Service Environments are *fe1ase*, *fe2ase*, and *fe3ase*.
+- **Naming convention for the apps:**  Since multiple instances of the app will be deployed, a name is needed for each instance of the deployed app.  One little-known but very convenient feature of App Service Environments is that the same app name can be used across multiple App Service Environments.  Since each App Service Environment has a unique domain suffix, developers can choose to re-use the exact same app name in each environment.  For example a developer could have apps named as follows:  *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc.  For the sample app though each app instance also has a unique name.  The app instance names used are *webfrontend1*, *webfrontend2*, and *webfrontend3*.
+
+
+## <a name="setting-up-the-traffic-manager-profile"></a>Setting up the Traffic Manager Profile ##
+Once multiple instances of an app are deployed on multiple App Service Environments, the  individual app instances can be registered with Traffic Manager.  For the sample app a Traffic Manager profile is needed for *scalable-ase-demo.trafficmanager.net* that can route customers to any of the following deployed app instances:
+
+- **webfrontend1.fe1ase.p.azurewebsites.net:**  An instance of the sample app deployed on the first App Service Environment.
+- **webfrontend2.fe2ase.p.azurewebsites.net:**  An instance of the sample app deployed on the second App Service Environment.
+- **webfrontend3.fe3ase.p.azurewebsites.net:**  An instance of the sample app deployed on the third App Service Environment.
+
+The easiest way to register multiple Azure App Service endpoints, all running in the **same** Azure region, is with the Powershell [Azure Resource Manager Traffic Manager support][ARMTrafficManager].  
+
+The first step is to create an Azure Traffic Manager profile.  The code below shows how the profile was created for the sample app:
 
     $profile = New-AzureTrafficManagerProfile –Name scalableasedemo -ResourceGroupName yourRGNameHere -TrafficRoutingMethod Weighted -RelativeDnsName scalable-ase-demo -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
-Обратите внимание, что для параметра *RelativeDnsName* задано значение *scalable-ase-demo*. С помощью этого параметра создается имя домена *scalable-ase-demo.trafficmanager.net*, которое связывается с профилем диспетчера трафика.
+Notice how the *RelativeDnsName* parameter was set to *scalable-ase-demo*.  This is how the domain name *scalable-ase-demo.trafficmanager.net* is created and associated with a Traffic Manager profile.
 
-Параметр *TrafficRoutingMethod* определяет политику балансировки нагрузки, которую диспетчер трафика будет использовать для распределения клиентской нагрузки между всеми доступными конечными точками. В этом примере выбран метод *Weighted*. При использовании этого метода клиентские запросы распределяются по всем зарегистрированным конечным точкам приложения на основе веса, связанного с каждой из них.
+The *TrafficRoutingMethod* parameter defines the load balancing policy Traffic Manager will use to determine how to spread customer load across all of the available endpoints.  In this example the *Weighted* method was chosen.  This will result in customer requests being spread across all of the registered application endpoints based on the relative weights associated with each endpoint. 
 
-После создания профиля каждый экземпляр приложения добавляется в профиль как собственная конечная точка Azure. Приведенный ниже код получает ссылку на каждое интерфейсное веб-приложение, а затем добавляет каждое приложение как конечную точку диспетчера трафика с помощью параметра *TargetResourceId*.
+With the profile created, each app instance is added to the profile as a native Azure endpoint.  The code below fetches a reference to each front end web app, and then adds each app as a Traffic Manager endpoint by way of the *TargetResourceId* parameter.
 
 
     $webapp1 = Get-AzureRMWebApp -Name webfrontend1
@@ -76,60 +77,64 @@
     
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
     
-Обратите внимание, что для каждого экземпляра приложения используется один вызов *Add-AzureTrafficManagerEndpointConfig*. Параметр *TargetResourceId* в каждой команде PowerShell ссылается на один из трех экземпляров развернутого приложения. Профиль диспетчера трафика будет распределять нагрузку на все три конечные точки, зарегистрированные в профиле.
+Notice how there is one call to *Add-AzureTrafficManagerEndpointConfig* for each individual app instance.  The *TargetResourceId* parameter in each Powershell command references one of the three deployed app instances.  The Traffic Manager profile will spread load across all three endpoints registered in the profile.
 
-Для всех трех конечных точек используется одно и то же значение параметра *Weight* (10), поэтому диспетчер трафика распределяет клиентские запросы между всеми тремя экземплярами приложения относительно равномерно.
+All of the three endpoints use the same value (10) for the *Weight* parameter.  This results in Traffic Manager spreading customer requests across all three app instances relatively evenly. 
 
 
-## Перенаправление трафика с именного домена приложения на домен диспетчера трафика ##
-В заключение необходимо настроить разрешение именного домена приложения в домен диспетчера трафика. В нашем примере приложения это означает перенаправление трафика с *www.scalableasedemo.com* на *scalable-ase-demo.trafficmanager.net*. Этот шаг выполняется в регистраторе доменов, который управляет именным доменом.
+## <a name="pointing-the-app's-custom-domain-at-the-traffic-manager-domain"></a>Pointing the App's Custom Domain at the Traffic Manager Domain ##
+The final step necessary is to point the custom domain of the app at the Traffic Manager domain.  For the sample app this means pointing *www.scalableasedemo.com* at *scalable-ase-demo.trafficmanager.net*.  This step needs to be completed with the domain registrar that manages the custom domain.  
 
-Используя средства управления доменом, предоставленными регистратором, необходимо создать записи CNAME, которые будут разрешать именной домен в домен диспетчера трафика. На рисунке ниже показан пример конфигурации CNAME:
+Using your registrar's domain management tools, a CNAME records needs to be created which points the custom domain at the Traffic Manager domain.  The picture below shows an example of what this CNAME configuration looks like:
 
-![CNAME для именного домена][CNAMEforCustomDomain]
+![CNAME for Custom Domain][CNAMEforCustomDomain] 
 
-Хотя в этой статье мы не рассматриваем регистрацию доменов, помните, что для каждого отдельного экземпляра приложения необходимо также зарегистрировать именной домен. Запросы к экземпляру приложения, для которого не зарегистрирован именной домен, будут завершаться ошибкой.
+Although not covered in this topic, remember that each individual app instance needs to have the custom domain registered with it as well.  Otherwise if a request makes it to an app instance, and the application does not have the custom domain registered with the app, the request will fail.  
 
-В этом примере используется пользовательский домен *www.scalableasedemo.com*, и у каждого экземпляра приложения есть связанный с ним именной домен.
+In this example the custom domain is *www.scalableasedemo.com*, and each application instance has the custom domain associated with it.
 
-![Личный домен][CustomDomain]
+![Custom Domain][CustomDomain] 
 
-Краткую информацию о регистрации именного домена в приложениях службы приложений Azure см. в [этой статье о регистрации именных доменов][RegisterCustomDomain].
+For a recap of of registering a custom domain with Azure App Service apps, see the following article on [registering custom domains][RegisterCustomDomain].
 
-## Тестирование распределенной топологии ##
-Целью настройки диспетчера трафика и DNS является перенаправление запросов, отправленных на *www.scalableasedemo.com*, по следующему маршруту:
+## <a name="trying-out-the-distributed-topology"></a>Trying out the Distributed Topology ##
+The end result of the Traffic Manager and DNS configuration is that requests for *www.scalableasedemo.com* will flow through the following sequence:
 
-1. Браузер или устройство выполняет поиск *www.scalableasedemo.com* в DNS.
-2. Запись CNAME у регистратора домена перенаправляет запрос на диспетчер трафика Azure.
-3. Поиск *scalable-ase-demo.trafficmanager.net* выполняется на одном из DNS-серверов диспетчера трафика Azure.
-4. На основе политики балансировки нагрузки (параметр *TrafficRoutingMethod*, который использовался при создании профиля диспетчера трафика) диспетчер трафика выбирает одну из настроенных конечных точек и возвращает ее полное доменное имя браузеру или устройству.
-5.  Так как полное доменное имя конечной точки является URL-адресом экземпляра приложения, выполняющегося в среде службы приложений, браузер или устройство отправляет DNS-серверу Microsoft Azure запрос на разрешение полного доменного имени в IP-адрес.
-6. Браузер или устройство отправляет HTTP- или HTTPS-запрос на этот IP-адрес.
-7. Запрос поступает на один из экземпляров приложения, выполняющийся в одной из сред службы приложений.
+1. A browser or device will make a DNS lookup for *www.scalableasedemo.com*
+2. The CNAME entry at the domain registrar causes the DNS lookup to be redirected to Azure Traffic Manager.
+3. A DNS lookup is made for *scalable-ase-demo.trafficmanager.net* against one of the Azure Traffic Manager DNS servers.
+4. Based on the load balancing policy (the *TrafficRoutingMethod* parameter used earlier when creating the Traffic Manager profile), Traffic Manager will select one of the configured endpoints and return the FQDN of that endpoint to the browser or device.
+5.  Since the FQDN of the endpoint is the Url of an app instance running on an App Service Environment, the browser or device will ask a Microsoft Azure DNS server to resolve the FQDN to an IP address. 
+6. The browser or device will send the HTTP/S request to the IP address.  
+7. The request will arrive at one of the app instances running on one of the App Service Environments.
 
-На изображении окна консоли показано, как в результате поиска именного домена в DNS для нашего примера приложения выполняется разрешение на экземпляр приложения, выполняющийся в одной из трех сред службы приложений (в данном случае второй из трех сред службы приложений).
+The console picture below shows a DNS lookup for the sample app's custom domain successfully resolving to an app instance running on one of the three sample App Service Environments (in this case the second of the three App Service Environments):
 
-![Поиск в DNS][DNSLookup]
+![DNS Lookup][DNSLookup] 
 
-## Дополнительные ссылки и сведения ##
-Все статьи и практические руководства, посвященные средам службы приложений, доступны в [файле сведений для сред службы приложений](../app-service/app-service-app-service-environments-readme.md).
+## <a name="additional-links-and-information"></a>Additional Links and Information ##
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
-См. документацию PowerShell по [поддержке диспетчера трафика диспетчером Azure Resource Manager][ARMTrafficManager].
+Documentation on the Powershell [Azure Resource Manager Traffic Manager support][ARMTrafficManager].  
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[AzureTrafficManagerProfile]: https://azure.microsoft.com/documentation/articles/traffic-manager-manage-profiles/
-[ARMTrafficManager]: https://azure.microsoft.com/documentation/articles/traffic-manager-powershell-arm/
-[RegisterCustomDomain]: https://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/
+[AzureTrafficManagerProfile]:  https://azure.microsoft.com/documentation/articles/traffic-manager-manage-profiles/
+[ARMTrafficManager]:  https://azure.microsoft.com/documentation/articles/traffic-manager-powershell-arm/
+[RegisterCustomDomain]:  https://azure.microsoft.com/en-us/documentation/articles/web-sites-custom-domain-name/
 
 
 <!-- IMAGES -->
 [ConceptualArchitecture]: ./media/app-service-app-service-environment-geo-distributed-scale/ConceptualArchitecture-1.png
-[CNAMEforCustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png
-[DNSLookup]: ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
-[CustomDomain]: ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png
+[CNAMEforCustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png
+[DNSLookup]:  ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
+[CustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png 
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
